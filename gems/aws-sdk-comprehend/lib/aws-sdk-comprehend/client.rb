@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Comprehend
@@ -78,7 +80,7 @@ module AWS::SDK::Comprehend
     def batch_detect_dominant_language(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDetectDominantLanguageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDetectDominantLanguageInput,
         validate_input: @config.validate_input
@@ -172,7 +174,7 @@ module AWS::SDK::Comprehend
     def batch_detect_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDetectEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDetectEntitiesInput,
         validate_input: @config.validate_input
@@ -263,7 +265,7 @@ module AWS::SDK::Comprehend
     def batch_detect_key_phrases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDetectKeyPhrasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDetectKeyPhrasesInput,
         validate_input: @config.validate_input
@@ -356,7 +358,7 @@ module AWS::SDK::Comprehend
     def batch_detect_sentiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDetectSentimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDetectSentimentInput,
         validate_input: @config.validate_input
@@ -452,7 +454,7 @@ module AWS::SDK::Comprehend
     def batch_detect_syntax(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDetectSyntaxInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDetectSyntaxInput,
         validate_input: @config.validate_input
@@ -533,7 +535,7 @@ module AWS::SDK::Comprehend
     def classify_document(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClassifyDocumentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClassifyDocumentInput,
         validate_input: @config.validate_input
@@ -612,7 +614,7 @@ module AWS::SDK::Comprehend
     def contains_pii_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ContainsPiiEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ContainsPiiEntitiesInput,
         validate_input: @config.validate_input
@@ -819,7 +821,7 @@ module AWS::SDK::Comprehend
     def create_document_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDocumentClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDocumentClassifierInput,
         validate_input: @config.validate_input
@@ -925,7 +927,7 @@ module AWS::SDK::Comprehend
     def create_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointInput,
         validate_input: @config.validate_input
@@ -1133,7 +1135,7 @@ module AWS::SDK::Comprehend
     def create_entity_recognizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEntityRecognizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEntityRecognizerInput,
         validate_input: @config.validate_input
@@ -1207,7 +1209,7 @@ module AWS::SDK::Comprehend
     def delete_document_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDocumentClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDocumentClassifierInput,
         validate_input: @config.validate_input
@@ -1277,7 +1279,7 @@ module AWS::SDK::Comprehend
     def delete_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointInput,
         validate_input: @config.validate_input
@@ -1351,7 +1353,7 @@ module AWS::SDK::Comprehend
     def delete_entity_recognizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEntityRecognizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEntityRecognizerInput,
         validate_input: @config.validate_input
@@ -1423,7 +1425,7 @@ module AWS::SDK::Comprehend
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1520,7 +1522,7 @@ module AWS::SDK::Comprehend
     def describe_document_classification_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDocumentClassificationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDocumentClassificationJobInput,
         validate_input: @config.validate_input
@@ -1639,7 +1641,7 @@ module AWS::SDK::Comprehend
     def describe_document_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDocumentClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDocumentClassifierInput,
         validate_input: @config.validate_input
@@ -1735,7 +1737,7 @@ module AWS::SDK::Comprehend
     def describe_dominant_language_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDominantLanguageDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDominantLanguageDetectionJobInput,
         validate_input: @config.validate_input
@@ -1817,7 +1819,7 @@ module AWS::SDK::Comprehend
     def describe_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointInput,
         validate_input: @config.validate_input
@@ -1915,7 +1917,7 @@ module AWS::SDK::Comprehend
     def describe_entities_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEntitiesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEntitiesDetectionJobInput,
         validate_input: @config.validate_input
@@ -2041,7 +2043,7 @@ module AWS::SDK::Comprehend
     def describe_entity_recognizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEntityRecognizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEntityRecognizerInput,
         validate_input: @config.validate_input
@@ -2132,7 +2134,7 @@ module AWS::SDK::Comprehend
     def describe_events_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsDetectionJobInput,
         validate_input: @config.validate_input
@@ -2229,7 +2231,7 @@ module AWS::SDK::Comprehend
     def describe_key_phrases_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKeyPhrasesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKeyPhrasesDetectionJobInput,
         validate_input: @config.validate_input
@@ -2326,7 +2328,7 @@ module AWS::SDK::Comprehend
     def describe_pii_entities_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePiiEntitiesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePiiEntitiesDetectionJobInput,
         validate_input: @config.validate_input
@@ -2399,7 +2401,7 @@ module AWS::SDK::Comprehend
     def describe_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourcePolicyInput,
         validate_input: @config.validate_input
@@ -2496,7 +2498,7 @@ module AWS::SDK::Comprehend
     def describe_sentiment_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSentimentDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSentimentDetectionJobInput,
         validate_input: @config.validate_input
@@ -2593,7 +2595,7 @@ module AWS::SDK::Comprehend
     def describe_targeted_sentiment_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTargetedSentimentDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTargetedSentimentDetectionJobInput,
         validate_input: @config.validate_input
@@ -2689,7 +2691,7 @@ module AWS::SDK::Comprehend
     def describe_topics_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTopicsDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTopicsDetectionJobInput,
         validate_input: @config.validate_input
@@ -2763,7 +2765,7 @@ module AWS::SDK::Comprehend
     def detect_dominant_language(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectDominantLanguageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectDominantLanguageInput,
         validate_input: @config.validate_input
@@ -2857,7 +2859,7 @@ module AWS::SDK::Comprehend
     def detect_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectEntitiesInput,
         validate_input: @config.validate_input
@@ -2937,7 +2939,7 @@ module AWS::SDK::Comprehend
     def detect_key_phrases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectKeyPhrasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectKeyPhrasesInput,
         validate_input: @config.validate_input
@@ -3017,7 +3019,7 @@ module AWS::SDK::Comprehend
     def detect_pii_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectPiiEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectPiiEntitiesInput,
         validate_input: @config.validate_input
@@ -3098,7 +3100,7 @@ module AWS::SDK::Comprehend
     def detect_sentiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectSentimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectSentimentInput,
         validate_input: @config.validate_input
@@ -3183,7 +3185,7 @@ module AWS::SDK::Comprehend
     def detect_syntax(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectSyntaxInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectSyntaxInput,
         validate_input: @config.validate_input
@@ -3303,7 +3305,7 @@ module AWS::SDK::Comprehend
     def import_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportModelInput,
         validate_input: @config.validate_input
@@ -3414,7 +3416,7 @@ module AWS::SDK::Comprehend
     def list_document_classification_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDocumentClassificationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDocumentClassificationJobsInput,
         validate_input: @config.validate_input
@@ -3494,7 +3496,7 @@ module AWS::SDK::Comprehend
     def list_document_classifier_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDocumentClassifierSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDocumentClassifierSummariesInput,
         validate_input: @config.validate_input
@@ -3628,7 +3630,7 @@ module AWS::SDK::Comprehend
     def list_document_classifiers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDocumentClassifiersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDocumentClassifiersInput,
         validate_input: @config.validate_input
@@ -3738,7 +3740,7 @@ module AWS::SDK::Comprehend
     def list_dominant_language_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDominantLanguageDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDominantLanguageDetectionJobsInput,
         validate_input: @config.validate_input
@@ -3836,7 +3838,7 @@ module AWS::SDK::Comprehend
     def list_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEndpointsInput,
         validate_input: @config.validate_input
@@ -3948,7 +3950,7 @@ module AWS::SDK::Comprehend
     def list_entities_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitiesDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitiesDetectionJobsInput,
         validate_input: @config.validate_input
@@ -4028,7 +4030,7 @@ module AWS::SDK::Comprehend
     def list_entity_recognizer_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntityRecognizerSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntityRecognizerSummariesInput,
         validate_input: @config.validate_input
@@ -4175,7 +4177,7 @@ module AWS::SDK::Comprehend
     def list_entity_recognizers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntityRecognizersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntityRecognizersInput,
         validate_input: @config.validate_input
@@ -4282,7 +4284,7 @@ module AWS::SDK::Comprehend
     def list_events_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventsDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventsDetectionJobsInput,
         validate_input: @config.validate_input
@@ -4393,7 +4395,7 @@ module AWS::SDK::Comprehend
     def list_key_phrases_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyPhrasesDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyPhrasesDetectionJobsInput,
         validate_input: @config.validate_input
@@ -4504,7 +4506,7 @@ module AWS::SDK::Comprehend
     def list_pii_entities_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPiiEntitiesDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPiiEntitiesDetectionJobsInput,
         validate_input: @config.validate_input
@@ -4615,7 +4617,7 @@ module AWS::SDK::Comprehend
     def list_sentiment_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSentimentDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSentimentDetectionJobsInput,
         validate_input: @config.validate_input
@@ -4689,7 +4691,7 @@ module AWS::SDK::Comprehend
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4800,7 +4802,7 @@ module AWS::SDK::Comprehend
     def list_targeted_sentiment_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTargetedSentimentDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTargetedSentimentDetectionJobsInput,
         validate_input: @config.validate_input
@@ -4911,7 +4913,7 @@ module AWS::SDK::Comprehend
     def list_topics_detection_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTopicsDetectionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTopicsDetectionJobsInput,
         validate_input: @config.validate_input
@@ -5003,7 +5005,7 @@ module AWS::SDK::Comprehend
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -5153,7 +5155,7 @@ module AWS::SDK::Comprehend
     def start_document_classification_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDocumentClassificationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDocumentClassificationJobInput,
         validate_input: @config.validate_input
@@ -5298,7 +5300,7 @@ module AWS::SDK::Comprehend
     def start_dominant_language_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDominantLanguageDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDominantLanguageDetectionJobInput,
         validate_input: @config.validate_input
@@ -5458,7 +5460,7 @@ module AWS::SDK::Comprehend
     def start_entities_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartEntitiesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartEntitiesDetectionJobInput,
         validate_input: @config.validate_input
@@ -5581,7 +5583,7 @@ module AWS::SDK::Comprehend
     def start_events_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartEventsDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartEventsDetectionJobInput,
         validate_input: @config.validate_input
@@ -5732,7 +5734,7 @@ module AWS::SDK::Comprehend
     def start_key_phrases_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartKeyPhrasesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartKeyPhrasesDetectionJobInput,
         validate_input: @config.validate_input
@@ -5867,7 +5869,7 @@ module AWS::SDK::Comprehend
     def start_pii_entities_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPiiEntitiesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPiiEntitiesDetectionJobInput,
         validate_input: @config.validate_input
@@ -6017,7 +6019,7 @@ module AWS::SDK::Comprehend
     def start_sentiment_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSentimentDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSentimentDetectionJobInput,
         validate_input: @config.validate_input
@@ -6166,7 +6168,7 @@ module AWS::SDK::Comprehend
     def start_targeted_sentiment_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTargetedSentimentDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTargetedSentimentDetectionJobInput,
         validate_input: @config.validate_input
@@ -6316,7 +6318,7 @@ module AWS::SDK::Comprehend
     def start_topics_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTopicsDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTopicsDetectionJobInput,
         validate_input: @config.validate_input
@@ -6395,7 +6397,7 @@ module AWS::SDK::Comprehend
     def stop_dominant_language_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDominantLanguageDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDominantLanguageDetectionJobInput,
         validate_input: @config.validate_input
@@ -6474,7 +6476,7 @@ module AWS::SDK::Comprehend
     def stop_entities_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopEntitiesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopEntitiesDetectionJobInput,
         validate_input: @config.validate_input
@@ -6544,7 +6546,7 @@ module AWS::SDK::Comprehend
     def stop_events_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopEventsDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopEventsDetectionJobInput,
         validate_input: @config.validate_input
@@ -6623,7 +6625,7 @@ module AWS::SDK::Comprehend
     def stop_key_phrases_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopKeyPhrasesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopKeyPhrasesDetectionJobInput,
         validate_input: @config.validate_input
@@ -6693,7 +6695,7 @@ module AWS::SDK::Comprehend
     def stop_pii_entities_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopPiiEntitiesDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopPiiEntitiesDetectionJobInput,
         validate_input: @config.validate_input
@@ -6772,7 +6774,7 @@ module AWS::SDK::Comprehend
     def stop_sentiment_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopSentimentDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopSentimentDetectionJobInput,
         validate_input: @config.validate_input
@@ -6851,7 +6853,7 @@ module AWS::SDK::Comprehend
     def stop_targeted_sentiment_detection_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTargetedSentimentDetectionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTargetedSentimentDetectionJobInput,
         validate_input: @config.validate_input
@@ -6925,7 +6927,7 @@ module AWS::SDK::Comprehend
     def stop_training_document_classifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTrainingDocumentClassifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTrainingDocumentClassifierInput,
         validate_input: @config.validate_input
@@ -6999,7 +7001,7 @@ module AWS::SDK::Comprehend
     def stop_training_entity_recognizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTrainingEntityRecognizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTrainingEntityRecognizerInput,
         validate_input: @config.validate_input
@@ -7081,7 +7083,7 @@ module AWS::SDK::Comprehend
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -7159,7 +7161,7 @@ module AWS::SDK::Comprehend
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -7242,7 +7244,7 @@ module AWS::SDK::Comprehend
     def update_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointInput,
         validate_input: @config.validate_input

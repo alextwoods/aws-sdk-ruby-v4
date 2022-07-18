@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodePipeline
@@ -260,7 +262,7 @@ module AWS::SDK::CodePipeline
     def acknowledge_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcknowledgeJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcknowledgeJobInput,
         validate_input: @config.validate_input
@@ -340,7 +342,7 @@ module AWS::SDK::CodePipeline
     def acknowledge_third_party_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcknowledgeThirdPartyJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcknowledgeThirdPartyJobInput,
         validate_input: @config.validate_input
@@ -496,7 +498,7 @@ module AWS::SDK::CodePipeline
     def create_custom_action_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomActionTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomActionTypeInput,
         validate_input: @config.validate_input
@@ -673,7 +675,7 @@ module AWS::SDK::CodePipeline
     def create_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePipelineInput,
         validate_input: @config.validate_input
@@ -759,7 +761,7 @@ module AWS::SDK::CodePipeline
     def delete_custom_action_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomActionTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomActionTypeInput,
         validate_input: @config.validate_input
@@ -827,7 +829,7 @@ module AWS::SDK::CodePipeline
     def delete_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePipelineInput,
         validate_input: @config.validate_input
@@ -899,7 +901,7 @@ module AWS::SDK::CodePipeline
     def delete_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWebhookInput,
         validate_input: @config.validate_input
@@ -969,7 +971,7 @@ module AWS::SDK::CodePipeline
     def deregister_webhook_with_third_party(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterWebhookWithThirdPartyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterWebhookWithThirdPartyInput,
         validate_input: @config.validate_input
@@ -1057,7 +1059,7 @@ module AWS::SDK::CodePipeline
     def disable_stage_transition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableStageTransitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableStageTransitionInput,
         validate_input: @config.validate_input
@@ -1137,7 +1139,7 @@ module AWS::SDK::CodePipeline
     def enable_stage_transition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableStageTransitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableStageTransitionInput,
         validate_input: @config.validate_input
@@ -1293,7 +1295,7 @@ module AWS::SDK::CodePipeline
     def get_action_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetActionTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetActionTypeInput,
         validate_input: @config.validate_input
@@ -1406,7 +1408,7 @@ module AWS::SDK::CodePipeline
     def get_job_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetJobDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetJobDetailsInput,
         validate_input: @config.validate_input
@@ -1524,7 +1526,7 @@ module AWS::SDK::CodePipeline
     def get_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPipelineInput,
         validate_input: @config.validate_input
@@ -1613,7 +1615,7 @@ module AWS::SDK::CodePipeline
     def get_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPipelineExecutionInput,
         validate_input: @config.validate_input
@@ -1725,7 +1727,7 @@ module AWS::SDK::CodePipeline
     def get_pipeline_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPipelineStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPipelineStateInput,
         validate_input: @config.validate_input
@@ -1844,7 +1846,7 @@ module AWS::SDK::CodePipeline
     def get_third_party_job_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetThirdPartyJobDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetThirdPartyJobDetailsInput,
         validate_input: @config.validate_input
@@ -1972,7 +1974,7 @@ module AWS::SDK::CodePipeline
     def list_action_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActionExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActionExecutionsInput,
         validate_input: @config.validate_input
@@ -2076,7 +2078,7 @@ module AWS::SDK::CodePipeline
     def list_action_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActionTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActionTypesInput,
         validate_input: @config.validate_input
@@ -2176,7 +2178,7 @@ module AWS::SDK::CodePipeline
     def list_pipeline_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelineExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelineExecutionsInput,
         validate_input: @config.validate_input
@@ -2258,7 +2260,7 @@ module AWS::SDK::CodePipeline
     def list_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelinesInput,
         validate_input: @config.validate_input
@@ -2342,7 +2344,7 @@ module AWS::SDK::CodePipeline
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2442,7 +2444,7 @@ module AWS::SDK::CodePipeline
     def list_webhooks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWebhooksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWebhooksInput,
         validate_input: @config.validate_input
@@ -2578,7 +2580,7 @@ module AWS::SDK::CodePipeline
     def poll_for_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PollForJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PollForJobsInput,
         validate_input: @config.validate_input
@@ -2665,7 +2667,7 @@ module AWS::SDK::CodePipeline
     def poll_for_third_party_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PollForThirdPartyJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PollForThirdPartyJobsInput,
         validate_input: @config.validate_input
@@ -2752,7 +2754,7 @@ module AWS::SDK::CodePipeline
     def put_action_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutActionRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutActionRevisionInput,
         validate_input: @config.validate_input
@@ -2843,7 +2845,7 @@ module AWS::SDK::CodePipeline
     def put_approval_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutApprovalResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutApprovalResultInput,
         validate_input: @config.validate_input
@@ -2921,7 +2923,7 @@ module AWS::SDK::CodePipeline
     def put_job_failure_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutJobFailureResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutJobFailureResultInput,
         validate_input: @config.validate_input
@@ -3026,7 +3028,7 @@ module AWS::SDK::CodePipeline
     def put_job_success_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutJobSuccessResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutJobSuccessResultInput,
         validate_input: @config.validate_input
@@ -3109,7 +3111,7 @@ module AWS::SDK::CodePipeline
     def put_third_party_job_failure_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutThirdPartyJobFailureResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutThirdPartyJobFailureResultInput,
         validate_input: @config.validate_input
@@ -3210,7 +3212,7 @@ module AWS::SDK::CodePipeline
     def put_third_party_job_success_result(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutThirdPartyJobSuccessResultInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutThirdPartyJobSuccessResultInput,
         validate_input: @config.validate_input
@@ -3333,7 +3335,7 @@ module AWS::SDK::CodePipeline
     def put_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutWebhookInput,
         validate_input: @config.validate_input
@@ -3403,7 +3405,7 @@ module AWS::SDK::CodePipeline
     def register_webhook_with_third_party(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterWebhookWithThirdPartyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterWebhookWithThirdPartyInput,
         validate_input: @config.validate_input
@@ -3489,7 +3491,7 @@ module AWS::SDK::CodePipeline
     def retry_stage_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetryStageExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetryStageExecutionInput,
         validate_input: @config.validate_input
@@ -3564,7 +3566,7 @@ module AWS::SDK::CodePipeline
     def start_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPipelineExecutionInput,
         validate_input: @config.validate_input
@@ -3656,7 +3658,7 @@ module AWS::SDK::CodePipeline
     def stop_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopPipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopPipelineExecutionInput,
         validate_input: @config.validate_input
@@ -3734,7 +3736,7 @@ module AWS::SDK::CodePipeline
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3808,7 +3810,7 @@ module AWS::SDK::CodePipeline
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3930,7 +3932,7 @@ module AWS::SDK::CodePipeline
     def update_action_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateActionTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateActionTypeInput,
         validate_input: @config.validate_input
@@ -4090,7 +4092,7 @@ module AWS::SDK::CodePipeline
     def update_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineInput,
         validate_input: @config.validate_input

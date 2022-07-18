@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::CodeGuruProfiler
   module Parsers
 
@@ -25,17 +23,18 @@ module AWS::SDK::CodeGuruProfiler
     class NotificationConfiguration
       def self.parse(map)
         data = Types::NotificationConfiguration.new
-        data.channels = map['channels']
+        data.channels = (Parsers::Channels.parse(map['channels']) unless map['channels'].nil?)
         return data
       end
     end
 
     class Channels
       def self.parse(list)
-        data = list.map do |value|
-          Parsers::Channel.parse(value) unless value.nil?
+        data = []
+        list.map do |value|
+          data << Parsers::Channel.parse(value) unless value.nil?
         end
-        Set.new(data)
+        data
       end
     end
 
@@ -44,17 +43,18 @@ module AWS::SDK::CodeGuruProfiler
         data = Types::Channel.new
         data.id = map['id']
         data.uri = map['uri']
-        data.event_publishers = map['eventPublishers']
+        data.event_publishers = (Parsers::EventPublishers.parse(map['eventPublishers']) unless map['eventPublishers'].nil?)
         return data
       end
     end
 
     class EventPublishers
       def self.parse(list)
-        data = list.map do |value|
-          value unless value.nil?
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
         end
-        Set.new(data)
+        data
       end
     end
 

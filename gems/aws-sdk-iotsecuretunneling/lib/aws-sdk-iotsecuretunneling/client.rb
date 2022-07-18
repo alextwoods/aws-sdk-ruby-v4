@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTSecureTunneling
@@ -69,7 +71,7 @@ module AWS::SDK::IoTSecureTunneling
     def close_tunnel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CloseTunnelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CloseTunnelInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::IoTSecureTunneling
     def describe_tunnel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTunnelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTunnelInput,
         validate_input: @config.validate_input
@@ -231,7 +233,7 @@ module AWS::SDK::IoTSecureTunneling
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -319,7 +321,7 @@ module AWS::SDK::IoTSecureTunneling
     def list_tunnels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTunnelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTunnelsInput,
         validate_input: @config.validate_input
@@ -417,7 +419,7 @@ module AWS::SDK::IoTSecureTunneling
     def open_tunnel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::OpenTunnelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::OpenTunnelInput,
         validate_input: @config.validate_input
@@ -510,7 +512,7 @@ module AWS::SDK::IoTSecureTunneling
     def rotate_tunnel_access_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RotateTunnelAccessTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RotateTunnelAccessTokenInput,
         validate_input: @config.validate_input
@@ -587,7 +589,7 @@ module AWS::SDK::IoTSecureTunneling
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -661,7 +663,7 @@ module AWS::SDK::IoTSecureTunneling
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

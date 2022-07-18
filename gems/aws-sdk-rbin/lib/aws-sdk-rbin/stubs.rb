@@ -15,11 +15,11 @@ module AWS::SDK::Rbin
       def self.default(visited=[])
         {
           identifier: 'identifier',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           resource_type: 'resource_type',
-          resource_tags: Stubs::ResourceTags.default(visited),
+          resource_tags: ResourceTags.default(visited),
           status: 'status',
         }
       end
@@ -45,7 +45,7 @@ module AWS::SDK::Rbin
         return nil if visited.include?('ResourceTags')
         visited = visited + ['ResourceTags']
         [
-          Stubs::ResourceTag.default(visited)
+          ResourceTag.default(visited)
         ]
       end
 
@@ -85,7 +85,7 @@ module AWS::SDK::Rbin
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -159,8 +159,8 @@ module AWS::SDK::Rbin
           identifier: 'identifier',
           description: 'description',
           resource_type: 'resource_type',
-          retention_period: Stubs::RetentionPeriod.default(visited),
-          resource_tags: Stubs::ResourceTags.default(visited),
+          retention_period: RetentionPeriod.default(visited),
+          resource_tags: ResourceTags.default(visited),
           status: 'status',
         }
       end
@@ -183,7 +183,7 @@ module AWS::SDK::Rbin
     class ListRules
       def self.default(visited=[])
         {
-          rules: Stubs::RuleSummaryList.default(visited),
+          rules: RuleSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -204,7 +204,7 @@ module AWS::SDK::Rbin
         return nil if visited.include?('RuleSummaryList')
         visited = visited + ['RuleSummaryList']
         [
-          Stubs::RuleSummary.default(visited)
+          RuleSummary.default(visited)
         ]
       end
 
@@ -226,7 +226,7 @@ module AWS::SDK::Rbin
         {
           identifier: 'identifier',
           description: 'description',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
         }
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::Rbin
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -288,10 +288,10 @@ module AWS::SDK::Rbin
       def self.default(visited=[])
         {
           identifier: 'identifier',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
           description: 'description',
           resource_type: 'resource_type',
-          resource_tags: Stubs::ResourceTags.default(visited),
+          resource_tags: ResourceTags.default(visited),
           status: 'status',
         }
       end

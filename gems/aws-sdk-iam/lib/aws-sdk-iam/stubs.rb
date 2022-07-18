@@ -140,7 +140,7 @@ module AWS::SDK::IAM
     class CreateAccessKey
       def self.default(visited=[])
         {
-          access_key: Stubs::AccessKey.default(visited),
+          access_key: AccessKey.default(visited),
         }
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::IAM
     class CreateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -250,7 +250,7 @@ module AWS::SDK::IAM
     class CreateInstanceProfile
       def self.default(visited=[])
         {
-          instance_profile: Stubs::InstanceProfile.default(visited),
+          instance_profile: InstanceProfile.default(visited),
         }
       end
 
@@ -277,8 +277,8 @@ module AWS::SDK::IAM
           instance_profile_id: 'instance_profile_id',
           arn: 'arn',
           create_date: Time.now,
-          roles: Stubs::RoleListType.default(visited),
-          tags: Stubs::TagListType.default(visited),
+          roles: RoleListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -302,7 +302,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('TagListType')
         visited = visited + ['TagListType']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -341,7 +341,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('RoleListType')
         visited = visited + ['RoleListType']
         [
-          Stubs::Role.default(visited)
+          Role.default(visited)
         ]
       end
 
@@ -368,9 +368,9 @@ module AWS::SDK::IAM
           assume_role_policy_document: 'assume_role_policy_document',
           description: 'description',
           max_session_duration: 1,
-          permissions_boundary: Stubs::AttachedPermissionsBoundary.default(visited),
-          tags: Stubs::TagListType.default(visited),
-          role_last_used: Stubs::RoleLastUsed.default(visited),
+          permissions_boundary: AttachedPermissionsBoundary.default(visited),
+          tags: TagListType.default(visited),
+          role_last_used: RoleLastUsed.default(visited),
         }
       end
 
@@ -436,7 +436,7 @@ module AWS::SDK::IAM
     class CreateLoginProfile
       def self.default(visited=[])
         {
-          login_profile: Stubs::LoginProfile.default(visited),
+          login_profile: LoginProfile.default(visited),
         }
       end
 
@@ -479,7 +479,7 @@ module AWS::SDK::IAM
       def self.default(visited=[])
         {
           open_id_connect_provider_arn: 'open_id_connect_provider_arn',
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::IAM
     class CreatePolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 
@@ -533,7 +533,7 @@ module AWS::SDK::IAM
           description: 'description',
           create_date: Time.now,
           update_date: Time.now,
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -560,7 +560,7 @@ module AWS::SDK::IAM
     class CreatePolicyVersion
       def self.default(visited=[])
         {
-          policy_version: Stubs::PolicyVersion.default(visited),
+          policy_version: PolicyVersion.default(visited),
         }
       end
 
@@ -604,7 +604,7 @@ module AWS::SDK::IAM
     class CreateRole
       def self.default(visited=[])
         {
-          role: Stubs::Role.default(visited),
+          role: Role.default(visited),
         }
       end
 
@@ -625,7 +625,7 @@ module AWS::SDK::IAM
       def self.default(visited=[])
         {
           saml_provider_arn: 'saml_provider_arn',
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::IAM
     class CreateServiceLinkedRole
       def self.default(visited=[])
         {
-          role: Stubs::Role.default(visited),
+          role: Role.default(visited),
         }
       end
 
@@ -666,7 +666,7 @@ module AWS::SDK::IAM
     class CreateServiceSpecificCredential
       def self.default(visited=[])
         {
-          service_specific_credential: Stubs::ServiceSpecificCredential.default(visited),
+          service_specific_credential: ServiceSpecificCredential.default(visited),
         }
       end
 
@@ -716,7 +716,7 @@ module AWS::SDK::IAM
     class CreateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -744,8 +744,8 @@ module AWS::SDK::IAM
           arn: 'arn',
           create_date: Time.now,
           password_last_used: Time.now,
-          permissions_boundary: Stubs::AttachedPermissionsBoundary.default(visited),
-          tags: Stubs::TagListType.default(visited),
+          permissions_boundary: AttachedPermissionsBoundary.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::IAM
     class CreateVirtualMFADevice
       def self.default(visited=[])
         {
-          virtual_mfa_device: Stubs::VirtualMFADevice.default(visited),
+          virtual_mfa_device: VirtualMFADevice.default(visited),
         }
       end
 
@@ -793,9 +793,9 @@ module AWS::SDK::IAM
           serial_number: 'serial_number',
           base32_string_seed: 'base32_string_seed',
           qr_code_png: 'qr_code_png',
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
           enable_date: Time.now,
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -1385,7 +1385,7 @@ module AWS::SDK::IAM
       def self.default(visited=[])
         {
           user_name: 'user_name',
-          access_key_last_used: Stubs::AccessKeyLastUsed.default(visited),
+          access_key_last_used: AccessKeyLastUsed.default(visited),
         }
       end
 
@@ -1428,10 +1428,10 @@ module AWS::SDK::IAM
     class GetAccountAuthorizationDetails
       def self.default(visited=[])
         {
-          user_detail_list: Stubs::UserDetailListType.default(visited),
-          group_detail_list: Stubs::GroupDetailListType.default(visited),
-          role_detail_list: Stubs::RoleDetailListType.default(visited),
-          policies: Stubs::ManagedPolicyDetailListType.default(visited),
+          user_detail_list: UserDetailListType.default(visited),
+          group_detail_list: GroupDetailListType.default(visited),
+          role_detail_list: RoleDetailListType.default(visited),
+          policies: ManagedPolicyDetailListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -1460,7 +1460,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('ManagedPolicyDetailListType')
         visited = visited + ['ManagedPolicyDetailListType']
         [
-          Stubs::ManagedPolicyDetail.default(visited)
+          ManagedPolicyDetail.default(visited)
         ]
       end
 
@@ -1490,7 +1490,7 @@ module AWS::SDK::IAM
           description: 'description',
           create_date: Time.now,
           update_date: Time.now,
-          policy_version_list: Stubs::PolicyDocumentVersionListType.default(visited),
+          policy_version_list: PolicyDocumentVersionListType.default(visited),
         }
       end
 
@@ -1519,7 +1519,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyDocumentVersionListType')
         visited = visited + ['PolicyDocumentVersionListType']
         [
-          Stubs::PolicyVersion.default(visited)
+          PolicyVersion.default(visited)
         ]
       end
 
@@ -1538,7 +1538,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('RoleDetailListType')
         visited = visited + ['RoleDetailListType']
         [
-          Stubs::RoleDetail.default(visited)
+          RoleDetail.default(visited)
         ]
       end
 
@@ -1563,12 +1563,12 @@ module AWS::SDK::IAM
           arn: 'arn',
           create_date: Time.now,
           assume_role_policy_document: 'assume_role_policy_document',
-          instance_profile_list: Stubs::InstanceProfileListType.default(visited),
-          role_policy_list: Stubs::PolicyDetailListType.default(visited),
-          attached_managed_policies: Stubs::AttachedPoliciesListType.default(visited),
-          permissions_boundary: Stubs::AttachedPermissionsBoundary.default(visited),
-          tags: Stubs::TagListType.default(visited),
-          role_last_used: Stubs::RoleLastUsed.default(visited),
+          instance_profile_list: InstanceProfileListType.default(visited),
+          role_policy_list: PolicyDetailListType.default(visited),
+          attached_managed_policies: AttachedPoliciesListType.default(visited),
+          permissions_boundary: AttachedPermissionsBoundary.default(visited),
+          tags: TagListType.default(visited),
+          role_last_used: RoleLastUsed.default(visited),
         }
       end
 
@@ -1597,7 +1597,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('AttachedPoliciesListType')
         visited = visited + ['AttachedPoliciesListType']
         [
-          Stubs::AttachedPolicy.default(visited)
+          AttachedPolicy.default(visited)
         ]
       end
 
@@ -1636,7 +1636,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyDetailListType')
         visited = visited + ['PolicyDetailListType']
         [
-          Stubs::PolicyDetail.default(visited)
+          PolicyDetail.default(visited)
         ]
       end
 
@@ -1675,7 +1675,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('InstanceProfileListType')
         visited = visited + ['InstanceProfileListType']
         [
-          Stubs::InstanceProfile.default(visited)
+          InstanceProfile.default(visited)
         ]
       end
 
@@ -1694,7 +1694,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('GroupDetailListType')
         visited = visited + ['GroupDetailListType']
         [
-          Stubs::GroupDetail.default(visited)
+          GroupDetail.default(visited)
         ]
       end
 
@@ -1718,8 +1718,8 @@ module AWS::SDK::IAM
           group_id: 'group_id',
           arn: 'arn',
           create_date: Time.now,
-          group_policy_list: Stubs::PolicyDetailListType.default(visited),
-          attached_managed_policies: Stubs::AttachedPoliciesListType.default(visited),
+          group_policy_list: PolicyDetailListType.default(visited),
+          attached_managed_policies: AttachedPoliciesListType.default(visited),
         }
       end
 
@@ -1743,7 +1743,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('UserDetailListType')
         visited = visited + ['UserDetailListType']
         [
-          Stubs::UserDetail.default(visited)
+          UserDetail.default(visited)
         ]
       end
 
@@ -1767,11 +1767,11 @@ module AWS::SDK::IAM
           user_id: 'user_id',
           arn: 'arn',
           create_date: Time.now,
-          user_policy_list: Stubs::PolicyDetailListType.default(visited),
-          group_list: Stubs::GroupNameListType.default(visited),
-          attached_managed_policies: Stubs::AttachedPoliciesListType.default(visited),
-          permissions_boundary: Stubs::AttachedPermissionsBoundary.default(visited),
-          tags: Stubs::TagListType.default(visited),
+          user_policy_list: PolicyDetailListType.default(visited),
+          group_list: GroupNameListType.default(visited),
+          attached_managed_policies: AttachedPoliciesListType.default(visited),
+          permissions_boundary: AttachedPermissionsBoundary.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -1815,7 +1815,7 @@ module AWS::SDK::IAM
     class GetAccountPasswordPolicy
       def self.default(visited=[])
         {
-          password_policy: Stubs::PasswordPolicy.default(visited),
+          password_policy: PasswordPolicy.default(visited),
         }
       end
 
@@ -1871,7 +1871,7 @@ module AWS::SDK::IAM
     class GetAccountSummary
       def self.default(visited=[])
         {
-          summary_map: Stubs::SummaryMapType.default(visited),
+          summary_map: SummaryMapType.default(visited),
         }
       end
 
@@ -1913,7 +1913,7 @@ module AWS::SDK::IAM
     class GetContextKeysForCustomPolicy
       def self.default(visited=[])
         {
-          context_key_names: Stubs::ContextKeyNamesResultListType.default(visited),
+          context_key_names: ContextKeyNamesResultListType.default(visited),
         }
       end
 
@@ -1952,7 +1952,7 @@ module AWS::SDK::IAM
     class GetContextKeysForPrincipalPolicy
       def self.default(visited=[])
         {
-          context_key_names: Stubs::ContextKeyNamesResultListType.default(visited),
+          context_key_names: ContextKeyNamesResultListType.default(visited),
         }
       end
 
@@ -1996,8 +1996,8 @@ module AWS::SDK::IAM
     class GetGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
-          users: Stubs::UserListType.default(visited),
+          group: Group.default(visited),
+          users: UserListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -2024,7 +2024,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('UserListType')
         visited = visited + ['UserListType']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -2065,7 +2065,7 @@ module AWS::SDK::IAM
     class GetInstanceProfile
       def self.default(visited=[])
         {
-          instance_profile: Stubs::InstanceProfile.default(visited),
+          instance_profile: InstanceProfile.default(visited),
         }
       end
 
@@ -2085,7 +2085,7 @@ module AWS::SDK::IAM
     class GetLoginProfile
       def self.default(visited=[])
         {
-          login_profile: Stubs::LoginProfile.default(visited),
+          login_profile: LoginProfile.default(visited),
         }
       end
 
@@ -2106,10 +2106,10 @@ module AWS::SDK::IAM
       def self.default(visited=[])
         {
           url: 'url',
-          client_id_list: Stubs::ClientIDListType.default(visited),
-          thumbprint_list: Stubs::ThumbprintListType.default(visited),
+          client_id_list: ClientIDListType.default(visited),
+          thumbprint_list: ThumbprintListType.default(visited),
           create_date: Time.now,
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -2176,10 +2176,10 @@ module AWS::SDK::IAM
           job_completion_date: Time.now,
           number_of_services_accessible: 1,
           number_of_services_not_accessed: 1,
-          access_details: Stubs::AccessDetails.default(visited),
+          access_details: AccessDetails.default(visited),
           is_truncated: false,
           marker: 'marker',
-          error_details: Stubs::ErrorDetails.default(visited),
+          error_details: ErrorDetails.default(visited),
         }
       end
 
@@ -2229,7 +2229,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('AccessDetails')
         visited = visited + ['AccessDetails']
         [
-          Stubs::AccessDetail.default(visited)
+          AccessDetail.default(visited)
         ]
       end
 
@@ -2274,7 +2274,7 @@ module AWS::SDK::IAM
     class GetPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 
@@ -2294,7 +2294,7 @@ module AWS::SDK::IAM
     class GetPolicyVersion
       def self.default(visited=[])
         {
-          policy_version: Stubs::PolicyVersion.default(visited),
+          policy_version: PolicyVersion.default(visited),
         }
       end
 
@@ -2314,7 +2314,7 @@ module AWS::SDK::IAM
     class GetRole
       def self.default(visited=[])
         {
-          role: Stubs::Role.default(visited),
+          role: Role.default(visited),
         }
       end
 
@@ -2361,7 +2361,7 @@ module AWS::SDK::IAM
           saml_metadata_document: 'saml_metadata_document',
           create_date: Time.now,
           valid_until: Time.now,
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -2384,7 +2384,7 @@ module AWS::SDK::IAM
     class GetSSHPublicKey
       def self.default(visited=[])
         {
-          ssh_public_key: Stubs::SSHPublicKey.default(visited),
+          ssh_public_key: SSHPublicKey.default(visited),
         }
       end
 
@@ -2432,7 +2432,7 @@ module AWS::SDK::IAM
     class GetServerCertificate
       def self.default(visited=[])
         {
-          server_certificate: Stubs::ServerCertificate.default(visited),
+          server_certificate: ServerCertificate.default(visited),
         }
       end
 
@@ -2454,10 +2454,10 @@ module AWS::SDK::IAM
         return nil if visited.include?('ServerCertificate')
         visited = visited + ['ServerCertificate']
         {
-          server_certificate_metadata: Stubs::ServerCertificateMetadata.default(visited),
+          server_certificate_metadata: ServerCertificateMetadata.default(visited),
           certificate_body: 'certificate_body',
           certificate_chain: 'certificate_chain',
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -2507,11 +2507,11 @@ module AWS::SDK::IAM
           job_status: 'job_status',
           job_type: 'job_type',
           job_creation_date: Time.now,
-          services_last_accessed: Stubs::ServicesLastAccessed.default(visited),
+          services_last_accessed: ServicesLastAccessed.default(visited),
           job_completion_date: Time.now,
           is_truncated: false,
           marker: 'marker',
-          error: Stubs::ErrorDetails.default(visited),
+          error: ErrorDetails.default(visited),
         }
       end
 
@@ -2540,7 +2540,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('ServicesLastAccessed')
         visited = visited + ['ServicesLastAccessed']
         [
-          Stubs::ServiceLastAccessed.default(visited)
+          ServiceLastAccessed.default(visited)
         ]
       end
 
@@ -2565,7 +2565,7 @@ module AWS::SDK::IAM
           last_authenticated_entity: 'last_authenticated_entity',
           last_authenticated_region: 'last_authenticated_region',
           total_authenticated_entities: 1,
-          tracked_actions_last_accessed: Stubs::TrackedActionsLastAccessed.default(visited),
+          tracked_actions_last_accessed: TrackedActionsLastAccessed.default(visited),
         }
       end
 
@@ -2589,7 +2589,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('TrackedActionsLastAccessed')
         visited = visited + ['TrackedActionsLastAccessed']
         [
-          Stubs::TrackedActionLastAccessed.default(visited)
+          TrackedActionLastAccessed.default(visited)
         ]
       end
 
@@ -2633,10 +2633,10 @@ module AWS::SDK::IAM
           job_status: 'job_status',
           job_creation_date: Time.now,
           job_completion_date: Time.now,
-          entity_details_list: Stubs::EntityDetailsListType.default(visited),
+          entity_details_list: EntityDetailsListType.default(visited),
           is_truncated: false,
           marker: 'marker',
-          error: Stubs::ErrorDetails.default(visited),
+          error: ErrorDetails.default(visited),
         }
       end
 
@@ -2664,7 +2664,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('EntityDetailsListType')
         visited = visited + ['EntityDetailsListType']
         [
-          Stubs::EntityDetails.default(visited)
+          EntityDetails.default(visited)
         ]
       end
 
@@ -2683,7 +2683,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('EntityDetails')
         visited = visited + ['EntityDetails']
         {
-          entity_info: Stubs::EntityInfo.default(visited),
+          entity_info: EntityInfo.default(visited),
           last_authenticated: Time.now,
         }
       end
@@ -2728,7 +2728,7 @@ module AWS::SDK::IAM
       def self.default(visited=[])
         {
           status: 'status',
-          reason: Stubs::DeletionTaskFailureReasonType.default(visited),
+          reason: DeletionTaskFailureReasonType.default(visited),
         }
       end
 
@@ -2752,7 +2752,7 @@ module AWS::SDK::IAM
         visited = visited + ['DeletionTaskFailureReasonType']
         {
           reason: 'reason',
-          role_usage_list: Stubs::RoleUsageListType.default(visited),
+          role_usage_list: RoleUsageListType.default(visited),
         }
       end
 
@@ -2771,7 +2771,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('RoleUsageListType')
         visited = visited + ['RoleUsageListType']
         [
-          Stubs::RoleUsageType.default(visited)
+          RoleUsageType.default(visited)
         ]
       end
 
@@ -2791,7 +2791,7 @@ module AWS::SDK::IAM
         visited = visited + ['RoleUsageType']
         {
           region: 'region',
-          resources: Stubs::ArnListType.default(visited),
+          resources: ArnListType.default(visited),
         }
       end
 
@@ -2827,7 +2827,7 @@ module AWS::SDK::IAM
     class GetUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -2871,7 +2871,7 @@ module AWS::SDK::IAM
     class ListAccessKeys
       def self.default(visited=[])
         {
-          access_key_metadata: Stubs::AccessKeyMetadataListType.default(visited),
+          access_key_metadata: AccessKeyMetadataListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -2897,7 +2897,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('AccessKeyMetadataListType')
         visited = visited + ['AccessKeyMetadataListType']
         [
-          Stubs::AccessKeyMetadata.default(visited)
+          AccessKeyMetadata.default(visited)
         ]
       end
 
@@ -2938,7 +2938,7 @@ module AWS::SDK::IAM
     class ListAccountAliases
       def self.default(visited=[])
         {
-          account_aliases: Stubs::AccountAliasListType.default(visited),
+          account_aliases: AccountAliasListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -2981,7 +2981,7 @@ module AWS::SDK::IAM
     class ListAttachedGroupPolicies
       def self.default(visited=[])
         {
-          attached_policies: Stubs::AttachedPoliciesListType.default(visited),
+          attached_policies: AttachedPoliciesListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3005,7 +3005,7 @@ module AWS::SDK::IAM
     class ListAttachedRolePolicies
       def self.default(visited=[])
         {
-          attached_policies: Stubs::AttachedPoliciesListType.default(visited),
+          attached_policies: AttachedPoliciesListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3029,7 +3029,7 @@ module AWS::SDK::IAM
     class ListAttachedUserPolicies
       def self.default(visited=[])
         {
-          attached_policies: Stubs::AttachedPoliciesListType.default(visited),
+          attached_policies: AttachedPoliciesListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3053,9 +3053,9 @@ module AWS::SDK::IAM
     class ListEntitiesForPolicy
       def self.default(visited=[])
         {
-          policy_groups: Stubs::PolicyGroupListType.default(visited),
-          policy_users: Stubs::PolicyUserListType.default(visited),
-          policy_roles: Stubs::PolicyRoleListType.default(visited),
+          policy_groups: PolicyGroupListType.default(visited),
+          policy_users: PolicyUserListType.default(visited),
+          policy_roles: PolicyRoleListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3083,7 +3083,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyRoleListType')
         visited = visited + ['PolicyRoleListType']
         [
-          Stubs::PolicyRole.default(visited)
+          PolicyRole.default(visited)
         ]
       end
 
@@ -3122,7 +3122,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyUserListType')
         visited = visited + ['PolicyUserListType']
         [
-          Stubs::PolicyUser.default(visited)
+          PolicyUser.default(visited)
         ]
       end
 
@@ -3161,7 +3161,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyGroupListType')
         visited = visited + ['PolicyGroupListType']
         [
-          Stubs::PolicyGroup.default(visited)
+          PolicyGroup.default(visited)
         ]
       end
 
@@ -3198,7 +3198,7 @@ module AWS::SDK::IAM
     class ListGroupPolicies
       def self.default(visited=[])
         {
-          policy_names: Stubs::PolicyNameListType.default(visited),
+          policy_names: PolicyNameListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3241,7 +3241,7 @@ module AWS::SDK::IAM
     class ListGroups
       def self.default(visited=[])
         {
-          groups: Stubs::GroupListType.default(visited),
+          groups: GroupListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3267,7 +3267,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('GroupListType')
         visited = visited + ['GroupListType']
         [
-          Stubs::Group.default(visited)
+          Group.default(visited)
         ]
       end
 
@@ -3284,7 +3284,7 @@ module AWS::SDK::IAM
     class ListGroupsForUser
       def self.default(visited=[])
         {
-          groups: Stubs::GroupListType.default(visited),
+          groups: GroupListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3308,7 +3308,7 @@ module AWS::SDK::IAM
     class ListInstanceProfileTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3332,7 +3332,7 @@ module AWS::SDK::IAM
     class ListInstanceProfiles
       def self.default(visited=[])
         {
-          instance_profiles: Stubs::InstanceProfileListType.default(visited),
+          instance_profiles: InstanceProfileListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3356,7 +3356,7 @@ module AWS::SDK::IAM
     class ListInstanceProfilesForRole
       def self.default(visited=[])
         {
-          instance_profiles: Stubs::InstanceProfileListType.default(visited),
+          instance_profiles: InstanceProfileListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3380,7 +3380,7 @@ module AWS::SDK::IAM
     class ListMFADeviceTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3404,7 +3404,7 @@ module AWS::SDK::IAM
     class ListMFADevices
       def self.default(visited=[])
         {
-          mfa_devices: Stubs::MfaDeviceListType.default(visited),
+          mfa_devices: MfaDeviceListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3430,7 +3430,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('MfaDeviceListType')
         visited = visited + ['MfaDeviceListType']
         [
-          Stubs::MFADevice.default(visited)
+          MFADevice.default(visited)
         ]
       end
 
@@ -3469,7 +3469,7 @@ module AWS::SDK::IAM
     class ListOpenIDConnectProviderTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3493,7 +3493,7 @@ module AWS::SDK::IAM
     class ListOpenIDConnectProviders
       def self.default(visited=[])
         {
-          open_id_connect_provider_list: Stubs::OpenIDConnectProviderListType.default(visited),
+          open_id_connect_provider_list: OpenIDConnectProviderListType.default(visited),
         }
       end
 
@@ -3515,7 +3515,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('OpenIDConnectProviderListType')
         visited = visited + ['OpenIDConnectProviderListType']
         [
-          Stubs::OpenIDConnectProviderListEntry.default(visited)
+          OpenIDConnectProviderListEntry.default(visited)
         ]
       end
 
@@ -3550,7 +3550,7 @@ module AWS::SDK::IAM
     class ListPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::PolicyListType.default(visited),
+          policies: PolicyListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3576,7 +3576,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyListType')
         visited = visited + ['PolicyListType']
         [
-          Stubs::Policy.default(visited)
+          Policy.default(visited)
         ]
       end
 
@@ -3593,7 +3593,7 @@ module AWS::SDK::IAM
     class ListPoliciesGrantingServiceAccess
       def self.default(visited=[])
         {
-          policies_granting_service_access: Stubs::ListPolicyGrantingServiceAccessResponseListType.default(visited),
+          policies_granting_service_access: ListPolicyGrantingServiceAccessResponseListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3619,7 +3619,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('ListPolicyGrantingServiceAccessResponseListType')
         visited = visited + ['ListPolicyGrantingServiceAccessResponseListType']
         [
-          Stubs::ListPoliciesGrantingServiceAccessEntry.default(visited)
+          ListPoliciesGrantingServiceAccessEntry.default(visited)
         ]
       end
 
@@ -3639,7 +3639,7 @@ module AWS::SDK::IAM
         visited = visited + ['ListPoliciesGrantingServiceAccessEntry']
         {
           service_namespace: 'service_namespace',
-          policies: Stubs::PolicyGrantingServiceAccessListType.default(visited),
+          policies: PolicyGrantingServiceAccessListType.default(visited),
         }
       end
 
@@ -3658,7 +3658,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('PolicyGrantingServiceAccessListType')
         visited = visited + ['PolicyGrantingServiceAccessListType']
         [
-          Stubs::PolicyGrantingServiceAccess.default(visited)
+          PolicyGrantingServiceAccess.default(visited)
         ]
       end
 
@@ -3701,7 +3701,7 @@ module AWS::SDK::IAM
     class ListPolicyTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3725,7 +3725,7 @@ module AWS::SDK::IAM
     class ListPolicyVersions
       def self.default(visited=[])
         {
-          versions: Stubs::PolicyDocumentVersionListType.default(visited),
+          versions: PolicyDocumentVersionListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3749,7 +3749,7 @@ module AWS::SDK::IAM
     class ListRolePolicies
       def self.default(visited=[])
         {
-          policy_names: Stubs::PolicyNameListType.default(visited),
+          policy_names: PolicyNameListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3773,7 +3773,7 @@ module AWS::SDK::IAM
     class ListRoleTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3797,7 +3797,7 @@ module AWS::SDK::IAM
     class ListRoles
       def self.default(visited=[])
         {
-          roles: Stubs::RoleListType.default(visited),
+          roles: RoleListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3821,7 +3821,7 @@ module AWS::SDK::IAM
     class ListSAMLProviderTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3845,7 +3845,7 @@ module AWS::SDK::IAM
     class ListSAMLProviders
       def self.default(visited=[])
         {
-          saml_provider_list: Stubs::SAMLProviderListType.default(visited),
+          saml_provider_list: SAMLProviderListType.default(visited),
         }
       end
 
@@ -3867,7 +3867,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('SAMLProviderListType')
         visited = visited + ['SAMLProviderListType']
         [
-          Stubs::SAMLProviderListEntry.default(visited)
+          SAMLProviderListEntry.default(visited)
         ]
       end
 
@@ -3906,7 +3906,7 @@ module AWS::SDK::IAM
     class ListSSHPublicKeys
       def self.default(visited=[])
         {
-          ssh_public_keys: Stubs::SSHPublicKeyListType.default(visited),
+          ssh_public_keys: SSHPublicKeyListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3932,7 +3932,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('SSHPublicKeyListType')
         visited = visited + ['SSHPublicKeyListType']
         [
-          Stubs::SSHPublicKeyMetadata.default(visited)
+          SSHPublicKeyMetadata.default(visited)
         ]
       end
 
@@ -3973,7 +3973,7 @@ module AWS::SDK::IAM
     class ListServerCertificateTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -3997,7 +3997,7 @@ module AWS::SDK::IAM
     class ListServerCertificates
       def self.default(visited=[])
         {
-          server_certificate_metadata_list: Stubs::ServerCertificateMetadataListType.default(visited),
+          server_certificate_metadata_list: ServerCertificateMetadataListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4023,7 +4023,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('ServerCertificateMetadataListType')
         visited = visited + ['ServerCertificateMetadataListType']
         [
-          Stubs::ServerCertificateMetadata.default(visited)
+          ServerCertificateMetadata.default(visited)
         ]
       end
 
@@ -4040,7 +4040,7 @@ module AWS::SDK::IAM
     class ListServiceSpecificCredentials
       def self.default(visited=[])
         {
-          service_specific_credentials: Stubs::ServiceSpecificCredentialsListType.default(visited),
+          service_specific_credentials: ServiceSpecificCredentialsListType.default(visited),
         }
       end
 
@@ -4062,7 +4062,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('ServiceSpecificCredentialsListType')
         visited = visited + ['ServiceSpecificCredentialsListType']
         [
-          Stubs::ServiceSpecificCredentialMetadata.default(visited)
+          ServiceSpecificCredentialMetadata.default(visited)
         ]
       end
 
@@ -4107,7 +4107,7 @@ module AWS::SDK::IAM
     class ListSigningCertificates
       def self.default(visited=[])
         {
-          certificates: Stubs::CertificateListType.default(visited),
+          certificates: CertificateListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4133,7 +4133,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('CertificateListType')
         visited = visited + ['CertificateListType']
         [
-          Stubs::SigningCertificate.default(visited)
+          SigningCertificate.default(visited)
         ]
       end
 
@@ -4176,7 +4176,7 @@ module AWS::SDK::IAM
     class ListUserPolicies
       def self.default(visited=[])
         {
-          policy_names: Stubs::PolicyNameListType.default(visited),
+          policy_names: PolicyNameListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4200,7 +4200,7 @@ module AWS::SDK::IAM
     class ListUserTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagListType.default(visited),
+          tags: TagListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4224,7 +4224,7 @@ module AWS::SDK::IAM
     class ListUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserListType.default(visited),
+          users: UserListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4248,7 +4248,7 @@ module AWS::SDK::IAM
     class ListVirtualMFADevices
       def self.default(visited=[])
         {
-          virtual_mfa_devices: Stubs::VirtualMFADeviceListType.default(visited),
+          virtual_mfa_devices: VirtualMFADeviceListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4274,7 +4274,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('VirtualMFADeviceListType')
         visited = visited + ['VirtualMFADeviceListType']
         [
-          Stubs::VirtualMFADevice.default(visited)
+          VirtualMFADevice.default(visited)
         ]
       end
 
@@ -4435,7 +4435,7 @@ module AWS::SDK::IAM
     class ResetServiceSpecificCredential
       def self.default(visited=[])
         {
-          service_specific_credential: Stubs::ServiceSpecificCredential.default(visited),
+          service_specific_credential: ServiceSpecificCredential.default(visited),
         }
       end
 
@@ -4509,7 +4509,7 @@ module AWS::SDK::IAM
     class SimulateCustomPolicy
       def self.default(visited=[])
         {
-          evaluation_results: Stubs::EvaluationResultsListType.default(visited),
+          evaluation_results: EvaluationResultsListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -4535,7 +4535,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('EvaluationResultsListType')
         visited = visited + ['EvaluationResultsListType']
         [
-          Stubs::EvaluationResult.default(visited)
+          EvaluationResult.default(visited)
         ]
       end
 
@@ -4557,12 +4557,12 @@ module AWS::SDK::IAM
           eval_action_name: 'eval_action_name',
           eval_resource_name: 'eval_resource_name',
           eval_decision: 'eval_decision',
-          matched_statements: Stubs::StatementListType.default(visited),
-          missing_context_values: Stubs::ContextKeyNamesResultListType.default(visited),
-          organizations_decision_detail: Stubs::OrganizationsDecisionDetail.default(visited),
-          permissions_boundary_decision_detail: Stubs::PermissionsBoundaryDecisionDetail.default(visited),
-          eval_decision_details: Stubs::EvalDecisionDetailsType.default(visited),
-          resource_specific_results: Stubs::ResourceSpecificResultListType.default(visited),
+          matched_statements: StatementListType.default(visited),
+          missing_context_values: ContextKeyNamesResultListType.default(visited),
+          organizations_decision_detail: OrganizationsDecisionDetail.default(visited),
+          permissions_boundary_decision_detail: PermissionsBoundaryDecisionDetail.default(visited),
+          eval_decision_details: EvalDecisionDetailsType.default(visited),
+          resource_specific_results: ResourceSpecificResultListType.default(visited),
         }
       end
 
@@ -4588,7 +4588,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('ResourceSpecificResultListType')
         visited = visited + ['ResourceSpecificResultListType']
         [
-          Stubs::ResourceSpecificResult.default(visited)
+          ResourceSpecificResult.default(visited)
         ]
       end
 
@@ -4609,10 +4609,10 @@ module AWS::SDK::IAM
         {
           eval_resource_name: 'eval_resource_name',
           eval_resource_decision: 'eval_resource_decision',
-          matched_statements: Stubs::StatementListType.default(visited),
-          missing_context_values: Stubs::ContextKeyNamesResultListType.default(visited),
-          eval_decision_details: Stubs::EvalDecisionDetailsType.default(visited),
-          permissions_boundary_decision_detail: Stubs::PermissionsBoundaryDecisionDetail.default(visited),
+          matched_statements: StatementListType.default(visited),
+          missing_context_values: ContextKeyNamesResultListType.default(visited),
+          eval_decision_details: EvalDecisionDetailsType.default(visited),
+          permissions_boundary_decision_detail: PermissionsBoundaryDecisionDetail.default(visited),
         }
       end
 
@@ -4675,7 +4675,7 @@ module AWS::SDK::IAM
         return nil if visited.include?('StatementListType')
         visited = visited + ['StatementListType']
         [
-          Stubs::Statement.default(visited)
+          Statement.default(visited)
         ]
       end
 
@@ -4696,8 +4696,8 @@ module AWS::SDK::IAM
         {
           source_policy_id: 'source_policy_id',
           source_policy_type: 'source_policy_type',
-          start_position: Stubs::Position.default(visited),
-          end_position: Stubs::Position.default(visited),
+          start_position: Position.default(visited),
+          end_position: Position.default(visited),
         }
       end
 
@@ -4754,7 +4754,7 @@ module AWS::SDK::IAM
     class SimulatePrincipalPolicy
       def self.default(visited=[])
         {
-          evaluation_results: Stubs::EvaluationResultsListType.default(visited),
+          evaluation_results: EvaluationResultsListType.default(visited),
           is_truncated: false,
           marker: 'marker',
         }
@@ -5192,7 +5192,7 @@ module AWS::SDK::IAM
     class UpdateRoleDescription
       def self.default(visited=[])
         {
-          role: Stubs::Role.default(visited),
+          role: Role.default(visited),
         }
       end
 
@@ -5322,7 +5322,7 @@ module AWS::SDK::IAM
     class UploadSSHPublicKey
       def self.default(visited=[])
         {
-          ssh_public_key: Stubs::SSHPublicKey.default(visited),
+          ssh_public_key: SSHPublicKey.default(visited),
         }
       end
 
@@ -5342,8 +5342,8 @@ module AWS::SDK::IAM
     class UploadServerCertificate
       def self.default(visited=[])
         {
-          server_certificate_metadata: Stubs::ServerCertificateMetadata.default(visited),
-          tags: Stubs::TagListType.default(visited),
+          server_certificate_metadata: ServerCertificateMetadata.default(visited),
+          tags: TagListType.default(visited),
         }
       end
 
@@ -5364,7 +5364,7 @@ module AWS::SDK::IAM
     class UploadSigningCertificate
       def self.default(visited=[])
         {
-          certificate: Stubs::SigningCertificate.default(visited),
+          certificate: SigningCertificate.default(visited),
         }
       end
 

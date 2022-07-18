@@ -283,11 +283,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total ||= 0
       end
-
     end
 
     # Includes enum constants for AttackPropertyIdentifier
@@ -344,11 +344,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.attack_count ||= 0
       end
-
     end
 
     # <p>Summarizes all DDoS attacks for a specified time period.</p>
@@ -497,11 +497,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for AutoRenew
@@ -546,11 +546,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
@@ -1216,11 +1216,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max ||= 0
       end
-
     end
 
     # <p>Exception that indicates that the operation would exceed a limit.</p>
@@ -1246,11 +1246,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute resource_arns
@@ -1738,11 +1738,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_members ||= 0
       end
-
     end
 
     # <p>Limits settings on protection groups for your subscription. </p>
@@ -1763,11 +1763,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_protection_groups ||= 0
       end
-
     end
 
     # Includes enum constants for ProtectionGroupPattern
@@ -1983,11 +1983,11 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.time_commitment_in_seconds ||= 0
       end
-
     end
 
     # <p>Limits settings for your subscription. </p>
@@ -2084,6 +2084,7 @@ module AWS::SDK::Shield
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max ||= 0
@@ -2091,7 +2092,6 @@ module AWS::SDK::Shield
         self.sum ||= 0
         self.n ||= 0
       end
-
     end
 
     # <p>A tag associated with an Amazon Web Services resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each Amazon Web Services resource, up to 50 tags for a resource.</p>

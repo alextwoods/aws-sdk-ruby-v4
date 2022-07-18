@@ -34,18 +34,18 @@ module AWS::SDK::PersonalizeRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPersonalizedRankingInput, context: context)
         Hearth::Validator.validate!(input[:campaign_arn], ::String, context: "#{context}[:campaign_arn]")
-        Validators::InputList.validate!(input[:input_list], context: "#{context}[:input_list]") unless input[:input_list].nil?
+        InputList.validate!(input[:input_list], context: "#{context}[:input_list]") unless input[:input_list].nil?
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
-        Validators::Context.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        Context.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:filter_arn], ::String, context: "#{context}[:filter_arn]")
-        Validators::FilterValues.validate!(input[:filter_values], context: "#{context}[:filter_values]") unless input[:filter_values].nil?
+        FilterValues.validate!(input[:filter_values], context: "#{context}[:filter_values]") unless input[:filter_values].nil?
       end
     end
 
     class GetPersonalizedRankingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPersonalizedRankingOutput, context: context)
-        Validators::ItemList.validate!(input[:personalized_ranking], context: "#{context}[:personalized_ranking]") unless input[:personalized_ranking].nil?
+        ItemList.validate!(input[:personalized_ranking], context: "#{context}[:personalized_ranking]") unless input[:personalized_ranking].nil?
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
       end
     end
@@ -57,9 +57,9 @@ module AWS::SDK::PersonalizeRuntime
         Hearth::Validator.validate!(input[:item_id], ::String, context: "#{context}[:item_id]")
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:num_results], ::Integer, context: "#{context}[:num_results]")
-        Validators::Context.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
+        Context.validate!(input[:context], context: "#{context}[:context]") unless input[:context].nil?
         Hearth::Validator.validate!(input[:filter_arn], ::String, context: "#{context}[:filter_arn]")
-        Validators::FilterValues.validate!(input[:filter_values], context: "#{context}[:filter_values]") unless input[:filter_values].nil?
+        FilterValues.validate!(input[:filter_values], context: "#{context}[:filter_values]") unless input[:filter_values].nil?
         Hearth::Validator.validate!(input[:recommender_arn], ::String, context: "#{context}[:recommender_arn]")
       end
     end
@@ -67,7 +67,7 @@ module AWS::SDK::PersonalizeRuntime
     class GetRecommendationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecommendationsOutput, context: context)
-        Validators::ItemList.validate!(input[:item_list], context: "#{context}[:item_list]") unless input[:item_list].nil?
+        ItemList.validate!(input[:item_list], context: "#{context}[:item_list]") unless input[:item_list].nil?
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
       end
     end
@@ -92,7 +92,7 @@ module AWS::SDK::PersonalizeRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PredictedItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PredictedItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

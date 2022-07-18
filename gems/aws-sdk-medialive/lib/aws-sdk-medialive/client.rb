@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaLive
@@ -57,7 +59,7 @@ module AWS::SDK::MediaLive
     def accept_input_device_transfer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptInputDeviceTransferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptInputDeviceTransferInput,
         validate_input: @config.validate_input
@@ -146,7 +148,7 @@ module AWS::SDK::MediaLive
     def batch_delete(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteInput,
         validate_input: @config.validate_input
@@ -230,7 +232,7 @@ module AWS::SDK::MediaLive
     def batch_start(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchStartInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchStartInput,
         validate_input: @config.validate_input
@@ -314,7 +316,7 @@ module AWS::SDK::MediaLive
     def batch_stop(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchStopInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchStopInput,
         validate_input: @config.validate_input
@@ -586,7 +588,7 @@ module AWS::SDK::MediaLive
     def batch_update_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateScheduleInput,
         validate_input: @config.validate_input
@@ -654,7 +656,7 @@ module AWS::SDK::MediaLive
     def cancel_input_device_transfer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelInputDeviceTransferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelInputDeviceTransferInput,
         validate_input: @config.validate_input
@@ -721,7 +723,7 @@ module AWS::SDK::MediaLive
     def claim_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClaimDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClaimDeviceInput,
         validate_input: @config.validate_input
@@ -2346,7 +2348,7 @@ module AWS::SDK::MediaLive
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -2519,7 +2521,7 @@ module AWS::SDK::MediaLive
     def create_input(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInputInput,
         validate_input: @config.validate_input
@@ -2608,7 +2610,7 @@ module AWS::SDK::MediaLive
     def create_input_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInputSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInputSecurityGroupInput,
         validate_input: @config.validate_input
@@ -2722,7 +2724,7 @@ module AWS::SDK::MediaLive
     def create_multiplex(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMultiplexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMultiplexInput,
         validate_input: @config.validate_input
@@ -2852,7 +2854,7 @@ module AWS::SDK::MediaLive
     def create_multiplex_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMultiplexProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMultiplexProgramInput,
         validate_input: @config.validate_input
@@ -2965,7 +2967,7 @@ module AWS::SDK::MediaLive
     def create_partner_input(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePartnerInputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePartnerInputInput,
         validate_input: @config.validate_input
@@ -3039,7 +3041,7 @@ module AWS::SDK::MediaLive
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -3809,7 +3811,7 @@ module AWS::SDK::MediaLive
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -3876,7 +3878,7 @@ module AWS::SDK::MediaLive
     def delete_input(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInputInput,
         validate_input: @config.validate_input
@@ -3943,7 +3945,7 @@ module AWS::SDK::MediaLive
     def delete_input_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInputSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInputSecurityGroupInput,
         validate_input: @config.validate_input
@@ -4029,7 +4031,7 @@ module AWS::SDK::MediaLive
     def delete_multiplex(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMultiplexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMultiplexInput,
         validate_input: @config.validate_input
@@ -4133,7 +4135,7 @@ module AWS::SDK::MediaLive
     def delete_multiplex_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMultiplexProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMultiplexProgramInput,
         validate_input: @config.validate_input
@@ -4227,7 +4229,7 @@ module AWS::SDK::MediaLive
     def delete_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReservationInput,
         validate_input: @config.validate_input
@@ -4294,7 +4296,7 @@ module AWS::SDK::MediaLive
     def delete_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduleInput,
         validate_input: @config.validate_input
@@ -4367,7 +4369,7 @@ module AWS::SDK::MediaLive
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -5136,7 +5138,7 @@ module AWS::SDK::MediaLive
     def describe_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelInput,
         validate_input: @config.validate_input
@@ -5236,7 +5238,7 @@ module AWS::SDK::MediaLive
     def describe_input(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInputInput,
         validate_input: @config.validate_input
@@ -5337,7 +5339,7 @@ module AWS::SDK::MediaLive
     def describe_input_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInputDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInputDeviceInput,
         validate_input: @config.validate_input
@@ -5490,7 +5492,7 @@ module AWS::SDK::MediaLive
     def describe_input_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInputSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInputSecurityGroupInput,
         validate_input: @config.validate_input
@@ -5576,7 +5578,7 @@ module AWS::SDK::MediaLive
     def describe_multiplex(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMultiplexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMultiplexInput,
         validate_input: @config.validate_input
@@ -5680,7 +5682,7 @@ module AWS::SDK::MediaLive
     def describe_multiplex_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMultiplexProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMultiplexProgramInput,
         validate_input: @config.validate_input
@@ -5766,7 +5768,7 @@ module AWS::SDK::MediaLive
     def describe_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOfferingInput,
         validate_input: @config.validate_input
@@ -5860,7 +5862,7 @@ module AWS::SDK::MediaLive
     def describe_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservationInput,
         validate_input: @config.validate_input
@@ -6018,7 +6020,7 @@ module AWS::SDK::MediaLive
     def describe_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduleInput,
         validate_input: @config.validate_input
@@ -6229,7 +6231,7 @@ module AWS::SDK::MediaLive
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -6311,7 +6313,7 @@ module AWS::SDK::MediaLive
     def list_input_device_transfers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInputDeviceTransfersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInputDeviceTransfersInput,
         validate_input: @config.validate_input
@@ -6419,7 +6421,7 @@ module AWS::SDK::MediaLive
     def list_input_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInputDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInputDevicesInput,
         validate_input: @config.validate_input
@@ -6503,7 +6505,7 @@ module AWS::SDK::MediaLive
     def list_input_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInputSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInputSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -6610,7 +6612,7 @@ module AWS::SDK::MediaLive
     def list_inputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInputsInput,
         validate_input: @config.validate_input
@@ -6690,7 +6692,7 @@ module AWS::SDK::MediaLive
     def list_multiplex_programs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMultiplexProgramsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMultiplexProgramsInput,
         validate_input: @config.validate_input
@@ -6776,7 +6778,7 @@ module AWS::SDK::MediaLive
     def list_multiplexes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMultiplexesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMultiplexesInput,
         validate_input: @config.validate_input
@@ -6909,7 +6911,7 @@ module AWS::SDK::MediaLive
     def list_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOfferingsInput,
         validate_input: @config.validate_input
@@ -7042,7 +7044,7 @@ module AWS::SDK::MediaLive
     def list_reservations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReservationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReservationsInput,
         validate_input: @config.validate_input
@@ -7111,7 +7113,7 @@ module AWS::SDK::MediaLive
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -7228,7 +7230,7 @@ module AWS::SDK::MediaLive
     def purchase_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseOfferingInput,
         validate_input: @config.validate_input
@@ -7296,7 +7298,7 @@ module AWS::SDK::MediaLive
     def reject_input_device_transfer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectInputDeviceTransferInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectInputDeviceTransferInput,
         validate_input: @config.validate_input
@@ -8065,7 +8067,7 @@ module AWS::SDK::MediaLive
     def start_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartChannelInput,
         validate_input: @config.validate_input
@@ -8151,7 +8153,7 @@ module AWS::SDK::MediaLive
     def start_multiplex(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMultiplexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMultiplexInput,
         validate_input: @config.validate_input
@@ -8920,7 +8922,7 @@ module AWS::SDK::MediaLive
     def stop_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopChannelInput,
         validate_input: @config.validate_input
@@ -9006,7 +9008,7 @@ module AWS::SDK::MediaLive
     def stop_multiplex(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMultiplexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMultiplexInput,
         validate_input: @config.validate_input
@@ -9085,7 +9087,7 @@ module AWS::SDK::MediaLive
     def transfer_input_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransferInputDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransferInputDeviceInput,
         validate_input: @config.validate_input
@@ -10691,7 +10693,7 @@ module AWS::SDK::MediaLive
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input
@@ -11491,7 +11493,7 @@ module AWS::SDK::MediaLive
     def update_channel_class(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelClassInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelClassInput,
         validate_input: @config.validate_input
@@ -11645,7 +11647,7 @@ module AWS::SDK::MediaLive
     def update_input(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInputInput,
         validate_input: @config.validate_input
@@ -11761,7 +11763,7 @@ module AWS::SDK::MediaLive
     def update_input_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInputDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInputDeviceInput,
         validate_input: @config.validate_input
@@ -11854,7 +11856,7 @@ module AWS::SDK::MediaLive
     def update_input_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInputSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInputSecurityGroupInput,
         validate_input: @config.validate_input
@@ -11955,7 +11957,7 @@ module AWS::SDK::MediaLive
     def update_multiplex(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMultiplexInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMultiplexInput,
         validate_input: @config.validate_input
@@ -12080,7 +12082,7 @@ module AWS::SDK::MediaLive
     def update_multiplex_program(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMultiplexProgramInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMultiplexProgramInput,
         validate_input: @config.validate_input
@@ -12180,7 +12182,7 @@ module AWS::SDK::MediaLive
     def update_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReservationInput,
         validate_input: @config.validate_input
@@ -12237,7 +12239,7 @@ module AWS::SDK::MediaLive
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

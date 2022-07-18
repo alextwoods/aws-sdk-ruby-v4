@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Resiliencehub
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddDraftAppVersionResourceMappingsInput, context: context)
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
-        Validators::ResourceMappingList.validate!(input[:resource_mappings], context: "#{context}[:resource_mappings]") unless input[:resource_mappings].nil?
+        ResourceMappingList.validate!(input[:resource_mappings], context: "#{context}[:resource_mappings]") unless input[:resource_mappings].nil?
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, Types::AddDraftAppVersionResourceMappingsOutput, context: context)
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:app_version], ::String, context: "#{context}[:app_version]")
-        Validators::ResourceMappingList.validate!(input[:resource_mappings], context: "#{context}[:resource_mappings]") unless input[:resource_mappings].nil?
+        ResourceMappingList.validate!(input[:resource_mappings], context: "#{context}[:resource_mappings]") unless input[:resource_mappings].nil?
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:app_component_name], ::String, context: "#{context}[:app_component_name]")
-        Validators::RecommendationItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        RecommendationItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:prerequisite], ::String, context: "#{context}[:prerequisite]")
       end
     end
@@ -52,7 +54,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AlarmRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AlarmRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -79,7 +81,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:last_app_compliance_evaluation_time], ::Time, context: "#{context}[:last_app_compliance_evaluation_time]")
         Hearth::Validator.validate!(input[:resiliency_score], ::Float, context: "#{context}[:resiliency_score]")
         Hearth::Validator.validate!(input[:last_resiliency_score_evaluation_time], ::Time, context: "#{context}[:last_resiliency_score_evaluation_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:assessment_schedule], ::String, context: "#{context}[:assessment_schedule]")
       end
     end
@@ -90,9 +92,9 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:app_version], ::String, context: "#{context}[:app_version]")
         Hearth::Validator.validate!(input[:invoker], ::String, context: "#{context}[:invoker]")
-        Validators::Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
-        Validators::ResiliencyScore.validate!(input[:resiliency_score], context: "#{context}[:resiliency_score]") unless input[:resiliency_score].nil?
-        Validators::AssessmentCompliance.validate!(input[:compliance], context: "#{context}[:compliance]") unless input[:compliance].nil?
+        Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
+        ResiliencyScore.validate!(input[:resiliency_score], context: "#{context}[:resiliency_score]") unless input[:resiliency_score].nil?
+        AssessmentCompliance.validate!(input[:compliance], context: "#{context}[:compliance]") unless input[:compliance].nil?
         Hearth::Validator.validate!(input[:compliance_status], ::String, context: "#{context}[:compliance_status]")
         Hearth::Validator.validate!(input[:assessment_status], ::String, context: "#{context}[:assessment_status]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
@@ -100,9 +102,9 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:assessment_name], ::String, context: "#{context}[:assessment_name]")
         Hearth::Validator.validate!(input[:assessment_arn], ::String, context: "#{context}[:assessment_arn]")
-        Validators::ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ResourceErrorsDetails.validate!(input[:resource_errors_details], context: "#{context}[:resource_errors_details]") unless input[:resource_errors_details].nil?
+        ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceErrorsDetails.validate!(input[:resource_errors_details], context: "#{context}[:resource_errors_details]") unless input[:resource_errors_details].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:assessment_name], ::String, context: "#{context}[:assessment_name]")
         Hearth::Validator.validate!(input[:assessment_arn], ::String, context: "#{context}[:assessment_arn]")
         Hearth::Validator.validate!(input[:compliance_status], ::String, context: "#{context}[:compliance_status]")
-        Validators::Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
+        Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
         Hearth::Validator.validate!(input[:resiliency_score], ::Float, context: "#{context}[:resiliency_score]")
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppAssessmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppAssessmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -144,12 +146,12 @@ module AWS::SDK::Resiliencehub
     class AppComponentCompliance
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AppComponentCompliance, context: context)
-        Validators::Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
+        Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
         Hearth::Validator.validate!(input[:app_component_name], ::String, context: "#{context}[:app_component_name]")
-        Validators::AssessmentCompliance.validate!(input[:compliance], context: "#{context}[:compliance]") unless input[:compliance].nil?
+        AssessmentCompliance.validate!(input[:compliance], context: "#{context}[:compliance]") unless input[:compliance].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ResiliencyScore.validate!(input[:resiliency_score], context: "#{context}[:resiliency_score]") unless input[:resiliency_score].nil?
+        ResiliencyScore.validate!(input[:resiliency_score], context: "#{context}[:resiliency_score]") unless input[:resiliency_score].nil?
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppComponent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -188,7 +190,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DisruptionCompliance.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DisruptionCompliance.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -232,7 +234,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AppComponentCompliance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AppComponentCompliance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -242,7 +244,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, Types::ComponentRecommendation, context: context)
         Hearth::Validator.validate!(input[:app_component_name], ::String, context: "#{context}[:app_component_name]")
         Hearth::Validator.validate!(input[:recommendation_status], ::String, context: "#{context}[:recommendation_status]")
-        Validators::ConfigRecommendationList.validate!(input[:config_recommendations], context: "#{context}[:config_recommendations]") unless input[:config_recommendations].nil?
+        ConfigRecommendationList.validate!(input[:config_recommendations], context: "#{context}[:config_recommendations]") unless input[:config_recommendations].nil?
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComponentRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComponentRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -258,14 +260,14 @@ module AWS::SDK::Resiliencehub
     class ConfigRecommendation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConfigRecommendation, context: context)
-        Validators::Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
+        Cost.validate!(input[:cost], context: "#{context}[:cost]") unless input[:cost].nil?
         Hearth::Validator.validate!(input[:app_component_name], ::String, context: "#{context}[:app_component_name]")
-        Validators::AssessmentCompliance.validate!(input[:compliance], context: "#{context}[:compliance]") unless input[:compliance].nil?
-        Validators::RecommendationCompliance.validate!(input[:recommendation_compliance], context: "#{context}[:recommendation_compliance]") unless input[:recommendation_compliance].nil?
+        AssessmentCompliance.validate!(input[:compliance], context: "#{context}[:compliance]") unless input[:compliance].nil?
+        RecommendationCompliance.validate!(input[:recommendation_compliance], context: "#{context}[:recommendation_compliance]") unless input[:recommendation_compliance].nil?
         Hearth::Validator.validate!(input[:optimization_type], ::String, context: "#{context}[:optimization_type]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SuggestedChangesList.validate!(input[:suggested_changes], context: "#{context}[:suggested_changes]") unless input[:suggested_changes].nil?
+        SuggestedChangesList.validate!(input[:suggested_changes], context: "#{context}[:suggested_changes]") unless input[:suggested_changes].nil?
         Hearth::Validator.validate!(input[:ha_architecture], ::String, context: "#{context}[:ha_architecture]")
         Hearth::Validator.validate!(input[:reference_id], ::String, context: "#{context}[:reference_id]")
       end
@@ -275,7 +277,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConfigRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConfigRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:assessment_schedule], ::String, context: "#{context}[:assessment_schedule]")
       end
@@ -313,20 +315,20 @@ module AWS::SDK::Resiliencehub
     class CreateAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
     class CreateRecommendationTemplateInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRecommendationTemplateInput, context: context)
-        Validators::RecommendationIdList.validate!(input[:recommendation_ids], context: "#{context}[:recommendation_ids]") unless input[:recommendation_ids].nil?
+        RecommendationIdList.validate!(input[:recommendation_ids], context: "#{context}[:recommendation_ids]") unless input[:recommendation_ids].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::RenderRecommendationTypeList.validate!(input[:recommendation_types], context: "#{context}[:recommendation_types]") unless input[:recommendation_types].nil?
+        RenderRecommendationTypeList.validate!(input[:recommendation_types], context: "#{context}[:recommendation_types]") unless input[:recommendation_types].nil?
         Hearth::Validator.validate!(input[:assessment_arn], ::String, context: "#{context}[:assessment_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
       end
     end
@@ -334,7 +336,7 @@ module AWS::SDK::Resiliencehub
     class CreateRecommendationTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRecommendationTemplateOutput, context: context)
-        Validators::RecommendationTemplate.validate!(input[:recommendation_template], context: "#{context}[:recommendation_template]") unless input[:recommendation_template].nil?
+        RecommendationTemplate.validate!(input[:recommendation_template], context: "#{context}[:recommendation_template]") unless input[:recommendation_template].nil?
       end
     end
 
@@ -345,16 +347,16 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:policy_description], ::String, context: "#{context}[:policy_description]")
         Hearth::Validator.validate!(input[:data_location_constraint], ::String, context: "#{context}[:data_location_constraint]")
         Hearth::Validator.validate!(input[:tier], ::String, context: "#{context}[:tier]")
-        Validators::DisruptionPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        DisruptionPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateResiliencyPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResiliencyPolicyOutput, context: context)
-        Validators::ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::Resiliencehub
     class DescribeAppAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAppAssessmentOutput, context: context)
-        Validators::AppAssessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
+        AppAssessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
       end
     end
 
@@ -445,7 +447,7 @@ module AWS::SDK::Resiliencehub
     class DescribeAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
@@ -514,7 +516,7 @@ module AWS::SDK::Resiliencehub
     class DescribeResiliencyPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeResiliencyPolicyOutput, context: context)
-        Validators::ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -539,7 +541,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FailurePolicy.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FailurePolicy.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -575,8 +577,8 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportResourcesToDraftAppVersionInput, context: context)
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
-        Validators::ArnList.validate!(input[:source_arns], context: "#{context}[:source_arns]") unless input[:source_arns].nil?
-        Validators::TerraformSourceList.validate!(input[:terraform_sources], context: "#{context}[:terraform_sources]") unless input[:terraform_sources].nil?
+        ArnList.validate!(input[:source_arns], context: "#{context}[:source_arns]") unless input[:source_arns].nil?
+        TerraformSourceList.validate!(input[:terraform_sources], context: "#{context}[:terraform_sources]") unless input[:terraform_sources].nil?
       end
     end
 
@@ -585,9 +587,9 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, Types::ImportResourcesToDraftAppVersionOutput, context: context)
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:app_version], ::String, context: "#{context}[:app_version]")
-        Validators::ArnList.validate!(input[:source_arns], context: "#{context}[:source_arns]") unless input[:source_arns].nil?
+        ArnList.validate!(input[:source_arns], context: "#{context}[:source_arns]") unless input[:source_arns].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::TerraformSourceList.validate!(input[:terraform_sources], context: "#{context}[:terraform_sources]") unless input[:terraform_sources].nil?
+        TerraformSourceList.validate!(input[:terraform_sources], context: "#{context}[:terraform_sources]") unless input[:terraform_sources].nil?
       end
     end
 
@@ -610,7 +612,7 @@ module AWS::SDK::Resiliencehub
     class ListAlarmRecommendationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAlarmRecommendationsOutput, context: context)
-        Validators::AlarmRecommendationList.validate!(input[:alarm_recommendations], context: "#{context}[:alarm_recommendations]") unless input[:alarm_recommendations].nil?
+        AlarmRecommendationList.validate!(input[:alarm_recommendations], context: "#{context}[:alarm_recommendations]") unless input[:alarm_recommendations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -620,7 +622,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, Types::ListAppAssessmentsInput, context: context)
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
         Hearth::Validator.validate!(input[:assessment_name], ::String, context: "#{context}[:assessment_name]")
-        Validators::AssessmentStatusList.validate!(input[:assessment_status], context: "#{context}[:assessment_status]") unless input[:assessment_status].nil?
+        AssessmentStatusList.validate!(input[:assessment_status], context: "#{context}[:assessment_status]") unless input[:assessment_status].nil?
         Hearth::Validator.validate!(input[:compliance_status], ::String, context: "#{context}[:compliance_status]")
         Hearth::Validator.validate!(input[:invoker], ::String, context: "#{context}[:invoker]")
         Hearth::Validator.validate!(input[:reverse_order], ::TrueClass, ::FalseClass, context: "#{context}[:reverse_order]")
@@ -633,7 +635,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppAssessmentsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::AppAssessmentSummaryList.validate!(input[:assessment_summaries], context: "#{context}[:assessment_summaries]") unless input[:assessment_summaries].nil?
+        AppAssessmentSummaryList.validate!(input[:assessment_summaries], context: "#{context}[:assessment_summaries]") unless input[:assessment_summaries].nil?
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::Resiliencehub
     class ListAppComponentCompliancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppComponentCompliancesOutput, context: context)
-        Validators::ComponentCompliancesList.validate!(input[:component_compliances], context: "#{context}[:component_compliances]") unless input[:component_compliances].nil?
+        ComponentCompliancesList.validate!(input[:component_compliances], context: "#{context}[:component_compliances]") unless input[:component_compliances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -666,7 +668,7 @@ module AWS::SDK::Resiliencehub
     class ListAppComponentRecommendationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppComponentRecommendationsOutput, context: context)
-        Validators::ComponentRecommendationList.validate!(input[:component_recommendations], context: "#{context}[:component_recommendations]") unless input[:component_recommendations].nil?
+        ComponentRecommendationList.validate!(input[:component_recommendations], context: "#{context}[:component_recommendations]") unless input[:component_recommendations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -684,7 +686,7 @@ module AWS::SDK::Resiliencehub
     class ListAppVersionResourceMappingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppVersionResourceMappingsOutput, context: context)
-        Validators::ResourceMappingList.validate!(input[:resource_mappings], context: "#{context}[:resource_mappings]") unless input[:resource_mappings].nil?
+        ResourceMappingList.validate!(input[:resource_mappings], context: "#{context}[:resource_mappings]") unless input[:resource_mappings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -703,7 +705,7 @@ module AWS::SDK::Resiliencehub
     class ListAppVersionResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppVersionResourcesOutput, context: context)
-        Validators::PhysicalResourceList.validate!(input[:physical_resources], context: "#{context}[:physical_resources]") unless input[:physical_resources].nil?
+        PhysicalResourceList.validate!(input[:physical_resources], context: "#{context}[:physical_resources]") unless input[:physical_resources].nil?
         Hearth::Validator.validate!(input[:resolution_id], ::String, context: "#{context}[:resolution_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -721,7 +723,7 @@ module AWS::SDK::Resiliencehub
     class ListAppVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppVersionsOutput, context: context)
-        Validators::AppVersionList.validate!(input[:app_versions], context: "#{context}[:app_versions]") unless input[:app_versions].nil?
+        AppVersionList.validate!(input[:app_versions], context: "#{context}[:app_versions]") unless input[:app_versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::Resiliencehub
     class ListAppsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAppsOutput, context: context)
-        Validators::AppSummaryList.validate!(input[:app_summaries], context: "#{context}[:app_summaries]") unless input[:app_summaries].nil?
+        AppSummaryList.validate!(input[:app_summaries], context: "#{context}[:app_summaries]") unless input[:app_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -749,7 +751,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, Types::ListRecommendationTemplatesInput, context: context)
         Hearth::Validator.validate!(input[:assessment_arn], ::String, context: "#{context}[:assessment_arn]")
         Hearth::Validator.validate!(input[:reverse_order], ::TrueClass, ::FalseClass, context: "#{context}[:reverse_order]")
-        Validators::RecommendationTemplateStatusList.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        RecommendationTemplateStatusList.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:recommendation_template_arn], ::String, context: "#{context}[:recommendation_template_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -761,7 +763,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRecommendationTemplatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RecommendationTemplateList.validate!(input[:recommendation_templates], context: "#{context}[:recommendation_templates]") unless input[:recommendation_templates].nil?
+        RecommendationTemplateList.validate!(input[:recommendation_templates], context: "#{context}[:recommendation_templates]") unless input[:recommendation_templates].nil?
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::Resiliencehub
     class ListResiliencyPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResiliencyPoliciesOutput, context: context)
-        Validators::ResiliencyPolicies.validate!(input[:resiliency_policies], context: "#{context}[:resiliency_policies]") unless input[:resiliency_policies].nil?
+        ResiliencyPolicies.validate!(input[:resiliency_policies], context: "#{context}[:resiliency_policies]") unless input[:resiliency_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -795,7 +797,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSopRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SopRecommendationList.validate!(input[:sop_recommendations], context: "#{context}[:sop_recommendations]") unless input[:sop_recommendations].nil?
+        SopRecommendationList.validate!(input[:sop_recommendations], context: "#{context}[:sop_recommendations]") unless input[:sop_recommendations].nil?
       end
     end
 
@@ -810,7 +812,7 @@ module AWS::SDK::Resiliencehub
     class ListSuggestedResiliencyPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSuggestedResiliencyPoliciesOutput, context: context)
-        Validators::ResiliencyPolicies.validate!(input[:resiliency_policies], context: "#{context}[:resiliency_policies]") unless input[:resiliency_policies].nil?
+        ResiliencyPolicies.validate!(input[:resiliency_policies], context: "#{context}[:resiliency_policies]") unless input[:resiliency_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -825,7 +827,7 @@ module AWS::SDK::Resiliencehub
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -842,7 +844,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTestRecommendationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TestRecommendationList.validate!(input[:test_recommendations], context: "#{context}[:test_recommendations]") unless input[:test_recommendations].nil?
+        TestRecommendationList.validate!(input[:test_recommendations], context: "#{context}[:test_recommendations]") unless input[:test_recommendations].nil?
       end
     end
 
@@ -860,7 +862,7 @@ module AWS::SDK::Resiliencehub
     class ListUnsupportedAppVersionResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUnsupportedAppVersionResourcesOutput, context: context)
-        Validators::UnsupportedResourceList.validate!(input[:unsupported_resources], context: "#{context}[:unsupported_resources]") unless input[:unsupported_resources].nil?
+        UnsupportedResourceList.validate!(input[:unsupported_resources], context: "#{context}[:unsupported_resources]") unless input[:unsupported_resources].nil?
         Hearth::Validator.validate!(input[:resolution_id], ::String, context: "#{context}[:resolution_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -880,10 +882,10 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PhysicalResource, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
-        Validators::LogicalResourceId.validate!(input[:logical_resource_id], context: "#{context}[:logical_resource_id]") unless input[:logical_resource_id].nil?
-        Validators::PhysicalResourceId.validate!(input[:physical_resource_id], context: "#{context}[:physical_resource_id]") unless input[:physical_resource_id].nil?
+        LogicalResourceId.validate!(input[:logical_resource_id], context: "#{context}[:logical_resource_id]") unless input[:logical_resource_id].nil?
+        PhysicalResourceId.validate!(input[:physical_resource_id], context: "#{context}[:physical_resource_id]") unless input[:physical_resource_id].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::AppComponentList.validate!(input[:app_components], context: "#{context}[:app_components]") unless input[:app_components].nil?
+        AppComponentList.validate!(input[:app_components], context: "#{context}[:app_components]") unless input[:app_components].nil?
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhysicalResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhysicalResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -942,7 +944,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::RecommendationDisruptionCompliance.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          RecommendationDisruptionCompliance.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -981,7 +983,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -989,11 +991,11 @@ module AWS::SDK::Resiliencehub
     class RecommendationTemplate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RecommendationTemplate, context: context)
-        Validators::S3Location.validate!(input[:templates_location], context: "#{context}[:templates_location]") unless input[:templates_location].nil?
+        S3Location.validate!(input[:templates_location], context: "#{context}[:templates_location]") unless input[:templates_location].nil?
         Hearth::Validator.validate!(input[:assessment_arn], ::String, context: "#{context}[:assessment_arn]")
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
-        Validators::RecommendationIdList.validate!(input[:recommendation_ids], context: "#{context}[:recommendation_ids]") unless input[:recommendation_ids].nil?
-        Validators::RenderRecommendationTypeList.validate!(input[:recommendation_types], context: "#{context}[:recommendation_types]") unless input[:recommendation_types].nil?
+        RecommendationIdList.validate!(input[:recommendation_ids], context: "#{context}[:recommendation_ids]") unless input[:recommendation_ids].nil?
+        RenderRecommendationTypeList.validate!(input[:recommendation_types], context: "#{context}[:recommendation_types]") unless input[:recommendation_types].nil?
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:recommendation_template_arn], ::String, context: "#{context}[:recommendation_template_arn]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
@@ -1001,7 +1003,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:needs_replacements], ::TrueClass, ::FalseClass, context: "#{context}[:needs_replacements]")
       end
     end
@@ -1010,7 +1012,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RecommendationTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RecommendationTemplate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1028,11 +1030,11 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveDraftAppVersionResourceMappingsInput, context: context)
         Hearth::Validator.validate!(input[:app_arn], ::String, context: "#{context}[:app_arn]")
-        Validators::EntityNameList.validate!(input[:resource_names], context: "#{context}[:resource_names]") unless input[:resource_names].nil?
-        Validators::String255List.validate!(input[:logical_stack_names], context: "#{context}[:logical_stack_names]") unless input[:logical_stack_names].nil?
-        Validators::EntityNameList.validate!(input[:app_registry_app_names], context: "#{context}[:app_registry_app_names]") unless input[:app_registry_app_names].nil?
-        Validators::EntityNameList.validate!(input[:resource_group_names], context: "#{context}[:resource_group_names]") unless input[:resource_group_names].nil?
-        Validators::String255List.validate!(input[:terraform_source_names], context: "#{context}[:terraform_source_names]") unless input[:terraform_source_names].nil?
+        EntityNameList.validate!(input[:resource_names], context: "#{context}[:resource_names]") unless input[:resource_names].nil?
+        String255List.validate!(input[:logical_stack_names], context: "#{context}[:logical_stack_names]") unless input[:logical_stack_names].nil?
+        EntityNameList.validate!(input[:app_registry_app_names], context: "#{context}[:app_registry_app_names]") unless input[:app_registry_app_names].nil?
+        EntityNameList.validate!(input[:resource_group_names], context: "#{context}[:resource_group_names]") unless input[:resource_group_names].nil?
+        String255List.validate!(input[:terraform_source_names], context: "#{context}[:terraform_source_names]") unless input[:terraform_source_names].nil?
       end
     end
 
@@ -1057,7 +1059,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResiliencyPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResiliencyPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1071,9 +1073,9 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:data_location_constraint], ::String, context: "#{context}[:data_location_constraint]")
         Hearth::Validator.validate!(input[:tier], ::String, context: "#{context}[:tier]")
         Hearth::Validator.validate!(input[:estimated_cost_tier], ::String, context: "#{context}[:estimated_cost_tier]")
-        Validators::DisruptionPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        DisruptionPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1081,7 +1083,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResiliencyScore, context: context)
         Hearth::Validator.validate!(input[:score], ::Float, context: "#{context}[:score]")
-        Validators::DisruptionResiliencyScore.validate!(input[:disruption_score], context: "#{context}[:disruption_score]") unless input[:disruption_score].nil?
+        DisruptionResiliencyScore.validate!(input[:disruption_score], context: "#{context}[:disruption_score]") unless input[:disruption_score].nil?
       end
     end
 
@@ -1116,7 +1118,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1124,7 +1126,7 @@ module AWS::SDK::Resiliencehub
     class ResourceErrorsDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceErrorsDetails, context: context)
-        Validators::ResourceErrorList.validate!(input[:resource_errors], context: "#{context}[:resource_errors]") unless input[:resource_errors].nil?
+        ResourceErrorList.validate!(input[:resource_errors], context: "#{context}[:resource_errors]") unless input[:resource_errors].nil?
         Hearth::Validator.validate!(input[:has_more_errors], ::TrueClass, ::FalseClass, context: "#{context}[:has_more_errors]")
       end
     end
@@ -1137,7 +1139,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:app_registry_app_name], ::String, context: "#{context}[:app_registry_app_name]")
         Hearth::Validator.validate!(input[:resource_group_name], ::String, context: "#{context}[:resource_group_name]")
         Hearth::Validator.validate!(input[:mapping_type], ::String, context: "#{context}[:mapping_type]")
-        Validators::PhysicalResourceId.validate!(input[:physical_resource_id], context: "#{context}[:physical_resource_id]") unless input[:physical_resource_id].nil?
+        PhysicalResourceId.validate!(input[:physical_resource_id], context: "#{context}[:physical_resource_id]") unless input[:physical_resource_id].nil?
         Hearth::Validator.validate!(input[:terraform_source_name], ::String, context: "#{context}[:terraform_source_name]")
       end
     end
@@ -1146,7 +1148,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1183,7 +1185,7 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RecommendationItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        RecommendationItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:reference_id], ::String, context: "#{context}[:reference_id]")
         Hearth::Validator.validate!(input[:prerequisite], ::String, context: "#{context}[:prerequisite]")
       end
@@ -1193,7 +1195,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SopRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SopRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1205,14 +1207,14 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:app_version], ::String, context: "#{context}[:app_version]")
         Hearth::Validator.validate!(input[:assessment_name], ::String, context: "#{context}[:assessment_name]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class StartAppAssessmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartAppAssessmentOutput, context: context)
-        Validators::AppAssessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
+        AppAssessment.validate!(input[:assessment], context: "#{context}[:assessment]") unless input[:assessment].nil?
       end
     end
 
@@ -1257,7 +1259,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1278,7 +1280,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TerraformSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TerraformSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1294,9 +1296,9 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:risk], ::String, context: "#{context}[:risk]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RecommendationItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        RecommendationItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:prerequisite], ::String, context: "#{context}[:prerequisite]")
-        Validators::AlarmReferenceIdList.validate!(input[:depends_on_alarms], context: "#{context}[:depends_on_alarms]") unless input[:depends_on_alarms].nil?
+        AlarmReferenceIdList.validate!(input[:depends_on_alarms], context: "#{context}[:depends_on_alarms]") unless input[:depends_on_alarms].nil?
       end
     end
 
@@ -1304,7 +1306,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TestRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TestRecommendation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1320,8 +1322,8 @@ module AWS::SDK::Resiliencehub
     class UnsupportedResource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UnsupportedResource, context: context)
-        Validators::LogicalResourceId.validate!(input[:logical_resource_id], context: "#{context}[:logical_resource_id]") unless input[:logical_resource_id].nil?
-        Validators::PhysicalResourceId.validate!(input[:physical_resource_id], context: "#{context}[:physical_resource_id]") unless input[:physical_resource_id].nil?
+        LogicalResourceId.validate!(input[:logical_resource_id], context: "#{context}[:logical_resource_id]") unless input[:logical_resource_id].nil?
+        PhysicalResourceId.validate!(input[:physical_resource_id], context: "#{context}[:physical_resource_id]") unless input[:physical_resource_id].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
       end
     end
@@ -1330,7 +1332,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnsupportedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnsupportedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1339,7 +1341,7 @@ module AWS::SDK::Resiliencehub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::Resiliencehub
     class UpdateAppOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAppOutput, context: context)
-        Validators::App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
+        App.validate!(input[:app], context: "#{context}[:app]") unless input[:app].nil?
       end
     end
 
@@ -1375,14 +1377,14 @@ module AWS::SDK::Resiliencehub
         Hearth::Validator.validate!(input[:policy_description], ::String, context: "#{context}[:policy_description]")
         Hearth::Validator.validate!(input[:data_location_constraint], ::String, context: "#{context}[:data_location_constraint]")
         Hearth::Validator.validate!(input[:tier], ::String, context: "#{context}[:tier]")
-        Validators::DisruptionPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        DisruptionPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
     class UpdateResiliencyPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResiliencyPolicyOutput, context: context)
-        Validators::ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        ResiliencyPolicy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Budgets
@@ -167,7 +169,7 @@ module AWS::SDK::Budgets
     def create_budget(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBudgetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBudgetInput,
         validate_input: @config.validate_input
@@ -312,7 +314,7 @@ module AWS::SDK::Budgets
     def create_budget_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBudgetActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBudgetActionInput,
         validate_input: @config.validate_input
@@ -403,7 +405,7 @@ module AWS::SDK::Budgets
     def create_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNotificationInput,
         validate_input: @config.validate_input
@@ -492,7 +494,7 @@ module AWS::SDK::Budgets
     def create_subscriber(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubscriberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubscriberInput,
         validate_input: @config.validate_input
@@ -567,7 +569,7 @@ module AWS::SDK::Budgets
     def delete_budget(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBudgetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBudgetInput,
         validate_input: @config.validate_input
@@ -682,7 +684,7 @@ module AWS::SDK::Budgets
     def delete_budget_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBudgetActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBudgetActionInput,
         validate_input: @config.validate_input
@@ -767,7 +769,7 @@ module AWS::SDK::Budgets
     def delete_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotificationInput,
         validate_input: @config.validate_input
@@ -859,7 +861,7 @@ module AWS::SDK::Budgets
     def delete_subscriber(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubscriberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubscriberInput,
         validate_input: @config.validate_input
@@ -970,7 +972,7 @@ module AWS::SDK::Budgets
     def describe_budget(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetInput,
         validate_input: @config.validate_input
@@ -1085,7 +1087,7 @@ module AWS::SDK::Budgets
     def describe_budget_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetActionInput,
         validate_input: @config.validate_input
@@ -1222,7 +1224,7 @@ module AWS::SDK::Budgets
     def describe_budget_action_histories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetActionHistoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetActionHistoriesInput,
         validate_input: @config.validate_input
@@ -1335,7 +1337,7 @@ module AWS::SDK::Budgets
     def describe_budget_actions_for_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetActionsForAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetActionsForAccountInput,
         validate_input: @config.validate_input
@@ -1452,7 +1454,7 @@ module AWS::SDK::Budgets
     def describe_budget_actions_for_budget(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetActionsForBudgetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetActionsForBudgetInput,
         validate_input: @config.validate_input
@@ -1543,7 +1545,7 @@ module AWS::SDK::Budgets
     def describe_budget_notifications_for_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetNotificationsForAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetNotificationsForAccountInput,
         validate_input: @config.validate_input
@@ -1659,7 +1661,7 @@ module AWS::SDK::Budgets
     def describe_budget_performance_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetPerformanceHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetPerformanceHistoryInput,
         validate_input: @config.validate_input
@@ -1776,7 +1778,7 @@ module AWS::SDK::Budgets
     def describe_budgets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBudgetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBudgetsInput,
         validate_input: @config.validate_input
@@ -1864,7 +1866,7 @@ module AWS::SDK::Budgets
     def describe_notifications_for_budget(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotificationsForBudgetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotificationsForBudgetInput,
         validate_input: @config.validate_input
@@ -1959,7 +1961,7 @@ module AWS::SDK::Budgets
     def describe_subscribers_for_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubscribersForNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubscribersForNotificationInput,
         validate_input: @config.validate_input
@@ -2049,7 +2051,7 @@ module AWS::SDK::Budgets
     def execute_budget_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteBudgetActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteBudgetActionInput,
         validate_input: @config.validate_input
@@ -2165,7 +2167,7 @@ module AWS::SDK::Budgets
     def update_budget(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBudgetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBudgetInput,
         validate_input: @config.validate_input
@@ -2343,7 +2345,7 @@ module AWS::SDK::Budgets
     def update_budget_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBudgetActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBudgetActionInput,
         validate_input: @config.validate_input
@@ -2428,7 +2430,7 @@ module AWS::SDK::Budgets
     def update_notification(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNotificationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNotificationInput,
         validate_input: @config.validate_input
@@ -2520,7 +2522,7 @@ module AWS::SDK::Budgets
     def update_subscriber(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSubscriberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSubscriberInput,
         validate_input: @config.validate_input

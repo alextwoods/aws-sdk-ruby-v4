@@ -61,11 +61,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for AccountLimitType
@@ -602,11 +602,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.evaluate_target_health ||= false
       end
-
     end
 
     # <p>A complex type that contains information about the request to associate a VPC with a
@@ -2791,11 +2791,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>The input for a GetChange request.</p>
@@ -3194,11 +3194,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>A complex type that contain the response to a <code>GetHostedZone</code>
@@ -3316,11 +3316,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>A complex type that contains the response to the <code>GetReusableDelegationSet</code>
@@ -4168,11 +4168,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.private_zone ||= false
       end
-
     end
 
     # <p>A complex type that contains the type of limit that you specified in the request and
@@ -4209,11 +4209,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for HostedZoneLimitType
@@ -4762,6 +4762,7 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.flag ||= 0
@@ -4769,7 +4770,6 @@ module AWS::SDK::Route53
         self.digest_algorithm_type ||= 0
         self.key_tag ||= 0
       end
-
     end
 
     # <p>You've already created a key-signing key (KSK) with this name or with the same customer managed key ARN.</p>
@@ -5134,11 +5134,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A request to retrieve a list of the health checks that are associated with the current
@@ -5219,11 +5219,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>Retrieves a list of the public and private hosted zones that are associated with the
@@ -5336,11 +5336,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>Lists all the private hosted zones that a specified VPC is associated with, regardless
@@ -5503,11 +5503,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # @!attribute hosted_zone_id
@@ -5727,11 +5727,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A request to get a list of the reusable delegation sets that are associated with the
@@ -5809,11 +5809,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A complex type containing information about a request for a list of the tags that are
@@ -5981,11 +5981,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A request for the traffic policy instances that you created in a specified hosted
@@ -6096,11 +6096,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A complex type that contains the information about the request to list your traffic
@@ -6245,11 +6245,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A request to get information about the traffic policy instances that you created by
@@ -6377,11 +6377,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A complex type that contains the information about the request to list your traffic
@@ -6466,11 +6466,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_truncated ||= false
       end
-
     end
 
     # <p>A complex type that contains information about that can be associated with your hosted
@@ -7720,11 +7720,11 @@ module AWS::SDK::Route53
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # Includes enum constants for ReusableDelegationSetLimitType

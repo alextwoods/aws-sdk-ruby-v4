@@ -14,7 +14,7 @@ module AWS::SDK::Health
     class DescribeAffectedAccountsForOrganization
       def self.default(visited=[])
         {
-          affected_accounts: Stubs::AffectedAccountsList.default(visited),
+          affected_accounts: AffectedAccountsList.default(visited),
           event_scope_code: 'event_scope_code',
           next_token: 'next_token',
         }
@@ -54,7 +54,7 @@ module AWS::SDK::Health
     class DescribeAffectedEntities
       def self.default(visited=[])
         {
-          entities: Stubs::EntityList.default(visited),
+          entities: EntityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -74,7 +74,7 @@ module AWS::SDK::Health
         return nil if visited.include?('EntityList')
         visited = visited + ['EntityList']
         [
-          Stubs::AffectedEntity.default(visited)
+          AffectedEntity.default(visited)
         ]
       end
 
@@ -101,7 +101,7 @@ module AWS::SDK::Health
           aws_account_id: 'aws_account_id',
           last_updated_time: Time.now,
           status_code: 'status_code',
-          tags: Stubs::TagSet.default(visited),
+          tags: TagSet.default(visited),
         }
       end
 
@@ -144,8 +144,8 @@ module AWS::SDK::Health
     class DescribeAffectedEntitiesForOrganization
       def self.default(visited=[])
         {
-          entities: Stubs::EntityList.default(visited),
-          failed_set: Stubs::DescribeAffectedEntitiesForOrganizationFailedSet.default(visited),
+          entities: EntityList.default(visited),
+          failed_set: DescribeAffectedEntitiesForOrganizationFailedSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -166,7 +166,7 @@ module AWS::SDK::Health
         return nil if visited.include?('DescribeAffectedEntitiesForOrganizationFailedSet')
         visited = visited + ['DescribeAffectedEntitiesForOrganizationFailedSet']
         [
-          Stubs::OrganizationAffectedEntitiesErrorItem.default(visited)
+          OrganizationAffectedEntitiesErrorItem.default(visited)
         ]
       end
 
@@ -208,7 +208,7 @@ module AWS::SDK::Health
     class DescribeEntityAggregates
       def self.default(visited=[])
         {
-          entity_aggregates: Stubs::EntityAggregateList.default(visited),
+          entity_aggregates: EntityAggregateList.default(visited),
         }
       end
 
@@ -226,7 +226,7 @@ module AWS::SDK::Health
         return nil if visited.include?('EntityAggregateList')
         visited = visited + ['EntityAggregateList']
         [
-          Stubs::EntityAggregate.default(visited)
+          EntityAggregate.default(visited)
         ]
       end
 
@@ -264,7 +264,7 @@ module AWS::SDK::Health
     class DescribeEventAggregates
       def self.default(visited=[])
         {
-          event_aggregates: Stubs::EventAggregateList.default(visited),
+          event_aggregates: EventAggregateList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -284,7 +284,7 @@ module AWS::SDK::Health
         return nil if visited.include?('EventAggregateList')
         visited = visited + ['EventAggregateList']
         [
-          Stubs::EventAggregate.default(visited)
+          EventAggregate.default(visited)
         ]
       end
 
@@ -322,8 +322,8 @@ module AWS::SDK::Health
     class DescribeEventDetails
       def self.default(visited=[])
         {
-          successful_set: Stubs::DescribeEventDetailsSuccessfulSet.default(visited),
-          failed_set: Stubs::DescribeEventDetailsFailedSet.default(visited),
+          successful_set: DescribeEventDetailsSuccessfulSet.default(visited),
+          failed_set: DescribeEventDetailsFailedSet.default(visited),
         }
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::Health
         return nil if visited.include?('DescribeEventDetailsFailedSet')
         visited = visited + ['DescribeEventDetailsFailedSet']
         [
-          Stubs::EventDetailsErrorItem.default(visited)
+          EventDetailsErrorItem.default(visited)
         ]
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::Health
         return nil if visited.include?('DescribeEventDetailsSuccessfulSet')
         visited = visited + ['DescribeEventDetailsSuccessfulSet']
         [
-          Stubs::EventDetails.default(visited)
+          EventDetails.default(visited)
         ]
       end
 
@@ -404,9 +404,9 @@ module AWS::SDK::Health
         return nil if visited.include?('EventDetails')
         visited = visited + ['EventDetails']
         {
-          event: Stubs::Event.default(visited),
-          event_description: Stubs::EventDescription.default(visited),
-          event_metadata: Stubs::EventMetadata.default(visited),
+          event: Event.default(visited),
+          event_description: EventDescription.default(visited),
+          event_metadata: EventMetadata.default(visited),
         }
       end
 
@@ -500,8 +500,8 @@ module AWS::SDK::Health
     class DescribeEventDetailsForOrganization
       def self.default(visited=[])
         {
-          successful_set: Stubs::DescribeEventDetailsForOrganizationSuccessfulSet.default(visited),
-          failed_set: Stubs::DescribeEventDetailsForOrganizationFailedSet.default(visited),
+          successful_set: DescribeEventDetailsForOrganizationSuccessfulSet.default(visited),
+          failed_set: DescribeEventDetailsForOrganizationFailedSet.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::Health
         return nil if visited.include?('DescribeEventDetailsForOrganizationFailedSet')
         visited = visited + ['DescribeEventDetailsForOrganizationFailedSet']
         [
-          Stubs::OrganizationEventDetailsErrorItem.default(visited)
+          OrganizationEventDetailsErrorItem.default(visited)
         ]
       end
 
@@ -564,7 +564,7 @@ module AWS::SDK::Health
         return nil if visited.include?('DescribeEventDetailsForOrganizationSuccessfulSet')
         visited = visited + ['DescribeEventDetailsForOrganizationSuccessfulSet']
         [
-          Stubs::OrganizationEventDetails.default(visited)
+          OrganizationEventDetails.default(visited)
         ]
       end
 
@@ -585,9 +585,9 @@ module AWS::SDK::Health
         visited = visited + ['OrganizationEventDetails']
         {
           aws_account_id: 'aws_account_id',
-          event: Stubs::Event.default(visited),
-          event_description: Stubs::EventDescription.default(visited),
-          event_metadata: Stubs::EventMetadata.default(visited),
+          event: Event.default(visited),
+          event_description: EventDescription.default(visited),
+          event_metadata: EventMetadata.default(visited),
         }
       end
 
@@ -606,7 +606,7 @@ module AWS::SDK::Health
     class DescribeEventTypes
       def self.default(visited=[])
         {
-          event_types: Stubs::EventTypeList.default(visited),
+          event_types: EventTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -626,7 +626,7 @@ module AWS::SDK::Health
         return nil if visited.include?('EventTypeList')
         visited = visited + ['EventTypeList']
         [
-          Stubs::EventType.default(visited)
+          EventType.default(visited)
         ]
       end
 
@@ -666,7 +666,7 @@ module AWS::SDK::Health
     class DescribeEvents
       def self.default(visited=[])
         {
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -686,7 +686,7 @@ module AWS::SDK::Health
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -704,7 +704,7 @@ module AWS::SDK::Health
     class DescribeEventsForOrganization
       def self.default(visited=[])
         {
-          events: Stubs::OrganizationEventList.default(visited),
+          events: OrganizationEventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -724,7 +724,7 @@ module AWS::SDK::Health
         return nil if visited.include?('OrganizationEventList')
         visited = visited + ['OrganizationEventList']
         [
-          Stubs::OrganizationEvent.default(visited)
+          OrganizationEvent.default(visited)
         ]
       end
 

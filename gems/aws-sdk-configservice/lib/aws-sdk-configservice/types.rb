@@ -36,11 +36,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.all_aws_regions ||= false
       end
-
     end
 
     # <p>Indicates whether an Config rule is compliant based on
@@ -176,13 +176,13 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compliant_rule_count ||= 0
         self.non_compliant_rule_count ||= 0
         self.total_rule_count ||= 0
       end
-
     end
 
     # <p>The number of conformance packs that are compliant and noncompliant.</p>
@@ -203,12 +203,12 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.compliant_conformance_pack_count ||= 0
         self.non_compliant_conformance_pack_count ||= 0
       end
-
     end
 
     # <p>Filters the conformance packs based on an account ID, region, compliance type, and the name of the conformance pack.</p>
@@ -854,12 +854,12 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capped_count ||= 0
         self.cap_exceeded ||= false
       end
-
     end
 
     # <p>The number of Config rules or Amazon Web Services resources that are
@@ -1329,11 +1329,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.first_evaluation_started ||= false
       end
-
     end
 
     # Includes enum constants for ConfigRuleState
@@ -1800,11 +1800,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recording ||= false
       end
-
     end
 
     # <p>Filters the conformance pack by compliance types and Config rule names.</p>
@@ -2201,11 +2201,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_debug_log_delivery ||= false
       end
-
     end
 
     # @!attribute authorized_account_id
@@ -2728,11 +2728,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute aggregate_compliance_by_config_rules
@@ -2783,11 +2783,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute aggregate_compliance_by_conformance_packs
@@ -2827,11 +2827,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute aggregation_authorizations
@@ -2953,11 +2953,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p></p>
@@ -3018,11 +3018,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p></p>
@@ -3136,11 +3136,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute aggregated_source_status_list
@@ -3188,11 +3188,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute configuration_aggregators
@@ -3304,11 +3304,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute conformance_pack_name
@@ -3357,11 +3357,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute conformance_pack_status_details
@@ -3404,11 +3404,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute conformance_pack_details
@@ -3512,11 +3512,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute organization_config_rule_statuses
@@ -3559,11 +3559,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute organization_config_rules
@@ -3608,11 +3608,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute organization_conformance_pack_statuses
@@ -3657,11 +3657,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute organization_conformance_packs
@@ -3702,11 +3702,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute pending_aggregation_requests
@@ -3780,11 +3780,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute remediation_exceptions
@@ -3833,11 +3833,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute remediation_execution_statuses
@@ -4268,11 +4268,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute aggregate_evaluation_results
@@ -4334,11 +4334,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute group_by_key
@@ -4402,11 +4402,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute aggregate_conformance_pack_compliance_summaries
@@ -4469,11 +4469,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute total_discovered_resources
@@ -4504,11 +4504,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_discovered_resources ||= 0
       end
-
     end
 
     # @!attribute configuration_aggregator_name
@@ -4579,11 +4579,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p></p>
@@ -4756,11 +4756,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute conformance_pack_name
@@ -4809,11 +4809,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute conformance_pack_compliance_summary_list
@@ -4898,11 +4898,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute total_discovered_resources
@@ -4956,11 +4956,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_discovered_resources ||= 0
       end
-
     end
 
     # @!attribute organization_config_rule_name
@@ -4991,11 +4991,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute organization_config_rule_detailed_status
@@ -5045,11 +5045,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute organization_conformance_pack_detailed_statuses
@@ -5158,11 +5158,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # <p>The output for the <a>GetResourceConfigHistory</a>
@@ -5230,11 +5230,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resource_count ||= 0
       end
-
     end
 
     # <p>Your Amazon S3 bucket policy does not permit Config to
@@ -5545,11 +5545,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute resource_identifiers
@@ -5624,12 +5624,12 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
         self.include_deleted_resources ||= false
       end
-
     end
 
     # <p></p>
@@ -5714,11 +5714,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute tags
@@ -6318,11 +6318,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.all_aws_regions ||= false
       end
-
     end
 
     # <p>Config resource cannot be created because your organization does not have all features enabled.</p>
@@ -7592,11 +7592,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.test_mode ||= false
       end
-
     end
 
     # <p></p>
@@ -7896,11 +7896,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention_period_in_days ||= 0
       end
-
     end
 
     # @!attribute retention_configuration
@@ -8065,12 +8065,12 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.all_supported ||= false
         self.include_global_resource_types ||= false
       end
-
     end
 
     # <p>The relationship of the related resource to the main
@@ -8199,11 +8199,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.automatic ||= false
       end
-
     end
 
     # <p>An object that represents the details about the remediation exception. The details include the rule name, an explanation of an exception, the time when the exception will be deleted, the resource ID, and resource type. </p>
@@ -8458,11 +8458,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>Filters the resource count based on account ID, region, and resource type.</p>
@@ -9195,11 +9195,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retention_period_in_days ||= 0
       end
-
     end
 
     # <p>Defines which resources trigger an evaluation for an Config
@@ -9284,12 +9284,12 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute results
@@ -9338,11 +9338,11 @@ module AWS::SDK::ConfigService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute results

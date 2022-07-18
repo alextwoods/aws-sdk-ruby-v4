@@ -189,12 +189,12 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_required ||= false
         self.is_sensitive_field ||= false
       end
-
     end
 
     # <p>Contains information about the authentication config that the connector supports.</p>
@@ -239,6 +239,7 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_basic_auth_supported ||= false
@@ -246,7 +247,6 @@ module AWS::SDK::Appflow
         self.is_o_auth2_supported ||= false
         self.is_custom_auth_supported ||= false
       end
-
     end
 
     # Includes enum constants for AuthenticationType
@@ -501,6 +501,7 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.can_use_as_source ||= false
@@ -508,7 +509,6 @@ module AWS::SDK::Appflow
         self.is_private_link_enabled ||= false
         self.is_private_link_endpoint_url_required ||= false
       end
-
     end
 
     # <p>Information about the registered connector.</p>
@@ -620,11 +620,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_nested_entities ||= false
       end
-
     end
 
     # <p> Describes the data model of a connector field. For example, for an
@@ -704,12 +704,12 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_primary_key ||= false
         self.is_deprecated ||= false
       end
-
     end
 
     # <p> A structure to specify connector-specific metadata such as <code>oAuthScopes</code>,
@@ -1410,11 +1410,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_required ||= false
       end
-
     end
 
     # <p> An error occurred when retrieving data from the connector endpoint. </p>
@@ -2031,11 +2031,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     DeleteConnectorProfileOutput = ::Struct.new(
@@ -2063,11 +2063,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     DeleteFlowOutput = ::Struct.new(
@@ -2570,6 +2570,7 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_creatable ||= false
@@ -2578,7 +2579,6 @@ module AWS::SDK::Appflow
         self.is_updatable ||= false
         self.is_defaulted_on_create ||= false
       end
-
     end
 
     # <p> Contains information about the configuration of destination connectors present in the
@@ -2761,11 +2761,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_first_destination_error ||= false
       end
-
     end
 
     # <p> Provides details in the event of a failed flow, including the failure count and the
@@ -3960,12 +3960,12 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_required ||= false
         self.is_sensitive_field ||= false
       end
-
     end
 
     # Includes enum constants for OAuth2CustomPropType
@@ -4531,12 +4531,12 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum ||= 0
         self.minimum ||= 0
       end
-
     end
 
     # <p> The connector-specific profile credentials required when using Amazon Redshift.
@@ -5317,11 +5317,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_sandbox_environment ||= false
       end
-
     end
 
     # <p> The properties that are applied when Salesforce is being used as a destination. </p>
@@ -5403,12 +5403,12 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_dynamic_field_update ||= false
         self.include_deleted_records ||= false
       end
-
     end
 
     # Includes enum constants for ScheduleFrequencyType
@@ -6211,13 +6211,13 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_retrievable ||= false
         self.is_queryable ||= false
         self.is_timestamp_field_for_incremental_queries ||= false
       end
-
     end
 
     # <p> Contains information about the configuration of the source connector used in the flow.
@@ -6685,11 +6685,11 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     UnregisterConnectorOutput = ::Struct.new(
@@ -7090,13 +7090,13 @@ module AWS::SDK::Appflow
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_source_files ||= false
         self.include_renditions ||= false
         self.include_all_versions ||= false
       end
-
     end
 
     # Includes enum constants for WriteOperationType

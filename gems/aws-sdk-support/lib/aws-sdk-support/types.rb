@@ -108,11 +108,11 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.result ||= false
       end
-
     end
 
     # <p>An attachment to a case communication. The attachment consists of the file name and
@@ -761,11 +761,11 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_resolved_cases ||= false
       end
-
     end
 
     # <p>Returns an array of <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a>
@@ -1336,11 +1336,11 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.millis_until_next_refreshable ||= 0
       end
-
     end
 
     # <p>The results of a Trusted Advisor check returned by <a>DescribeTrustedAdvisorCheckResult</a>.</p>
@@ -1434,11 +1434,11 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_flagged_resources ||= false
       end
-
     end
 
     # <p>The estimated cost savings that might be realized if the recommended operations are
@@ -1462,12 +1462,12 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated_monthly_savings ||= 0
         self.estimated_percent_monthly_savings ||= 0
       end
-
     end
 
     # <p>Contains information about a resource identified by a Trusted Advisor check.</p>
@@ -1510,11 +1510,11 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_suppressed ||= false
       end
-
     end
 
     # <p>Details about Amazon Web Services resources that were analyzed in a call to Trusted Advisor <a>DescribeTrustedAdvisorCheckSummaries</a>.</p>
@@ -1550,6 +1550,7 @@ module AWS::SDK::Support
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resources_processed ||= 0
@@ -1557,7 +1558,6 @@ module AWS::SDK::Support
         self.resources_ignored ||= 0
         self.resources_suppressed ||= 0
       end
-
     end
 
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KMS
@@ -178,7 +180,7 @@ module AWS::SDK::KMS
     def cancel_key_deletion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelKeyDeletionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelKeyDeletionInput,
         validate_input: @config.validate_input
@@ -308,7 +310,7 @@ module AWS::SDK::KMS
     def connect_custom_key_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConnectCustomKeyStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConnectCustomKeyStoreInput,
         validate_input: @config.validate_input
@@ -463,7 +465,7 @@ module AWS::SDK::KMS
     def create_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: @config.validate_input
@@ -603,7 +605,7 @@ module AWS::SDK::KMS
     def create_custom_key_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomKeyStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomKeyStoreInput,
         validate_input: @config.validate_input
@@ -837,7 +839,7 @@ module AWS::SDK::KMS
     def create_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGrantInput,
         validate_input: @config.validate_input
@@ -1331,7 +1333,7 @@ module AWS::SDK::KMS
     def create_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyInput,
         validate_input: @config.validate_input
@@ -1551,7 +1553,7 @@ module AWS::SDK::KMS
     def decrypt(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecryptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecryptInput,
         validate_input: @config.validate_input
@@ -1667,7 +1669,7 @@ module AWS::SDK::KMS
     def delete_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
         validate_input: @config.validate_input
@@ -1789,7 +1791,7 @@ module AWS::SDK::KMS
     def delete_custom_key_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomKeyStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomKeyStoreInput,
         validate_input: @config.validate_input
@@ -1901,7 +1903,7 @@ module AWS::SDK::KMS
     def delete_imported_key_material(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImportedKeyMaterialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImportedKeyMaterialInput,
         validate_input: @config.validate_input
@@ -2058,7 +2060,7 @@ module AWS::SDK::KMS
     def describe_custom_key_stores(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomKeyStoresInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomKeyStoresInput,
         validate_input: @config.validate_input
@@ -2268,7 +2270,7 @@ module AWS::SDK::KMS
     def describe_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKeyInput,
         validate_input: @config.validate_input
@@ -2363,7 +2365,7 @@ module AWS::SDK::KMS
     def disable_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKeyInput,
         validate_input: @config.validate_input
@@ -2481,7 +2483,7 @@ module AWS::SDK::KMS
     def disable_key_rotation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKeyRotationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKeyRotationInput,
         validate_input: @config.validate_input
@@ -2601,7 +2603,7 @@ module AWS::SDK::KMS
     def disconnect_custom_key_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectCustomKeyStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectCustomKeyStoreInput,
         validate_input: @config.validate_input
@@ -2694,7 +2696,7 @@ module AWS::SDK::KMS
     def enable_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKeyInput,
         validate_input: @config.validate_input
@@ -2820,7 +2822,7 @@ module AWS::SDK::KMS
     def enable_key_rotation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKeyRotationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKeyRotationInput,
         validate_input: @config.validate_input
@@ -3053,7 +3055,7 @@ module AWS::SDK::KMS
     def encrypt(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EncryptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EncryptInput,
         validate_input: @config.validate_input
@@ -3276,7 +3278,7 @@ module AWS::SDK::KMS
     def generate_data_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyInput,
         validate_input: @config.validate_input
@@ -3476,7 +3478,7 @@ module AWS::SDK::KMS
     def generate_data_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyPairInput,
         validate_input: @config.validate_input
@@ -3663,7 +3665,7 @@ module AWS::SDK::KMS
     def generate_data_key_pair_without_plaintext(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyPairWithoutPlaintextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyPairWithoutPlaintextInput,
         validate_input: @config.validate_input
@@ -3857,7 +3859,7 @@ module AWS::SDK::KMS
     def generate_data_key_without_plaintext(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyWithoutPlaintextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyWithoutPlaintextInput,
         validate_input: @config.validate_input
@@ -3980,7 +3982,7 @@ module AWS::SDK::KMS
     def generate_mac(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateMacInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateMacInput,
         validate_input: @config.validate_input
@@ -4063,7 +4065,7 @@ module AWS::SDK::KMS
     def generate_random(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateRandomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateRandomInput,
         validate_input: @config.validate_input
@@ -4158,7 +4160,7 @@ module AWS::SDK::KMS
     def get_key_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyPolicyInput,
         validate_input: @config.validate_input
@@ -4295,7 +4297,7 @@ module AWS::SDK::KMS
     def get_key_rotation_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyRotationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyRotationStatusInput,
         validate_input: @config.validate_input
@@ -4426,7 +4428,7 @@ module AWS::SDK::KMS
     def get_parameters_for_import(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParametersForImportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParametersForImportInput,
         validate_input: @config.validate_input
@@ -4579,7 +4581,7 @@ module AWS::SDK::KMS
     def get_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyInput,
         validate_input: @config.validate_input
@@ -4753,7 +4755,7 @@ module AWS::SDK::KMS
     def import_key_material(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportKeyMaterialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportKeyMaterialInput,
         validate_input: @config.validate_input
@@ -4902,7 +4904,7 @@ module AWS::SDK::KMS
     def list_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
         validate_input: @config.validate_input
@@ -5071,7 +5073,7 @@ module AWS::SDK::KMS
     def list_grants(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGrantsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGrantsInput,
         validate_input: @config.validate_input
@@ -5193,7 +5195,7 @@ module AWS::SDK::KMS
     def list_key_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyPoliciesInput,
         validate_input: @config.validate_input
@@ -5307,7 +5309,7 @@ module AWS::SDK::KMS
     def list_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeysInput,
         validate_input: @config.validate_input
@@ -5444,7 +5446,7 @@ module AWS::SDK::KMS
     def list_resource_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceTagsInput,
         validate_input: @config.validate_input
@@ -5592,7 +5594,7 @@ module AWS::SDK::KMS
     def list_retirable_grants(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRetirableGrantsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRetirableGrantsInput,
         validate_input: @config.validate_input
@@ -5741,7 +5743,7 @@ module AWS::SDK::KMS
     def put_key_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutKeyPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutKeyPolicyInput,
         validate_input: @config.validate_input
@@ -6019,7 +6021,7 @@ module AWS::SDK::KMS
     def re_encrypt(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReEncryptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReEncryptInput,
         validate_input: @config.validate_input
@@ -6334,7 +6336,7 @@ module AWS::SDK::KMS
     def replicate_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplicateKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplicateKeyInput,
         validate_input: @config.validate_input
@@ -6468,7 +6470,7 @@ module AWS::SDK::KMS
     def retire_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetireGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetireGrantInput,
         validate_input: @config.validate_input
@@ -6600,7 +6602,7 @@ module AWS::SDK::KMS
     def revoke_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeGrantInput,
         validate_input: @config.validate_input
@@ -6749,7 +6751,7 @@ module AWS::SDK::KMS
     def schedule_key_deletion(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScheduleKeyDeletionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScheduleKeyDeletionInput,
         validate_input: @config.validate_input
@@ -6920,7 +6922,7 @@ module AWS::SDK::KMS
     def sign(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SignInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SignInput,
         validate_input: @config.validate_input
@@ -7063,7 +7065,7 @@ module AWS::SDK::KMS
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -7194,7 +7196,7 @@ module AWS::SDK::KMS
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -7349,7 +7351,7 @@ module AWS::SDK::KMS
     def update_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
         validate_input: @config.validate_input
@@ -7512,7 +7514,7 @@ module AWS::SDK::KMS
     def update_custom_key_store(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomKeyStoreInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomKeyStoreInput,
         validate_input: @config.validate_input
@@ -7621,7 +7623,7 @@ module AWS::SDK::KMS
     def update_key_description(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKeyDescriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateKeyDescriptionInput,
         validate_input: @config.validate_input
@@ -7775,7 +7777,7 @@ module AWS::SDK::KMS
     def update_primary_region(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePrimaryRegionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePrimaryRegionInput,
         validate_input: @config.validate_input
@@ -7936,7 +7938,7 @@ module AWS::SDK::KMS
     def verify(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyInput,
         validate_input: @config.validate_input
@@ -8056,7 +8058,7 @@ module AWS::SDK::KMS
     def verify_mac(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyMacInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyMacInput,
         validate_input: @config.validate_input

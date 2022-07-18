@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::GlobalAccelerator
@@ -226,7 +228,7 @@ module AWS::SDK::GlobalAccelerator
     def add_custom_routing_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddCustomRoutingEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddCustomRoutingEndpointsInput,
         validate_input: @config.validate_input
@@ -308,7 +310,7 @@ module AWS::SDK::GlobalAccelerator
     def advertise_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdvertiseByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdvertiseByoipCidrInput,
         validate_input: @config.validate_input
@@ -412,7 +414,7 @@ module AWS::SDK::GlobalAccelerator
     def allow_custom_routing_traffic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AllowCustomRoutingTrafficInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AllowCustomRoutingTrafficInput,
         validate_input: @config.validate_input
@@ -540,7 +542,7 @@ module AWS::SDK::GlobalAccelerator
     def create_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAcceleratorInput,
         validate_input: @config.validate_input
@@ -672,7 +674,7 @@ module AWS::SDK::GlobalAccelerator
     def create_custom_routing_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomRoutingAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomRoutingAcceleratorInput,
         validate_input: @config.validate_input
@@ -777,7 +779,7 @@ module AWS::SDK::GlobalAccelerator
     def create_custom_routing_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomRoutingEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomRoutingEndpointGroupInput,
         validate_input: @config.validate_input
@@ -868,7 +870,7 @@ module AWS::SDK::GlobalAccelerator
     def create_custom_routing_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomRoutingListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomRoutingListenerInput,
         validate_input: @config.validate_input
@@ -1024,7 +1026,7 @@ module AWS::SDK::GlobalAccelerator
     def create_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointGroupInput,
         validate_input: @config.validate_input
@@ -1134,7 +1136,7 @@ module AWS::SDK::GlobalAccelerator
     def create_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateListenerInput,
         validate_input: @config.validate_input
@@ -1215,7 +1217,7 @@ module AWS::SDK::GlobalAccelerator
     def delete_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAcceleratorInput,
         validate_input: @config.validate_input
@@ -1296,7 +1298,7 @@ module AWS::SDK::GlobalAccelerator
     def delete_custom_routing_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomRoutingAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomRoutingAcceleratorInput,
         validate_input: @config.validate_input
@@ -1364,7 +1366,7 @@ module AWS::SDK::GlobalAccelerator
     def delete_custom_routing_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomRoutingEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomRoutingEndpointGroupInput,
         validate_input: @config.validate_input
@@ -1432,7 +1434,7 @@ module AWS::SDK::GlobalAccelerator
     def delete_custom_routing_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomRoutingListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomRoutingListenerInput,
         validate_input: @config.validate_input
@@ -1500,7 +1502,7 @@ module AWS::SDK::GlobalAccelerator
     def delete_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointGroupInput,
         validate_input: @config.validate_input
@@ -1568,7 +1570,7 @@ module AWS::SDK::GlobalAccelerator
     def delete_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteListenerInput,
         validate_input: @config.validate_input
@@ -1671,7 +1673,7 @@ module AWS::SDK::GlobalAccelerator
     def deny_custom_routing_traffic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DenyCustomRoutingTrafficInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DenyCustomRoutingTrafficInput,
         validate_input: @config.validate_input
@@ -1753,7 +1755,7 @@ module AWS::SDK::GlobalAccelerator
     def deprovision_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprovisionByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprovisionByoipCidrInput,
         validate_input: @config.validate_input
@@ -1835,7 +1837,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAcceleratorInput,
         validate_input: @config.validate_input
@@ -1908,7 +1910,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_accelerator_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAcceleratorAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAcceleratorAttributesInput,
         validate_input: @config.validate_input
@@ -1990,7 +1992,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_custom_routing_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomRoutingAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomRoutingAcceleratorInput,
         validate_input: @config.validate_input
@@ -2062,7 +2064,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_custom_routing_accelerator_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomRoutingAcceleratorAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomRoutingAcceleratorAttributesInput,
         validate_input: @config.validate_input
@@ -2142,7 +2144,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_custom_routing_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomRoutingEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomRoutingEndpointGroupInput,
         validate_input: @config.validate_input
@@ -2216,7 +2218,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_custom_routing_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomRoutingListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomRoutingListenerInput,
         validate_input: @config.validate_input
@@ -2304,7 +2306,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointGroupInput,
         validate_input: @config.validate_input
@@ -2380,7 +2382,7 @@ module AWS::SDK::GlobalAccelerator
     def describe_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeListenerInput,
         validate_input: @config.validate_input
@@ -2468,7 +2470,7 @@ module AWS::SDK::GlobalAccelerator
     def list_accelerators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAcceleratorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAcceleratorsInput,
         validate_input: @config.validate_input
@@ -2551,7 +2553,7 @@ module AWS::SDK::GlobalAccelerator
     def list_byoip_cidrs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListByoipCidrsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListByoipCidrsInput,
         validate_input: @config.validate_input
@@ -2639,7 +2641,7 @@ module AWS::SDK::GlobalAccelerator
     def list_custom_routing_accelerators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomRoutingAcceleratorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomRoutingAcceleratorsInput,
         validate_input: @config.validate_input
@@ -2729,7 +2731,7 @@ module AWS::SDK::GlobalAccelerator
     def list_custom_routing_endpoint_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomRoutingEndpointGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomRoutingEndpointGroupsInput,
         validate_input: @config.validate_input
@@ -2813,7 +2815,7 @@ module AWS::SDK::GlobalAccelerator
     def list_custom_routing_listeners(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomRoutingListenersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomRoutingListenersInput,
         validate_input: @config.validate_input
@@ -2913,7 +2915,7 @@ module AWS::SDK::GlobalAccelerator
     def list_custom_routing_port_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomRoutingPortMappingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomRoutingPortMappingsInput,
         validate_input: @config.validate_input
@@ -3011,7 +3013,7 @@ module AWS::SDK::GlobalAccelerator
     def list_custom_routing_port_mappings_by_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomRoutingPortMappingsByDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomRoutingPortMappingsByDestinationInput,
         validate_input: @config.validate_input
@@ -3109,7 +3111,7 @@ module AWS::SDK::GlobalAccelerator
     def list_endpoint_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEndpointGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEndpointGroupsInput,
         validate_input: @config.validate_input
@@ -3195,7 +3197,7 @@ module AWS::SDK::GlobalAccelerator
     def list_listeners(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListListenersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListListenersInput,
         validate_input: @config.validate_input
@@ -3269,7 +3271,7 @@ module AWS::SDK::GlobalAccelerator
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3360,7 +3362,7 @@ module AWS::SDK::GlobalAccelerator
     def provision_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionByoipCidrInput,
         validate_input: @config.validate_input
@@ -3435,7 +3437,7 @@ module AWS::SDK::GlobalAccelerator
     def remove_custom_routing_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveCustomRoutingEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveCustomRoutingEndpointsInput,
         validate_input: @config.validate_input
@@ -3514,7 +3516,7 @@ module AWS::SDK::GlobalAccelerator
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3591,7 +3593,7 @@ module AWS::SDK::GlobalAccelerator
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3692,7 +3694,7 @@ module AWS::SDK::GlobalAccelerator
     def update_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAcceleratorInput,
         validate_input: @config.validate_input
@@ -3785,7 +3787,7 @@ module AWS::SDK::GlobalAccelerator
     def update_accelerator_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAcceleratorAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAcceleratorAttributesInput,
         validate_input: @config.validate_input
@@ -3881,7 +3883,7 @@ module AWS::SDK::GlobalAccelerator
     def update_custom_routing_accelerator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomRoutingAcceleratorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomRoutingAcceleratorInput,
         validate_input: @config.validate_input
@@ -3974,7 +3976,7 @@ module AWS::SDK::GlobalAccelerator
     def update_custom_routing_accelerator_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomRoutingAcceleratorAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomRoutingAcceleratorAttributesInput,
         validate_input: @config.validate_input
@@ -4060,7 +4062,7 @@ module AWS::SDK::GlobalAccelerator
     def update_custom_routing_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomRoutingListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomRoutingListenerInput,
         validate_input: @config.validate_input
@@ -4205,7 +4207,7 @@ module AWS::SDK::GlobalAccelerator
     def update_endpoint_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointGroupInput,
         validate_input: @config.validate_input
@@ -4309,7 +4311,7 @@ module AWS::SDK::GlobalAccelerator
     def update_listener(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateListenerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateListenerInput,
         validate_input: @config.validate_input
@@ -4390,7 +4392,7 @@ module AWS::SDK::GlobalAccelerator
     def withdraw_byoip_cidr(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::WithdrawByoipCidrInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::WithdrawByoipCidrInput,
         validate_input: @config.validate_input

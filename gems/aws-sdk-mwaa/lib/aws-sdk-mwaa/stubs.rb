@@ -82,7 +82,7 @@ module AWS::SDK::MWAA
     class GetEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -116,14 +116,14 @@ module AWS::SDK::MWAA
           plugins_s3_object_version: 'plugins_s3_object_version',
           requirements_s3_path: 'requirements_s3_path',
           requirements_s3_object_version: 'requirements_s3_object_version',
-          airflow_configuration_options: Stubs::AirflowConfigurationOptions.default(visited),
+          airflow_configuration_options: AirflowConfigurationOptions.default(visited),
           environment_class: 'environment_class',
           max_workers: 1,
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
-          last_update: Stubs::LastUpdate.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
+          last_update: LastUpdate.default(visited),
           weekly_maintenance_window_start: 'weekly_maintenance_window_start',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
           webserver_access_mode: 'webserver_access_mode',
           min_workers: 1,
           schedulers: 1,
@@ -191,7 +191,7 @@ module AWS::SDK::MWAA
         {
           status: 'status',
           created_at: Time.now,
-          error: Stubs::UpdateError.default(visited),
+          error: UpdateError.default(visited),
           source: 'source',
         }
       end
@@ -233,11 +233,11 @@ module AWS::SDK::MWAA
         return nil if visited.include?('LoggingConfiguration')
         visited = visited + ['LoggingConfiguration']
         {
-          dag_processing_logs: Stubs::ModuleLoggingConfiguration.default(visited),
-          scheduler_logs: Stubs::ModuleLoggingConfiguration.default(visited),
-          webserver_logs: Stubs::ModuleLoggingConfiguration.default(visited),
-          worker_logs: Stubs::ModuleLoggingConfiguration.default(visited),
-          task_logs: Stubs::ModuleLoggingConfiguration.default(visited),
+          dag_processing_logs: ModuleLoggingConfiguration.default(visited),
+          scheduler_logs: ModuleLoggingConfiguration.default(visited),
+          webserver_logs: ModuleLoggingConfiguration.default(visited),
+          worker_logs: ModuleLoggingConfiguration.default(visited),
+          task_logs: ModuleLoggingConfiguration.default(visited),
         }
       end
 
@@ -281,8 +281,8 @@ module AWS::SDK::MWAA
         return nil if visited.include?('NetworkConfiguration')
         visited = visited + ['NetworkConfiguration']
         {
-          subnet_ids: Stubs::SubnetList.default(visited),
-          security_group_ids: Stubs::SecurityGroupList.default(visited),
+          subnet_ids: SubnetList.default(visited),
+          security_group_ids: SecurityGroupList.default(visited),
         }
       end
 
@@ -359,7 +359,7 @@ module AWS::SDK::MWAA
     class ListEnvironments
       def self.default(visited=[])
         {
-          environments: Stubs::EnvironmentList.default(visited),
+          environments: EnvironmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -398,7 +398,7 @@ module AWS::SDK::MWAA
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

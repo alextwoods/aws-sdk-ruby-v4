@@ -309,12 +309,12 @@ module AWS::SDK::KinesisVideoArchivedMedia
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fragment_size_in_bytes ||= 0
         self.fragment_length_in_milliseconds ||= 0
       end
-
     end
 
     # <p>Describes the timestamp range and timestamp origin of a range of fragments.</p>

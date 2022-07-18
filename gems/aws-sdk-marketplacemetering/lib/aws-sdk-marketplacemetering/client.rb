@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MarketplaceMetering
@@ -186,7 +188,7 @@ module AWS::SDK::MarketplaceMetering
     def batch_meter_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchMeterUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchMeterUsageInput,
         validate_input: @config.validate_input
@@ -306,7 +308,7 @@ module AWS::SDK::MarketplaceMetering
     def meter_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::MeterUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::MeterUsageInput,
         validate_input: @config.validate_input
@@ -425,7 +427,7 @@ module AWS::SDK::MarketplaceMetering
     def register_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterUsageInput,
         validate_input: @config.validate_input
@@ -515,7 +517,7 @@ module AWS::SDK::MarketplaceMetering
     def resolve_customer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResolveCustomerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResolveCustomerInput,
         validate_input: @config.validate_input

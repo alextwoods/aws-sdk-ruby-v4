@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::KafkaConnect
   module Parsers
 
@@ -169,7 +167,7 @@ module AWS::SDK::KafkaConnect
         map = Hearth::JSON.load(http_resp.body)
         data.capacity = (Parsers::CapacityDescription.parse(map['capacity']) unless map['capacity'].nil?)
         data.connector_arn = map['connectorArn']
-        data.connector_configuration = (Parsers::Map____mapOf__string.parse(map['connectorConfiguration']) unless map['connectorConfiguration'].nil?)
+        data.connector_configuration = (Parsers::Map____sensitive__mapOf__string.parse(map['connectorConfiguration']) unless map['connectorConfiguration'].nil?)
         data.connector_description = map['connectorDescription']
         data.connector_name = map['connectorName']
         data.connector_state = map['connectorState']
@@ -331,7 +329,7 @@ module AWS::SDK::KafkaConnect
       end
     end
 
-    class Map____mapOf__string
+    class Map____sensitive__mapOf__string
       def self.parse(map)
         data = {}
         map.map do |key, value|

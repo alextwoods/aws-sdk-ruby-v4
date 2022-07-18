@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::KinesisVideo
   module Validators
 
@@ -39,7 +41,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input[:channel_type], ::String, context: "#{context}[:channel_type]")
         Hearth::Validator.validate!(input[:channel_status], ::String, context: "#{context}[:channel_status]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::SingleMasterConfiguration.validate!(input[:single_master_configuration], context: "#{context}[:single_master_configuration]") unless input[:single_master_configuration].nil?
+        SingleMasterConfiguration.validate!(input[:single_master_configuration], context: "#{context}[:single_master_configuration]") unless input[:single_master_configuration].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChannelInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChannelInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -73,8 +75,8 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::CreateSignalingChannelInput, context: context)
         Hearth::Validator.validate!(input[:channel_name], ::String, context: "#{context}[:channel_name]")
         Hearth::Validator.validate!(input[:channel_type], ::String, context: "#{context}[:channel_type]")
-        Validators::SingleMasterConfiguration.validate!(input[:single_master_configuration], context: "#{context}[:single_master_configuration]") unless input[:single_master_configuration].nil?
-        Validators::TagOnCreateList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SingleMasterConfiguration.validate!(input[:single_master_configuration], context: "#{context}[:single_master_configuration]") unless input[:single_master_configuration].nil?
+        TagOnCreateList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input[:media_type], ::String, context: "#{context}[:media_type]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:data_retention_in_hours], ::Integer, context: "#{context}[:data_retention_in_hours]")
-        Validators::ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::KinesisVideo
     class DescribeImageGenerationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeImageGenerationConfigurationOutput, context: context)
-        Validators::ImageGenerationConfiguration.validate!(input[:image_generation_configuration], context: "#{context}[:image_generation_configuration]") unless input[:image_generation_configuration].nil?
+        ImageGenerationConfiguration.validate!(input[:image_generation_configuration], context: "#{context}[:image_generation_configuration]") unless input[:image_generation_configuration].nil?
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::KinesisVideo
     class DescribeNotificationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNotificationConfigurationOutput, context: context)
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::KinesisVideo
     class DescribeSignalingChannelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSignalingChannelOutput, context: context)
-        Validators::ChannelInfo.validate!(input[:channel_info], context: "#{context}[:channel_info]") unless input[:channel_info].nil?
+        ChannelInfo.validate!(input[:channel_info], context: "#{context}[:channel_info]") unless input[:channel_info].nil?
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::KinesisVideo
     class DescribeStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStreamOutput, context: context)
-        Validators::StreamInfo.validate!(input[:stream_info], context: "#{context}[:stream_info]") unless input[:stream_info].nil?
+        StreamInfo.validate!(input[:stream_info], context: "#{context}[:stream_info]") unless input[:stream_info].nil?
       end
     end
 
@@ -229,14 +231,14 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSignalingChannelEndpointInput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
-        Validators::SingleMasterChannelEndpointConfiguration.validate!(input[:single_master_channel_endpoint_configuration], context: "#{context}[:single_master_channel_endpoint_configuration]") unless input[:single_master_channel_endpoint_configuration].nil?
+        SingleMasterChannelEndpointConfiguration.validate!(input[:single_master_channel_endpoint_configuration], context: "#{context}[:single_master_channel_endpoint_configuration]") unless input[:single_master_channel_endpoint_configuration].nil?
       end
     end
 
     class GetSignalingChannelEndpointOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSignalingChannelEndpointOutput, context: context)
-        Validators::ResourceEndpointList.validate!(input[:resource_endpoint_list], context: "#{context}[:resource_endpoint_list]") unless input[:resource_endpoint_list].nil?
+        ResourceEndpointList.validate!(input[:resource_endpoint_list], context: "#{context}[:resource_endpoint_list]") unless input[:resource_endpoint_list].nil?
       end
     end
 
@@ -245,10 +247,10 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::ImageGenerationConfiguration, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:image_selector_type], ::String, context: "#{context}[:image_selector_type]")
-        Validators::ImageGenerationDestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
+        ImageGenerationDestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
         Hearth::Validator.validate!(input[:sampling_interval], ::Integer, context: "#{context}[:sampling_interval]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::FormatConfig.validate!(input[:format_config], context: "#{context}[:format_config]") unless input[:format_config].nil?
+        FormatConfig.validate!(input[:format_config], context: "#{context}[:format_config]") unless input[:format_config].nil?
         Hearth::Validator.validate!(input[:width_pixels], ::Integer, context: "#{context}[:width_pixels]")
         Hearth::Validator.validate!(input[:height_pixels], ::Integer, context: "#{context}[:height_pixels]")
       end
@@ -297,14 +299,14 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::ListSignalingChannelsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ChannelNameCondition.validate!(input[:channel_name_condition], context: "#{context}[:channel_name_condition]") unless input[:channel_name_condition].nil?
+        ChannelNameCondition.validate!(input[:channel_name_condition], context: "#{context}[:channel_name_condition]") unless input[:channel_name_condition].nil?
       end
     end
 
     class ListSignalingChannelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSignalingChannelsOutput, context: context)
-        Validators::ChannelInfoList.validate!(input[:channel_info_list], context: "#{context}[:channel_info_list]") unless input[:channel_info_list].nil?
+        ChannelInfoList.validate!(input[:channel_info_list], context: "#{context}[:channel_info_list]") unless input[:channel_info_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -314,14 +316,14 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::ListStreamsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::StreamNameCondition.validate!(input[:stream_name_condition], context: "#{context}[:stream_name_condition]") unless input[:stream_name_condition].nil?
+        StreamNameCondition.validate!(input[:stream_name_condition], context: "#{context}[:stream_name_condition]") unless input[:stream_name_condition].nil?
       end
     end
 
     class ListStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamsOutput, context: context)
-        Validators::StreamInfoList.validate!(input[:stream_info_list], context: "#{context}[:stream_info_list]") unless input[:stream_info_list].nil?
+        StreamInfoList.validate!(input[:stream_info_list], context: "#{context}[:stream_info_list]") unless input[:stream_info_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -338,7 +340,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForStreamOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -377,7 +379,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotificationConfiguration, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::NotificationDestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
+        NotificationDestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceEndpointListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceEndpointListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -432,7 +434,7 @@ module AWS::SDK::KinesisVideo
     class SingleMasterChannelEndpointConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SingleMasterChannelEndpointConfiguration, context: context)
-        Validators::ListOfProtocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        ListOfProtocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -497,7 +499,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -506,7 +508,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -515,7 +517,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -530,7 +532,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::TagStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -551,7 +553,7 @@ module AWS::SDK::KinesisVideo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
+        TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::UntagStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
-        Validators::TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
+        TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
       end
     end
 
@@ -598,7 +600,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::UpdateImageGenerationConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
-        Validators::ImageGenerationConfiguration.validate!(input[:image_generation_configuration], context: "#{context}[:image_generation_configuration]") unless input[:image_generation_configuration].nil?
+        ImageGenerationConfiguration.validate!(input[:image_generation_configuration], context: "#{context}[:image_generation_configuration]") unless input[:image_generation_configuration].nil?
       end
     end
 
@@ -613,7 +615,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::UpdateNotificationConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:stream_name], ::String, context: "#{context}[:stream_name]")
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
-        Validators::NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
+        NotificationConfiguration.validate!(input[:notification_configuration], context: "#{context}[:notification_configuration]") unless input[:notification_configuration].nil?
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::KinesisVideo
         Hearth::Validator.validate!(input, Types::UpdateSignalingChannelInput, context: context)
         Hearth::Validator.validate!(input[:channel_arn], ::String, context: "#{context}[:channel_arn]")
         Hearth::Validator.validate!(input[:current_version], ::String, context: "#{context}[:current_version]")
-        Validators::SingleMasterConfiguration.validate!(input[:single_master_configuration], context: "#{context}[:single_master_configuration]") unless input[:single_master_configuration].nil?
+        SingleMasterConfiguration.validate!(input[:single_master_configuration], context: "#{context}[:single_master_configuration]") unless input[:single_master_configuration].nil?
       end
     end
 

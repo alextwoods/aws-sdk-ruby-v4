@@ -354,11 +354,11 @@ module AWS::SDK::TimestreamQuery
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_period_in_minutes ||= 0
       end
-
     end
 
     # <p>Configuration required for error reporting.</p>
@@ -465,6 +465,7 @@ module AWS::SDK::TimestreamQuery
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.execution_time_in_millis ||= 0
@@ -473,7 +474,6 @@ module AWS::SDK::TimestreamQuery
         self.records_ingested ||= 0
         self.query_result_rows ||= 0
       end
-
     end
 
     # <p>
@@ -1011,13 +1011,13 @@ module AWS::SDK::TimestreamQuery
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progress_percentage ||= 0
         self.cumulative_bytes_scanned ||= 0
         self.cumulative_bytes_metered ||= 0
       end
-
     end
 
     # <p>The requested resource could not be found.</p>

@@ -160,7 +160,7 @@ module AWS::SDK::Mq
         type.auto_minor_version_upgrade = params[:auto_minor_version_upgrade]
         type.broker_name = params[:broker_name]
         type.configuration = ConfigurationId.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.deployment_mode = params[:deployment_mode]
         type.encryption_options = EncryptionOptions.build(params[:encryption_options], context: "#{context}[:encryption_options]") unless params[:encryption_options].nil?
         type.engine_type = params[:engine_type]

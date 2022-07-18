@@ -153,22 +153,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     }
 
-    @Override
-    protected void renderSetBuildMethod(SetShape shape) {
-        writer
-                .openBlock("def self.build(input)")
-                .write("data = Set.new")
-                .openBlock("input.each do |element|")
-                .call(() -> {
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "data << ", "element",
-                            true));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
-    }
-
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
 
         private final String inputGetter;

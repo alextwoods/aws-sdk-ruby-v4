@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AccessAnalyzer
@@ -74,7 +76,7 @@ module AWS::SDK::AccessAnalyzer
     def apply_archive_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApplyArchiveRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApplyArchiveRuleInput,
         validate_input: @config.validate_input
@@ -145,7 +147,7 @@ module AWS::SDK::AccessAnalyzer
     def cancel_policy_generation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelPolicyGenerationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelPolicyGenerationInput,
         validate_input: @config.validate_input
@@ -291,7 +293,7 @@ module AWS::SDK::AccessAnalyzer
     def create_access_preview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessPreviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessPreviewInput,
         validate_input: @config.validate_input
@@ -393,7 +395,7 @@ module AWS::SDK::AccessAnalyzer
     def create_analyzer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAnalyzerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAnalyzerInput,
         validate_input: @config.validate_input
@@ -482,7 +484,7 @@ module AWS::SDK::AccessAnalyzer
     def create_archive_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateArchiveRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateArchiveRuleInput,
         validate_input: @config.validate_input
@@ -556,7 +558,7 @@ module AWS::SDK::AccessAnalyzer
     def delete_analyzer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnalyzerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnalyzerInput,
         validate_input: @config.validate_input
@@ -631,7 +633,7 @@ module AWS::SDK::AccessAnalyzer
     def delete_archive_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteArchiveRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteArchiveRuleInput,
         validate_input: @config.validate_input
@@ -703,7 +705,47 @@ module AWS::SDK::AccessAnalyzer
     #   resp.data.access_preview.id #=> String
     #   resp.data.access_preview.analyzer_arn #=> String
     #   resp.data.access_preview.configurations #=> Hash<String, Configuration>
-    #   resp.data.access_preview.configurations['key'] #=> Configuration
+    #   resp.data.access_preview.configurations['key'] #=> Types::Configuration, one of [IamRole, KmsKey, SecretsManagerSecret, S3Bucket, SqsQueue]
+    #   resp.data.access_preview.configurations['key'].iam_role #=> Types::IamRoleConfiguration
+    #   resp.data.access_preview.configurations['key'].iam_role.trust_policy #=> String
+    #   resp.data.access_preview.configurations['key'].kms_key #=> Types::KmsKeyConfiguration
+    #   resp.data.access_preview.configurations['key'].kms_key.key_policies #=> Hash<String, String>
+    #   resp.data.access_preview.configurations['key'].kms_key.key_policies['key'] #=> String
+    #   resp.data.access_preview.configurations['key'].kms_key.grants #=> Array<KmsGrantConfiguration>
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0] #=> Types::KmsGrantConfiguration
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].operations #=> Array<String>
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].operations[0] #=> String, one of ["CreateGrant", "Decrypt", "DescribeKey", "Encrypt", "GenerateDataKey", "GenerateDataKeyPair", "GenerateDataKeyPairWithoutPlaintext", "GenerateDataKeyWithoutPlaintext", "GetPublicKey", "ReEncryptFrom", "ReEncryptTo", "RetireGrant", "Sign", "Verify"]
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].grantee_principal #=> String
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].retiring_principal #=> String
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].constraints #=> Types::KmsGrantConstraints
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].constraints.encryption_context_equals #=> Hash<String, String>
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].constraints.encryption_context_equals['key'] #=> String
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].constraints.encryption_context_subset #=> Hash<String, String>
+    #   resp.data.access_preview.configurations['key'].kms_key.grants[0].issuing_account #=> String
+    #   resp.data.access_preview.configurations['key'].secrets_manager_secret #=> Types::SecretsManagerSecretConfiguration
+    #   resp.data.access_preview.configurations['key'].secrets_manager_secret.kms_key_id #=> String
+    #   resp.data.access_preview.configurations['key'].secrets_manager_secret.secret_policy #=> String
+    #   resp.data.access_preview.configurations['key'].s3_bucket #=> Types::S3BucketConfiguration
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_policy #=> String
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_acl_grants #=> Array<S3BucketAclGrantConfiguration>
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_acl_grants[0] #=> Types::S3BucketAclGrantConfiguration
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_acl_grants[0].permission #=> String, one of ["READ", "WRITE", "READ_ACP", "WRITE_ACP", "FULL_CONTROL"]
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_acl_grants[0].grantee #=> Types::AclGrantee, one of [Id, Uri]
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_acl_grants[0].grantee.id #=> String
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_acl_grants[0].grantee.uri #=> String
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_public_access_block #=> Types::S3PublicAccessBlockConfiguration
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_public_access_block.ignore_public_acls #=> Boolean
+    #   resp.data.access_preview.configurations['key'].s3_bucket.bucket_public_access_block.restrict_public_buckets #=> Boolean
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points #=> Hash<String, S3AccessPointConfiguration>
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'] #=> Types::S3AccessPointConfiguration
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'].access_point_policy #=> String
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'].public_access_block #=> Types::S3PublicAccessBlockConfiguration
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'].network_origin #=> Types::NetworkOriginConfiguration, one of [VpcConfiguration, InternetConfiguration]
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'].network_origin.vpc_configuration #=> Types::VpcConfiguration
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'].network_origin.vpc_configuration.vpc_id #=> String
+    #   resp.data.access_preview.configurations['key'].s3_bucket.access_points['key'].network_origin.internet_configuration #=> Types::InternetConfiguration
+    #   resp.data.access_preview.configurations['key'].sqs_queue #=> Types::SqsQueueConfiguration
+    #   resp.data.access_preview.configurations['key'].sqs_queue.queue_policy #=> String
     #   resp.data.access_preview.created_at #=> Time
     #   resp.data.access_preview.status #=> String, one of ["COMPLETED", "CREATING", "FAILED"]
     #   resp.data.access_preview.status_reason #=> Types::AccessPreviewStatusReason
@@ -712,7 +754,7 @@ module AWS::SDK::AccessAnalyzer
     def get_access_preview(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessPreviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessPreviewInput,
         validate_input: @config.validate_input
@@ -798,7 +840,7 @@ module AWS::SDK::AccessAnalyzer
     def get_analyzed_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnalyzedResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnalyzedResourceInput,
         validate_input: @config.validate_input
@@ -877,7 +919,7 @@ module AWS::SDK::AccessAnalyzer
     def get_analyzer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnalyzerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnalyzerInput,
         validate_input: @config.validate_input
@@ -960,7 +1002,7 @@ module AWS::SDK::AccessAnalyzer
     def get_archive_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetArchiveRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetArchiveRuleInput,
         validate_input: @config.validate_input
@@ -1054,7 +1096,7 @@ module AWS::SDK::AccessAnalyzer
     def get_finding(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingInput,
         validate_input: @config.validate_input
@@ -1164,7 +1206,7 @@ module AWS::SDK::AccessAnalyzer
     def get_generated_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGeneratedPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGeneratedPolicyInput,
         validate_input: @config.validate_input
@@ -1281,7 +1323,7 @@ module AWS::SDK::AccessAnalyzer
     def list_access_preview_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessPreviewFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessPreviewFindingsInput,
         validate_input: @config.validate_input
@@ -1367,7 +1409,7 @@ module AWS::SDK::AccessAnalyzer
     def list_access_previews(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccessPreviewsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccessPreviewsInput,
         validate_input: @config.validate_input
@@ -1454,7 +1496,7 @@ module AWS::SDK::AccessAnalyzer
     def list_analyzed_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnalyzedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnalyzedResourcesInput,
         validate_input: @config.validate_input
@@ -1544,7 +1586,7 @@ module AWS::SDK::AccessAnalyzer
     def list_analyzers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnalyzersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnalyzersInput,
         validate_input: @config.validate_input
@@ -1632,7 +1674,7 @@ module AWS::SDK::AccessAnalyzer
     def list_archive_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListArchiveRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListArchiveRulesInput,
         validate_input: @config.validate_input
@@ -1751,7 +1793,7 @@ module AWS::SDK::AccessAnalyzer
     def list_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingsInput,
         validate_input: @config.validate_input
@@ -1837,7 +1879,7 @@ module AWS::SDK::AccessAnalyzer
     def list_policy_generations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPolicyGenerationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPolicyGenerationsInput,
         validate_input: @config.validate_input
@@ -1906,7 +1948,7 @@ module AWS::SDK::AccessAnalyzer
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2005,7 +2047,7 @@ module AWS::SDK::AccessAnalyzer
     def start_policy_generation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPolicyGenerationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPolicyGenerationInput,
         validate_input: @config.validate_input
@@ -2079,7 +2121,7 @@ module AWS::SDK::AccessAnalyzer
     def start_resource_scan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartResourceScanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartResourceScanInput,
         validate_input: @config.validate_input
@@ -2153,7 +2195,7 @@ module AWS::SDK::AccessAnalyzer
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2227,7 +2269,7 @@ module AWS::SDK::AccessAnalyzer
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2314,7 +2356,7 @@ module AWS::SDK::AccessAnalyzer
     def update_archive_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateArchiveRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateArchiveRuleInput,
         validate_input: @config.validate_input
@@ -2403,7 +2445,7 @@ module AWS::SDK::AccessAnalyzer
     def update_findings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFindingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFindingsInput,
         validate_input: @config.validate_input
@@ -2512,7 +2554,13 @@ module AWS::SDK::AccessAnalyzer
     #   resp.data.findings[0].locations #=> Array<Location>
     #   resp.data.findings[0].locations[0] #=> Types::Location
     #   resp.data.findings[0].locations[0].path #=> Array<PathElement>
-    #   resp.data.findings[0].locations[0].path[0] #=> PathElement
+    #   resp.data.findings[0].locations[0].path[0] #=> Types::PathElement, one of [Index, Key, Substring, Value]
+    #   resp.data.findings[0].locations[0].path[0].index #=> Integer
+    #   resp.data.findings[0].locations[0].path[0].key #=> String
+    #   resp.data.findings[0].locations[0].path[0].substring #=> Types::Substring
+    #   resp.data.findings[0].locations[0].path[0].substring.start #=> Integer
+    #   resp.data.findings[0].locations[0].path[0].substring.length #=> Integer
+    #   resp.data.findings[0].locations[0].path[0].value #=> String
     #   resp.data.findings[0].locations[0].span #=> Types::Span
     #   resp.data.findings[0].locations[0].span.start #=> Types::Position
     #   resp.data.findings[0].locations[0].span.start.line #=> Integer
@@ -2524,7 +2572,7 @@ module AWS::SDK::AccessAnalyzer
     def validate_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidatePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidatePolicyInput,
         validate_input: @config.validate_input

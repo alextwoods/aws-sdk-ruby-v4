@@ -48,7 +48,7 @@ module AWS::SDK::SecretsManager
         Hearth::Validator.validate!(params, ::Hash, Types::CreateSecretInput, context: context)
         type = Types::CreateSecretInput.new
         type.name = params[:name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.kms_key_id = params[:kms_key_id]
         type.secret_binary = params[:secret_binary]
@@ -423,7 +423,7 @@ module AWS::SDK::SecretsManager
         Hearth::Validator.validate!(params, ::Hash, Types::PutSecretValueInput, context: context)
         type = Types::PutSecretValueInput.new
         type.secret_id = params[:secret_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.secret_binary = params[:secret_binary]
         type.secret_string = params[:secret_string]
         type.version_stages = SecretVersionStagesType.build(params[:version_stages], context: "#{context}[:version_stages]") unless params[:version_stages].nil?
@@ -571,7 +571,7 @@ module AWS::SDK::SecretsManager
         Hearth::Validator.validate!(params, ::Hash, Types::RotateSecretInput, context: context)
         type = Types::RotateSecretInput.new
         type.secret_id = params[:secret_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.rotation_lambda_arn = params[:rotation_lambda_arn]
         type.rotation_rules = RotationRulesType.build(params[:rotation_rules], context: "#{context}[:rotation_rules]") unless params[:rotation_rules].nil?
         type.rotate_immediately = params[:rotate_immediately]
@@ -773,7 +773,7 @@ module AWS::SDK::SecretsManager
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateSecretInput, context: context)
         type = Types::UpdateSecretInput.new
         type.secret_id = params[:secret_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.kms_key_id = params[:kms_key_id]
         type.secret_binary = params[:secret_binary]

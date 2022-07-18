@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::KMS
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AliasListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AliasListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -136,9 +138,9 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:grantee_principal], ::String, context: "#{context}[:grantee_principal]")
         Hearth::Validator.validate!(input[:retiring_principal], ::String, context: "#{context}[:retiring_principal]")
-        Validators::GrantOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
-        Validators::GrantConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        GrantConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -162,7 +164,7 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:origin], ::String, context: "#{context}[:origin]")
         Hearth::Validator.validate!(input[:custom_key_store_id], ::String, context: "#{context}[:custom_key_store_id]")
         Hearth::Validator.validate!(input[:bypass_policy_lockout_safety_check], ::TrueClass, ::FalseClass, context: "#{context}[:bypass_policy_lockout_safety_check]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:multi_region], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region]")
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::KMS
     class CreateKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeyOutput, context: context)
-        Validators::KeyMetadata.validate!(input[:key_metadata], context: "#{context}[:key_metadata]") unless input[:key_metadata].nil?
+        KeyMetadata.validate!(input[:key_metadata], context: "#{context}[:key_metadata]") unless input[:key_metadata].nil?
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomKeyStoresListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomKeyStoresListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -228,8 +230,8 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DecryptInput, context: context)
         Hearth::Validator.validate!(input[:ciphertext_blob], ::String, context: "#{context}[:ciphertext_blob]")
-        Validators::EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:encryption_algorithm], ::String, context: "#{context}[:encryption_algorithm]")
       end
@@ -303,7 +305,7 @@ module AWS::SDK::KMS
     class DescribeCustomKeyStoresOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCustomKeyStoresOutput, context: context)
-        Validators::CustomKeyStoresList.validate!(input[:custom_key_stores], context: "#{context}[:custom_key_stores]") unless input[:custom_key_stores].nil?
+        CustomKeyStoresList.validate!(input[:custom_key_stores], context: "#{context}[:custom_key_stores]") unless input[:custom_key_stores].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -313,14 +315,14 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeKeyInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
     class DescribeKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeKeyOutput, context: context)
-        Validators::KeyMetadata.validate!(input[:key_metadata], context: "#{context}[:key_metadata]") unless input[:key_metadata].nil?
+        KeyMetadata.validate!(input[:key_metadata], context: "#{context}[:key_metadata]") unless input[:key_metadata].nil?
       end
     end
 
@@ -401,8 +403,8 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input, Types::EncryptInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:plaintext], ::String, context: "#{context}[:plaintext]")
-        Validators::EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
         Hearth::Validator.validate!(input[:encryption_algorithm], ::String, context: "#{context}[:encryption_algorithm]")
       end
     end
@@ -446,10 +448,10 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenerateDataKeyInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
-        Validators::EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
+        EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
         Hearth::Validator.validate!(input[:number_of_bytes], ::Integer, context: "#{context}[:number_of_bytes]")
         Hearth::Validator.validate!(input[:key_spec], ::String, context: "#{context}[:key_spec]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -465,10 +467,10 @@ module AWS::SDK::KMS
     class GenerateDataKeyPairInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenerateDataKeyPairInput, context: context)
-        Validators::EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
+        EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:key_pair_spec], ::String, context: "#{context}[:key_pair_spec]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -486,10 +488,10 @@ module AWS::SDK::KMS
     class GenerateDataKeyPairWithoutPlaintextInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenerateDataKeyPairWithoutPlaintextInput, context: context)
-        Validators::EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
+        EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:key_pair_spec], ::String, context: "#{context}[:key_pair_spec]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -507,10 +509,10 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GenerateDataKeyWithoutPlaintextInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
-        Validators::EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
+        EncryptionContextType.validate!(input[:encryption_context], context: "#{context}[:encryption_context]") unless input[:encryption_context].nil?
         Hearth::Validator.validate!(input[:key_spec], ::String, context: "#{context}[:key_spec]")
         Hearth::Validator.validate!(input[:number_of_bytes], ::Integer, context: "#{context}[:number_of_bytes]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -528,7 +530,7 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:mac_algorithm], ::String, context: "#{context}[:mac_algorithm]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -608,7 +610,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPublicKeyInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -620,16 +622,16 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:customer_master_key_spec], ::String, context: "#{context}[:customer_master_key_spec]")
         Hearth::Validator.validate!(input[:key_spec], ::String, context: "#{context}[:key_spec]")
         Hearth::Validator.validate!(input[:key_usage], ::String, context: "#{context}[:key_usage]")
-        Validators::EncryptionAlgorithmSpecList.validate!(input[:encryption_algorithms], context: "#{context}[:encryption_algorithms]") unless input[:encryption_algorithms].nil?
-        Validators::SigningAlgorithmSpecList.validate!(input[:signing_algorithms], context: "#{context}[:signing_algorithms]") unless input[:signing_algorithms].nil?
+        EncryptionAlgorithmSpecList.validate!(input[:encryption_algorithms], context: "#{context}[:encryption_algorithms]") unless input[:encryption_algorithms].nil?
+        SigningAlgorithmSpecList.validate!(input[:signing_algorithms], context: "#{context}[:signing_algorithms]") unless input[:signing_algorithms].nil?
       end
     end
 
     class GrantConstraints
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GrantConstraints, context: context)
-        Validators::EncryptionContextType.validate!(input[:encryption_context_subset], context: "#{context}[:encryption_context_subset]") unless input[:encryption_context_subset].nil?
-        Validators::EncryptionContextType.validate!(input[:encryption_context_equals], context: "#{context}[:encryption_context_equals]") unless input[:encryption_context_equals].nil?
+        EncryptionContextType.validate!(input[:encryption_context_subset], context: "#{context}[:encryption_context_subset]") unless input[:encryption_context_subset].nil?
+        EncryptionContextType.validate!(input[:encryption_context_equals], context: "#{context}[:encryption_context_equals]") unless input[:encryption_context_equals].nil?
       end
     end
 
@@ -637,7 +639,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GrantListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GrantListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -652,8 +654,8 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:grantee_principal], ::String, context: "#{context}[:grantee_principal]")
         Hearth::Validator.validate!(input[:retiring_principal], ::String, context: "#{context}[:retiring_principal]")
         Hearth::Validator.validate!(input[:issuing_account], ::String, context: "#{context}[:issuing_account]")
-        Validators::GrantOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
-        Validators::GrantConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
+        GrantOperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        GrantConstraints.validate!(input[:constraints], context: "#{context}[:constraints]") unless input[:constraints].nil?
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -834,12 +836,12 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:key_manager], ::String, context: "#{context}[:key_manager]")
         Hearth::Validator.validate!(input[:customer_master_key_spec], ::String, context: "#{context}[:customer_master_key_spec]")
         Hearth::Validator.validate!(input[:key_spec], ::String, context: "#{context}[:key_spec]")
-        Validators::EncryptionAlgorithmSpecList.validate!(input[:encryption_algorithms], context: "#{context}[:encryption_algorithms]") unless input[:encryption_algorithms].nil?
-        Validators::SigningAlgorithmSpecList.validate!(input[:signing_algorithms], context: "#{context}[:signing_algorithms]") unless input[:signing_algorithms].nil?
+        EncryptionAlgorithmSpecList.validate!(input[:encryption_algorithms], context: "#{context}[:encryption_algorithms]") unless input[:encryption_algorithms].nil?
+        SigningAlgorithmSpecList.validate!(input[:signing_algorithms], context: "#{context}[:signing_algorithms]") unless input[:signing_algorithms].nil?
         Hearth::Validator.validate!(input[:multi_region], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region]")
-        Validators::MultiRegionConfiguration.validate!(input[:multi_region_configuration], context: "#{context}[:multi_region_configuration]") unless input[:multi_region_configuration].nil?
+        MultiRegionConfiguration.validate!(input[:multi_region_configuration], context: "#{context}[:multi_region_configuration]") unless input[:multi_region_configuration].nil?
         Hearth::Validator.validate!(input[:pending_deletion_window_in_days], ::Integer, context: "#{context}[:pending_deletion_window_in_days]")
-        Validators::MacAlgorithmSpecList.validate!(input[:mac_algorithms], context: "#{context}[:mac_algorithms]") unless input[:mac_algorithms].nil?
+        MacAlgorithmSpecList.validate!(input[:mac_algorithms], context: "#{context}[:mac_algorithms]") unless input[:mac_algorithms].nil?
       end
     end
 
@@ -869,7 +871,7 @@ module AWS::SDK::KMS
     class ListAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAliasesOutput, context: context)
-        Validators::AliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        AliasList.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -889,7 +891,7 @@ module AWS::SDK::KMS
     class ListGrantsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGrantsOutput, context: context)
-        Validators::GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
+        GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -907,7 +909,7 @@ module AWS::SDK::KMS
     class ListKeyPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListKeyPoliciesOutput, context: context)
-        Validators::PolicyNameList.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
+        PolicyNameList.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -924,7 +926,7 @@ module AWS::SDK::KMS
     class ListKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListKeysOutput, context: context)
-        Validators::KeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
+        KeyList.validate!(input[:keys], context: "#{context}[:keys]") unless input[:keys].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -942,7 +944,7 @@ module AWS::SDK::KMS
     class ListResourceTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -960,7 +962,7 @@ module AWS::SDK::KMS
     class ListRetirableGrantsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRetirableGrantsOutput, context: context)
-        Validators::GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
+        GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
         Hearth::Validator.validate!(input[:truncated], ::TrueClass, ::FalseClass, context: "#{context}[:truncated]")
       end
@@ -986,8 +988,8 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MultiRegionConfiguration, context: context)
         Hearth::Validator.validate!(input[:multi_region_key_type], ::String, context: "#{context}[:multi_region_key_type]")
-        Validators::MultiRegionKey.validate!(input[:primary_key], context: "#{context}[:primary_key]") unless input[:primary_key].nil?
-        Validators::MultiRegionKeyList.validate!(input[:replica_keys], context: "#{context}[:replica_keys]") unless input[:replica_keys].nil?
+        MultiRegionKey.validate!(input[:primary_key], context: "#{context}[:primary_key]") unless input[:primary_key].nil?
+        MultiRegionKeyList.validate!(input[:replica_keys], context: "#{context}[:replica_keys]") unless input[:replica_keys].nil?
       end
     end
 
@@ -1003,7 +1005,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MultiRegionKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MultiRegionKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1044,13 +1046,13 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReEncryptInput, context: context)
         Hearth::Validator.validate!(input[:ciphertext_blob], ::String, context: "#{context}[:ciphertext_blob]")
-        Validators::EncryptionContextType.validate!(input[:source_encryption_context], context: "#{context}[:source_encryption_context]") unless input[:source_encryption_context].nil?
+        EncryptionContextType.validate!(input[:source_encryption_context], context: "#{context}[:source_encryption_context]") unless input[:source_encryption_context].nil?
         Hearth::Validator.validate!(input[:source_key_id], ::String, context: "#{context}[:source_key_id]")
         Hearth::Validator.validate!(input[:destination_key_id], ::String, context: "#{context}[:destination_key_id]")
-        Validators::EncryptionContextType.validate!(input[:destination_encryption_context], context: "#{context}[:destination_encryption_context]") unless input[:destination_encryption_context].nil?
+        EncryptionContextType.validate!(input[:destination_encryption_context], context: "#{context}[:destination_encryption_context]") unless input[:destination_encryption_context].nil?
         Hearth::Validator.validate!(input[:source_encryption_algorithm], ::String, context: "#{context}[:source_encryption_algorithm]")
         Hearth::Validator.validate!(input[:destination_encryption_algorithm], ::String, context: "#{context}[:destination_encryption_algorithm]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -1073,16 +1075,16 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
         Hearth::Validator.validate!(input[:bypass_policy_lockout_safety_check], ::TrueClass, ::FalseClass, context: "#{context}[:bypass_policy_lockout_safety_check]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class ReplicateKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplicateKeyOutput, context: context)
-        Validators::KeyMetadata.validate!(input[:replica_key_metadata], context: "#{context}[:replica_key_metadata]") unless input[:replica_key_metadata].nil?
+        KeyMetadata.validate!(input[:replica_key_metadata], context: "#{context}[:replica_key_metadata]") unless input[:replica_key_metadata].nil?
         Hearth::Validator.validate!(input[:replica_policy], ::String, context: "#{context}[:replica_policy]")
-        Validators::TagList.validate!(input[:replica_tags], context: "#{context}[:replica_tags]") unless input[:replica_tags].nil?
+        TagList.validate!(input[:replica_tags], context: "#{context}[:replica_tags]") unless input[:replica_tags].nil?
       end
     end
 
@@ -1139,7 +1141,7 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
         Hearth::Validator.validate!(input[:signing_algorithm], ::String, context: "#{context}[:signing_algorithm]")
       end
     end
@@ -1190,7 +1192,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1199,7 +1201,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1220,7 +1222,7 @@ module AWS::SDK::KMS
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1296,7 +1298,7 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:message_type], ::String, context: "#{context}[:message_type]")
         Hearth::Validator.validate!(input[:signature], ::String, context: "#{context}[:signature]")
         Hearth::Validator.validate!(input[:signing_algorithm], ::String, context: "#{context}[:signing_algorithm]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 
@@ -1307,7 +1309,7 @@ module AWS::SDK::KMS
         Hearth::Validator.validate!(input[:key_id], ::String, context: "#{context}[:key_id]")
         Hearth::Validator.validate!(input[:mac_algorithm], ::String, context: "#{context}[:mac_algorithm]")
         Hearth::Validator.validate!(input[:mac], ::String, context: "#{context}[:mac]")
-        Validators::GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
+        GrantTokenList.validate!(input[:grant_tokens], context: "#{context}[:grant_tokens]") unless input[:grant_tokens].nil?
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Mobile
@@ -102,7 +104,7 @@ module AWS::SDK::Mobile
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -183,7 +185,7 @@ module AWS::SDK::Mobile
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -262,7 +264,7 @@ module AWS::SDK::Mobile
     def describe_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBundleInput,
         validate_input: @config.validate_input
@@ -355,7 +357,7 @@ module AWS::SDK::Mobile
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -440,7 +442,7 @@ module AWS::SDK::Mobile
     def export_bundle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportBundleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportBundleInput,
         validate_input: @config.validate_input
@@ -516,7 +518,7 @@ module AWS::SDK::Mobile
     def export_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportProjectInput,
         validate_input: @config.validate_input
@@ -605,7 +607,7 @@ module AWS::SDK::Mobile
     def list_bundles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBundlesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBundlesInput,
         validate_input: @config.validate_input
@@ -689,7 +691,7 @@ module AWS::SDK::Mobile
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -784,7 +786,7 @@ module AWS::SDK::Mobile
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input

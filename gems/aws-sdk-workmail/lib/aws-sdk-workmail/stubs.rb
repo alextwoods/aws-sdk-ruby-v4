@@ -470,7 +470,7 @@ module AWS::SDK::WorkMail
           email: 'email',
           name: 'name',
           type: 'type',
-          booking_options: Stubs::BookingOptions.default(visited),
+          booking_options: BookingOptions.default(visited),
           state: 'state',
           enabled_date: Time.now,
           disabled_date: Time.now,
@@ -577,7 +577,7 @@ module AWS::SDK::WorkMail
       def self.default(visited=[])
         {
           effect: 'effect',
-          matched_rules: Stubs::AccessControlRuleNameList.default(visited),
+          matched_rules: AccessControlRuleNameList.default(visited),
         }
       end
 
@@ -617,7 +617,7 @@ module AWS::SDK::WorkMail
           id: 'id',
           name: 'name',
           description: 'description',
-          folder_configurations: Stubs::FolderConfigurations.default(visited),
+          folder_configurations: FolderConfigurations.default(visited),
         }
       end
 
@@ -638,7 +638,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('FolderConfigurations')
         visited = visited + ['FolderConfigurations']
         [
-          Stubs::FolderConfiguration.default(visited)
+          FolderConfiguration.default(visited)
         ]
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::WorkMail
     class GetMailDomain
       def self.default(visited=[])
         {
-          records: Stubs::DnsRecords.default(visited),
+          records: DnsRecords.default(visited),
           is_test_domain: false,
           is_default: false,
           ownership_verification_status: 'ownership_verification_status',
@@ -704,7 +704,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('DnsRecords')
         visited = visited + ['DnsRecords']
         [
-          Stubs::DnsRecord.default(visited)
+          DnsRecord.default(visited)
         ]
       end
 
@@ -763,7 +763,7 @@ module AWS::SDK::WorkMail
       def self.default(visited=[])
         {
           effect: 'effect',
-          matched_rules: Stubs::MobileDeviceAccessMatchedRuleList.default(visited),
+          matched_rules: MobileDeviceAccessMatchedRuleList.default(visited),
         }
       end
 
@@ -782,7 +782,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('MobileDeviceAccessMatchedRuleList')
         visited = visited + ['MobileDeviceAccessMatchedRuleList']
         [
-          Stubs::MobileDeviceAccessMatchedRule.default(visited)
+          MobileDeviceAccessMatchedRule.default(visited)
         ]
       end
 
@@ -846,7 +846,7 @@ module AWS::SDK::WorkMail
     class ListAccessControlRules
       def self.default(visited=[])
         {
-          rules: Stubs::AccessControlRulesList.default(visited),
+          rules: AccessControlRulesList.default(visited),
         }
       end
 
@@ -864,7 +864,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('AccessControlRulesList')
         visited = visited + ['AccessControlRulesList']
         [
-          Stubs::AccessControlRule.default(visited)
+          AccessControlRule.default(visited)
         ]
       end
 
@@ -887,12 +887,12 @@ module AWS::SDK::WorkMail
           name: 'name',
           effect: 'effect',
           description: 'description',
-          ip_ranges: Stubs::IpRangeList.default(visited),
-          not_ip_ranges: Stubs::IpRangeList.default(visited),
-          actions: Stubs::ActionsList.default(visited),
-          not_actions: Stubs::ActionsList.default(visited),
-          user_ids: Stubs::UserIdList.default(visited),
-          not_user_ids: Stubs::UserIdList.default(visited),
+          ip_ranges: IpRangeList.default(visited),
+          not_ip_ranges: IpRangeList.default(visited),
+          actions: ActionsList.default(visited),
+          not_actions: ActionsList.default(visited),
+          user_ids: UserIdList.default(visited),
+          not_user_ids: UserIdList.default(visited),
           date_created: Time.now,
           date_modified: Time.now,
         }
@@ -980,7 +980,7 @@ module AWS::SDK::WorkMail
     class ListAliases
       def self.default(visited=[])
         {
-          aliases: Stubs::Aliases.default(visited),
+          aliases: Aliases.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1018,7 +1018,7 @@ module AWS::SDK::WorkMail
     class ListGroupMembers
       def self.default(visited=[])
         {
-          members: Stubs::Members.default(visited),
+          members: Members.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1038,7 +1038,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('Members')
         visited = visited + ['Members']
         [
-          Stubs::Member.default(visited)
+          Member.default(visited)
         ]
       end
 
@@ -1084,7 +1084,7 @@ module AWS::SDK::WorkMail
     class ListGroups
       def self.default(visited=[])
         {
-          groups: Stubs::Groups.default(visited),
+          groups: Groups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1104,7 +1104,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('Groups')
         visited = visited + ['Groups']
         [
-          Stubs::Group.default(visited)
+          Group.default(visited)
         ]
       end
 
@@ -1150,7 +1150,7 @@ module AWS::SDK::WorkMail
     class ListMailDomains
       def self.default(visited=[])
         {
-          mail_domains: Stubs::MailDomains.default(visited),
+          mail_domains: MailDomains.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('MailDomains')
         visited = visited + ['MailDomains']
         [
-          Stubs::MailDomainSummary.default(visited)
+          MailDomainSummary.default(visited)
         ]
       end
 
@@ -1208,7 +1208,7 @@ module AWS::SDK::WorkMail
     class ListMailboxExportJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::Jobs.default(visited),
+          jobs: Jobs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1228,7 +1228,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('Jobs')
         visited = visited + ['Jobs']
         [
-          Stubs::MailboxExportJob.default(visited)
+          MailboxExportJob.default(visited)
         ]
       end
 
@@ -1280,7 +1280,7 @@ module AWS::SDK::WorkMail
     class ListMailboxPermissions
       def self.default(visited=[])
         {
-          permissions: Stubs::Permissions.default(visited),
+          permissions: Permissions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1300,7 +1300,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('Permissions')
         visited = visited + ['Permissions']
         [
-          Stubs::Permission.default(visited)
+          Permission.default(visited)
         ]
       end
 
@@ -1322,7 +1322,7 @@ module AWS::SDK::WorkMail
         {
           grantee_id: 'grantee_id',
           grantee_type: 'grantee_type',
-          permission_values: Stubs::PermissionValues.default(visited),
+          permission_values: PermissionValues.default(visited),
         }
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::WorkMail
     class ListMobileDeviceAccessOverrides
       def self.default(visited=[])
         {
-          overrides: Stubs::MobileDeviceAccessOverridesList.default(visited),
+          overrides: MobileDeviceAccessOverridesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1380,7 +1380,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('MobileDeviceAccessOverridesList')
         visited = visited + ['MobileDeviceAccessOverridesList']
         [
-          Stubs::MobileDeviceAccessOverride.default(visited)
+          MobileDeviceAccessOverride.default(visited)
         ]
       end
 
@@ -1426,7 +1426,7 @@ module AWS::SDK::WorkMail
     class ListMobileDeviceAccessRules
       def self.default(visited=[])
         {
-          rules: Stubs::MobileDeviceAccessRulesList.default(visited),
+          rules: MobileDeviceAccessRulesList.default(visited),
         }
       end
 
@@ -1444,7 +1444,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('MobileDeviceAccessRulesList')
         visited = visited + ['MobileDeviceAccessRulesList']
         [
-          Stubs::MobileDeviceAccessRule.default(visited)
+          MobileDeviceAccessRule.default(visited)
         ]
       end
 
@@ -1468,14 +1468,14 @@ module AWS::SDK::WorkMail
           name: 'name',
           description: 'description',
           effect: 'effect',
-          device_types: Stubs::DeviceTypeList.default(visited),
-          not_device_types: Stubs::DeviceTypeList.default(visited),
-          device_models: Stubs::DeviceModelList.default(visited),
-          not_device_models: Stubs::DeviceModelList.default(visited),
-          device_operating_systems: Stubs::DeviceOperatingSystemList.default(visited),
-          not_device_operating_systems: Stubs::DeviceOperatingSystemList.default(visited),
-          device_user_agents: Stubs::DeviceUserAgentList.default(visited),
-          not_device_user_agents: Stubs::DeviceUserAgentList.default(visited),
+          device_types: DeviceTypeList.default(visited),
+          not_device_types: DeviceTypeList.default(visited),
+          device_models: DeviceModelList.default(visited),
+          not_device_models: DeviceModelList.default(visited),
+          device_operating_systems: DeviceOperatingSystemList.default(visited),
+          not_device_operating_systems: DeviceOperatingSystemList.default(visited),
+          device_user_agents: DeviceUserAgentList.default(visited),
+          not_device_user_agents: DeviceUserAgentList.default(visited),
           date_created: Time.now,
           date_modified: Time.now,
         }
@@ -1586,7 +1586,7 @@ module AWS::SDK::WorkMail
     class ListOrganizations
       def self.default(visited=[])
         {
-          organization_summaries: Stubs::OrganizationSummaries.default(visited),
+          organization_summaries: OrganizationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1606,7 +1606,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('OrganizationSummaries')
         visited = visited + ['OrganizationSummaries']
         [
-          Stubs::OrganizationSummary.default(visited)
+          OrganizationSummary.default(visited)
         ]
       end
 
@@ -1650,7 +1650,7 @@ module AWS::SDK::WorkMail
     class ListResourceDelegates
       def self.default(visited=[])
         {
-          delegates: Stubs::ResourceDelegates.default(visited),
+          delegates: ResourceDelegates.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1670,7 +1670,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('ResourceDelegates')
         visited = visited + ['ResourceDelegates']
         [
-          Stubs::Delegate.default(visited)
+          Delegate.default(visited)
         ]
       end
 
@@ -1708,7 +1708,7 @@ module AWS::SDK::WorkMail
     class ListResources
       def self.default(visited=[])
         {
-          resources: Stubs::Resources.default(visited),
+          resources: Resources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1728,7 +1728,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('Resources')
         visited = visited + ['Resources']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -1776,7 +1776,7 @@ module AWS::SDK::WorkMail
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1794,7 +1794,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1832,7 +1832,7 @@ module AWS::SDK::WorkMail
     class ListUsers
       def self.default(visited=[])
         {
-          users: Stubs::Users.default(visited),
+          users: Users.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1852,7 +1852,7 @@ module AWS::SDK::WorkMail
         return nil if visited.include?('Users')
         visited = visited + ['Users']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 

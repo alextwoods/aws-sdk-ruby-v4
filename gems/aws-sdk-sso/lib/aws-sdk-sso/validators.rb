@@ -23,7 +23,7 @@ module AWS::SDK::SSO
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -40,7 +40,7 @@ module AWS::SDK::SSO
     class GetRoleCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRoleCredentialsOutput, context: context)
-        Validators::RoleCredentials.validate!(input[:role_credentials], context: "#{context}[:role_credentials]") unless input[:role_credentials].nil?
+        RoleCredentials.validate!(input[:role_credentials], context: "#{context}[:role_credentials]") unless input[:role_credentials].nil?
       end
     end
 
@@ -65,7 +65,7 @@ module AWS::SDK::SSO
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountRolesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::RoleListType.validate!(input[:role_list], context: "#{context}[:role_list]") unless input[:role_list].nil?
+        RoleListType.validate!(input[:role_list], context: "#{context}[:role_list]") unless input[:role_list].nil?
       end
     end
 
@@ -82,7 +82,7 @@ module AWS::SDK::SSO
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::AccountListType.validate!(input[:account_list], context: "#{context}[:account_list]") unless input[:account_list].nil?
+        AccountListType.validate!(input[:account_list], context: "#{context}[:account_list]") unless input[:account_list].nil?
       end
     end
 
@@ -128,7 +128,7 @@ module AWS::SDK::SSO
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoleInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoleInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

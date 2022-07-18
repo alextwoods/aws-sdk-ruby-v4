@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MarketplaceCommerceAnalytics
@@ -207,7 +209,7 @@ module AWS::SDK::MarketplaceCommerceAnalytics
     def generate_data_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataSetInput,
         validate_input: @config.validate_input
@@ -327,7 +329,7 @@ module AWS::SDK::MarketplaceCommerceAnalytics
     def start_support_data_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSupportDataExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSupportDataExportInput,
         validate_input: @config.validate_input

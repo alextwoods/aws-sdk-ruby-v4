@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DynamoDB
@@ -136,7 +138,20 @@ module AWS::SDK::DynamoDB
     #   resp.data.responses[0].error.message #=> String
     #   resp.data.responses[0].table_name #=> String
     #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
-    #   resp.data.responses[0].item['key'] #=> AttributeValue
+    #   resp.data.responses[0].item['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.responses[0].item['key'].s #=> String
+    #   resp.data.responses[0].item['key'].n #=> String
+    #   resp.data.responses[0].item['key'].b #=> String
+    #   resp.data.responses[0].item['key'].ss #=> Array<String>
+    #   resp.data.responses[0].item['key'].ss[0] #=> String
+    #   resp.data.responses[0].item['key'].ns #=> Array<String>
+    #   resp.data.responses[0].item['key'].ns[0] #=> String
+    #   resp.data.responses[0].item['key'].bs #=> Array<String>
+    #   resp.data.responses[0].item['key'].bs[0] #=> String
+    #   resp.data.responses[0].item['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.responses[0].item['key'].l #=> Array<AttributeValue>
+    #   resp.data.responses[0].item['key'].null #=> Boolean
+    #   resp.data.responses[0].item['key'].bool #=> Boolean
     #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
     #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity[0].table_name #=> String
@@ -153,7 +168,7 @@ module AWS::SDK::DynamoDB
     def batch_execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
         validate_input: @config.validate_input
@@ -425,7 +440,20 @@ module AWS::SDK::DynamoDB
     #   resp.data.responses #=> Hash<String, Array<Hash<String, AttributeValue>>>
     #   resp.data.responses['key'] #=> Array<Hash<String, AttributeValue>>
     #   resp.data.responses['key'][0] #=> Hash<String, AttributeValue>
-    #   resp.data.responses['key'][0]['key'] #=> AttributeValue
+    #   resp.data.responses['key'][0]['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.responses['key'][0]['key'].s #=> String
+    #   resp.data.responses['key'][0]['key'].n #=> String
+    #   resp.data.responses['key'][0]['key'].b #=> String
+    #   resp.data.responses['key'][0]['key'].ss #=> Array<String>
+    #   resp.data.responses['key'][0]['key'].ss[0] #=> String
+    #   resp.data.responses['key'][0]['key'].ns #=> Array<String>
+    #   resp.data.responses['key'][0]['key'].ns[0] #=> String
+    #   resp.data.responses['key'][0]['key'].bs #=> Array<String>
+    #   resp.data.responses['key'][0]['key'].bs[0] #=> String
+    #   resp.data.responses['key'][0]['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.responses['key'][0]['key'].l #=> Array<AttributeValue>
+    #   resp.data.responses['key'][0]['key'].null #=> Boolean
+    #   resp.data.responses['key'][0]['key'].bool #=> Boolean
     #   resp.data.unprocessed_keys #=> Hash<String, KeysAndAttributes>
     #   resp.data.unprocessed_keys['key'] #=> Types::KeysAndAttributes
     #   resp.data.unprocessed_keys['key'].keys #=> Array<Hash<String, AttributeValue>>
@@ -452,7 +480,7 @@ module AWS::SDK::DynamoDB
     def batch_get_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetItemInput,
         validate_input: @config.validate_input
@@ -706,7 +734,20 @@ module AWS::SDK::DynamoDB
     #   resp.data.unprocessed_items['key'][0] #=> Types::WriteRequest
     #   resp.data.unprocessed_items['key'][0].put_request #=> Types::PutRequest
     #   resp.data.unprocessed_items['key'][0].put_request.item #=> Hash<String, AttributeValue>
-    #   resp.data.unprocessed_items['key'][0].put_request.item['key'] #=> AttributeValue
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].s #=> String
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].n #=> String
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].b #=> String
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].ss #=> Array<String>
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].ss[0] #=> String
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].ns #=> Array<String>
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].ns[0] #=> String
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].bs #=> Array<String>
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].bs[0] #=> String
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].l #=> Array<AttributeValue>
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].null #=> Boolean
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'].bool #=> Boolean
     #   resp.data.unprocessed_items['key'][0].delete_request #=> Types::DeleteRequest
     #   resp.data.unprocessed_items['key'][0].delete_request.key #=> Hash<String, AttributeValue>
     #   resp.data.item_collection_metrics #=> Hash<String, Array<ItemCollectionMetrics>>
@@ -731,7 +772,7 @@ module AWS::SDK::DynamoDB
     def batch_write_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchWriteItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchWriteItemInput,
         validate_input: @config.validate_input
@@ -840,7 +881,7 @@ module AWS::SDK::DynamoDB
     def create_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
         validate_input: @config.validate_input
@@ -994,7 +1035,7 @@ module AWS::SDK::DynamoDB
     def create_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalTableInput,
         validate_input: @config.validate_input
@@ -1455,7 +1496,7 @@ module AWS::SDK::DynamoDB
     def create_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
         validate_input: @config.validate_input
@@ -1575,7 +1616,7 @@ module AWS::SDK::DynamoDB
     def delete_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
         validate_input: @config.validate_input
@@ -1854,7 +1895,20 @@ module AWS::SDK::DynamoDB
     #
     #   resp.data #=> Types::DeleteItemOutput
     #   resp.data.attributes #=> Hash<String, AttributeValue>
-    #   resp.data.attributes['key'] #=> AttributeValue
+    #   resp.data.attributes['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.attributes['key'].s #=> String
+    #   resp.data.attributes['key'].n #=> String
+    #   resp.data.attributes['key'].b #=> String
+    #   resp.data.attributes['key'].ss #=> Array<String>
+    #   resp.data.attributes['key'].ss[0] #=> String
+    #   resp.data.attributes['key'].ns #=> Array<String>
+    #   resp.data.attributes['key'].ns[0] #=> String
+    #   resp.data.attributes['key'].bs #=> Array<String>
+    #   resp.data.attributes['key'].bs[0] #=> String
+    #   resp.data.attributes['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.attributes['key'].l #=> Array<AttributeValue>
+    #   resp.data.attributes['key'].null #=> Boolean
+    #   resp.data.attributes['key'].bool #=> Boolean
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity.table_name #=> String
     #   resp.data.consumed_capacity.capacity_units #=> Float
@@ -1874,7 +1928,7 @@ module AWS::SDK::DynamoDB
     def delete_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteItemInput,
         validate_input: @config.validate_input
@@ -2045,7 +2099,7 @@ module AWS::SDK::DynamoDB
     def delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
         validate_input: @config.validate_input
@@ -2165,7 +2219,7 @@ module AWS::SDK::DynamoDB
     def describe_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupInput,
         validate_input: @config.validate_input
@@ -2251,7 +2305,7 @@ module AWS::SDK::DynamoDB
     def describe_continuous_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContinuousBackupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContinuousBackupsInput,
         validate_input: @config.validate_input
@@ -2333,7 +2387,7 @@ module AWS::SDK::DynamoDB
     def describe_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContributorInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContributorInsightsInput,
         validate_input: @config.validate_input
@@ -2400,7 +2454,7 @@ module AWS::SDK::DynamoDB
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: @config.validate_input
@@ -2488,7 +2542,7 @@ module AWS::SDK::DynamoDB
     def describe_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportInput,
         validate_input: @config.validate_input
@@ -2583,7 +2637,7 @@ module AWS::SDK::DynamoDB
     def describe_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableInput,
         validate_input: @config.validate_input
@@ -2690,7 +2744,7 @@ module AWS::SDK::DynamoDB
     def describe_global_table_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableSettingsInput,
         validate_input: @config.validate_input
@@ -2764,7 +2818,7 @@ module AWS::SDK::DynamoDB
     def describe_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKinesisStreamingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKinesisStreamingDestinationInput,
         validate_input: @config.validate_input
@@ -2904,7 +2958,7 @@ module AWS::SDK::DynamoDB
     def describe_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLimitsInput,
         validate_input: @config.validate_input
@@ -3066,7 +3120,7 @@ module AWS::SDK::DynamoDB
     def describe_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
         validate_input: @config.validate_input
@@ -3165,7 +3219,7 @@ module AWS::SDK::DynamoDB
     def describe_table_replica_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableReplicaAutoScalingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableReplicaAutoScalingInput,
         validate_input: @config.validate_input
@@ -3236,7 +3290,7 @@ module AWS::SDK::DynamoDB
     def describe_time_to_live(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeToLiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeToLiveInput,
         validate_input: @config.validate_input
@@ -3312,7 +3366,7 @@ module AWS::SDK::DynamoDB
     def disable_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKinesisStreamingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKinesisStreamingDestinationInput,
         validate_input: @config.validate_input
@@ -3390,7 +3444,7 @@ module AWS::SDK::DynamoDB
     def enable_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKinesisStreamingDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKinesisStreamingDestinationInput,
         validate_input: @config.validate_input
@@ -3538,7 +3592,20 @@ module AWS::SDK::DynamoDB
     #   resp.data #=> Types::ExecuteStatementOutput
     #   resp.data.items #=> Array<Hash<String, AttributeValue>>
     #   resp.data.items[0] #=> Hash<String, AttributeValue>
-    #   resp.data.items[0]['key'] #=> AttributeValue
+    #   resp.data.items[0]['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.items[0]['key'].s #=> String
+    #   resp.data.items[0]['key'].n #=> String
+    #   resp.data.items[0]['key'].b #=> String
+    #   resp.data.items[0]['key'].ss #=> Array<String>
+    #   resp.data.items[0]['key'].ss[0] #=> String
+    #   resp.data.items[0]['key'].ns #=> Array<String>
+    #   resp.data.items[0]['key'].ns[0] #=> String
+    #   resp.data.items[0]['key'].bs #=> Array<String>
+    #   resp.data.items[0]['key'].bs[0] #=> String
+    #   resp.data.items[0]['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
+    #   resp.data.items[0]['key'].null #=> Boolean
+    #   resp.data.items[0]['key'].bool #=> Boolean
     #   resp.data.next_token #=> String
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity.table_name #=> String
@@ -3556,7 +3623,7 @@ module AWS::SDK::DynamoDB
     def execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
         validate_input: @config.validate_input
@@ -3663,7 +3730,20 @@ module AWS::SDK::DynamoDB
     #   resp.data.responses #=> Array<ItemResponse>
     #   resp.data.responses[0] #=> Types::ItemResponse
     #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
-    #   resp.data.responses[0].item['key'] #=> AttributeValue
+    #   resp.data.responses[0].item['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.responses[0].item['key'].s #=> String
+    #   resp.data.responses[0].item['key'].n #=> String
+    #   resp.data.responses[0].item['key'].b #=> String
+    #   resp.data.responses[0].item['key'].ss #=> Array<String>
+    #   resp.data.responses[0].item['key'].ss[0] #=> String
+    #   resp.data.responses[0].item['key'].ns #=> Array<String>
+    #   resp.data.responses[0].item['key'].ns[0] #=> String
+    #   resp.data.responses[0].item['key'].bs #=> Array<String>
+    #   resp.data.responses[0].item['key'].bs[0] #=> String
+    #   resp.data.responses[0].item['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.responses[0].item['key'].l #=> Array<AttributeValue>
+    #   resp.data.responses[0].item['key'].null #=> Boolean
+    #   resp.data.responses[0].item['key'].bool #=> Boolean
     #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
     #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity[0].table_name #=> String
@@ -3680,7 +3760,7 @@ module AWS::SDK::DynamoDB
     def execute_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteTransactionInput,
         validate_input: @config.validate_input
@@ -3829,7 +3909,7 @@ module AWS::SDK::DynamoDB
     def export_table_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportTableToPointInTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportTableToPointInTimeInput,
         validate_input: @config.validate_input
@@ -4036,7 +4116,20 @@ module AWS::SDK::DynamoDB
     #
     #   resp.data #=> Types::GetItemOutput
     #   resp.data.item #=> Hash<String, AttributeValue>
-    #   resp.data.item['key'] #=> AttributeValue
+    #   resp.data.item['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.item['key'].s #=> String
+    #   resp.data.item['key'].n #=> String
+    #   resp.data.item['key'].b #=> String
+    #   resp.data.item['key'].ss #=> Array<String>
+    #   resp.data.item['key'].ss[0] #=> String
+    #   resp.data.item['key'].ns #=> Array<String>
+    #   resp.data.item['key'].ns[0] #=> String
+    #   resp.data.item['key'].bs #=> Array<String>
+    #   resp.data.item['key'].bs[0] #=> String
+    #   resp.data.item['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.item['key'].l #=> Array<AttributeValue>
+    #   resp.data.item['key'].null #=> Boolean
+    #   resp.data.item['key'].bool #=> Boolean
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity.table_name #=> String
     #   resp.data.consumed_capacity.capacity_units #=> Float
@@ -4052,7 +4145,7 @@ module AWS::SDK::DynamoDB
     def get_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetItemInput,
         validate_input: @config.validate_input
@@ -4181,7 +4274,7 @@ module AWS::SDK::DynamoDB
     def list_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupsInput,
         validate_input: @config.validate_input
@@ -4264,7 +4357,7 @@ module AWS::SDK::DynamoDB
     def list_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContributorInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContributorInsightsInput,
         validate_input: @config.validate_input
@@ -4347,7 +4440,7 @@ module AWS::SDK::DynamoDB
     def list_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
         validate_input: @config.validate_input
@@ -4439,7 +4532,7 @@ module AWS::SDK::DynamoDB
     def list_global_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGlobalTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGlobalTablesInput,
         validate_input: @config.validate_input
@@ -4519,7 +4612,7 @@ module AWS::SDK::DynamoDB
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: @config.validate_input
@@ -4602,7 +4695,7 @@ module AWS::SDK::DynamoDB
     def list_tags_of_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsOfResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsOfResourceInput,
         validate_input: @config.validate_input
@@ -4960,7 +5053,20 @@ module AWS::SDK::DynamoDB
     #
     #   resp.data #=> Types::PutItemOutput
     #   resp.data.attributes #=> Hash<String, AttributeValue>
-    #   resp.data.attributes['key'] #=> AttributeValue
+    #   resp.data.attributes['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.attributes['key'].s #=> String
+    #   resp.data.attributes['key'].n #=> String
+    #   resp.data.attributes['key'].b #=> String
+    #   resp.data.attributes['key'].ss #=> Array<String>
+    #   resp.data.attributes['key'].ss[0] #=> String
+    #   resp.data.attributes['key'].ns #=> Array<String>
+    #   resp.data.attributes['key'].ns[0] #=> String
+    #   resp.data.attributes['key'].bs #=> Array<String>
+    #   resp.data.attributes['key'].bs[0] #=> String
+    #   resp.data.attributes['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.attributes['key'].l #=> Array<AttributeValue>
+    #   resp.data.attributes['key'].null #=> Boolean
+    #   resp.data.attributes['key'].bool #=> Boolean
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity.table_name #=> String
     #   resp.data.consumed_capacity.capacity_units #=> Float
@@ -4980,7 +5086,7 @@ module AWS::SDK::DynamoDB
     def put_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutItemInput,
         validate_input: @config.validate_input
@@ -5504,7 +5610,20 @@ module AWS::SDK::DynamoDB
     #   resp.data #=> Types::QueryOutput
     #   resp.data.items #=> Array<Hash<String, AttributeValue>>
     #   resp.data.items[0] #=> Hash<String, AttributeValue>
-    #   resp.data.items[0]['key'] #=> AttributeValue
+    #   resp.data.items[0]['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.items[0]['key'].s #=> String
+    #   resp.data.items[0]['key'].n #=> String
+    #   resp.data.items[0]['key'].b #=> String
+    #   resp.data.items[0]['key'].ss #=> Array<String>
+    #   resp.data.items[0]['key'].ss[0] #=> String
+    #   resp.data.items[0]['key'].ns #=> Array<String>
+    #   resp.data.items[0]['key'].ns[0] #=> String
+    #   resp.data.items[0]['key'].bs #=> Array<String>
+    #   resp.data.items[0]['key'].bs[0] #=> String
+    #   resp.data.items[0]['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
+    #   resp.data.items[0]['key'].null #=> Boolean
+    #   resp.data.items[0]['key'].bool #=> Boolean
     #   resp.data.count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
@@ -5523,7 +5642,7 @@ module AWS::SDK::DynamoDB
     def query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
         validate_input: @config.validate_input
@@ -5755,7 +5874,7 @@ module AWS::SDK::DynamoDB
     def restore_table_from_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableFromBackupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableFromBackupInput,
         validate_input: @config.validate_input
@@ -6027,7 +6146,7 @@ module AWS::SDK::DynamoDB
     def restore_table_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableToPointInTimeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableToPointInTimeInput,
         validate_input: @config.validate_input
@@ -6425,7 +6544,20 @@ module AWS::SDK::DynamoDB
     #   resp.data #=> Types::ScanOutput
     #   resp.data.items #=> Array<Hash<String, AttributeValue>>
     #   resp.data.items[0] #=> Hash<String, AttributeValue>
-    #   resp.data.items[0]['key'] #=> AttributeValue
+    #   resp.data.items[0]['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.items[0]['key'].s #=> String
+    #   resp.data.items[0]['key'].n #=> String
+    #   resp.data.items[0]['key'].b #=> String
+    #   resp.data.items[0]['key'].ss #=> Array<String>
+    #   resp.data.items[0]['key'].ss[0] #=> String
+    #   resp.data.items[0]['key'].ns #=> Array<String>
+    #   resp.data.items[0]['key'].ns[0] #=> String
+    #   resp.data.items[0]['key'].bs #=> Array<String>
+    #   resp.data.items[0]['key'].bs[0] #=> String
+    #   resp.data.items[0]['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.items[0]['key'].l #=> Array<AttributeValue>
+    #   resp.data.items[0]['key'].null #=> Boolean
+    #   resp.data.items[0]['key'].bool #=> Boolean
     #   resp.data.count #=> Integer
     #   resp.data.scanned_count #=> Integer
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
@@ -6444,7 +6576,7 @@ module AWS::SDK::DynamoDB
     def scan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScanInput,
         validate_input: @config.validate_input
@@ -6527,7 +6659,7 @@ module AWS::SDK::DynamoDB
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6668,12 +6800,25 @@ module AWS::SDK::DynamoDB
     #   resp.data.responses #=> Array<ItemResponse>
     #   resp.data.responses[0] #=> Types::ItemResponse
     #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
-    #   resp.data.responses[0].item['key'] #=> AttributeValue
+    #   resp.data.responses[0].item['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.responses[0].item['key'].s #=> String
+    #   resp.data.responses[0].item['key'].n #=> String
+    #   resp.data.responses[0].item['key'].b #=> String
+    #   resp.data.responses[0].item['key'].ss #=> Array<String>
+    #   resp.data.responses[0].item['key'].ss[0] #=> String
+    #   resp.data.responses[0].item['key'].ns #=> Array<String>
+    #   resp.data.responses[0].item['key'].ns[0] #=> String
+    #   resp.data.responses[0].item['key'].bs #=> Array<String>
+    #   resp.data.responses[0].item['key'].bs[0] #=> String
+    #   resp.data.responses[0].item['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.responses[0].item['key'].l #=> Array<AttributeValue>
+    #   resp.data.responses[0].item['key'].null #=> Boolean
+    #   resp.data.responses[0].item['key'].bool #=> Boolean
     #
     def transact_get_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransactGetItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactGetItemsInput,
         validate_input: @config.validate_input
@@ -6933,14 +7078,27 @@ module AWS::SDK::DynamoDB
     #   resp.data.item_collection_metrics['key'] #=> Array<ItemCollectionMetrics>
     #   resp.data.item_collection_metrics['key'][0] #=> Types::ItemCollectionMetrics
     #   resp.data.item_collection_metrics['key'][0].item_collection_key #=> Hash<String, AttributeValue>
-    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'] #=> AttributeValue
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].s #=> String
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].n #=> String
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].b #=> String
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].ss #=> Array<String>
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].ss[0] #=> String
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].ns #=> Array<String>
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].ns[0] #=> String
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].bs #=> Array<String>
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].bs[0] #=> String
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].l #=> Array<AttributeValue>
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].null #=> Boolean
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].bool #=> Boolean
     #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb #=> Array<Float>
     #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
     #
     def transact_write_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransactWriteItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactWriteItemsInput,
         validate_input: @config.validate_input
@@ -7019,7 +7177,7 @@ module AWS::SDK::DynamoDB
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -7110,7 +7268,7 @@ module AWS::SDK::DynamoDB
     def update_continuous_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContinuousBackupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContinuousBackupsInput,
         validate_input: @config.validate_input
@@ -7194,7 +7352,7 @@ module AWS::SDK::DynamoDB
     def update_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContributorInsightsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContributorInsightsInput,
         validate_input: @config.validate_input
@@ -7320,7 +7478,7 @@ module AWS::SDK::DynamoDB
     def update_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableInput,
         validate_input: @config.validate_input
@@ -7493,7 +7651,7 @@ module AWS::SDK::DynamoDB
     def update_global_table_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableSettingsInput,
         validate_input: @config.validate_input
@@ -7900,7 +8058,20 @@ module AWS::SDK::DynamoDB
     #
     #   resp.data #=> Types::UpdateItemOutput
     #   resp.data.attributes #=> Hash<String, AttributeValue>
-    #   resp.data.attributes['key'] #=> AttributeValue
+    #   resp.data.attributes['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
+    #   resp.data.attributes['key'].s #=> String
+    #   resp.data.attributes['key'].n #=> String
+    #   resp.data.attributes['key'].b #=> String
+    #   resp.data.attributes['key'].ss #=> Array<String>
+    #   resp.data.attributes['key'].ss[0] #=> String
+    #   resp.data.attributes['key'].ns #=> Array<String>
+    #   resp.data.attributes['key'].ns[0] #=> String
+    #   resp.data.attributes['key'].bs #=> Array<String>
+    #   resp.data.attributes['key'].bs[0] #=> String
+    #   resp.data.attributes['key'].m #=> Hash<String, AttributeValue>
+    #   resp.data.attributes['key'].l #=> Array<AttributeValue>
+    #   resp.data.attributes['key'].null #=> Boolean
+    #   resp.data.attributes['key'].bool #=> Boolean
     #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
     #   resp.data.consumed_capacity.table_name #=> String
     #   resp.data.consumed_capacity.capacity_units #=> Float
@@ -7920,7 +8091,7 @@ module AWS::SDK::DynamoDB
     def update_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateItemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateItemInput,
         validate_input: @config.validate_input
@@ -8242,7 +8413,7 @@ module AWS::SDK::DynamoDB
     def update_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
         validate_input: @config.validate_input
@@ -8383,7 +8554,7 @@ module AWS::SDK::DynamoDB
     def update_table_replica_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableReplicaAutoScalingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableReplicaAutoScalingInput,
         validate_input: @config.validate_input
@@ -8486,7 +8657,7 @@ module AWS::SDK::DynamoDB
     def update_time_to_live(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTimeToLiveInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTimeToLiveInput,
         validate_input: @config.validate_input

@@ -127,11 +127,11 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_timestamp_millis ||= 0
       end
-
     end
 
     # <p>An event sent from Amazon Lex V2 to your client application containing audio
@@ -214,11 +214,11 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # <p>The initial event sent from the application to Amazon Lex V2 to configure
@@ -323,12 +323,12 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_playback ||= false
         self.client_timestamp_millis ||= 0
       end
-
     end
 
     # Includes enum constants for ConfirmationState
@@ -402,6 +402,7 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_timestamp_millis ||= 0
@@ -608,11 +609,11 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_timestamp_millis ||= 0
       end
-
     end
 
     # @!attribute bot_id
@@ -1016,11 +1017,11 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_timestamp_millis ||= 0
       end
-
     end
 
     # <p>Event sent from Amazon Lex V2 to indicate to the client application should
@@ -1713,6 +1714,7 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.positive ||= 0
@@ -1720,7 +1722,6 @@ module AWS::SDK::LexRuntimeV2
         self.neutral ||= 0
         self.mixed ||= 0
       end
-
     end
 
     # Includes enum constants for SentimentType
@@ -2262,6 +2263,7 @@ module AWS::SDK::LexRuntimeV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_timestamp_millis ||= 0

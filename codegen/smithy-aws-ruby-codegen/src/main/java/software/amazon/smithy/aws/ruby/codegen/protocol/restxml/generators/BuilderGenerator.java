@@ -128,22 +128,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     }
 
     @Override
-    protected void renderSetBuildMethod(SetShape shape) {
-        writer
-                .openBlock("def self.build(node_name, input)")
-                .write("xml = []")
-                .openBlock("input.each do |element|")
-                .call(() -> {
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
-                            !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .write("xml")
-                .closeBlock("end");
-    }
-
-    @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer

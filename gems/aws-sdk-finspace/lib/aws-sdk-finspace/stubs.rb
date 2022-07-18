@@ -48,7 +48,7 @@ module AWS::SDK::Finspace
     class GetEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 
@@ -78,7 +78,7 @@ module AWS::SDK::Finspace
           kms_key_id: 'kms_key_id',
           dedicated_service_account_id: 'dedicated_service_account_id',
           federation_mode: 'federation_mode',
-          federation_parameters: Stubs::FederationParameters.default(visited),
+          federation_parameters: FederationParameters.default(visited),
         }
       end
 
@@ -112,7 +112,7 @@ module AWS::SDK::Finspace
           application_call_back_url: 'application_call_back_url',
           federation_urn: 'federation_urn',
           federation_provider_name: 'federation_provider_name',
-          attribute_map: Stubs::AttributeMap.default(visited),
+          attribute_map: AttributeMap.default(visited),
         }
       end
 
@@ -153,7 +153,7 @@ module AWS::SDK::Finspace
     class ListEnvironments
       def self.default(visited=[])
         {
-          environments: Stubs::EnvironmentList.default(visited),
+          environments: EnvironmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -174,7 +174,7 @@ module AWS::SDK::Finspace
         return nil if visited.include?('EnvironmentList')
         visited = visited + ['EnvironmentList']
         [
-          Stubs::Environment.default(visited)
+          Environment.default(visited)
         ]
       end
 
@@ -192,7 +192,7 @@ module AWS::SDK::Finspace
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -255,7 +255,7 @@ module AWS::SDK::Finspace
     class UpdateEnvironment
       def self.default(visited=[])
         {
-          environment: Stubs::Environment.default(visited),
+          environment: Environment.default(visited),
         }
       end
 

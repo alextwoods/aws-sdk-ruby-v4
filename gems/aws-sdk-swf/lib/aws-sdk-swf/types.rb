@@ -29,11 +29,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ActivityTaskCanceled</code> event.</p>
@@ -68,13 +68,13 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
         self.latest_cancel_requested_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ActivityTaskCompleted</code> event.</p>
@@ -103,12 +103,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ActivityTaskFailed</code> event.</p>
@@ -143,12 +143,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ActivityTaskScheduled</code> event.</p>
@@ -230,11 +230,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ActivityTaskStarted</code> event.</p>
@@ -255,11 +255,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ActivityTaskTimedOut</code> event.</p>
@@ -297,12 +297,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for ActivityTaskTimeoutType
@@ -546,11 +546,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>CancelWorkflowExecution</code> decision.</p>
@@ -625,11 +625,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for ChildPolicy
@@ -690,12 +690,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ChildWorkflowExecutionCompleted</code> event.</p>
@@ -737,12 +737,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ChildWorkflowExecutionFailed</code> event.</p>
@@ -793,12 +793,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ChildWorkflowExecutionStarted</code> event.</p>
@@ -829,11 +829,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ChildWorkflowExecutionTerminated</code> event.</p>
@@ -872,12 +872,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ChildWorkflowExecutionTimedOut</code> event.</p>
@@ -923,12 +923,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for CloseStatus
@@ -1050,11 +1050,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ContinueAsNewWorkflowExecution</code> decision.</p>
@@ -1265,11 +1265,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -1380,12 +1380,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.truncated ||= false
       end
-
     end
 
     # @!attribute domain
@@ -1462,12 +1462,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.truncated ||= false
       end
-
     end
 
     # @!attribute domain
@@ -1506,12 +1506,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.truncated ||= false
       end
-
     end
 
     # @!attribute domain
@@ -1550,12 +1550,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.truncated ||= false
       end
-
     end
 
     # <p>Specifies a decision made by the decider. A decision can be one of these types:</p>
@@ -1955,12 +1955,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides details about the <code>DecisionTaskScheduled</code> event.</p>
@@ -2014,11 +2014,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>DecisionTaskTimedOut</code> event.</p>
@@ -2051,12 +2051,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for DecisionTaskTimeoutType
@@ -2779,11 +2779,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>ExternalWorkflowExecutionSignaled</code> event.</p>
@@ -2806,11 +2806,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>FailWorkflowExecution</code> decision.</p>
@@ -2894,11 +2894,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -2945,12 +2945,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>Paginated representation of a workflow history for a workflow execution. This is the up to date, complete and authoritative record of the events related to all tasks and events in the life of the workflow execution.</p>
@@ -3597,11 +3597,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>LambdaFunctionCompleted</code> event. It isn't set
@@ -3631,12 +3631,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>LambdaFunctionFailed</code> event. It isn't set for
@@ -3672,12 +3672,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>LambdaFunctionScheduled</code> event. It isn't set
@@ -3725,11 +3725,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>LambdaFunctionStarted</code> event. It isn't set for
@@ -3746,11 +3746,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
       end
-
     end
 
     # <p>Provides details of the <code>LambdaFunctionTimedOut</code> event.</p>
@@ -3781,12 +3781,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
         self.started_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for LambdaFunctionTimeoutType
@@ -3863,12 +3863,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>Contains a paginated list of activity type information structures.</p>
@@ -4010,12 +4010,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>Contains a paginated list of information about workflow executions.</p>
@@ -4081,12 +4081,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>Contains a paginated collection of DomainInfo structures.</p>
@@ -4191,12 +4191,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>Contains a paginated list of information about workflow executions.</p>
@@ -4298,12 +4298,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>Contains a paginated list of information structures about workflow types.</p>
@@ -4355,11 +4355,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
@@ -4449,11 +4449,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.started_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -4521,12 +4521,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_page_size ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # <p>A structure that represents a decision task. Decision tasks are sent to deciders in order for them to make decisions.</p>
@@ -4580,12 +4580,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.started_event_id ||= 0
         self.previous_started_event_id ||= 0
       end
-
     end
 
     # @!attribute task_token
@@ -4624,11 +4624,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cancel_requested ||= false
       end
-
     end
 
     # <p>Provides the details of the <code>RecordMarker</code> decision.</p>
@@ -4714,11 +4714,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -5124,11 +5124,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>RequestCancelExternalWorkflowExecution</code> decision.</p>
@@ -5249,12 +5249,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>RequestCancelExternalWorkflowExecutionInitiated</code> event.</p>
@@ -5290,11 +5290,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -5719,11 +5719,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Decision attributes specified in <code>scheduleLambdaFunctionDecisionAttributes</code> within the list of
@@ -5828,11 +5828,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>SignalExternalWorkflowExecution</code> decision.</p>
@@ -5968,12 +5968,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>SignalExternalWorkflowExecutionInitiated</code> event.</p>
@@ -6020,11 +6020,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -6342,12 +6342,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initiated_event_id ||= 0
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>StartChildWorkflowExecutionInitiated</code> event.</p>
@@ -6457,11 +6457,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for StartLambdaFunctionFailedCause
@@ -6506,11 +6506,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scheduled_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>StartTimer</code> decision.</p>
@@ -6617,11 +6617,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # @!attribute domain
@@ -6964,12 +6964,12 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.started_event_id ||= 0
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>TimerFired</code> event.</p>
@@ -6992,11 +6992,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.started_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>TimerStarted</code> event.</p>
@@ -7032,11 +7032,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>You've exceeded the number of tags allowed for a domain.</p>
@@ -7260,11 +7260,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.external_initiated_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>WorkflowExecutionCanceled</code> event.</p>
@@ -7287,11 +7287,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>WorkflowExecutionCompleted</code> event.</p>
@@ -7314,11 +7314,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>The configuration settings for a workflow execution including timeout values, tasklist etc. These configuration settings are determined from the defaults specified when registering the workflow type and those specified when starting the workflow execution.</p>
@@ -7487,11 +7487,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>WorkflowExecutionFailed</code> event.</p>
@@ -7520,11 +7520,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.decision_task_completed_event_id ||= 0
       end
-
     end
 
     # <p>Used to filter the workflow executions in visibility APIs by their <code>workflowId</code>.</p>
@@ -7634,11 +7634,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cancel_requested ||= false
       end
-
     end
 
     # <p>Contains the counts of open tasks, child workflow executions and timers for a workflow execution.</p>
@@ -7677,6 +7677,7 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.open_activity_tasks ||= 0
@@ -7685,7 +7686,6 @@ module AWS::SDK::SWF
         self.open_child_workflow_executions ||= 0
         self.open_lambda_functions ||= 0
       end
-
     end
 
     # <p>Provides the details of the <code>WorkflowExecutionSignaled</code> event.</p>
@@ -7722,11 +7722,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.external_initiated_event_id ||= 0
       end
-
     end
 
     # <p>Provides details of <code>WorkflowExecutionStarted</code> event.</p>
@@ -7835,11 +7835,11 @@ module AWS::SDK::SWF
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.parent_initiated_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for WorkflowExecutionTerminatedCause

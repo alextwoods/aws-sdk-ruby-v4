@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CognitoSync
@@ -72,7 +74,7 @@ module AWS::SDK::CognitoSync
     def bulk_publish(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BulkPublishInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BulkPublishInput,
         validate_input: @config.validate_input
@@ -165,7 +167,7 @@ module AWS::SDK::CognitoSync
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -257,7 +259,7 @@ module AWS::SDK::CognitoSync
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -379,7 +381,7 @@ module AWS::SDK::CognitoSync
     def describe_identity_pool_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityPoolUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityPoolUsageInput,
         validate_input: @config.validate_input
@@ -509,7 +511,7 @@ module AWS::SDK::CognitoSync
     def describe_identity_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityUsageInput,
         validate_input: @config.validate_input
@@ -583,7 +585,7 @@ module AWS::SDK::CognitoSync
     def get_bulk_publish_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBulkPublishDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBulkPublishDetailsInput,
         validate_input: @config.validate_input
@@ -652,7 +654,7 @@ module AWS::SDK::CognitoSync
     def get_cognito_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCognitoEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCognitoEventsInput,
         validate_input: @config.validate_input
@@ -775,7 +777,7 @@ module AWS::SDK::CognitoSync
     def get_identity_pool_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityPoolConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityPoolConfigurationInput,
         validate_input: @config.validate_input
@@ -929,7 +931,7 @@ module AWS::SDK::CognitoSync
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -1069,7 +1071,7 @@ module AWS::SDK::CognitoSync
     def list_identity_pool_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityPoolUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityPoolUsageInput,
         validate_input: @config.validate_input
@@ -1241,7 +1243,7 @@ module AWS::SDK::CognitoSync
     def list_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecordsInput,
         validate_input: @config.validate_input
@@ -1366,7 +1368,7 @@ module AWS::SDK::CognitoSync
     def register_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDeviceInput,
         validate_input: @config.validate_input
@@ -1440,7 +1442,7 @@ module AWS::SDK::CognitoSync
     def set_cognito_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetCognitoEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetCognitoEventsInput,
         validate_input: @config.validate_input
@@ -1585,7 +1587,7 @@ module AWS::SDK::CognitoSync
     def set_identity_pool_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetIdentityPoolConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetIdentityPoolConfigurationInput,
         validate_input: @config.validate_input
@@ -1709,7 +1711,7 @@ module AWS::SDK::CognitoSync
     def subscribe_to_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubscribeToDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubscribeToDatasetInput,
         validate_input: @config.validate_input
@@ -1833,7 +1835,7 @@ module AWS::SDK::CognitoSync
     def unsubscribe_from_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnsubscribeFromDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnsubscribeFromDatasetInput,
         validate_input: @config.validate_input
@@ -1952,7 +1954,7 @@ module AWS::SDK::CognitoSync
     def update_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecordsInput,
         validate_input: @config.validate_input

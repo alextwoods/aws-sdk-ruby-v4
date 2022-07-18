@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTThingsGraph
@@ -74,7 +76,7 @@ module AWS::SDK::IoTThingsGraph
     def associate_entity_to_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateEntityToThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateEntityToThingInput,
         validate_input: @config.validate_input
@@ -157,7 +159,7 @@ module AWS::SDK::IoTThingsGraph
     def create_flow_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFlowTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFlowTemplateInput,
         validate_input: @config.validate_input
@@ -282,7 +284,7 @@ module AWS::SDK::IoTThingsGraph
     def create_system_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSystemInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSystemInstanceInput,
         validate_input: @config.validate_input
@@ -364,7 +366,7 @@ module AWS::SDK::IoTThingsGraph
     def create_system_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSystemTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSystemTemplateInput,
         validate_input: @config.validate_input
@@ -437,7 +439,7 @@ module AWS::SDK::IoTThingsGraph
     def delete_flow_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFlowTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFlowTemplateInput,
         validate_input: @config.validate_input
@@ -502,7 +504,7 @@ module AWS::SDK::IoTThingsGraph
     def delete_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNamespaceInput,
         validate_input: @config.validate_input
@@ -572,7 +574,7 @@ module AWS::SDK::IoTThingsGraph
     def delete_system_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSystemInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSystemInstanceInput,
         validate_input: @config.validate_input
@@ -645,7 +647,7 @@ module AWS::SDK::IoTThingsGraph
     def delete_system_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSystemTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSystemTemplateInput,
         validate_input: @config.validate_input
@@ -739,7 +741,7 @@ module AWS::SDK::IoTThingsGraph
     def deploy_system_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeploySystemInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeploySystemInstanceInput,
         validate_input: @config.validate_input
@@ -811,7 +813,7 @@ module AWS::SDK::IoTThingsGraph
     def deprecate_flow_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprecateFlowTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprecateFlowTemplateInput,
         validate_input: @config.validate_input
@@ -883,7 +885,7 @@ module AWS::SDK::IoTThingsGraph
     def deprecate_system_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeprecateSystemTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeprecateSystemTemplateInput,
         validate_input: @config.validate_input
@@ -956,7 +958,7 @@ module AWS::SDK::IoTThingsGraph
     def describe_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNamespaceInput,
         validate_input: @config.validate_input
@@ -1029,7 +1031,7 @@ module AWS::SDK::IoTThingsGraph
     def dissociate_entity_from_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DissociateEntityFromThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DissociateEntityFromThingInput,
         validate_input: @config.validate_input
@@ -1147,7 +1149,7 @@ module AWS::SDK::IoTThingsGraph
     def get_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEntitiesInput,
         validate_input: @config.validate_input
@@ -1233,7 +1235,7 @@ module AWS::SDK::IoTThingsGraph
     def get_flow_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFlowTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFlowTemplateInput,
         validate_input: @config.validate_input
@@ -1321,7 +1323,7 @@ module AWS::SDK::IoTThingsGraph
     def get_flow_template_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFlowTemplateRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFlowTemplateRevisionsInput,
         validate_input: @config.validate_input
@@ -1389,7 +1391,7 @@ module AWS::SDK::IoTThingsGraph
     def get_namespace_deletion_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNamespaceDeletionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNamespaceDeletionStatusInput,
         validate_input: @config.validate_input
@@ -1485,7 +1487,7 @@ module AWS::SDK::IoTThingsGraph
     def get_system_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSystemInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSystemInstanceInput,
         validate_input: @config.validate_input
@@ -1571,7 +1573,7 @@ module AWS::SDK::IoTThingsGraph
     def get_system_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSystemTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSystemTemplateInput,
         validate_input: @config.validate_input
@@ -1659,7 +1661,7 @@ module AWS::SDK::IoTThingsGraph
     def get_system_template_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSystemTemplateRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSystemTemplateRevisionsInput,
         validate_input: @config.validate_input
@@ -1735,7 +1737,7 @@ module AWS::SDK::IoTThingsGraph
     def get_upload_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUploadStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUploadStatusInput,
         validate_input: @config.validate_input
@@ -1818,7 +1820,7 @@ module AWS::SDK::IoTThingsGraph
     def list_flow_execution_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFlowExecutionMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFlowExecutionMessagesInput,
         validate_input: @config.validate_input
@@ -1899,7 +1901,7 @@ module AWS::SDK::IoTThingsGraph
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2006,7 +2008,7 @@ module AWS::SDK::IoTThingsGraph
     def search_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchEntitiesInput,
         validate_input: @config.validate_input
@@ -2103,7 +2105,7 @@ module AWS::SDK::IoTThingsGraph
     def search_flow_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchFlowExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchFlowExecutionsInput,
         validate_input: @config.validate_input
@@ -2193,7 +2195,7 @@ module AWS::SDK::IoTThingsGraph
     def search_flow_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchFlowTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchFlowTemplatesInput,
         validate_input: @config.validate_input
@@ -2290,7 +2292,7 @@ module AWS::SDK::IoTThingsGraph
     def search_system_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchSystemInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchSystemInstancesInput,
         validate_input: @config.validate_input
@@ -2380,7 +2382,7 @@ module AWS::SDK::IoTThingsGraph
     def search_system_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchSystemTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchSystemTemplatesInput,
         validate_input: @config.validate_input
@@ -2472,7 +2474,7 @@ module AWS::SDK::IoTThingsGraph
     def search_things(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchThingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchThingsInput,
         validate_input: @config.validate_input
@@ -2549,7 +2551,7 @@ module AWS::SDK::IoTThingsGraph
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2627,7 +2629,7 @@ module AWS::SDK::IoTThingsGraph
     def undeploy_system_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UndeploySystemInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UndeploySystemInstanceInput,
         validate_input: @config.validate_input
@@ -2702,7 +2704,7 @@ module AWS::SDK::IoTThingsGraph
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2793,7 +2795,7 @@ module AWS::SDK::IoTThingsGraph
     def update_flow_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowTemplateInput,
         validate_input: @config.validate_input
@@ -2882,7 +2884,7 @@ module AWS::SDK::IoTThingsGraph
     def update_system_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSystemTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSystemTemplateInput,
         validate_input: @config.validate_input
@@ -2973,7 +2975,7 @@ module AWS::SDK::IoTThingsGraph
     def upload_entity_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UploadEntityDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadEntityDefinitionsInput,
         validate_input: @config.validate_input

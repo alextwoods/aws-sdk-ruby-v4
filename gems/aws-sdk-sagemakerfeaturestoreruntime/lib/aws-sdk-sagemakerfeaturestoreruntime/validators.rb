@@ -31,7 +31,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetRecordError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetRecordError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -40,8 +40,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetRecordIdentifier, context: context)
         Hearth::Validator.validate!(input[:feature_group_name], ::String, context: "#{context}[:feature_group_name]")
-        Validators::RecordIdentifiers.validate!(input[:record_identifiers_value_as_string], context: "#{context}[:record_identifiers_value_as_string]") unless input[:record_identifiers_value_as_string].nil?
-        Validators::FeatureNames.validate!(input[:feature_names], context: "#{context}[:feature_names]") unless input[:feature_names].nil?
+        RecordIdentifiers.validate!(input[:record_identifiers_value_as_string], context: "#{context}[:record_identifiers_value_as_string]") unless input[:record_identifiers_value_as_string].nil?
+        FeatureNames.validate!(input[:feature_names], context: "#{context}[:feature_names]") unless input[:feature_names].nil?
       end
     end
 
@@ -49,7 +49,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetRecordIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetRecordIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -57,16 +57,16 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     class BatchGetRecordInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetRecordInput, context: context)
-        Validators::BatchGetRecordIdentifiers.validate!(input[:identifiers], context: "#{context}[:identifiers]") unless input[:identifiers].nil?
+        BatchGetRecordIdentifiers.validate!(input[:identifiers], context: "#{context}[:identifiers]") unless input[:identifiers].nil?
       end
     end
 
     class BatchGetRecordOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetRecordOutput, context: context)
-        Validators::BatchGetRecordResultDetails.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
-        Validators::BatchGetRecordErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
-        Validators::UnprocessedIdentifiers.validate!(input[:unprocessed_identifiers], context: "#{context}[:unprocessed_identifiers]") unless input[:unprocessed_identifiers].nil?
+        BatchGetRecordResultDetails.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        BatchGetRecordErrors.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        UnprocessedIdentifiers.validate!(input[:unprocessed_identifiers], context: "#{context}[:unprocessed_identifiers]") unless input[:unprocessed_identifiers].nil?
       end
     end
 
@@ -75,7 +75,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         Hearth::Validator.validate!(input, Types::BatchGetRecordResultDetail, context: context)
         Hearth::Validator.validate!(input[:feature_group_name], ::String, context: "#{context}[:feature_group_name]")
         Hearth::Validator.validate!(input[:record_identifier_value_as_string], ::String, context: "#{context}[:record_identifier_value_as_string]")
-        Validators::Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
+        Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
       end
     end
 
@@ -83,7 +83,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetRecordResultDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetRecordResultDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -125,14 +125,14 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         Hearth::Validator.validate!(input, Types::GetRecordInput, context: context)
         Hearth::Validator.validate!(input[:feature_group_name], ::String, context: "#{context}[:feature_group_name]")
         Hearth::Validator.validate!(input[:record_identifier_value_as_string], ::String, context: "#{context}[:record_identifier_value_as_string]")
-        Validators::FeatureNames.validate!(input[:feature_names], context: "#{context}[:feature_names]") unless input[:feature_names].nil?
+        FeatureNames.validate!(input[:feature_names], context: "#{context}[:feature_names]") unless input[:feature_names].nil?
       end
     end
 
     class GetRecordOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRecordOutput, context: context)
-        Validators::Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
+        Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
       end
     end
 
@@ -147,7 +147,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutRecordInput, context: context)
         Hearth::Validator.validate!(input[:feature_group_name], ::String, context: "#{context}[:feature_group_name]")
-        Validators::Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
+        Record.validate!(input[:record], context: "#{context}[:record]") unless input[:record].nil?
       end
     end
 
@@ -161,7 +161,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FeatureValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FeatureValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -193,7 +193,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchGetRecordIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchGetRecordIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

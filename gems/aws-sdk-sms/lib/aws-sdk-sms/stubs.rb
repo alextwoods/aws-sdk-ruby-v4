@@ -14,9 +14,9 @@ module AWS::SDK::SMS
     class CreateApp
       def self.default(visited=[])
         {
-          app_summary: Stubs::AppSummary.default(visited),
-          server_groups: Stubs::ServerGroups.default(visited),
-          tags: Stubs::Tags.default(visited),
+          app_summary: AppSummary.default(visited),
+          server_groups: ServerGroups.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -36,7 +36,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerGroups')
         visited = visited + ['ServerGroups']
         [
-          Stubs::ServerGroup.default(visited)
+          ServerGroup.default(visited)
         ]
       end
 
@@ -98,7 +98,7 @@ module AWS::SDK::SMS
         {
           server_group_id: 'server_group_id',
           name: 'name',
-          server_list: Stubs::ServerList.default(visited),
+          server_list: ServerList.default(visited),
         }
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerList')
         visited = visited + ['ServerList']
         [
-          Stubs::Server.default(visited)
+          Server.default(visited)
         ]
       end
 
@@ -140,7 +140,7 @@ module AWS::SDK::SMS
         {
           server_id: 'server_id',
           server_type: 'server_type',
-          vm_server: Stubs::VmServer.default(visited),
+          vm_server: VmServer.default(visited),
           replication_job_id: 'replication_job_id',
           replication_job_terminated: false,
         }
@@ -164,7 +164,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('VmServer')
         visited = visited + ['VmServer']
         {
-          vm_server_address: Stubs::VmServerAddress.default(visited),
+          vm_server_address: VmServerAddress.default(visited),
           vm_name: 'vm_name',
           vm_manager_name: 'vm_manager_name',
           vm_manager_type: 'vm_manager_type',
@@ -223,7 +223,7 @@ module AWS::SDK::SMS
           launch_configuration_status: 'launch_configuration_status',
           launch_status: 'launch_status',
           launch_status_message: 'launch_status_message',
-          launch_details: Stubs::LaunchDetails.default(visited),
+          launch_details: LaunchDetails.default(visited),
           creation_time: Time.now,
           last_modified: Time.now,
           role_name: 'role_name',
@@ -398,7 +398,7 @@ module AWS::SDK::SMS
     class GenerateChangeSet
       def self.default(visited=[])
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -434,7 +434,7 @@ module AWS::SDK::SMS
     class GenerateTemplate
       def self.default(visited=[])
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -450,9 +450,9 @@ module AWS::SDK::SMS
     class GetApp
       def self.default(visited=[])
         {
-          app_summary: Stubs::AppSummary.default(visited),
-          server_groups: Stubs::ServerGroups.default(visited),
-          tags: Stubs::Tags.default(visited),
+          app_summary: AppSummary.default(visited),
+          server_groups: ServerGroups.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -473,7 +473,7 @@ module AWS::SDK::SMS
           app_id: 'app_id',
           role_name: 'role_name',
           auto_launch: false,
-          server_group_launch_configurations: Stubs::ServerGroupLaunchConfigurations.default(visited),
+          server_group_launch_configurations: ServerGroupLaunchConfigurations.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerGroupLaunchConfigurations')
         visited = visited + ['ServerGroupLaunchConfigurations']
         [
-          Stubs::ServerGroupLaunchConfiguration.default(visited)
+          ServerGroupLaunchConfiguration.default(visited)
         ]
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::SMS
         {
           server_group_id: 'server_group_id',
           launch_order: 1,
-          server_launch_configurations: Stubs::ServerLaunchConfigurations.default(visited),
+          server_launch_configurations: ServerLaunchConfigurations.default(visited),
         }
       end
 
@@ -536,7 +536,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerLaunchConfigurations')
         visited = visited + ['ServerLaunchConfigurations']
         [
-          Stubs::ServerLaunchConfiguration.default(visited)
+          ServerLaunchConfiguration.default(visited)
         ]
       end
 
@@ -556,17 +556,17 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerLaunchConfiguration')
         visited = visited + ['ServerLaunchConfiguration']
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
           logical_id: 'logical_id',
           vpc: 'vpc',
           subnet: 'subnet',
           security_group: 'security_group',
           ec2_key_name: 'ec2_key_name',
-          user_data: Stubs::UserData.default(visited),
+          user_data: UserData.default(visited),
           instance_type: 'instance_type',
           associate_public_ip_address: false,
           iam_instance_profile_name: 'iam_instance_profile_name',
-          configure_script: Stubs::S3Location.default(visited),
+          configure_script: S3Location.default(visited),
           configure_script_type: 'configure_script_type',
         }
       end
@@ -596,7 +596,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('UserData')
         visited = visited + ['UserData']
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -612,7 +612,7 @@ module AWS::SDK::SMS
     class GetAppReplicationConfiguration
       def self.default(visited=[])
         {
-          server_group_replication_configurations: Stubs::ServerGroupReplicationConfigurations.default(visited),
+          server_group_replication_configurations: ServerGroupReplicationConfigurations.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerGroupReplicationConfigurations')
         visited = visited + ['ServerGroupReplicationConfigurations']
         [
-          Stubs::ServerGroupReplicationConfiguration.default(visited)
+          ServerGroupReplicationConfiguration.default(visited)
         ]
       end
 
@@ -651,7 +651,7 @@ module AWS::SDK::SMS
         visited = visited + ['ServerGroupReplicationConfiguration']
         {
           server_group_id: 'server_group_id',
-          server_replication_configurations: Stubs::ServerReplicationConfigurations.default(visited),
+          server_replication_configurations: ServerReplicationConfigurations.default(visited),
         }
       end
 
@@ -670,7 +670,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerReplicationConfigurations')
         visited = visited + ['ServerReplicationConfigurations']
         [
-          Stubs::ServerReplicationConfiguration.default(visited)
+          ServerReplicationConfiguration.default(visited)
         ]
       end
 
@@ -690,8 +690,8 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerReplicationConfiguration')
         visited = visited + ['ServerReplicationConfiguration']
         {
-          server: Stubs::Server.default(visited),
-          server_replication_parameters: Stubs::ServerReplicationParameters.default(visited),
+          server: Server.default(visited),
+          server_replication_parameters: ServerReplicationParameters.default(visited),
         }
       end
 
@@ -738,8 +738,8 @@ module AWS::SDK::SMS
     class GetAppValidationConfiguration
       def self.default(visited=[])
         {
-          app_validation_configurations: Stubs::AppValidationConfigurations.default(visited),
-          server_group_validation_configurations: Stubs::ServerGroupValidationConfigurations.default(visited),
+          app_validation_configurations: AppValidationConfigurations.default(visited),
+          server_group_validation_configurations: ServerGroupValidationConfigurations.default(visited),
         }
       end
 
@@ -758,7 +758,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerGroupValidationConfigurations')
         visited = visited + ['ServerGroupValidationConfigurations']
         [
-          Stubs::ServerGroupValidationConfiguration.default(visited)
+          ServerGroupValidationConfiguration.default(visited)
         ]
       end
 
@@ -779,7 +779,7 @@ module AWS::SDK::SMS
         visited = visited + ['ServerGroupValidationConfiguration']
         {
           server_group_id: 'server_group_id',
-          server_validation_configurations: Stubs::ServerValidationConfigurations.default(visited),
+          server_validation_configurations: ServerValidationConfigurations.default(visited),
         }
       end
 
@@ -798,7 +798,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerValidationConfigurations')
         visited = visited + ['ServerValidationConfigurations']
         [
-          Stubs::ServerValidationConfiguration.default(visited)
+          ServerValidationConfiguration.default(visited)
         ]
       end
 
@@ -818,11 +818,11 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerValidationConfiguration')
         visited = visited + ['ServerValidationConfiguration']
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
           validation_id: 'validation_id',
           name: 'name',
           server_validation_strategy: 'server_validation_strategy',
-          user_data_validation_parameters: Stubs::UserDataValidationParameters.default(visited),
+          user_data_validation_parameters: UserDataValidationParameters.default(visited),
         }
       end
 
@@ -844,7 +844,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('UserDataValidationParameters')
         visited = visited + ['UserDataValidationParameters']
         {
-          source: Stubs::Source.default(visited),
+          source: Source.default(visited),
           script_type: 'script_type',
         }
       end
@@ -864,7 +864,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('Source')
         visited = visited + ['Source']
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -882,7 +882,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('AppValidationConfigurations')
         visited = visited + ['AppValidationConfigurations']
         [
-          Stubs::AppValidationConfiguration.default(visited)
+          AppValidationConfiguration.default(visited)
         ]
       end
 
@@ -905,7 +905,7 @@ module AWS::SDK::SMS
           validation_id: 'validation_id',
           name: 'name',
           app_validation_strategy: 'app_validation_strategy',
-          ssm_validation_parameters: Stubs::SSMValidationParameters.default(visited),
+          ssm_validation_parameters: SSMValidationParameters.default(visited),
         }
       end
 
@@ -926,7 +926,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('SSMValidationParameters')
         visited = visited + ['SSMValidationParameters']
         {
-          source: Stubs::Source.default(visited),
+          source: Source.default(visited),
           instance_id: 'instance_id',
           script_type: 'script_type',
           command: 'command',
@@ -952,7 +952,7 @@ module AWS::SDK::SMS
     class GetAppValidationOutput
       def self.default(visited=[])
         {
-          validation_output_list: Stubs::ValidationOutputList.default(visited),
+          validation_output_list: ValidationOutputList.default(visited),
         }
       end
 
@@ -970,7 +970,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ValidationOutputList')
         visited = visited + ['ValidationOutputList']
         [
-          Stubs::ValidationOutput.default(visited)
+          ValidationOutput.default(visited)
         ]
       end
 
@@ -995,8 +995,8 @@ module AWS::SDK::SMS
           status: 'status',
           status_message: 'status_message',
           latest_validation_time: Time.now,
-          app_validation_output: Stubs::AppValidationOutput.default(visited),
-          server_validation_output: Stubs::ServerValidationOutput.default(visited),
+          app_validation_output: AppValidationOutput.default(visited),
+          server_validation_output: ServerValidationOutput.default(visited),
         }
       end
 
@@ -1020,7 +1020,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ServerValidationOutput')
         visited = visited + ['ServerValidationOutput']
         {
-          server: Stubs::Server.default(visited),
+          server: Server.default(visited),
         }
       end
 
@@ -1038,7 +1038,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('AppValidationOutput')
         visited = visited + ['AppValidationOutput']
         {
-          ssm_output: Stubs::SSMOutput.default(visited),
+          ssm_output: SSMOutput.default(visited),
         }
       end
 
@@ -1056,7 +1056,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('SSMOutput')
         visited = visited + ['SSMOutput']
         {
-          s3_location: Stubs::S3Location.default(visited),
+          s3_location: S3Location.default(visited),
         }
       end
 
@@ -1072,7 +1072,7 @@ module AWS::SDK::SMS
     class GetConnectors
       def self.default(visited=[])
         {
-          connector_list: Stubs::ConnectorList.default(visited),
+          connector_list: ConnectorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1092,7 +1092,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ConnectorList')
         visited = visited + ['ConnectorList']
         [
-          Stubs::Connector.default(visited)
+          Connector.default(visited)
         ]
       end
 
@@ -1115,7 +1115,7 @@ module AWS::SDK::SMS
           connector_id: 'connector_id',
           version: 'version',
           status: 'status',
-          capability_list: Stubs::ConnectorCapabilityList.default(visited),
+          capability_list: ConnectorCapabilityList.default(visited),
           vm_manager_name: 'vm_manager_name',
           vm_manager_type: 'vm_manager_type',
           vm_manager_id: 'vm_manager_id',
@@ -1166,7 +1166,7 @@ module AWS::SDK::SMS
     class GetReplicationJobs
       def self.default(visited=[])
         {
-          replication_job_list: Stubs::ReplicationJobList.default(visited),
+          replication_job_list: ReplicationJobList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1186,7 +1186,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ReplicationJobList')
         visited = visited + ['ReplicationJobList']
         [
-          Stubs::ReplicationJob.default(visited)
+          ReplicationJob.default(visited)
         ]
       end
 
@@ -1209,7 +1209,7 @@ module AWS::SDK::SMS
           replication_job_id: 'replication_job_id',
           server_id: 'server_id',
           server_type: 'server_type',
-          vm_server: Stubs::VmServer.default(visited),
+          vm_server: VmServer.default(visited),
           seed_replication_time: Time.now,
           frequency: 1,
           run_once: false,
@@ -1223,7 +1223,7 @@ module AWS::SDK::SMS
           number_of_recent_amis_to_keep: 1,
           encrypted: false,
           kms_key_id: 'kms_key_id',
-          replication_run_list: Stubs::ReplicationRunList.default(visited),
+          replication_run_list: ReplicationRunList.default(visited),
         }
       end
 
@@ -1258,7 +1258,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('ReplicationRunList')
         visited = visited + ['ReplicationRunList']
         [
-          Stubs::ReplicationRun.default(visited)
+          ReplicationRun.default(visited)
         ]
       end
 
@@ -1281,7 +1281,7 @@ module AWS::SDK::SMS
           replication_run_id: 'replication_run_id',
           state: 'state',
           type: 'type',
-          stage_details: Stubs::ReplicationRunStageDetails.default(visited),
+          stage_details: ReplicationRunStageDetails.default(visited),
           status_message: 'status_message',
           ami_id: 'ami_id',
           scheduled_start_time: Time.now,
@@ -1334,8 +1334,8 @@ module AWS::SDK::SMS
     class GetReplicationRuns
       def self.default(visited=[])
         {
-          replication_job: Stubs::ReplicationJob.default(visited),
-          replication_run_list: Stubs::ReplicationRunList.default(visited),
+          replication_job: ReplicationJob.default(visited),
+          replication_run_list: ReplicationRunList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1356,7 +1356,7 @@ module AWS::SDK::SMS
         {
           last_modified_on: Time.now,
           server_catalog_status: 'server_catalog_status',
-          server_list: Stubs::ServerList.default(visited),
+          server_list: ServerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1418,7 +1418,7 @@ module AWS::SDK::SMS
     class ListApps
       def self.default(visited=[])
         {
-          apps: Stubs::Apps.default(visited),
+          apps: Apps.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1438,7 +1438,7 @@ module AWS::SDK::SMS
         return nil if visited.include?('Apps')
         visited = visited + ['Apps']
         [
-          Stubs::AppSummary.default(visited)
+          AppSummary.default(visited)
         ]
       end
 
@@ -1584,9 +1584,9 @@ module AWS::SDK::SMS
     class UpdateApp
       def self.default(visited=[])
         {
-          app_summary: Stubs::AppSummary.default(visited),
-          server_groups: Stubs::ServerGroups.default(visited),
-          tags: Stubs::Tags.default(visited),
+          app_summary: AppSummary.default(visited),
+          server_groups: ServerGroups.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

@@ -34,7 +34,7 @@ module AWS::SDK::Route53RecoveryCluster
     class ListRoutingControls
       def self.default(visited=[])
         {
-          routing_controls: Stubs::RoutingControls.default(visited),
+          routing_controls: RoutingControls.default(visited),
           next_token: 'next_token',
         }
       end
@@ -54,7 +54,7 @@ module AWS::SDK::Route53RecoveryCluster
         return nil if visited.include?('RoutingControls')
         visited = visited + ['RoutingControls']
         [
-          Stubs::RoutingControl.default(visited)
+          RoutingControl.default(visited)
         ]
       end
 

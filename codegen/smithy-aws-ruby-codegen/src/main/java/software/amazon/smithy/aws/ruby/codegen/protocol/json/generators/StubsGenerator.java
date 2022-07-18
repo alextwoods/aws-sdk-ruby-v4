@@ -95,24 +95,6 @@ public class StubsGenerator extends StubsGeneratorBase {
     }
 
     @Override
-    protected void renderSetStubMethod(SetShape shape) {
-        writer
-                .openBlock("def self.stub(stub)")
-                .write("stub ||= []")
-                .write("data = []")
-                .openBlock("stub.each do |element|")
-                .call(() -> {
-                    Shape memberTarget =
-                            model.expectShape(shape.getMember().getTarget());
-                    memberTarget
-                            .accept(new MemberSerializer(shape.getMember(),"data << ", "element", true));
-                })
-                .closeBlock("end")
-                .write("data")
-                .closeBlock("end");
-    }
-
-    @Override
     protected void renderMapStubMethod(MapShape shape) {
         writer
                 .openBlock("def self.stub(stub)")

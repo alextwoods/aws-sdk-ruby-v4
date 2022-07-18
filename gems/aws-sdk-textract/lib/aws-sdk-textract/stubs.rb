@@ -14,9 +14,9 @@ module AWS::SDK::Textract
     class AnalyzeDocument
       def self.default(visited=[])
         {
-          document_metadata: Stubs::DocumentMetadata.default(visited),
-          blocks: Stubs::BlockList.default(visited),
-          human_loop_activation_output: Stubs::HumanLoopActivationOutput.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
+          blocks: BlockList.default(visited),
+          human_loop_activation_output: HumanLoopActivationOutput.default(visited),
           analyze_document_model_version: 'analyze_document_model_version',
         }
       end
@@ -39,7 +39,7 @@ module AWS::SDK::Textract
         visited = visited + ['HumanLoopActivationOutput']
         {
           human_loop_arn: 'human_loop_arn',
-          human_loop_activation_reasons: Stubs::HumanLoopActivationReasons.default(visited),
+          human_loop_activation_reasons: HumanLoopActivationReasons.default(visited),
           human_loop_activation_conditions_evaluation_results: 'human_loop_activation_conditions_evaluation_results',
         }
       end
@@ -80,7 +80,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('BlockList')
         visited = visited + ['BlockList']
         [
-          Stubs::Block.default(visited)
+          Block.default(visited)
         ]
       end
 
@@ -108,13 +108,13 @@ module AWS::SDK::Textract
           column_index: 1,
           row_span: 1,
           column_span: 1,
-          geometry: Stubs::Geometry.default(visited),
+          geometry: Geometry.default(visited),
           id: 'id',
-          relationships: Stubs::RelationshipList.default(visited),
-          entity_types: Stubs::EntityTypes.default(visited),
+          relationships: RelationshipList.default(visited),
+          entity_types: EntityTypes.default(visited),
           selection_status: 'selection_status',
           page: 1,
-          query: Stubs::Query.default(visited),
+          query: Query.default(visited),
         }
       end
 
@@ -148,7 +148,7 @@ module AWS::SDK::Textract
         {
           text: 'text',
           alias: 'alias',
-          pages: Stubs::QueryPages.default(visited),
+          pages: QueryPages.default(visited),
         }
       end
 
@@ -208,7 +208,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('RelationshipList')
         visited = visited + ['RelationshipList']
         [
-          Stubs::Relationship.default(visited)
+          Relationship.default(visited)
         ]
       end
 
@@ -229,7 +229,7 @@ module AWS::SDK::Textract
         visited = visited + ['Relationship']
         {
           type: 'type',
-          ids: Stubs::IdList.default(visited),
+          ids: IdList.default(visited),
         }
       end
 
@@ -268,8 +268,8 @@ module AWS::SDK::Textract
         return nil if visited.include?('Geometry')
         visited = visited + ['Geometry']
         {
-          bounding_box: Stubs::BoundingBox.default(visited),
-          polygon: Stubs::Polygon.default(visited),
+          bounding_box: BoundingBox.default(visited),
+          polygon: Polygon.default(visited),
         }
       end
 
@@ -288,7 +288,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('Polygon')
         visited = visited + ['Polygon']
         [
-          Stubs::Point.default(visited)
+          Point.default(visited)
         ]
       end
 
@@ -368,8 +368,8 @@ module AWS::SDK::Textract
     class AnalyzeExpense
       def self.default(visited=[])
         {
-          document_metadata: Stubs::DocumentMetadata.default(visited),
-          expense_documents: Stubs::ExpenseDocumentList.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
+          expense_documents: ExpenseDocumentList.default(visited),
         }
       end
 
@@ -388,7 +388,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('ExpenseDocumentList')
         visited = visited + ['ExpenseDocumentList']
         [
-          Stubs::ExpenseDocument.default(visited)
+          ExpenseDocument.default(visited)
         ]
       end
 
@@ -409,8 +409,8 @@ module AWS::SDK::Textract
         visited = visited + ['ExpenseDocument']
         {
           expense_index: 1,
-          summary_fields: Stubs::ExpenseFieldList.default(visited),
-          line_item_groups: Stubs::LineItemGroupList.default(visited),
+          summary_fields: ExpenseFieldList.default(visited),
+          line_item_groups: LineItemGroupList.default(visited),
         }
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('LineItemGroupList')
         visited = visited + ['LineItemGroupList']
         [
-          Stubs::LineItemGroup.default(visited)
+          LineItemGroup.default(visited)
         ]
       end
 
@@ -451,7 +451,7 @@ module AWS::SDK::Textract
         visited = visited + ['LineItemGroup']
         {
           line_item_group_index: 1,
-          line_items: Stubs::LineItemList.default(visited),
+          line_items: LineItemList.default(visited),
         }
       end
 
@@ -470,7 +470,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('LineItemList')
         visited = visited + ['LineItemList']
         [
-          Stubs::LineItemFields.default(visited)
+          LineItemFields.default(visited)
         ]
       end
 
@@ -490,7 +490,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('LineItemFields')
         visited = visited + ['LineItemFields']
         {
-          line_item_expense_fields: Stubs::ExpenseFieldList.default(visited),
+          line_item_expense_fields: ExpenseFieldList.default(visited),
         }
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('ExpenseFieldList')
         visited = visited + ['ExpenseFieldList']
         [
-          Stubs::ExpenseField.default(visited)
+          ExpenseField.default(visited)
         ]
       end
 
@@ -528,9 +528,9 @@ module AWS::SDK::Textract
         return nil if visited.include?('ExpenseField')
         visited = visited + ['ExpenseField']
         {
-          type: Stubs::ExpenseType.default(visited),
-          label_detection: Stubs::ExpenseDetection.default(visited),
-          value_detection: Stubs::ExpenseDetection.default(visited),
+          type: ExpenseType.default(visited),
+          label_detection: ExpenseDetection.default(visited),
+          value_detection: ExpenseDetection.default(visited),
           page_number: 1,
         }
       end
@@ -553,7 +553,7 @@ module AWS::SDK::Textract
         visited = visited + ['ExpenseDetection']
         {
           text: 'text',
-          geometry: Stubs::Geometry.default(visited),
+          geometry: Geometry.default(visited),
           confidence: 1.0,
         }
       end
@@ -592,8 +592,8 @@ module AWS::SDK::Textract
     class AnalyzeID
       def self.default(visited=[])
         {
-          identity_documents: Stubs::IdentityDocumentList.default(visited),
-          document_metadata: Stubs::DocumentMetadata.default(visited),
+          identity_documents: IdentityDocumentList.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
           analyze_id_model_version: 'analyze_id_model_version',
         }
       end
@@ -614,7 +614,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('IdentityDocumentList')
         visited = visited + ['IdentityDocumentList']
         [
-          Stubs::IdentityDocument.default(visited)
+          IdentityDocument.default(visited)
         ]
       end
 
@@ -635,7 +635,7 @@ module AWS::SDK::Textract
         visited = visited + ['IdentityDocument']
         {
           document_index: 1,
-          identity_document_fields: Stubs::IdentityDocumentFieldList.default(visited),
+          identity_document_fields: IdentityDocumentFieldList.default(visited),
         }
       end
 
@@ -654,7 +654,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('IdentityDocumentFieldList')
         visited = visited + ['IdentityDocumentFieldList']
         [
-          Stubs::IdentityDocumentField.default(visited)
+          IdentityDocumentField.default(visited)
         ]
       end
 
@@ -674,8 +674,8 @@ module AWS::SDK::Textract
         return nil if visited.include?('IdentityDocumentField')
         visited = visited + ['IdentityDocumentField']
         {
-          type: Stubs::AnalyzeIDDetections.default(visited),
-          value_detection: Stubs::AnalyzeIDDetections.default(visited),
+          type: AnalyzeIDDetections.default(visited),
+          value_detection: AnalyzeIDDetections.default(visited),
         }
       end
 
@@ -695,7 +695,7 @@ module AWS::SDK::Textract
         visited = visited + ['AnalyzeIDDetections']
         {
           text: 'text',
-          normalized_value: Stubs::NormalizedValue.default(visited),
+          normalized_value: NormalizedValue.default(visited),
           confidence: 1.0,
         }
       end
@@ -734,8 +734,8 @@ module AWS::SDK::Textract
     class DetectDocumentText
       def self.default(visited=[])
         {
-          document_metadata: Stubs::DocumentMetadata.default(visited),
-          blocks: Stubs::BlockList.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
+          blocks: BlockList.default(visited),
           detect_document_text_model_version: 'detect_document_text_model_version',
         }
       end
@@ -754,11 +754,11 @@ module AWS::SDK::Textract
     class GetDocumentAnalysis
       def self.default(visited=[])
         {
-          document_metadata: Stubs::DocumentMetadata.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
           job_status: 'job_status',
           next_token: 'next_token',
-          blocks: Stubs::BlockList.default(visited),
-          warnings: Stubs::Warnings.default(visited),
+          blocks: BlockList.default(visited),
+          warnings: Warnings.default(visited),
           status_message: 'status_message',
           analyze_document_model_version: 'analyze_document_model_version',
         }
@@ -784,7 +784,7 @@ module AWS::SDK::Textract
         return nil if visited.include?('Warnings')
         visited = visited + ['Warnings']
         [
-          Stubs::Warning.default(visited)
+          Warning.default(visited)
         ]
       end
 
@@ -805,7 +805,7 @@ module AWS::SDK::Textract
         visited = visited + ['Warning']
         {
           error_code: 'error_code',
-          pages: Stubs::Pages.default(visited),
+          pages: Pages.default(visited),
         }
       end
 
@@ -842,11 +842,11 @@ module AWS::SDK::Textract
     class GetDocumentTextDetection
       def self.default(visited=[])
         {
-          document_metadata: Stubs::DocumentMetadata.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
           job_status: 'job_status',
           next_token: 'next_token',
-          blocks: Stubs::BlockList.default(visited),
-          warnings: Stubs::Warnings.default(visited),
+          blocks: BlockList.default(visited),
+          warnings: Warnings.default(visited),
           status_message: 'status_message',
           detect_document_text_model_version: 'detect_document_text_model_version',
         }
@@ -870,11 +870,11 @@ module AWS::SDK::Textract
     class GetExpenseAnalysis
       def self.default(visited=[])
         {
-          document_metadata: Stubs::DocumentMetadata.default(visited),
+          document_metadata: DocumentMetadata.default(visited),
           job_status: 'job_status',
           next_token: 'next_token',
-          expense_documents: Stubs::ExpenseDocumentList.default(visited),
-          warnings: Stubs::Warnings.default(visited),
+          expense_documents: ExpenseDocumentList.default(visited),
+          warnings: Warnings.default(visited),
           status_message: 'status_message',
           analyze_expense_model_version: 'analyze_expense_model_version',
         }

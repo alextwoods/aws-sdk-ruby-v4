@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoTEventsData
   module Validators
 
@@ -31,7 +33,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AcknowledgeAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AcknowledgeAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::IoTEventsData
         Hearth::Validator.validate!(input[:alarm_model_name], ::String, context: "#{context}[:alarm_model_name]")
         Hearth::Validator.validate!(input[:alarm_model_version], ::String, context: "#{context}[:alarm_model_version]")
         Hearth::Validator.validate!(input[:key_value], ::String, context: "#{context}[:key_value]")
-        Validators::AlarmState.validate!(input[:alarm_state], context: "#{context}[:alarm_state]") unless input[:alarm_state].nil?
+        AlarmState.validate!(input[:alarm_state], context: "#{context}[:alarm_state]") unless input[:alarm_state].nil?
         Hearth::Validator.validate!(input[:severity], ::Integer, context: "#{context}[:severity]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
@@ -53,9 +55,9 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AlarmState, context: context)
         Hearth::Validator.validate!(input[:state_name], ::String, context: "#{context}[:state_name]")
-        Validators::RuleEvaluation.validate!(input[:rule_evaluation], context: "#{context}[:rule_evaluation]") unless input[:rule_evaluation].nil?
-        Validators::CustomerAction.validate!(input[:customer_action], context: "#{context}[:customer_action]") unless input[:customer_action].nil?
-        Validators::SystemEvent.validate!(input[:system_event], context: "#{context}[:system_event]") unless input[:system_event].nil?
+        RuleEvaluation.validate!(input[:rule_evaluation], context: "#{context}[:rule_evaluation]") unless input[:rule_evaluation].nil?
+        CustomerAction.validate!(input[:customer_action], context: "#{context}[:customer_action]") unless input[:customer_action].nil?
+        SystemEvent.validate!(input[:system_event], context: "#{context}[:system_event]") unless input[:system_event].nil?
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AlarmSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AlarmSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -83,14 +85,14 @@ module AWS::SDK::IoTEventsData
     class BatchAcknowledgeAlarmInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAcknowledgeAlarmInput, context: context)
-        Validators::AcknowledgeAlarmActionRequests.validate!(input[:acknowledge_action_requests], context: "#{context}[:acknowledge_action_requests]") unless input[:acknowledge_action_requests].nil?
+        AcknowledgeAlarmActionRequests.validate!(input[:acknowledge_action_requests], context: "#{context}[:acknowledge_action_requests]") unless input[:acknowledge_action_requests].nil?
       end
     end
 
     class BatchAcknowledgeAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchAcknowledgeAlarmOutput, context: context)
-        Validators::BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
+        BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchAlarmActionErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchAlarmActionErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchDeleteDetectorErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchDeleteDetectorErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -133,42 +135,42 @@ module AWS::SDK::IoTEventsData
     class BatchDeleteDetectorInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDetectorInput, context: context)
-        Validators::DeleteDetectorRequests.validate!(input[:detectors], context: "#{context}[:detectors]") unless input[:detectors].nil?
+        DeleteDetectorRequests.validate!(input[:detectors], context: "#{context}[:detectors]") unless input[:detectors].nil?
       end
     end
 
     class BatchDeleteDetectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteDetectorOutput, context: context)
-        Validators::BatchDeleteDetectorErrorEntries.validate!(input[:batch_delete_detector_error_entries], context: "#{context}[:batch_delete_detector_error_entries]") unless input[:batch_delete_detector_error_entries].nil?
+        BatchDeleteDetectorErrorEntries.validate!(input[:batch_delete_detector_error_entries], context: "#{context}[:batch_delete_detector_error_entries]") unless input[:batch_delete_detector_error_entries].nil?
       end
     end
 
     class BatchDisableAlarmInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisableAlarmInput, context: context)
-        Validators::DisableAlarmActionRequests.validate!(input[:disable_action_requests], context: "#{context}[:disable_action_requests]") unless input[:disable_action_requests].nil?
+        DisableAlarmActionRequests.validate!(input[:disable_action_requests], context: "#{context}[:disable_action_requests]") unless input[:disable_action_requests].nil?
       end
     end
 
     class BatchDisableAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDisableAlarmOutput, context: context)
-        Validators::BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
+        BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
       end
     end
 
     class BatchEnableAlarmInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchEnableAlarmInput, context: context)
-        Validators::EnableAlarmActionRequests.validate!(input[:enable_action_requests], context: "#{context}[:enable_action_requests]") unless input[:enable_action_requests].nil?
+        EnableAlarmActionRequests.validate!(input[:enable_action_requests], context: "#{context}[:enable_action_requests]") unless input[:enable_action_requests].nil?
       end
     end
 
     class BatchEnableAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchEnableAlarmOutput, context: context)
-        Validators::BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
+        BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchPutMessageErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchPutMessageErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -193,42 +195,42 @@ module AWS::SDK::IoTEventsData
     class BatchPutMessageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutMessageInput, context: context)
-        Validators::Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        Messages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
     class BatchPutMessageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchPutMessageOutput, context: context)
-        Validators::BatchPutMessageErrorEntries.validate!(input[:batch_put_message_error_entries], context: "#{context}[:batch_put_message_error_entries]") unless input[:batch_put_message_error_entries].nil?
+        BatchPutMessageErrorEntries.validate!(input[:batch_put_message_error_entries], context: "#{context}[:batch_put_message_error_entries]") unless input[:batch_put_message_error_entries].nil?
       end
     end
 
     class BatchResetAlarmInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchResetAlarmInput, context: context)
-        Validators::ResetAlarmActionRequests.validate!(input[:reset_action_requests], context: "#{context}[:reset_action_requests]") unless input[:reset_action_requests].nil?
+        ResetAlarmActionRequests.validate!(input[:reset_action_requests], context: "#{context}[:reset_action_requests]") unless input[:reset_action_requests].nil?
       end
     end
 
     class BatchResetAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchResetAlarmOutput, context: context)
-        Validators::BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
+        BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
       end
     end
 
     class BatchSnoozeAlarmInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchSnoozeAlarmInput, context: context)
-        Validators::SnoozeAlarmActionRequests.validate!(input[:snooze_action_requests], context: "#{context}[:snooze_action_requests]") unless input[:snooze_action_requests].nil?
+        SnoozeAlarmActionRequests.validate!(input[:snooze_action_requests], context: "#{context}[:snooze_action_requests]") unless input[:snooze_action_requests].nil?
       end
     end
 
     class BatchSnoozeAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchSnoozeAlarmOutput, context: context)
-        Validators::BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
+        BatchAlarmActionErrorEntries.validate!(input[:error_entries], context: "#{context}[:error_entries]") unless input[:error_entries].nil?
       end
     end
 
@@ -236,7 +238,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BatchUpdateDetectorErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BatchUpdateDetectorErrorEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -253,14 +255,14 @@ module AWS::SDK::IoTEventsData
     class BatchUpdateDetectorInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateDetectorInput, context: context)
-        Validators::UpdateDetectorRequests.validate!(input[:detectors], context: "#{context}[:detectors]") unless input[:detectors].nil?
+        UpdateDetectorRequests.validate!(input[:detectors], context: "#{context}[:detectors]") unless input[:detectors].nil?
       end
     end
 
     class BatchUpdateDetectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateDetectorOutput, context: context)
-        Validators::BatchUpdateDetectorErrorEntries.validate!(input[:batch_update_detector_error_entries], context: "#{context}[:batch_update_detector_error_entries]") unless input[:batch_update_detector_error_entries].nil?
+        BatchUpdateDetectorErrorEntries.validate!(input[:batch_update_detector_error_entries], context: "#{context}[:batch_update_detector_error_entries]") unless input[:batch_update_detector_error_entries].nil?
       end
     end
 
@@ -268,11 +270,11 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomerAction, context: context)
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
-        Validators::SnoozeActionConfiguration.validate!(input[:snooze_action_configuration], context: "#{context}[:snooze_action_configuration]") unless input[:snooze_action_configuration].nil?
-        Validators::EnableActionConfiguration.validate!(input[:enable_action_configuration], context: "#{context}[:enable_action_configuration]") unless input[:enable_action_configuration].nil?
-        Validators::DisableActionConfiguration.validate!(input[:disable_action_configuration], context: "#{context}[:disable_action_configuration]") unless input[:disable_action_configuration].nil?
-        Validators::AcknowledgeActionConfiguration.validate!(input[:acknowledge_action_configuration], context: "#{context}[:acknowledge_action_configuration]") unless input[:acknowledge_action_configuration].nil?
-        Validators::ResetActionConfiguration.validate!(input[:reset_action_configuration], context: "#{context}[:reset_action_configuration]") unless input[:reset_action_configuration].nil?
+        SnoozeActionConfiguration.validate!(input[:snooze_action_configuration], context: "#{context}[:snooze_action_configuration]") unless input[:snooze_action_configuration].nil?
+        EnableActionConfiguration.validate!(input[:enable_action_configuration], context: "#{context}[:enable_action_configuration]") unless input[:enable_action_configuration].nil?
+        DisableActionConfiguration.validate!(input[:disable_action_configuration], context: "#{context}[:disable_action_configuration]") unless input[:disable_action_configuration].nil?
+        AcknowledgeActionConfiguration.validate!(input[:acknowledge_action_configuration], context: "#{context}[:acknowledge_action_configuration]") unless input[:acknowledge_action_configuration].nil?
+        ResetActionConfiguration.validate!(input[:reset_action_configuration], context: "#{context}[:reset_action_configuration]") unless input[:reset_action_configuration].nil?
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeleteDetectorRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeleteDetectorRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::IoTEventsData
     class DescribeAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAlarmOutput, context: context)
-        Validators::Alarm.validate!(input[:alarm], context: "#{context}[:alarm]") unless input[:alarm].nil?
+        Alarm.validate!(input[:alarm], context: "#{context}[:alarm]") unless input[:alarm].nil?
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::IoTEventsData
     class DescribeDetectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDetectorOutput, context: context)
-        Validators::Detector.validate!(input[:detector], context: "#{context}[:detector]") unless input[:detector].nil?
+        Detector.validate!(input[:detector], context: "#{context}[:detector]") unless input[:detector].nil?
       end
     end
 
@@ -330,7 +332,7 @@ module AWS::SDK::IoTEventsData
         Hearth::Validator.validate!(input[:detector_model_name], ::String, context: "#{context}[:detector_model_name]")
         Hearth::Validator.validate!(input[:key_value], ::String, context: "#{context}[:key_value]")
         Hearth::Validator.validate!(input[:detector_model_version], ::String, context: "#{context}[:detector_model_version]")
-        Validators::DetectorState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        DetectorState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
       end
@@ -340,8 +342,8 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectorState, context: context)
         Hearth::Validator.validate!(input[:state_name], ::String, context: "#{context}[:state_name]")
-        Validators::Variables.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
-        Validators::Timers.validate!(input[:timers], context: "#{context}[:timers]") unless input[:timers].nil?
+        Variables.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
+        Timers.validate!(input[:timers], context: "#{context}[:timers]") unless input[:timers].nil?
       end
     end
 
@@ -349,8 +351,8 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectorStateDefinition, context: context)
         Hearth::Validator.validate!(input[:state_name], ::String, context: "#{context}[:state_name]")
-        Validators::VariableDefinitions.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
-        Validators::TimerDefinitions.validate!(input[:timers], context: "#{context}[:timers]") unless input[:timers].nil?
+        VariableDefinitions.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
+        TimerDefinitions.validate!(input[:timers], context: "#{context}[:timers]") unless input[:timers].nil?
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DetectorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DetectorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -376,7 +378,7 @@ module AWS::SDK::IoTEventsData
         Hearth::Validator.validate!(input[:detector_model_name], ::String, context: "#{context}[:detector_model_name]")
         Hearth::Validator.validate!(input[:key_value], ::String, context: "#{context}[:key_value]")
         Hearth::Validator.validate!(input[:detector_model_version], ::String, context: "#{context}[:detector_model_version]")
-        Validators::DetectorStateSummary.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        DetectorStateSummary.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
       end
@@ -403,7 +405,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DisableAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DisableAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -429,7 +431,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnableAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnableAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -460,7 +462,7 @@ module AWS::SDK::IoTEventsData
     class ListAlarmsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAlarmsOutput, context: context)
-        Validators::AlarmSummaries.validate!(input[:alarm_summaries], context: "#{context}[:alarm_summaries]") unless input[:alarm_summaries].nil?
+        AlarmSummaries.validate!(input[:alarm_summaries], context: "#{context}[:alarm_summaries]") unless input[:alarm_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::IoTEventsData
     class ListDetectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDetectorsOutput, context: context)
-        Validators::DetectorSummaries.validate!(input[:detector_summaries], context: "#{context}[:detector_summaries]") unless input[:detector_summaries].nil?
+        DetectorSummaries.validate!(input[:detector_summaries], context: "#{context}[:detector_summaries]") unless input[:detector_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::IoTEventsData
         Hearth::Validator.validate!(input[:message_id], ::String, context: "#{context}[:message_id]")
         Hearth::Validator.validate!(input[:input_name], ::String, context: "#{context}[:input_name]")
         Hearth::Validator.validate!(input[:payload], ::String, context: "#{context}[:payload]")
-        Validators::TimestampValue.validate!(input[:timestamp], context: "#{context}[:timestamp]") unless input[:timestamp].nil?
+        TimestampValue.validate!(input[:timestamp], context: "#{context}[:timestamp]") unless input[:timestamp].nil?
       end
     end
 
@@ -497,7 +499,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -523,7 +525,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResetAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResetAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -538,7 +540,7 @@ module AWS::SDK::IoTEventsData
     class RuleEvaluation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuleEvaluation, context: context)
-        Validators::SimpleRuleEvaluation.validate!(input[:simple_rule_evaluation], context: "#{context}[:simple_rule_evaluation]") unless input[:simple_rule_evaluation].nil?
+        SimpleRuleEvaluation.validate!(input[:simple_rule_evaluation], context: "#{context}[:simple_rule_evaluation]") unless input[:simple_rule_evaluation].nil?
       end
     end
 
@@ -581,7 +583,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SnoozeAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SnoozeAlarmActionRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -597,7 +599,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SystemEvent, context: context)
         Hearth::Validator.validate!(input[:event_type], ::String, context: "#{context}[:event_type]")
-        Validators::StateChangeConfiguration.validate!(input[:state_change_configuration], context: "#{context}[:state_change_configuration]") unless input[:state_change_configuration].nil?
+        StateChangeConfiguration.validate!(input[:state_change_configuration], context: "#{context}[:state_change_configuration]") unless input[:state_change_configuration].nil?
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimerDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimerDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -637,7 +639,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Timer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Timer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::IoTEventsData
         Hearth::Validator.validate!(input[:message_id], ::String, context: "#{context}[:message_id]")
         Hearth::Validator.validate!(input[:detector_model_name], ::String, context: "#{context}[:detector_model_name]")
         Hearth::Validator.validate!(input[:key_value], ::String, context: "#{context}[:key_value]")
-        Validators::DetectorStateDefinition.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        DetectorStateDefinition.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateDetectorRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateDetectorRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -688,7 +690,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VariableDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VariableDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -697,7 +699,7 @@ module AWS::SDK::IoTEventsData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Variable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Variable.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

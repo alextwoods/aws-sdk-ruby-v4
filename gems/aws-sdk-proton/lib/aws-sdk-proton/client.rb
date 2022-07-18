@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Proton
@@ -190,7 +192,7 @@ module AWS::SDK::Proton
     def accept_environment_account_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptEnvironmentAccountConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptEnvironmentAccountConnectionInput,
         validate_input: @config.validate_input
@@ -275,7 +277,7 @@ module AWS::SDK::Proton
     def cancel_component_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelComponentDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelComponentDeploymentInput,
         validate_input: @config.validate_input
@@ -381,7 +383,7 @@ module AWS::SDK::Proton
     def cancel_environment_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelEnvironmentDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelEnvironmentDeploymentInput,
         validate_input: @config.validate_input
@@ -481,7 +483,7 @@ module AWS::SDK::Proton
     def cancel_service_instance_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelServiceInstanceDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelServiceInstanceDeploymentInput,
         validate_input: @config.validate_input
@@ -574,7 +576,7 @@ module AWS::SDK::Proton
     def cancel_service_pipeline_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelServicePipelineDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelServicePipelineDeploymentInput,
         validate_input: @config.validate_input
@@ -705,7 +707,7 @@ module AWS::SDK::Proton
     def create_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComponentInput,
         validate_input: @config.validate_input
@@ -875,7 +877,7 @@ module AWS::SDK::Proton
     def create_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentInput,
         validate_input: @config.validate_input
@@ -995,7 +997,7 @@ module AWS::SDK::Proton
     def create_environment_account_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentAccountConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentAccountConnectionInput,
         validate_input: @config.validate_input
@@ -1113,7 +1115,7 @@ module AWS::SDK::Proton
     def create_environment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentTemplateInput,
         validate_input: @config.validate_input
@@ -1229,7 +1231,7 @@ module AWS::SDK::Proton
     def create_environment_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentTemplateVersionInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::Proton
     def create_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRepositoryInput,
         validate_input: @config.validate_input
@@ -1476,7 +1478,7 @@ module AWS::SDK::Proton
     def create_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceInput,
         validate_input: @config.validate_input
@@ -1586,7 +1588,7 @@ module AWS::SDK::Proton
     def create_service_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceTemplateInput,
         validate_input: @config.validate_input
@@ -1728,7 +1730,7 @@ module AWS::SDK::Proton
     def create_service_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceTemplateVersionInput,
         validate_input: @config.validate_input
@@ -1826,7 +1828,7 @@ module AWS::SDK::Proton
     def create_template_sync_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTemplateSyncConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTemplateSyncConfigInput,
         validate_input: @config.validate_input
@@ -1911,7 +1913,7 @@ module AWS::SDK::Proton
     def delete_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteComponentInput,
         validate_input: @config.validate_input
@@ -2002,7 +2004,7 @@ module AWS::SDK::Proton
     def delete_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentInput,
         validate_input: @config.validate_input
@@ -2086,7 +2088,7 @@ module AWS::SDK::Proton
     def delete_environment_account_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentAccountConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentAccountConnectionInput,
         validate_input: @config.validate_input
@@ -2164,7 +2166,7 @@ module AWS::SDK::Proton
     def delete_environment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentTemplateInput,
         validate_input: @config.validate_input
@@ -2257,7 +2259,7 @@ module AWS::SDK::Proton
     def delete_environment_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentTemplateVersionInput,
         validate_input: @config.validate_input
@@ -2335,7 +2337,7 @@ module AWS::SDK::Proton
     def delete_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRepositoryInput,
         validate_input: @config.validate_input
@@ -2433,7 +2435,7 @@ module AWS::SDK::Proton
     def delete_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceInput,
         validate_input: @config.validate_input
@@ -2511,7 +2513,7 @@ module AWS::SDK::Proton
     def delete_service_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceTemplateInput,
         validate_input: @config.validate_input
@@ -2610,7 +2612,7 @@ module AWS::SDK::Proton
     def delete_service_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceTemplateVersionInput,
         validate_input: @config.validate_input
@@ -2689,7 +2691,7 @@ module AWS::SDK::Proton
     def delete_template_sync_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTemplateSyncConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTemplateSyncConfigInput,
         validate_input: @config.validate_input
@@ -2759,7 +2761,7 @@ module AWS::SDK::Proton
     def get_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
         validate_input: @config.validate_input
@@ -2844,7 +2846,7 @@ module AWS::SDK::Proton
     def get_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComponentInput,
         validate_input: @config.validate_input
@@ -2935,7 +2937,7 @@ module AWS::SDK::Proton
     def get_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentInput,
         validate_input: @config.validate_input
@@ -3016,7 +3018,7 @@ module AWS::SDK::Proton
     def get_environment_account_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentAccountConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentAccountConnectionInput,
         validate_input: @config.validate_input
@@ -3094,7 +3096,7 @@ module AWS::SDK::Proton
     def get_environment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentTemplateInput,
         validate_input: @config.validate_input
@@ -3182,7 +3184,7 @@ module AWS::SDK::Proton
     def get_environment_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentTemplateVersionInput,
         validate_input: @config.validate_input
@@ -3260,7 +3262,7 @@ module AWS::SDK::Proton
     def get_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositoryInput,
         validate_input: @config.validate_input
@@ -3356,7 +3358,7 @@ module AWS::SDK::Proton
     def get_repository_sync_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRepositorySyncStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRepositorySyncStatusInput,
         validate_input: @config.validate_input
@@ -3448,7 +3450,7 @@ module AWS::SDK::Proton
     def get_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceInput,
         validate_input: @config.validate_input
@@ -3534,7 +3536,7 @@ module AWS::SDK::Proton
     def get_service_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceInstanceInput,
         validate_input: @config.validate_input
@@ -3612,7 +3614,7 @@ module AWS::SDK::Proton
     def get_service_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceTemplateInput,
         validate_input: @config.validate_input
@@ -3706,7 +3708,7 @@ module AWS::SDK::Proton
     def get_service_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceTemplateVersionInput,
         validate_input: @config.validate_input
@@ -3785,7 +3787,7 @@ module AWS::SDK::Proton
     def get_template_sync_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemplateSyncConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemplateSyncConfigInput,
         validate_input: @config.validate_input
@@ -3880,7 +3882,7 @@ module AWS::SDK::Proton
     def get_template_sync_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemplateSyncStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemplateSyncStatusInput,
         validate_input: @config.validate_input
@@ -3960,7 +3962,7 @@ module AWS::SDK::Proton
     def list_component_outputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentOutputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentOutputsInput,
         validate_input: @config.validate_input
@@ -4042,7 +4044,7 @@ module AWS::SDK::Proton
     def list_component_provisioned_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentProvisionedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentProvisionedResourcesInput,
         validate_input: @config.validate_input
@@ -4145,7 +4147,7 @@ module AWS::SDK::Proton
     def list_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentsInput,
         validate_input: @config.validate_input
@@ -4247,7 +4249,7 @@ module AWS::SDK::Proton
     def list_environment_account_connections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentAccountConnectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentAccountConnectionsInput,
         validate_input: @config.validate_input
@@ -4325,7 +4327,7 @@ module AWS::SDK::Proton
     def list_environment_outputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentOutputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentOutputsInput,
         validate_input: @config.validate_input
@@ -4404,7 +4406,7 @@ module AWS::SDK::Proton
     def list_environment_provisioned_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentProvisionedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentProvisionedResourcesInput,
         validate_input: @config.validate_input
@@ -4500,7 +4502,7 @@ module AWS::SDK::Proton
     def list_environment_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -4584,7 +4586,7 @@ module AWS::SDK::Proton
     def list_environment_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentTemplatesInput,
         validate_input: @config.validate_input
@@ -4685,7 +4687,7 @@ module AWS::SDK::Proton
     def list_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentsInput,
         validate_input: @config.validate_input
@@ -4763,7 +4765,7 @@ module AWS::SDK::Proton
     def list_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositoriesInput,
         validate_input: @config.validate_input
@@ -4851,7 +4853,7 @@ module AWS::SDK::Proton
     def list_repository_sync_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRepositorySyncDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRepositorySyncDefinitionsInput,
         validate_input: @config.validate_input
@@ -4932,7 +4934,7 @@ module AWS::SDK::Proton
     def list_service_instance_outputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceInstanceOutputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceInstanceOutputsInput,
         validate_input: @config.validate_input
@@ -5015,7 +5017,7 @@ module AWS::SDK::Proton
     def list_service_instance_provisioned_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceInstanceProvisionedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceInstanceProvisionedResourcesInput,
         validate_input: @config.validate_input
@@ -5107,7 +5109,7 @@ module AWS::SDK::Proton
     def list_service_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceInstancesInput,
         validate_input: @config.validate_input
@@ -5184,7 +5186,7 @@ module AWS::SDK::Proton
     def list_service_pipeline_outputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicePipelineOutputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicePipelineOutputsInput,
         validate_input: @config.validate_input
@@ -5263,7 +5265,7 @@ module AWS::SDK::Proton
     def list_service_pipeline_provisioned_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicePipelineProvisionedResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicePipelineProvisionedResourcesInput,
         validate_input: @config.validate_input
@@ -5359,7 +5361,7 @@ module AWS::SDK::Proton
     def list_service_template_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceTemplateVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceTemplateVersionsInput,
         validate_input: @config.validate_input
@@ -5443,7 +5445,7 @@ module AWS::SDK::Proton
     def list_service_templates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceTemplatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceTemplatesInput,
         validate_input: @config.validate_input
@@ -5526,7 +5528,7 @@ module AWS::SDK::Proton
     def list_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicesInput,
         validate_input: @config.validate_input
@@ -5608,7 +5610,7 @@ module AWS::SDK::Proton
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5698,7 +5700,7 @@ module AWS::SDK::Proton
     def notify_resource_deployment_status_change(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyResourceDeploymentStatusChangeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyResourceDeploymentStatusChangeInput,
         validate_input: @config.validate_input
@@ -5782,7 +5784,7 @@ module AWS::SDK::Proton
     def reject_environment_account_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectEnvironmentAccountConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectEnvironmentAccountConnectionInput,
         validate_input: @config.validate_input
@@ -5860,7 +5862,7 @@ module AWS::SDK::Proton
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5935,7 +5937,7 @@ module AWS::SDK::Proton
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6020,7 +6022,7 @@ module AWS::SDK::Proton
     def update_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAccountSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAccountSettingsInput,
         validate_input: @config.validate_input
@@ -6160,7 +6162,7 @@ module AWS::SDK::Proton
     def update_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateComponentInput,
         validate_input: @config.validate_input
@@ -6379,7 +6381,7 @@ module AWS::SDK::Proton
     def update_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentInput,
         validate_input: @config.validate_input
@@ -6474,7 +6476,7 @@ module AWS::SDK::Proton
     def update_environment_account_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentAccountConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentAccountConnectionInput,
         validate_input: @config.validate_input
@@ -6560,7 +6562,7 @@ module AWS::SDK::Proton
     def update_environment_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentTemplateInput,
         validate_input: @config.validate_input
@@ -6656,7 +6658,7 @@ module AWS::SDK::Proton
     def update_environment_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentTemplateVersionInput,
         validate_input: @config.validate_input
@@ -6769,7 +6771,7 @@ module AWS::SDK::Proton
     def update_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceInput,
         validate_input: @config.validate_input
@@ -6912,7 +6914,7 @@ module AWS::SDK::Proton
     def update_service_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceInstanceInput,
         validate_input: @config.validate_input
@@ -7075,7 +7077,7 @@ module AWS::SDK::Proton
     def update_service_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServicePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServicePipelineInput,
         validate_input: @config.validate_input
@@ -7161,7 +7163,7 @@ module AWS::SDK::Proton
     def update_service_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceTemplateInput,
         validate_input: @config.validate_input
@@ -7287,7 +7289,7 @@ module AWS::SDK::Proton
     def update_service_template_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceTemplateVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceTemplateVersionInput,
         validate_input: @config.validate_input
@@ -7382,7 +7384,7 @@ module AWS::SDK::Proton
     def update_template_sync_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTemplateSyncConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTemplateSyncConfigInput,
         validate_input: @config.validate_input

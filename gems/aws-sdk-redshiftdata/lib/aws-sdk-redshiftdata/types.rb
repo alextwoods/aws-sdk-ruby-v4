@@ -242,6 +242,7 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_case_sensitive ||= false
@@ -252,7 +253,6 @@ module AWS::SDK::RedshiftData
         self.scale ||= 0
         self.length ||= 0
       end
-
     end
 
     # <p>Connection to a database failed.</p>
@@ -425,6 +425,7 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -433,7 +434,6 @@ module AWS::SDK::RedshiftData
         self.result_size ||= 0
         self.redshift_query_id ||= 0
       end
-
     end
 
     # @!attribute cluster_identifier
@@ -497,11 +497,11 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute table_name
@@ -782,11 +782,11 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_num_rows ||= 0
       end
-
     end
 
     # <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
@@ -844,11 +844,11 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute databases
@@ -925,11 +925,11 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute schemas
@@ -1014,11 +1014,11 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute statements
@@ -1107,11 +1107,11 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute tables
@@ -1387,6 +1387,7 @@ module AWS::SDK::RedshiftData
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -1394,7 +1395,6 @@ module AWS::SDK::RedshiftData
         self.result_size ||= 0
         self.redshift_query_id ||= 0
       end
-
     end
 
     # <p>The properties of a table. </p>

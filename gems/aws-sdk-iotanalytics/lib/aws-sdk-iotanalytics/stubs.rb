@@ -14,7 +14,7 @@ module AWS::SDK::IoTAnalytics
     class BatchPutMessage
       def self.default(visited=[])
         {
-          batch_put_message_error_entries: Stubs::BatchPutMessageErrorEntries.default(visited),
+          batch_put_message_error_entries: BatchPutMessageErrorEntries.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('BatchPutMessageErrorEntries')
         visited = visited + ['BatchPutMessageErrorEntries']
         [
-          Stubs::BatchPutMessageErrorEntry.default(visited)
+          BatchPutMessageErrorEntry.default(visited)
         ]
       end
 
@@ -88,7 +88,7 @@ module AWS::SDK::IoTAnalytics
         {
           channel_name: 'channel_name',
           channel_arn: 'channel_arn',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
         }
       end
 
@@ -129,7 +129,7 @@ module AWS::SDK::IoTAnalytics
         {
           dataset_name: 'dataset_name',
           dataset_arn: 'dataset_arn',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
         }
       end
 
@@ -167,7 +167,7 @@ module AWS::SDK::IoTAnalytics
         {
           datastore_name: 'datastore_name',
           datastore_arn: 'datastore_arn',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
         }
       end
 
@@ -270,8 +270,8 @@ module AWS::SDK::IoTAnalytics
     class DescribeChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
-          statistics: Stubs::ChannelStatistics.default(visited),
+          channel: Channel.default(visited),
+          statistics: ChannelStatistics.default(visited),
         }
       end
 
@@ -291,7 +291,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('ChannelStatistics')
         visited = visited + ['ChannelStatistics']
         {
-          size: Stubs::EstimatedResourceSize.default(visited),
+          size: EstimatedResourceSize.default(visited),
         }
       end
 
@@ -330,10 +330,10 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['Channel']
         {
           name: 'name',
-          storage: Stubs::ChannelStorage.default(visited),
+          storage: ChannelStorage.default(visited),
           arn: 'arn',
           status: 'status',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
           last_message_arrival_time: Time.now,
@@ -361,8 +361,8 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('ChannelStorage')
         visited = visited + ['ChannelStorage']
         {
-          service_managed_s3: Stubs::ServiceManagedChannelS3Storage.default(visited),
-          customer_managed_s3: Stubs::CustomerManagedChannelS3Storage.default(visited),
+          service_managed_s3: ServiceManagedChannelS3Storage.default(visited),
+          customer_managed_s3: CustomerManagedChannelS3Storage.default(visited),
         }
       end
 
@@ -417,7 +417,7 @@ module AWS::SDK::IoTAnalytics
     class DescribeDataset
       def self.default(visited=[])
         {
-          dataset: Stubs::Dataset.default(visited),
+          dataset: Dataset.default(visited),
         }
       end
 
@@ -438,15 +438,15 @@ module AWS::SDK::IoTAnalytics
         {
           name: 'name',
           arn: 'arn',
-          actions: Stubs::DatasetActions.default(visited),
-          triggers: Stubs::DatasetTriggers.default(visited),
-          content_delivery_rules: Stubs::DatasetContentDeliveryRules.default(visited),
+          actions: DatasetActions.default(visited),
+          triggers: DatasetTriggers.default(visited),
+          content_delivery_rules: DatasetContentDeliveryRules.default(visited),
           status: 'status',
           creation_time: Time.now,
           last_update_time: Time.now,
-          retention_period: Stubs::RetentionPeriod.default(visited),
-          versioning_configuration: Stubs::VersioningConfiguration.default(visited),
-          late_data_rules: Stubs::LateDataRules.default(visited),
+          retention_period: RetentionPeriod.default(visited),
+          versioning_configuration: VersioningConfiguration.default(visited),
+          late_data_rules: LateDataRules.default(visited),
         }
       end
 
@@ -474,7 +474,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('LateDataRules')
         visited = visited + ['LateDataRules']
         [
-          Stubs::LateDataRule.default(visited)
+          LateDataRule.default(visited)
         ]
       end
 
@@ -495,7 +495,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['LateDataRule']
         {
           rule_name: 'rule_name',
-          rule_configuration: Stubs::LateDataRuleConfiguration.default(visited),
+          rule_configuration: LateDataRuleConfiguration.default(visited),
         }
       end
 
@@ -514,7 +514,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('LateDataRuleConfiguration')
         visited = visited + ['LateDataRuleConfiguration']
         {
-          delta_time_session_window_configuration: Stubs::DeltaTimeSessionWindowConfiguration.default(visited),
+          delta_time_session_window_configuration: DeltaTimeSessionWindowConfiguration.default(visited),
         }
       end
 
@@ -570,7 +570,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetContentDeliveryRules')
         visited = visited + ['DatasetContentDeliveryRules']
         [
-          Stubs::DatasetContentDeliveryRule.default(visited)
+          DatasetContentDeliveryRule.default(visited)
         ]
       end
 
@@ -591,7 +591,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['DatasetContentDeliveryRule']
         {
           entry_name: 'entry_name',
-          destination: Stubs::DatasetContentDeliveryDestination.default(visited),
+          destination: DatasetContentDeliveryDestination.default(visited),
         }
       end
 
@@ -610,8 +610,8 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetContentDeliveryDestination')
         visited = visited + ['DatasetContentDeliveryDestination']
         {
-          iot_events_destination_configuration: Stubs::IotEventsDestinationConfiguration.default(visited),
-          s3_destination_configuration: Stubs::S3DestinationConfiguration.default(visited),
+          iot_events_destination_configuration: IotEventsDestinationConfiguration.default(visited),
+          s3_destination_configuration: S3DestinationConfiguration.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::IoTAnalytics
         {
           bucket: 'bucket',
           key: 'key',
-          glue_configuration: Stubs::GlueConfiguration.default(visited),
+          glue_configuration: GlueConfiguration.default(visited),
           role_arn: 'role_arn',
         }
       end
@@ -694,7 +694,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetTriggers')
         visited = visited + ['DatasetTriggers']
         [
-          Stubs::DatasetTrigger.default(visited)
+          DatasetTrigger.default(visited)
         ]
       end
 
@@ -714,8 +714,8 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetTrigger')
         visited = visited + ['DatasetTrigger']
         {
-          schedule: Stubs::Schedule.default(visited),
-          dataset: Stubs::TriggeringDataset.default(visited),
+          schedule: Schedule.default(visited),
+          dataset: TriggeringDataset.default(visited),
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetActions')
         visited = visited + ['DatasetActions']
         [
-          Stubs::DatasetAction.default(visited)
+          DatasetAction.default(visited)
         ]
       end
 
@@ -791,8 +791,8 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['DatasetAction']
         {
           action_name: 'action_name',
-          query_action: Stubs::SqlQueryDatasetAction.default(visited),
-          container_action: Stubs::ContainerDatasetAction.default(visited),
+          query_action: SqlQueryDatasetAction.default(visited),
+          container_action: ContainerDatasetAction.default(visited),
         }
       end
 
@@ -814,8 +814,8 @@ module AWS::SDK::IoTAnalytics
         {
           image: 'image',
           execution_role_arn: 'execution_role_arn',
-          resource_configuration: Stubs::ResourceConfiguration.default(visited),
-          variables: Stubs::Variables.default(visited),
+          resource_configuration: ResourceConfiguration.default(visited),
+          variables: Variables.default(visited),
         }
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('Variables')
         visited = visited + ['Variables']
         [
-          Stubs::Variable.default(visited)
+          Variable.default(visited)
         ]
       end
 
@@ -859,8 +859,8 @@ module AWS::SDK::IoTAnalytics
           name: 'name',
           string_value: 'string_value',
           double_value: 1.0,
-          dataset_content_version_value: Stubs::DatasetContentVersionValue.default(visited),
-          output_file_uri_value: Stubs::OutputFileUriValue.default(visited),
+          dataset_content_version_value: DatasetContentVersionValue.default(visited),
+          output_file_uri_value: OutputFileUriValue.default(visited),
         }
       end
 
@@ -939,7 +939,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['SqlQueryDatasetAction']
         {
           sql_query: 'sql_query',
-          filters: Stubs::QueryFilters.default(visited),
+          filters: QueryFilters.default(visited),
         }
       end
 
@@ -958,7 +958,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('QueryFilters')
         visited = visited + ['QueryFilters']
         [
-          Stubs::QueryFilter.default(visited)
+          QueryFilter.default(visited)
         ]
       end
 
@@ -978,7 +978,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('QueryFilter')
         visited = visited + ['QueryFilter']
         {
-          delta_time: Stubs::DeltaTime.default(visited),
+          delta_time: DeltaTime.default(visited),
         }
       end
 
@@ -1014,8 +1014,8 @@ module AWS::SDK::IoTAnalytics
     class DescribeDatastore
       def self.default(visited=[])
         {
-          datastore: Stubs::Datastore.default(visited),
-          statistics: Stubs::DatastoreStatistics.default(visited),
+          datastore: Datastore.default(visited),
+          statistics: DatastoreStatistics.default(visited),
         }
       end
 
@@ -1035,7 +1035,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastoreStatistics')
         visited = visited + ['DatastoreStatistics']
         {
-          size: Stubs::EstimatedResourceSize.default(visited),
+          size: EstimatedResourceSize.default(visited),
         }
       end
 
@@ -1054,15 +1054,15 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['Datastore']
         {
           name: 'name',
-          storage: Stubs::DatastoreStorage.default(visited),
+          storage: DatastoreStorage.default(visited),
           arn: 'arn',
           status: 'status',
-          retention_period: Stubs::RetentionPeriod.default(visited),
+          retention_period: RetentionPeriod.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
           last_message_arrival_time: Time.now,
-          file_format_configuration: Stubs::FileFormatConfiguration.default(visited),
-          datastore_partitions: Stubs::DatastorePartitions.default(visited),
+          file_format_configuration: FileFormatConfiguration.default(visited),
+          datastore_partitions: DatastorePartitions.default(visited),
         }
       end
 
@@ -1089,7 +1089,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastorePartitions')
         visited = visited + ['DatastorePartitions']
         {
-          partitions: Stubs::Partitions.default(visited),
+          partitions: Partitions.default(visited),
         }
       end
 
@@ -1107,7 +1107,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('Partitions')
         visited = visited + ['Partitions']
         [
-          Stubs::DatastorePartition.default(visited)
+          DatastorePartition.default(visited)
         ]
       end
 
@@ -1127,8 +1127,8 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastorePartition')
         visited = visited + ['DatastorePartition']
         {
-          attribute_partition: Stubs::Partition.default(visited),
-          timestamp_partition: Stubs::TimestampPartition.default(visited),
+          attribute_partition: Partition.default(visited),
+          timestamp_partition: TimestampPartition.default(visited),
         }
       end
 
@@ -1185,8 +1185,8 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('FileFormatConfiguration')
         visited = visited + ['FileFormatConfiguration']
         {
-          json_configuration: Stubs::JsonConfiguration.default(visited),
-          parquet_configuration: Stubs::ParquetConfiguration.default(visited),
+          json_configuration: JsonConfiguration.default(visited),
+          parquet_configuration: ParquetConfiguration.default(visited),
         }
       end
 
@@ -1205,7 +1205,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('ParquetConfiguration')
         visited = visited + ['ParquetConfiguration']
         {
-          schema_definition: Stubs::SchemaDefinition.default(visited),
+          schema_definition: SchemaDefinition.default(visited),
         }
       end
 
@@ -1223,7 +1223,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('SchemaDefinition')
         visited = visited + ['SchemaDefinition']
         {
-          columns: Stubs::Columns.default(visited),
+          columns: Columns.default(visited),
         }
       end
 
@@ -1241,7 +1241,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('Columns')
         visited = visited + ['Columns']
         [
-          Stubs::Column.default(visited)
+          Column.default(visited)
         ]
       end
 
@@ -1297,7 +1297,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastoreStorage')
         visited = visited + ['DatastoreStorage']
         {
-          service_managed_s3: Stubs::ServiceManagedDatastoreS3Storage.default(visited),
+          service_managed_s3: ServiceManagedDatastoreS3Storage.default(visited),
         }
       end
 
@@ -1325,7 +1325,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastoreIotSiteWiseMultiLayerStorage')
         visited = visited + ['DatastoreIotSiteWiseMultiLayerStorage']
         {
-          customer_managed_s3_storage: Stubs::IotSiteWiseCustomerManagedDatastoreS3Storage.default(visited),
+          customer_managed_s3_storage: IotSiteWiseCustomerManagedDatastoreS3Storage.default(visited),
         }
       end
 
@@ -1399,7 +1399,7 @@ module AWS::SDK::IoTAnalytics
     class DescribeLoggingOptions
       def self.default(visited=[])
         {
-          logging_options: Stubs::LoggingOptions.default(visited),
+          logging_options: LoggingOptions.default(visited),
         }
       end
 
@@ -1438,7 +1438,7 @@ module AWS::SDK::IoTAnalytics
     class DescribePipeline
       def self.default(visited=[])
         {
-          pipeline: Stubs::Pipeline.default(visited),
+          pipeline: Pipeline.default(visited),
         }
       end
 
@@ -1459,8 +1459,8 @@ module AWS::SDK::IoTAnalytics
         {
           name: 'name',
           arn: 'arn',
-          activities: Stubs::PipelineActivities.default(visited),
-          reprocessing_summaries: Stubs::ReprocessingSummaries.default(visited),
+          activities: PipelineActivities.default(visited),
+          reprocessing_summaries: ReprocessingSummaries.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
         }
@@ -1485,7 +1485,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('ReprocessingSummaries')
         visited = visited + ['ReprocessingSummaries']
         [
-          Stubs::ReprocessingSummary.default(visited)
+          ReprocessingSummary.default(visited)
         ]
       end
 
@@ -1527,7 +1527,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('PipelineActivities')
         visited = visited + ['PipelineActivities']
         [
-          Stubs::PipelineActivity.default(visited)
+          PipelineActivity.default(visited)
         ]
       end
 
@@ -1547,16 +1547,16 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('PipelineActivity')
         visited = visited + ['PipelineActivity']
         {
-          channel: Stubs::ChannelActivity.default(visited),
-          lambda: Stubs::LambdaActivity.default(visited),
-          datastore: Stubs::DatastoreActivity.default(visited),
-          add_attributes: Stubs::AddAttributesActivity.default(visited),
-          remove_attributes: Stubs::RemoveAttributesActivity.default(visited),
-          select_attributes: Stubs::SelectAttributesActivity.default(visited),
-          filter: Stubs::FilterActivity.default(visited),
-          math: Stubs::MathActivity.default(visited),
-          device_registry_enrich: Stubs::DeviceRegistryEnrichActivity.default(visited),
-          device_shadow_enrich: Stubs::DeviceShadowEnrichActivity.default(visited),
+          channel: ChannelActivity.default(visited),
+          lambda: LambdaActivity.default(visited),
+          datastore: DatastoreActivity.default(visited),
+          add_attributes: AddAttributesActivity.default(visited),
+          remove_attributes: RemoveAttributesActivity.default(visited),
+          select_attributes: SelectAttributesActivity.default(visited),
+          filter: FilterActivity.default(visited),
+          math: MathActivity.default(visited),
+          device_registry_enrich: DeviceRegistryEnrichActivity.default(visited),
+          device_shadow_enrich: DeviceShadowEnrichActivity.default(visited),
         }
       end
 
@@ -1682,7 +1682,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['SelectAttributesActivity']
         {
           name: 'name',
-          attributes: Stubs::AttributeNames.default(visited),
+          attributes: AttributeNames.default(visited),
           next: 'next',
         }
       end
@@ -1724,7 +1724,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['RemoveAttributesActivity']
         {
           name: 'name',
-          attributes: Stubs::AttributeNames.default(visited),
+          attributes: AttributeNames.default(visited),
           next: 'next',
         }
       end
@@ -1746,7 +1746,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['AddAttributesActivity']
         {
           name: 'name',
-          attributes: Stubs::AttributeNameMapping.default(visited),
+          attributes: AttributeNameMapping.default(visited),
           next: 'next',
         }
       end
@@ -1851,9 +1851,9 @@ module AWS::SDK::IoTAnalytics
     class GetDatasetContent
       def self.default(visited=[])
         {
-          entries: Stubs::DatasetEntries.default(visited),
+          entries: DatasetEntries.default(visited),
           timestamp: Time.now,
-          status: Stubs::DatasetContentStatus.default(visited),
+          status: DatasetContentStatus.default(visited),
         }
       end
 
@@ -1894,7 +1894,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetEntries')
         visited = visited + ['DatasetEntries']
         [
-          Stubs::DatasetEntry.default(visited)
+          DatasetEntry.default(visited)
         ]
       end
 
@@ -1932,7 +1932,7 @@ module AWS::SDK::IoTAnalytics
     class ListChannels
       def self.default(visited=[])
         {
-          channel_summaries: Stubs::ChannelSummaries.default(visited),
+          channel_summaries: ChannelSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1953,7 +1953,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('ChannelSummaries')
         visited = visited + ['ChannelSummaries']
         [
-          Stubs::ChannelSummary.default(visited)
+          ChannelSummary.default(visited)
         ]
       end
 
@@ -1974,7 +1974,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['ChannelSummary']
         {
           channel_name: 'channel_name',
-          channel_storage: Stubs::ChannelStorageSummary.default(visited),
+          channel_storage: ChannelStorageSummary.default(visited),
           status: 'status',
           creation_time: Time.now,
           last_update_time: Time.now,
@@ -2001,8 +2001,8 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('ChannelStorageSummary')
         visited = visited + ['ChannelStorageSummary']
         {
-          service_managed_s3: Stubs::ServiceManagedChannelS3StorageSummary.default(visited),
-          customer_managed_s3: Stubs::CustomerManagedChannelS3StorageSummary.default(visited),
+          service_managed_s3: ServiceManagedChannelS3StorageSummary.default(visited),
+          customer_managed_s3: CustomerManagedChannelS3StorageSummary.default(visited),
         }
       end
 
@@ -2057,7 +2057,7 @@ module AWS::SDK::IoTAnalytics
     class ListDatasetContents
       def self.default(visited=[])
         {
-          dataset_content_summaries: Stubs::DatasetContentSummaries.default(visited),
+          dataset_content_summaries: DatasetContentSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2078,7 +2078,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetContentSummaries')
         visited = visited + ['DatasetContentSummaries']
         [
-          Stubs::DatasetContentSummary.default(visited)
+          DatasetContentSummary.default(visited)
         ]
       end
 
@@ -2099,7 +2099,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['DatasetContentSummary']
         {
           version: 'version',
-          status: Stubs::DatasetContentStatus.default(visited),
+          status: DatasetContentStatus.default(visited),
           creation_time: Time.now,
           schedule_time: Time.now,
           completion_time: Time.now,
@@ -2122,7 +2122,7 @@ module AWS::SDK::IoTAnalytics
     class ListDatasets
       def self.default(visited=[])
         {
-          dataset_summaries: Stubs::DatasetSummaries.default(visited),
+          dataset_summaries: DatasetSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2143,7 +2143,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetSummaries')
         visited = visited + ['DatasetSummaries']
         [
-          Stubs::DatasetSummary.default(visited)
+          DatasetSummary.default(visited)
         ]
       end
 
@@ -2167,8 +2167,8 @@ module AWS::SDK::IoTAnalytics
           status: 'status',
           creation_time: Time.now,
           last_update_time: Time.now,
-          triggers: Stubs::DatasetTriggers.default(visited),
-          actions: Stubs::DatasetActionSummaries.default(visited),
+          triggers: DatasetTriggers.default(visited),
+          actions: DatasetActionSummaries.default(visited),
         }
       end
 
@@ -2191,7 +2191,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatasetActionSummaries')
         visited = visited + ['DatasetActionSummaries']
         [
-          Stubs::DatasetActionSummary.default(visited)
+          DatasetActionSummary.default(visited)
         ]
       end
 
@@ -2229,7 +2229,7 @@ module AWS::SDK::IoTAnalytics
     class ListDatastores
       def self.default(visited=[])
         {
-          datastore_summaries: Stubs::DatastoreSummaries.default(visited),
+          datastore_summaries: DatastoreSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2250,7 +2250,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastoreSummaries')
         visited = visited + ['DatastoreSummaries']
         [
-          Stubs::DatastoreSummary.default(visited)
+          DatastoreSummary.default(visited)
         ]
       end
 
@@ -2271,13 +2271,13 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['DatastoreSummary']
         {
           datastore_name: 'datastore_name',
-          datastore_storage: Stubs::DatastoreStorageSummary.default(visited),
+          datastore_storage: DatastoreStorageSummary.default(visited),
           status: 'status',
           creation_time: Time.now,
           last_update_time: Time.now,
           last_message_arrival_time: Time.now,
           file_format_type: 'file_format_type',
-          datastore_partitions: Stubs::DatastorePartitions.default(visited),
+          datastore_partitions: DatastorePartitions.default(visited),
         }
       end
 
@@ -2302,9 +2302,9 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastoreStorageSummary')
         visited = visited + ['DatastoreStorageSummary']
         {
-          service_managed_s3: Stubs::ServiceManagedDatastoreS3StorageSummary.default(visited),
-          customer_managed_s3: Stubs::CustomerManagedDatastoreS3StorageSummary.default(visited),
-          iot_site_wise_multi_layer_storage: Stubs::DatastoreIotSiteWiseMultiLayerStorageSummary.default(visited),
+          service_managed_s3: ServiceManagedDatastoreS3StorageSummary.default(visited),
+          customer_managed_s3: CustomerManagedDatastoreS3StorageSummary.default(visited),
+          iot_site_wise_multi_layer_storage: DatastoreIotSiteWiseMultiLayerStorageSummary.default(visited),
         }
       end
 
@@ -2324,7 +2324,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('DatastoreIotSiteWiseMultiLayerStorageSummary')
         visited = visited + ['DatastoreIotSiteWiseMultiLayerStorageSummary']
         {
-          customer_managed_s3_storage: Stubs::IotSiteWiseCustomerManagedDatastoreS3StorageSummary.default(visited),
+          customer_managed_s3_storage: IotSiteWiseCustomerManagedDatastoreS3StorageSummary.default(visited),
         }
       end
 
@@ -2398,7 +2398,7 @@ module AWS::SDK::IoTAnalytics
     class ListPipelines
       def self.default(visited=[])
         {
-          pipeline_summaries: Stubs::PipelineSummaries.default(visited),
+          pipeline_summaries: PipelineSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2419,7 +2419,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('PipelineSummaries')
         visited = visited + ['PipelineSummaries']
         [
-          Stubs::PipelineSummary.default(visited)
+          PipelineSummary.default(visited)
         ]
       end
 
@@ -2440,7 +2440,7 @@ module AWS::SDK::IoTAnalytics
         visited = visited + ['PipelineSummary']
         {
           pipeline_name: 'pipeline_name',
-          reprocessing_summaries: Stubs::ReprocessingSummaries.default(visited),
+          reprocessing_summaries: ReprocessingSummaries.default(visited),
           creation_time: Time.now,
           last_update_time: Time.now,
         }
@@ -2461,7 +2461,7 @@ module AWS::SDK::IoTAnalytics
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2480,7 +2480,7 @@ module AWS::SDK::IoTAnalytics
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2531,7 +2531,7 @@ module AWS::SDK::IoTAnalytics
     class RunPipelineActivity
       def self.default(visited=[])
         {
-          payloads: Stubs::MessagePayloads.default(visited),
+          payloads: MessagePayloads.default(visited),
           log_result: 'log_result',
         }
       end
@@ -2570,7 +2570,7 @@ module AWS::SDK::IoTAnalytics
     class SampleChannelData
       def self.default(visited=[])
         {
-          payloads: Stubs::MessagePayloads.default(visited),
+          payloads: MessagePayloads.default(visited),
         }
       end
 

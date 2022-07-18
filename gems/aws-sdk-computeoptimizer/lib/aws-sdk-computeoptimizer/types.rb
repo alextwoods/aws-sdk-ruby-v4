@@ -92,13 +92,13 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_capacity ||= 0
         self.min_size ||= 0
         self.max_size ||= 0
       end
-
     end
 
     # <p>Describes an Auto Scaling group recommendation.</p>
@@ -251,11 +251,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.look_back_period_in_days ||= 0
       end
-
     end
 
     # <p>Describes a recommendation option for an Auto Scaling group.</p>
@@ -334,12 +334,12 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.performance_risk ||= 0
         self.rank ||= 0
       end
-
     end
 
     # Includes enum constants for CpuVendorArchitecture
@@ -420,6 +420,7 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.high ||= 0
@@ -427,7 +428,6 @@ module AWS::SDK::ComputeOptimizer
         self.low ||= 0
         self.very_low ||= 0
       end
-
     end
 
     # @!attribute resource_type
@@ -672,11 +672,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Describes the effective recommendation preferences for a resource.</p>
@@ -808,11 +808,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # @!attribute account_ids
@@ -894,11 +894,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_member_accounts ||= false
       end
-
     end
 
     # @!attribute job_id
@@ -1010,11 +1010,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_member_accounts ||= false
       end
-
     end
 
     # @!attribute job_id
@@ -1117,11 +1117,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_member_accounts ||= false
       end
-
     end
 
     # @!attribute job_id
@@ -1217,11 +1217,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_member_accounts ||= false
       end
-
     end
 
     # @!attribute job_id
@@ -2431,11 +2431,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.period ||= 0
       end
-
     end
 
     # @!attribute recommended_option_projected_metrics
@@ -2537,11 +2537,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.member_accounts_enrolled ||= false
       end
-
     end
 
     # @!attribute filters
@@ -3222,11 +3222,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.look_back_period_in_days ||= 0
       end
-
     end
 
     # Includes enum constants for InstanceRecommendationFindingReasonCode
@@ -3474,12 +3474,12 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.performance_risk ||= 0
         self.rank ||= 0
       end
-
     end
 
     # <p>An internal error has occurred. Try your call again.</p>
@@ -3639,11 +3639,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Describes a recommendation option for an Lambda function.</p>
@@ -3680,12 +3680,12 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
         self.memory_size ||= 0
       end
-
     end
 
     # Includes enum constants for LambdaFunctionMetricName
@@ -3888,13 +3888,13 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.current_memory_size ||= 0
         self.number_of_invocations ||= 0
         self.lookback_period_in_days ||= 0
       end
-
     end
 
     # <p>Describes a filter that returns a more specific list of Lambda
@@ -4041,11 +4041,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>The request exceeds a limit of the service.</p>
@@ -4378,11 +4378,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Describes a recommendation export job.</p>
@@ -4659,11 +4659,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rank ||= 0
       end
-
     end
 
     # <p>A resource that is required for the action doesn't exist.</p>
@@ -4798,11 +4798,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.savings_opportunity_percentage ||= 0
       end
-
     end
 
     # <p>Describes the scope of a recommendation preference.</p>
@@ -4955,11 +4955,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>The request was denied due to request throttling.</p>
@@ -5015,11 +5015,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_member_accounts ||= false
       end
-
     end
 
     # @!attribute status
@@ -5195,11 +5195,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Describes the configuration of an Amazon Elastic Block Store (Amazon EBS)
@@ -5249,6 +5249,7 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size ||= 0
@@ -5257,7 +5258,6 @@ module AWS::SDK::ComputeOptimizer
         self.volume_baseline_throughput ||= 0
         self.volume_burst_throughput ||= 0
       end
-
     end
 
     # <p>Describes an Amazon Elastic Block Store (Amazon EBS) volume recommendation.</p>
@@ -5349,11 +5349,11 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.look_back_period_in_days ||= 0
       end
-
     end
 
     # <p>Describes a recommendation option for an Amazon Elastic Block Store (Amazon EBS)
@@ -5397,12 +5397,12 @@ module AWS::SDK::ComputeOptimizer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.performance_risk ||= 0
         self.rank ||= 0
       end
-
     end
 
   end

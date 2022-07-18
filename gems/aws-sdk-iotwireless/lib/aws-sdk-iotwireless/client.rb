@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTWireless
@@ -87,7 +89,7 @@ module AWS::SDK::IoTWireless
     def associate_aws_account_with_partner_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAwsAccountWithPartnerAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAwsAccountWithPartnerAccountInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::IoTWireless
     def associate_multicast_group_with_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateMulticastGroupWithFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateMulticastGroupWithFuotaTaskInput,
         validate_input: @config.validate_input
@@ -231,7 +233,7 @@ module AWS::SDK::IoTWireless
     def associate_wireless_device_with_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWirelessDeviceWithFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWirelessDeviceWithFuotaTaskInput,
         validate_input: @config.validate_input
@@ -303,7 +305,7 @@ module AWS::SDK::IoTWireless
     def associate_wireless_device_with_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWirelessDeviceWithMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWirelessDeviceWithMulticastGroupInput,
         validate_input: @config.validate_input
@@ -375,7 +377,7 @@ module AWS::SDK::IoTWireless
     def associate_wireless_device_with_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWirelessDeviceWithThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWirelessDeviceWithThingInput,
         validate_input: @config.validate_input
@@ -448,7 +450,7 @@ module AWS::SDK::IoTWireless
     def associate_wireless_gateway_with_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWirelessGatewayWithCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWirelessGatewayWithCertificateInput,
         validate_input: @config.validate_input
@@ -520,7 +522,7 @@ module AWS::SDK::IoTWireless
     def associate_wireless_gateway_with_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateWirelessGatewayWithThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateWirelessGatewayWithThingInput,
         validate_input: @config.validate_input
@@ -588,7 +590,7 @@ module AWS::SDK::IoTWireless
     def cancel_multicast_group_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelMulticastGroupSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelMulticastGroupSessionInput,
         validate_input: @config.validate_input
@@ -686,7 +688,7 @@ module AWS::SDK::IoTWireless
     def create_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDestinationInput,
         validate_input: @config.validate_input
@@ -795,7 +797,7 @@ module AWS::SDK::IoTWireless
     def create_device_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeviceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeviceProfileInput,
         validate_input: @config.validate_input
@@ -896,7 +898,7 @@ module AWS::SDK::IoTWireless
     def create_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFuotaTaskInput,
         validate_input: @config.validate_input
@@ -992,7 +994,7 @@ module AWS::SDK::IoTWireless
     def create_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMulticastGroupInput,
         validate_input: @config.validate_input
@@ -1098,7 +1100,7 @@ module AWS::SDK::IoTWireless
     def create_network_analyzer_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkAnalyzerConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkAnalyzerConfigurationInput,
         validate_input: @config.validate_input
@@ -1187,7 +1189,7 @@ module AWS::SDK::IoTWireless
     def create_service_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceProfileInput,
         validate_input: @config.validate_input
@@ -1323,7 +1325,7 @@ module AWS::SDK::IoTWireless
     def create_wireless_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWirelessDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWirelessDeviceInput,
         validate_input: @config.validate_input
@@ -1428,7 +1430,7 @@ module AWS::SDK::IoTWireless
     def create_wireless_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWirelessGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWirelessGatewayInput,
         validate_input: @config.validate_input
@@ -1502,7 +1504,7 @@ module AWS::SDK::IoTWireless
     def create_wireless_gateway_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWirelessGatewayTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWirelessGatewayTaskInput,
         validate_input: @config.validate_input
@@ -1605,7 +1607,7 @@ module AWS::SDK::IoTWireless
     def create_wireless_gateway_task_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWirelessGatewayTaskDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWirelessGatewayTaskDefinitionInput,
         validate_input: @config.validate_input
@@ -1673,7 +1675,7 @@ module AWS::SDK::IoTWireless
     def delete_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDestinationInput,
         validate_input: @config.validate_input
@@ -1740,7 +1742,7 @@ module AWS::SDK::IoTWireless
     def delete_device_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceProfileInput,
         validate_input: @config.validate_input
@@ -1807,7 +1809,7 @@ module AWS::SDK::IoTWireless
     def delete_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFuotaTaskInput,
         validate_input: @config.validate_input
@@ -1874,7 +1876,7 @@ module AWS::SDK::IoTWireless
     def delete_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMulticastGroupInput,
         validate_input: @config.validate_input
@@ -1941,7 +1943,7 @@ module AWS::SDK::IoTWireless
     def delete_network_analyzer_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNetworkAnalyzerConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNetworkAnalyzerConfigurationInput,
         validate_input: @config.validate_input
@@ -2018,7 +2020,7 @@ module AWS::SDK::IoTWireless
     def delete_queued_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueuedMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueuedMessagesInput,
         validate_input: @config.validate_input
@@ -2085,7 +2087,7 @@ module AWS::SDK::IoTWireless
     def delete_service_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceProfileInput,
         validate_input: @config.validate_input
@@ -2152,7 +2154,7 @@ module AWS::SDK::IoTWireless
     def delete_wireless_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWirelessDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWirelessDeviceInput,
         validate_input: @config.validate_input
@@ -2219,7 +2221,7 @@ module AWS::SDK::IoTWireless
     def delete_wireless_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWirelessGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWirelessGatewayInput,
         validate_input: @config.validate_input
@@ -2286,7 +2288,7 @@ module AWS::SDK::IoTWireless
     def delete_wireless_gateway_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWirelessGatewayTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWirelessGatewayTaskInput,
         validate_input: @config.validate_input
@@ -2353,7 +2355,7 @@ module AWS::SDK::IoTWireless
     def delete_wireless_gateway_task_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWirelessGatewayTaskDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWirelessGatewayTaskDefinitionInput,
         validate_input: @config.validate_input
@@ -2424,7 +2426,7 @@ module AWS::SDK::IoTWireless
     def disassociate_aws_account_from_partner_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAwsAccountFromPartnerAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAwsAccountFromPartnerAccountInput,
         validate_input: @config.validate_input
@@ -2495,7 +2497,7 @@ module AWS::SDK::IoTWireless
     def disassociate_multicast_group_from_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateMulticastGroupFromFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateMulticastGroupFromFuotaTaskInput,
         validate_input: @config.validate_input
@@ -2566,7 +2568,7 @@ module AWS::SDK::IoTWireless
     def disassociate_wireless_device_from_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWirelessDeviceFromFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWirelessDeviceFromFuotaTaskInput,
         validate_input: @config.validate_input
@@ -2637,7 +2639,7 @@ module AWS::SDK::IoTWireless
     def disassociate_wireless_device_from_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWirelessDeviceFromMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWirelessDeviceFromMulticastGroupInput,
         validate_input: @config.validate_input
@@ -2704,7 +2706,7 @@ module AWS::SDK::IoTWireless
     def disassociate_wireless_device_from_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWirelessDeviceFromThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWirelessDeviceFromThingInput,
         validate_input: @config.validate_input
@@ -2771,7 +2773,7 @@ module AWS::SDK::IoTWireless
     def disassociate_wireless_gateway_from_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWirelessGatewayFromCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWirelessGatewayFromCertificateInput,
         validate_input: @config.validate_input
@@ -2838,7 +2840,7 @@ module AWS::SDK::IoTWireless
     def disassociate_wireless_gateway_from_thing(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateWirelessGatewayFromThingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateWirelessGatewayFromThingInput,
         validate_input: @config.validate_input
@@ -2911,7 +2913,7 @@ module AWS::SDK::IoTWireless
     def get_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDestinationInput,
         validate_input: @config.validate_input
@@ -3002,7 +3004,7 @@ module AWS::SDK::IoTWireless
     def get_device_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceProfileInput,
         validate_input: @config.validate_input
@@ -3075,7 +3077,7 @@ module AWS::SDK::IoTWireless
     def get_event_configuration_by_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventConfigurationByResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventConfigurationByResourceTypesInput,
         validate_input: @config.validate_input
@@ -3153,7 +3155,7 @@ module AWS::SDK::IoTWireless
     def get_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFuotaTaskInput,
         validate_input: @config.validate_input
@@ -3233,7 +3235,7 @@ module AWS::SDK::IoTWireless
     def get_log_levels_by_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLogLevelsByResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLogLevelsByResourceTypesInput,
         validate_input: @config.validate_input
@@ -3311,7 +3313,7 @@ module AWS::SDK::IoTWireless
     def get_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMulticastGroupInput,
         validate_input: @config.validate_input
@@ -3383,7 +3385,7 @@ module AWS::SDK::IoTWireless
     def get_multicast_group_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMulticastGroupSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMulticastGroupSessionInput,
         validate_input: @config.validate_input
@@ -3460,7 +3462,7 @@ module AWS::SDK::IoTWireless
     def get_network_analyzer_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkAnalyzerConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkAnalyzerConfigurationInput,
         validate_input: @config.validate_input
@@ -3536,7 +3538,7 @@ module AWS::SDK::IoTWireless
     def get_partner_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPartnerAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPartnerAccountInput,
         validate_input: @config.validate_input
@@ -3626,7 +3628,7 @@ module AWS::SDK::IoTWireless
     def get_resource_event_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceEventConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceEventConfigurationInput,
         validate_input: @config.validate_input
@@ -3700,7 +3702,7 @@ module AWS::SDK::IoTWireless
     def get_resource_log_level(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceLogLevelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceLogLevelInput,
         validate_input: @config.validate_input
@@ -3772,7 +3774,7 @@ module AWS::SDK::IoTWireless
     def get_service_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceEndpointInput,
         validate_input: @config.validate_input
@@ -3862,7 +3864,7 @@ module AWS::SDK::IoTWireless
     def get_service_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceProfileInput,
         validate_input: @config.validate_input
@@ -3979,7 +3981,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessDeviceInput,
         validate_input: @config.validate_input
@@ -4064,7 +4066,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_device_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessDeviceStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessDeviceStatisticsInput,
         validate_input: @config.validate_input
@@ -4151,7 +4153,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessGatewayInput,
         validate_input: @config.validate_input
@@ -4220,7 +4222,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_gateway_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessGatewayCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessGatewayCertificateInput,
         validate_input: @config.validate_input
@@ -4292,7 +4294,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_gateway_firmware_information(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessGatewayFirmwareInformationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessGatewayFirmwareInformationInput,
         validate_input: @config.validate_input
@@ -4362,7 +4364,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_gateway_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessGatewayStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessGatewayStatisticsInput,
         validate_input: @config.validate_input
@@ -4434,7 +4436,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_gateway_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessGatewayTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessGatewayTaskInput,
         validate_input: @config.validate_input
@@ -4515,7 +4517,7 @@ module AWS::SDK::IoTWireless
     def get_wireless_gateway_task_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWirelessGatewayTaskDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWirelessGatewayTaskDefinitionInput,
         validate_input: @config.validate_input
@@ -4595,7 +4597,7 @@ module AWS::SDK::IoTWireless
     def list_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDestinationsInput,
         validate_input: @config.validate_input
@@ -4672,7 +4674,7 @@ module AWS::SDK::IoTWireless
     def list_device_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceProfilesInput,
         validate_input: @config.validate_input
@@ -4770,7 +4772,7 @@ module AWS::SDK::IoTWireless
     def list_event_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventConfigurationsInput,
         validate_input: @config.validate_input
@@ -4847,7 +4849,7 @@ module AWS::SDK::IoTWireless
     def list_fuota_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFuotaTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFuotaTasksInput,
         validate_input: @config.validate_input
@@ -4924,7 +4926,7 @@ module AWS::SDK::IoTWireless
     def list_multicast_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMulticastGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMulticastGroupsInput,
         validate_input: @config.validate_input
@@ -5003,7 +5005,7 @@ module AWS::SDK::IoTWireless
     def list_multicast_groups_by_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMulticastGroupsByFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMulticastGroupsByFuotaTaskInput,
         validate_input: @config.validate_input
@@ -5079,7 +5081,7 @@ module AWS::SDK::IoTWireless
     def list_network_analyzer_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNetworkAnalyzerConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNetworkAnalyzerConfigurationsInput,
         validate_input: @config.validate_input
@@ -5156,7 +5158,7 @@ module AWS::SDK::IoTWireless
     def list_partner_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPartnerAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPartnerAccountsInput,
         validate_input: @config.validate_input
@@ -5244,7 +5246,7 @@ module AWS::SDK::IoTWireless
     def list_queued_messages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueuedMessagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueuedMessagesInput,
         validate_input: @config.validate_input
@@ -5321,7 +5323,7 @@ module AWS::SDK::IoTWireless
     def list_service_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServiceProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServiceProfilesInput,
         validate_input: @config.validate_input
@@ -5392,7 +5394,7 @@ module AWS::SDK::IoTWireless
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5509,7 +5511,7 @@ module AWS::SDK::IoTWireless
     def list_wireless_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWirelessDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWirelessDevicesInput,
         validate_input: @config.validate_input
@@ -5595,7 +5597,7 @@ module AWS::SDK::IoTWireless
     def list_wireless_gateway_task_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWirelessGatewayTaskDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWirelessGatewayTaskDefinitionsInput,
         validate_input: @config.validate_input
@@ -5684,7 +5686,7 @@ module AWS::SDK::IoTWireless
     def list_wireless_gateways(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWirelessGatewaysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWirelessGatewaysInput,
         validate_input: @config.validate_input
@@ -5762,7 +5764,7 @@ module AWS::SDK::IoTWireless
     def put_resource_log_level(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourceLogLevelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourceLogLevelInput,
         validate_input: @config.validate_input
@@ -5825,7 +5827,7 @@ module AWS::SDK::IoTWireless
     def reset_all_resource_log_levels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetAllResourceLogLevelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetAllResourceLogLevelsInput,
         validate_input: @config.validate_input
@@ -5898,7 +5900,7 @@ module AWS::SDK::IoTWireless
     def reset_resource_log_level(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetResourceLogLevelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetResourceLogLevelInput,
         validate_input: @config.validate_input
@@ -5978,7 +5980,7 @@ module AWS::SDK::IoTWireless
     def send_data_to_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendDataToMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendDataToMulticastGroupInput,
         validate_input: @config.validate_input
@@ -6067,7 +6069,7 @@ module AWS::SDK::IoTWireless
     def send_data_to_wireless_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendDataToWirelessDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendDataToWirelessDeviceInput,
         validate_input: @config.validate_input
@@ -6148,7 +6150,7 @@ module AWS::SDK::IoTWireless
     def start_bulk_associate_wireless_device_with_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBulkAssociateWirelessDeviceWithMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBulkAssociateWirelessDeviceWithMulticastGroupInput,
         validate_input: @config.validate_input
@@ -6229,7 +6231,7 @@ module AWS::SDK::IoTWireless
     def start_bulk_disassociate_wireless_device_from_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBulkDisassociateWirelessDeviceFromMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBulkDisassociateWirelessDeviceFromMulticastGroupInput,
         validate_input: @config.validate_input
@@ -6303,7 +6305,7 @@ module AWS::SDK::IoTWireless
     def start_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFuotaTaskInput,
         validate_input: @config.validate_input
@@ -6380,7 +6382,7 @@ module AWS::SDK::IoTWireless
     def start_multicast_group_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMulticastGroupSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMulticastGroupSessionInput,
         validate_input: @config.validate_input
@@ -6457,7 +6459,7 @@ module AWS::SDK::IoTWireless
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6526,7 +6528,7 @@ module AWS::SDK::IoTWireless
     def test_wireless_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestWirelessDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestWirelessDeviceInput,
         validate_input: @config.validate_input
@@ -6599,7 +6601,7 @@ module AWS::SDK::IoTWireless
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6682,7 +6684,7 @@ module AWS::SDK::IoTWireless
     def update_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDestinationInput,
         validate_input: @config.validate_input
@@ -6776,7 +6778,7 @@ module AWS::SDK::IoTWireless
     def update_event_configuration_by_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventConfigurationByResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventConfigurationByResourceTypesInput,
         validate_input: @config.validate_input
@@ -6866,7 +6868,7 @@ module AWS::SDK::IoTWireless
     def update_fuota_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFuotaTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFuotaTaskInput,
         validate_input: @config.validate_input
@@ -6966,7 +6968,7 @@ module AWS::SDK::IoTWireless
     def update_log_levels_by_resource_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLogLevelsByResourceTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLogLevelsByResourceTypesInput,
         validate_input: @config.validate_input
@@ -7049,7 +7051,7 @@ module AWS::SDK::IoTWireless
     def update_multicast_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMulticastGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMulticastGroupInput,
         validate_input: @config.validate_input
@@ -7150,7 +7152,7 @@ module AWS::SDK::IoTWireless
     def update_network_analyzer_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNetworkAnalyzerConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNetworkAnalyzerConfigurationInput,
         validate_input: @config.validate_input
@@ -7228,7 +7230,7 @@ module AWS::SDK::IoTWireless
     def update_partner_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePartnerAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePartnerAccountInput,
         validate_input: @config.validate_input
@@ -7337,7 +7339,7 @@ module AWS::SDK::IoTWireless
     def update_resource_event_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceEventConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceEventConfigurationInput,
         validate_input: @config.validate_input
@@ -7430,7 +7432,7 @@ module AWS::SDK::IoTWireless
     def update_wireless_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWirelessDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWirelessDeviceInput,
         validate_input: @config.validate_input
@@ -7520,7 +7522,7 @@ module AWS::SDK::IoTWireless
     def update_wireless_gateway(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWirelessGatewayInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWirelessGatewayInput,
         validate_input: @config.validate_input

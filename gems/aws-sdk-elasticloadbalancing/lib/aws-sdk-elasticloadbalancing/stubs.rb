@@ -32,7 +32,7 @@ module AWS::SDK::ElasticLoadBalancing
     class ApplySecurityGroupsToLoadBalancer
       def self.default(visited=[])
         {
-          security_groups: Stubs::SecurityGroups.default(visited),
+          security_groups: SecurityGroups.default(visited),
         }
       end
 
@@ -71,7 +71,7 @@ module AWS::SDK::ElasticLoadBalancing
     class AttachLoadBalancerToSubnets
       def self.default(visited=[])
         {
-          subnets: Stubs::Subnets.default(visited),
+          subnets: Subnets.default(visited),
         }
       end
 
@@ -110,7 +110,7 @@ module AWS::SDK::ElasticLoadBalancing
     class ConfigureHealthCheck
       def self.default(visited=[])
         {
-          health_check: Stubs::HealthCheck.default(visited),
+          health_check: HealthCheck.default(visited),
         }
       end
 
@@ -302,7 +302,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DeregisterInstancesFromLoadBalancer
       def self.default(visited=[])
         {
-          instances: Stubs::Instances.default(visited),
+          instances: Instances.default(visited),
         }
       end
 
@@ -324,7 +324,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('Instances')
         visited = visited + ['Instances']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -359,7 +359,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeAccountLimits
       def self.default(visited=[])
         {
-          limits: Stubs::Limits.default(visited),
+          limits: Limits.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -383,7 +383,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('Limits')
         visited = visited + ['Limits']
         [
-          Stubs::Limit.default(visited)
+          Limit.default(visited)
         ]
       end
 
@@ -420,7 +420,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeInstanceHealth
       def self.default(visited=[])
         {
-          instance_states: Stubs::InstanceStates.default(visited),
+          instance_states: InstanceStates.default(visited),
         }
       end
 
@@ -442,7 +442,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('InstanceStates')
         visited = visited + ['InstanceStates']
         [
-          Stubs::InstanceState.default(visited)
+          InstanceState.default(visited)
         ]
       end
 
@@ -483,7 +483,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeLoadBalancerAttributes
       def self.default(visited=[])
         {
-          load_balancer_attributes: Stubs::LoadBalancerAttributes.default(visited),
+          load_balancer_attributes: LoadBalancerAttributes.default(visited),
         }
       end
 
@@ -505,11 +505,11 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('LoadBalancerAttributes')
         visited = visited + ['LoadBalancerAttributes']
         {
-          cross_zone_load_balancing: Stubs::CrossZoneLoadBalancing.default(visited),
-          access_log: Stubs::AccessLog.default(visited),
-          connection_draining: Stubs::ConnectionDraining.default(visited),
-          connection_settings: Stubs::ConnectionSettings.default(visited),
-          additional_attributes: Stubs::AdditionalAttributes.default(visited),
+          cross_zone_load_balancing: CrossZoneLoadBalancing.default(visited),
+          access_log: AccessLog.default(visited),
+          connection_draining: ConnectionDraining.default(visited),
+          connection_settings: ConnectionSettings.default(visited),
+          additional_attributes: AdditionalAttributes.default(visited),
         }
       end
 
@@ -531,7 +531,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('AdditionalAttributes')
         visited = visited + ['AdditionalAttributes']
         [
-          Stubs::AdditionalAttribute.default(visited)
+          AdditionalAttribute.default(visited)
         ]
       end
 
@@ -648,7 +648,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeLoadBalancerPolicies
       def self.default(visited=[])
         {
-          policy_descriptions: Stubs::PolicyDescriptions.default(visited),
+          policy_descriptions: PolicyDescriptions.default(visited),
         }
       end
 
@@ -670,7 +670,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('PolicyDescriptions')
         visited = visited + ['PolicyDescriptions']
         [
-          Stubs::PolicyDescription.default(visited)
+          PolicyDescription.default(visited)
         ]
       end
 
@@ -691,7 +691,7 @@ module AWS::SDK::ElasticLoadBalancing
         {
           policy_name: 'policy_name',
           policy_type_name: 'policy_type_name',
-          policy_attribute_descriptions: Stubs::PolicyAttributeDescriptions.default(visited),
+          policy_attribute_descriptions: PolicyAttributeDescriptions.default(visited),
         }
       end
 
@@ -711,7 +711,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('PolicyAttributeDescriptions')
         visited = visited + ['PolicyAttributeDescriptions']
         [
-          Stubs::PolicyAttributeDescription.default(visited)
+          PolicyAttributeDescription.default(visited)
         ]
       end
 
@@ -748,7 +748,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeLoadBalancerPolicyTypes
       def self.default(visited=[])
         {
-          policy_type_descriptions: Stubs::PolicyTypeDescriptions.default(visited),
+          policy_type_descriptions: PolicyTypeDescriptions.default(visited),
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('PolicyTypeDescriptions')
         visited = visited + ['PolicyTypeDescriptions']
         [
-          Stubs::PolicyTypeDescription.default(visited)
+          PolicyTypeDescription.default(visited)
         ]
       end
 
@@ -791,7 +791,7 @@ module AWS::SDK::ElasticLoadBalancing
         {
           policy_type_name: 'policy_type_name',
           description: 'description',
-          policy_attribute_type_descriptions: Stubs::PolicyAttributeTypeDescriptions.default(visited),
+          policy_attribute_type_descriptions: PolicyAttributeTypeDescriptions.default(visited),
         }
       end
 
@@ -811,7 +811,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('PolicyAttributeTypeDescriptions')
         visited = visited + ['PolicyAttributeTypeDescriptions']
         [
-          Stubs::PolicyAttributeTypeDescription.default(visited)
+          PolicyAttributeTypeDescription.default(visited)
         ]
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeLoadBalancers
       def self.default(visited=[])
         {
-          load_balancer_descriptions: Stubs::LoadBalancerDescriptions.default(visited),
+          load_balancer_descriptions: LoadBalancerDescriptions.default(visited),
           next_marker: 'next_marker',
         }
       end
@@ -878,7 +878,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('LoadBalancerDescriptions')
         visited = visited + ['LoadBalancerDescriptions']
         [
-          Stubs::LoadBalancerDescription.default(visited)
+          LoadBalancerDescription.default(visited)
         ]
       end
 
@@ -901,16 +901,16 @@ module AWS::SDK::ElasticLoadBalancing
           dns_name: 'dns_name',
           canonical_hosted_zone_name: 'canonical_hosted_zone_name',
           canonical_hosted_zone_name_id: 'canonical_hosted_zone_name_id',
-          listener_descriptions: Stubs::ListenerDescriptions.default(visited),
-          policies: Stubs::Policies.default(visited),
-          backend_server_descriptions: Stubs::BackendServerDescriptions.default(visited),
-          availability_zones: Stubs::AvailabilityZones.default(visited),
-          subnets: Stubs::Subnets.default(visited),
+          listener_descriptions: ListenerDescriptions.default(visited),
+          policies: Policies.default(visited),
+          backend_server_descriptions: BackendServerDescriptions.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
+          subnets: Subnets.default(visited),
           vpc_id: 'vpc_id',
-          instances: Stubs::Instances.default(visited),
-          health_check: Stubs::HealthCheck.default(visited),
-          source_security_group: Stubs::SourceSecurityGroup.default(visited),
-          security_groups: Stubs::SecurityGroups.default(visited),
+          instances: Instances.default(visited),
+          health_check: HealthCheck.default(visited),
+          source_security_group: SourceSecurityGroup.default(visited),
+          security_groups: SecurityGroups.default(visited),
           created_time: Time.now,
           scheme: 'scheme',
         }
@@ -984,7 +984,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('BackendServerDescriptions')
         visited = visited + ['BackendServerDescriptions']
         [
-          Stubs::BackendServerDescription.default(visited)
+          BackendServerDescription.default(visited)
         ]
       end
 
@@ -1004,7 +1004,7 @@ module AWS::SDK::ElasticLoadBalancing
         visited = visited + ['BackendServerDescription']
         {
           instance_port: 1,
-          policy_names: Stubs::PolicyNames.default(visited),
+          policy_names: PolicyNames.default(visited),
         }
       end
 
@@ -1042,9 +1042,9 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('Policies')
         visited = visited + ['Policies']
         {
-          app_cookie_stickiness_policies: Stubs::AppCookieStickinessPolicies.default(visited),
-          lb_cookie_stickiness_policies: Stubs::LBCookieStickinessPolicies.default(visited),
-          other_policies: Stubs::PolicyNames.default(visited),
+          app_cookie_stickiness_policies: AppCookieStickinessPolicies.default(visited),
+          lb_cookie_stickiness_policies: LBCookieStickinessPolicies.default(visited),
+          other_policies: PolicyNames.default(visited),
         }
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('LBCookieStickinessPolicies')
         visited = visited + ['LBCookieStickinessPolicies']
         [
-          Stubs::LBCookieStickinessPolicy.default(visited)
+          LBCookieStickinessPolicy.default(visited)
         ]
       end
 
@@ -1103,7 +1103,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('AppCookieStickinessPolicies')
         visited = visited + ['AppCookieStickinessPolicies']
         [
-          Stubs::AppCookieStickinessPolicy.default(visited)
+          AppCookieStickinessPolicy.default(visited)
         ]
       end
 
@@ -1142,7 +1142,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('ListenerDescriptions')
         visited = visited + ['ListenerDescriptions']
         [
-          Stubs::ListenerDescription.default(visited)
+          ListenerDescription.default(visited)
         ]
       end
 
@@ -1161,8 +1161,8 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('ListenerDescription')
         visited = visited + ['ListenerDescription']
         {
-          listener: Stubs::Listener.default(visited),
-          policy_names: Stubs::PolicyNames.default(visited),
+          listener: Listener.default(visited),
+          policy_names: PolicyNames.default(visited),
         }
       end
 
@@ -1205,7 +1205,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DescribeTags
       def self.default(visited=[])
         {
-          tag_descriptions: Stubs::TagDescriptions.default(visited),
+          tag_descriptions: TagDescriptions.default(visited),
         }
       end
 
@@ -1227,7 +1227,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('TagDescriptions')
         visited = visited + ['TagDescriptions']
         [
-          Stubs::TagDescription.default(visited)
+          TagDescription.default(visited)
         ]
       end
 
@@ -1247,7 +1247,7 @@ module AWS::SDK::ElasticLoadBalancing
         visited = visited + ['TagDescription']
         {
           load_balancer_name: 'load_balancer_name',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1266,7 +1266,7 @@ module AWS::SDK::ElasticLoadBalancing
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1303,7 +1303,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DetachLoadBalancerFromSubnets
       def self.default(visited=[])
         {
-          subnets: Stubs::Subnets.default(visited),
+          subnets: Subnets.default(visited),
         }
       end
 
@@ -1323,7 +1323,7 @@ module AWS::SDK::ElasticLoadBalancing
     class DisableAvailabilityZonesForLoadBalancer
       def self.default(visited=[])
         {
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
         }
       end
 
@@ -1343,7 +1343,7 @@ module AWS::SDK::ElasticLoadBalancing
     class EnableAvailabilityZonesForLoadBalancer
       def self.default(visited=[])
         {
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
         }
       end
 
@@ -1364,7 +1364,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.default(visited=[])
         {
           load_balancer_name: 'load_balancer_name',
-          load_balancer_attributes: Stubs::LoadBalancerAttributes.default(visited),
+          load_balancer_attributes: LoadBalancerAttributes.default(visited),
         }
       end
 
@@ -1385,7 +1385,7 @@ module AWS::SDK::ElasticLoadBalancing
     class RegisterInstancesWithLoadBalancer
       def self.default(visited=[])
         {
-          instances: Stubs::Instances.default(visited),
+          instances: Instances.default(visited),
         }
       end
 

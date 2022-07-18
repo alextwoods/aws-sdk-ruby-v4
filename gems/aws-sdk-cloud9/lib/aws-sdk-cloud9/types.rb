@@ -31,11 +31,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>A concurrent access issue occurred.</p>
@@ -59,11 +59,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>A conflict occurred.</p>
@@ -87,11 +87,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # Includes enum constants for ConnectionType
@@ -868,11 +868,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>An internal server error occurred.</p>
@@ -896,11 +896,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>A service limit was exceeded.</p>
@@ -924,11 +924,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1096,11 +1096,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # Includes enum constants for Permissions
@@ -1203,11 +1203,11 @@ module AWS::SDK::Cloud9
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # @!attribute resource_arn

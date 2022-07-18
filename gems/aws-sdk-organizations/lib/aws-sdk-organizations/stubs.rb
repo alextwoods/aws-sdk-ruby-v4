@@ -14,7 +14,7 @@ module AWS::SDK::Organizations
     class AcceptHandshake
       def self.default(visited=[])
         {
-          handshake: Stubs::Handshake.default(visited),
+          handshake: Handshake.default(visited),
         }
       end
 
@@ -34,12 +34,12 @@ module AWS::SDK::Organizations
         {
           id: 'id',
           arn: 'arn',
-          parties: Stubs::HandshakeParties.default(visited),
+          parties: HandshakeParties.default(visited),
           state: 'state',
           requested_timestamp: Time.now,
           expiration_timestamp: Time.now,
           action: 'action',
-          resources: Stubs::HandshakeResources.default(visited),
+          resources: HandshakeResources.default(visited),
         }
       end
 
@@ -64,7 +64,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('HandshakeResources')
         visited = visited + ['HandshakeResources']
         [
-          Stubs::HandshakeResource.default(visited)
+          HandshakeResource.default(visited)
         ]
       end
 
@@ -86,7 +86,7 @@ module AWS::SDK::Organizations
         {
           value: 'value',
           type: 'type',
-          resources: Stubs::HandshakeResources.default(visited),
+          resources: HandshakeResources.default(visited),
         }
       end
 
@@ -106,7 +106,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('HandshakeParties')
         visited = visited + ['HandshakeParties']
         [
-          Stubs::HandshakeParty.default(visited)
+          HandshakeParty.default(visited)
         ]
       end
 
@@ -158,7 +158,7 @@ module AWS::SDK::Organizations
     class CancelHandshake
       def self.default(visited=[])
         {
-          handshake: Stubs::Handshake.default(visited),
+          handshake: Handshake.default(visited),
         }
       end
 
@@ -188,7 +188,7 @@ module AWS::SDK::Organizations
     class CreateAccount
       def self.default(visited=[])
         {
-          create_account_status: Stubs::CreateAccountStatus.default(visited),
+          create_account_status: CreateAccountStatus.default(visited),
         }
       end
 
@@ -236,7 +236,7 @@ module AWS::SDK::Organizations
     class CreateGovCloudAccount
       def self.default(visited=[])
         {
-          create_account_status: Stubs::CreateAccountStatus.default(visited),
+          create_account_status: CreateAccountStatus.default(visited),
         }
       end
 
@@ -252,7 +252,7 @@ module AWS::SDK::Organizations
     class CreateOrganization
       def self.default(visited=[])
         {
-          organization: Stubs::Organization.default(visited),
+          organization: Organization.default(visited),
         }
       end
 
@@ -276,7 +276,7 @@ module AWS::SDK::Organizations
           master_account_arn: 'master_account_arn',
           master_account_id: 'master_account_id',
           master_account_email: 'master_account_email',
-          available_policy_types: Stubs::PolicyTypes.default(visited),
+          available_policy_types: PolicyTypes.default(visited),
         }
       end
 
@@ -300,7 +300,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('PolicyTypes')
         visited = visited + ['PolicyTypes']
         [
-          Stubs::PolicyTypeSummary.default(visited)
+          PolicyTypeSummary.default(visited)
         ]
       end
 
@@ -338,7 +338,7 @@ module AWS::SDK::Organizations
     class CreateOrganizationalUnit
       def self.default(visited=[])
         {
-          organizational_unit: Stubs::OrganizationalUnit.default(visited),
+          organizational_unit: OrganizationalUnit.default(visited),
         }
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::Organizations
     class CreatePolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 
@@ -394,7 +394,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Policy')
         visited = visited + ['Policy']
         {
-          policy_summary: Stubs::PolicySummary.default(visited),
+          policy_summary: PolicySummary.default(visited),
           content: 'content',
         }
       end
@@ -440,7 +440,7 @@ module AWS::SDK::Organizations
     class DeclineHandshake
       def self.default(visited=[])
         {
-          handshake: Stubs::Handshake.default(visited),
+          handshake: Handshake.default(visited),
         }
       end
 
@@ -512,7 +512,7 @@ module AWS::SDK::Organizations
     class DescribeAccount
       def self.default(visited=[])
         {
-          account: Stubs::Account.default(visited),
+          account: Account.default(visited),
         }
       end
 
@@ -558,7 +558,7 @@ module AWS::SDK::Organizations
     class DescribeCreateAccountStatus
       def self.default(visited=[])
         {
-          create_account_status: Stubs::CreateAccountStatus.default(visited),
+          create_account_status: CreateAccountStatus.default(visited),
         }
       end
 
@@ -574,7 +574,7 @@ module AWS::SDK::Organizations
     class DescribeEffectivePolicy
       def self.default(visited=[])
         {
-          effective_policy: Stubs::EffectivePolicy.default(visited),
+          effective_policy: EffectivePolicy.default(visited),
         }
       end
 
@@ -614,7 +614,7 @@ module AWS::SDK::Organizations
     class DescribeHandshake
       def self.default(visited=[])
         {
-          handshake: Stubs::Handshake.default(visited),
+          handshake: Handshake.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::Organizations
     class DescribeOrganization
       def self.default(visited=[])
         {
-          organization: Stubs::Organization.default(visited),
+          organization: Organization.default(visited),
         }
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::Organizations
     class DescribeOrganizationalUnit
       def self.default(visited=[])
         {
-          organizational_unit: Stubs::OrganizationalUnit.default(visited),
+          organizational_unit: OrganizationalUnit.default(visited),
         }
       end
 
@@ -662,7 +662,7 @@ module AWS::SDK::Organizations
     class DescribePolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 
@@ -706,7 +706,7 @@ module AWS::SDK::Organizations
     class DisablePolicyType
       def self.default(visited=[])
         {
-          root: Stubs::Root.default(visited),
+          root: Root.default(visited),
         }
       end
 
@@ -727,7 +727,7 @@ module AWS::SDK::Organizations
           id: 'id',
           arn: 'arn',
           name: 'name',
-          policy_types: Stubs::PolicyTypes.default(visited),
+          policy_types: PolicyTypes.default(visited),
         }
       end
 
@@ -760,7 +760,7 @@ module AWS::SDK::Organizations
     class EnableAllFeatures
       def self.default(visited=[])
         {
-          handshake: Stubs::Handshake.default(visited),
+          handshake: Handshake.default(visited),
         }
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::Organizations
     class EnablePolicyType
       def self.default(visited=[])
         {
-          root: Stubs::Root.default(visited),
+          root: Root.default(visited),
         }
       end
 
@@ -792,7 +792,7 @@ module AWS::SDK::Organizations
     class InviteAccountToOrganization
       def self.default(visited=[])
         {
-          handshake: Stubs::Handshake.default(visited),
+          handshake: Handshake.default(visited),
         }
       end
 
@@ -822,7 +822,7 @@ module AWS::SDK::Organizations
     class ListAWSServiceAccessForOrganization
       def self.default(visited=[])
         {
-          enabled_service_principals: Stubs::EnabledServicePrincipals.default(visited),
+          enabled_service_principals: EnabledServicePrincipals.default(visited),
           next_token: 'next_token',
         }
       end
@@ -842,7 +842,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('EnabledServicePrincipals')
         visited = visited + ['EnabledServicePrincipals']
         [
-          Stubs::EnabledServicePrincipal.default(visited)
+          EnabledServicePrincipal.default(visited)
         ]
       end
 
@@ -880,7 +880,7 @@ module AWS::SDK::Organizations
     class ListAccounts
       def self.default(visited=[])
         {
-          accounts: Stubs::Accounts.default(visited),
+          accounts: Accounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -900,7 +900,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Accounts')
         visited = visited + ['Accounts']
         [
-          Stubs::Account.default(visited)
+          Account.default(visited)
         ]
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::Organizations
     class ListAccountsForParent
       def self.default(visited=[])
         {
-          accounts: Stubs::Accounts.default(visited),
+          accounts: Accounts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -936,7 +936,7 @@ module AWS::SDK::Organizations
     class ListChildren
       def self.default(visited=[])
         {
-          children: Stubs::Children.default(visited),
+          children: Children.default(visited),
           next_token: 'next_token',
         }
       end
@@ -956,7 +956,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Children')
         visited = visited + ['Children']
         [
-          Stubs::Child.default(visited)
+          Child.default(visited)
         ]
       end
 
@@ -994,7 +994,7 @@ module AWS::SDK::Organizations
     class ListCreateAccountStatus
       def self.default(visited=[])
         {
-          create_account_statuses: Stubs::CreateAccountStatuses.default(visited),
+          create_account_statuses: CreateAccountStatuses.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1014,7 +1014,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('CreateAccountStatuses')
         visited = visited + ['CreateAccountStatuses']
         [
-          Stubs::CreateAccountStatus.default(visited)
+          CreateAccountStatus.default(visited)
         ]
       end
 
@@ -1032,7 +1032,7 @@ module AWS::SDK::Organizations
     class ListDelegatedAdministrators
       def self.default(visited=[])
         {
-          delegated_administrators: Stubs::DelegatedAdministrators.default(visited),
+          delegated_administrators: DelegatedAdministrators.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1052,7 +1052,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('DelegatedAdministrators')
         visited = visited + ['DelegatedAdministrators']
         [
-          Stubs::DelegatedAdministrator.default(visited)
+          DelegatedAdministrator.default(visited)
         ]
       end
 
@@ -1102,7 +1102,7 @@ module AWS::SDK::Organizations
     class ListDelegatedServicesForAccount
       def self.default(visited=[])
         {
-          delegated_services: Stubs::DelegatedServices.default(visited),
+          delegated_services: DelegatedServices.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1122,7 +1122,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('DelegatedServices')
         visited = visited + ['DelegatedServices']
         [
-          Stubs::DelegatedService.default(visited)
+          DelegatedService.default(visited)
         ]
       end
 
@@ -1160,7 +1160,7 @@ module AWS::SDK::Organizations
     class ListHandshakesForAccount
       def self.default(visited=[])
         {
-          handshakes: Stubs::Handshakes.default(visited),
+          handshakes: Handshakes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Handshakes')
         visited = visited + ['Handshakes']
         [
-          Stubs::Handshake.default(visited)
+          Handshake.default(visited)
         ]
       end
 
@@ -1198,7 +1198,7 @@ module AWS::SDK::Organizations
     class ListHandshakesForOrganization
       def self.default(visited=[])
         {
-          handshakes: Stubs::Handshakes.default(visited),
+          handshakes: Handshakes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1216,7 +1216,7 @@ module AWS::SDK::Organizations
     class ListOrganizationalUnitsForParent
       def self.default(visited=[])
         {
-          organizational_units: Stubs::OrganizationalUnits.default(visited),
+          organizational_units: OrganizationalUnits.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1236,7 +1236,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('OrganizationalUnits')
         visited = visited + ['OrganizationalUnits']
         [
-          Stubs::OrganizationalUnit.default(visited)
+          OrganizationalUnit.default(visited)
         ]
       end
 
@@ -1254,7 +1254,7 @@ module AWS::SDK::Organizations
     class ListParents
       def self.default(visited=[])
         {
-          parents: Stubs::Parents.default(visited),
+          parents: Parents.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1274,7 +1274,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Parents')
         visited = visited + ['Parents']
         [
-          Stubs::Parent.default(visited)
+          Parent.default(visited)
         ]
       end
 
@@ -1312,7 +1312,7 @@ module AWS::SDK::Organizations
     class ListPolicies
       def self.default(visited=[])
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1332,7 +1332,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Policies')
         visited = visited + ['Policies']
         [
-          Stubs::PolicySummary.default(visited)
+          PolicySummary.default(visited)
         ]
       end
 
@@ -1350,7 +1350,7 @@ module AWS::SDK::Organizations
     class ListPoliciesForTarget
       def self.default(visited=[])
         {
-          policies: Stubs::Policies.default(visited),
+          policies: Policies.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::Organizations
     class ListRoots
       def self.default(visited=[])
         {
-          roots: Stubs::Roots.default(visited),
+          roots: Roots.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1388,7 +1388,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Roots')
         visited = visited + ['Roots']
         [
-          Stubs::Root.default(visited)
+          Root.default(visited)
         ]
       end
 
@@ -1406,7 +1406,7 @@ module AWS::SDK::Organizations
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1426,7 +1426,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1464,7 +1464,7 @@ module AWS::SDK::Organizations
     class ListTargetsForPolicy
       def self.default(visited=[])
         {
-          targets: Stubs::PolicyTargets.default(visited),
+          targets: PolicyTargets.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1484,7 +1484,7 @@ module AWS::SDK::Organizations
         return nil if visited.include?('PolicyTargets')
         visited = visited + ['PolicyTargets']
         [
-          Stubs::PolicyTargetSummary.default(visited)
+          PolicyTargetSummary.default(visited)
         ]
       end
 
@@ -1596,7 +1596,7 @@ module AWS::SDK::Organizations
     class UpdateOrganizationalUnit
       def self.default(visited=[])
         {
-          organizational_unit: Stubs::OrganizationalUnit.default(visited),
+          organizational_unit: OrganizationalUnit.default(visited),
         }
       end
 
@@ -1612,7 +1612,7 @@ module AWS::SDK::Organizations
     class UpdatePolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 

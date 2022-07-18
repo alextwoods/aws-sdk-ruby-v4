@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::RedshiftData
   module Validators
 
@@ -28,7 +30,7 @@ module AWS::SDK::RedshiftData
     class BatchExecuteStatementInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchExecuteStatementInput, context: context)
-        Validators::SqlList.validate!(input[:sqls], context: "#{context}[:sqls]") unless input[:sqls].nil?
+        SqlList.validate!(input[:sqls], context: "#{context}[:sqls]") unless input[:sqls].nil?
         Hearth::Validator.validate!(input[:cluster_identifier], ::String, context: "#{context}[:cluster_identifier]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:db_user], ::String, context: "#{context}[:db_user]")
@@ -68,7 +70,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -96,7 +98,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -143,8 +145,8 @@ module AWS::SDK::RedshiftData
         Hearth::Validator.validate!(input[:result_rows], ::Integer, context: "#{context}[:result_rows]")
         Hearth::Validator.validate!(input[:result_size], ::Integer, context: "#{context}[:result_size]")
         Hearth::Validator.validate!(input[:redshift_query_id], ::Integer, context: "#{context}[:redshift_query_id]")
-        Validators::SqlParametersList.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
-        Validators::SubStatementList.validate!(input[:sub_statements], context: "#{context}[:sub_statements]") unless input[:sub_statements].nil?
+        SqlParametersList.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
+        SubStatementList.validate!(input[:sub_statements], context: "#{context}[:sub_statements]") unless input[:sub_statements].nil?
       end
     end
 
@@ -167,7 +169,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTableOutput, context: context)
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::ColumnList.validate!(input[:column_list], context: "#{context}[:column_list]") unless input[:column_list].nil?
+        ColumnList.validate!(input[:column_list], context: "#{context}[:column_list]") unless input[:column_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::RedshiftData
         Hearth::Validator.validate!(input[:database], ::String, context: "#{context}[:database]")
         Hearth::Validator.validate!(input[:with_event], ::TrueClass, ::FalseClass, context: "#{context}[:with_event]")
         Hearth::Validator.validate!(input[:statement_name], ::String, context: "#{context}[:statement_name]")
-        Validators::SqlParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        SqlParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Field.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Field.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -285,8 +287,8 @@ module AWS::SDK::RedshiftData
     class GetStatementResultOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStatementResultOutput, context: context)
-        Validators::SqlRecords.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
-        Validators::ColumnMetadataList.validate!(input[:column_metadata], context: "#{context}[:column_metadata]") unless input[:column_metadata].nil?
+        SqlRecords.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        ColumnMetadataList.validate!(input[:column_metadata], context: "#{context}[:column_metadata]") unless input[:column_metadata].nil?
         Hearth::Validator.validate!(input[:total_num_rows], ::Integer, context: "#{context}[:total_num_rows]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -314,7 +316,7 @@ module AWS::SDK::RedshiftData
     class ListDatabasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDatabasesOutput, context: context)
-        Validators::DatabaseList.validate!(input[:databases], context: "#{context}[:databases]") unless input[:databases].nil?
+        DatabaseList.validate!(input[:databases], context: "#{context}[:databases]") unless input[:databases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::RedshiftData
     class ListSchemasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSchemasOutput, context: context)
-        Validators::SchemaList.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
+        SchemaList.validate!(input[:schemas], context: "#{context}[:schemas]") unless input[:schemas].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::RedshiftData
     class ListStatementsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStatementsOutput, context: context)
-        Validators::StatementList.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
+        StatementList.validate!(input[:statements], context: "#{context}[:statements]") unless input[:statements].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -378,7 +380,7 @@ module AWS::SDK::RedshiftData
     class ListTablesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTablesOutput, context: context)
-        Validators::TableList.validate!(input[:tables], context: "#{context}[:tables]") unless input[:tables].nil?
+        TableList.validate!(input[:tables], context: "#{context}[:tables]") unless input[:tables].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -421,7 +423,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -440,13 +442,13 @@ module AWS::SDK::RedshiftData
         Hearth::Validator.validate!(input, Types::StatementData, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::StatementStringList.validate!(input[:query_strings], context: "#{context}[:query_strings]") unless input[:query_strings].nil?
+        StatementStringList.validate!(input[:query_strings], context: "#{context}[:query_strings]") unless input[:query_strings].nil?
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:statement_name], ::String, context: "#{context}[:statement_name]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::SqlParametersList.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
+        SqlParametersList.validate!(input[:query_parameters], context: "#{context}[:query_parameters]") unless input[:query_parameters].nil?
         Hearth::Validator.validate!(input[:is_batch_statement], ::TrueClass, ::FalseClass, context: "#{context}[:is_batch_statement]")
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StatementData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StatementData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -490,7 +492,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubStatementData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubStatementData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::RedshiftData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TableMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TableMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -173,11 +173,11 @@ module AWS::SDK::TimestreamWrite
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.table_count ||= 0
       end
-
     end
 
     # @!attribute database_name
@@ -358,11 +358,11 @@ module AWS::SDK::TimestreamWrite
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_period_in_minutes ||= 0
       end
-
     end
 
     # <p> Timestream was unable to fully process this request because of an internal server error.</p>
@@ -711,13 +711,13 @@ module AWS::SDK::TimestreamWrite
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total ||= 0
         self.memory_store ||= 0
         self.magnetic_store ||= 0
       end
-
     end
 
     # <p>
@@ -797,11 +797,11 @@ module AWS::SDK::TimestreamWrite
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.record_index ||= 0
       end
-
     end
 
     # <p>
@@ -889,12 +889,12 @@ module AWS::SDK::TimestreamWrite
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.memory_store_retention_period_in_hours ||= 0
         self.magnetic_store_retention_period_in_days ||= 0
       end
-
     end
 
     # <p>Configuration specifing an S3 location.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MemoryDB
   module Validators
 
@@ -15,10 +17,10 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input, Types::ACL, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::UserNameList.validate!(input[:user_names], context: "#{context}[:user_names]") unless input[:user_names].nil?
+        UserNameList.validate!(input[:user_names], context: "#{context}[:user_names]") unless input[:user_names].nil?
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::ACLPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
-        Validators::ACLClusterNameList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
+        ACLPendingChanges.validate!(input[:pending_changes], context: "#{context}[:pending_changes]") unless input[:pending_changes].nil?
+        ACLClusterNameList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -43,7 +45,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ACL.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ACL.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -67,8 +69,8 @@ module AWS::SDK::MemoryDB
     class ACLPendingChanges
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ACLPendingChanges, context: context)
-        Validators::UserNameList.validate!(input[:user_names_to_remove], context: "#{context}[:user_names_to_remove]") unless input[:user_names_to_remove].nil?
-        Validators::UserNameList.validate!(input[:user_names_to_add], context: "#{context}[:user_names_to_add]") unless input[:user_names_to_add].nil?
+        UserNameList.validate!(input[:user_names_to_remove], context: "#{context}[:user_names_to_remove]") unless input[:user_names_to_remove].nil?
+        UserNameList.validate!(input[:user_names_to_add], context: "#{context}[:user_names_to_add]") unless input[:user_names_to_add].nil?
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthenticationMode, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::PasswordListInput.validate!(input[:passwords], context: "#{context}[:passwords]") unless input[:passwords].nil?
+        PasswordListInput.validate!(input[:passwords], context: "#{context}[:passwords]") unless input[:passwords].nil?
       end
     end
 
@@ -119,16 +121,16 @@ module AWS::SDK::MemoryDB
     class BatchUpdateClusterInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateClusterInput, context: context)
-        Validators::ClusterNameList.validate!(input[:cluster_names], context: "#{context}[:cluster_names]") unless input[:cluster_names].nil?
-        Validators::ServiceUpdateRequest.validate!(input[:service_update], context: "#{context}[:service_update]") unless input[:service_update].nil?
+        ClusterNameList.validate!(input[:cluster_names], context: "#{context}[:cluster_names]") unless input[:cluster_names].nil?
+        ServiceUpdateRequest.validate!(input[:service_update], context: "#{context}[:service_update]") unless input[:service_update].nil?
       end
     end
 
     class BatchUpdateClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchUpdateClusterOutput, context: context)
-        Validators::ClusterList.validate!(input[:processed_clusters], context: "#{context}[:processed_clusters]") unless input[:processed_clusters].nil?
-        Validators::UnprocessedClusterList.validate!(input[:unprocessed_clusters], context: "#{context}[:unprocessed_clusters]") unless input[:unprocessed_clusters].nil?
+        ClusterList.validate!(input[:processed_clusters], context: "#{context}[:processed_clusters]") unless input[:processed_clusters].nil?
+        UnprocessedClusterList.validate!(input[:unprocessed_clusters], context: "#{context}[:unprocessed_clusters]") unless input[:unprocessed_clusters].nil?
       end
     end
 
@@ -138,17 +140,17 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ClusterPendingUpdates.validate!(input[:pending_updates], context: "#{context}[:pending_updates]") unless input[:pending_updates].nil?
+        ClusterPendingUpdates.validate!(input[:pending_updates], context: "#{context}[:pending_updates]") unless input[:pending_updates].nil?
         Hearth::Validator.validate!(input[:number_of_shards], ::Integer, context: "#{context}[:number_of_shards]")
-        Validators::ShardList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
+        ShardList.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
         Hearth::Validator.validate!(input[:availability_mode], ::String, context: "#{context}[:availability_mode]")
-        Validators::Endpoint.validate!(input[:cluster_endpoint], context: "#{context}[:cluster_endpoint]") unless input[:cluster_endpoint].nil?
+        Endpoint.validate!(input[:cluster_endpoint], context: "#{context}[:cluster_endpoint]") unless input[:cluster_endpoint].nil?
         Hearth::Validator.validate!(input[:node_type], ::String, context: "#{context}[:node_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:engine_patch_version], ::String, context: "#{context}[:engine_patch_version]")
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:parameter_group_status], ::String, context: "#{context}[:parameter_group_status]")
-        Validators::SecurityGroupMembershipList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        SecurityGroupMembershipList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:subnet_group_name], ::String, context: "#{context}[:subnet_group_name]")
         Hearth::Validator.validate!(input[:tls_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:tls_enabled]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
@@ -186,7 +188,7 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:snapshot_retention_limit], ::Integer, context: "#{context}[:snapshot_retention_limit]")
         Hearth::Validator.validate!(input[:snapshot_window], ::String, context: "#{context}[:snapshot_window]")
         Hearth::Validator.validate!(input[:num_shards], ::Integer, context: "#{context}[:num_shards]")
-        Validators::ShardDetails.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
+        ShardDetails.validate!(input[:shards], context: "#{context}[:shards]") unless input[:shards].nil?
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -218,9 +220,9 @@ module AWS::SDK::MemoryDB
     class ClusterPendingUpdates
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClusterPendingUpdates, context: context)
-        Validators::ReshardingStatus.validate!(input[:resharding], context: "#{context}[:resharding]") unless input[:resharding].nil?
-        Validators::ACLsUpdateStatus.validate!(input[:ac_ls], context: "#{context}[:ac_ls]") unless input[:ac_ls].nil?
-        Validators::PendingModifiedServiceUpdateList.validate!(input[:service_updates], context: "#{context}[:service_updates]") unless input[:service_updates].nil?
+        ReshardingStatus.validate!(input[:resharding], context: "#{context}[:resharding]") unless input[:resharding].nil?
+        ACLsUpdateStatus.validate!(input[:ac_ls], context: "#{context}[:ac_ls]") unless input[:ac_ls].nil?
+        PendingModifiedServiceUpdateList.validate!(input[:service_updates], context: "#{context}[:service_updates]") unless input[:service_updates].nil?
       end
     end
 
@@ -238,14 +240,14 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:target_snapshot_name], ::String, context: "#{context}[:target_snapshot_name]")
         Hearth::Validator.validate!(input[:target_bucket], ::String, context: "#{context}[:target_bucket]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CopySnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopySnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -253,15 +255,15 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateACLInput, context: context)
         Hearth::Validator.validate!(input[:acl_name], ::String, context: "#{context}[:acl_name]")
-        Validators::UserNameListInput.validate!(input[:user_names], context: "#{context}[:user_names]") unless input[:user_names].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UserNameListInput.validate!(input[:user_names], context: "#{context}[:user_names]") unless input[:user_names].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateACLOutput, context: context)
-        Validators::ACL.validate!(input[:acl], context: "#{context}[:acl]") unless input[:acl].nil?
+        ACL.validate!(input[:acl], context: "#{context}[:acl]") unless input[:acl].nil?
       end
     end
 
@@ -275,16 +277,16 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:num_shards], ::Integer, context: "#{context}[:num_shards]")
         Hearth::Validator.validate!(input[:num_replicas_per_shard], ::Integer, context: "#{context}[:num_replicas_per_shard]")
         Hearth::Validator.validate!(input[:subnet_group_name], ::String, context: "#{context}[:subnet_group_name]")
-        Validators::SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:maintenance_window], ::String, context: "#{context}[:maintenance_window]")
         Hearth::Validator.validate!(input[:port], ::Integer, context: "#{context}[:port]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:tls_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:tls_enabled]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::SnapshotArnsList.validate!(input[:snapshot_arns], context: "#{context}[:snapshot_arns]") unless input[:snapshot_arns].nil?
+        SnapshotArnsList.validate!(input[:snapshot_arns], context: "#{context}[:snapshot_arns]") unless input[:snapshot_arns].nil?
         Hearth::Validator.validate!(input[:snapshot_name], ::String, context: "#{context}[:snapshot_name]")
         Hearth::Validator.validate!(input[:snapshot_retention_limit], ::Integer, context: "#{context}[:snapshot_retention_limit]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:snapshot_window], ::String, context: "#{context}[:snapshot_window]")
         Hearth::Validator.validate!(input[:acl_name], ::String, context: "#{context}[:acl_name]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
@@ -295,7 +297,7 @@ module AWS::SDK::MemoryDB
     class CreateClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -305,14 +307,14 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:family], ::String, context: "#{context}[:family]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateParameterGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateParameterGroupOutput, context: context)
-        Validators::ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
+        ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
       end
     end
 
@@ -322,14 +324,14 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:cluster_name], ::String, context: "#{context}[:cluster_name]")
         Hearth::Validator.validate!(input[:snapshot_name], ::String, context: "#{context}[:snapshot_name]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -338,15 +340,15 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input, Types::CreateSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:subnet_group_name], ::String, context: "#{context}[:subnet_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSubnetGroupOutput, context: context)
-        Validators::SubnetGroup.validate!(input[:subnet_group], context: "#{context}[:subnet_group]") unless input[:subnet_group].nil?
+        SubnetGroup.validate!(input[:subnet_group], context: "#{context}[:subnet_group]") unless input[:subnet_group].nil?
       end
     end
 
@@ -354,16 +356,16 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserInput, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::AuthenticationMode.validate!(input[:authentication_mode], context: "#{context}[:authentication_mode]") unless input[:authentication_mode].nil?
+        AuthenticationMode.validate!(input[:authentication_mode], context: "#{context}[:authentication_mode]") unless input[:authentication_mode].nil?
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -384,7 +386,7 @@ module AWS::SDK::MemoryDB
     class DeleteACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteACLOutput, context: context)
-        Validators::ACL.validate!(input[:acl], context: "#{context}[:acl]") unless input[:acl].nil?
+        ACL.validate!(input[:acl], context: "#{context}[:acl]") unless input[:acl].nil?
       end
     end
 
@@ -399,7 +401,7 @@ module AWS::SDK::MemoryDB
     class DeleteClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::MemoryDB
     class DeleteParameterGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteParameterGroupOutput, context: context)
-        Validators::ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
+        ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::MemoryDB
     class DeleteSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteSnapshotOutput, context: context)
-        Validators::Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
+        Snapshot.validate!(input[:snapshot], context: "#{context}[:snapshot]") unless input[:snapshot].nil?
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::MemoryDB
     class DeleteSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteSubnetGroupOutput, context: context)
-        Validators::SubnetGroup.validate!(input[:subnet_group], context: "#{context}[:subnet_group]") unless input[:subnet_group].nil?
+        SubnetGroup.validate!(input[:subnet_group], context: "#{context}[:subnet_group]") unless input[:subnet_group].nil?
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::MemoryDB
     class DeleteUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::MemoryDB
     class DescribeACLsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeACLsOutput, context: context)
-        Validators::ACLList.validate!(input[:ac_ls], context: "#{context}[:ac_ls]") unless input[:ac_ls].nil?
+        ACLList.validate!(input[:ac_ls], context: "#{context}[:ac_ls]") unless input[:ac_ls].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -490,7 +492,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClustersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ClusterList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
+        ClusterList.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
       end
     end
 
@@ -509,7 +511,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEngineVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EngineVersionInfoList.validate!(input[:engine_versions], context: "#{context}[:engine_versions]") unless input[:engine_versions].nil?
+        EngineVersionInfoList.validate!(input[:engine_versions], context: "#{context}[:engine_versions]") unless input[:engine_versions].nil?
       end
     end
 
@@ -530,7 +532,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
+        EventList.validate!(input[:events], context: "#{context}[:events]") unless input[:events].nil?
       end
     end
 
@@ -547,7 +549,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeParameterGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ParameterGroupList.validate!(input[:parameter_groups], context: "#{context}[:parameter_groups]") unless input[:parameter_groups].nil?
+        ParameterGroupList.validate!(input[:parameter_groups], context: "#{context}[:parameter_groups]") unless input[:parameter_groups].nil?
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeParametersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -572,8 +574,8 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceUpdatesInput, context: context)
         Hearth::Validator.validate!(input[:service_update_name], ::String, context: "#{context}[:service_update_name]")
-        Validators::ClusterNameList.validate!(input[:cluster_names], context: "#{context}[:cluster_names]") unless input[:cluster_names].nil?
-        Validators::ServiceUpdateStatusList.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
+        ClusterNameList.validate!(input[:cluster_names], context: "#{context}[:cluster_names]") unless input[:cluster_names].nil?
+        ServiceUpdateStatusList.validate!(input[:status], context: "#{context}[:status]") unless input[:status].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -583,7 +585,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeServiceUpdatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ServiceUpdateList.validate!(input[:service_updates], context: "#{context}[:service_updates]") unless input[:service_updates].nil?
+        ServiceUpdateList.validate!(input[:service_updates], context: "#{context}[:service_updates]") unless input[:service_updates].nil?
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSnapshotsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SnapshotList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
+        SnapshotList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSubnetGroupsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SubnetGroupList.validate!(input[:subnet_groups], context: "#{context}[:subnet_groups]") unless input[:subnet_groups].nil?
+        SubnetGroupList.validate!(input[:subnet_groups], context: "#{context}[:subnet_groups]") unless input[:subnet_groups].nil?
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUsersInput, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -637,7 +639,7 @@ module AWS::SDK::MemoryDB
     class DescribeUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUsersOutput, context: context)
-        Validators::UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -670,7 +672,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EngineVersionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EngineVersionInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -689,7 +691,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -705,7 +707,7 @@ module AWS::SDK::MemoryDB
     class FailoverShardOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailoverShardOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -713,7 +715,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValueList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -852,8 +854,8 @@ module AWS::SDK::MemoryDB
     class ListAllowedNodeTypeUpdatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAllowedNodeTypeUpdatesOutput, context: context)
-        Validators::NodeTypeList.validate!(input[:scale_up_node_types], context: "#{context}[:scale_up_node_types]") unless input[:scale_up_node_types].nil?
-        Validators::NodeTypeList.validate!(input[:scale_down_node_types], context: "#{context}[:scale_down_node_types]") unless input[:scale_down_node_types].nil?
+        NodeTypeList.validate!(input[:scale_up_node_types], context: "#{context}[:scale_up_node_types]") unless input[:scale_up_node_types].nil?
+        NodeTypeList.validate!(input[:scale_down_node_types], context: "#{context}[:scale_down_node_types]") unless input[:scale_down_node_types].nil?
       end
     end
 
@@ -867,7 +869,7 @@ module AWS::SDK::MemoryDB
     class ListTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -885,7 +887,7 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
-        Validators::Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
+        Endpoint.validate!(input[:endpoint], context: "#{context}[:endpoint]") unless input[:endpoint].nil?
       end
     end
 
@@ -893,7 +895,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Node.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Node.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -954,7 +956,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParameterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParameterGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ParameterNameValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ParameterNameValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1003,7 +1005,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Parameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Parameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1029,7 +1031,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PendingModifiedServiceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PendingModifiedServiceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1046,21 +1048,21 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input, Types::ResetParameterGroupInput, context: context)
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
         Hearth::Validator.validate!(input[:all_parameters], ::TrueClass, ::FalseClass, context: "#{context}[:all_parameters]")
-        Validators::ParameterNameList.validate!(input[:parameter_names], context: "#{context}[:parameter_names]") unless input[:parameter_names].nil?
+        ParameterNameList.validate!(input[:parameter_names], context: "#{context}[:parameter_names]") unless input[:parameter_names].nil?
       end
     end
 
     class ResetParameterGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResetParameterGroupOutput, context: context)
-        Validators::ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
+        ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
       end
     end
 
     class ReshardingStatus
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReshardingStatus, context: context)
-        Validators::SlotMigration.validate!(input[:slot_migration], context: "#{context}[:slot_migration]") unless input[:slot_migration].nil?
+        SlotMigration.validate!(input[:slot_migration], context: "#{context}[:slot_migration]") unless input[:slot_migration].nil?
       end
     end
 
@@ -1085,7 +1087,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityGroupMembership.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1115,7 +1117,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1149,7 +1151,7 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:slots], ::String, context: "#{context}[:slots]")
-        Validators::NodeList.validate!(input[:nodes], context: "#{context}[:nodes]") unless input[:nodes].nil?
+        NodeList.validate!(input[:nodes], context: "#{context}[:nodes]") unless input[:nodes].nil?
         Hearth::Validator.validate!(input[:number_of_nodes], ::Integer, context: "#{context}[:number_of_nodes]")
       end
     end
@@ -1173,7 +1175,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ShardDetail, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ShardConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ShardConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:size], ::String, context: "#{context}[:size]")
         Hearth::Validator.validate!(input[:snapshot_creation_time], ::Time, context: "#{context}[:snapshot_creation_time]")
       end
@@ -1183,7 +1185,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ShardDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ShardDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1192,7 +1194,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Shard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Shard.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1226,7 +1228,7 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ClusterConfiguration.validate!(input[:cluster_configuration], context: "#{context}[:cluster_configuration]") unless input[:cluster_configuration].nil?
+        ClusterConfiguration.validate!(input[:cluster_configuration], context: "#{context}[:cluster_configuration]") unless input[:cluster_configuration].nil?
       end
     end
 
@@ -1250,7 +1252,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Snapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1273,7 +1275,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Subnet, context: context)
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
-        Validators::AvailabilityZone.validate!(input[:availability_zone], context: "#{context}[:availability_zone]") unless input[:availability_zone].nil?
+        AvailabilityZone.validate!(input[:availability_zone], context: "#{context}[:availability_zone]") unless input[:availability_zone].nil?
       end
     end
 
@@ -1283,7 +1285,7 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SubnetList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -1306,7 +1308,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SubnetGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1345,7 +1347,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subnet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1376,7 +1378,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1399,14 +1401,14 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class TagResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1430,7 +1432,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnprocessedCluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnprocessedCluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1439,14 +1441,14 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::KeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        KeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
     class UntagResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -1454,15 +1456,15 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateACLInput, context: context)
         Hearth::Validator.validate!(input[:acl_name], ::String, context: "#{context}[:acl_name]")
-        Validators::UserNameListInput.validate!(input[:user_names_to_add], context: "#{context}[:user_names_to_add]") unless input[:user_names_to_add].nil?
-        Validators::UserNameListInput.validate!(input[:user_names_to_remove], context: "#{context}[:user_names_to_remove]") unless input[:user_names_to_remove].nil?
+        UserNameListInput.validate!(input[:user_names_to_add], context: "#{context}[:user_names_to_add]") unless input[:user_names_to_add].nil?
+        UserNameListInput.validate!(input[:user_names_to_remove], context: "#{context}[:user_names_to_remove]") unless input[:user_names_to_remove].nil?
       end
     end
 
     class UpdateACLOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateACLOutput, context: context)
-        Validators::ACL.validate!(input[:acl], context: "#{context}[:acl]") unless input[:acl].nil?
+        ACL.validate!(input[:acl], context: "#{context}[:acl]") unless input[:acl].nil?
       end
     end
 
@@ -1471,7 +1473,7 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input, Types::UpdateClusterInput, context: context)
         Hearth::Validator.validate!(input[:cluster_name], ::String, context: "#{context}[:cluster_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SecurityGroupIdsList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:maintenance_window], ::String, context: "#{context}[:maintenance_window]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
         Hearth::Validator.validate!(input[:sns_topic_status], ::String, context: "#{context}[:sns_topic_status]")
@@ -1480,8 +1482,8 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:snapshot_retention_limit], ::Integer, context: "#{context}[:snapshot_retention_limit]")
         Hearth::Validator.validate!(input[:node_type], ::String, context: "#{context}[:node_type]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
-        Validators::ReplicaConfigurationRequest.validate!(input[:replica_configuration], context: "#{context}[:replica_configuration]") unless input[:replica_configuration].nil?
-        Validators::ShardConfigurationRequest.validate!(input[:shard_configuration], context: "#{context}[:shard_configuration]") unless input[:shard_configuration].nil?
+        ReplicaConfigurationRequest.validate!(input[:replica_configuration], context: "#{context}[:replica_configuration]") unless input[:replica_configuration].nil?
+        ShardConfigurationRequest.validate!(input[:shard_configuration], context: "#{context}[:shard_configuration]") unless input[:shard_configuration].nil?
         Hearth::Validator.validate!(input[:acl_name], ::String, context: "#{context}[:acl_name]")
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::MemoryDB
     class UpdateClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -1497,14 +1499,14 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateParameterGroupInput, context: context)
         Hearth::Validator.validate!(input[:parameter_group_name], ::String, context: "#{context}[:parameter_group_name]")
-        Validators::ParameterNameValueList.validate!(input[:parameter_name_values], context: "#{context}[:parameter_name_values]") unless input[:parameter_name_values].nil?
+        ParameterNameValueList.validate!(input[:parameter_name_values], context: "#{context}[:parameter_name_values]") unless input[:parameter_name_values].nil?
       end
     end
 
     class UpdateParameterGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateParameterGroupOutput, context: context)
-        Validators::ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
+        ParameterGroup.validate!(input[:parameter_group], context: "#{context}[:parameter_group]") unless input[:parameter_group].nil?
       end
     end
 
@@ -1513,14 +1515,14 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input, Types::UpdateSubnetGroupInput, context: context)
         Hearth::Validator.validate!(input[:subnet_group_name], ::String, context: "#{context}[:subnet_group_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SubnetIdentifierList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
       end
     end
 
     class UpdateSubnetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSubnetGroupOutput, context: context)
-        Validators::SubnetGroup.validate!(input[:subnet_group], context: "#{context}[:subnet_group]") unless input[:subnet_group].nil?
+        SubnetGroup.validate!(input[:subnet_group], context: "#{context}[:subnet_group]") unless input[:subnet_group].nil?
       end
     end
 
@@ -1528,7 +1530,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserInput, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::AuthenticationMode.validate!(input[:authentication_mode], context: "#{context}[:authentication_mode]") unless input[:authentication_mode].nil?
+        AuthenticationMode.validate!(input[:authentication_mode], context: "#{context}[:authentication_mode]") unless input[:authentication_mode].nil?
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
       end
     end
@@ -1536,7 +1538,7 @@ module AWS::SDK::MemoryDB
     class UpdateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -1546,9 +1548,9 @@ module AWS::SDK::MemoryDB
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:access_string], ::String, context: "#{context}[:access_string]")
-        Validators::ACLNameList.validate!(input[:acl_names], context: "#{context}[:acl_names]") unless input[:acl_names].nil?
+        ACLNameList.validate!(input[:acl_names], context: "#{context}[:acl_names]") unless input[:acl_names].nil?
         Hearth::Validator.validate!(input[:minimum_engine_version], ::String, context: "#{context}[:minimum_engine_version]")
-        Validators::Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
+        Authentication.validate!(input[:authentication], context: "#{context}[:authentication]") unless input[:authentication].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -1564,7 +1566,7 @@ module AWS::SDK::MemoryDB
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Imagebuilder
@@ -70,7 +72,7 @@ module AWS::SDK::Imagebuilder
     def cancel_image_creation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelImageCreationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelImageCreationInput,
         validate_input: @config.validate_input
@@ -218,7 +220,7 @@ module AWS::SDK::Imagebuilder
     def create_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComponentInput,
         validate_input: @config.validate_input
@@ -397,7 +399,7 @@ module AWS::SDK::Imagebuilder
     def create_container_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContainerRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContainerRecipeInput,
         validate_input: @config.validate_input
@@ -548,7 +550,7 @@ module AWS::SDK::Imagebuilder
     def create_distribution_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionConfigurationInput,
         validate_input: @config.validate_input
@@ -659,7 +661,7 @@ module AWS::SDK::Imagebuilder
     def create_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageInput,
         validate_input: @config.validate_input
@@ -789,7 +791,7 @@ module AWS::SDK::Imagebuilder
     def create_image_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImagePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImagePipelineInput,
         validate_input: @config.validate_input
@@ -949,7 +951,7 @@ module AWS::SDK::Imagebuilder
     def create_image_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageRecipeInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::Imagebuilder
     def create_infrastructure_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInfrastructureConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInfrastructureConfigurationInput,
         validate_input: @config.validate_input
@@ -1170,7 +1172,7 @@ module AWS::SDK::Imagebuilder
     def delete_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteComponentInput,
         validate_input: @config.validate_input
@@ -1239,7 +1241,7 @@ module AWS::SDK::Imagebuilder
     def delete_container_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContainerRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContainerRecipeInput,
         validate_input: @config.validate_input
@@ -1308,7 +1310,7 @@ module AWS::SDK::Imagebuilder
     def delete_distribution_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDistributionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDistributionConfigurationInput,
         validate_input: @config.validate_input
@@ -1397,7 +1399,7 @@ module AWS::SDK::Imagebuilder
     def delete_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImageInput,
         validate_input: @config.validate_input
@@ -1466,7 +1468,7 @@ module AWS::SDK::Imagebuilder
     def delete_image_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImagePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImagePipelineInput,
         validate_input: @config.validate_input
@@ -1535,7 +1537,7 @@ module AWS::SDK::Imagebuilder
     def delete_image_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImageRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImageRecipeInput,
         validate_input: @config.validate_input
@@ -1604,7 +1606,7 @@ module AWS::SDK::Imagebuilder
     def delete_infrastructure_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInfrastructureConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInfrastructureConfigurationInput,
         validate_input: @config.validate_input
@@ -1700,7 +1702,7 @@ module AWS::SDK::Imagebuilder
     def get_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComponentInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::Imagebuilder
     def get_component_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComponentPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComponentPolicyInput,
         validate_input: @config.validate_input
@@ -1880,7 +1882,7 @@ module AWS::SDK::Imagebuilder
     def get_container_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerRecipeInput,
         validate_input: @config.validate_input
@@ -1949,7 +1951,7 @@ module AWS::SDK::Imagebuilder
     def get_container_recipe_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContainerRecipePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContainerRecipePolicyInput,
         validate_input: @config.validate_input
@@ -2074,7 +2076,7 @@ module AWS::SDK::Imagebuilder
     def get_distribution_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionConfigurationInput,
         validate_input: @config.validate_input
@@ -2313,7 +2315,7 @@ module AWS::SDK::Imagebuilder
     def get_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImageInput,
         validate_input: @config.validate_input
@@ -2405,7 +2407,7 @@ module AWS::SDK::Imagebuilder
     def get_image_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImagePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImagePipelineInput,
         validate_input: @config.validate_input
@@ -2474,7 +2476,7 @@ module AWS::SDK::Imagebuilder
     def get_image_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImagePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImagePolicyInput,
         validate_input: @config.validate_input
@@ -2581,7 +2583,7 @@ module AWS::SDK::Imagebuilder
     def get_image_recipe(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImageRecipeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImageRecipeInput,
         validate_input: @config.validate_input
@@ -2650,7 +2652,7 @@ module AWS::SDK::Imagebuilder
     def get_image_recipe_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetImageRecipePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetImageRecipePolicyInput,
         validate_input: @config.validate_input
@@ -2745,7 +2747,7 @@ module AWS::SDK::Imagebuilder
     def get_infrastructure_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInfrastructureConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInfrastructureConfigurationInput,
         validate_input: @config.validate_input
@@ -2876,7 +2878,7 @@ module AWS::SDK::Imagebuilder
     def import_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportComponentInput,
         validate_input: @config.validate_input
@@ -3002,7 +3004,7 @@ module AWS::SDK::Imagebuilder
     def import_vm_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportVmImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportVmImageInput,
         validate_input: @config.validate_input
@@ -3108,7 +3110,7 @@ module AWS::SDK::Imagebuilder
     def list_component_build_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentBuildVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentBuildVersionsInput,
         validate_input: @config.validate_input
@@ -3258,7 +3260,7 @@ module AWS::SDK::Imagebuilder
     def list_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComponentsInput,
         validate_input: @config.validate_input
@@ -3380,7 +3382,7 @@ module AWS::SDK::Imagebuilder
     def list_container_recipes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContainerRecipesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContainerRecipesInput,
         validate_input: @config.validate_input
@@ -3477,7 +3479,7 @@ module AWS::SDK::Imagebuilder
     def list_distribution_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionConfigurationsInput,
         validate_input: @config.validate_input
@@ -3624,7 +3626,7 @@ module AWS::SDK::Imagebuilder
     def list_image_build_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImageBuildVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImageBuildVersionsInput,
         validate_input: @config.validate_input
@@ -3706,7 +3708,7 @@ module AWS::SDK::Imagebuilder
     def list_image_packages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagePackagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagePackagesInput,
         validate_input: @config.validate_input
@@ -3838,7 +3840,7 @@ module AWS::SDK::Imagebuilder
     def list_image_pipeline_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagePipelineImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagePipelineImagesInput,
         validate_input: @config.validate_input
@@ -3981,7 +3983,7 @@ module AWS::SDK::Imagebuilder
     def list_image_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagePipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagePipelinesInput,
         validate_input: @config.validate_input
@@ -4101,7 +4103,7 @@ module AWS::SDK::Imagebuilder
     def list_image_recipes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImageRecipesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImageRecipesInput,
         validate_input: @config.validate_input
@@ -4240,7 +4242,7 @@ module AWS::SDK::Imagebuilder
     def list_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagesInput,
         validate_input: @config.validate_input
@@ -4340,7 +4342,7 @@ module AWS::SDK::Imagebuilder
     def list_infrastructure_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInfrastructureConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInfrastructureConfigurationsInput,
         validate_input: @config.validate_input
@@ -4410,7 +4412,7 @@ module AWS::SDK::Imagebuilder
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4485,7 +4487,7 @@ module AWS::SDK::Imagebuilder
     def put_component_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutComponentPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutComponentPolicyInput,
         validate_input: @config.validate_input
@@ -4559,7 +4561,7 @@ module AWS::SDK::Imagebuilder
     def put_container_recipe_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutContainerRecipePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutContainerRecipePolicyInput,
         validate_input: @config.validate_input
@@ -4635,7 +4637,7 @@ module AWS::SDK::Imagebuilder
     def put_image_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutImagePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutImagePolicyInput,
         validate_input: @config.validate_input
@@ -4711,7 +4713,7 @@ module AWS::SDK::Imagebuilder
     def put_image_recipe_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutImageRecipePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutImageRecipePolicyInput,
         validate_input: @config.validate_input
@@ -4786,7 +4788,7 @@ module AWS::SDK::Imagebuilder
     def start_image_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImagePipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImagePipelineExecutionInput,
         validate_input: @config.validate_input
@@ -4860,7 +4862,7 @@ module AWS::SDK::Imagebuilder
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4934,7 +4936,7 @@ module AWS::SDK::Imagebuilder
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5081,7 +5083,7 @@ module AWS::SDK::Imagebuilder
     def update_distribution_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDistributionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDistributionConfigurationInput,
         validate_input: @config.validate_input
@@ -5210,7 +5212,7 @@ module AWS::SDK::Imagebuilder
     def update_image_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateImagePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateImagePipelineInput,
         validate_input: @config.validate_input
@@ -5375,7 +5377,7 @@ module AWS::SDK::Imagebuilder
     def update_infrastructure_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInfrastructureConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInfrastructureConfigurationInput,
         validate_input: @config.validate_input

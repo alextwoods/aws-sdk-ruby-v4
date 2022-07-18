@@ -136,11 +136,11 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
       end
-
     end
 
     # <p>Specifies a rule for copying shared snapshots across Regions.</p>
@@ -191,11 +191,11 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
       end
-
     end
 
     # <p>Specifies the retention rule for cross-Region snapshot copies.</p>
@@ -219,11 +219,11 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
       end
-
     end
 
     # <p>Specifies a rule for cross-Region snapshot copies.</p>
@@ -337,12 +337,12 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.interval ||= 0
       end
-
     end
 
     # <p>Specifies the encryption settings for shared snapshots that are copied across Regions.</p>
@@ -474,12 +474,12 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.interval ||= 0
       end
-
     end
 
     # @!attribute policy_ids
@@ -1007,12 +1007,12 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.interval ||= 0
       end
-
     end
 
     # Includes enum constants for RetentionIntervalUnitValues
@@ -1110,11 +1110,11 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.copy_tags ||= false
       end
-
     end
 
     # Includes enum constants for SettablePolicyStateValues
@@ -1155,11 +1155,11 @@ module AWS::SDK::DLM
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unshare_interval ||= 0
       end
-
     end
 
     # <p>Specifies a tag for a resource.</p>

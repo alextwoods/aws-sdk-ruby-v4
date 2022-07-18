@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WellArchitected
   module Validators
 
@@ -27,9 +29,9 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:improvement_plan_url], ::String, context: "#{context}[:improvement_plan_url]")
         Hearth::Validator.validate!(input[:helpful_resource_url], ::String, context: "#{context}[:helpful_resource_url]")
         Hearth::Validator.validate!(input[:helpful_resource_display_text], ::String, context: "#{context}[:helpful_resource_display_text]")
-        Validators::Choices.validate!(input[:choices], context: "#{context}[:choices]") unless input[:choices].nil?
-        Validators::SelectedChoices.validate!(input[:selected_choices], context: "#{context}[:selected_choices]") unless input[:selected_choices].nil?
-        Validators::ChoiceAnswers.validate!(input[:choice_answers], context: "#{context}[:choice_answers]") unless input[:choice_answers].nil?
+        Choices.validate!(input[:choices], context: "#{context}[:choices]") unless input[:choices].nil?
+        SelectedChoices.validate!(input[:selected_choices], context: "#{context}[:selected_choices]") unless input[:selected_choices].nil?
+        ChoiceAnswers.validate!(input[:choice_answers], context: "#{context}[:choice_answers]") unless input[:choice_answers].nil?
         Hearth::Validator.validate!(input[:is_applicable], ::TrueClass, ::FalseClass, context: "#{context}[:is_applicable]")
         Hearth::Validator.validate!(input[:risk], ::String, context: "#{context}[:risk]")
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
@@ -41,7 +43,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnswerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnswerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -52,9 +54,9 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:question_id], ::String, context: "#{context}[:question_id]")
         Hearth::Validator.validate!(input[:pillar_id], ::String, context: "#{context}[:pillar_id]")
         Hearth::Validator.validate!(input[:question_title], ::String, context: "#{context}[:question_title]")
-        Validators::Choices.validate!(input[:choices], context: "#{context}[:choices]") unless input[:choices].nil?
-        Validators::SelectedChoices.validate!(input[:selected_choices], context: "#{context}[:selected_choices]") unless input[:selected_choices].nil?
-        Validators::ChoiceAnswerSummaries.validate!(input[:choice_answer_summaries], context: "#{context}[:choice_answer_summaries]") unless input[:choice_answer_summaries].nil?
+        Choices.validate!(input[:choices], context: "#{context}[:choices]") unless input[:choices].nil?
+        SelectedChoices.validate!(input[:selected_choices], context: "#{context}[:selected_choices]") unless input[:selected_choices].nil?
+        ChoiceAnswerSummaries.validate!(input[:choice_answer_summaries], context: "#{context}[:choice_answer_summaries]") unless input[:choice_answer_summaries].nil?
         Hearth::Validator.validate!(input[:is_applicable], ::TrueClass, ::FalseClass, context: "#{context}[:is_applicable]")
         Hearth::Validator.validate!(input[:risk], ::String, context: "#{context}[:risk]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
@@ -65,7 +67,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateLensesInput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::LensAliases.validate!(input[:lens_aliases], context: "#{context}[:lens_aliases]") unless input[:lens_aliases].nil?
+        LensAliases.validate!(input[:lens_aliases], context: "#{context}[:lens_aliases]") unless input[:lens_aliases].nil?
       end
     end
 
@@ -81,8 +83,8 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:choice_id], ::String, context: "#{context}[:choice_id]")
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ChoiceContent.validate!(input[:helpful_resource], context: "#{context}[:helpful_resource]") unless input[:helpful_resource].nil?
-        Validators::ChoiceContent.validate!(input[:improvement_plan], context: "#{context}[:improvement_plan]") unless input[:improvement_plan].nil?
+        ChoiceContent.validate!(input[:helpful_resource], context: "#{context}[:helpful_resource]") unless input[:helpful_resource].nil?
+        ChoiceContent.validate!(input[:improvement_plan], context: "#{context}[:improvement_plan]") unless input[:improvement_plan].nil?
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChoiceAnswerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChoiceAnswerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChoiceAnswer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChoiceAnswer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -144,7 +146,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChoiceImprovementPlan.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChoiceImprovementPlan.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ChoiceUpdate.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ChoiceUpdate.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -172,7 +174,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Choice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Choice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -243,18 +245,18 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:workload_name], ::String, context: "#{context}[:workload_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:environment], ::String, context: "#{context}[:environment]")
-        Validators::WorkloadAccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::WorkloadAwsRegions.validate!(input[:aws_regions], context: "#{context}[:aws_regions]") unless input[:aws_regions].nil?
-        Validators::WorkloadNonAwsRegions.validate!(input[:non_aws_regions], context: "#{context}[:non_aws_regions]") unless input[:non_aws_regions].nil?
-        Validators::WorkloadPillarPriorities.validate!(input[:pillar_priorities], context: "#{context}[:pillar_priorities]") unless input[:pillar_priorities].nil?
+        WorkloadAccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        WorkloadAwsRegions.validate!(input[:aws_regions], context: "#{context}[:aws_regions]") unless input[:aws_regions].nil?
+        WorkloadNonAwsRegions.validate!(input[:non_aws_regions], context: "#{context}[:non_aws_regions]") unless input[:non_aws_regions].nil?
+        WorkloadPillarPriorities.validate!(input[:pillar_priorities], context: "#{context}[:pillar_priorities]") unless input[:pillar_priorities].nil?
         Hearth::Validator.validate!(input[:architectural_design], ::String, context: "#{context}[:architectural_design]")
         Hearth::Validator.validate!(input[:review_owner], ::String, context: "#{context}[:review_owner]")
         Hearth::Validator.validate!(input[:industry_type], ::String, context: "#{context}[:industry_type]")
         Hearth::Validator.validate!(input[:industry], ::String, context: "#{context}[:industry]")
-        Validators::WorkloadLenses.validate!(input[:lenses], context: "#{context}[:lenses]") unless input[:lenses].nil?
+        WorkloadLenses.validate!(input[:lenses], context: "#{context}[:lenses]") unless input[:lenses].nil?
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateLensesInput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::LensAliases.validate!(input[:lens_aliases], context: "#{context}[:lens_aliases]") unless input[:lens_aliases].nil?
+        LensAliases.validate!(input[:lens_aliases], context: "#{context}[:lens_aliases]") unless input[:lens_aliases].nil?
       end
     end
 
@@ -389,7 +391,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:lens_arn], ::String, context: "#{context}[:lens_arn]")
-        Validators::Answer.validate!(input[:answer], context: "#{context}[:answer]") unless input[:answer].nil?
+        Answer.validate!(input[:answer], context: "#{context}[:answer]") unless input[:answer].nil?
       end
     end
 
@@ -404,7 +406,7 @@ module AWS::SDK::WellArchitected
     class GetLensOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLensOutput, context: context)
-        Validators::Lens.validate!(input[:lens], context: "#{context}[:lens]") unless input[:lens].nil?
+        Lens.validate!(input[:lens], context: "#{context}[:lens]") unless input[:lens].nil?
       end
     end
 
@@ -422,7 +424,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input, Types::GetLensReviewOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
-        Validators::LensReview.validate!(input[:lens_review], context: "#{context}[:lens_review]") unless input[:lens_review].nil?
+        LensReview.validate!(input[:lens_review], context: "#{context}[:lens_review]") unless input[:lens_review].nil?
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input, Types::GetLensReviewReportOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
-        Validators::LensReviewReport.validate!(input[:lens_review_report], context: "#{context}[:lens_review_report]") unless input[:lens_review_report].nil?
+        LensReviewReport.validate!(input[:lens_review_report], context: "#{context}[:lens_review_report]") unless input[:lens_review_report].nil?
       end
     end
 
@@ -461,7 +463,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:base_lens_version], ::String, context: "#{context}[:base_lens_version]")
         Hearth::Validator.validate!(input[:target_lens_version], ::String, context: "#{context}[:target_lens_version]")
         Hearth::Validator.validate!(input[:latest_lens_version], ::String, context: "#{context}[:latest_lens_version]")
-        Validators::VersionDifferences.validate!(input[:version_differences], context: "#{context}[:version_differences]") unless input[:version_differences].nil?
+        VersionDifferences.validate!(input[:version_differences], context: "#{context}[:version_differences]") unless input[:version_differences].nil?
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMilestoneOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::Milestone.validate!(input[:milestone], context: "#{context}[:milestone]") unless input[:milestone].nil?
+        Milestone.validate!(input[:milestone], context: "#{context}[:milestone]") unless input[:milestone].nil?
       end
     end
 
@@ -491,7 +493,7 @@ module AWS::SDK::WellArchitected
     class GetWorkloadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetWorkloadOutput, context: context)
-        Validators::Workload.validate!(input[:workload], context: "#{context}[:workload]") unless input[:workload].nil?
+        Workload.validate!(input[:workload], context: "#{context}[:workload]") unless input[:workload].nil?
       end
     end
 
@@ -501,7 +503,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:json_string], ::String, context: "#{context}[:json_string]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -517,7 +519,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ImprovementSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ImprovementSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:question_title], ::String, context: "#{context}[:question_title]")
         Hearth::Validator.validate!(input[:risk], ::String, context: "#{context}[:risk]")
         Hearth::Validator.validate!(input[:improvement_plan_url], ::String, context: "#{context}[:improvement_plan_url]")
-        Validators::ChoiceImprovementPlans.validate!(input[:improvement_plans], context: "#{context}[:improvement_plans]") unless input[:improvement_plans].nil?
+        ChoiceImprovementPlans.validate!(input[:improvement_plans], context: "#{context}[:improvement_plans]") unless input[:improvement_plans].nil?
       end
     end
 
@@ -570,10 +572,10 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:lens_version], ::String, context: "#{context}[:lens_version]")
         Hearth::Validator.validate!(input[:lens_name], ::String, context: "#{context}[:lens_name]")
         Hearth::Validator.validate!(input[:lens_status], ::String, context: "#{context}[:lens_status]")
-        Validators::PillarReviewSummaries.validate!(input[:pillar_review_summaries], context: "#{context}[:pillar_review_summaries]") unless input[:pillar_review_summaries].nil?
+        PillarReviewSummaries.validate!(input[:pillar_review_summaries], context: "#{context}[:pillar_review_summaries]") unless input[:pillar_review_summaries].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
-        Validators::RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
+        RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LensReviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LensReviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -605,7 +607,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:lens_name], ::String, context: "#{context}[:lens_name]")
         Hearth::Validator.validate!(input[:lens_status], ::String, context: "#{context}[:lens_status]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
+        RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
       end
     end
 
@@ -613,7 +615,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LensShareSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LensShareSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -631,7 +633,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LensSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LensSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:lens_arn], ::String, context: "#{context}[:lens_arn]")
-        Validators::AnswerSummaries.validate!(input[:answer_summaries], context: "#{context}[:answer_summaries]") unless input[:answer_summaries].nil?
+        AnswerSummaries.validate!(input[:answer_summaries], context: "#{context}[:answer_summaries]") unless input[:answer_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -707,7 +709,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:lens_arn], ::String, context: "#{context}[:lens_arn]")
-        Validators::ImprovementSummaries.validate!(input[:improvement_summaries], context: "#{context}[:improvement_summaries]") unless input[:improvement_summaries].nil?
+        ImprovementSummaries.validate!(input[:improvement_summaries], context: "#{context}[:improvement_summaries]") unless input[:improvement_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -727,7 +729,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input, Types::ListLensReviewsOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
-        Validators::LensReviewSummaries.validate!(input[:lens_review_summaries], context: "#{context}[:lens_review_summaries]") unless input[:lens_review_summaries].nil?
+        LensReviewSummaries.validate!(input[:lens_review_summaries], context: "#{context}[:lens_review_summaries]") unless input[:lens_review_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -745,7 +747,7 @@ module AWS::SDK::WellArchitected
     class ListLensSharesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLensSharesOutput, context: context)
-        Validators::LensShareSummaries.validate!(input[:lens_share_summaries], context: "#{context}[:lens_share_summaries]") unless input[:lens_share_summaries].nil?
+        LensShareSummaries.validate!(input[:lens_share_summaries], context: "#{context}[:lens_share_summaries]") unless input[:lens_share_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -764,7 +766,7 @@ module AWS::SDK::WellArchitected
     class ListLensesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLensesOutput, context: context)
-        Validators::LensSummaries.validate!(input[:lens_summaries], context: "#{context}[:lens_summaries]") unless input[:lens_summaries].nil?
+        LensSummaries.validate!(input[:lens_summaries], context: "#{context}[:lens_summaries]") unless input[:lens_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -782,7 +784,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMilestonesOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::MilestoneSummaries.validate!(input[:milestone_summaries], context: "#{context}[:milestone_summaries]") unless input[:milestone_summaries].nil?
+        MilestoneSummaries.validate!(input[:milestone_summaries], context: "#{context}[:milestone_summaries]") unless input[:milestone_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -799,7 +801,7 @@ module AWS::SDK::WellArchitected
     class ListNotificationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNotificationsOutput, context: context)
-        Validators::NotificationSummaries.validate!(input[:notification_summaries], context: "#{context}[:notification_summaries]") unless input[:notification_summaries].nil?
+        NotificationSummaries.validate!(input[:notification_summaries], context: "#{context}[:notification_summaries]") unless input[:notification_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -818,7 +820,7 @@ module AWS::SDK::WellArchitected
     class ListShareInvitationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListShareInvitationsOutput, context: context)
-        Validators::ShareInvitationSummaries.validate!(input[:share_invitation_summaries], context: "#{context}[:share_invitation_summaries]") unless input[:share_invitation_summaries].nil?
+        ShareInvitationSummaries.validate!(input[:share_invitation_summaries], context: "#{context}[:share_invitation_summaries]") unless input[:share_invitation_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -833,7 +835,7 @@ module AWS::SDK::WellArchitected
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -851,7 +853,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorkloadSharesOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::WorkloadShareSummaries.validate!(input[:workload_share_summaries], context: "#{context}[:workload_share_summaries]") unless input[:workload_share_summaries].nil?
+        WorkloadShareSummaries.validate!(input[:workload_share_summaries], context: "#{context}[:workload_share_summaries]") unless input[:workload_share_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -868,7 +870,7 @@ module AWS::SDK::WellArchitected
     class ListWorkloadsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorkloadsOutput, context: context)
-        Validators::WorkloadSummaries.validate!(input[:workload_summaries], context: "#{context}[:workload_summaries]") unless input[:workload_summaries].nil?
+        WorkloadSummaries.validate!(input[:workload_summaries], context: "#{context}[:workload_summaries]") unless input[:workload_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -879,7 +881,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
         Hearth::Validator.validate!(input[:milestone_name], ::String, context: "#{context}[:milestone_name]")
         Hearth::Validator.validate!(input[:recorded_at], ::Time, context: "#{context}[:recorded_at]")
-        Validators::Workload.validate!(input[:workload], context: "#{context}[:workload]") unless input[:workload].nil?
+        Workload.validate!(input[:workload], context: "#{context}[:workload]") unless input[:workload].nil?
       end
     end
 
@@ -887,7 +889,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MilestoneSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MilestoneSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -898,7 +900,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:milestone_number], ::Integer, context: "#{context}[:milestone_number]")
         Hearth::Validator.validate!(input[:milestone_name], ::String, context: "#{context}[:milestone_name]")
         Hearth::Validator.validate!(input[:recorded_at], ::Time, context: "#{context}[:recorded_at]")
-        Validators::WorkloadSummary.validate!(input[:workload_summary], context: "#{context}[:workload_summary]") unless input[:workload_summary].nil?
+        WorkloadSummary.validate!(input[:workload_summary], context: "#{context}[:workload_summary]") unless input[:workload_summary].nil?
       end
     end
 
@@ -906,7 +908,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NotificationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NotificationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -915,7 +917,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NotificationSummary, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::LensUpgradeSummary.validate!(input[:lens_upgrade_summary], context: "#{context}[:lens_upgrade_summary]") unless input[:lens_upgrade_summary].nil?
+        LensUpgradeSummary.validate!(input[:lens_upgrade_summary], context: "#{context}[:lens_upgrade_summary]") unless input[:lens_upgrade_summary].nil?
       end
     end
 
@@ -925,7 +927,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:pillar_id], ::String, context: "#{context}[:pillar_id]")
         Hearth::Validator.validate!(input[:pillar_name], ::String, context: "#{context}[:pillar_name]")
         Hearth::Validator.validate!(input[:difference_status], ::String, context: "#{context}[:difference_status]")
-        Validators::QuestionDifferences.validate!(input[:question_differences], context: "#{context}[:question_differences]") unless input[:question_differences].nil?
+        QuestionDifferences.validate!(input[:question_differences], context: "#{context}[:question_differences]") unless input[:question_differences].nil?
       end
     end
 
@@ -933,7 +935,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PillarDifference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PillarDifference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -952,7 +954,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PillarReviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PillarReviewSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -963,7 +965,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:pillar_id], ::String, context: "#{context}[:pillar_id]")
         Hearth::Validator.validate!(input[:pillar_name], ::String, context: "#{context}[:pillar_name]")
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
-        Validators::RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
+        RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
       end
     end
 
@@ -980,7 +982,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::QuestionDifference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          QuestionDifference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1039,7 +1041,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ShareInvitationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ShareInvitationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1082,7 +1084,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:workload_arn], ::String, context: "#{context}[:workload_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1105,7 +1107,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:workload_arn], ::String, context: "#{context}[:workload_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1121,8 +1123,8 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:question_id], ::String, context: "#{context}[:question_id]")
-        Validators::SelectedChoices.validate!(input[:selected_choices], context: "#{context}[:selected_choices]") unless input[:selected_choices].nil?
-        Validators::ChoiceUpdates.validate!(input[:choice_updates], context: "#{context}[:choice_updates]") unless input[:choice_updates].nil?
+        SelectedChoices.validate!(input[:selected_choices], context: "#{context}[:selected_choices]") unless input[:selected_choices].nil?
+        ChoiceUpdates.validate!(input[:choice_updates], context: "#{context}[:choice_updates]") unless input[:choice_updates].nil?
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
         Hearth::Validator.validate!(input[:is_applicable], ::TrueClass, ::FalseClass, context: "#{context}[:is_applicable]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
@@ -1135,7 +1137,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:lens_arn], ::String, context: "#{context}[:lens_arn]")
-        Validators::Answer.validate!(input[:answer], context: "#{context}[:answer]") unless input[:answer].nil?
+        Answer.validate!(input[:answer], context: "#{context}[:answer]") unless input[:answer].nil?
       end
     end
 
@@ -1145,7 +1147,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
         Hearth::Validator.validate!(input[:lens_alias], ::String, context: "#{context}[:lens_alias]")
         Hearth::Validator.validate!(input[:lens_notes], ::String, context: "#{context}[:lens_notes]")
-        Validators::PillarNotes.validate!(input[:pillar_notes], context: "#{context}[:pillar_notes]") unless input[:pillar_notes].nil?
+        PillarNotes.validate!(input[:pillar_notes], context: "#{context}[:pillar_notes]") unless input[:pillar_notes].nil?
       end
     end
 
@@ -1153,7 +1155,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLensReviewOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::LensReview.validate!(input[:lens_review], context: "#{context}[:lens_review]") unless input[:lens_review].nil?
+        LensReview.validate!(input[:lens_review], context: "#{context}[:lens_review]") unless input[:lens_review].nil?
       end
     end
 
@@ -1168,7 +1170,7 @@ module AWS::SDK::WellArchitected
     class UpdateShareInvitationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateShareInvitationOutput, context: context)
-        Validators::ShareInvitation.validate!(input[:share_invitation], context: "#{context}[:share_invitation]") unless input[:share_invitation].nil?
+        ShareInvitation.validate!(input[:share_invitation], context: "#{context}[:share_invitation]") unless input[:share_invitation].nil?
       end
     end
 
@@ -1179,10 +1181,10 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:workload_name], ::String, context: "#{context}[:workload_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:environment], ::String, context: "#{context}[:environment]")
-        Validators::WorkloadAccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::WorkloadAwsRegions.validate!(input[:aws_regions], context: "#{context}[:aws_regions]") unless input[:aws_regions].nil?
-        Validators::WorkloadNonAwsRegions.validate!(input[:non_aws_regions], context: "#{context}[:non_aws_regions]") unless input[:non_aws_regions].nil?
-        Validators::WorkloadPillarPriorities.validate!(input[:pillar_priorities], context: "#{context}[:pillar_priorities]") unless input[:pillar_priorities].nil?
+        WorkloadAccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        WorkloadAwsRegions.validate!(input[:aws_regions], context: "#{context}[:aws_regions]") unless input[:aws_regions].nil?
+        WorkloadNonAwsRegions.validate!(input[:non_aws_regions], context: "#{context}[:non_aws_regions]") unless input[:non_aws_regions].nil?
+        WorkloadPillarPriorities.validate!(input[:pillar_priorities], context: "#{context}[:pillar_priorities]") unless input[:pillar_priorities].nil?
         Hearth::Validator.validate!(input[:architectural_design], ::String, context: "#{context}[:architectural_design]")
         Hearth::Validator.validate!(input[:review_owner], ::String, context: "#{context}[:review_owner]")
         Hearth::Validator.validate!(input[:is_review_owner_update_acknowledged], ::TrueClass, ::FalseClass, context: "#{context}[:is_review_owner_update_acknowledged]")
@@ -1196,7 +1198,7 @@ module AWS::SDK::WellArchitected
     class UpdateWorkloadOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateWorkloadOutput, context: context)
-        Validators::Workload.validate!(input[:workload], context: "#{context}[:workload]") unless input[:workload].nil?
+        Workload.validate!(input[:workload], context: "#{context}[:workload]") unless input[:workload].nil?
       end
     end
 
@@ -1213,7 +1215,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateWorkloadShareOutput, context: context)
         Hearth::Validator.validate!(input[:workload_id], ::String, context: "#{context}[:workload_id]")
-        Validators::WorkloadShare.validate!(input[:workload_share], context: "#{context}[:workload_share]") unless input[:workload_share].nil?
+        WorkloadShare.validate!(input[:workload_share], context: "#{context}[:workload_share]") unless input[:workload_share].nil?
       end
     end
 
@@ -1238,7 +1240,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -1254,7 +1256,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1262,7 +1264,7 @@ module AWS::SDK::WellArchitected
     class VersionDifferences
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VersionDifferences, context: context)
-        Validators::PillarDifferences.validate!(input[:pillar_differences], context: "#{context}[:pillar_differences]") unless input[:pillar_differences].nil?
+        PillarDifferences.validate!(input[:pillar_differences], context: "#{context}[:pillar_differences]") unless input[:pillar_differences].nil?
       end
     end
 
@@ -1275,9 +1277,9 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:environment], ::String, context: "#{context}[:environment]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::WorkloadAccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::WorkloadAwsRegions.validate!(input[:aws_regions], context: "#{context}[:aws_regions]") unless input[:aws_regions].nil?
-        Validators::WorkloadNonAwsRegions.validate!(input[:non_aws_regions], context: "#{context}[:non_aws_regions]") unless input[:non_aws_regions].nil?
+        WorkloadAccountIds.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        WorkloadAwsRegions.validate!(input[:aws_regions], context: "#{context}[:aws_regions]") unless input[:aws_regions].nil?
+        WorkloadNonAwsRegions.validate!(input[:non_aws_regions], context: "#{context}[:non_aws_regions]") unless input[:non_aws_regions].nil?
         Hearth::Validator.validate!(input[:architectural_design], ::String, context: "#{context}[:architectural_design]")
         Hearth::Validator.validate!(input[:review_owner], ::String, context: "#{context}[:review_owner]")
         Hearth::Validator.validate!(input[:review_restriction_date], ::Time, context: "#{context}[:review_restriction_date]")
@@ -1286,12 +1288,12 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:industry], ::String, context: "#{context}[:industry]")
         Hearth::Validator.validate!(input[:notes], ::String, context: "#{context}[:notes]")
         Hearth::Validator.validate!(input[:improvement_status], ::String, context: "#{context}[:improvement_status]")
-        Validators::RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
-        Validators::WorkloadPillarPriorities.validate!(input[:pillar_priorities], context: "#{context}[:pillar_priorities]") unless input[:pillar_priorities].nil?
-        Validators::WorkloadLenses.validate!(input[:lenses], context: "#{context}[:lenses]") unless input[:lenses].nil?
+        RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
+        WorkloadPillarPriorities.validate!(input[:pillar_priorities], context: "#{context}[:pillar_priorities]") unless input[:pillar_priorities].nil?
+        WorkloadLenses.validate!(input[:lenses], context: "#{context}[:lenses]") unless input[:lenses].nil?
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:share_invitation_id], ::String, context: "#{context}[:share_invitation_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1357,7 +1359,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkloadShareSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkloadShareSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1376,7 +1378,7 @@ module AWS::SDK::WellArchitected
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkloadSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkloadSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1389,8 +1391,8 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(input[:workload_name], ::String, context: "#{context}[:workload_name]")
         Hearth::Validator.validate!(input[:owner], ::String, context: "#{context}[:owner]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::WorkloadLenses.validate!(input[:lenses], context: "#{context}[:lenses]") unless input[:lenses].nil?
-        Validators::RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
+        WorkloadLenses.validate!(input[:lenses], context: "#{context}[:lenses]") unless input[:lenses].nil?
+        RiskCounts.validate!(input[:risk_counts], context: "#{context}[:risk_counts]") unless input[:risk_counts].nil?
         Hearth::Validator.validate!(input[:improvement_status], ::String, context: "#{context}[:improvement_status]")
       end
     end

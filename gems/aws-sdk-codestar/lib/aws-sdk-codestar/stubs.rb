@@ -120,7 +120,7 @@ module AWS::SDK::CodeStar
           created_time_stamp: Time.now,
           stack_id: 'stack_id',
           project_template_id: 'project_template_id',
-          status: Stubs::ProjectStatus.default(visited),
+          status: ProjectStatus.default(visited),
         }
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::CodeStar
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::ProjectsList.default(visited),
+          projects: ProjectsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -224,7 +224,7 @@ module AWS::SDK::CodeStar
         return nil if visited.include?('ProjectsList')
         visited = visited + ['ProjectsList']
         [
-          Stubs::ProjectSummary.default(visited)
+          ProjectSummary.default(visited)
         ]
       end
 
@@ -262,7 +262,7 @@ module AWS::SDK::CodeStar
     class ListResources
       def self.default(visited=[])
         {
-          resources: Stubs::ResourcesResult.default(visited),
+          resources: ResourcesResult.default(visited),
           next_token: 'next_token',
         }
       end
@@ -282,7 +282,7 @@ module AWS::SDK::CodeStar
         return nil if visited.include?('ResourcesResult')
         visited = visited + ['ResourcesResult']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::CodeStar
     class ListTagsForProject
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_token: 'next_token',
         }
       end
@@ -356,7 +356,7 @@ module AWS::SDK::CodeStar
     class ListTeamMembers
       def self.default(visited=[])
         {
-          team_members: Stubs::TeamMemberResult.default(visited),
+          team_members: TeamMemberResult.default(visited),
           next_token: 'next_token',
         }
       end
@@ -376,7 +376,7 @@ module AWS::SDK::CodeStar
         return nil if visited.include?('TeamMemberResult')
         visited = visited + ['TeamMemberResult']
         [
-          Stubs::TeamMember.default(visited)
+          TeamMember.default(visited)
         ]
       end
 
@@ -416,7 +416,7 @@ module AWS::SDK::CodeStar
     class ListUserProfiles
       def self.default(visited=[])
         {
-          user_profiles: Stubs::UserProfilesList.default(visited),
+          user_profiles: UserProfilesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -436,7 +436,7 @@ module AWS::SDK::CodeStar
         return nil if visited.include?('UserProfilesList')
         visited = visited + ['UserProfilesList']
         [
-          Stubs::UserProfileSummary.default(visited)
+          UserProfileSummary.default(visited)
         ]
       end
 
@@ -478,7 +478,7 @@ module AWS::SDK::CodeStar
     class TagProject
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 

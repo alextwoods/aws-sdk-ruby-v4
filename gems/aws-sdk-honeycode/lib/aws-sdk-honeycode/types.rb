@@ -132,11 +132,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute workbook_id
@@ -211,11 +211,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute workbook_id
@@ -293,11 +293,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute workbook_id
@@ -386,11 +386,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # <p>An object that represents a single cell in a table.</p>
@@ -676,12 +676,12 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_header_row ||= false
         self.ignore_empty_rows ||= false
       end
-
     end
 
     # @!attribute workbook_id
@@ -1050,11 +1050,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # Includes enum constants for ImportDataCharacterEncoding
@@ -1274,11 +1274,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute workbook_id
@@ -1348,11 +1348,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute workbook_id
@@ -1455,11 +1455,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute workbook_id
@@ -1526,11 +1526,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -1645,11 +1645,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.workbook_cursor ||= 0
       end
-
     end
 
     # <p>The request timed out.</p>
@@ -1775,11 +1775,11 @@ module AWS::SDK::Honeycode
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.column_index ||= 0
       end
-
     end
 
     # @!attribute workbook_id

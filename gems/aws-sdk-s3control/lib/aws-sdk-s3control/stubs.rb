@@ -294,7 +294,7 @@ module AWS::SDK::S3Control
     class DescribeJob
       def self.default(visited=[])
         {
-          job: Stubs::JobDescriptor.default(visited),
+          job: JobDescriptor.default(visited),
         }
       end
 
@@ -321,20 +321,20 @@ module AWS::SDK::S3Control
           description: 'description',
           job_arn: 'job_arn',
           status: 'status',
-          manifest: Stubs::JobManifest.default(visited),
-          operation: Stubs::JobOperation.default(visited),
+          manifest: JobManifest.default(visited),
+          operation: JobOperation.default(visited),
           priority: 1,
-          progress_summary: Stubs::JobProgressSummary.default(visited),
+          progress_summary: JobProgressSummary.default(visited),
           status_update_reason: 'status_update_reason',
-          failure_reasons: Stubs::JobFailureList.default(visited),
-          report: Stubs::JobReport.default(visited),
+          failure_reasons: JobFailureList.default(visited),
+          report: JobReport.default(visited),
           creation_time: Time.now,
           termination_date: Time.now,
           role_arn: 'role_arn',
           suspended_date: Time.now,
           suspended_cause: 'suspended_cause',
-          manifest_generator: Stubs::JobManifestGenerator.default(visited),
-          generated_manifest_descriptor: Stubs::S3GeneratedManifestDescriptor.default(visited),
+          manifest_generator: JobManifestGenerator.default(visited),
+          generated_manifest_descriptor: S3GeneratedManifestDescriptor.default(visited),
         }
       end
 
@@ -371,7 +371,7 @@ module AWS::SDK::S3Control
         visited = visited + ['S3GeneratedManifestDescriptor']
         {
           format: 'format',
-          location: Stubs::JobManifestLocation.default(visited),
+          location: JobManifestLocation.default(visited),
         }
       end
 
@@ -412,7 +412,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('JobManifestGenerator')
         visited = visited + ['JobManifestGenerator']
         {
-          s3_job_manifest_generator: Stubs::S3JobManifestGenerator.default(visited),
+          s3_job_manifest_generator: S3JobManifestGenerator.default(visited),
         }
       end
 
@@ -438,8 +438,8 @@ module AWS::SDK::S3Control
         {
           expected_bucket_owner: 'expected_bucket_owner',
           source_bucket: 'source_bucket',
-          manifest_output_location: Stubs::S3ManifestOutputLocation.default(visited),
-          filter: Stubs::JobManifestGeneratorFilter.default(visited),
+          manifest_output_location: S3ManifestOutputLocation.default(visited),
+          filter: JobManifestGeneratorFilter.default(visited),
           enable_manifest_output: false,
         }
       end
@@ -465,7 +465,7 @@ module AWS::SDK::S3Control
           eligible_for_replication: false,
           created_after: Time.now,
           created_before: Time.now,
-          object_replication_statuses: Stubs::ReplicationStatusFilterList.default(visited),
+          object_replication_statuses: ReplicationStatusFilterList.default(visited),
         }
       end
 
@@ -509,7 +509,7 @@ module AWS::SDK::S3Control
           expected_manifest_bucket_owner: 'expected_manifest_bucket_owner',
           bucket: 'bucket',
           manifest_prefix: 'manifest_prefix',
-          manifest_encryption: Stubs::GeneratedManifestEncryption.default(visited),
+          manifest_encryption: GeneratedManifestEncryption.default(visited),
           manifest_format: 'manifest_format',
         }
       end
@@ -532,8 +532,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('GeneratedManifestEncryption')
         visited = visited + ['GeneratedManifestEncryption']
         {
-          sses3: Stubs::SSES3Encryption.default(visited),
-          ssekms: Stubs::SSEKMSEncryption.default(visited),
+          sses3: SSES3Encryption.default(visited),
+          ssekms: SSEKMSEncryption.default(visited),
         }
       end
 
@@ -612,7 +612,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('JobFailureList')
         visited = visited + ['JobFailureList']
         [
-          Stubs::JobFailure.default(visited)
+          JobFailure.default(visited)
         ]
       end
 
@@ -655,7 +655,7 @@ module AWS::SDK::S3Control
           total_number_of_tasks: 1,
           number_of_tasks_succeeded: 1,
           number_of_tasks_failed: 1,
-          timers: Stubs::JobTimers.default(visited),
+          timers: JobTimers.default(visited),
         }
       end
 
@@ -694,15 +694,15 @@ module AWS::SDK::S3Control
         return nil if visited.include?('JobOperation')
         visited = visited + ['JobOperation']
         {
-          lambda_invoke: Stubs::LambdaInvokeOperation.default(visited),
-          s3_put_object_copy: Stubs::S3CopyObjectOperation.default(visited),
-          s3_put_object_acl: Stubs::S3SetObjectAclOperation.default(visited),
-          s3_put_object_tagging: Stubs::S3SetObjectTaggingOperation.default(visited),
-          s3_delete_object_tagging: Stubs::S3DeleteObjectTaggingOperation.default(visited),
-          s3_initiate_restore_object: Stubs::S3InitiateRestoreObjectOperation.default(visited),
-          s3_put_object_legal_hold: Stubs::S3SetObjectLegalHoldOperation.default(visited),
-          s3_put_object_retention: Stubs::S3SetObjectRetentionOperation.default(visited),
-          s3_replicate_object: Stubs::S3ReplicateObjectOperation.default(visited),
+          lambda_invoke: LambdaInvokeOperation.default(visited),
+          s3_put_object_copy: S3CopyObjectOperation.default(visited),
+          s3_put_object_acl: S3SetObjectAclOperation.default(visited),
+          s3_put_object_tagging: S3SetObjectTaggingOperation.default(visited),
+          s3_delete_object_tagging: S3DeleteObjectTaggingOperation.default(visited),
+          s3_initiate_restore_object: S3InitiateRestoreObjectOperation.default(visited),
+          s3_put_object_legal_hold: S3SetObjectLegalHoldOperation.default(visited),
+          s3_put_object_retention: S3SetObjectRetentionOperation.default(visited),
+          s3_replicate_object: S3ReplicateObjectOperation.default(visited),
         }
       end
 
@@ -745,7 +745,7 @@ module AWS::SDK::S3Control
         visited = visited + ['S3SetObjectRetentionOperation']
         {
           bypass_governance_retention: false,
-          retention: Stubs::S3Retention.default(visited),
+          retention: S3Retention.default(visited),
         }
       end
 
@@ -784,7 +784,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3SetObjectLegalHoldOperation')
         visited = visited + ['S3SetObjectLegalHoldOperation']
         {
-          legal_hold: Stubs::S3ObjectLockLegalHold.default(visited),
+          legal_hold: S3ObjectLockLegalHold.default(visited),
         }
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3SetObjectTaggingOperation')
         visited = visited + ['S3SetObjectTaggingOperation']
         {
-          tag_set: Stubs::S3TagSet.default(visited),
+          tag_set: S3TagSet.default(visited),
         }
       end
 
@@ -874,7 +874,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3TagSet')
         visited = visited + ['S3TagSet']
         [
-          Stubs::S3Tag.default(visited)
+          S3Tag.default(visited)
         ]
       end
 
@@ -914,7 +914,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3SetObjectAclOperation')
         visited = visited + ['S3SetObjectAclOperation']
         {
-          access_control_policy: Stubs::S3AccessControlPolicy.default(visited),
+          access_control_policy: S3AccessControlPolicy.default(visited),
         }
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3AccessControlPolicy')
         visited = visited + ['S3AccessControlPolicy']
         {
-          access_control_list: Stubs::S3AccessControlList.default(visited),
+          access_control_list: S3AccessControlList.default(visited),
           canned_access_control_list: 'canned_access_control_list',
         }
       end
@@ -952,8 +952,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3AccessControlList')
         visited = visited + ['S3AccessControlList']
         {
-          owner: Stubs::S3ObjectOwner.default(visited),
-          grants: Stubs::S3GrantList.default(visited),
+          owner: S3ObjectOwner.default(visited),
+          grants: S3GrantList.default(visited),
         }
       end
 
@@ -972,7 +972,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3GrantList')
         visited = visited + ['S3GrantList']
         [
-          Stubs::S3Grant.default(visited)
+          S3Grant.default(visited)
         ]
       end
 
@@ -992,7 +992,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('S3Grant')
         visited = visited + ['S3Grant']
         {
-          grantee: Stubs::S3Grantee.default(visited),
+          grantee: S3Grantee.default(visited),
           permission: 'permission',
         }
       end
@@ -1056,11 +1056,11 @@ module AWS::SDK::S3Control
         {
           target_resource: 'target_resource',
           canned_access_control_list: 'canned_access_control_list',
-          access_control_grants: Stubs::S3GrantList.default(visited),
+          access_control_grants: S3GrantList.default(visited),
           metadata_directive: 'metadata_directive',
           modified_since_constraint: Time.now,
-          new_object_metadata: Stubs::S3ObjectMetadata.default(visited),
-          new_object_tagging: Stubs::S3TagSet.default(visited),
+          new_object_metadata: S3ObjectMetadata.default(visited),
+          new_object_tagging: S3TagSet.default(visited),
           redirect_location: 'redirect_location',
           requester_pays: false,
           storage_class: 'storage_class',
@@ -1110,7 +1110,7 @@ module AWS::SDK::S3Control
           content_disposition: 'content_disposition',
           content_encoding: 'content_encoding',
           content_language: 'content_language',
-          user_metadata: Stubs::S3UserMetadata.default(visited),
+          user_metadata: S3UserMetadata.default(visited),
           content_length: 1,
           content_md5: 'content_md5',
           content_type: 'content_type',
@@ -1185,8 +1185,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('JobManifest')
         visited = visited + ['JobManifest']
         {
-          spec: Stubs::JobManifestSpec.default(visited),
-          location: Stubs::JobManifestLocation.default(visited),
+          spec: JobManifestSpec.default(visited),
+          location: JobManifestLocation.default(visited),
         }
       end
 
@@ -1206,7 +1206,7 @@ module AWS::SDK::S3Control
         visited = visited + ['JobManifestSpec']
         {
           format: 'format',
-          fields: Stubs::JobManifestFieldList.default(visited),
+          fields: JobManifestFieldList.default(visited),
         }
       end
 
@@ -1243,7 +1243,7 @@ module AWS::SDK::S3Control
     class DescribeMultiRegionAccessPointOperation
       def self.default(visited=[])
         {
-          async_operation: Stubs::AsyncOperation.default(visited),
+          async_operation: AsyncOperation.default(visited),
         }
       end
 
@@ -1268,9 +1268,9 @@ module AWS::SDK::S3Control
           creation_time: Time.now,
           operation: 'operation',
           request_token_arn: 'request_token_arn',
-          request_parameters: Stubs::AsyncRequestParameters.default(visited),
+          request_parameters: AsyncRequestParameters.default(visited),
           request_status: 'request_status',
-          response_details: Stubs::AsyncResponseDetails.default(visited),
+          response_details: AsyncResponseDetails.default(visited),
         }
       end
 
@@ -1293,8 +1293,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('AsyncResponseDetails')
         visited = visited + ['AsyncResponseDetails']
         {
-          multi_region_access_point_details: Stubs::MultiRegionAccessPointsAsyncResponse.default(visited),
-          error_details: Stubs::AsyncErrorDetails.default(visited),
+          multi_region_access_point_details: MultiRegionAccessPointsAsyncResponse.default(visited),
+          error_details: AsyncErrorDetails.default(visited),
         }
       end
 
@@ -1337,7 +1337,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('MultiRegionAccessPointsAsyncResponse')
         visited = visited + ['MultiRegionAccessPointsAsyncResponse']
         {
-          regions: Stubs::MultiRegionAccessPointRegionalResponseList.default(visited),
+          regions: MultiRegionAccessPointRegionalResponseList.default(visited),
         }
       end
 
@@ -1355,7 +1355,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('MultiRegionAccessPointRegionalResponseList')
         visited = visited + ['MultiRegionAccessPointRegionalResponseList']
         [
-          Stubs::MultiRegionAccessPointRegionalResponse.default(visited)
+          MultiRegionAccessPointRegionalResponse.default(visited)
         ]
       end
 
@@ -1395,9 +1395,9 @@ module AWS::SDK::S3Control
         return nil if visited.include?('AsyncRequestParameters')
         visited = visited + ['AsyncRequestParameters']
         {
-          create_multi_region_access_point_request: Stubs::CreateMultiRegionAccessPointInput.default(visited),
-          delete_multi_region_access_point_request: Stubs::DeleteMultiRegionAccessPointInput.default(visited),
-          put_multi_region_access_point_policy_request: Stubs::PutMultiRegionAccessPointPolicyInput.default(visited),
+          create_multi_region_access_point_request: CreateMultiRegionAccessPointInput.default(visited),
+          delete_multi_region_access_point_request: DeleteMultiRegionAccessPointInput.default(visited),
+          put_multi_region_access_point_policy_request: PutMultiRegionAccessPointPolicyInput.default(visited),
         }
       end
 
@@ -1456,8 +1456,8 @@ module AWS::SDK::S3Control
         visited = visited + ['CreateMultiRegionAccessPointInput']
         {
           name: 'name',
-          public_access_block: Stubs::PublicAccessBlockConfiguration.default(visited),
-          regions: Stubs::RegionCreationList.default(visited),
+          public_access_block: PublicAccessBlockConfiguration.default(visited),
+          regions: RegionCreationList.default(visited),
         }
       end
 
@@ -1477,7 +1477,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('RegionCreationList')
         visited = visited + ['RegionCreationList']
         [
-          Stubs::Region.default(visited)
+          Region.default(visited)
         ]
       end
 
@@ -1540,12 +1540,12 @@ module AWS::SDK::S3Control
           name: 'name',
           bucket: 'bucket',
           network_origin: 'network_origin',
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
-          public_access_block_configuration: Stubs::PublicAccessBlockConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
+          public_access_block_configuration: PublicAccessBlockConfiguration.default(visited),
           creation_date: Time.now,
           alias: 'alias',
           access_point_arn: 'access_point_arn',
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
         }
       end
 
@@ -1614,7 +1614,7 @@ module AWS::SDK::S3Control
     class GetAccessPointConfigurationForObjectLambda
       def self.default(visited=[])
         {
-          configuration: Stubs::ObjectLambdaConfiguration.default(visited),
+          configuration: ObjectLambdaConfiguration.default(visited),
         }
       end
 
@@ -1638,8 +1638,8 @@ module AWS::SDK::S3Control
         {
           supporting_access_point: 'supporting_access_point',
           cloud_watch_metrics_enabled: false,
-          allowed_features: Stubs::ObjectLambdaAllowedFeaturesList.default(visited),
-          transformation_configurations: Stubs::ObjectLambdaTransformationConfigurationsList.default(visited),
+          allowed_features: ObjectLambdaAllowedFeaturesList.default(visited),
+          transformation_configurations: ObjectLambdaTransformationConfigurationsList.default(visited),
         }
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('ObjectLambdaTransformationConfigurationsList')
         visited = visited + ['ObjectLambdaTransformationConfigurationsList']
         [
-          Stubs::ObjectLambdaTransformationConfiguration.default(visited)
+          ObjectLambdaTransformationConfiguration.default(visited)
         ]
       end
 
@@ -1680,8 +1680,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('ObjectLambdaTransformationConfiguration')
         visited = visited + ['ObjectLambdaTransformationConfiguration']
         {
-          actions: Stubs::ObjectLambdaTransformationConfigurationActionsList.default(visited),
-          content_transformation: Stubs::ObjectLambdaContentTransformation.default(visited),
+          actions: ObjectLambdaTransformationConfigurationActionsList.default(visited),
+          content_transformation: ObjectLambdaContentTransformation.default(visited),
         }
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('ObjectLambdaContentTransformation')
         visited = visited + ['ObjectLambdaContentTransformation']
         {
-          aws_lambda: Stubs::AwsLambdaTransformation.default(visited),
+          aws_lambda: AwsLambdaTransformation.default(visited),
         }
       end
 
@@ -1783,7 +1783,7 @@ module AWS::SDK::S3Control
       def self.default(visited=[])
         {
           name: 'name',
-          public_access_block_configuration: Stubs::PublicAccessBlockConfiguration.default(visited),
+          public_access_block_configuration: PublicAccessBlockConfiguration.default(visited),
           creation_date: Time.now,
         }
       end
@@ -1846,7 +1846,7 @@ module AWS::SDK::S3Control
     class GetAccessPointPolicyStatus
       def self.default(visited=[])
         {
-          policy_status: Stubs::PolicyStatus.default(visited),
+          policy_status: PolicyStatus.default(visited),
         }
       end
 
@@ -1884,7 +1884,7 @@ module AWS::SDK::S3Control
     class GetAccessPointPolicyStatusForObjectLambda
       def self.default(visited=[])
         {
-          policy_status: Stubs::PolicyStatus.default(visited),
+          policy_status: PolicyStatus.default(visited),
         }
       end
 
@@ -1928,7 +1928,7 @@ module AWS::SDK::S3Control
     class GetBucketLifecycleConfiguration
       def self.default(visited=[])
         {
-          rules: Stubs::LifecycleRules.default(visited),
+          rules: LifecycleRules.default(visited),
         }
       end
 
@@ -1950,7 +1950,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('LifecycleRules')
         visited = visited + ['LifecycleRules']
         [
-          Stubs::LifecycleRule.default(visited)
+          LifecycleRule.default(visited)
         ]
       end
 
@@ -1970,14 +1970,14 @@ module AWS::SDK::S3Control
         return nil if visited.include?('LifecycleRule')
         visited = visited + ['LifecycleRule']
         {
-          expiration: Stubs::LifecycleExpiration.default(visited),
+          expiration: LifecycleExpiration.default(visited),
           id: 'id',
-          filter: Stubs::LifecycleRuleFilter.default(visited),
+          filter: LifecycleRuleFilter.default(visited),
           status: 'status',
-          transitions: Stubs::TransitionList.default(visited),
-          noncurrent_version_transitions: Stubs::NoncurrentVersionTransitionList.default(visited),
-          noncurrent_version_expiration: Stubs::NoncurrentVersionExpiration.default(visited),
-          abort_incomplete_multipart_upload: Stubs::AbortIncompleteMultipartUpload.default(visited),
+          transitions: TransitionList.default(visited),
+          noncurrent_version_transitions: NoncurrentVersionTransitionList.default(visited),
+          noncurrent_version_expiration: NoncurrentVersionExpiration.default(visited),
+          abort_incomplete_multipart_upload: AbortIncompleteMultipartUpload.default(visited),
         }
       end
 
@@ -2038,7 +2038,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('NoncurrentVersionTransitionList')
         visited = visited + ['NoncurrentVersionTransitionList']
         [
-          Stubs::NoncurrentVersionTransition.default(visited)
+          NoncurrentVersionTransition.default(visited)
         ]
       end
 
@@ -2078,7 +2078,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('TransitionList')
         visited = visited + ['TransitionList']
         [
-          Stubs::Transition.default(visited)
+          Transition.default(visited)
         ]
       end
 
@@ -2121,8 +2121,8 @@ module AWS::SDK::S3Control
         visited = visited + ['LifecycleRuleFilter']
         {
           prefix: 'prefix',
-          tag: Stubs::S3Tag.default(visited),
-          and: Stubs::LifecycleRuleAndOperator.default(visited),
+          tag: S3Tag.default(visited),
+          and: LifecycleRuleAndOperator.default(visited),
         }
       end
 
@@ -2143,7 +2143,7 @@ module AWS::SDK::S3Control
         visited = visited + ['LifecycleRuleAndOperator']
         {
           prefix: 'prefix',
-          tags: Stubs::S3TagSet.default(visited),
+          tags: S3TagSet.default(visited),
         }
       end
 
@@ -2202,7 +2202,7 @@ module AWS::SDK::S3Control
     class GetBucketTagging
       def self.default(visited=[])
         {
-          tag_set: Stubs::S3TagSet.default(visited),
+          tag_set: S3TagSet.default(visited),
         }
       end
 
@@ -2222,7 +2222,7 @@ module AWS::SDK::S3Control
     class GetJobTagging
       def self.default(visited=[])
         {
-          tags: Stubs::S3TagSet.default(visited),
+          tags: S3TagSet.default(visited),
         }
       end
 
@@ -2242,7 +2242,7 @@ module AWS::SDK::S3Control
     class GetMultiRegionAccessPoint
       def self.default(visited=[])
         {
-          access_point: Stubs::MultiRegionAccessPointReport.default(visited),
+          access_point: MultiRegionAccessPointReport.default(visited),
         }
       end
 
@@ -2267,9 +2267,9 @@ module AWS::SDK::S3Control
           name: 'name',
           alias: 'alias',
           created_at: Time.now,
-          public_access_block: Stubs::PublicAccessBlockConfiguration.default(visited),
+          public_access_block: PublicAccessBlockConfiguration.default(visited),
           status: 'status',
-          regions: Stubs::RegionReportList.default(visited),
+          regions: RegionReportList.default(visited),
         }
       end
 
@@ -2292,7 +2292,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('RegionReportList')
         visited = visited + ['RegionReportList']
         [
-          Stubs::RegionReport.default(visited)
+          RegionReport.default(visited)
         ]
       end
 
@@ -2330,7 +2330,7 @@ module AWS::SDK::S3Control
     class GetMultiRegionAccessPointPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::MultiRegionAccessPointPolicyDocument.default(visited),
+          policy: MultiRegionAccessPointPolicyDocument.default(visited),
         }
       end
 
@@ -2352,8 +2352,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('MultiRegionAccessPointPolicyDocument')
         visited = visited + ['MultiRegionAccessPointPolicyDocument']
         {
-          established: Stubs::EstablishedMultiRegionAccessPointPolicy.default(visited),
-          proposed: Stubs::ProposedMultiRegionAccessPointPolicy.default(visited),
+          established: EstablishedMultiRegionAccessPointPolicy.default(visited),
+          proposed: ProposedMultiRegionAccessPointPolicy.default(visited),
         }
       end
 
@@ -2406,7 +2406,7 @@ module AWS::SDK::S3Control
     class GetMultiRegionAccessPointPolicyStatus
       def self.default(visited=[])
         {
-          established: Stubs::PolicyStatus.default(visited),
+          established: PolicyStatus.default(visited),
         }
       end
 
@@ -2426,7 +2426,7 @@ module AWS::SDK::S3Control
     class GetPublicAccessBlock
       def self.default(visited=[])
         {
-          public_access_block_configuration: Stubs::PublicAccessBlockConfiguration.default(visited),
+          public_access_block_configuration: PublicAccessBlockConfiguration.default(visited),
         }
       end
 
@@ -2443,7 +2443,7 @@ module AWS::SDK::S3Control
     class GetStorageLensConfiguration
       def self.default(visited=[])
         {
-          storage_lens_configuration: Stubs::StorageLensConfiguration.default(visited),
+          storage_lens_configuration: StorageLensConfiguration.default(visited),
         }
       end
 
@@ -2463,12 +2463,12 @@ module AWS::SDK::S3Control
         visited = visited + ['StorageLensConfiguration']
         {
           id: 'id',
-          account_level: Stubs::AccountLevel.default(visited),
-          include: Stubs::Include.default(visited),
-          exclude: Stubs::Exclude.default(visited),
-          data_export: Stubs::StorageLensDataExport.default(visited),
+          account_level: AccountLevel.default(visited),
+          include: Include.default(visited),
+          exclude: Exclude.default(visited),
+          data_export: StorageLensDataExport.default(visited),
           is_enabled: false,
-          aws_org: Stubs::StorageLensAwsOrg.default(visited),
+          aws_org: StorageLensAwsOrg.default(visited),
           storage_lens_arn: 'storage_lens_arn',
         }
       end
@@ -2512,8 +2512,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('StorageLensDataExport')
         visited = visited + ['StorageLensDataExport']
         {
-          s3_bucket_destination: Stubs::S3BucketDestination.default(visited),
-          cloud_watch_metrics: Stubs::CloudWatchMetrics.default(visited),
+          s3_bucket_destination: S3BucketDestination.default(visited),
+          cloud_watch_metrics: CloudWatchMetrics.default(visited),
         }
       end
 
@@ -2555,7 +2555,7 @@ module AWS::SDK::S3Control
           account_id: 'account_id',
           arn: 'arn',
           prefix: 'prefix',
-          encryption: Stubs::StorageLensDataExportEncryption.default(visited),
+          encryption: StorageLensDataExportEncryption.default(visited),
         }
       end
 
@@ -2578,8 +2578,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('StorageLensDataExportEncryption')
         visited = visited + ['StorageLensDataExportEncryption']
         {
-          sses3: Stubs::SSES3.default(visited),
-          ssekms: Stubs::SSEKMS.default(visited),
+          sses3: SSES3.default(visited),
+          ssekms: SSEKMS.default(visited),
         }
       end
 
@@ -2632,8 +2632,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('Exclude')
         visited = visited + ['Exclude']
         {
-          buckets: Stubs::Buckets.default(visited),
-          regions: Stubs::Regions.default(visited),
+          buckets: Buckets.default(visited),
+          regions: Regions.default(visited),
         }
       end
 
@@ -2692,8 +2692,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('Include')
         visited = visited + ['Include']
         {
-          buckets: Stubs::Buckets.default(visited),
-          regions: Stubs::Regions.default(visited),
+          buckets: Buckets.default(visited),
+          regions: Regions.default(visited),
         }
       end
 
@@ -2712,8 +2712,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('AccountLevel')
         visited = visited + ['AccountLevel']
         {
-          activity_metrics: Stubs::ActivityMetrics.default(visited),
-          bucket_level: Stubs::BucketLevel.default(visited),
+          activity_metrics: ActivityMetrics.default(visited),
+          bucket_level: BucketLevel.default(visited),
         }
       end
 
@@ -2732,8 +2732,8 @@ module AWS::SDK::S3Control
         return nil if visited.include?('BucketLevel')
         visited = visited + ['BucketLevel']
         {
-          activity_metrics: Stubs::ActivityMetrics.default(visited),
-          prefix_level: Stubs::PrefixLevel.default(visited),
+          activity_metrics: ActivityMetrics.default(visited),
+          prefix_level: PrefixLevel.default(visited),
         }
       end
 
@@ -2752,7 +2752,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('PrefixLevel')
         visited = visited + ['PrefixLevel']
         {
-          storage_metrics: Stubs::PrefixLevelStorageMetrics.default(visited),
+          storage_metrics: PrefixLevelStorageMetrics.default(visited),
         }
       end
 
@@ -2771,7 +2771,7 @@ module AWS::SDK::S3Control
         visited = visited + ['PrefixLevelStorageMetrics']
         {
           is_enabled: false,
-          selection_criteria: Stubs::SelectionCriteria.default(visited),
+          selection_criteria: SelectionCriteria.default(visited),
         }
       end
 
@@ -2828,7 +2828,7 @@ module AWS::SDK::S3Control
     class GetStorageLensConfigurationTagging
       def self.default(visited=[])
         {
-          tags: Stubs::StorageLensTags.default(visited),
+          tags: StorageLensTags.default(visited),
         }
       end
 
@@ -2850,7 +2850,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('StorageLensTags')
         visited = visited + ['StorageLensTags']
         [
-          Stubs::StorageLensTag.default(visited)
+          StorageLensTag.default(visited)
         ]
       end
 
@@ -2888,7 +2888,7 @@ module AWS::SDK::S3Control
     class ListAccessPoints
       def self.default(visited=[])
         {
-          access_point_list: Stubs::AccessPointList.default(visited),
+          access_point_list: AccessPointList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2912,7 +2912,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('AccessPointList')
         visited = visited + ['AccessPointList']
         [
-          Stubs::AccessPoint.default(visited)
+          AccessPoint.default(visited)
         ]
       end
 
@@ -2934,7 +2934,7 @@ module AWS::SDK::S3Control
         {
           name: 'name',
           network_origin: 'network_origin',
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
           bucket: 'bucket',
           access_point_arn: 'access_point_arn',
           alias: 'alias',
@@ -2958,7 +2958,7 @@ module AWS::SDK::S3Control
     class ListAccessPointsForObjectLambda
       def self.default(visited=[])
         {
-          object_lambda_access_point_list: Stubs::ObjectLambdaAccessPointList.default(visited),
+          object_lambda_access_point_list: ObjectLambdaAccessPointList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2982,7 +2982,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('ObjectLambdaAccessPointList')
         visited = visited + ['ObjectLambdaAccessPointList']
         [
-          Stubs::ObjectLambdaAccessPoint.default(visited)
+          ObjectLambdaAccessPoint.default(visited)
         ]
       end
 
@@ -3021,7 +3021,7 @@ module AWS::SDK::S3Control
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          jobs: Stubs::JobListDescriptorList.default(visited),
+          jobs: JobListDescriptorList.default(visited),
         }
       end
 
@@ -3044,7 +3044,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('JobListDescriptorList')
         visited = visited + ['JobListDescriptorList']
         [
-          Stubs::JobListDescriptor.default(visited)
+          JobListDescriptor.default(visited)
         ]
       end
 
@@ -3071,7 +3071,7 @@ module AWS::SDK::S3Control
           status: 'status',
           creation_time: Time.now,
           termination_date: Time.now,
-          progress_summary: Stubs::JobProgressSummary.default(visited),
+          progress_summary: JobProgressSummary.default(visited),
         }
       end
 
@@ -3094,7 +3094,7 @@ module AWS::SDK::S3Control
     class ListMultiRegionAccessPoints
       def self.default(visited=[])
         {
-          access_points: Stubs::MultiRegionAccessPointReportList.default(visited),
+          access_points: MultiRegionAccessPointReportList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3118,7 +3118,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('MultiRegionAccessPointReportList')
         visited = visited + ['MultiRegionAccessPointReportList']
         [
-          Stubs::MultiRegionAccessPointReport.default(visited)
+          MultiRegionAccessPointReport.default(visited)
         ]
       end
 
@@ -3136,7 +3136,7 @@ module AWS::SDK::S3Control
     class ListRegionalBuckets
       def self.default(visited=[])
         {
-          regional_bucket_list: Stubs::RegionalBucketList.default(visited),
+          regional_bucket_list: RegionalBucketList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3160,7 +3160,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('RegionalBucketList')
         visited = visited + ['RegionalBucketList']
         [
-          Stubs::RegionalBucket.default(visited)
+          RegionalBucket.default(visited)
         ]
       end
 
@@ -3205,7 +3205,7 @@ module AWS::SDK::S3Control
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          storage_lens_configuration_list: Stubs::StorageLensConfigurationList.default(visited),
+          storage_lens_configuration_list: StorageLensConfigurationList.default(visited),
         }
       end
 
@@ -3228,7 +3228,7 @@ module AWS::SDK::S3Control
         return nil if visited.include?('StorageLensConfigurationList')
         visited = visited + ['StorageLensConfigurationList']
         [
-          Stubs::ListStorageLensConfigurationEntry.default(visited)
+          ListStorageLensConfigurationEntry.default(visited)
         ]
       end
 

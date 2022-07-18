@@ -103,23 +103,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     @Override
-    protected void renderSetBuildMethod(SetShape shape) {
-        writer
-                .openBlock("def self.build(input, params, context: '')")
-                .openBlock("input.each_with_index do |element, index|")
-                .call(() -> {
-                    String dataName = "\".#{index+1}\"";
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(
-                            new MemberSerializer(shape.getMember(),
-                                    dataName, "element", !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .closeBlock("end");
-    }
-
-
-    @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer

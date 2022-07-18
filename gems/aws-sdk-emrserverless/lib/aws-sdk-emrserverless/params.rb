@@ -48,8 +48,8 @@ module AWS::SDK::EMRServerless
 
     module ApplicationStateSet
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -161,7 +161,7 @@ module AWS::SDK::EMRServerless
         type.name = params[:name]
         type.release_label = params[:release_label]
         type.type = params[:type]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.initial_capacity = InitialCapacityConfigMap.build(params[:initial_capacity], context: "#{context}[:initial_capacity]") unless params[:initial_capacity].nil?
         type.maximum_capacity = MaximumAllowedResources.build(params[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless params[:maximum_capacity].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -341,8 +341,8 @@ module AWS::SDK::EMRServerless
 
     module JobRunStateSet
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Set, ::Array, context: context)
-        data = Set.new
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
         params.each do |element|
           data << element
         end
@@ -568,7 +568,7 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(params, ::Hash, Types::StartJobRunInput, context: context)
         type = Types::StartJobRunInput.new
         type.application_id = params[:application_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.execution_role_arn = params[:execution_role_arn]
         type.job_driver = JobDriver.build(params[:job_driver], context: "#{context}[:job_driver]") unless params[:job_driver].nil?
         type.configuration_overrides = ConfigurationOverrides.build(params[:configuration_overrides], context: "#{context}[:configuration_overrides]") unless params[:configuration_overrides].nil?
@@ -692,7 +692,7 @@ module AWS::SDK::EMRServerless
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateApplicationInput, context: context)
         type = Types::UpdateApplicationInput.new
         type.application_id = params[:application_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.initial_capacity = InitialCapacityConfigMap.build(params[:initial_capacity], context: "#{context}[:initial_capacity]") unless params[:initial_capacity].nil?
         type.maximum_capacity = MaximumAllowedResources.build(params[:maximum_capacity], context: "#{context}[:maximum_capacity]") unless params[:maximum_capacity].nil?
         type.auto_start_configuration = AutoStartConfig.build(params[:auto_start_configuration], context: "#{context}[:auto_start_configuration]") unless params[:auto_start_configuration].nil?

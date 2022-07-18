@@ -14,10 +14,10 @@ module AWS::SDK::ResourceGroups
     class CreateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
-          resource_query: Stubs::ResourceQuery.default(visited),
-          tags: Stubs::Tags.default(visited),
-          group_configuration: Stubs::GroupConfiguration.default(visited),
+          group: Group.default(visited),
+          resource_query: ResourceQuery.default(visited),
+          tags: Tags.default(visited),
+          group_configuration: GroupConfiguration.default(visited),
         }
       end
 
@@ -39,8 +39,8 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('GroupConfiguration')
         visited = visited + ['GroupConfiguration']
         {
-          configuration: Stubs::GroupConfigurationList.default(visited),
-          proposed_configuration: Stubs::GroupConfigurationList.default(visited),
+          configuration: GroupConfigurationList.default(visited),
+          proposed_configuration: GroupConfigurationList.default(visited),
           status: 'status',
           failure_reason: 'failure_reason',
         }
@@ -63,7 +63,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('GroupConfigurationList')
         visited = visited + ['GroupConfigurationList']
         [
-          Stubs::GroupConfigurationItem.default(visited)
+          GroupConfigurationItem.default(visited)
         ]
       end
 
@@ -84,7 +84,7 @@ module AWS::SDK::ResourceGroups
         visited = visited + ['GroupConfigurationItem']
         {
           type: 'type',
-          parameters: Stubs::GroupParameterList.default(visited),
+          parameters: GroupParameterList.default(visited),
         }
       end
 
@@ -103,7 +103,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('GroupParameterList')
         visited = visited + ['GroupParameterList']
         [
-          Stubs::GroupConfigurationParameter.default(visited)
+          GroupConfigurationParameter.default(visited)
         ]
       end
 
@@ -124,7 +124,7 @@ module AWS::SDK::ResourceGroups
         visited = visited + ['GroupConfigurationParameter']
         {
           name: 'name',
-          values: Stubs::GroupConfigurationParameterValueList.default(visited),
+          values: GroupConfigurationParameterValueList.default(visited),
         }
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::ResourceGroups
     class DeleteGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::ResourceGroups
     class GetGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -257,7 +257,7 @@ module AWS::SDK::ResourceGroups
     class GetGroupConfiguration
       def self.default(visited=[])
         {
-          group_configuration: Stubs::GroupConfiguration.default(visited),
+          group_configuration: GroupConfiguration.default(visited),
         }
       end
 
@@ -274,7 +274,7 @@ module AWS::SDK::ResourceGroups
     class GetGroupQuery
       def self.default(visited=[])
         {
-          group_query: Stubs::GroupQuery.default(visited),
+          group_query: GroupQuery.default(visited),
         }
       end
 
@@ -294,7 +294,7 @@ module AWS::SDK::ResourceGroups
         visited = visited + ['GroupQuery']
         {
           group_name: 'group_name',
-          resource_query: Stubs::ResourceQuery.default(visited),
+          resource_query: ResourceQuery.default(visited),
         }
       end
 
@@ -312,7 +312,7 @@ module AWS::SDK::ResourceGroups
       def self.default(visited=[])
         {
           arn: 'arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -330,9 +330,9 @@ module AWS::SDK::ResourceGroups
     class GroupResources
       def self.default(visited=[])
         {
-          succeeded: Stubs::ResourceArnList.default(visited),
-          failed: Stubs::FailedResourceList.default(visited),
-          pending: Stubs::PendingResourceList.default(visited),
+          succeeded: ResourceArnList.default(visited),
+          failed: FailedResourceList.default(visited),
+          pending: PendingResourceList.default(visited),
         }
       end
 
@@ -353,7 +353,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('PendingResourceList')
         visited = visited + ['PendingResourceList']
         [
-          Stubs::PendingResource.default(visited)
+          PendingResource.default(visited)
         ]
       end
 
@@ -391,7 +391,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('FailedResourceList')
         visited = visited + ['FailedResourceList']
         [
-          Stubs::FailedResource.default(visited)
+          FailedResource.default(visited)
         ]
       end
 
@@ -451,10 +451,10 @@ module AWS::SDK::ResourceGroups
     class ListGroupResources
       def self.default(visited=[])
         {
-          resources: Stubs::ListGroupResourcesItemList.default(visited),
-          resource_identifiers: Stubs::ResourceIdentifierList.default(visited),
+          resources: ListGroupResourcesItemList.default(visited),
+          resource_identifiers: ResourceIdentifierList.default(visited),
           next_token: 'next_token',
-          query_errors: Stubs::QueryErrorList.default(visited),
+          query_errors: QueryErrorList.default(visited),
         }
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('QueryErrorList')
         visited = visited + ['QueryErrorList']
         [
-          Stubs::QueryError.default(visited)
+          QueryError.default(visited)
         ]
       end
 
@@ -516,7 +516,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('ResourceIdentifierList')
         visited = visited + ['ResourceIdentifierList']
         [
-          Stubs::ResourceIdentifier.default(visited)
+          ResourceIdentifier.default(visited)
         ]
       end
 
@@ -556,7 +556,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('ListGroupResourcesItemList')
         visited = visited + ['ListGroupResourcesItemList']
         [
-          Stubs::ListGroupResourcesItem.default(visited)
+          ListGroupResourcesItem.default(visited)
         ]
       end
 
@@ -576,8 +576,8 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('ListGroupResourcesItem')
         visited = visited + ['ListGroupResourcesItem']
         {
-          identifier: Stubs::ResourceIdentifier.default(visited),
-          status: Stubs::ResourceStatus.default(visited),
+          identifier: ResourceIdentifier.default(visited),
+          status: ResourceStatus.default(visited),
         }
       end
 
@@ -612,8 +612,8 @@ module AWS::SDK::ResourceGroups
     class ListGroups
       def self.default(visited=[])
         {
-          group_identifiers: Stubs::GroupIdentifierList.default(visited),
-          groups: Stubs::GroupList.default(visited),
+          group_identifiers: GroupIdentifierList.default(visited),
+          groups: GroupList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -635,7 +635,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('GroupList')
         visited = visited + ['GroupList']
         [
-          Stubs::Group.default(visited)
+          Group.default(visited)
         ]
       end
 
@@ -655,7 +655,7 @@ module AWS::SDK::ResourceGroups
         return nil if visited.include?('GroupIdentifierList')
         visited = visited + ['GroupIdentifierList']
         [
-          Stubs::GroupIdentifier.default(visited)
+          GroupIdentifier.default(visited)
         ]
       end
 
@@ -706,9 +706,9 @@ module AWS::SDK::ResourceGroups
     class SearchResources
       def self.default(visited=[])
         {
-          resource_identifiers: Stubs::ResourceIdentifierList.default(visited),
+          resource_identifiers: ResourceIdentifierList.default(visited),
           next_token: 'next_token',
-          query_errors: Stubs::QueryErrorList.default(visited),
+          query_errors: QueryErrorList.default(visited),
         }
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::ResourceGroups
       def self.default(visited=[])
         {
           arn: 'arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -746,9 +746,9 @@ module AWS::SDK::ResourceGroups
     class UngroupResources
       def self.default(visited=[])
         {
-          succeeded: Stubs::ResourceArnList.default(visited),
-          failed: Stubs::FailedResourceList.default(visited),
-          pending: Stubs::PendingResourceList.default(visited),
+          succeeded: ResourceArnList.default(visited),
+          failed: FailedResourceList.default(visited),
+          pending: PendingResourceList.default(visited),
         }
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::ResourceGroups
       def self.default(visited=[])
         {
           arn: 'arn',
-          keys: Stubs::TagKeyList.default(visited),
+          keys: TagKeyList.default(visited),
         }
       end
 
@@ -806,7 +806,7 @@ module AWS::SDK::ResourceGroups
     class UpdateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
         }
       end
 
@@ -823,7 +823,7 @@ module AWS::SDK::ResourceGroups
     class UpdateGroupQuery
       def self.default(visited=[])
         {
-          group_query: Stubs::GroupQuery.default(visited),
+          group_query: GroupQuery.default(visited),
         }
       end
 

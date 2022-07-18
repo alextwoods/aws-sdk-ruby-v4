@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::Nimble
   module Builders
 
@@ -323,6 +321,8 @@ module AWS::SDK::Nimble
         data['subtype'] = input[:subtype] unless input[:subtype].nil?
         data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
         data['type'] = input[:type] unless input[:type].nil?
+        data['secureInitializationRoleArn'] = input[:secure_initialization_role_arn] unless input[:secure_initialization_role_arn].nil?
+        data['runtimeRoleArn'] = input[:runtime_role_arn] unless input[:runtime_role_arn].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
@@ -1452,6 +1452,8 @@ module AWS::SDK::Nimble
         data['scriptParameters'] = Builders::StudioComponentScriptParameterKeyValueList.build(input[:script_parameters]) unless input[:script_parameters].nil?
         data['subtype'] = input[:subtype] unless input[:subtype].nil?
         data['type'] = input[:type] unless input[:type].nil?
+        data['secureInitializationRoleArn'] = input[:secure_initialization_role_arn] unless input[:secure_initialization_role_arn].nil?
+        data['runtimeRoleArn'] = input[:runtime_role_arn] unless input[:runtime_role_arn].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end

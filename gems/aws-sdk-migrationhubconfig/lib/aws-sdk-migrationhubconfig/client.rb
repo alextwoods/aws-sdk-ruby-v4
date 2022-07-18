@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MigrationHubConfig
@@ -102,7 +104,7 @@ module AWS::SDK::MigrationHubConfig
     def create_home_region_control(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHomeRegionControlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHomeRegionControlInput,
         validate_input: @config.validate_input
@@ -204,7 +206,7 @@ module AWS::SDK::MigrationHubConfig
     def describe_home_region_controls(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHomeRegionControlsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHomeRegionControlsInput,
         validate_input: @config.validate_input
@@ -272,7 +274,7 @@ module AWS::SDK::MigrationHubConfig
     def get_home_region(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetHomeRegionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetHomeRegionInput,
         validate_input: @config.validate_input

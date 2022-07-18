@@ -20,10 +20,10 @@ module AWS::SDK::Route53RecoveryControlConfig
     class AssertionRule
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssertionRule, context: context)
-        Validators::List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:asserted_controls], context: "#{context}[:asserted_controls]") unless input[:asserted_controls].nil?
+        List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:asserted_controls], context: "#{context}[:asserted_controls]") unless input[:asserted_controls].nil?
         Hearth::Validator.validate!(input[:control_panel_arn], ::String, context: "#{context}[:control_panel_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
+        RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
         Hearth::Validator.validate!(input[:safety_rule_arn], ::String, context: "#{context}[:safety_rule_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:wait_period_ms], ::Integer, context: "#{context}[:wait_period_ms]")
@@ -43,7 +43,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Cluster, context: context)
         Hearth::Validator.validate!(input[:cluster_arn], ::String, context: "#{context}[:cluster_arn]")
-        Validators::List____listOfClusterEndpoint.validate!(input[:cluster_endpoints], context: "#{context}[:cluster_endpoints]") unless input[:cluster_endpoints].nil?
+        List____listOfClusterEndpoint.validate!(input[:cluster_endpoints], context: "#{context}[:cluster_endpoints]") unless input[:cluster_endpoints].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -81,14 +81,14 @@ module AWS::SDK::Route53RecoveryControlConfig
         Hearth::Validator.validate!(input, Types::CreateClusterInput, context: context)
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:cluster_name], ::String, context: "#{context}[:cluster_name]")
-        Validators::Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -98,14 +98,14 @@ module AWS::SDK::Route53RecoveryControlConfig
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:cluster_arn], ::String, context: "#{context}[:cluster_arn]")
         Hearth::Validator.validate!(input[:control_panel_name], ::String, context: "#{context}[:control_panel_name]")
-        Validators::Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateControlPanelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateControlPanelOutput, context: context)
-        Validators::ControlPanel.validate!(input[:control_panel], context: "#{context}[:control_panel]") unless input[:control_panel].nil?
+        ControlPanel.validate!(input[:control_panel], context: "#{context}[:control_panel]") unless input[:control_panel].nil?
       end
     end
 
@@ -122,25 +122,25 @@ module AWS::SDK::Route53RecoveryControlConfig
     class CreateRoutingControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRoutingControlOutput, context: context)
-        Validators::RoutingControl.validate!(input[:routing_control], context: "#{context}[:routing_control]") unless input[:routing_control].nil?
+        RoutingControl.validate!(input[:routing_control], context: "#{context}[:routing_control]") unless input[:routing_control].nil?
       end
     end
 
     class CreateSafetyRuleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSafetyRuleInput, context: context)
-        Validators::NewAssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
+        NewAssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::NewGatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
-        Validators::Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        NewGatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
+        Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateSafetyRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSafetyRuleOutput, context: context)
-        Validators::AssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
-        Validators::GatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
+        AssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
+        GatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
       end
     end
 
@@ -206,7 +206,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -220,7 +220,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeControlPanelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeControlPanelOutput, context: context)
-        Validators::ControlPanel.validate!(input[:control_panel], context: "#{context}[:control_panel]") unless input[:control_panel].nil?
+        ControlPanel.validate!(input[:control_panel], context: "#{context}[:control_panel]") unless input[:control_panel].nil?
       end
     end
 
@@ -234,7 +234,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeRoutingControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRoutingControlOutput, context: context)
-        Validators::RoutingControl.validate!(input[:routing_control], context: "#{context}[:routing_control]") unless input[:routing_control].nil?
+        RoutingControl.validate!(input[:routing_control], context: "#{context}[:routing_control]") unless input[:routing_control].nil?
       end
     end
 
@@ -248,8 +248,8 @@ module AWS::SDK::Route53RecoveryControlConfig
     class DescribeSafetyRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSafetyRuleOutput, context: context)
-        Validators::AssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
-        Validators::GatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
+        AssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
+        GatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
       end
     end
 
@@ -257,12 +257,12 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GatingRule, context: context)
         Hearth::Validator.validate!(input[:control_panel_arn], ::String, context: "#{context}[:control_panel_arn]")
-        Validators::List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:gating_controls], context: "#{context}[:gating_controls]") unless input[:gating_controls].nil?
+        List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:gating_controls], context: "#{context}[:gating_controls]") unless input[:gating_controls].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
+        RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
         Hearth::Validator.validate!(input[:safety_rule_arn], ::String, context: "#{context}[:safety_rule_arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:target_controls], context: "#{context}[:target_controls]") unless input[:target_controls].nil?
+        List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:target_controls], context: "#{context}[:target_controls]") unless input[:target_controls].nil?
         Hearth::Validator.validate!(input[:wait_period_ms], ::Integer, context: "#{context}[:wait_period_ms]")
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListAssociatedRoute53HealthChecksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssociatedRoute53HealthChecksOutput, context: context)
-        Validators::List____listOf__stringMax36PatternS.validate!(input[:health_check_ids], context: "#{context}[:health_check_ids]") unless input[:health_check_ids].nil?
+        List____listOf__stringMax36PatternS.validate!(input[:health_check_ids], context: "#{context}[:health_check_ids]") unless input[:health_check_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -311,7 +311,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListClustersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListClustersOutput, context: context)
-        Validators::List____listOfCluster.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
+        List____listOfCluster.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -328,7 +328,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListControlPanelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListControlPanelsOutput, context: context)
-        Validators::List____listOfControlPanel.validate!(input[:control_panels], context: "#{context}[:control_panels]") unless input[:control_panels].nil?
+        List____listOfControlPanel.validate!(input[:control_panels], context: "#{context}[:control_panels]") unless input[:control_panels].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -346,7 +346,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoutingControlsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfRoutingControl.validate!(input[:routing_controls], context: "#{context}[:routing_controls]") unless input[:routing_controls].nil?
+        List____listOfRoutingControl.validate!(input[:routing_controls], context: "#{context}[:routing_controls]") unless input[:routing_controls].nil?
       end
     end
 
@@ -363,7 +363,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSafetyRulesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfRule.validate!(input[:safety_rules], context: "#{context}[:safety_rules]") unless input[:safety_rules].nil?
+        List____listOfRule.validate!(input[:safety_rules], context: "#{context}[:safety_rules]") unless input[:safety_rules].nil?
       end
     end
 
@@ -377,17 +377,17 @@ module AWS::SDK::Route53RecoveryControlConfig
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class NewAssertionRule
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NewAssertionRule, context: context)
-        Validators::List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:asserted_controls], context: "#{context}[:asserted_controls]") unless input[:asserted_controls].nil?
+        List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:asserted_controls], context: "#{context}[:asserted_controls]") unless input[:asserted_controls].nil?
         Hearth::Validator.validate!(input[:control_panel_arn], ::String, context: "#{context}[:control_panel_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
+        RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
         Hearth::Validator.validate!(input[:wait_period_ms], ::Integer, context: "#{context}[:wait_period_ms]")
       end
     end
@@ -396,10 +396,10 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NewGatingRule, context: context)
         Hearth::Validator.validate!(input[:control_panel_arn], ::String, context: "#{context}[:control_panel_arn]")
-        Validators::List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:gating_controls], context: "#{context}[:gating_controls]") unless input[:gating_controls].nil?
+        List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:gating_controls], context: "#{context}[:gating_controls]") unless input[:gating_controls].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
-        Validators::List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:target_controls], context: "#{context}[:target_controls]") unless input[:target_controls].nil?
+        RuleConfig.validate!(input[:rule_config], context: "#{context}[:rule_config]") unless input[:rule_config].nil?
+        List____listOf__stringMin1Max256PatternAZaZ09.validate!(input[:target_controls], context: "#{context}[:target_controls]") unless input[:target_controls].nil?
         Hearth::Validator.validate!(input[:wait_period_ms], ::Integer, context: "#{context}[:wait_period_ms]")
       end
     end
@@ -424,8 +424,8 @@ module AWS::SDK::Route53RecoveryControlConfig
     class Rule
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Rule, context: context)
-        Validators::AssertionRule.validate!(input[:assertion], context: "#{context}[:assertion]") unless input[:assertion].nil?
-        Validators::GatingRule.validate!(input[:gating], context: "#{context}[:gating]") unless input[:gating].nil?
+        AssertionRule.validate!(input[:assertion], context: "#{context}[:assertion]") unless input[:assertion].nil?
+        GatingRule.validate!(input[:gating], context: "#{context}[:gating]") unless input[:gating].nil?
       end
     end
 
@@ -449,7 +449,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Map____mapOf__stringMin0Max256PatternS.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -470,7 +470,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -491,7 +491,7 @@ module AWS::SDK::Route53RecoveryControlConfig
     class UpdateControlPanelOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateControlPanelOutput, context: context)
-        Validators::ControlPanel.validate!(input[:control_panel], context: "#{context}[:control_panel]") unless input[:control_panel].nil?
+        ControlPanel.validate!(input[:control_panel], context: "#{context}[:control_panel]") unless input[:control_panel].nil?
       end
     end
 
@@ -506,23 +506,23 @@ module AWS::SDK::Route53RecoveryControlConfig
     class UpdateRoutingControlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRoutingControlOutput, context: context)
-        Validators::RoutingControl.validate!(input[:routing_control], context: "#{context}[:routing_control]") unless input[:routing_control].nil?
+        RoutingControl.validate!(input[:routing_control], context: "#{context}[:routing_control]") unless input[:routing_control].nil?
       end
     end
 
     class UpdateSafetyRuleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSafetyRuleInput, context: context)
-        Validators::AssertionRuleUpdate.validate!(input[:assertion_rule_update], context: "#{context}[:assertion_rule_update]") unless input[:assertion_rule_update].nil?
-        Validators::GatingRuleUpdate.validate!(input[:gating_rule_update], context: "#{context}[:gating_rule_update]") unless input[:gating_rule_update].nil?
+        AssertionRuleUpdate.validate!(input[:assertion_rule_update], context: "#{context}[:assertion_rule_update]") unless input[:assertion_rule_update].nil?
+        GatingRuleUpdate.validate!(input[:gating_rule_update], context: "#{context}[:gating_rule_update]") unless input[:gating_rule_update].nil?
       end
     end
 
     class UpdateSafetyRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSafetyRuleOutput, context: context)
-        Validators::AssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
-        Validators::GatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
+        AssertionRule.validate!(input[:assertion_rule], context: "#{context}[:assertion_rule]") unless input[:assertion_rule].nil?
+        GatingRule.validate!(input[:gating_rule], context: "#{context}[:gating_rule]") unless input[:gating_rule].nil?
       end
     end
 
@@ -537,7 +537,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -546,7 +546,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusterEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusterEndpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ControlPanel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ControlPanel.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -564,7 +564,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoutingControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoutingControl.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -573,7 +573,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

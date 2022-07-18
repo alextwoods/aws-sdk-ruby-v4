@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Ivs
@@ -387,7 +389,7 @@ module AWS::SDK::Ivs
     def batch_get_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetChannelInput,
         validate_input: @config.validate_input
@@ -469,7 +471,7 @@ module AWS::SDK::Ivs
     def batch_get_stream_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetStreamKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetStreamKeyInput,
         validate_input: @config.validate_input
@@ -596,7 +598,7 @@ module AWS::SDK::Ivs
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -710,7 +712,7 @@ module AWS::SDK::Ivs
     def create_recording_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecordingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecordingConfigurationInput,
         validate_input: @config.validate_input
@@ -793,7 +795,7 @@ module AWS::SDK::Ivs
     def create_stream_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamKeyInput,
         validate_input: @config.validate_input
@@ -866,7 +868,7 @@ module AWS::SDK::Ivs
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -936,7 +938,7 @@ module AWS::SDK::Ivs
     def delete_playback_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlaybackKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlaybackKeyPairInput,
         validate_input: @config.validate_input
@@ -1009,7 +1011,7 @@ module AWS::SDK::Ivs
     def delete_recording_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecordingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecordingConfigurationInput,
         validate_input: @config.validate_input
@@ -1078,7 +1080,7 @@ module AWS::SDK::Ivs
     def delete_stream_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamKeyInput,
         validate_input: @config.validate_input
@@ -1157,7 +1159,7 @@ module AWS::SDK::Ivs
     def get_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChannelInput,
         validate_input: @config.validate_input
@@ -1235,7 +1237,7 @@ module AWS::SDK::Ivs
     def get_playback_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPlaybackKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPlaybackKeyPairInput,
         validate_input: @config.validate_input
@@ -1315,7 +1317,7 @@ module AWS::SDK::Ivs
     def get_recording_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecordingConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecordingConfigurationInput,
         validate_input: @config.validate_input
@@ -1391,7 +1393,7 @@ module AWS::SDK::Ivs
     def get_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamInput,
         validate_input: @config.validate_input
@@ -1465,7 +1467,7 @@ module AWS::SDK::Ivs
     def get_stream_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamKeyInput,
         validate_input: @config.validate_input
@@ -1585,7 +1587,7 @@ module AWS::SDK::Ivs
     def get_stream_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamSessionInput,
         validate_input: @config.validate_input
@@ -1673,7 +1675,7 @@ module AWS::SDK::Ivs
     def import_playback_key_pair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportPlaybackKeyPairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportPlaybackKeyPairInput,
         validate_input: @config.validate_input
@@ -1767,7 +1769,7 @@ module AWS::SDK::Ivs
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -1848,7 +1850,7 @@ module AWS::SDK::Ivs
     def list_playback_key_pairs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlaybackKeyPairsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlaybackKeyPairsInput,
         validate_input: @config.validate_input
@@ -1933,7 +1935,7 @@ module AWS::SDK::Ivs
     def list_recording_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecordingConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecordingConfigurationsInput,
         validate_input: @config.validate_input
@@ -2017,7 +2019,7 @@ module AWS::SDK::Ivs
     def list_stream_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamKeysInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamKeysInput,
         validate_input: @config.validate_input
@@ -2102,7 +2104,7 @@ module AWS::SDK::Ivs
     def list_stream_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamSessionsInput,
         validate_input: @config.validate_input
@@ -2191,7 +2193,7 @@ module AWS::SDK::Ivs
     def list_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamsInput,
         validate_input: @config.validate_input
@@ -2261,7 +2263,7 @@ module AWS::SDK::Ivs
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2337,7 +2339,7 @@ module AWS::SDK::Ivs
     def put_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMetadataInput,
         validate_input: @config.validate_input
@@ -2412,7 +2414,7 @@ module AWS::SDK::Ivs
     def stop_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopStreamInput,
         validate_input: @config.validate_input
@@ -2486,7 +2488,7 @@ module AWS::SDK::Ivs
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2560,7 +2562,7 @@ module AWS::SDK::Ivs
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2680,7 +2682,7 @@ module AWS::SDK::Ivs
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input

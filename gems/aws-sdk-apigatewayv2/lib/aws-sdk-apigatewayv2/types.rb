@@ -145,13 +145,13 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Represents an API mapping.</p>
@@ -281,12 +281,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
         self.enable_simple_responses ||= false
       end
-
     end
 
     # Includes enum constants for AuthorizerType
@@ -395,12 +395,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_credentials ||= false
         self.max_age ||= 0
       end
-
     end
 
     # <p>Creates a new Api resource to represent an API.</p>
@@ -489,12 +489,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Creates a new ApiMapping resource to represent an API mapping.</p>
@@ -661,13 +661,13 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Creates a new Authorizer resource to represent an authorizer.</p>
@@ -745,12 +745,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
         self.enable_simple_responses ||= false
       end
-
     end
 
     # @!attribute authorizer_credentials_arn
@@ -826,12 +826,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
         self.enable_simple_responses ||= false
       end
-
     end
 
     # <p>Creates a new Deployment resource to represent a deployment.</p>
@@ -902,11 +902,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deployed ||= false
       end
-
     end
 
     # <p>Creates a new DomainName resource to represent a domain name.</p>
@@ -1104,11 +1104,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # @!attribute api_gateway_managed
@@ -1248,12 +1248,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Creates a new IntegrationResponse resource to represent an integration response.</p>
@@ -1506,11 +1506,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_key_required ||= false
       end
-
     end
 
     # @!attribute api_gateway_managed
@@ -1597,12 +1597,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.api_key_required ||= false
       end
-
     end
 
     # <p>Creates a new RouteResponse resource to represent a route response.</p>
@@ -1757,11 +1757,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deploy ||= false
       end
-
     end
 
     # @!attribute access_log_settings
@@ -1852,12 +1852,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.auto_deploy ||= false
       end
-
     end
 
     # <p>Creates a VPC link</p>
@@ -2400,11 +2400,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deployed ||= false
       end
-
     end
 
     # Includes enum constants for DeploymentStatus
@@ -2607,11 +2607,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_extensions ||= false
       end
-
     end
 
     # @!attribute body
@@ -2830,13 +2830,13 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # @!attribute max_results
@@ -2966,12 +2966,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
         self.enable_simple_responses ||= false
       end
-
     end
 
     # @!attribute api_id
@@ -3076,11 +3076,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deployed ||= false
       end
-
     end
 
     # @!attribute api_id
@@ -3364,12 +3364,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # @!attribute api_id
@@ -3758,12 +3758,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.api_key_required ||= false
       end
-
     end
 
     # @!attribute api_id
@@ -4022,12 +4022,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.auto_deploy ||= false
       end
-
     end
 
     # @!attribute api_id
@@ -4232,11 +4232,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_warnings ||= false
       end
-
     end
 
     # @!attribute api_endpoint
@@ -4341,13 +4341,13 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Represents an integration.</p>
@@ -4489,12 +4489,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Represents an integration response.</p>
@@ -4716,11 +4716,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.required ||= false
       end
-
     end
 
     # Includes enum constants for PassthroughBehavior
@@ -4781,11 +4781,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_warnings ||= false
       end
-
     end
 
     # @!attribute api_endpoint
@@ -4890,13 +4890,13 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # @!attribute api_id
@@ -5010,12 +5010,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.api_key_required ||= false
       end
-
     end
 
     # <p>Represents a route response.</p>
@@ -5094,6 +5094,7 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.data_trace_enabled ||= false
@@ -5101,7 +5102,6 @@ module AWS::SDK::ApiGatewayV2
         self.throttling_burst_limit ||= 0
         self.throttling_rate_limit ||= 0
       end
-
     end
 
     # Includes enum constants for SecurityPolicy
@@ -5206,12 +5206,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.auto_deploy ||= false
       end
-
     end
 
     # <p>Creates a new Tag resource to represent a tag.</p>
@@ -5392,12 +5392,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Updates an ApiMapping.</p>
@@ -5570,13 +5570,13 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.disable_schema_validation ||= false
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Updates an Authorizer.</p>
@@ -5660,12 +5660,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
         self.enable_simple_responses ||= false
       end
-
     end
 
     # @!attribute authorizer_credentials_arn
@@ -5741,12 +5741,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorizer_result_ttl_in_seconds ||= 0
         self.enable_simple_responses ||= false
       end
-
     end
 
     # <p>Updates a Deployment.</p>
@@ -5817,11 +5817,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deployed ||= false
       end
-
     end
 
     # <p>Updates a DomainName.</p>
@@ -6019,11 +6019,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # @!attribute api_gateway_managed
@@ -6163,12 +6163,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Updates an IntegrationResponses.</p>
@@ -6446,11 +6446,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_key_required ||= false
       end
-
     end
 
     # @!attribute api_gateway_managed
@@ -6537,12 +6537,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.api_key_required ||= false
       end
-
     end
 
     # <p>Updates a RouteResponse.</p>
@@ -6697,11 +6697,11 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_deploy ||= false
       end
-
     end
 
     # @!attribute access_log_settings
@@ -6792,12 +6792,12 @@ module AWS::SDK::ApiGatewayV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_gateway_managed ||= false
         self.auto_deploy ||= false
       end
-
     end
 
     # <p>Updates a VPC link.</p>

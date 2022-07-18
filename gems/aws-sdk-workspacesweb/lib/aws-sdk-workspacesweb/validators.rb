@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WorkSpacesWeb
   module Validators
 
@@ -94,7 +96,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BrowserSettings, context: context)
         Hearth::Validator.validate!(input[:browser_settings_arn], ::String, context: "#{context}[:browser_settings_arn]")
-        Validators::ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
+        ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
         Hearth::Validator.validate!(input[:browser_policy], ::String, context: "#{context}[:browser_policy]")
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BrowserSettingsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BrowserSettingsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -177,9 +179,9 @@ module AWS::SDK::WorkSpacesWeb
     class CreateBrowserSettingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBrowserSettingsInput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:customer_managed_key], ::String, context: "#{context}[:customer_managed_key]")
-        Validators::EncryptionContextMap.validate!(input[:additional_encryption_context], context: "#{context}[:additional_encryption_context]") unless input[:additional_encryption_context].nil?
+        EncryptionContextMap.validate!(input[:additional_encryption_context], context: "#{context}[:additional_encryption_context]") unless input[:additional_encryption_context].nil?
         Hearth::Validator.validate!(input[:browser_policy], ::String, context: "#{context}[:browser_policy]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -198,7 +200,7 @@ module AWS::SDK::WorkSpacesWeb
         Hearth::Validator.validate!(input[:portal_arn], ::String, context: "#{context}[:portal_arn]")
         Hearth::Validator.validate!(input[:identity_provider_name], ::String, context: "#{context}[:identity_provider_name]")
         Hearth::Validator.validate!(input[:identity_provider_type], ::String, context: "#{context}[:identity_provider_type]")
-        Validators::IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
+        IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -214,9 +216,9 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateNetworkSettingsInput, context: context)
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -232,9 +234,9 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePortalInput, context: context)
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:customer_managed_key], ::String, context: "#{context}[:customer_managed_key]")
-        Validators::EncryptionContextMap.validate!(input[:additional_encryption_context], context: "#{context}[:additional_encryption_context]") unless input[:additional_encryption_context].nil?
+        EncryptionContextMap.validate!(input[:additional_encryption_context], context: "#{context}[:additional_encryption_context]") unless input[:additional_encryption_context].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -250,8 +252,8 @@ module AWS::SDK::WorkSpacesWeb
     class CreateTrustStoreInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTrustStoreInput, context: context)
-        Validators::CertificateList.validate!(input[:certificate_list], context: "#{context}[:certificate_list]") unless input[:certificate_list].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        CertificateList.validate!(input[:certificate_list], context: "#{context}[:certificate_list]") unless input[:certificate_list].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -271,7 +273,7 @@ module AWS::SDK::WorkSpacesWeb
         Hearth::Validator.validate!(input[:download_allowed], ::String, context: "#{context}[:download_allowed]")
         Hearth::Validator.validate!(input[:upload_allowed], ::String, context: "#{context}[:upload_allowed]")
         Hearth::Validator.validate!(input[:print_allowed], ::String, context: "#{context}[:print_allowed]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:disconnect_timeout_in_minutes], ::Integer, context: "#{context}[:disconnect_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:idle_disconnect_timeout_in_minutes], ::Integer, context: "#{context}[:idle_disconnect_timeout_in_minutes]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
@@ -435,7 +437,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetBrowserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBrowserSettingsOutput, context: context)
-        Validators::BrowserSettings.validate!(input[:browser_settings], context: "#{context}[:browser_settings]") unless input[:browser_settings].nil?
+        BrowserSettings.validate!(input[:browser_settings], context: "#{context}[:browser_settings]") unless input[:browser_settings].nil?
       end
     end
 
@@ -449,7 +451,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetIdentityProviderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIdentityProviderOutput, context: context)
-        Validators::IdentityProvider.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
+        IdentityProvider.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
       end
     end
 
@@ -463,7 +465,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetNetworkSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetNetworkSettingsOutput, context: context)
-        Validators::NetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
+        NetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetPortalOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPortalOutput, context: context)
-        Validators::Portal.validate!(input[:portal], context: "#{context}[:portal]") unless input[:portal].nil?
+        Portal.validate!(input[:portal], context: "#{context}[:portal]") unless input[:portal].nil?
       end
     end
 
@@ -508,7 +510,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTrustStoreCertificateOutput, context: context)
         Hearth::Validator.validate!(input[:trust_store_arn], ::String, context: "#{context}[:trust_store_arn]")
-        Validators::Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        Certificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -522,7 +524,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetTrustStoreOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTrustStoreOutput, context: context)
-        Validators::TrustStore.validate!(input[:trust_store], context: "#{context}[:trust_store]") unless input[:trust_store].nil?
+        TrustStore.validate!(input[:trust_store], context: "#{context}[:trust_store]") unless input[:trust_store].nil?
       end
     end
 
@@ -536,7 +538,7 @@ module AWS::SDK::WorkSpacesWeb
     class GetUserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserSettingsOutput, context: context)
-        Validators::UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
+        UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
       end
     end
 
@@ -546,7 +548,7 @@ module AWS::SDK::WorkSpacesWeb
         Hearth::Validator.validate!(input[:identity_provider_arn], ::String, context: "#{context}[:identity_provider_arn]")
         Hearth::Validator.validate!(input[:identity_provider_name], ::String, context: "#{context}[:identity_provider_name]")
         Hearth::Validator.validate!(input[:identity_provider_type], ::String, context: "#{context}[:identity_provider_type]")
-        Validators::IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
+        IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IdentityProviderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IdentityProviderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -597,7 +599,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListBrowserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBrowserSettingsOutput, context: context)
-        Validators::BrowserSettingsList.validate!(input[:browser_settings], context: "#{context}[:browser_settings]") unless input[:browser_settings].nil?
+        BrowserSettingsList.validate!(input[:browser_settings], context: "#{context}[:browser_settings]") unless input[:browser_settings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -615,7 +617,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIdentityProvidersOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::IdentityProviderList.validate!(input[:identity_providers], context: "#{context}[:identity_providers]") unless input[:identity_providers].nil?
+        IdentityProviderList.validate!(input[:identity_providers], context: "#{context}[:identity_providers]") unless input[:identity_providers].nil?
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListNetworkSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNetworkSettingsOutput, context: context)
-        Validators::NetworkSettingsList.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
+        NetworkSettingsList.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -646,7 +648,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListPortalsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPortalsOutput, context: context)
-        Validators::PortalList.validate!(input[:portals], context: "#{context}[:portals]") unless input[:portals].nil?
+        PortalList.validate!(input[:portals], context: "#{context}[:portals]") unless input[:portals].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -661,7 +663,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListTrustStoreCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrustStoreCertificatesOutput, context: context)
-        Validators::CertificateSummaryList.validate!(input[:certificate_list], context: "#{context}[:certificate_list]") unless input[:certificate_list].nil?
+        CertificateSummaryList.validate!(input[:certificate_list], context: "#{context}[:certificate_list]") unless input[:certificate_list].nil?
         Hearth::Validator.validate!(input[:trust_store_arn], ::String, context: "#{context}[:trust_store_arn]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -694,7 +696,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListTrustStoresOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTrustStoresOutput, context: context)
-        Validators::TrustStoreSummaryList.validate!(input[:trust_stores], context: "#{context}[:trust_stores]") unless input[:trust_stores].nil?
+        TrustStoreSummaryList.validate!(input[:trust_stores], context: "#{context}[:trust_stores]") unless input[:trust_stores].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -710,7 +712,7 @@ module AWS::SDK::WorkSpacesWeb
     class ListUserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserSettingsOutput, context: context)
-        Validators::UserSettingsList.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
+        UserSettingsList.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -719,10 +721,10 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkSettings, context: context)
         Hearth::Validator.validate!(input[:network_settings_arn], ::String, context: "#{context}[:network_settings_arn]")
-        Validators::ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
+        ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
       end
     end
 
@@ -730,7 +732,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NetworkSettingsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NetworkSettingsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -765,7 +767,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortalSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortalSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -846,7 +848,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -855,7 +857,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -887,7 +889,7 @@ module AWS::SDK::WorkSpacesWeb
     class TrustStore
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TrustStore, context: context)
-        Validators::ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
+        ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
         Hearth::Validator.validate!(input[:trust_store_arn], ::String, context: "#{context}[:trust_store_arn]")
       end
     end
@@ -903,7 +905,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrustStoreSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrustStoreSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -912,7 +914,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -934,7 +936,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateBrowserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBrowserSettingsOutput, context: context)
-        Validators::BrowserSettings.validate!(input[:browser_settings], context: "#{context}[:browser_settings]") unless input[:browser_settings].nil?
+        BrowserSettings.validate!(input[:browser_settings], context: "#{context}[:browser_settings]") unless input[:browser_settings].nil?
       end
     end
 
@@ -944,7 +946,7 @@ module AWS::SDK::WorkSpacesWeb
         Hearth::Validator.validate!(input[:identity_provider_arn], ::String, context: "#{context}[:identity_provider_arn]")
         Hearth::Validator.validate!(input[:identity_provider_name], ::String, context: "#{context}[:identity_provider_name]")
         Hearth::Validator.validate!(input[:identity_provider_type], ::String, context: "#{context}[:identity_provider_type]")
-        Validators::IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
+        IdentityProviderDetails.validate!(input[:identity_provider_details], context: "#{context}[:identity_provider_details]") unless input[:identity_provider_details].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -952,7 +954,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateIdentityProviderOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateIdentityProviderOutput, context: context)
-        Validators::IdentityProvider.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
+        IdentityProvider.validate!(input[:identity_provider], context: "#{context}[:identity_provider]") unless input[:identity_provider].nil?
       end
     end
 
@@ -961,8 +963,8 @@ module AWS::SDK::WorkSpacesWeb
         Hearth::Validator.validate!(input, Types::UpdateNetworkSettingsInput, context: context)
         Hearth::Validator.validate!(input[:network_settings_arn], ::String, context: "#{context}[:network_settings_arn]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupIdList.validate!(input[:security_group_ids], context: "#{context}[:security_group_ids]") unless input[:security_group_ids].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -970,7 +972,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateNetworkSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateNetworkSettingsOutput, context: context)
-        Validators::NetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
+        NetworkSettings.validate!(input[:network_settings], context: "#{context}[:network_settings]") unless input[:network_settings].nil?
       end
     end
 
@@ -985,7 +987,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdatePortalOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePortalOutput, context: context)
-        Validators::Portal.validate!(input[:portal], context: "#{context}[:portal]") unless input[:portal].nil?
+        Portal.validate!(input[:portal], context: "#{context}[:portal]") unless input[:portal].nil?
       end
     end
 
@@ -993,8 +995,8 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTrustStoreInput, context: context)
         Hearth::Validator.validate!(input[:trust_store_arn], ::String, context: "#{context}[:trust_store_arn]")
-        Validators::CertificateList.validate!(input[:certificates_to_add], context: "#{context}[:certificates_to_add]") unless input[:certificates_to_add].nil?
-        Validators::CertificateThumbprintList.validate!(input[:certificates_to_delete], context: "#{context}[:certificates_to_delete]") unless input[:certificates_to_delete].nil?
+        CertificateList.validate!(input[:certificates_to_add], context: "#{context}[:certificates_to_add]") unless input[:certificates_to_add].nil?
+        CertificateThumbprintList.validate!(input[:certificates_to_delete], context: "#{context}[:certificates_to_delete]") unless input[:certificates_to_delete].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -1024,7 +1026,7 @@ module AWS::SDK::WorkSpacesWeb
     class UpdateUserSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserSettingsOutput, context: context)
-        Validators::UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
+        UserSettings.validate!(input[:user_settings], context: "#{context}[:user_settings]") unless input[:user_settings].nil?
       end
     end
 
@@ -1032,7 +1034,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UserSettings, context: context)
         Hearth::Validator.validate!(input[:user_settings_arn], ::String, context: "#{context}[:user_settings_arn]")
-        Validators::ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
+        ArnList.validate!(input[:associated_portal_arns], context: "#{context}[:associated_portal_arns]") unless input[:associated_portal_arns].nil?
         Hearth::Validator.validate!(input[:copy_allowed], ::String, context: "#{context}[:copy_allowed]")
         Hearth::Validator.validate!(input[:paste_allowed], ::String, context: "#{context}[:paste_allowed]")
         Hearth::Validator.validate!(input[:download_allowed], ::String, context: "#{context}[:download_allowed]")
@@ -1047,7 +1049,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserSettingsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserSettingsSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1071,7 +1073,7 @@ module AWS::SDK::WorkSpacesWeb
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
+        ValidationExceptionFieldList.validate!(input[:field_list], context: "#{context}[:field_list]") unless input[:field_list].nil?
       end
     end
 
@@ -1087,7 +1089,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

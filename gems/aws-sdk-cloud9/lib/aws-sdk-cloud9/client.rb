@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Cloud9
@@ -231,7 +233,7 @@ module AWS::SDK::Cloud9
     def create_environment_ec2(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentEC2Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentEC2Input,
         validate_input: @config.validate_input
@@ -324,7 +326,7 @@ module AWS::SDK::Cloud9
     def create_environment_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentMembershipInput,
         validate_input: @config.validate_input
@@ -393,7 +395,7 @@ module AWS::SDK::Cloud9
     def delete_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentInput,
         validate_input: @config.validate_input
@@ -466,7 +468,7 @@ module AWS::SDK::Cloud9
     def delete_environment_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentMembershipInput,
         validate_input: @config.validate_input
@@ -582,7 +584,7 @@ module AWS::SDK::Cloud9
     def describe_environment_memberships(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentMembershipsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentMembershipsInput,
         validate_input: @config.validate_input
@@ -652,7 +654,7 @@ module AWS::SDK::Cloud9
     def describe_environment_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentStatusInput,
         validate_input: @config.validate_input
@@ -736,7 +738,7 @@ module AWS::SDK::Cloud9
     def describe_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentsInput,
         validate_input: @config.validate_input
@@ -815,7 +817,7 @@ module AWS::SDK::Cloud9
     def list_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentsInput,
         validate_input: @config.validate_input
@@ -888,7 +890,7 @@ module AWS::SDK::Cloud9
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -970,7 +972,7 @@ module AWS::SDK::Cloud9
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1046,7 +1048,7 @@ module AWS::SDK::Cloud9
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1143,7 +1145,7 @@ module AWS::SDK::Cloud9
     def update_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentInput,
         validate_input: @config.validate_input
@@ -1239,7 +1241,7 @@ module AWS::SDK::Cloud9
     def update_environment_membership(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentMembershipInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentMembershipInput,
         validate_input: @config.validate_input

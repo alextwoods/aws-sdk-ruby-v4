@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ServiceDiscovery
@@ -88,7 +90,7 @@ module AWS::SDK::ServiceDiscovery
     def create_http_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHttpNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHttpNamespaceInput,
         validate_input: @config.validate_input
@@ -200,7 +202,7 @@ module AWS::SDK::ServiceDiscovery
     def create_private_dns_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePrivateDnsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePrivateDnsNamespaceInput,
         validate_input: @config.validate_input
@@ -306,7 +308,7 @@ module AWS::SDK::ServiceDiscovery
     def create_public_dns_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublicDnsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublicDnsNamespaceInput,
         validate_input: @config.validate_input
@@ -531,7 +533,7 @@ module AWS::SDK::ServiceDiscovery
     def create_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateServiceInput,
         validate_input: @config.validate_input
@@ -601,7 +603,7 @@ module AWS::SDK::ServiceDiscovery
     def delete_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNamespaceInput,
         validate_input: @config.validate_input
@@ -670,7 +672,7 @@ module AWS::SDK::ServiceDiscovery
     def delete_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServiceInput,
         validate_input: @config.validate_input
@@ -744,7 +746,7 @@ module AWS::SDK::ServiceDiscovery
     def deregister_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterInstanceInput,
         validate_input: @config.validate_input
@@ -872,7 +874,7 @@ module AWS::SDK::ServiceDiscovery
     def discover_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DiscoverInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DiscoverInstancesInput,
         validate_input: @config.validate_input
@@ -953,7 +955,7 @@ module AWS::SDK::ServiceDiscovery
     def get_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstanceInput,
         validate_input: @config.validate_input
@@ -1053,7 +1055,7 @@ module AWS::SDK::ServiceDiscovery
     def get_instances_health_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInstancesHealthStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInstancesHealthStatusInput,
         validate_input: @config.validate_input
@@ -1137,7 +1139,7 @@ module AWS::SDK::ServiceDiscovery
     def get_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNamespaceInput,
         validate_input: @config.validate_input
@@ -1219,7 +1221,7 @@ module AWS::SDK::ServiceDiscovery
     def get_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOperationInput,
         validate_input: @config.validate_input
@@ -1310,7 +1312,7 @@ module AWS::SDK::ServiceDiscovery
     def get_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServiceInput,
         validate_input: @config.validate_input
@@ -1397,7 +1399,7 @@ module AWS::SDK::ServiceDiscovery
     def list_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstancesInput,
         validate_input: @config.validate_input
@@ -1510,7 +1512,7 @@ module AWS::SDK::ServiceDiscovery
     def list_namespaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNamespacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNamespacesInput,
         validate_input: @config.validate_input
@@ -1611,7 +1613,7 @@ module AWS::SDK::ServiceDiscovery
     def list_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOperationsInput,
         validate_input: @config.validate_input
@@ -1729,7 +1731,7 @@ module AWS::SDK::ServiceDiscovery
     def list_services(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServicesInput,
         validate_input: @config.validate_input
@@ -1801,7 +1803,7 @@ module AWS::SDK::ServiceDiscovery
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2045,7 +2047,7 @@ module AWS::SDK::ServiceDiscovery
     def register_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterInstanceInput,
         validate_input: @config.validate_input
@@ -2123,7 +2125,7 @@ module AWS::SDK::ServiceDiscovery
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2197,7 +2199,7 @@ module AWS::SDK::ServiceDiscovery
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2282,7 +2284,7 @@ module AWS::SDK::ServiceDiscovery
     def update_http_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateHttpNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateHttpNamespaceInput,
         validate_input: @config.validate_input
@@ -2363,7 +2365,7 @@ module AWS::SDK::ServiceDiscovery
     def update_instance_custom_health_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInstanceCustomHealthStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInstanceCustomHealthStatusInput,
         validate_input: @config.validate_input
@@ -2455,7 +2457,7 @@ module AWS::SDK::ServiceDiscovery
     def update_private_dns_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePrivateDnsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePrivateDnsNamespaceInput,
         validate_input: @config.validate_input
@@ -2547,7 +2549,7 @@ module AWS::SDK::ServiceDiscovery
     def update_public_dns_namespace(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePublicDnsNamespaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePublicDnsNamespaceInput,
         validate_input: @config.validate_input
@@ -2659,7 +2661,7 @@ module AWS::SDK::ServiceDiscovery
     def update_service(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateServiceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateServiceInput,
         validate_input: @config.validate_input

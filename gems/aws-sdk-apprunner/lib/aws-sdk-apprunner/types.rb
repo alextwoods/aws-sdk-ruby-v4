@@ -165,6 +165,7 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_scaling_configuration_revision ||= 0
@@ -173,7 +174,6 @@ module AWS::SDK::AppRunner
         self.min_size ||= 0
         self.max_size ||= 0
       end
-
     end
 
     # Includes enum constants for AutoScalingConfigurationStatus
@@ -216,11 +216,11 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_scaling_configuration_revision ||= 0
       end
-
     end
 
     # <p>Describes a certificate CNAME record to add to your DNS. For more information, see <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_AssociateCustomDomain.html">AssociateCustomDomain</a>.</p>
@@ -1510,11 +1510,11 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latest_only ||= false
       end
-
     end
 
     # @!attribute auto_scaling_configuration_summary_list
@@ -1617,11 +1617,11 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.latest_only ||= false
       end
-
     end
 
     # @!attribute observability_configuration_summary_list
@@ -1871,12 +1871,12 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.observability_configuration_revision ||= 0
         self.latest ||= false
       end
-
     end
 
     # Includes enum constants for ObservabilityConfigurationStatus
@@ -1919,11 +1919,11 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.observability_configuration_revision ||= 0
       end
-
     end
 
     # Includes enum constants for OperationStatus
@@ -2286,11 +2286,11 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.observability_enabled ||= false
       end
-
     end
 
     # <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
@@ -2733,11 +2733,11 @@ module AWS::SDK::AppRunner
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vpc_connector_revision ||= 0
       end
-
     end
 
     # Includes enum constants for VpcConnectorStatus

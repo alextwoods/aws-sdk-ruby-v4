@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Kafka
@@ -69,7 +71,7 @@ module AWS::SDK::Kafka
     def batch_associate_scram_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAssociateScramSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAssociateScramSecretInput,
         validate_input: @config.validate_input
@@ -149,7 +151,7 @@ module AWS::SDK::Kafka
     def batch_disassociate_scram_secret(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisassociateScramSecretInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisassociateScramSecretInput,
         validate_input: @config.validate_input
@@ -330,7 +332,7 @@ module AWS::SDK::Kafka
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -506,7 +508,7 @@ module AWS::SDK::Kafka
     def create_cluster_v2(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterV2Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterV2Input,
         validate_input: @config.validate_input
@@ -597,7 +599,7 @@ module AWS::SDK::Kafka
     def create_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationInput,
         validate_input: @config.validate_input
@@ -671,7 +673,7 @@ module AWS::SDK::Kafka
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -740,7 +742,7 @@ module AWS::SDK::Kafka
     def delete_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationInput,
         validate_input: @config.validate_input
@@ -877,7 +879,7 @@ module AWS::SDK::Kafka
     def describe_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterInput,
         validate_input: @config.validate_input
@@ -1015,7 +1017,7 @@ module AWS::SDK::Kafka
     def describe_cluster_operation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterOperationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterOperationInput,
         validate_input: @config.validate_input
@@ -1162,7 +1164,7 @@ module AWS::SDK::Kafka
     def describe_cluster_v2(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterV2Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterV2Input,
         validate_input: @config.validate_input
@@ -1240,7 +1242,7 @@ module AWS::SDK::Kafka
     def describe_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationInput,
         validate_input: @config.validate_input
@@ -1316,7 +1318,7 @@ module AWS::SDK::Kafka
     def describe_configuration_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationRevisionInput,
         validate_input: @config.validate_input
@@ -1390,7 +1392,7 @@ module AWS::SDK::Kafka
     def get_bootstrap_brokers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetBootstrapBrokersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBootstrapBrokersInput,
         validate_input: @config.validate_input
@@ -1462,7 +1464,7 @@ module AWS::SDK::Kafka
     def get_compatible_kafka_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCompatibleKafkaVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCompatibleKafkaVersionsInput,
         validate_input: @config.validate_input
@@ -1611,7 +1613,7 @@ module AWS::SDK::Kafka
     def list_cluster_operations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClusterOperationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClusterOperationsInput,
         validate_input: @config.validate_input
@@ -1759,7 +1761,7 @@ module AWS::SDK::Kafka
     def list_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersInput,
         validate_input: @config.validate_input
@@ -1921,7 +1923,7 @@ module AWS::SDK::Kafka
     def list_clusters_v2(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListClustersV2Input.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListClustersV2Input,
         validate_input: @config.validate_input
@@ -2003,7 +2005,7 @@ module AWS::SDK::Kafka
     def list_configuration_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationRevisionsInput,
         validate_input: @config.validate_input
@@ -2089,7 +2091,7 @@ module AWS::SDK::Kafka
     def list_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationsInput,
         validate_input: @config.validate_input
@@ -2165,7 +2167,7 @@ module AWS::SDK::Kafka
     def list_kafka_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKafkaVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKafkaVersionsInput,
         validate_input: @config.validate_input
@@ -2265,7 +2267,7 @@ module AWS::SDK::Kafka
     def list_nodes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNodesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNodesInput,
         validate_input: @config.validate_input
@@ -2343,7 +2345,7 @@ module AWS::SDK::Kafka
     def list_scram_secrets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListScramSecretsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListScramSecretsInput,
         validate_input: @config.validate_input
@@ -2412,7 +2414,7 @@ module AWS::SDK::Kafka
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2487,7 +2489,7 @@ module AWS::SDK::Kafka
     def reboot_broker(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootBrokerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootBrokerInput,
         validate_input: @config.validate_input
@@ -2561,7 +2563,7 @@ module AWS::SDK::Kafka
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2654,7 +2656,7 @@ module AWS::SDK::Kafka
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2731,7 +2733,7 @@ module AWS::SDK::Kafka
     def update_broker_count(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBrokerCountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBrokerCountInput,
         validate_input: @config.validate_input
@@ -2818,7 +2820,7 @@ module AWS::SDK::Kafka
     def update_broker_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBrokerStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBrokerStorageInput,
         validate_input: @config.validate_input
@@ -2896,7 +2898,7 @@ module AWS::SDK::Kafka
     def update_broker_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBrokerTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBrokerTypeInput,
         validate_input: @config.validate_input
@@ -2977,7 +2979,7 @@ module AWS::SDK::Kafka
     def update_cluster_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterConfigurationInput,
         validate_input: @config.validate_input
@@ -3062,7 +3064,7 @@ module AWS::SDK::Kafka
     def update_cluster_kafka_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterKafkaVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterKafkaVersionInput,
         validate_input: @config.validate_input
@@ -3144,7 +3146,7 @@ module AWS::SDK::Kafka
     def update_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationInput,
         validate_input: @config.validate_input
@@ -3226,7 +3228,7 @@ module AWS::SDK::Kafka
     def update_connectivity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectivityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectivityInput,
         validate_input: @config.validate_input
@@ -3334,7 +3336,7 @@ module AWS::SDK::Kafka
     def update_monitoring(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMonitoringInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMonitoringInput,
         validate_input: @config.validate_input
@@ -3442,7 +3444,7 @@ module AWS::SDK::Kafka
     def update_security(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSecurityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSecurityInput,
         validate_input: @config.validate_input

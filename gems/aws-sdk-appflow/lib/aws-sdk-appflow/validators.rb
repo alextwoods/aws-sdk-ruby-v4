@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Appflow
   module Validators
 
@@ -76,7 +78,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:is_sensitive_field], ::TrueClass, ::FalseClass, context: "#{context}[:is_sensitive_field]")
-        Validators::ConnectorSuppliedValueList.validate!(input[:connector_supplied_values], context: "#{context}[:connector_supplied_values]") unless input[:connector_supplied_values].nil?
+        ConnectorSuppliedValueList.validate!(input[:connector_supplied_values], context: "#{context}[:connector_supplied_values]") unless input[:connector_supplied_values].nil?
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuthParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuthParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -96,8 +98,8 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:is_api_key_auth_supported], ::TrueClass, ::FalseClass, context: "#{context}[:is_api_key_auth_supported]")
         Hearth::Validator.validate!(input[:is_o_auth2_supported], ::TrueClass, ::FalseClass, context: "#{context}[:is_o_auth2_supported]")
         Hearth::Validator.validate!(input[:is_custom_auth_supported], ::TrueClass, ::FalseClass, context: "#{context}[:is_custom_auth_supported]")
-        Validators::OAuth2Defaults.validate!(input[:o_auth2_defaults], context: "#{context}[:o_auth2_defaults]") unless input[:o_auth2_defaults].nil?
-        Validators::CustomAuthConfigList.validate!(input[:custom_auth_configs], context: "#{context}[:custom_auth_configs]") unless input[:custom_auth_configs].nil?
+        OAuth2Defaults.validate!(input[:o_auth2_defaults], context: "#{context}[:o_auth2_defaults]") unless input[:o_auth2_defaults].nil?
+        CustomAuthConfigList.validate!(input[:custom_auth_configs], context: "#{context}[:custom_auth_configs]") unless input[:custom_auth_configs].nil?
       end
     end
 
@@ -128,12 +130,12 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::ConnectorConfiguration, context: context)
         Hearth::Validator.validate!(input[:can_use_as_source], ::TrueClass, ::FalseClass, context: "#{context}[:can_use_as_source]")
         Hearth::Validator.validate!(input[:can_use_as_destination], ::TrueClass, ::FalseClass, context: "#{context}[:can_use_as_destination]")
-        Validators::ConnectorTypeList.validate!(input[:supported_destination_connectors], context: "#{context}[:supported_destination_connectors]") unless input[:supported_destination_connectors].nil?
-        Validators::SchedulingFrequencyTypeList.validate!(input[:supported_scheduling_frequencies], context: "#{context}[:supported_scheduling_frequencies]") unless input[:supported_scheduling_frequencies].nil?
+        ConnectorTypeList.validate!(input[:supported_destination_connectors], context: "#{context}[:supported_destination_connectors]") unless input[:supported_destination_connectors].nil?
+        SchedulingFrequencyTypeList.validate!(input[:supported_scheduling_frequencies], context: "#{context}[:supported_scheduling_frequencies]") unless input[:supported_scheduling_frequencies].nil?
         Hearth::Validator.validate!(input[:is_private_link_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_private_link_enabled]")
         Hearth::Validator.validate!(input[:is_private_link_endpoint_url_required], ::TrueClass, ::FalseClass, context: "#{context}[:is_private_link_endpoint_url_required]")
-        Validators::TriggerTypeList.validate!(input[:supported_trigger_types], context: "#{context}[:supported_trigger_types]") unless input[:supported_trigger_types].nil?
-        Validators::ConnectorMetadata.validate!(input[:connector_metadata], context: "#{context}[:connector_metadata]") unless input[:connector_metadata].nil?
+        TriggerTypeList.validate!(input[:supported_trigger_types], context: "#{context}[:supported_trigger_types]") unless input[:supported_trigger_types].nil?
+        ConnectorMetadata.validate!(input[:connector_metadata], context: "#{context}[:connector_metadata]") unless input[:connector_metadata].nil?
         Hearth::Validator.validate!(input[:connector_type], ::String, context: "#{context}[:connector_type]")
         Hearth::Validator.validate!(input[:connector_label], ::String, context: "#{context}[:connector_label]")
         Hearth::Validator.validate!(input[:connector_description], ::String, context: "#{context}[:connector_description]")
@@ -141,14 +143,14 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:connector_name], ::String, context: "#{context}[:connector_name]")
         Hearth::Validator.validate!(input[:connector_version], ::String, context: "#{context}[:connector_version]")
         Hearth::Validator.validate!(input[:connector_arn], ::String, context: "#{context}[:connector_arn]")
-        Validators::ConnectorModeList.validate!(input[:connector_modes], context: "#{context}[:connector_modes]") unless input[:connector_modes].nil?
-        Validators::AuthenticationConfig.validate!(input[:authentication_config], context: "#{context}[:authentication_config]") unless input[:authentication_config].nil?
-        Validators::ConnectorRuntimeSettingList.validate!(input[:connector_runtime_settings], context: "#{context}[:connector_runtime_settings]") unless input[:connector_runtime_settings].nil?
-        Validators::SupportedApiVersionList.validate!(input[:supported_api_versions], context: "#{context}[:supported_api_versions]") unless input[:supported_api_versions].nil?
-        Validators::SupportedOperatorList.validate!(input[:supported_operators], context: "#{context}[:supported_operators]") unless input[:supported_operators].nil?
-        Validators::SupportedWriteOperationList.validate!(input[:supported_write_operations], context: "#{context}[:supported_write_operations]") unless input[:supported_write_operations].nil?
+        ConnectorModeList.validate!(input[:connector_modes], context: "#{context}[:connector_modes]") unless input[:connector_modes].nil?
+        AuthenticationConfig.validate!(input[:authentication_config], context: "#{context}[:authentication_config]") unless input[:authentication_config].nil?
+        ConnectorRuntimeSettingList.validate!(input[:connector_runtime_settings], context: "#{context}[:connector_runtime_settings]") unless input[:connector_runtime_settings].nil?
+        SupportedApiVersionList.validate!(input[:supported_api_versions], context: "#{context}[:supported_api_versions]") unless input[:supported_api_versions].nil?
+        SupportedOperatorList.validate!(input[:supported_operators], context: "#{context}[:supported_operators]") unless input[:supported_operators].nil?
+        SupportedWriteOperationList.validate!(input[:supported_write_operations], context: "#{context}[:supported_write_operations]") unless input[:supported_write_operations].nil?
         Hearth::Validator.validate!(input[:connector_provisioning_type], ::String, context: "#{context}[:connector_provisioning_type]")
-        Validators::ConnectorProvisioningConfig.validate!(input[:connector_provisioning_config], context: "#{context}[:connector_provisioning_config]") unless input[:connector_provisioning_config].nil?
+        ConnectorProvisioningConfig.validate!(input[:connector_provisioning_config], context: "#{context}[:connector_provisioning_config]") unless input[:connector_provisioning_config].nil?
         Hearth::Validator.validate!(input[:logo_url], ::String, context: "#{context}[:logo_url]")
         Hearth::Validator.validate!(input[:registered_at], ::Time, context: "#{context}[:registered_at]")
         Hearth::Validator.validate!(input[:registered_by], ::String, context: "#{context}[:registered_by]")
@@ -160,7 +162,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ConnectorConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ConnectorConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:registered_at], ::Time, context: "#{context}[:registered_at]")
         Hearth::Validator.validate!(input[:registered_by], ::String, context: "#{context}[:registered_by]")
         Hearth::Validator.validate!(input[:connector_provisioning_type], ::String, context: "#{context}[:connector_provisioning_type]")
-        Validators::ConnectorModeList.validate!(input[:connector_modes], context: "#{context}[:connector_modes]") unless input[:connector_modes].nil?
+        ConnectorModeList.validate!(input[:connector_modes], context: "#{context}[:connector_modes]") unless input[:connector_modes].nil?
       end
     end
 
@@ -200,11 +202,11 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:is_primary_key], ::TrueClass, ::FalseClass, context: "#{context}[:is_primary_key]")
         Hearth::Validator.validate!(input[:default_value], ::String, context: "#{context}[:default_value]")
         Hearth::Validator.validate!(input[:is_deprecated], ::TrueClass, ::FalseClass, context: "#{context}[:is_deprecated]")
-        Validators::SupportedFieldTypeDetails.validate!(input[:supported_field_type_details], context: "#{context}[:supported_field_type_details]") unless input[:supported_field_type_details].nil?
+        SupportedFieldTypeDetails.validate!(input[:supported_field_type_details], context: "#{context}[:supported_field_type_details]") unless input[:supported_field_type_details].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SourceFieldProperties.validate!(input[:source_properties], context: "#{context}[:source_properties]") unless input[:source_properties].nil?
-        Validators::DestinationFieldProperties.validate!(input[:destination_properties], context: "#{context}[:destination_properties]") unless input[:destination_properties].nil?
-        Validators::CustomProperties.validate!(input[:custom_properties], context: "#{context}[:custom_properties]") unless input[:custom_properties].nil?
+        SourceFieldProperties.validate!(input[:source_properties], context: "#{context}[:source_properties]") unless input[:source_properties].nil?
+        DestinationFieldProperties.validate!(input[:destination_properties], context: "#{context}[:destination_properties]") unless input[:destination_properties].nil?
+        CustomProperties.validate!(input[:custom_properties], context: "#{context}[:custom_properties]") unless input[:custom_properties].nil?
       end
     end
 
@@ -212,7 +214,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectorEntityField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectorEntityField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectorEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectorEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ConnectorEntityList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ConnectorEntityList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -248,27 +250,27 @@ module AWS::SDK::Appflow
     class ConnectorMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorMetadata, context: context)
-        Validators::AmplitudeMetadata.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
-        Validators::DatadogMetadata.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
-        Validators::DynatraceMetadata.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
-        Validators::GoogleAnalyticsMetadata.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
-        Validators::InforNexusMetadata.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
-        Validators::MarketoMetadata.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
-        Validators::RedshiftMetadata.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
-        Validators::S3Metadata.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
-        Validators::SalesforceMetadata.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
-        Validators::ServiceNowMetadata.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
-        Validators::SingularMetadata.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
-        Validators::SlackMetadata.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
-        Validators::SnowflakeMetadata.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
-        Validators::TrendmicroMetadata.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
-        Validators::VeevaMetadata.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
-        Validators::ZendeskMetadata.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
-        Validators::EventBridgeMetadata.validate!(input[:event_bridge], context: "#{context}[:event_bridge]") unless input[:event_bridge].nil?
-        Validators::UpsolverMetadata.validate!(input[:upsolver], context: "#{context}[:upsolver]") unless input[:upsolver].nil?
-        Validators::CustomerProfilesMetadata.validate!(input[:customer_profiles], context: "#{context}[:customer_profiles]") unless input[:customer_profiles].nil?
-        Validators::HoneycodeMetadata.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
-        Validators::SAPODataMetadata.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
+        AmplitudeMetadata.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
+        DatadogMetadata.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
+        DynatraceMetadata.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
+        GoogleAnalyticsMetadata.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
+        InforNexusMetadata.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
+        MarketoMetadata.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
+        RedshiftMetadata.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
+        S3Metadata.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        SalesforceMetadata.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
+        ServiceNowMetadata.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
+        SingularMetadata.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
+        SlackMetadata.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
+        SnowflakeMetadata.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
+        TrendmicroMetadata.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
+        VeevaMetadata.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
+        ZendeskMetadata.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
+        EventBridgeMetadata.validate!(input[:event_bridge], context: "#{context}[:event_bridge]") unless input[:event_bridge].nil?
+        UpsolverMetadata.validate!(input[:upsolver], context: "#{context}[:upsolver]") unless input[:upsolver].nil?
+        CustomerProfilesMetadata.validate!(input[:customer_profiles], context: "#{context}[:customer_profiles]") unless input[:customer_profiles].nil?
+        HoneycodeMetadata.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
+        SAPODataMetadata.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
       end
     end
 
@@ -320,42 +322,42 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:connector_label], ::String, context: "#{context}[:connector_label]")
         Hearth::Validator.validate!(input[:connection_mode], ::String, context: "#{context}[:connection_mode]")
         Hearth::Validator.validate!(input[:credentials_arn], ::String, context: "#{context}[:credentials_arn]")
-        Validators::ConnectorProfileProperties.validate!(input[:connector_profile_properties], context: "#{context}[:connector_profile_properties]") unless input[:connector_profile_properties].nil?
+        ConnectorProfileProperties.validate!(input[:connector_profile_properties], context: "#{context}[:connector_profile_properties]") unless input[:connector_profile_properties].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::PrivateConnectionProvisioningState.validate!(input[:private_connection_provisioning_state], context: "#{context}[:private_connection_provisioning_state]") unless input[:private_connection_provisioning_state].nil?
+        PrivateConnectionProvisioningState.validate!(input[:private_connection_provisioning_state], context: "#{context}[:private_connection_provisioning_state]") unless input[:private_connection_provisioning_state].nil?
       end
     end
 
     class ConnectorProfileConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorProfileConfig, context: context)
-        Validators::ConnectorProfileProperties.validate!(input[:connector_profile_properties], context: "#{context}[:connector_profile_properties]") unless input[:connector_profile_properties].nil?
-        Validators::ConnectorProfileCredentials.validate!(input[:connector_profile_credentials], context: "#{context}[:connector_profile_credentials]") unless input[:connector_profile_credentials].nil?
+        ConnectorProfileProperties.validate!(input[:connector_profile_properties], context: "#{context}[:connector_profile_properties]") unless input[:connector_profile_properties].nil?
+        ConnectorProfileCredentials.validate!(input[:connector_profile_credentials], context: "#{context}[:connector_profile_credentials]") unless input[:connector_profile_credentials].nil?
       end
     end
 
     class ConnectorProfileCredentials
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorProfileCredentials, context: context)
-        Validators::AmplitudeConnectorProfileCredentials.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
-        Validators::DatadogConnectorProfileCredentials.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
-        Validators::DynatraceConnectorProfileCredentials.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
-        Validators::GoogleAnalyticsConnectorProfileCredentials.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
-        Validators::HoneycodeConnectorProfileCredentials.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
-        Validators::InforNexusConnectorProfileCredentials.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
-        Validators::MarketoConnectorProfileCredentials.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
-        Validators::RedshiftConnectorProfileCredentials.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
-        Validators::SalesforceConnectorProfileCredentials.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
-        Validators::ServiceNowConnectorProfileCredentials.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
-        Validators::SingularConnectorProfileCredentials.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
-        Validators::SlackConnectorProfileCredentials.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
-        Validators::SnowflakeConnectorProfileCredentials.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
-        Validators::TrendmicroConnectorProfileCredentials.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
-        Validators::VeevaConnectorProfileCredentials.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
-        Validators::ZendeskConnectorProfileCredentials.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
-        Validators::SAPODataConnectorProfileCredentials.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
-        Validators::CustomConnectorProfileCredentials.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
+        AmplitudeConnectorProfileCredentials.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
+        DatadogConnectorProfileCredentials.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
+        DynatraceConnectorProfileCredentials.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
+        GoogleAnalyticsConnectorProfileCredentials.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
+        HoneycodeConnectorProfileCredentials.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
+        InforNexusConnectorProfileCredentials.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
+        MarketoConnectorProfileCredentials.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
+        RedshiftConnectorProfileCredentials.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
+        SalesforceConnectorProfileCredentials.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
+        ServiceNowConnectorProfileCredentials.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
+        SingularConnectorProfileCredentials.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
+        SlackConnectorProfileCredentials.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
+        SnowflakeConnectorProfileCredentials.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
+        TrendmicroConnectorProfileCredentials.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
+        VeevaConnectorProfileCredentials.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
+        ZendeskConnectorProfileCredentials.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
+        SAPODataConnectorProfileCredentials.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
+        CustomConnectorProfileCredentials.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
       end
     end
 
@@ -363,7 +365,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectorProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectorProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -380,31 +382,31 @@ module AWS::SDK::Appflow
     class ConnectorProfileProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorProfileProperties, context: context)
-        Validators::AmplitudeConnectorProfileProperties.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
-        Validators::DatadogConnectorProfileProperties.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
-        Validators::DynatraceConnectorProfileProperties.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
-        Validators::GoogleAnalyticsConnectorProfileProperties.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
-        Validators::HoneycodeConnectorProfileProperties.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
-        Validators::InforNexusConnectorProfileProperties.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
-        Validators::MarketoConnectorProfileProperties.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
-        Validators::RedshiftConnectorProfileProperties.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
-        Validators::SalesforceConnectorProfileProperties.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
-        Validators::ServiceNowConnectorProfileProperties.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
-        Validators::SingularConnectorProfileProperties.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
-        Validators::SlackConnectorProfileProperties.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
-        Validators::SnowflakeConnectorProfileProperties.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
-        Validators::TrendmicroConnectorProfileProperties.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
-        Validators::VeevaConnectorProfileProperties.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
-        Validators::ZendeskConnectorProfileProperties.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
-        Validators::SAPODataConnectorProfileProperties.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
-        Validators::CustomConnectorProfileProperties.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
+        AmplitudeConnectorProfileProperties.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
+        DatadogConnectorProfileProperties.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
+        DynatraceConnectorProfileProperties.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
+        GoogleAnalyticsConnectorProfileProperties.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
+        HoneycodeConnectorProfileProperties.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
+        InforNexusConnectorProfileProperties.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
+        MarketoConnectorProfileProperties.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
+        RedshiftConnectorProfileProperties.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
+        SalesforceConnectorProfileProperties.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
+        ServiceNowConnectorProfileProperties.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
+        SingularConnectorProfileProperties.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
+        SlackConnectorProfileProperties.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
+        SnowflakeConnectorProfileProperties.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
+        TrendmicroConnectorProfileProperties.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
+        VeevaConnectorProfileProperties.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
+        ZendeskConnectorProfileProperties.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
+        SAPODataConnectorProfileProperties.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
+        CustomConnectorProfileProperties.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
       end
     end
 
     class ConnectorProvisioningConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorProvisioningConfig, context: context)
-        Validators::LambdaConnectorProvisioningConfig.validate!(input[:lambda], context: "#{context}[:lambda]") unless input[:lambda].nil?
+        LambdaConnectorProvisioningConfig.validate!(input[:lambda], context: "#{context}[:lambda]") unless input[:lambda].nil?
       end
     end
 
@@ -417,7 +419,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:scope], ::String, context: "#{context}[:scope]")
-        Validators::ConnectorSuppliedValueOptionList.validate!(input[:connector_supplied_value_options], context: "#{context}[:connector_supplied_value_options]") unless input[:connector_supplied_value_options].nil?
+        ConnectorSuppliedValueOptionList.validate!(input[:connector_supplied_value_options], context: "#{context}[:connector_supplied_value_options]") unless input[:connector_supplied_value_options].nil?
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectorRuntimeSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectorRuntimeSetting.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -472,7 +474,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:connector_type], ::String, context: "#{context}[:connector_type]")
         Hearth::Validator.validate!(input[:connector_label], ::String, context: "#{context}[:connector_label]")
         Hearth::Validator.validate!(input[:connection_mode], ::String, context: "#{context}[:connection_mode]")
-        Validators::ConnectorProfileConfig.validate!(input[:connector_profile_config], context: "#{context}[:connector_profile_config]") unless input[:connector_profile_config].nil?
+        ConnectorProfileConfig.validate!(input[:connector_profile_config], context: "#{context}[:connector_profile_config]") unless input[:connector_profile_config].nil?
       end
     end
 
@@ -489,11 +491,11 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:flow_name], ::String, context: "#{context}[:flow_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:kms_arn], ::String, context: "#{context}[:kms_arn]")
-        Validators::TriggerConfig.validate!(input[:trigger_config], context: "#{context}[:trigger_config]") unless input[:trigger_config].nil?
-        Validators::SourceFlowConfig.validate!(input[:source_flow_config], context: "#{context}[:source_flow_config]") unless input[:source_flow_config].nil?
-        Validators::DestinationFlowConfigList.validate!(input[:destination_flow_config_list], context: "#{context}[:destination_flow_config_list]") unless input[:destination_flow_config_list].nil?
-        Validators::Tasks.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TriggerConfig.validate!(input[:trigger_config], context: "#{context}[:trigger_config]") unless input[:trigger_config].nil?
+        SourceFlowConfig.validate!(input[:source_flow_config], context: "#{context}[:source_flow_config]") unless input[:source_flow_config].nil?
+        DestinationFlowConfigList.validate!(input[:destination_flow_config_list], context: "#{context}[:destination_flow_config_list]") unless input[:destination_flow_config_list].nil?
+        Tasks.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -519,7 +521,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomAuthConfig, context: context)
         Hearth::Validator.validate!(input[:custom_authentication_type], ::String, context: "#{context}[:custom_authentication_type]")
-        Validators::AuthParameterList.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
+        AuthParameterList.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomAuthConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomAuthConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -536,7 +538,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomAuthCredentials, context: context)
         Hearth::Validator.validate!(input[:custom_authentication_type], ::String, context: "#{context}[:custom_authentication_type]")
-        Validators::CredentialsMap.validate!(input[:credentials_map], context: "#{context}[:credentials_map]") unless input[:credentials_map].nil?
+        CredentialsMap.validate!(input[:credentials_map], context: "#{context}[:credentials_map]") unless input[:credentials_map].nil?
       end
     end
 
@@ -544,10 +546,10 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomConnectorDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:entity_name], ::String, context: "#{context}[:entity_name]")
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
         Hearth::Validator.validate!(input[:write_operation_type], ::String, context: "#{context}[:write_operation_type]")
-        Validators::IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
-        Validators::CustomProperties.validate!(input[:custom_properties], context: "#{context}[:custom_properties]") unless input[:custom_properties].nil?
+        IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
+        CustomProperties.validate!(input[:custom_properties], context: "#{context}[:custom_properties]") unless input[:custom_properties].nil?
       end
     end
 
@@ -555,18 +557,18 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomConnectorProfileCredentials, context: context)
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
-        Validators::BasicAuthCredentials.validate!(input[:basic], context: "#{context}[:basic]") unless input[:basic].nil?
-        Validators::OAuth2Credentials.validate!(input[:oauth2], context: "#{context}[:oauth2]") unless input[:oauth2].nil?
-        Validators::ApiKeyCredentials.validate!(input[:api_key], context: "#{context}[:api_key]") unless input[:api_key].nil?
-        Validators::CustomAuthCredentials.validate!(input[:custom], context: "#{context}[:custom]") unless input[:custom].nil?
+        BasicAuthCredentials.validate!(input[:basic], context: "#{context}[:basic]") unless input[:basic].nil?
+        OAuth2Credentials.validate!(input[:oauth2], context: "#{context}[:oauth2]") unless input[:oauth2].nil?
+        ApiKeyCredentials.validate!(input[:api_key], context: "#{context}[:api_key]") unless input[:api_key].nil?
+        CustomAuthCredentials.validate!(input[:custom], context: "#{context}[:custom]") unless input[:custom].nil?
       end
     end
 
     class CustomConnectorProfileProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomConnectorProfileProperties, context: context)
-        Validators::ProfilePropertiesMap.validate!(input[:profile_properties], context: "#{context}[:profile_properties]") unless input[:profile_properties].nil?
-        Validators::OAuth2Properties.validate!(input[:o_auth2_properties], context: "#{context}[:o_auth2_properties]") unless input[:o_auth2_properties].nil?
+        ProfilePropertiesMap.validate!(input[:profile_properties], context: "#{context}[:profile_properties]") unless input[:profile_properties].nil?
+        OAuth2Properties.validate!(input[:o_auth2_properties], context: "#{context}[:o_auth2_properties]") unless input[:o_auth2_properties].nil?
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomConnectorSourceProperties, context: context)
         Hearth::Validator.validate!(input[:entity_name], ::String, context: "#{context}[:entity_name]")
-        Validators::CustomProperties.validate!(input[:custom_properties], context: "#{context}[:custom_properties]") unless input[:custom_properties].nil?
+        CustomProperties.validate!(input[:custom_properties], context: "#{context}[:custom_properties]") unless input[:custom_properties].nil?
       end
     end
 
@@ -671,7 +673,7 @@ module AWS::SDK::Appflow
     class DescribeConnectorEntityOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorEntityOutput, context: context)
-        Validators::ConnectorEntityFieldList.validate!(input[:connector_entity_fields], context: "#{context}[:connector_entity_fields]") unless input[:connector_entity_fields].nil?
+        ConnectorEntityFieldList.validate!(input[:connector_entity_fields], context: "#{context}[:connector_entity_fields]") unless input[:connector_entity_fields].nil?
       end
     end
 
@@ -686,14 +688,14 @@ module AWS::SDK::Appflow
     class DescribeConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorOutput, context: context)
-        Validators::ConnectorConfiguration.validate!(input[:connector_configuration], context: "#{context}[:connector_configuration]") unless input[:connector_configuration].nil?
+        ConnectorConfiguration.validate!(input[:connector_configuration], context: "#{context}[:connector_configuration]") unless input[:connector_configuration].nil?
       end
     end
 
     class DescribeConnectorProfilesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorProfilesInput, context: context)
-        Validators::ConnectorProfileNameList.validate!(input[:connector_profile_names], context: "#{context}[:connector_profile_names]") unless input[:connector_profile_names].nil?
+        ConnectorProfileNameList.validate!(input[:connector_profile_names], context: "#{context}[:connector_profile_names]") unless input[:connector_profile_names].nil?
         Hearth::Validator.validate!(input[:connector_type], ::String, context: "#{context}[:connector_type]")
         Hearth::Validator.validate!(input[:connector_label], ::String, context: "#{context}[:connector_label]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -704,7 +706,7 @@ module AWS::SDK::Appflow
     class DescribeConnectorProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorProfilesOutput, context: context)
-        Validators::ConnectorProfileDetailList.validate!(input[:connector_profile_details], context: "#{context}[:connector_profile_details]") unless input[:connector_profile_details].nil?
+        ConnectorProfileDetailList.validate!(input[:connector_profile_details], context: "#{context}[:connector_profile_details]") unless input[:connector_profile_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -712,7 +714,7 @@ module AWS::SDK::Appflow
     class DescribeConnectorsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorsInput, context: context)
-        Validators::ConnectorTypeList.validate!(input[:connector_types], context: "#{context}[:connector_types]") unless input[:connector_types].nil?
+        ConnectorTypeList.validate!(input[:connector_types], context: "#{context}[:connector_types]") unless input[:connector_types].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -721,8 +723,8 @@ module AWS::SDK::Appflow
     class DescribeConnectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorsOutput, context: context)
-        Validators::ConnectorConfigurationsMap.validate!(input[:connector_configurations], context: "#{context}[:connector_configurations]") unless input[:connector_configurations].nil?
-        Validators::ConnectorList.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
+        ConnectorConfigurationsMap.validate!(input[:connector_configurations], context: "#{context}[:connector_configurations]") unless input[:connector_configurations].nil?
+        ConnectorList.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::Appflow
     class DescribeFlowExecutionRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFlowExecutionRecordsOutput, context: context)
-        Validators::FlowExecutionList.validate!(input[:flow_executions], context: "#{context}[:flow_executions]") unless input[:flow_executions].nil?
+        FlowExecutionList.validate!(input[:flow_executions], context: "#{context}[:flow_executions]") unless input[:flow_executions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -760,35 +762,35 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:kms_arn], ::String, context: "#{context}[:kms_arn]")
         Hearth::Validator.validate!(input[:flow_status], ::String, context: "#{context}[:flow_status]")
         Hearth::Validator.validate!(input[:flow_status_message], ::String, context: "#{context}[:flow_status_message]")
-        Validators::SourceFlowConfig.validate!(input[:source_flow_config], context: "#{context}[:source_flow_config]") unless input[:source_flow_config].nil?
-        Validators::DestinationFlowConfigList.validate!(input[:destination_flow_config_list], context: "#{context}[:destination_flow_config_list]") unless input[:destination_flow_config_list].nil?
-        Validators::ExecutionDetails.validate!(input[:last_run_execution_details], context: "#{context}[:last_run_execution_details]") unless input[:last_run_execution_details].nil?
-        Validators::TriggerConfig.validate!(input[:trigger_config], context: "#{context}[:trigger_config]") unless input[:trigger_config].nil?
-        Validators::Tasks.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        SourceFlowConfig.validate!(input[:source_flow_config], context: "#{context}[:source_flow_config]") unless input[:source_flow_config].nil?
+        DestinationFlowConfigList.validate!(input[:destination_flow_config_list], context: "#{context}[:destination_flow_config_list]") unless input[:destination_flow_config_list].nil?
+        ExecutionDetails.validate!(input[:last_run_execution_details], context: "#{context}[:last_run_execution_details]") unless input[:last_run_execution_details].nil?
+        TriggerConfig.validate!(input[:trigger_config], context: "#{context}[:trigger_config]") unless input[:trigger_config].nil?
+        Tasks.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:last_updated_by], ::String, context: "#{context}[:last_updated_by]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class DestinationConnectorProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DestinationConnectorProperties, context: context)
-        Validators::RedshiftDestinationProperties.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
-        Validators::S3DestinationProperties.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
-        Validators::SalesforceDestinationProperties.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
-        Validators::SnowflakeDestinationProperties.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
-        Validators::EventBridgeDestinationProperties.validate!(input[:event_bridge], context: "#{context}[:event_bridge]") unless input[:event_bridge].nil?
-        Validators::LookoutMetricsDestinationProperties.validate!(input[:lookout_metrics], context: "#{context}[:lookout_metrics]") unless input[:lookout_metrics].nil?
-        Validators::UpsolverDestinationProperties.validate!(input[:upsolver], context: "#{context}[:upsolver]") unless input[:upsolver].nil?
-        Validators::HoneycodeDestinationProperties.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
-        Validators::CustomerProfilesDestinationProperties.validate!(input[:customer_profiles], context: "#{context}[:customer_profiles]") unless input[:customer_profiles].nil?
-        Validators::ZendeskDestinationProperties.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
-        Validators::MarketoDestinationProperties.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
-        Validators::CustomConnectorDestinationProperties.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
-        Validators::SAPODataDestinationProperties.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
+        RedshiftDestinationProperties.validate!(input[:redshift], context: "#{context}[:redshift]") unless input[:redshift].nil?
+        S3DestinationProperties.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        SalesforceDestinationProperties.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
+        SnowflakeDestinationProperties.validate!(input[:snowflake], context: "#{context}[:snowflake]") unless input[:snowflake].nil?
+        EventBridgeDestinationProperties.validate!(input[:event_bridge], context: "#{context}[:event_bridge]") unless input[:event_bridge].nil?
+        LookoutMetricsDestinationProperties.validate!(input[:lookout_metrics], context: "#{context}[:lookout_metrics]") unless input[:lookout_metrics].nil?
+        UpsolverDestinationProperties.validate!(input[:upsolver], context: "#{context}[:upsolver]") unless input[:upsolver].nil?
+        HoneycodeDestinationProperties.validate!(input[:honeycode], context: "#{context}[:honeycode]") unless input[:honeycode].nil?
+        CustomerProfilesDestinationProperties.validate!(input[:customer_profiles], context: "#{context}[:customer_profiles]") unless input[:customer_profiles].nil?
+        ZendeskDestinationProperties.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
+        MarketoDestinationProperties.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
+        CustomConnectorDestinationProperties.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
+        SAPODataDestinationProperties.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
       end
     end
 
@@ -800,7 +802,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:is_upsertable], ::TrueClass, ::FalseClass, context: "#{context}[:is_upsertable]")
         Hearth::Validator.validate!(input[:is_updatable], ::TrueClass, ::FalseClass, context: "#{context}[:is_updatable]")
         Hearth::Validator.validate!(input[:is_defaulted_on_create], ::TrueClass, ::FalseClass, context: "#{context}[:is_defaulted_on_create]")
-        Validators::SupportedWriteOperationList.validate!(input[:supported_write_operations], context: "#{context}[:supported_write_operations]") unless input[:supported_write_operations].nil?
+        SupportedWriteOperationList.validate!(input[:supported_write_operations], context: "#{context}[:supported_write_operations]") unless input[:supported_write_operations].nil?
       end
     end
 
@@ -810,7 +812,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:connector_type], ::String, context: "#{context}[:connector_type]")
         Hearth::Validator.validate!(input[:api_version], ::String, context: "#{context}[:api_version]")
         Hearth::Validator.validate!(input[:connector_profile_name], ::String, context: "#{context}[:connector_profile_name]")
-        Validators::DestinationConnectorProperties.validate!(input[:destination_connector_properties], context: "#{context}[:destination_connector_properties]") unless input[:destination_connector_properties].nil?
+        DestinationConnectorProperties.validate!(input[:destination_connector_properties], context: "#{context}[:destination_connector_properties]") unless input[:destination_connector_properties].nil?
       end
     end
 
@@ -818,7 +820,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DestinationFlowConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DestinationFlowConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -871,7 +873,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventBridgeDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
       end
     end
 
@@ -895,7 +897,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::ExecutionRecord, context: context)
         Hearth::Validator.validate!(input[:execution_id], ::String, context: "#{context}[:execution_id]")
         Hearth::Validator.validate!(input[:execution_status], ::String, context: "#{context}[:execution_status]")
-        Validators::ExecutionResult.validate!(input[:execution_result], context: "#{context}[:execution_result]") unless input[:execution_result].nil?
+        ExecutionResult.validate!(input[:execution_result], context: "#{context}[:execution_result]") unless input[:execution_result].nil?
         Hearth::Validator.validate!(input[:started_at], ::Time, context: "#{context}[:started_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:data_pull_start_time], ::Time, context: "#{context}[:data_pull_start_time]")
@@ -906,7 +908,7 @@ module AWS::SDK::Appflow
     class ExecutionResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecutionResult, context: context)
-        Validators::ErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        ErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
         Hearth::Validator.validate!(input[:bytes_processed], ::Integer, context: "#{context}[:bytes_processed]")
         Hearth::Validator.validate!(input[:bytes_written], ::Integer, context: "#{context}[:bytes_written]")
         Hearth::Validator.validate!(input[:records_processed], ::Integer, context: "#{context}[:records_processed]")
@@ -917,12 +919,12 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FieldTypeDetails, context: context)
         Hearth::Validator.validate!(input[:field_type], ::String, context: "#{context}[:field_type]")
-        Validators::FilterOperatorList.validate!(input[:filter_operators], context: "#{context}[:filter_operators]") unless input[:filter_operators].nil?
-        Validators::SupportedValueList.validate!(input[:supported_values], context: "#{context}[:supported_values]") unless input[:supported_values].nil?
+        FilterOperatorList.validate!(input[:filter_operators], context: "#{context}[:filter_operators]") unless input[:filter_operators].nil?
+        SupportedValueList.validate!(input[:supported_values], context: "#{context}[:supported_values]") unless input[:supported_values].nil?
         Hearth::Validator.validate!(input[:value_regex_pattern], ::String, context: "#{context}[:value_regex_pattern]")
         Hearth::Validator.validate!(input[:supported_date_format], ::String, context: "#{context}[:supported_date_format]")
-        Validators::Range.validate!(input[:field_value_range], context: "#{context}[:field_value_range]") unless input[:field_value_range].nil?
-        Validators::Range.validate!(input[:field_length_range], context: "#{context}[:field_length_range]") unless input[:field_length_range].nil?
+        Range.validate!(input[:field_value_range], context: "#{context}[:field_value_range]") unless input[:field_value_range].nil?
+        Range.validate!(input[:field_length_range], context: "#{context}[:field_length_range]") unless input[:field_length_range].nil?
       end
     end
 
@@ -951,8 +953,8 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:created_by], ::String, context: "#{context}[:created_by]")
         Hearth::Validator.validate!(input[:last_updated_by], ::String, context: "#{context}[:last_updated_by]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ExecutionDetails.validate!(input[:last_run_execution_details], context: "#{context}[:last_run_execution_details]") unless input[:last_run_execution_details].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ExecutionDetails.validate!(input[:last_run_execution_details], context: "#{context}[:last_run_execution_details]") unless input[:last_run_execution_details].nil?
       end
     end
 
@@ -960,7 +962,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExecutionRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExecutionRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -969,7 +971,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FlowDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FlowDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -981,7 +983,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_secret], ::String, context: "#{context}[:client_secret]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::Appflow
     class GoogleAnalyticsMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GoogleAnalyticsMetadata, context: context)
-        Validators::OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
       end
     end
 
@@ -1010,7 +1012,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::HoneycodeConnectorProfileCredentials, context: context)
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -1024,14 +1026,14 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HoneycodeDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
       end
     end
 
     class HoneycodeMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HoneycodeMetadata, context: context)
-        Validators::OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
       end
     end
 
@@ -1108,7 +1110,7 @@ module AWS::SDK::Appflow
     class ListConnectorEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectorEntitiesOutput, context: context)
-        Validators::ConnectorEntityMap.validate!(input[:connector_entity_map], context: "#{context}[:connector_entity_map]") unless input[:connector_entity_map].nil?
+        ConnectorEntityMap.validate!(input[:connector_entity_map], context: "#{context}[:connector_entity_map]") unless input[:connector_entity_map].nil?
       end
     end
 
@@ -1123,7 +1125,7 @@ module AWS::SDK::Appflow
     class ListConnectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectorsOutput, context: context)
-        Validators::ConnectorList.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
+        ConnectorList.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1139,7 +1141,7 @@ module AWS::SDK::Appflow
     class ListFlowsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFlowsOutput, context: context)
-        Validators::FlowList.validate!(input[:flows], context: "#{context}[:flows]") unless input[:flows].nil?
+        FlowList.validate!(input[:flows], context: "#{context}[:flows]") unless input[:flows].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1154,7 +1156,7 @@ module AWS::SDK::Appflow
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1170,7 +1172,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:client_secret], ::String, context: "#{context}[:client_secret]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -1185,7 +1187,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MarketoDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
       end
     end
 
@@ -1209,7 +1211,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_secret], ::String, context: "#{context}[:client_secret]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -1221,7 +1223,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:is_sensitive_field], ::TrueClass, ::FalseClass, context: "#{context}[:is_sensitive_field]")
-        Validators::ConnectorSuppliedValueList.validate!(input[:connector_supplied_values], context: "#{context}[:connector_supplied_values]") unless input[:connector_supplied_values].nil?
+        ConnectorSuppliedValueList.validate!(input[:connector_supplied_values], context: "#{context}[:connector_supplied_values]") unless input[:connector_supplied_values].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -1230,7 +1232,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OAuth2CustomParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OAuth2CustomParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1238,11 +1240,11 @@ module AWS::SDK::Appflow
     class OAuth2Defaults
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OAuth2Defaults, context: context)
-        Validators::OAuthScopeList.validate!(input[:oauth_scopes], context: "#{context}[:oauth_scopes]") unless input[:oauth_scopes].nil?
-        Validators::TokenUrlList.validate!(input[:token_urls], context: "#{context}[:token_urls]") unless input[:token_urls].nil?
-        Validators::AuthCodeUrlList.validate!(input[:auth_code_urls], context: "#{context}[:auth_code_urls]") unless input[:auth_code_urls].nil?
-        Validators::OAuth2GrantTypeSupportedList.validate!(input[:oauth2_grant_types_supported], context: "#{context}[:oauth2_grant_types_supported]") unless input[:oauth2_grant_types_supported].nil?
-        Validators::OAuth2CustomPropertiesList.validate!(input[:oauth2_custom_properties], context: "#{context}[:oauth2_custom_properties]") unless input[:oauth2_custom_properties].nil?
+        OAuthScopeList.validate!(input[:oauth_scopes], context: "#{context}[:oauth_scopes]") unless input[:oauth_scopes].nil?
+        TokenUrlList.validate!(input[:token_urls], context: "#{context}[:token_urls]") unless input[:token_urls].nil?
+        AuthCodeUrlList.validate!(input[:auth_code_urls], context: "#{context}[:auth_code_urls]") unless input[:auth_code_urls].nil?
+        OAuth2GrantTypeSupportedList.validate!(input[:oauth2_grant_types_supported], context: "#{context}[:oauth2_grant_types_supported]") unless input[:oauth2_grant_types_supported].nil?
+        OAuth2CustomPropertiesList.validate!(input[:oauth2_custom_properties], context: "#{context}[:oauth2_custom_properties]") unless input[:oauth2_custom_properties].nil?
       end
     end
 
@@ -1260,7 +1262,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::OAuth2Properties, context: context)
         Hearth::Validator.validate!(input[:token_url], ::String, context: "#{context}[:token_url]")
         Hearth::Validator.validate!(input[:o_auth2_grant_type], ::String, context: "#{context}[:o_auth2_grant_type]")
-        Validators::TokenUrlCustomProperties.validate!(input[:token_url_custom_properties], context: "#{context}[:token_url_custom_properties]") unless input[:token_url_custom_properties].nil?
+        TokenUrlCustomProperties.validate!(input[:token_url_custom_properties], context: "#{context}[:token_url_custom_properties]") unless input[:token_url_custom_properties].nil?
       end
     end
 
@@ -1271,7 +1273,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_secret], ::String, context: "#{context}[:client_secret]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -1280,7 +1282,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::OAuthProperties, context: context)
         Hearth::Validator.validate!(input[:token_url], ::String, context: "#{context}[:token_url]")
         Hearth::Validator.validate!(input[:auth_code_url], ::String, context: "#{context}[:auth_code_url]")
-        Validators::OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
       end
     end
 
@@ -1352,7 +1354,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
         Hearth::Validator.validate!(input[:intermediate_bucket_name], ::String, context: "#{context}[:intermediate_bucket_name]")
         Hearth::Validator.validate!(input[:bucket_prefix], ::String, context: "#{context}[:bucket_prefix]")
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
       end
     end
 
@@ -1377,7 +1379,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:connector_label], ::String, context: "#{context}[:connector_label]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:connector_provisioning_type], ::String, context: "#{context}[:connector_provisioning_type]")
-        Validators::ConnectorProvisioningConfig.validate!(input[:connector_provisioning_config], context: "#{context}[:connector_provisioning_config]") unless input[:connector_provisioning_config].nil?
+        ConnectorProvisioningConfig.validate!(input[:connector_provisioning_config], context: "#{context}[:connector_provisioning_config]") unless input[:connector_provisioning_config].nil?
       end
     end
 
@@ -1400,7 +1402,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::S3DestinationProperties, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:bucket_prefix], ::String, context: "#{context}[:bucket_prefix]")
-        Validators::S3OutputFormatConfig.validate!(input[:s3_output_format_config], context: "#{context}[:s3_output_format_config]") unless input[:s3_output_format_config].nil?
+        S3OutputFormatConfig.validate!(input[:s3_output_format_config], context: "#{context}[:s3_output_format_config]") unless input[:s3_output_format_config].nil?
       end
     end
 
@@ -1421,8 +1423,8 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3OutputFormatConfig, context: context)
         Hearth::Validator.validate!(input[:file_type], ::String, context: "#{context}[:file_type]")
-        Validators::PrefixConfig.validate!(input[:prefix_config], context: "#{context}[:prefix_config]") unless input[:prefix_config].nil?
-        Validators::AggregationConfig.validate!(input[:aggregation_config], context: "#{context}[:aggregation_config]") unless input[:aggregation_config].nil?
+        PrefixConfig.validate!(input[:prefix_config], context: "#{context}[:prefix_config]") unless input[:prefix_config].nil?
+        AggregationConfig.validate!(input[:aggregation_config], context: "#{context}[:aggregation_config]") unless input[:aggregation_config].nil?
         Hearth::Validator.validate!(input[:preserve_source_data_typing], ::TrueClass, ::FalseClass, context: "#{context}[:preserve_source_data_typing]")
       end
     end
@@ -1432,15 +1434,15 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::S3SourceProperties, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:bucket_prefix], ::String, context: "#{context}[:bucket_prefix]")
-        Validators::S3InputFormatConfig.validate!(input[:s3_input_format_config], context: "#{context}[:s3_input_format_config]") unless input[:s3_input_format_config].nil?
+        S3InputFormatConfig.validate!(input[:s3_input_format_config], context: "#{context}[:s3_input_format_config]") unless input[:s3_input_format_config].nil?
       end
     end
 
     class SAPODataConnectorProfileCredentials
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SAPODataConnectorProfileCredentials, context: context)
-        Validators::BasicAuthCredentials.validate!(input[:basic_auth_credentials], context: "#{context}[:basic_auth_credentials]") unless input[:basic_auth_credentials].nil?
-        Validators::OAuthCredentials.validate!(input[:o_auth_credentials], context: "#{context}[:o_auth_credentials]") unless input[:o_auth_credentials].nil?
+        BasicAuthCredentials.validate!(input[:basic_auth_credentials], context: "#{context}[:basic_auth_credentials]") unless input[:basic_auth_credentials].nil?
+        OAuthCredentials.validate!(input[:o_auth_credentials], context: "#{context}[:o_auth_credentials]") unless input[:o_auth_credentials].nil?
       end
     end
 
@@ -1453,7 +1455,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_number], ::String, context: "#{context}[:client_number]")
         Hearth::Validator.validate!(input[:logon_language], ::String, context: "#{context}[:logon_language]")
         Hearth::Validator.validate!(input[:private_link_service_name], ::String, context: "#{context}[:private_link_service_name]")
-        Validators::OAuthProperties.validate!(input[:o_auth_properties], context: "#{context}[:o_auth_properties]") unless input[:o_auth_properties].nil?
+        OAuthProperties.validate!(input[:o_auth_properties], context: "#{context}[:o_auth_properties]") unless input[:o_auth_properties].nil?
       end
     end
 
@@ -1461,9 +1463,9 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SAPODataDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:object_path], ::String, context: "#{context}[:object_path]")
-        Validators::SuccessResponseHandlingConfig.validate!(input[:success_response_handling_config], context: "#{context}[:success_response_handling_config]") unless input[:success_response_handling_config].nil?
-        Validators::IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        SuccessResponseHandlingConfig.validate!(input[:success_response_handling_config], context: "#{context}[:success_response_handling_config]") unless input[:success_response_handling_config].nil?
+        IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
         Hearth::Validator.validate!(input[:write_operation_type], ::String, context: "#{context}[:write_operation_type]")
       end
     end
@@ -1486,7 +1488,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::SalesforceConnectorProfileCredentials, context: context)
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
         Hearth::Validator.validate!(input[:client_credentials_arn], ::String, context: "#{context}[:client_credentials_arn]")
       end
     end
@@ -1503,8 +1505,8 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SalesforceDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
-        Validators::IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
         Hearth::Validator.validate!(input[:write_operation_type], ::String, context: "#{context}[:write_operation_type]")
       end
     end
@@ -1512,7 +1514,7 @@ module AWS::SDK::Appflow
     class SalesforceMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SalesforceMetadata, context: context)
-        Validators::OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
       end
     end
 
@@ -1615,7 +1617,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:client_secret], ::String, context: "#{context}[:client_secret]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -1629,7 +1631,7 @@ module AWS::SDK::Appflow
     class SlackMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SlackMetadata, context: context)
-        Validators::OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
       end
     end
 
@@ -1667,36 +1669,36 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
         Hearth::Validator.validate!(input[:intermediate_bucket_name], ::String, context: "#{context}[:intermediate_bucket_name]")
         Hearth::Validator.validate!(input[:bucket_prefix], ::String, context: "#{context}[:bucket_prefix]")
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
       end
     end
 
     class SnowflakeMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SnowflakeMetadata, context: context)
-        Validators::RegionList.validate!(input[:supported_regions], context: "#{context}[:supported_regions]") unless input[:supported_regions].nil?
+        RegionList.validate!(input[:supported_regions], context: "#{context}[:supported_regions]") unless input[:supported_regions].nil?
       end
     end
 
     class SourceConnectorProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceConnectorProperties, context: context)
-        Validators::AmplitudeSourceProperties.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
-        Validators::DatadogSourceProperties.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
-        Validators::DynatraceSourceProperties.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
-        Validators::GoogleAnalyticsSourceProperties.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
-        Validators::InforNexusSourceProperties.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
-        Validators::MarketoSourceProperties.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
-        Validators::S3SourceProperties.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
-        Validators::SalesforceSourceProperties.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
-        Validators::ServiceNowSourceProperties.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
-        Validators::SingularSourceProperties.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
-        Validators::SlackSourceProperties.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
-        Validators::TrendmicroSourceProperties.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
-        Validators::VeevaSourceProperties.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
-        Validators::ZendeskSourceProperties.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
-        Validators::SAPODataSourceProperties.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
-        Validators::CustomConnectorSourceProperties.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
+        AmplitudeSourceProperties.validate!(input[:amplitude], context: "#{context}[:amplitude]") unless input[:amplitude].nil?
+        DatadogSourceProperties.validate!(input[:datadog], context: "#{context}[:datadog]") unless input[:datadog].nil?
+        DynatraceSourceProperties.validate!(input[:dynatrace], context: "#{context}[:dynatrace]") unless input[:dynatrace].nil?
+        GoogleAnalyticsSourceProperties.validate!(input[:google_analytics], context: "#{context}[:google_analytics]") unless input[:google_analytics].nil?
+        InforNexusSourceProperties.validate!(input[:infor_nexus], context: "#{context}[:infor_nexus]") unless input[:infor_nexus].nil?
+        MarketoSourceProperties.validate!(input[:marketo], context: "#{context}[:marketo]") unless input[:marketo].nil?
+        S3SourceProperties.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        SalesforceSourceProperties.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
+        ServiceNowSourceProperties.validate!(input[:service_now], context: "#{context}[:service_now]") unless input[:service_now].nil?
+        SingularSourceProperties.validate!(input[:singular], context: "#{context}[:singular]") unless input[:singular].nil?
+        SlackSourceProperties.validate!(input[:slack], context: "#{context}[:slack]") unless input[:slack].nil?
+        TrendmicroSourceProperties.validate!(input[:trendmicro], context: "#{context}[:trendmicro]") unless input[:trendmicro].nil?
+        VeevaSourceProperties.validate!(input[:veeva], context: "#{context}[:veeva]") unless input[:veeva].nil?
+        ZendeskSourceProperties.validate!(input[:zendesk], context: "#{context}[:zendesk]") unless input[:zendesk].nil?
+        SAPODataSourceProperties.validate!(input[:sapo_data], context: "#{context}[:sapo_data]") unless input[:sapo_data].nil?
+        CustomConnectorSourceProperties.validate!(input[:custom_connector], context: "#{context}[:custom_connector]") unless input[:custom_connector].nil?
       end
     end
 
@@ -1724,8 +1726,8 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:connector_type], ::String, context: "#{context}[:connector_type]")
         Hearth::Validator.validate!(input[:api_version], ::String, context: "#{context}[:api_version]")
         Hearth::Validator.validate!(input[:connector_profile_name], ::String, context: "#{context}[:connector_profile_name]")
-        Validators::SourceConnectorProperties.validate!(input[:source_connector_properties], context: "#{context}[:source_connector_properties]") unless input[:source_connector_properties].nil?
-        Validators::IncrementalPullConfig.validate!(input[:incremental_pull_config], context: "#{context}[:incremental_pull_config]") unless input[:incremental_pull_config].nil?
+        SourceConnectorProperties.validate!(input[:source_connector_properties], context: "#{context}[:source_connector_properties]") unless input[:source_connector_properties].nil?
+        IncrementalPullConfig.validate!(input[:incremental_pull_config], context: "#{context}[:incremental_pull_config]") unless input[:incremental_pull_config].nil?
       end
     end
 
@@ -1780,7 +1782,7 @@ module AWS::SDK::Appflow
     class SupportedFieldTypeDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SupportedFieldTypeDetails, context: context)
-        Validators::FieldTypeDetails.validate!(input[:v1], context: "#{context}[:v1]") unless input[:v1].nil?
+        FieldTypeDetails.validate!(input[:v1], context: "#{context}[:v1]") unless input[:v1].nil?
       end
     end
 
@@ -1834,7 +1836,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1847,11 +1849,11 @@ module AWS::SDK::Appflow
     class Task
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Task, context: context)
-        Validators::SourceFields.validate!(input[:source_fields], context: "#{context}[:source_fields]") unless input[:source_fields].nil?
-        Validators::ConnectorOperator.validate!(input[:connector_operator], context: "#{context}[:connector_operator]") unless input[:connector_operator].nil?
+        SourceFields.validate!(input[:source_fields], context: "#{context}[:source_fields]") unless input[:source_fields].nil?
+        ConnectorOperator.validate!(input[:connector_operator], context: "#{context}[:connector_operator]") unless input[:connector_operator].nil?
         Hearth::Validator.validate!(input[:destination_field], ::String, context: "#{context}[:destination_field]")
         Hearth::Validator.validate!(input[:task_type], ::String, context: "#{context}[:task_type]")
-        Validators::TaskPropertiesMap.validate!(input[:task_properties], context: "#{context}[:task_properties]") unless input[:task_properties].nil?
+        TaskPropertiesMap.validate!(input[:task_properties], context: "#{context}[:task_properties]") unless input[:task_properties].nil?
       end
     end
 
@@ -1869,7 +1871,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Task.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Task.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1930,14 +1932,14 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TriggerConfig, context: context)
         Hearth::Validator.validate!(input[:trigger_type], ::String, context: "#{context}[:trigger_type]")
-        Validators::TriggerProperties.validate!(input[:trigger_properties], context: "#{context}[:trigger_properties]") unless input[:trigger_properties].nil?
+        TriggerProperties.validate!(input[:trigger_properties], context: "#{context}[:trigger_properties]") unless input[:trigger_properties].nil?
       end
     end
 
     class TriggerProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TriggerProperties, context: context)
-        Validators::ScheduledTriggerProperties.validate!(input[:scheduled], context: "#{context}[:scheduled]") unless input[:scheduled].nil?
+        ScheduledTriggerProperties.validate!(input[:scheduled], context: "#{context}[:scheduled]") unless input[:scheduled].nil?
       end
     end
 
@@ -1975,7 +1977,7 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1990,7 +1992,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::UpdateConnectorProfileInput, context: context)
         Hearth::Validator.validate!(input[:connector_profile_name], ::String, context: "#{context}[:connector_profile_name]")
         Hearth::Validator.validate!(input[:connection_mode], ::String, context: "#{context}[:connection_mode]")
-        Validators::ConnectorProfileConfig.validate!(input[:connector_profile_config], context: "#{context}[:connector_profile_config]") unless input[:connector_profile_config].nil?
+        ConnectorProfileConfig.validate!(input[:connector_profile_config], context: "#{context}[:connector_profile_config]") unless input[:connector_profile_config].nil?
       end
     end
 
@@ -2006,10 +2008,10 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::UpdateFlowInput, context: context)
         Hearth::Validator.validate!(input[:flow_name], ::String, context: "#{context}[:flow_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TriggerConfig.validate!(input[:trigger_config], context: "#{context}[:trigger_config]") unless input[:trigger_config].nil?
-        Validators::SourceFlowConfig.validate!(input[:source_flow_config], context: "#{context}[:source_flow_config]") unless input[:source_flow_config].nil?
-        Validators::DestinationFlowConfigList.validate!(input[:destination_flow_config_list], context: "#{context}[:destination_flow_config_list]") unless input[:destination_flow_config_list].nil?
-        Validators::Tasks.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        TriggerConfig.validate!(input[:trigger_config], context: "#{context}[:trigger_config]") unless input[:trigger_config].nil?
+        SourceFlowConfig.validate!(input[:source_flow_config], context: "#{context}[:source_flow_config]") unless input[:source_flow_config].nil?
+        DestinationFlowConfigList.validate!(input[:destination_flow_config_list], context: "#{context}[:destination_flow_config_list]") unless input[:destination_flow_config_list].nil?
+        Tasks.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
       end
     end
 
@@ -2025,7 +2027,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input, Types::UpsolverDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:bucket_prefix], ::String, context: "#{context}[:bucket_prefix]")
-        Validators::UpsolverS3OutputFormatConfig.validate!(input[:s3_output_format_config], context: "#{context}[:s3_output_format_config]") unless input[:s3_output_format_config].nil?
+        UpsolverS3OutputFormatConfig.validate!(input[:s3_output_format_config], context: "#{context}[:s3_output_format_config]") unless input[:s3_output_format_config].nil?
       end
     end
 
@@ -2039,8 +2041,8 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpsolverS3OutputFormatConfig, context: context)
         Hearth::Validator.validate!(input[:file_type], ::String, context: "#{context}[:file_type]")
-        Validators::PrefixConfig.validate!(input[:prefix_config], context: "#{context}[:prefix_config]") unless input[:prefix_config].nil?
-        Validators::AggregationConfig.validate!(input[:aggregation_config], context: "#{context}[:aggregation_config]") unless input[:aggregation_config].nil?
+        PrefixConfig.validate!(input[:prefix_config], context: "#{context}[:prefix_config]") unless input[:prefix_config].nil?
+        AggregationConfig.validate!(input[:aggregation_config], context: "#{context}[:aggregation_config]") unless input[:aggregation_config].nil?
       end
     end
 
@@ -2089,7 +2091,7 @@ module AWS::SDK::Appflow
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
         Hearth::Validator.validate!(input[:client_secret], ::String, context: "#{context}[:client_secret]")
         Hearth::Validator.validate!(input[:access_token], ::String, context: "#{context}[:access_token]")
-        Validators::ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
+        ConnectorOAuthRequest.validate!(input[:o_auth_request], context: "#{context}[:o_auth_request]") unless input[:o_auth_request].nil?
       end
     end
 
@@ -2104,8 +2106,8 @@ module AWS::SDK::Appflow
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ZendeskDestinationProperties, context: context)
         Hearth::Validator.validate!(input[:object], ::String, context: "#{context}[:object]")
-        Validators::IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
-        Validators::ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
+        IdFieldNameList.validate!(input[:id_field_names], context: "#{context}[:id_field_names]") unless input[:id_field_names].nil?
+        ErrorHandlingConfig.validate!(input[:error_handling_config], context: "#{context}[:error_handling_config]") unless input[:error_handling_config].nil?
         Hearth::Validator.validate!(input[:write_operation_type], ::String, context: "#{context}[:write_operation_type]")
       end
     end
@@ -2113,7 +2115,7 @@ module AWS::SDK::Appflow
     class ZendeskMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ZendeskMetadata, context: context)
-        Validators::OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        OAuthScopeList.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
       end
     end
 

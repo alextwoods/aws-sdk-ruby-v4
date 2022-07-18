@@ -264,7 +264,7 @@ module AWS::SDK::Billingconductor
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateBillingGroupInput, context: context)
         type = Types::CreateBillingGroupInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.account_grouping = AccountGrouping.build(params[:account_grouping], context: "#{context}[:account_grouping]") unless params[:account_grouping].nil?
         type.computation_preference = ComputationPreference.build(params[:computation_preference], context: "#{context}[:computation_preference]") unless params[:computation_preference].nil?
@@ -288,7 +288,7 @@ module AWS::SDK::Billingconductor
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateCustomLineItemInput, context: context)
         type = Types::CreateCustomLineItemInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.description = params[:description]
         type.billing_group_arn = params[:billing_group_arn]
@@ -312,7 +312,7 @@ module AWS::SDK::Billingconductor
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreatePricingPlanInput, context: context)
         type = Types::CreatePricingPlanInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.description = params[:description]
         type.pricing_rule_arns = PricingRuleArnsInput.build(params[:pricing_rule_arns], context: "#{context}[:pricing_rule_arns]") unless params[:pricing_rule_arns].nil?
@@ -334,7 +334,7 @@ module AWS::SDK::Billingconductor
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreatePricingRuleInput, context: context)
         type = Types::CreatePricingRuleInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.name = params[:name]
         type.description = params[:description]
         type.scope = params[:scope]

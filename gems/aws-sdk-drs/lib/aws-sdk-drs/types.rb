@@ -60,11 +60,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cores ||= 0
       end
-
     end
 
     # <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
@@ -265,6 +265,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -395,6 +396,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -585,6 +587,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_storage_bytes ||= 0
@@ -592,7 +595,6 @@ module AWS::SDK::Drs
         self.rescanned_storage_bytes ||= 0
         self.backlogged_storage_bytes ||= 0
       end
-
     end
 
     # <p>Data replication initiation.</p>
@@ -859,11 +861,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -906,11 +908,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -979,11 +981,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1060,11 +1062,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1127,11 +1129,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1174,11 +1176,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -1349,11 +1351,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes ||= 0
       end
-
     end
 
     # Includes enum constants for EC2InstanceState
@@ -1508,11 +1510,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
       end
-
     end
 
     # @!attribute source_server_id
@@ -1703,6 +1705,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -1820,11 +1823,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>A job is an asynchronous workflow.</p>
@@ -2262,11 +2265,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute items
@@ -2430,13 +2433,13 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rule_id ||= 0
         self.interval ||= 0
         self.retention_duration ||= 0
       end
-
     end
 
     # Includes enum constants for PITPolicyRuleUnits
@@ -2685,6 +2688,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_storage_bytes ||= 0
@@ -2692,7 +2696,6 @@ module AWS::SDK::Drs
         self.rescanned_storage_bytes ||= 0
         self.backlogged_storage_bytes ||= 0
       end
-
     end
 
     # <p>Data replication initiation.</p>
@@ -2863,11 +2866,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes ||= 0
       end
-
     end
 
     # <p>An object representing failback related information of the Recovery Instance.</p>
@@ -2982,11 +2985,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ram_bytes ||= 0
       end
-
     end
 
     # <p>A snapshot of a Source Server used during recovery.</p>
@@ -3117,12 +3120,12 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.iops ||= 0
         self.throughput ||= 0
       end
-
     end
 
     # Includes enum constants for ReplicationConfigurationReplicatedDiskStagingDiskType
@@ -3263,6 +3266,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -3502,11 +3506,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ram_bytes ||= 0
       end
-
     end
 
     # @!attribute source_server_id
@@ -3947,11 +3951,11 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
       end
-
     end
 
     UpdateFailbackReplicationConfigurationOutput = ::Struct.new(
@@ -4177,6 +4181,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -4309,6 +4314,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -4435,6 +4441,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0
@@ -4566,6 +4573,7 @@ module AWS::SDK::Drs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth_throttling ||= 0

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::KafkaConnect
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApacheKafkaCluster, context: context)
         Hearth::Validator.validate!(input[:bootstrap_servers], ::String, context: "#{context}[:bootstrap_servers]")
-        Validators::Vpc.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        Vpc.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -22,7 +24,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ApacheKafkaClusterDescription, context: context)
         Hearth::Validator.validate!(input[:bootstrap_servers], ::String, context: "#{context}[:bootstrap_servers]")
-        Validators::VpcDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
+        VpcDescription.validate!(input[:vpc], context: "#{context}[:vpc]") unless input[:vpc].nil?
       end
     end
 
@@ -32,8 +34,8 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input[:max_worker_count], ::Integer, context: "#{context}[:max_worker_count]")
         Hearth::Validator.validate!(input[:mcu_count], ::Integer, context: "#{context}[:mcu_count]")
         Hearth::Validator.validate!(input[:min_worker_count], ::Integer, context: "#{context}[:min_worker_count]")
-        Validators::ScaleInPolicy.validate!(input[:scale_in_policy], context: "#{context}[:scale_in_policy]") unless input[:scale_in_policy].nil?
-        Validators::ScaleOutPolicy.validate!(input[:scale_out_policy], context: "#{context}[:scale_out_policy]") unless input[:scale_out_policy].nil?
+        ScaleInPolicy.validate!(input[:scale_in_policy], context: "#{context}[:scale_in_policy]") unless input[:scale_in_policy].nil?
+        ScaleOutPolicy.validate!(input[:scale_out_policy], context: "#{context}[:scale_out_policy]") unless input[:scale_out_policy].nil?
       end
     end
 
@@ -43,8 +45,8 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input[:max_worker_count], ::Integer, context: "#{context}[:max_worker_count]")
         Hearth::Validator.validate!(input[:mcu_count], ::Integer, context: "#{context}[:mcu_count]")
         Hearth::Validator.validate!(input[:min_worker_count], ::Integer, context: "#{context}[:min_worker_count]")
-        Validators::ScaleInPolicyDescription.validate!(input[:scale_in_policy], context: "#{context}[:scale_in_policy]") unless input[:scale_in_policy].nil?
-        Validators::ScaleOutPolicyDescription.validate!(input[:scale_out_policy], context: "#{context}[:scale_out_policy]") unless input[:scale_out_policy].nil?
+        ScaleInPolicyDescription.validate!(input[:scale_in_policy], context: "#{context}[:scale_in_policy]") unless input[:scale_in_policy].nil?
+        ScaleOutPolicyDescription.validate!(input[:scale_out_policy], context: "#{context}[:scale_out_policy]") unless input[:scale_out_policy].nil?
       end
     end
 
@@ -54,8 +56,8 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input[:max_worker_count], ::Integer, context: "#{context}[:max_worker_count]")
         Hearth::Validator.validate!(input[:mcu_count], ::Integer, context: "#{context}[:mcu_count]")
         Hearth::Validator.validate!(input[:min_worker_count], ::Integer, context: "#{context}[:min_worker_count]")
-        Validators::ScaleInPolicyUpdate.validate!(input[:scale_in_policy], context: "#{context}[:scale_in_policy]") unless input[:scale_in_policy].nil?
-        Validators::ScaleOutPolicyUpdate.validate!(input[:scale_out_policy], context: "#{context}[:scale_out_policy]") unless input[:scale_out_policy].nil?
+        ScaleInPolicyUpdate.validate!(input[:scale_in_policy], context: "#{context}[:scale_in_policy]") unless input[:scale_in_policy].nil?
+        ScaleOutPolicyUpdate.validate!(input[:scale_out_policy], context: "#{context}[:scale_out_policy]") unless input[:scale_out_policy].nil?
       end
     end
 
@@ -69,24 +71,24 @@ module AWS::SDK::KafkaConnect
     class Capacity
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Capacity, context: context)
-        Validators::AutoScaling.validate!(input[:auto_scaling], context: "#{context}[:auto_scaling]") unless input[:auto_scaling].nil?
-        Validators::ProvisionedCapacity.validate!(input[:provisioned_capacity], context: "#{context}[:provisioned_capacity]") unless input[:provisioned_capacity].nil?
+        AutoScaling.validate!(input[:auto_scaling], context: "#{context}[:auto_scaling]") unless input[:auto_scaling].nil?
+        ProvisionedCapacity.validate!(input[:provisioned_capacity], context: "#{context}[:provisioned_capacity]") unless input[:provisioned_capacity].nil?
       end
     end
 
     class CapacityDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CapacityDescription, context: context)
-        Validators::AutoScalingDescription.validate!(input[:auto_scaling], context: "#{context}[:auto_scaling]") unless input[:auto_scaling].nil?
-        Validators::ProvisionedCapacityDescription.validate!(input[:provisioned_capacity], context: "#{context}[:provisioned_capacity]") unless input[:provisioned_capacity].nil?
+        AutoScalingDescription.validate!(input[:auto_scaling], context: "#{context}[:auto_scaling]") unless input[:auto_scaling].nil?
+        ProvisionedCapacityDescription.validate!(input[:provisioned_capacity], context: "#{context}[:provisioned_capacity]") unless input[:provisioned_capacity].nil?
       end
     end
 
     class CapacityUpdate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CapacityUpdate, context: context)
-        Validators::AutoScalingUpdate.validate!(input[:auto_scaling], context: "#{context}[:auto_scaling]") unless input[:auto_scaling].nil?
-        Validators::ProvisionedCapacityUpdate.validate!(input[:provisioned_capacity], context: "#{context}[:provisioned_capacity]") unless input[:provisioned_capacity].nil?
+        AutoScalingUpdate.validate!(input[:auto_scaling], context: "#{context}[:auto_scaling]") unless input[:auto_scaling].nil?
+        ProvisionedCapacityUpdate.validate!(input[:provisioned_capacity], context: "#{context}[:provisioned_capacity]") unless input[:provisioned_capacity].nil?
       end
     end
 
@@ -116,39 +118,39 @@ module AWS::SDK::KafkaConnect
     class ConnectorSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorSummary, context: context)
-        Validators::CapacityDescription.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
+        CapacityDescription.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
         Hearth::Validator.validate!(input[:connector_arn], ::String, context: "#{context}[:connector_arn]")
         Hearth::Validator.validate!(input[:connector_description], ::String, context: "#{context}[:connector_description]")
         Hearth::Validator.validate!(input[:connector_name], ::String, context: "#{context}[:connector_name]")
         Hearth::Validator.validate!(input[:connector_state], ::String, context: "#{context}[:connector_state]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:current_version], ::String, context: "#{context}[:current_version]")
-        Validators::KafkaClusterDescription.validate!(input[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless input[:kafka_cluster].nil?
-        Validators::KafkaClusterClientAuthenticationDescription.validate!(input[:kafka_cluster_client_authentication], context: "#{context}[:kafka_cluster_client_authentication]") unless input[:kafka_cluster_client_authentication].nil?
-        Validators::KafkaClusterEncryptionInTransitDescription.validate!(input[:kafka_cluster_encryption_in_transit], context: "#{context}[:kafka_cluster_encryption_in_transit]") unless input[:kafka_cluster_encryption_in_transit].nil?
+        KafkaClusterDescription.validate!(input[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless input[:kafka_cluster].nil?
+        KafkaClusterClientAuthenticationDescription.validate!(input[:kafka_cluster_client_authentication], context: "#{context}[:kafka_cluster_client_authentication]") unless input[:kafka_cluster_client_authentication].nil?
+        KafkaClusterEncryptionInTransitDescription.validate!(input[:kafka_cluster_encryption_in_transit], context: "#{context}[:kafka_cluster_encryption_in_transit]") unless input[:kafka_cluster_encryption_in_transit].nil?
         Hearth::Validator.validate!(input[:kafka_connect_version], ::String, context: "#{context}[:kafka_connect_version]")
-        Validators::LogDeliveryDescription.validate!(input[:log_delivery], context: "#{context}[:log_delivery]") unless input[:log_delivery].nil?
-        Validators::List____listOfPluginDescription.validate!(input[:plugins], context: "#{context}[:plugins]") unless input[:plugins].nil?
+        LogDeliveryDescription.validate!(input[:log_delivery], context: "#{context}[:log_delivery]") unless input[:log_delivery].nil?
+        List____listOfPluginDescription.validate!(input[:plugins], context: "#{context}[:plugins]") unless input[:plugins].nil?
         Hearth::Validator.validate!(input[:service_execution_role_arn], ::String, context: "#{context}[:service_execution_role_arn]")
-        Validators::WorkerConfigurationDescription.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
+        WorkerConfigurationDescription.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
       end
     end
 
     class CreateConnectorInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectorInput, context: context)
-        Validators::Capacity.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
-        Validators::Map____mapOf__string.validate!(input[:connector_configuration], context: "#{context}[:connector_configuration]") unless input[:connector_configuration].nil?
+        Capacity.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
+        Map____sensitive__mapOf__string.validate!(input[:connector_configuration], context: "#{context}[:connector_configuration]") unless input[:connector_configuration].nil?
         Hearth::Validator.validate!(input[:connector_description], ::String, context: "#{context}[:connector_description]")
         Hearth::Validator.validate!(input[:connector_name], ::String, context: "#{context}[:connector_name]")
-        Validators::KafkaCluster.validate!(input[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless input[:kafka_cluster].nil?
-        Validators::KafkaClusterClientAuthentication.validate!(input[:kafka_cluster_client_authentication], context: "#{context}[:kafka_cluster_client_authentication]") unless input[:kafka_cluster_client_authentication].nil?
-        Validators::KafkaClusterEncryptionInTransit.validate!(input[:kafka_cluster_encryption_in_transit], context: "#{context}[:kafka_cluster_encryption_in_transit]") unless input[:kafka_cluster_encryption_in_transit].nil?
+        KafkaCluster.validate!(input[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless input[:kafka_cluster].nil?
+        KafkaClusterClientAuthentication.validate!(input[:kafka_cluster_client_authentication], context: "#{context}[:kafka_cluster_client_authentication]") unless input[:kafka_cluster_client_authentication].nil?
+        KafkaClusterEncryptionInTransit.validate!(input[:kafka_cluster_encryption_in_transit], context: "#{context}[:kafka_cluster_encryption_in_transit]") unless input[:kafka_cluster_encryption_in_transit].nil?
         Hearth::Validator.validate!(input[:kafka_connect_version], ::String, context: "#{context}[:kafka_connect_version]")
-        Validators::LogDelivery.validate!(input[:log_delivery], context: "#{context}[:log_delivery]") unless input[:log_delivery].nil?
-        Validators::List____listOfPlugin.validate!(input[:plugins], context: "#{context}[:plugins]") unless input[:plugins].nil?
+        LogDelivery.validate!(input[:log_delivery], context: "#{context}[:log_delivery]") unless input[:log_delivery].nil?
+        List____listOfPlugin.validate!(input[:plugins], context: "#{context}[:plugins]") unless input[:plugins].nil?
         Hearth::Validator.validate!(input[:service_execution_role_arn], ::String, context: "#{context}[:service_execution_role_arn]")
-        Validators::WorkerConfiguration.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
+        WorkerConfiguration.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
       end
     end
 
@@ -166,7 +168,7 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input, Types::CreateCustomPluginInput, context: context)
         Hearth::Validator.validate!(input[:content_type], ::String, context: "#{context}[:content_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::CustomPluginLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        CustomPluginLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -194,7 +196,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWorkerConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
-        Validators::WorkerConfigurationRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        WorkerConfigurationRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:worker_configuration_arn], ::String, context: "#{context}[:worker_configuration_arn]")
       end
@@ -227,14 +229,14 @@ module AWS::SDK::KafkaConnect
     class CustomPluginLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomPluginLocation, context: context)
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
     class CustomPluginLocationDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomPluginLocationDescription, context: context)
-        Validators::S3LocationDescription.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3LocationDescription.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -244,8 +246,8 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input[:content_type], ::String, context: "#{context}[:content_type]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::CustomPluginFileDescription.validate!(input[:file_description], context: "#{context}[:file_description]") unless input[:file_description].nil?
-        Validators::CustomPluginLocationDescription.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        CustomPluginFileDescription.validate!(input[:file_description], context: "#{context}[:file_description]") unless input[:file_description].nil?
+        CustomPluginLocationDescription.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:revision], ::Integer, context: "#{context}[:revision]")
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input[:custom_plugin_arn], ::String, context: "#{context}[:custom_plugin_arn]")
         Hearth::Validator.validate!(input[:custom_plugin_state], ::String, context: "#{context}[:custom_plugin_state]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::CustomPluginRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        CustomPluginRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
@@ -303,23 +305,23 @@ module AWS::SDK::KafkaConnect
     class DescribeConnectorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeConnectorOutput, context: context)
-        Validators::CapacityDescription.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
+        CapacityDescription.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
         Hearth::Validator.validate!(input[:connector_arn], ::String, context: "#{context}[:connector_arn]")
-        Validators::Map____mapOf__string.validate!(input[:connector_configuration], context: "#{context}[:connector_configuration]") unless input[:connector_configuration].nil?
+        Map____sensitive__mapOf__string.validate!(input[:connector_configuration], context: "#{context}[:connector_configuration]") unless input[:connector_configuration].nil?
         Hearth::Validator.validate!(input[:connector_description], ::String, context: "#{context}[:connector_description]")
         Hearth::Validator.validate!(input[:connector_name], ::String, context: "#{context}[:connector_name]")
         Hearth::Validator.validate!(input[:connector_state], ::String, context: "#{context}[:connector_state]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:current_version], ::String, context: "#{context}[:current_version]")
-        Validators::KafkaClusterDescription.validate!(input[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless input[:kafka_cluster].nil?
-        Validators::KafkaClusterClientAuthenticationDescription.validate!(input[:kafka_cluster_client_authentication], context: "#{context}[:kafka_cluster_client_authentication]") unless input[:kafka_cluster_client_authentication].nil?
-        Validators::KafkaClusterEncryptionInTransitDescription.validate!(input[:kafka_cluster_encryption_in_transit], context: "#{context}[:kafka_cluster_encryption_in_transit]") unless input[:kafka_cluster_encryption_in_transit].nil?
+        KafkaClusterDescription.validate!(input[:kafka_cluster], context: "#{context}[:kafka_cluster]") unless input[:kafka_cluster].nil?
+        KafkaClusterClientAuthenticationDescription.validate!(input[:kafka_cluster_client_authentication], context: "#{context}[:kafka_cluster_client_authentication]") unless input[:kafka_cluster_client_authentication].nil?
+        KafkaClusterEncryptionInTransitDescription.validate!(input[:kafka_cluster_encryption_in_transit], context: "#{context}[:kafka_cluster_encryption_in_transit]") unless input[:kafka_cluster_encryption_in_transit].nil?
         Hearth::Validator.validate!(input[:kafka_connect_version], ::String, context: "#{context}[:kafka_connect_version]")
-        Validators::LogDeliveryDescription.validate!(input[:log_delivery], context: "#{context}[:log_delivery]") unless input[:log_delivery].nil?
-        Validators::List____listOfPluginDescription.validate!(input[:plugins], context: "#{context}[:plugins]") unless input[:plugins].nil?
+        LogDeliveryDescription.validate!(input[:log_delivery], context: "#{context}[:log_delivery]") unless input[:log_delivery].nil?
+        List____listOfPluginDescription.validate!(input[:plugins], context: "#{context}[:plugins]") unless input[:plugins].nil?
         Hearth::Validator.validate!(input[:service_execution_role_arn], ::String, context: "#{context}[:service_execution_role_arn]")
-        Validators::WorkerConfigurationDescription.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
-        Validators::StateDescription.validate!(input[:state_description], context: "#{context}[:state_description]") unless input[:state_description].nil?
+        WorkerConfigurationDescription.validate!(input[:worker_configuration], context: "#{context}[:worker_configuration]") unless input[:worker_configuration].nil?
+        StateDescription.validate!(input[:state_description], context: "#{context}[:state_description]") unless input[:state_description].nil?
       end
     end
 
@@ -337,9 +339,9 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input[:custom_plugin_arn], ::String, context: "#{context}[:custom_plugin_arn]")
         Hearth::Validator.validate!(input[:custom_plugin_state], ::String, context: "#{context}[:custom_plugin_state]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::CustomPluginRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        CustomPluginRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StateDescription.validate!(input[:state_description], context: "#{context}[:state_description]") unless input[:state_description].nil?
+        StateDescription.validate!(input[:state_description], context: "#{context}[:state_description]") unless input[:state_description].nil?
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input, Types::DescribeWorkerConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::WorkerConfigurationRevisionDescription.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        WorkerConfigurationRevisionDescription.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:worker_configuration_arn], ::String, context: "#{context}[:worker_configuration_arn]")
       end
@@ -394,7 +396,7 @@ module AWS::SDK::KafkaConnect
     class KafkaCluster
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KafkaCluster, context: context)
-        Validators::ApacheKafkaCluster.validate!(input[:apache_kafka_cluster], context: "#{context}[:apache_kafka_cluster]") unless input[:apache_kafka_cluster].nil?
+        ApacheKafkaCluster.validate!(input[:apache_kafka_cluster], context: "#{context}[:apache_kafka_cluster]") unless input[:apache_kafka_cluster].nil?
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::KafkaConnect
     class KafkaClusterDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KafkaClusterDescription, context: context)
-        Validators::ApacheKafkaClusterDescription.validate!(input[:apache_kafka_cluster], context: "#{context}[:apache_kafka_cluster]") unless input[:apache_kafka_cluster].nil?
+        ApacheKafkaClusterDescription.validate!(input[:apache_kafka_cluster], context: "#{context}[:apache_kafka_cluster]") unless input[:apache_kafka_cluster].nil?
       end
     end
 
@@ -445,7 +447,7 @@ module AWS::SDK::KafkaConnect
     class ListConnectorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectorsOutput, context: context)
-        Validators::List____listOfConnectorSummary.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
+        List____listOfConnectorSummary.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -461,7 +463,7 @@ module AWS::SDK::KafkaConnect
     class ListCustomPluginsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomPluginsOutput, context: context)
-        Validators::List____listOfCustomPluginSummary.validate!(input[:custom_plugins], context: "#{context}[:custom_plugins]") unless input[:custom_plugins].nil?
+        List____listOfCustomPluginSummary.validate!(input[:custom_plugins], context: "#{context}[:custom_plugins]") unless input[:custom_plugins].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -478,21 +480,21 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorkerConfigurationsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfWorkerConfigurationSummary.validate!(input[:worker_configurations], context: "#{context}[:worker_configurations]") unless input[:worker_configurations].nil?
+        List____listOfWorkerConfigurationSummary.validate!(input[:worker_configurations], context: "#{context}[:worker_configurations]") unless input[:worker_configurations].nil?
       end
     end
 
     class LogDelivery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogDelivery, context: context)
-        Validators::WorkerLogDelivery.validate!(input[:worker_log_delivery], context: "#{context}[:worker_log_delivery]") unless input[:worker_log_delivery].nil?
+        WorkerLogDelivery.validate!(input[:worker_log_delivery], context: "#{context}[:worker_log_delivery]") unless input[:worker_log_delivery].nil?
       end
     end
 
     class LogDeliveryDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogDeliveryDescription, context: context)
-        Validators::WorkerLogDeliveryDescription.validate!(input[:worker_log_delivery], context: "#{context}[:worker_log_delivery]") unless input[:worker_log_delivery].nil?
+        WorkerLogDeliveryDescription.validate!(input[:worker_log_delivery], context: "#{context}[:worker_log_delivery]") unless input[:worker_log_delivery].nil?
       end
     end
 
@@ -506,14 +508,14 @@ module AWS::SDK::KafkaConnect
     class Plugin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Plugin, context: context)
-        Validators::CustomPlugin.validate!(input[:custom_plugin], context: "#{context}[:custom_plugin]") unless input[:custom_plugin].nil?
+        CustomPlugin.validate!(input[:custom_plugin], context: "#{context}[:custom_plugin]") unless input[:custom_plugin].nil?
       end
     end
 
     class PluginDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PluginDescription, context: context)
-        Validators::CustomPluginDescription.validate!(input[:custom_plugin], context: "#{context}[:custom_plugin]") unless input[:custom_plugin].nil?
+        CustomPluginDescription.validate!(input[:custom_plugin], context: "#{context}[:custom_plugin]") unless input[:custom_plugin].nil?
       end
     end
 
@@ -651,7 +653,7 @@ module AWS::SDK::KafkaConnect
     class UpdateConnectorInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConnectorInput, context: context)
-        Validators::CapacityUpdate.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
+        CapacityUpdate.validate!(input[:capacity], context: "#{context}[:capacity]") unless input[:capacity].nil?
         Hearth::Validator.validate!(input[:connector_arn], ::String, context: "#{context}[:connector_arn]")
         Hearth::Validator.validate!(input[:current_version], ::String, context: "#{context}[:current_version]")
       end
@@ -668,16 +670,16 @@ module AWS::SDK::KafkaConnect
     class Vpc
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Vpc, context: context)
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
-        Validators::List____listOf__string.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        List____listOf__string.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
       end
     end
 
     class VpcDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcDescription, context: context)
-        Validators::List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
-        Validators::List____listOf__string.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        List____listOf__string.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        List____listOf__string.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::KafkaConnect
         Hearth::Validator.validate!(input, Types::WorkerConfigurationSummary, context: context)
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::WorkerConfigurationRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
+        WorkerConfigurationRevisionSummary.validate!(input[:latest_revision], context: "#{context}[:latest_revision]") unless input[:latest_revision].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:worker_configuration_arn], ::String, context: "#{context}[:worker_configuration_arn]")
       end
@@ -730,18 +732,18 @@ module AWS::SDK::KafkaConnect
     class WorkerLogDelivery
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WorkerLogDelivery, context: context)
-        Validators::CloudWatchLogsLogDelivery.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
-        Validators::FirehoseLogDelivery.validate!(input[:firehose], context: "#{context}[:firehose]") unless input[:firehose].nil?
-        Validators::S3LogDelivery.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        CloudWatchLogsLogDelivery.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
+        FirehoseLogDelivery.validate!(input[:firehose], context: "#{context}[:firehose]") unless input[:firehose].nil?
+        S3LogDelivery.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
     class WorkerLogDeliveryDescription
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::WorkerLogDeliveryDescription, context: context)
-        Validators::CloudWatchLogsLogDeliveryDescription.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
-        Validators::FirehoseLogDeliveryDescription.validate!(input[:firehose], context: "#{context}[:firehose]") unless input[:firehose].nil?
-        Validators::S3LogDeliveryDescription.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        CloudWatchLogsLogDeliveryDescription.validate!(input[:cloud_watch_logs], context: "#{context}[:cloud_watch_logs]") unless input[:cloud_watch_logs].nil?
+        FirehoseLogDeliveryDescription.validate!(input[:firehose], context: "#{context}[:firehose]") unless input[:firehose].nil?
+        S3LogDeliveryDescription.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
       end
     end
 
@@ -749,7 +751,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectorSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CustomPluginSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CustomPluginSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -767,7 +769,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Plugin.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Plugin.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -776,7 +778,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PluginDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PluginDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -785,7 +787,7 @@ module AWS::SDK::KafkaConnect
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorkerConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorkerConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -799,7 +801,7 @@ module AWS::SDK::KafkaConnect
       end
     end
 
-    class Map____mapOf__string
+    class Map____sensitive__mapOf__string
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|

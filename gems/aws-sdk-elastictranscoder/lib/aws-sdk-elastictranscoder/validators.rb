@@ -35,7 +35,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:sizing_policy], ::String, context: "#{context}[:sizing_policy]")
         Hearth::Validator.validate!(input[:padding_policy], ::String, context: "#{context}[:padding_policy]")
         Hearth::Validator.validate!(input[:album_art_format], ::String, context: "#{context}[:album_art_format]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
       end
     end
 
@@ -43,7 +43,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Artwork.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Artwork.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -66,7 +66,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:bit_rate], ::String, context: "#{context}[:bit_rate]")
         Hearth::Validator.validate!(input[:channels], ::String, context: "#{context}[:channels]")
         Hearth::Validator.validate!(input[:audio_packing_mode], ::String, context: "#{context}[:audio_packing_mode]")
-        Validators::AudioCodecOptions.validate!(input[:codec_options], context: "#{context}[:codec_options]") unless input[:codec_options].nil?
+        AudioCodecOptions.validate!(input[:codec_options], context: "#{context}[:codec_options]") unless input[:codec_options].nil?
       end
     end
 
@@ -88,7 +88,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::CaptionFormat, context: context)
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
         Hearth::Validator.validate!(input[:pattern], ::String, context: "#{context}[:pattern]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
       end
     end
 
@@ -96,7 +96,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CaptionFormat.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CaptionFormat.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -108,7 +108,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:language], ::String, context: "#{context}[:language]")
         Hearth::Validator.validate!(input[:time_offset], ::String, context: "#{context}[:time_offset]")
         Hearth::Validator.validate!(input[:label], ::String, context: "#{context}[:label]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
       end
     end
 
@@ -116,7 +116,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CaptionSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CaptionSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -125,15 +125,15 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Captions, context: context)
         Hearth::Validator.validate!(input[:merge_policy], ::String, context: "#{context}[:merge_policy]")
-        Validators::CaptionSources.validate!(input[:caption_sources], context: "#{context}[:caption_sources]") unless input[:caption_sources].nil?
-        Validators::CaptionFormats.validate!(input[:caption_formats], context: "#{context}[:caption_formats]") unless input[:caption_formats].nil?
+        CaptionSources.validate!(input[:caption_sources], context: "#{context}[:caption_sources]") unless input[:caption_sources].nil?
+        CaptionFormats.validate!(input[:caption_formats], context: "#{context}[:caption_formats]") unless input[:caption_formats].nil?
       end
     end
 
     class Clip
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Clip, context: context)
-        Validators::TimeSpan.validate!(input[:time_span], context: "#{context}[:time_span]") unless input[:time_span].nil?
+        TimeSpan.validate!(input[:time_span], context: "#{context}[:time_span]") unless input[:time_span].nil?
       end
     end
 
@@ -151,7 +151,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Clip.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Clip.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -160,20 +160,20 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateJobInput, context: context)
         Hearth::Validator.validate!(input[:pipeline_id], ::String, context: "#{context}[:pipeline_id]")
-        Validators::JobInput.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
-        Validators::JobInputs.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
-        Validators::CreateJobOutput.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
-        Validators::CreateJobOutputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        JobInput.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        JobInputs.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
+        CreateJobOutput.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
+        CreateJobOutputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
         Hearth::Validator.validate!(input[:output_key_prefix], ::String, context: "#{context}[:output_key_prefix]")
-        Validators::CreateJobPlaylists.validate!(input[:playlists], context: "#{context}[:playlists]") unless input[:playlists].nil?
-        Validators::UserMetadata.validate!(input[:user_metadata], context: "#{context}[:user_metadata]") unless input[:user_metadata].nil?
+        CreateJobPlaylists.validate!(input[:playlists], context: "#{context}[:playlists]") unless input[:playlists].nil?
+        UserMetadata.validate!(input[:user_metadata], context: "#{context}[:user_metadata]") unless input[:user_metadata].nil?
       end
     end
 
     class CreateJobOperationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateJobOperationOutput, context: context)
-        Validators::Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -182,15 +182,15 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::CreateJobOutput, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
         Hearth::Validator.validate!(input[:thumbnail_pattern], ::String, context: "#{context}[:thumbnail_pattern]")
-        Validators::Encryption.validate!(input[:thumbnail_encryption], context: "#{context}[:thumbnail_encryption]") unless input[:thumbnail_encryption].nil?
+        Encryption.validate!(input[:thumbnail_encryption], context: "#{context}[:thumbnail_encryption]") unless input[:thumbnail_encryption].nil?
         Hearth::Validator.validate!(input[:rotate], ::String, context: "#{context}[:rotate]")
         Hearth::Validator.validate!(input[:preset_id], ::String, context: "#{context}[:preset_id]")
         Hearth::Validator.validate!(input[:segment_duration], ::String, context: "#{context}[:segment_duration]")
-        Validators::JobWatermarks.validate!(input[:watermarks], context: "#{context}[:watermarks]") unless input[:watermarks].nil?
-        Validators::JobAlbumArt.validate!(input[:album_art], context: "#{context}[:album_art]") unless input[:album_art].nil?
-        Validators::Composition.validate!(input[:composition], context: "#{context}[:composition]") unless input[:composition].nil?
-        Validators::Captions.validate!(input[:captions], context: "#{context}[:captions]") unless input[:captions].nil?
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        JobWatermarks.validate!(input[:watermarks], context: "#{context}[:watermarks]") unless input[:watermarks].nil?
+        JobAlbumArt.validate!(input[:album_art], context: "#{context}[:album_art]") unless input[:album_art].nil?
+        Composition.validate!(input[:composition], context: "#{context}[:composition]") unless input[:composition].nil?
+        Captions.validate!(input[:captions], context: "#{context}[:captions]") unless input[:captions].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
       end
     end
 
@@ -198,7 +198,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateJobOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateJobOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -208,9 +208,9 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::CreateJobPlaylist, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::OutputKeys.validate!(input[:output_keys], context: "#{context}[:output_keys]") unless input[:output_keys].nil?
-        Validators::HlsContentProtection.validate!(input[:hls_content_protection], context: "#{context}[:hls_content_protection]") unless input[:hls_content_protection].nil?
-        Validators::PlayReadyDrm.validate!(input[:play_ready_drm], context: "#{context}[:play_ready_drm]") unless input[:play_ready_drm].nil?
+        OutputKeys.validate!(input[:output_keys], context: "#{context}[:output_keys]") unless input[:output_keys].nil?
+        HlsContentProtection.validate!(input[:hls_content_protection], context: "#{context}[:hls_content_protection]") unless input[:hls_content_protection].nil?
+        PlayReadyDrm.validate!(input[:play_ready_drm], context: "#{context}[:play_ready_drm]") unless input[:play_ready_drm].nil?
       end
     end
 
@@ -218,7 +218,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreateJobPlaylist.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreateJobPlaylist.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -231,17 +231,17 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:output_bucket], ::String, context: "#{context}[:output_bucket]")
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:aws_kms_key_arn], ::String, context: "#{context}[:aws_kms_key_arn]")
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
-        Validators::PipelineOutputConfig.validate!(input[:content_config], context: "#{context}[:content_config]") unless input[:content_config].nil?
-        Validators::PipelineOutputConfig.validate!(input[:thumbnail_config], context: "#{context}[:thumbnail_config]") unless input[:thumbnail_config].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        PipelineOutputConfig.validate!(input[:content_config], context: "#{context}[:content_config]") unless input[:content_config].nil?
+        PipelineOutputConfig.validate!(input[:thumbnail_config], context: "#{context}[:thumbnail_config]") unless input[:thumbnail_config].nil?
       end
     end
 
     class CreatePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePipelineOutput, context: context)
-        Validators::Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
-        Validators::Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -251,16 +251,16 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:container], ::String, context: "#{context}[:container]")
-        Validators::VideoParameters.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
-        Validators::AudioParameters.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
-        Validators::Thumbnails.validate!(input[:thumbnails], context: "#{context}[:thumbnails]") unless input[:thumbnails].nil?
+        VideoParameters.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
+        AudioParameters.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
+        Thumbnails.validate!(input[:thumbnails], context: "#{context}[:thumbnails]") unless input[:thumbnails].nil?
       end
     end
 
     class CreatePresetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePresetOutput, context: context)
-        Validators::Preset.validate!(input[:preset], context: "#{context}[:preset]") unless input[:preset].nil?
+        Preset.validate!(input[:preset], context: "#{context}[:preset]") unless input[:preset].nil?
         Hearth::Validator.validate!(input[:warning], ::String, context: "#{context}[:warning]")
       end
     end
@@ -344,7 +344,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputCaptions, context: context)
         Hearth::Validator.validate!(input[:merge_policy], ::String, context: "#{context}[:merge_policy]")
-        Validators::CaptionSources.validate!(input[:caption_sources], context: "#{context}[:caption_sources]") unless input[:caption_sources].nil?
+        CaptionSources.validate!(input[:caption_sources], context: "#{context}[:caption_sources]") unless input[:caption_sources].nil?
       end
     end
 
@@ -361,15 +361,15 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:pipeline_id], ::String, context: "#{context}[:pipeline_id]")
-        Validators::JobInput.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
-        Validators::JobInputs.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
-        Validators::JobOutput.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
-        Validators::JobOutputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
+        JobInput.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        JobInputs.validate!(input[:inputs], context: "#{context}[:inputs]") unless input[:inputs].nil?
+        JobOutput.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
+        JobOutputs.validate!(input[:outputs], context: "#{context}[:outputs]") unless input[:outputs].nil?
         Hearth::Validator.validate!(input[:output_key_prefix], ::String, context: "#{context}[:output_key_prefix]")
-        Validators::Playlists.validate!(input[:playlists], context: "#{context}[:playlists]") unless input[:playlists].nil?
+        Playlists.validate!(input[:playlists], context: "#{context}[:playlists]") unless input[:playlists].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::UserMetadata.validate!(input[:user_metadata], context: "#{context}[:user_metadata]") unless input[:user_metadata].nil?
-        Validators::Timing.validate!(input[:timing], context: "#{context}[:timing]") unless input[:timing].nil?
+        UserMetadata.validate!(input[:user_metadata], context: "#{context}[:user_metadata]") unless input[:user_metadata].nil?
+        Timing.validate!(input[:timing], context: "#{context}[:timing]") unless input[:timing].nil?
       end
     end
 
@@ -377,7 +377,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobAlbumArt, context: context)
         Hearth::Validator.validate!(input[:merge_policy], ::String, context: "#{context}[:merge_policy]")
-        Validators::Artworks.validate!(input[:artwork], context: "#{context}[:artwork]") unless input[:artwork].nil?
+        Artworks.validate!(input[:artwork], context: "#{context}[:artwork]") unless input[:artwork].nil?
       end
     end
 
@@ -390,10 +390,10 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:aspect_ratio], ::String, context: "#{context}[:aspect_ratio]")
         Hearth::Validator.validate!(input[:interlaced], ::String, context: "#{context}[:interlaced]")
         Hearth::Validator.validate!(input[:container], ::String, context: "#{context}[:container]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::TimeSpan.validate!(input[:time_span], context: "#{context}[:time_span]") unless input[:time_span].nil?
-        Validators::InputCaptions.validate!(input[:input_captions], context: "#{context}[:input_captions]") unless input[:input_captions].nil?
-        Validators::DetectedProperties.validate!(input[:detected_properties], context: "#{context}[:detected_properties]") unless input[:detected_properties].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        TimeSpan.validate!(input[:time_span], context: "#{context}[:time_span]") unless input[:time_span].nil?
+        InputCaptions.validate!(input[:input_captions], context: "#{context}[:input_captions]") unless input[:input_captions].nil?
+        DetectedProperties.validate!(input[:detected_properties], context: "#{context}[:detected_properties]") unless input[:detected_properties].nil?
       end
     end
 
@@ -401,7 +401,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobInput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -412,7 +412,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
         Hearth::Validator.validate!(input[:thumbnail_pattern], ::String, context: "#{context}[:thumbnail_pattern]")
-        Validators::Encryption.validate!(input[:thumbnail_encryption], context: "#{context}[:thumbnail_encryption]") unless input[:thumbnail_encryption].nil?
+        Encryption.validate!(input[:thumbnail_encryption], context: "#{context}[:thumbnail_encryption]") unless input[:thumbnail_encryption].nil?
         Hearth::Validator.validate!(input[:rotate], ::String, context: "#{context}[:rotate]")
         Hearth::Validator.validate!(input[:preset_id], ::String, context: "#{context}[:preset_id]")
         Hearth::Validator.validate!(input[:segment_duration], ::String, context: "#{context}[:segment_duration]")
@@ -424,11 +424,11 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:frame_rate], ::String, context: "#{context}[:frame_rate]")
         Hearth::Validator.validate!(input[:file_size], ::Integer, context: "#{context}[:file_size]")
         Hearth::Validator.validate!(input[:duration_millis], ::Integer, context: "#{context}[:duration_millis]")
-        Validators::JobWatermarks.validate!(input[:watermarks], context: "#{context}[:watermarks]") unless input[:watermarks].nil?
-        Validators::JobAlbumArt.validate!(input[:album_art], context: "#{context}[:album_art]") unless input[:album_art].nil?
-        Validators::Composition.validate!(input[:composition], context: "#{context}[:composition]") unless input[:composition].nil?
-        Validators::Captions.validate!(input[:captions], context: "#{context}[:captions]") unless input[:captions].nil?
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        JobWatermarks.validate!(input[:watermarks], context: "#{context}[:watermarks]") unless input[:watermarks].nil?
+        JobAlbumArt.validate!(input[:album_art], context: "#{context}[:album_art]") unless input[:album_art].nil?
+        Composition.validate!(input[:composition], context: "#{context}[:composition]") unless input[:composition].nil?
+        Captions.validate!(input[:captions], context: "#{context}[:captions]") unless input[:captions].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:applied_color_space_conversion], ::String, context: "#{context}[:applied_color_space_conversion]")
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -447,7 +447,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::JobWatermark, context: context)
         Hearth::Validator.validate!(input[:preset_watermark_id], ::String, context: "#{context}[:preset_watermark_id]")
         Hearth::Validator.validate!(input[:input_key], ::String, context: "#{context}[:input_key]")
-        Validators::Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        Encryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
       end
     end
 
@@ -455,7 +455,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobWatermark.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobWatermark.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -464,7 +464,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -488,7 +488,7 @@ module AWS::SDK::ElasticTranscoder
     class ListJobsByPipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsByPipelineOutput, context: context)
-        Validators::Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -505,7 +505,7 @@ module AWS::SDK::ElasticTranscoder
     class ListJobsByStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsByStatusOutput, context: context)
-        Validators::Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -521,7 +521,7 @@ module AWS::SDK::ElasticTranscoder
     class ListPipelinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPipelinesOutput, context: context)
-        Validators::Pipelines.validate!(input[:pipelines], context: "#{context}[:pipelines]") unless input[:pipelines].nil?
+        Pipelines.validate!(input[:pipelines], context: "#{context}[:pipelines]") unless input[:pipelines].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -537,7 +537,7 @@ module AWS::SDK::ElasticTranscoder
     class ListPresetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPresetsOutput, context: context)
-        Validators::Presets.validate!(input[:presets], context: "#{context}[:presets]") unless input[:presets].nil?
+        Presets.validate!(input[:presets], context: "#{context}[:presets]") unless input[:presets].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -566,7 +566,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::Permission, context: context)
         Hearth::Validator.validate!(input[:grantee_type], ::String, context: "#{context}[:grantee_type]")
         Hearth::Validator.validate!(input[:grantee], ::String, context: "#{context}[:grantee]")
-        Validators::AccessControls.validate!(input[:access], context: "#{context}[:access]") unless input[:access].nil?
+        AccessControls.validate!(input[:access], context: "#{context}[:access]") unless input[:access].nil?
       end
     end
 
@@ -574,7 +574,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -590,9 +590,9 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:output_bucket], ::String, context: "#{context}[:output_bucket]")
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:aws_kms_key_arn], ::String, context: "#{context}[:aws_kms_key_arn]")
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
-        Validators::PipelineOutputConfig.validate!(input[:content_config], context: "#{context}[:content_config]") unless input[:content_config].nil?
-        Validators::PipelineOutputConfig.validate!(input[:thumbnail_config], context: "#{context}[:thumbnail_config]") unless input[:thumbnail_config].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        PipelineOutputConfig.validate!(input[:content_config], context: "#{context}[:content_config]") unless input[:content_config].nil?
+        PipelineOutputConfig.validate!(input[:thumbnail_config], context: "#{context}[:thumbnail_config]") unless input[:thumbnail_config].nil?
       end
     end
 
@@ -601,7 +601,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::PipelineOutputConfig, context: context)
         Hearth::Validator.validate!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
-        Validators::Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
       end
     end
 
@@ -609,7 +609,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Pipeline.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Pipeline.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -631,9 +631,9 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input, Types::Playlist, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:format], ::String, context: "#{context}[:format]")
-        Validators::OutputKeys.validate!(input[:output_keys], context: "#{context}[:output_keys]") unless input[:output_keys].nil?
-        Validators::HlsContentProtection.validate!(input[:hls_content_protection], context: "#{context}[:hls_content_protection]") unless input[:hls_content_protection].nil?
-        Validators::PlayReadyDrm.validate!(input[:play_ready_drm], context: "#{context}[:play_ready_drm]") unless input[:play_ready_drm].nil?
+        OutputKeys.validate!(input[:output_keys], context: "#{context}[:output_keys]") unless input[:output_keys].nil?
+        HlsContentProtection.validate!(input[:hls_content_protection], context: "#{context}[:hls_content_protection]") unless input[:hls_content_protection].nil?
+        PlayReadyDrm.validate!(input[:play_ready_drm], context: "#{context}[:play_ready_drm]") unless input[:play_ready_drm].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_detail], ::String, context: "#{context}[:status_detail]")
       end
@@ -643,7 +643,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Playlist.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Playlist.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -656,9 +656,9 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:container], ::String, context: "#{context}[:container]")
-        Validators::AudioParameters.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
-        Validators::VideoParameters.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
-        Validators::Thumbnails.validate!(input[:thumbnails], context: "#{context}[:thumbnails]") unless input[:thumbnails].nil?
+        AudioParameters.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
+        VideoParameters.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
+        Thumbnails.validate!(input[:thumbnails], context: "#{context}[:thumbnails]") unless input[:thumbnails].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -683,7 +683,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PresetWatermark.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PresetWatermark.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Preset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Preset.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::ElasticTranscoder
     class ReadJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReadJobOutput, context: context)
-        Validators::Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -721,8 +721,8 @@ module AWS::SDK::ElasticTranscoder
     class ReadPipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReadPipelineOutput, context: context)
-        Validators::Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
-        Validators::Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -736,7 +736,7 @@ module AWS::SDK::ElasticTranscoder
     class ReadPresetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReadPresetOutput, context: context)
-        Validators::Preset.validate!(input[:preset], context: "#{context}[:preset]") unless input[:preset].nil?
+        Preset.validate!(input[:preset], context: "#{context}[:preset]") unless input[:preset].nil?
       end
     end
 
@@ -769,7 +769,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:input_bucket], ::String, context: "#{context}[:input_bucket]")
         Hearth::Validator.validate!(input[:output_bucket], ::String, context: "#{context}[:output_bucket]")
-        Validators::SnsTopics.validate!(input[:topics], context: "#{context}[:topics]") unless input[:topics].nil?
+        SnsTopics.validate!(input[:topics], context: "#{context}[:topics]") unless input[:topics].nil?
       end
     end
 
@@ -777,7 +777,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestRoleOutput, context: context)
         Hearth::Validator.validate!(input[:success], ::String, context: "#{context}[:success]")
-        Validators::ExceptionMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        ExceptionMessages.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
       end
     end
 
@@ -820,9 +820,9 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:input_bucket], ::String, context: "#{context}[:input_bucket]")
         Hearth::Validator.validate!(input[:role], ::String, context: "#{context}[:role]")
         Hearth::Validator.validate!(input[:aws_kms_key_arn], ::String, context: "#{context}[:aws_kms_key_arn]")
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
-        Validators::PipelineOutputConfig.validate!(input[:content_config], context: "#{context}[:content_config]") unless input[:content_config].nil?
-        Validators::PipelineOutputConfig.validate!(input[:thumbnail_config], context: "#{context}[:thumbnail_config]") unless input[:thumbnail_config].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        PipelineOutputConfig.validate!(input[:content_config], context: "#{context}[:content_config]") unless input[:content_config].nil?
+        PipelineOutputConfig.validate!(input[:thumbnail_config], context: "#{context}[:thumbnail_config]") unless input[:thumbnail_config].nil?
       end
     end
 
@@ -830,22 +830,22 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePipelineNotificationsInput, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
+        Notifications.validate!(input[:notifications], context: "#{context}[:notifications]") unless input[:notifications].nil?
       end
     end
 
     class UpdatePipelineNotificationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePipelineNotificationsOutput, context: context)
-        Validators::Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
       end
     end
 
     class UpdatePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePipelineOutput, context: context)
-        Validators::Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
-        Validators::Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
+        Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        Warnings.validate!(input[:warnings], context: "#{context}[:warnings]") unless input[:warnings].nil?
       end
     end
 
@@ -860,7 +860,7 @@ module AWS::SDK::ElasticTranscoder
     class UpdatePipelineStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePipelineStatusOutput, context: context)
-        Validators::Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        Pipeline.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
       end
     end
 
@@ -885,7 +885,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VideoParameters, context: context)
         Hearth::Validator.validate!(input[:codec], ::String, context: "#{context}[:codec]")
-        Validators::CodecOptions.validate!(input[:codec_options], context: "#{context}[:codec_options]") unless input[:codec_options].nil?
+        CodecOptions.validate!(input[:codec_options], context: "#{context}[:codec_options]") unless input[:codec_options].nil?
         Hearth::Validator.validate!(input[:keyframes_max_dist], ::String, context: "#{context}[:keyframes_max_dist]")
         Hearth::Validator.validate!(input[:fixed_gop], ::String, context: "#{context}[:fixed_gop]")
         Hearth::Validator.validate!(input[:bit_rate], ::String, context: "#{context}[:bit_rate]")
@@ -898,7 +898,7 @@ module AWS::SDK::ElasticTranscoder
         Hearth::Validator.validate!(input[:display_aspect_ratio], ::String, context: "#{context}[:display_aspect_ratio]")
         Hearth::Validator.validate!(input[:sizing_policy], ::String, context: "#{context}[:sizing_policy]")
         Hearth::Validator.validate!(input[:padding_policy], ::String, context: "#{context}[:padding_policy]")
-        Validators::PresetWatermarks.validate!(input[:watermarks], context: "#{context}[:watermarks]") unless input[:watermarks].nil?
+        PresetWatermarks.validate!(input[:watermarks], context: "#{context}[:watermarks]") unless input[:watermarks].nil?
       end
     end
 
@@ -914,7 +914,7 @@ module AWS::SDK::ElasticTranscoder
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Warning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Warning.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

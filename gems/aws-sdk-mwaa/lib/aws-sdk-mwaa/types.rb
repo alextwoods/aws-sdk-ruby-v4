@@ -127,7 +127,9 @@ module AWS::SDK::MWAA
     #   @return [String]
     #
     # @!attribute airflow_version
-    #   <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
+    #   <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version. Valid values:
+    #               <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.
+    #               To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
     #
     #   @return [String]
     #
@@ -162,10 +164,10 @@ module AWS::SDK::MWAA
     #   <p>The number of Apache Airflow schedulers to run in your environment. Valid values:</p>
     #           <ul>
     #               <li>
-    #                   <p>v2.0.2 - Accepts between 2 to 5. Defaults to 2.</p>
+    #                   <p>v2 - Accepts between 2 to 5. Defaults to 2.</p>
     #               </li>
     #               <li>
-    #                   <p>v1.10.12 - Accepts 1.</p>
+    #                   <p>v1 - Accepts 1.</p>
     #               </li>
     #            </ul>
     #
@@ -391,7 +393,7 @@ module AWS::SDK::MWAA
     #   @return [String]
     #
     # @!attribute airflow_version
-    #   <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>.</p>
+    #   <p>The Apache Airflow version on your environment. Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
     #
     #   @return [String]
     #
@@ -512,6 +514,36 @@ module AWS::SDK::MWAA
       keyword_init: true
     ) do
       include Hearth::Structure
+
+      def to_s
+        "#<struct AWS::SDK::MWAA::Types::Environment "\
+          "name=#{name || 'nil'}, "\
+          "status=#{status || 'nil'}, "\
+          "arn=#{arn || 'nil'}, "\
+          "created_at=#{created_at || 'nil'}, "\
+          "webserver_url=#{webserver_url || 'nil'}, "\
+          "execution_role_arn=#{execution_role_arn || 'nil'}, "\
+          "service_role_arn=#{service_role_arn || 'nil'}, "\
+          "kms_key=#{kms_key || 'nil'}, "\
+          "airflow_version=#{airflow_version || 'nil'}, "\
+          "source_bucket_arn=#{source_bucket_arn || 'nil'}, "\
+          "dag_s3_path=#{dag_s3_path || 'nil'}, "\
+          "plugins_s3_path=#{plugins_s3_path || 'nil'}, "\
+          "plugins_s3_object_version=#{plugins_s3_object_version || 'nil'}, "\
+          "requirements_s3_path=#{requirements_s3_path || 'nil'}, "\
+          "requirements_s3_object_version=#{requirements_s3_object_version || 'nil'}, "\
+          "airflow_configuration_options=\"[SENSITIVE]\", "\
+          "environment_class=#{environment_class || 'nil'}, "\
+          "max_workers=#{max_workers || 'nil'}, "\
+          "network_configuration=#{network_configuration || 'nil'}, "\
+          "logging_configuration=#{logging_configuration || 'nil'}, "\
+          "last_update=#{last_update || 'nil'}, "\
+          "weekly_maintenance_window_start=#{weekly_maintenance_window_start || 'nil'}, "\
+          "tags=#{tags || 'nil'}, "\
+          "webserver_access_mode=#{webserver_access_mode || 'nil'}, "\
+          "min_workers=#{min_workers || 'nil'}, "\
+          "schedulers=#{schedulers || 'nil'}>"
+      end
     end
 
     # Includes enum constants for EnvironmentStatus
@@ -1154,7 +1186,8 @@ module AWS::SDK::MWAA
     #   @return [String]
     #
     # @!attribute airflow_version
-    #   <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>.</p>
+    #   <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version.
+    #               Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
     #
     #   @return [String]
     #

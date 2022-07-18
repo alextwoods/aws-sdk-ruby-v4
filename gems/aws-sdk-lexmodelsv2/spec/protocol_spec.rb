@@ -9,9 +9,6 @@
 
 require 'aws-sdk-lexmodelsv2'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::LexModelsV2
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

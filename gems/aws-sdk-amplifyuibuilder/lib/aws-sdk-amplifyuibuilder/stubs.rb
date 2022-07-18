@@ -14,7 +14,7 @@ module AWS::SDK::AmplifyUIBuilder
     class CreateComponent
       def self.default(visited=[])
         {
-          entity: Stubs::Component.default(visited),
+          entity: Component.default(visited),
         }
       end
 
@@ -39,16 +39,16 @@ module AWS::SDK::AmplifyUIBuilder
           id: 'id',
           name: 'name',
           component_type: 'component_type',
-          properties: Stubs::ComponentProperties.default(visited),
-          children: Stubs::ComponentChildList.default(visited),
-          variants: Stubs::ComponentVariants.default(visited),
-          overrides: Stubs::ComponentOverrides.default(visited),
-          binding_properties: Stubs::ComponentBindingProperties.default(visited),
-          collection_properties: Stubs::ComponentCollectionProperties.default(visited),
+          properties: ComponentProperties.default(visited),
+          children: ComponentChildList.default(visited),
+          variants: ComponentVariants.default(visited),
+          overrides: ComponentOverrides.default(visited),
+          binding_properties: ComponentBindingProperties.default(visited),
+          collection_properties: ComponentCollectionProperties.default(visited),
           created_at: Time.now,
           modified_at: Time.now,
-          tags: Stubs::Tags.default(visited),
-          events: Stubs::ComponentEvents.default(visited),
+          tags: Tags.default(visited),
+          events: ComponentEvents.default(visited),
           schema_version: 'schema_version',
         }
       end
@@ -83,7 +83,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentEvents')
         visited = visited + ['ComponentEvents']
         {
-          test_key: Stubs::ComponentEvent.default(visited)
+          test_key: ComponentEvent.default(visited)
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::AmplifyUIBuilder
         visited = visited + ['ComponentEvent']
         {
           action: 'action',
-          parameters: Stubs::ActionParameters.default(visited),
+          parameters: ActionParameters.default(visited),
           binding_event: 'binding_event',
         }
       end
@@ -125,15 +125,15 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ActionParameters')
         visited = visited + ['ActionParameters']
         {
-          type: Stubs::ComponentProperty.default(visited),
-          url: Stubs::ComponentProperty.default(visited),
-          anchor: Stubs::ComponentProperty.default(visited),
-          target: Stubs::ComponentProperty.default(visited),
-          global: Stubs::ComponentProperty.default(visited),
+          type: ComponentProperty.default(visited),
+          url: ComponentProperty.default(visited),
+          anchor: ComponentProperty.default(visited),
+          target: ComponentProperty.default(visited),
+          global: ComponentProperty.default(visited),
           model: 'model',
-          id: Stubs::ComponentProperty.default(visited),
-          fields: Stubs::ComponentProperties.default(visited),
-          state: Stubs::MutationActionSetStateParameter.default(visited),
+          id: ComponentProperty.default(visited),
+          fields: ComponentProperties.default(visited),
+          state: MutationActionSetStateParameter.default(visited),
         }
       end
 
@@ -161,7 +161,7 @@ module AWS::SDK::AmplifyUIBuilder
         {
           component_name: 'component_name',
           property: 'property',
-          set: Stubs::ComponentProperty.default(visited),
+          set: ComponentProperty.default(visited),
         }
       end
 
@@ -182,15 +182,15 @@ module AWS::SDK::AmplifyUIBuilder
         visited = visited + ['ComponentProperty']
         {
           value: 'value',
-          binding_properties: Stubs::ComponentPropertyBindingProperties.default(visited),
-          collection_binding_properties: Stubs::ComponentPropertyBindingProperties.default(visited),
+          binding_properties: ComponentPropertyBindingProperties.default(visited),
+          collection_binding_properties: ComponentPropertyBindingProperties.default(visited),
           default_value: 'default_value',
           model: 'model',
-          bindings: Stubs::FormBindings.default(visited),
+          bindings: FormBindings.default(visited),
           event: 'event',
           user_attribute: 'user_attribute',
-          concat: Stubs::ComponentPropertyList.default(visited),
-          condition: Stubs::ComponentConditionProperty.default(visited),
+          concat: ComponentPropertyList.default(visited),
+          condition: ComponentConditionProperty.default(visited),
           configured: false,
           type: 'type',
           imported_value: 'imported_value',
@@ -231,8 +231,8 @@ module AWS::SDK::AmplifyUIBuilder
           field: 'field',
           operator: 'operator',
           operand: 'operand',
-          member_then: Stubs::ComponentProperty.default(visited),
-          else: Stubs::ComponentProperty.default(visited),
+          member_then: ComponentProperty.default(visited),
+          else: ComponentProperty.default(visited),
           operand_type: 'operand_type',
         }
       end
@@ -257,7 +257,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentPropertyList')
         visited = visited + ['ComponentPropertyList']
         [
-          Stubs::ComponentProperty.default(visited)
+          ComponentProperty.default(visited)
         ]
       end
 
@@ -277,7 +277,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('FormBindings')
         visited = visited + ['FormBindings']
         {
-          test_key: Stubs::FormBindingElement.default(visited)
+          test_key: FormBindingElement.default(visited)
         }
       end
 
@@ -337,7 +337,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentProperties')
         visited = visited + ['ComponentProperties']
         {
-          test_key: Stubs::ComponentProperty.default(visited)
+          test_key: ComponentProperty.default(visited)
         }
       end
 
@@ -377,7 +377,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentCollectionProperties')
         visited = visited + ['ComponentCollectionProperties']
         {
-          test_key: Stubs::ComponentDataConfiguration.default(visited)
+          test_key: ComponentDataConfiguration.default(visited)
         }
       end
 
@@ -398,9 +398,9 @@ module AWS::SDK::AmplifyUIBuilder
         visited = visited + ['ComponentDataConfiguration']
         {
           model: 'model',
-          sort: Stubs::SortPropertyList.default(visited),
-          predicate: Stubs::Predicate.default(visited),
-          identifiers: Stubs::IdentifierList.default(visited),
+          sort: SortPropertyList.default(visited),
+          predicate: Predicate.default(visited),
+          identifiers: IdentifierList.default(visited),
         }
       end
 
@@ -441,8 +441,8 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('Predicate')
         visited = visited + ['Predicate']
         {
-          or: Stubs::PredicateList.default(visited),
-          and: Stubs::PredicateList.default(visited),
+          or: PredicateList.default(visited),
+          and: PredicateList.default(visited),
           field: 'field',
           operator: 'operator',
           operand: 'operand',
@@ -467,7 +467,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('PredicateList')
         visited = visited + ['PredicateList']
         [
-          Stubs::Predicate.default(visited)
+          Predicate.default(visited)
         ]
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('SortPropertyList')
         visited = visited + ['SortPropertyList']
         [
-          Stubs::SortProperty.default(visited)
+          SortProperty.default(visited)
         ]
       end
 
@@ -527,7 +527,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentBindingProperties')
         visited = visited + ['ComponentBindingProperties']
         {
-          test_key: Stubs::ComponentBindingPropertiesValue.default(visited)
+          test_key: ComponentBindingPropertiesValue.default(visited)
         }
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::AmplifyUIBuilder
         visited = visited + ['ComponentBindingPropertiesValue']
         {
           type: 'type',
-          binding_properties: Stubs::ComponentBindingPropertiesValueProperties.default(visited),
+          binding_properties: ComponentBindingPropertiesValueProperties.default(visited),
           default_value: 'default_value',
         }
       end
@@ -571,7 +571,7 @@ module AWS::SDK::AmplifyUIBuilder
         {
           model: 'model',
           field: 'field',
-          predicates: Stubs::PredicateList.default(visited),
+          predicates: PredicateList.default(visited),
           user_attribute: 'user_attribute',
           bucket: 'bucket',
           key: 'key',
@@ -599,7 +599,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentOverrides')
         visited = visited + ['ComponentOverrides']
         {
-          test_key: Stubs::ComponentOverridesValue.default(visited)
+          test_key: ComponentOverridesValue.default(visited)
         }
       end
 
@@ -639,7 +639,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentVariants')
         visited = visited + ['ComponentVariants']
         [
-          Stubs::ComponentVariant.default(visited)
+          ComponentVariant.default(visited)
         ]
       end
 
@@ -659,8 +659,8 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentVariant')
         visited = visited + ['ComponentVariant']
         {
-          variant_values: Stubs::ComponentVariantValues.default(visited),
-          overrides: Stubs::ComponentOverrides.default(visited),
+          variant_values: ComponentVariantValues.default(visited),
+          overrides: ComponentOverrides.default(visited),
         }
       end
 
@@ -699,7 +699,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentChildList')
         visited = visited + ['ComponentChildList']
         [
-          Stubs::ComponentChild.default(visited)
+          ComponentChild.default(visited)
         ]
       end
 
@@ -721,9 +721,9 @@ module AWS::SDK::AmplifyUIBuilder
         {
           component_type: 'component_type',
           name: 'name',
-          properties: Stubs::ComponentProperties.default(visited),
-          children: Stubs::ComponentChildList.default(visited),
-          events: Stubs::ComponentEvents.default(visited),
+          properties: ComponentProperties.default(visited),
+          children: ComponentChildList.default(visited),
+          events: ComponentEvents.default(visited),
           source_id: 'source_id',
         }
       end
@@ -745,7 +745,7 @@ module AWS::SDK::AmplifyUIBuilder
     class CreateTheme
       def self.default(visited=[])
         {
-          entity: Stubs::Theme.default(visited),
+          entity: Theme.default(visited),
         }
       end
 
@@ -770,9 +770,9 @@ module AWS::SDK::AmplifyUIBuilder
           name: 'name',
           created_at: Time.now,
           modified_at: Time.now,
-          values: Stubs::ThemeValuesList.default(visited),
-          overrides: Stubs::ThemeValuesList.default(visited),
-          tags: Stubs::Tags.default(visited),
+          values: ThemeValuesList.default(visited),
+          overrides: ThemeValuesList.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -798,7 +798,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ThemeValuesList')
         visited = visited + ['ThemeValuesList']
         [
-          Stubs::ThemeValues.default(visited)
+          ThemeValues.default(visited)
         ]
       end
 
@@ -819,7 +819,7 @@ module AWS::SDK::AmplifyUIBuilder
         visited = visited + ['ThemeValues']
         {
           key: 'key',
-          value: Stubs::ThemeValue.default(visited),
+          value: ThemeValue.default(visited),
         }
       end
 
@@ -839,7 +839,7 @@ module AWS::SDK::AmplifyUIBuilder
         visited = visited + ['ThemeValue']
         {
           value: 'value',
-          children: Stubs::ThemeValuesList.default(visited),
+          children: ThemeValuesList.default(visited),
         }
       end
 
@@ -903,7 +903,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ExportComponents
       def self.default(visited=[])
         {
-          entities: Stubs::ComponentList.default(visited),
+          entities: ComponentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -924,7 +924,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentList')
         visited = visited + ['ComponentList']
         [
-          Stubs::Component.default(visited)
+          Component.default(visited)
         ]
       end
 
@@ -942,7 +942,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ExportThemes
       def self.default(visited=[])
         {
-          entities: Stubs::ThemeList.default(visited),
+          entities: ThemeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -963,7 +963,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ThemeList')
         visited = visited + ['ThemeList']
         [
-          Stubs::Theme.default(visited)
+          Theme.default(visited)
         ]
       end
 
@@ -981,7 +981,7 @@ module AWS::SDK::AmplifyUIBuilder
     class GetComponent
       def self.default(visited=[])
         {
-          component: Stubs::Component.default(visited),
+          component: Component.default(visited),
         }
       end
 
@@ -998,7 +998,7 @@ module AWS::SDK::AmplifyUIBuilder
     class GetTheme
       def self.default(visited=[])
         {
-          theme: Stubs::Theme.default(visited),
+          theme: Theme.default(visited),
         }
       end
 
@@ -1015,7 +1015,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ListComponents
       def self.default(visited=[])
         {
-          entities: Stubs::ComponentSummaryList.default(visited),
+          entities: ComponentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1036,7 +1036,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ComponentSummaryList')
         visited = visited + ['ComponentSummaryList']
         [
-          Stubs::ComponentSummary.default(visited)
+          ComponentSummary.default(visited)
         ]
       end
 
@@ -1080,7 +1080,7 @@ module AWS::SDK::AmplifyUIBuilder
     class ListThemes
       def self.default(visited=[])
         {
-          entities: Stubs::ThemeSummaryList.default(visited),
+          entities: ThemeSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1101,7 +1101,7 @@ module AWS::SDK::AmplifyUIBuilder
         return nil if visited.include?('ThemeSummaryList')
         visited = visited + ['ThemeSummaryList']
         [
-          Stubs::ThemeSummary.default(visited)
+          ThemeSummary.default(visited)
         ]
       end
 
@@ -1162,7 +1162,7 @@ module AWS::SDK::AmplifyUIBuilder
     class UpdateComponent
       def self.default(visited=[])
         {
-          entity: Stubs::Component.default(visited),
+          entity: Component.default(visited),
         }
       end
 
@@ -1179,7 +1179,7 @@ module AWS::SDK::AmplifyUIBuilder
     class UpdateTheme
       def self.default(visited=[])
         {
-          entity: Stubs::Theme.default(visited),
+          entity: Theme.default(visited),
         }
       end
 

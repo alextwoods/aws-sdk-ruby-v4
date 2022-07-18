@@ -40,7 +40,7 @@ module AWS::SDK::MediaConvert
     class CreateJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -59,7 +59,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('Job')
         visited = visited + ['Job']
         {
-          acceleration_settings: Stubs::AccelerationSettings.default(visited),
+          acceleration_settings: AccelerationSettings.default(visited),
           acceleration_status: 'acceleration_status',
           arn: 'arn',
           billing_tags_source: 'billing_tags_source',
@@ -67,23 +67,23 @@ module AWS::SDK::MediaConvert
           current_phase: 'current_phase',
           error_code: 1,
           error_message: 'error_message',
-          hop_destinations: Stubs::List____listOfHopDestination.default(visited),
+          hop_destinations: List____listOfHopDestination.default(visited),
           id: 'id',
           job_percent_complete: 1,
           job_template: 'job_template',
-          messages: Stubs::JobMessages.default(visited),
-          output_group_details: Stubs::List____listOfOutputGroupDetail.default(visited),
+          messages: JobMessages.default(visited),
+          output_group_details: List____listOfOutputGroupDetail.default(visited),
           priority: 1,
           queue: 'queue',
-          queue_transitions: Stubs::List____listOfQueueTransition.default(visited),
+          queue_transitions: List____listOfQueueTransition.default(visited),
           retry_count: 1,
           role: 'role',
-          settings: Stubs::JobSettings.default(visited),
+          settings: JobSettings.default(visited),
           simulate_reserved_queue: 'simulate_reserved_queue',
           status: 'status',
           status_update_interval: 'status_update_interval',
-          timing: Stubs::Timing.default(visited),
-          user_metadata: Stubs::Map____mapOf__string.default(visited),
+          timing: Timing.default(visited),
+          user_metadata: Map____mapOf__string.default(visited),
         }
       end
 
@@ -168,17 +168,17 @@ module AWS::SDK::MediaConvert
         visited = visited + ['JobSettings']
         {
           ad_avail_offset: 1,
-          avail_blanking: Stubs::AvailBlanking.default(visited),
-          esam: Stubs::EsamSettings.default(visited),
-          extended_data_services: Stubs::ExtendedDataServices.default(visited),
-          inputs: Stubs::List____listOfInput.default(visited),
-          kantar_watermark: Stubs::KantarWatermarkSettings.default(visited),
-          motion_image_inserter: Stubs::MotionImageInserter.default(visited),
-          nielsen_configuration: Stubs::NielsenConfiguration.default(visited),
-          nielsen_non_linear_watermark: Stubs::NielsenNonLinearWatermarkSettings.default(visited),
-          output_groups: Stubs::List____listOfOutputGroup.default(visited),
-          timecode_config: Stubs::TimecodeConfig.default(visited),
-          timed_metadata_insertion: Stubs::TimedMetadataInsertion.default(visited),
+          avail_blanking: AvailBlanking.default(visited),
+          esam: EsamSettings.default(visited),
+          extended_data_services: ExtendedDataServices.default(visited),
+          inputs: List____listOfInput.default(visited),
+          kantar_watermark: KantarWatermarkSettings.default(visited),
+          motion_image_inserter: MotionImageInserter.default(visited),
+          nielsen_configuration: NielsenConfiguration.default(visited),
+          nielsen_non_linear_watermark: NielsenNonLinearWatermarkSettings.default(visited),
+          output_groups: List____listOfOutputGroup.default(visited),
+          timecode_config: TimecodeConfig.default(visited),
+          timed_metadata_insertion: TimedMetadataInsertion.default(visited),
         }
       end
 
@@ -207,7 +207,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('TimedMetadataInsertion')
         visited = visited + ['TimedMetadataInsertion']
         {
-          id3_insertions: Stubs::List____listOfId3Insertion.default(visited),
+          id3_insertions: List____listOfId3Insertion.default(visited),
         }
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfId3Insertion')
         visited = visited + ['List____listOfId3Insertion']
         [
-          Stubs::Id3Insertion.default(visited)
+          Id3Insertion.default(visited)
         ]
       end
 
@@ -289,7 +289,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfOutputGroup')
         visited = visited + ['List____listOfOutputGroup']
         [
-          Stubs::OutputGroup.default(visited)
+          OutputGroup.default(visited)
         ]
       end
 
@@ -309,11 +309,11 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('OutputGroup')
         visited = visited + ['OutputGroup']
         {
-          automated_encoding_settings: Stubs::AutomatedEncodingSettings.default(visited),
+          automated_encoding_settings: AutomatedEncodingSettings.default(visited),
           custom_name: 'custom_name',
           name: 'name',
-          output_group_settings: Stubs::OutputGroupSettings.default(visited),
-          outputs: Stubs::List____listOfOutput.default(visited),
+          output_group_settings: OutputGroupSettings.default(visited),
+          outputs: List____listOfOutput.default(visited),
         }
       end
 
@@ -335,7 +335,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfOutput')
         visited = visited + ['List____listOfOutput']
         [
-          Stubs::Output.default(visited)
+          Output.default(visited)
         ]
       end
 
@@ -355,14 +355,14 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('Output')
         visited = visited + ['Output']
         {
-          audio_descriptions: Stubs::List____listOfAudioDescription.default(visited),
-          caption_descriptions: Stubs::List____listOfCaptionDescription.default(visited),
-          container_settings: Stubs::ContainerSettings.default(visited),
+          audio_descriptions: List____listOfAudioDescription.default(visited),
+          caption_descriptions: List____listOfCaptionDescription.default(visited),
+          container_settings: ContainerSettings.default(visited),
           extension: 'extension',
           name_modifier: 'name_modifier',
-          output_settings: Stubs::OutputSettings.default(visited),
+          output_settings: OutputSettings.default(visited),
           preset: 'preset',
-          video_description: Stubs::VideoDescription.default(visited),
+          video_description: VideoDescription.default(visited),
         }
       end
 
@@ -389,18 +389,18 @@ module AWS::SDK::MediaConvert
         {
           afd_signaling: 'afd_signaling',
           anti_alias: 'anti_alias',
-          codec_settings: Stubs::VideoCodecSettings.default(visited),
+          codec_settings: VideoCodecSettings.default(visited),
           color_metadata: 'color_metadata',
-          crop: Stubs::Rectangle.default(visited),
+          crop: Rectangle.default(visited),
           drop_frame_timecode: 'drop_frame_timecode',
           fixed_afd: 1,
           height: 1,
-          position: Stubs::Rectangle.default(visited),
+          position: Rectangle.default(visited),
           respond_to_afd: 'respond_to_afd',
           scaling_behavior: 'scaling_behavior',
           sharpness: 1,
           timecode_insertion: 'timecode_insertion',
-          video_preprocessors: Stubs::VideoPreprocessor.default(visited),
+          video_preprocessors: VideoPreprocessor.default(visited),
           width: 1,
         }
       end
@@ -433,14 +433,14 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('VideoPreprocessor')
         visited = visited + ['VideoPreprocessor']
         {
-          color_corrector: Stubs::ColorCorrector.default(visited),
-          deinterlacer: Stubs::Deinterlacer.default(visited),
-          dolby_vision: Stubs::DolbyVision.default(visited),
-          hdr10_plus: Stubs::Hdr10Plus.default(visited),
-          image_inserter: Stubs::ImageInserter.default(visited),
-          noise_reducer: Stubs::NoiseReducer.default(visited),
-          partner_watermarking: Stubs::PartnerWatermarking.default(visited),
-          timecode_burnin: Stubs::TimecodeBurnin.default(visited),
+          color_corrector: ColorCorrector.default(visited),
+          deinterlacer: Deinterlacer.default(visited),
+          dolby_vision: DolbyVision.default(visited),
+          hdr10_plus: Hdr10Plus.default(visited),
+          image_inserter: ImageInserter.default(visited),
+          noise_reducer: NoiseReducer.default(visited),
+          partner_watermarking: PartnerWatermarking.default(visited),
+          timecode_burnin: TimecodeBurnin.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('PartnerWatermarking')
         visited = visited + ['PartnerWatermarking']
         {
-          nexguard_file_marker_settings: Stubs::NexGuardFileMarkerSettings.default(visited),
+          nexguard_file_marker_settings: NexGuardFileMarkerSettings.default(visited),
         }
       end
 
@@ -530,9 +530,9 @@ module AWS::SDK::MediaConvert
         visited = visited + ['NoiseReducer']
         {
           filter: 'filter',
-          filter_settings: Stubs::NoiseReducerFilterSettings.default(visited),
-          spatial_filter_settings: Stubs::NoiseReducerSpatialFilterSettings.default(visited),
-          temporal_filter_settings: Stubs::NoiseReducerTemporalFilterSettings.default(visited),
+          filter_settings: NoiseReducerFilterSettings.default(visited),
+          spatial_filter_settings: NoiseReducerSpatialFilterSettings.default(visited),
+          temporal_filter_settings: NoiseReducerTemporalFilterSettings.default(visited),
         }
       end
 
@@ -619,7 +619,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('ImageInserter')
         visited = visited + ['ImageInserter']
         {
-          insertable_images: Stubs::List____listOfInsertableImage.default(visited),
+          insertable_images: List____listOfInsertableImage.default(visited),
         }
       end
 
@@ -637,7 +637,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfInsertableImage')
         visited = visited + ['List____listOfInsertableImage']
         [
-          Stubs::InsertableImage.default(visited)
+          InsertableImage.default(visited)
         ]
       end
 
@@ -715,7 +715,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('DolbyVision')
         visited = visited + ['DolbyVision']
         {
-          l6_metadata: Stubs::DolbyVisionLevel6Metadata.default(visited),
+          l6_metadata: DolbyVisionLevel6Metadata.default(visited),
           l6_mode: 'l6_mode',
           mapping: 'mapping',
           profile: 'profile',
@@ -784,7 +784,7 @@ module AWS::SDK::MediaConvert
           brightness: 1,
           color_space_conversion: 'color_space_conversion',
           contrast: 1,
-          hdr10_metadata: Stubs::Hdr10Metadata.default(visited),
+          hdr10_metadata: Hdr10Metadata.default(visited),
           hue: 1,
           sample_range_conversion: 'sample_range_conversion',
           saturation: 1,
@@ -875,18 +875,18 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('VideoCodecSettings')
         visited = visited + ['VideoCodecSettings']
         {
-          av1_settings: Stubs::Av1Settings.default(visited),
-          avc_intra_settings: Stubs::AvcIntraSettings.default(visited),
+          av1_settings: Av1Settings.default(visited),
+          avc_intra_settings: AvcIntraSettings.default(visited),
           codec: 'codec',
-          frame_capture_settings: Stubs::FrameCaptureSettings.default(visited),
-          h264_settings: Stubs::H264Settings.default(visited),
-          h265_settings: Stubs::H265Settings.default(visited),
-          mpeg2_settings: Stubs::Mpeg2Settings.default(visited),
-          prores_settings: Stubs::ProresSettings.default(visited),
-          vc3_settings: Stubs::Vc3Settings.default(visited),
-          vp8_settings: Stubs::Vp8Settings.default(visited),
-          vp9_settings: Stubs::Vp9Settings.default(visited),
-          xavc_settings: Stubs::XavcSettings.default(visited),
+          frame_capture_settings: FrameCaptureSettings.default(visited),
+          h264_settings: H264Settings.default(visited),
+          h265_settings: H265Settings.default(visited),
+          mpeg2_settings: Mpeg2Settings.default(visited),
+          prores_settings: ProresSettings.default(visited),
+          vc3_settings: Vc3Settings.default(visited),
+          vp8_settings: Vp8Settings.default(visited),
+          vp9_settings: Vp9Settings.default(visited),
+          xavc_settings: XavcSettings.default(visited),
         }
       end
 
@@ -926,11 +926,11 @@ module AWS::SDK::MediaConvert
           softness: 1,
           spatial_adaptive_quantization: 'spatial_adaptive_quantization',
           temporal_adaptive_quantization: 'temporal_adaptive_quantization',
-          xavc4k_intra_cbg_profile_settings: Stubs::Xavc4kIntraCbgProfileSettings.default(visited),
-          xavc4k_intra_vbr_profile_settings: Stubs::Xavc4kIntraVbrProfileSettings.default(visited),
-          xavc4k_profile_settings: Stubs::Xavc4kProfileSettings.default(visited),
-          xavc_hd_intra_cbg_profile_settings: Stubs::XavcHdIntraCbgProfileSettings.default(visited),
-          xavc_hd_profile_settings: Stubs::XavcHdProfileSettings.default(visited),
+          xavc4k_intra_cbg_profile_settings: Xavc4kIntraCbgProfileSettings.default(visited),
+          xavc4k_intra_vbr_profile_settings: Xavc4kIntraVbrProfileSettings.default(visited),
+          xavc4k_profile_settings: Xavc4kProfileSettings.default(visited),
+          xavc_hd_intra_cbg_profile_settings: XavcHdIntraCbgProfileSettings.default(visited),
+          xavc_hd_profile_settings: XavcHdProfileSettings.default(visited),
         }
       end
 
@@ -1349,7 +1349,7 @@ module AWS::SDK::MediaConvert
           par_denominator: 1,
           par_numerator: 1,
           quality_tuning_level: 'quality_tuning_level',
-          qvbr_settings: Stubs::H265QvbrSettings.default(visited),
+          qvbr_settings: H265QvbrSettings.default(visited),
           rate_control_mode: 'rate_control_mode',
           sample_adaptive_offset_filter_mode: 'sample_adaptive_offset_filter_mode',
           scan_type_conversion_mode: 'scan_type_conversion_mode',
@@ -1468,7 +1468,7 @@ module AWS::SDK::MediaConvert
           par_denominator: 1,
           par_numerator: 1,
           quality_tuning_level: 'quality_tuning_level',
-          qvbr_settings: Stubs::H264QvbrSettings.default(visited),
+          qvbr_settings: H264QvbrSettings.default(visited),
           rate_control_mode: 'rate_control_mode',
           repeat_pps: 'repeat_pps',
           scan_type_conversion_mode: 'scan_type_conversion_mode',
@@ -1584,7 +1584,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['AvcIntraSettings']
         {
           avc_intra_class: 'avc_intra_class',
-          avc_intra_uhd_settings: Stubs::AvcIntraUhdSettings.default(visited),
+          avc_intra_uhd_settings: AvcIntraUhdSettings.default(visited),
           framerate_control: 'framerate_control',
           framerate_conversion_algorithm: 'framerate_conversion_algorithm',
           framerate_denominator: 1,
@@ -1646,7 +1646,7 @@ module AWS::SDK::MediaConvert
           gop_size: 1.0,
           max_bitrate: 1,
           number_b_frames_between_reference_frames: 1,
-          qvbr_settings: Stubs::Av1QvbrSettings.default(visited),
+          qvbr_settings: Av1QvbrSettings.default(visited),
           rate_control_mode: 'rate_control_mode',
           slices: 1,
           spatial_adaptive_quantization: 'spatial_adaptive_quantization',
@@ -1699,7 +1699,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('OutputSettings')
         visited = visited + ['OutputSettings']
         {
-          hls_settings: Stubs::HlsSettings.default(visited),
+          hls_settings: HlsSettings.default(visited),
         }
       end
 
@@ -1747,15 +1747,15 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('ContainerSettings')
         visited = visited + ['ContainerSettings']
         {
-          cmfc_settings: Stubs::CmfcSettings.default(visited),
+          cmfc_settings: CmfcSettings.default(visited),
           container: 'container',
-          f4v_settings: Stubs::F4vSettings.default(visited),
-          m2ts_settings: Stubs::M2tsSettings.default(visited),
-          m3u8_settings: Stubs::M3u8Settings.default(visited),
-          mov_settings: Stubs::MovSettings.default(visited),
-          mp4_settings: Stubs::Mp4Settings.default(visited),
-          mpd_settings: Stubs::MpdSettings.default(visited),
-          mxf_settings: Stubs::MxfSettings.default(visited),
+          f4v_settings: F4vSettings.default(visited),
+          m2ts_settings: M2tsSettings.default(visited),
+          m3u8_settings: M3u8Settings.default(visited),
+          mov_settings: MovSettings.default(visited),
+          mp4_settings: Mp4Settings.default(visited),
+          mpd_settings: MpdSettings.default(visited),
+          mxf_settings: MxfSettings.default(visited),
         }
       end
 
@@ -1783,7 +1783,7 @@ module AWS::SDK::MediaConvert
         {
           afd_signaling: 'afd_signaling',
           profile: 'profile',
-          xavc_profile_settings: Stubs::MxfXavcProfileSettings.default(visited),
+          xavc_profile_settings: MxfXavcProfileSettings.default(visited),
         }
       end
 
@@ -1909,7 +1909,7 @@ module AWS::SDK::MediaConvert
         {
           audio_duration: 'audio_duration',
           audio_frames_per_pes: 1,
-          audio_pids: Stubs::List____listOf__integerMin32Max8182.default(visited),
+          audio_pids: List____listOf__integerMin32Max8182.default(visited),
           data_pts_control: 'data_pts_control',
           max_pcr_interval: 1,
           nielsen_id3: 'nielsen_id3',
@@ -1984,14 +1984,14 @@ module AWS::SDK::MediaConvert
           audio_buffer_model: 'audio_buffer_model',
           audio_duration: 'audio_duration',
           audio_frames_per_pes: 1,
-          audio_pids: Stubs::List____listOf__integerMin32Max8182.default(visited),
+          audio_pids: List____listOf__integerMin32Max8182.default(visited),
           bitrate: 1,
           buffer_model: 'buffer_model',
           data_pts_control: 'data_pts_control',
-          dvb_nit_settings: Stubs::DvbNitSettings.default(visited),
-          dvb_sdt_settings: Stubs::DvbSdtSettings.default(visited),
-          dvb_sub_pids: Stubs::List____listOf__integerMin32Max8182.default(visited),
-          dvb_tdt_settings: Stubs::DvbTdtSettings.default(visited),
+          dvb_nit_settings: DvbNitSettings.default(visited),
+          dvb_sdt_settings: DvbSdtSettings.default(visited),
+          dvb_sub_pids: List____listOf__integerMin32Max8182.default(visited),
+          dvb_tdt_settings: DvbTdtSettings.default(visited),
           dvb_teletext_pid: 1,
           ebp_audio_interval: 'ebp_audio_interval',
           ebp_placement: 'ebp_placement',
@@ -2011,7 +2011,7 @@ module AWS::SDK::MediaConvert
           private_metadata_pid: 1,
           program_number: 1,
           rate_mode: 'rate_mode',
-          scte35_esam: Stubs::M2tsScte35Esam.default(visited),
+          scte35_esam: M2tsScte35Esam.default(visited),
           scte35_pid: 1,
           scte35_source: 'scte35_source',
           segmentation_markers: 'segmentation_markers',
@@ -2211,7 +2211,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfCaptionDescription')
         visited = visited + ['List____listOfCaptionDescription']
         [
-          Stubs::CaptionDescription.default(visited)
+          CaptionDescription.default(visited)
         ]
       end
 
@@ -2233,7 +2233,7 @@ module AWS::SDK::MediaConvert
         {
           caption_selector_name: 'caption_selector_name',
           custom_language_code: 'custom_language_code',
-          destination_settings: Stubs::CaptionDestinationSettings.default(visited),
+          destination_settings: CaptionDestinationSettings.default(visited),
           language_code: 'language_code',
           language_description: 'language_description',
         }
@@ -2257,16 +2257,16 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('CaptionDestinationSettings')
         visited = visited + ['CaptionDestinationSettings']
         {
-          burnin_destination_settings: Stubs::BurninDestinationSettings.default(visited),
+          burnin_destination_settings: BurninDestinationSettings.default(visited),
           destination_type: 'destination_type',
-          dvb_sub_destination_settings: Stubs::DvbSubDestinationSettings.default(visited),
-          embedded_destination_settings: Stubs::EmbeddedDestinationSettings.default(visited),
-          imsc_destination_settings: Stubs::ImscDestinationSettings.default(visited),
-          scc_destination_settings: Stubs::SccDestinationSettings.default(visited),
-          srt_destination_settings: Stubs::SrtDestinationSettings.default(visited),
-          teletext_destination_settings: Stubs::TeletextDestinationSettings.default(visited),
-          ttml_destination_settings: Stubs::TtmlDestinationSettings.default(visited),
-          webvtt_destination_settings: Stubs::WebvttDestinationSettings.default(visited),
+          dvb_sub_destination_settings: DvbSubDestinationSettings.default(visited),
+          embedded_destination_settings: EmbeddedDestinationSettings.default(visited),
+          imsc_destination_settings: ImscDestinationSettings.default(visited),
+          scc_destination_settings: SccDestinationSettings.default(visited),
+          srt_destination_settings: SrtDestinationSettings.default(visited),
+          teletext_destination_settings: TeletextDestinationSettings.default(visited),
+          ttml_destination_settings: TtmlDestinationSettings.default(visited),
+          webvtt_destination_settings: WebvttDestinationSettings.default(visited),
         }
       end
 
@@ -2332,7 +2332,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['TeletextDestinationSettings']
         {
           page_number: 'page_number',
-          page_types: Stubs::List____listOfTeletextPageType.default(visited),
+          page_types: List____listOfTeletextPageType.default(visited),
         }
       end
 
@@ -2575,7 +2575,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfAudioDescription')
         visited = visited + ['List____listOfAudioDescription']
         [
-          Stubs::AudioDescription.default(visited)
+          AudioDescription.default(visited)
         ]
       end
 
@@ -2595,16 +2595,16 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('AudioDescription')
         visited = visited + ['AudioDescription']
         {
-          audio_channel_tagging_settings: Stubs::AudioChannelTaggingSettings.default(visited),
-          audio_normalization_settings: Stubs::AudioNormalizationSettings.default(visited),
+          audio_channel_tagging_settings: AudioChannelTaggingSettings.default(visited),
+          audio_normalization_settings: AudioNormalizationSettings.default(visited),
           audio_source_name: 'audio_source_name',
           audio_type: 1,
           audio_type_control: 'audio_type_control',
-          codec_settings: Stubs::AudioCodecSettings.default(visited),
+          codec_settings: AudioCodecSettings.default(visited),
           custom_language_code: 'custom_language_code',
           language_code: 'language_code',
           language_code_control: 'language_code_control',
-          remix_settings: Stubs::RemixSettings.default(visited),
+          remix_settings: RemixSettings.default(visited),
           stream_name: 'stream_name',
         }
       end
@@ -2633,7 +2633,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('RemixSettings')
         visited = visited + ['RemixSettings']
         {
-          channel_mapping: Stubs::ChannelMapping.default(visited),
+          channel_mapping: ChannelMapping.default(visited),
           channels_in: 1,
           channels_out: 1,
         }
@@ -2655,7 +2655,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('ChannelMapping')
         visited = visited + ['ChannelMapping']
         {
-          output_channels: Stubs::List____listOfOutputChannelMapping.default(visited),
+          output_channels: List____listOfOutputChannelMapping.default(visited),
         }
       end
 
@@ -2673,7 +2673,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfOutputChannelMapping')
         visited = visited + ['List____listOfOutputChannelMapping']
         [
-          Stubs::OutputChannelMapping.default(visited)
+          OutputChannelMapping.default(visited)
         ]
       end
 
@@ -2693,8 +2693,8 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('OutputChannelMapping')
         visited = visited + ['OutputChannelMapping']
         {
-          input_channels: Stubs::List____listOf__integerMinNegative60Max6.default(visited),
-          input_channels_fine_tune: Stubs::List____listOf__doubleMinNegative60Max6.default(visited),
+          input_channels: List____listOf__integerMinNegative60Max6.default(visited),
+          input_channels_fine_tune: List____listOf__doubleMinNegative60Max6.default(visited),
         }
       end
 
@@ -2753,17 +2753,17 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('AudioCodecSettings')
         visited = visited + ['AudioCodecSettings']
         {
-          aac_settings: Stubs::AacSettings.default(visited),
-          ac3_settings: Stubs::Ac3Settings.default(visited),
-          aiff_settings: Stubs::AiffSettings.default(visited),
+          aac_settings: AacSettings.default(visited),
+          ac3_settings: Ac3Settings.default(visited),
+          aiff_settings: AiffSettings.default(visited),
           codec: 'codec',
-          eac3_atmos_settings: Stubs::Eac3AtmosSettings.default(visited),
-          eac3_settings: Stubs::Eac3Settings.default(visited),
-          mp2_settings: Stubs::Mp2Settings.default(visited),
-          mp3_settings: Stubs::Mp3Settings.default(visited),
-          opus_settings: Stubs::OpusSettings.default(visited),
-          vorbis_settings: Stubs::VorbisSettings.default(visited),
-          wav_settings: Stubs::WavSettings.default(visited),
+          eac3_atmos_settings: Eac3AtmosSettings.default(visited),
+          eac3_settings: Eac3Settings.default(visited),
+          mp2_settings: Mp2Settings.default(visited),
+          mp3_settings: Mp3Settings.default(visited),
+          opus_settings: OpusSettings.default(visited),
+          vorbis_settings: VorbisSettings.default(visited),
+          wav_settings: WavSettings.default(visited),
         }
       end
 
@@ -3153,11 +3153,11 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('OutputGroupSettings')
         visited = visited + ['OutputGroupSettings']
         {
-          cmaf_group_settings: Stubs::CmafGroupSettings.default(visited),
-          dash_iso_group_settings: Stubs::DashIsoGroupSettings.default(visited),
-          file_group_settings: Stubs::FileGroupSettings.default(visited),
-          hls_group_settings: Stubs::HlsGroupSettings.default(visited),
-          ms_smooth_group_settings: Stubs::MsSmoothGroupSettings.default(visited),
+          cmaf_group_settings: CmafGroupSettings.default(visited),
+          dash_iso_group_settings: DashIsoGroupSettings.default(visited),
+          file_group_settings: FileGroupSettings.default(visited),
+          hls_group_settings: HlsGroupSettings.default(visited),
+          ms_smooth_group_settings: MsSmoothGroupSettings.default(visited),
           type: 'type',
         }
       end
@@ -3181,11 +3181,11 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('MsSmoothGroupSettings')
         visited = visited + ['MsSmoothGroupSettings']
         {
-          additional_manifests: Stubs::List____listOfMsSmoothAdditionalManifest.default(visited),
+          additional_manifests: List____listOfMsSmoothAdditionalManifest.default(visited),
           audio_deduplication: 'audio_deduplication',
           destination: 'destination',
-          destination_settings: Stubs::DestinationSettings.default(visited),
-          encryption: Stubs::MsSmoothEncryptionSettings.default(visited),
+          destination_settings: DestinationSettings.default(visited),
+          encryption: MsSmoothEncryptionSettings.default(visited),
           fragment_length: 1,
           fragment_length_control: 'fragment_length_control',
           manifest_encoding: 'manifest_encoding',
@@ -3213,7 +3213,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('MsSmoothEncryptionSettings')
         visited = visited + ['MsSmoothEncryptionSettings']
         {
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
         }
       end
 
@@ -3233,7 +3233,7 @@ module AWS::SDK::MediaConvert
         {
           certificate_arn: 'certificate_arn',
           resource_id: 'resource_id',
-          system_ids: Stubs::List____listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12.default(visited),
+          system_ids: List____listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12.default(visited),
           url: 'url',
         }
       end
@@ -3275,7 +3275,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('DestinationSettings')
         visited = visited + ['DestinationSettings']
         {
-          s3_settings: Stubs::S3DestinationSettings.default(visited),
+          s3_settings: S3DestinationSettings.default(visited),
         }
       end
 
@@ -3293,8 +3293,8 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('S3DestinationSettings')
         visited = visited + ['S3DestinationSettings']
         {
-          access_control: Stubs::S3DestinationAccessControl.default(visited),
-          encryption: Stubs::S3EncryptionSettings.default(visited),
+          access_control: S3DestinationAccessControl.default(visited),
+          encryption: S3EncryptionSettings.default(visited),
         }
       end
 
@@ -3353,7 +3353,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfMsSmoothAdditionalManifest')
         visited = visited + ['List____listOfMsSmoothAdditionalManifest']
         [
-          Stubs::MsSmoothAdditionalManifest.default(visited)
+          MsSmoothAdditionalManifest.default(visited)
         ]
       end
 
@@ -3374,7 +3374,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['MsSmoothAdditionalManifest']
         {
           manifest_name_modifier: 'manifest_name_modifier',
-          selected_outputs: Stubs::List____listOf__stringMin1.default(visited),
+          selected_outputs: List____listOf__stringMin1.default(visited),
         }
       end
 
@@ -3413,21 +3413,21 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('HlsGroupSettings')
         visited = visited + ['HlsGroupSettings']
         {
-          ad_markers: Stubs::List____listOfHlsAdMarkers.default(visited),
-          additional_manifests: Stubs::List____listOfHlsAdditionalManifest.default(visited),
+          ad_markers: List____listOfHlsAdMarkers.default(visited),
+          additional_manifests: List____listOfHlsAdditionalManifest.default(visited),
           audio_only_header: 'audio_only_header',
           base_url: 'base_url',
-          caption_language_mappings: Stubs::List____listOfHlsCaptionLanguageMapping.default(visited),
+          caption_language_mappings: List____listOfHlsCaptionLanguageMapping.default(visited),
           caption_language_setting: 'caption_language_setting',
           caption_segment_length_control: 'caption_segment_length_control',
           client_cache: 'client_cache',
           codec_specification: 'codec_specification',
           destination: 'destination',
-          destination_settings: Stubs::DestinationSettings.default(visited),
+          destination_settings: DestinationSettings.default(visited),
           directory_structure: 'directory_structure',
-          encryption: Stubs::HlsEncryptionSettings.default(visited),
+          encryption: HlsEncryptionSettings.default(visited),
           image_based_trick_play: 'image_based_trick_play',
-          image_based_trick_play_settings: Stubs::HlsImageBasedTrickPlaySettings.default(visited),
+          image_based_trick_play_settings: HlsImageBasedTrickPlaySettings.default(visited),
           manifest_compression: 'manifest_compression',
           manifest_duration_format: 'manifest_duration_format',
           min_final_segment_length: 1.0,
@@ -3523,8 +3523,8 @@ module AWS::SDK::MediaConvert
           encryption_method: 'encryption_method',
           initialization_vector_in_manifest: 'initialization_vector_in_manifest',
           offline_encrypted: 'offline_encrypted',
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
-          static_key_provider: Stubs::StaticKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
+          static_key_provider: StaticKeyProvider.default(visited),
           type: 'type',
         }
       end
@@ -3573,7 +3573,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfHlsCaptionLanguageMapping')
         visited = visited + ['List____listOfHlsCaptionLanguageMapping']
         [
-          Stubs::HlsCaptionLanguageMapping.default(visited)
+          HlsCaptionLanguageMapping.default(visited)
         ]
       end
 
@@ -3617,7 +3617,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfHlsAdditionalManifest')
         visited = visited + ['List____listOfHlsAdditionalManifest']
         [
-          Stubs::HlsAdditionalManifest.default(visited)
+          HlsAdditionalManifest.default(visited)
         ]
       end
 
@@ -3638,7 +3638,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['HlsAdditionalManifest']
         {
           manifest_name_modifier: 'manifest_name_modifier',
-          selected_outputs: Stubs::List____listOf__stringMin1.default(visited),
+          selected_outputs: List____listOf__stringMin1.default(visited),
         }
       end
 
@@ -3678,7 +3678,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['FileGroupSettings']
         {
           destination: 'destination',
-          destination_settings: Stubs::DestinationSettings.default(visited),
+          destination_settings: DestinationSettings.default(visited),
         }
       end
 
@@ -3697,16 +3697,16 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('DashIsoGroupSettings')
         visited = visited + ['DashIsoGroupSettings']
         {
-          additional_manifests: Stubs::List____listOfDashAdditionalManifest.default(visited),
+          additional_manifests: List____listOfDashAdditionalManifest.default(visited),
           audio_channel_config_scheme_id_uri: 'audio_channel_config_scheme_id_uri',
           base_url: 'base_url',
           destination: 'destination',
-          destination_settings: Stubs::DestinationSettings.default(visited),
-          encryption: Stubs::DashIsoEncryptionSettings.default(visited),
+          destination_settings: DestinationSettings.default(visited),
+          encryption: DashIsoEncryptionSettings.default(visited),
           fragment_length: 1,
           hbbtv_compliance: 'hbbtv_compliance',
           image_based_trick_play: 'image_based_trick_play',
-          image_based_trick_play_settings: Stubs::DashIsoImageBasedTrickPlaySettings.default(visited),
+          image_based_trick_play_settings: DashIsoImageBasedTrickPlaySettings.default(visited),
           min_buffer_time: 1,
           min_final_segment_length: 1.0,
           mpd_profile: 'mpd_profile',
@@ -3778,7 +3778,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['DashIsoEncryptionSettings']
         {
           playback_device_compatibility: 'playback_device_compatibility',
-          speke_key_provider: Stubs::SpekeKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProvider.default(visited),
         }
       end
 
@@ -3797,7 +3797,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfDashAdditionalManifest')
         visited = visited + ['List____listOfDashAdditionalManifest']
         [
-          Stubs::DashAdditionalManifest.default(visited)
+          DashAdditionalManifest.default(visited)
         ]
       end
 
@@ -3818,7 +3818,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['DashAdditionalManifest']
         {
           manifest_name_modifier: 'manifest_name_modifier',
-          selected_outputs: Stubs::List____listOf__stringMin1.default(visited),
+          selected_outputs: List____listOf__stringMin1.default(visited),
         }
       end
 
@@ -3837,16 +3837,16 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('CmafGroupSettings')
         visited = visited + ['CmafGroupSettings']
         {
-          additional_manifests: Stubs::List____listOfCmafAdditionalManifest.default(visited),
+          additional_manifests: List____listOfCmafAdditionalManifest.default(visited),
           base_url: 'base_url',
           client_cache: 'client_cache',
           codec_specification: 'codec_specification',
           destination: 'destination',
-          destination_settings: Stubs::DestinationSettings.default(visited),
-          encryption: Stubs::CmafEncryptionSettings.default(visited),
+          destination_settings: DestinationSettings.default(visited),
+          encryption: CmafEncryptionSettings.default(visited),
           fragment_length: 1,
           image_based_trick_play: 'image_based_trick_play',
-          image_based_trick_play_settings: Stubs::CmafImageBasedTrickPlaySettings.default(visited),
+          image_based_trick_play_settings: CmafImageBasedTrickPlaySettings.default(visited),
           manifest_compression: 'manifest_compression',
           manifest_duration_format: 'manifest_duration_format',
           min_buffer_time: 1,
@@ -3932,8 +3932,8 @@ module AWS::SDK::MediaConvert
           constant_initialization_vector: 'constant_initialization_vector',
           encryption_method: 'encryption_method',
           initialization_vector_in_manifest: 'initialization_vector_in_manifest',
-          speke_key_provider: Stubs::SpekeKeyProviderCmaf.default(visited),
-          static_key_provider: Stubs::StaticKeyProvider.default(visited),
+          speke_key_provider: SpekeKeyProviderCmaf.default(visited),
+          static_key_provider: StaticKeyProvider.default(visited),
           type: 'type',
         }
       end
@@ -3958,8 +3958,8 @@ module AWS::SDK::MediaConvert
         visited = visited + ['SpekeKeyProviderCmaf']
         {
           certificate_arn: 'certificate_arn',
-          dash_signaled_system_ids: Stubs::List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.default(visited),
-          hls_signaled_system_ids: Stubs::List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.default(visited),
+          dash_signaled_system_ids: List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.default(visited),
+          hls_signaled_system_ids: List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.default(visited),
           resource_id: 'resource_id',
           url: 'url',
         }
@@ -4003,7 +4003,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfCmafAdditionalManifest')
         visited = visited + ['List____listOfCmafAdditionalManifest']
         [
-          Stubs::CmafAdditionalManifest.default(visited)
+          CmafAdditionalManifest.default(visited)
         ]
       end
 
@@ -4024,7 +4024,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['CmafAdditionalManifest']
         {
           manifest_name_modifier: 'manifest_name_modifier',
-          selected_outputs: Stubs::List____listOf__stringMin1.default(visited),
+          selected_outputs: List____listOf__stringMin1.default(visited),
         }
       end
 
@@ -4043,7 +4043,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('AutomatedEncodingSettings')
         visited = visited + ['AutomatedEncodingSettings']
         {
-          abr_settings: Stubs::AutomatedAbrSettings.default(visited),
+          abr_settings: AutomatedAbrSettings.default(visited),
         }
       end
 
@@ -4064,7 +4064,7 @@ module AWS::SDK::MediaConvert
           max_abr_bitrate: 1,
           max_renditions: 1,
           min_abr_bitrate: 1,
-          rules: Stubs::List____listOfAutomatedAbrRule.default(visited),
+          rules: List____listOfAutomatedAbrRule.default(visited),
         }
       end
 
@@ -4085,7 +4085,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfAutomatedAbrRule')
         visited = visited + ['List____listOfAutomatedAbrRule']
         [
-          Stubs::AutomatedAbrRule.default(visited)
+          AutomatedAbrRule.default(visited)
         ]
       end
 
@@ -4105,10 +4105,10 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('AutomatedAbrRule')
         visited = visited + ['AutomatedAbrRule']
         {
-          allowed_renditions: Stubs::List____listOfAllowedRenditionSize.default(visited),
-          force_include_renditions: Stubs::List____listOfForceIncludeRenditionSize.default(visited),
-          min_bottom_rendition_size: Stubs::MinBottomRenditionSize.default(visited),
-          min_top_rendition_size: Stubs::MinTopRenditionSize.default(visited),
+          allowed_renditions: List____listOfAllowedRenditionSize.default(visited),
+          force_include_renditions: List____listOfForceIncludeRenditionSize.default(visited),
+          min_bottom_rendition_size: MinBottomRenditionSize.default(visited),
+          min_top_rendition_size: MinTopRenditionSize.default(visited),
           type: 'type',
         }
       end
@@ -4171,7 +4171,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfForceIncludeRenditionSize')
         visited = visited + ['List____listOfForceIncludeRenditionSize']
         [
-          Stubs::ForceIncludeRenditionSize.default(visited)
+          ForceIncludeRenditionSize.default(visited)
         ]
       end
 
@@ -4211,7 +4211,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfAllowedRenditionSize')
         visited = visited + ['List____listOfAllowedRenditionSize']
         [
-          Stubs::AllowedRenditionSize.default(visited)
+          AllowedRenditionSize.default(visited)
         ]
       end
 
@@ -4311,10 +4311,10 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('MotionImageInserter')
         visited = visited + ['MotionImageInserter']
         {
-          framerate: Stubs::MotionImageInsertionFramerate.default(visited),
+          framerate: MotionImageInsertionFramerate.default(visited),
           input: 'input',
           insertion_mode: 'insertion_mode',
-          offset: Stubs::MotionImageInsertionOffset.default(visited),
+          offset: MotionImageInsertionOffset.default(visited),
           playback: 'playback',
           start_time: 'start_time',
         }
@@ -4421,7 +4421,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfInput')
         visited = visited + ['List____listOfInput']
         [
-          Stubs::Input.default(visited)
+          Input.default(visited)
         ]
       end
 
@@ -4441,28 +4441,28 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('Input')
         visited = visited + ['Input']
         {
-          audio_selector_groups: Stubs::Map____mapOfAudioSelectorGroup.default(visited),
-          audio_selectors: Stubs::Map____mapOfAudioSelector.default(visited),
-          caption_selectors: Stubs::Map____mapOfCaptionSelector.default(visited),
-          crop: Stubs::Rectangle.default(visited),
+          audio_selector_groups: Map____mapOfAudioSelectorGroup.default(visited),
+          audio_selectors: Map____mapOfAudioSelector.default(visited),
+          caption_selectors: Map____mapOfCaptionSelector.default(visited),
+          crop: Rectangle.default(visited),
           deblock_filter: 'deblock_filter',
-          decryption_settings: Stubs::InputDecryptionSettings.default(visited),
+          decryption_settings: InputDecryptionSettings.default(visited),
           denoise_filter: 'denoise_filter',
           dolby_vision_metadata_xml: 'dolby_vision_metadata_xml',
           file_input: 'file_input',
           filter_enable: 'filter_enable',
           filter_strength: 1,
-          image_inserter: Stubs::ImageInserter.default(visited),
-          input_clippings: Stubs::List____listOfInputClipping.default(visited),
+          image_inserter: ImageInserter.default(visited),
+          input_clippings: List____listOfInputClipping.default(visited),
           input_scan_type: 'input_scan_type',
-          position: Stubs::Rectangle.default(visited),
+          position: Rectangle.default(visited),
           program_number: 1,
           psi_control: 'psi_control',
-          supplemental_imps: Stubs::List____listOf__stringPatternS3ASSETMAPXml.default(visited),
+          supplemental_imps: List____listOf__stringPatternS3ASSETMAPXml.default(visited),
           timecode_source: 'timecode_source',
           timecode_start: 'timecode_start',
-          video_generator: Stubs::InputVideoGenerator.default(visited),
-          video_selector: Stubs::VideoSelector.default(visited),
+          video_generator: InputVideoGenerator.default(visited),
+          video_selector: VideoSelector.default(visited),
         }
       end
 
@@ -4505,7 +4505,7 @@ module AWS::SDK::MediaConvert
           color_space: 'color_space',
           color_space_usage: 'color_space_usage',
           embedded_timecode_override: 'embedded_timecode_override',
-          hdr10_metadata: Stubs::Hdr10Metadata.default(visited),
+          hdr10_metadata: Hdr10Metadata.default(visited),
           pad_video: 'pad_video',
           pid: 1,
           program_number: 1,
@@ -4575,7 +4575,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfInputClipping')
         visited = visited + ['List____listOfInputClipping']
         [
-          Stubs::InputClipping.default(visited)
+          InputClipping.default(visited)
         ]
       end
 
@@ -4639,7 +4639,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('Map____mapOfCaptionSelector')
         visited = visited + ['Map____mapOfCaptionSelector']
         {
-          test_key: Stubs::CaptionSelector.default(visited)
+          test_key: CaptionSelector.default(visited)
         }
       end
 
@@ -4661,7 +4661,7 @@ module AWS::SDK::MediaConvert
         {
           custom_language_code: 'custom_language_code',
           language_code: 'language_code',
-          source_settings: Stubs::CaptionSourceSettings.default(visited),
+          source_settings: CaptionSourceSettings.default(visited),
         }
       end
 
@@ -4681,14 +4681,14 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('CaptionSourceSettings')
         visited = visited + ['CaptionSourceSettings']
         {
-          ancillary_source_settings: Stubs::AncillarySourceSettings.default(visited),
-          dvb_sub_source_settings: Stubs::DvbSubSourceSettings.default(visited),
-          embedded_source_settings: Stubs::EmbeddedSourceSettings.default(visited),
-          file_source_settings: Stubs::FileSourceSettings.default(visited),
+          ancillary_source_settings: AncillarySourceSettings.default(visited),
+          dvb_sub_source_settings: DvbSubSourceSettings.default(visited),
+          embedded_source_settings: EmbeddedSourceSettings.default(visited),
+          file_source_settings: FileSourceSettings.default(visited),
           source_type: 'source_type',
-          teletext_source_settings: Stubs::TeletextSourceSettings.default(visited),
-          track_source_settings: Stubs::TrackSourceSettings.default(visited),
-          webvtt_hls_source_settings: Stubs::WebvttHlsSourceSettings.default(visited),
+          teletext_source_settings: TeletextSourceSettings.default(visited),
+          track_source_settings: TrackSourceSettings.default(visited),
+          webvtt_hls_source_settings: WebvttHlsSourceSettings.default(visited),
         }
       end
 
@@ -4772,7 +4772,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['FileSourceSettings']
         {
           convert608_to708: 'convert608_to708',
-          framerate: Stubs::CaptionSourceFramerate.default(visited),
+          framerate: CaptionSourceFramerate.default(visited),
           source_file: 'source_file',
           time_delta: 1,
           time_delta_units: 'time_delta_units',
@@ -4881,7 +4881,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('Map____mapOfAudioSelector')
         visited = visited + ['Map____mapOfAudioSelector']
         {
-          test_key: Stubs::AudioSelector.default(visited)
+          test_key: AudioSelector.default(visited)
         }
       end
 
@@ -4904,14 +4904,14 @@ module AWS::SDK::MediaConvert
           custom_language_code: 'custom_language_code',
           default_selection: 'default_selection',
           external_audio_file_input: 'external_audio_file_input',
-          hls_rendition_group_settings: Stubs::HlsRenditionGroupSettings.default(visited),
+          hls_rendition_group_settings: HlsRenditionGroupSettings.default(visited),
           language_code: 'language_code',
           offset: 1,
-          pids: Stubs::List____listOf__integerMin1Max2147483647.default(visited),
+          pids: List____listOf__integerMin1Max2147483647.default(visited),
           program_selection: 1,
-          remix_settings: Stubs::RemixSettings.default(visited),
+          remix_settings: RemixSettings.default(visited),
           selector_type: 'selector_type',
-          tracks: Stubs::List____listOf__integerMin1Max2147483647.default(visited),
+          tracks: List____listOf__integerMin1Max2147483647.default(visited),
         }
       end
 
@@ -4981,7 +4981,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('Map____mapOfAudioSelectorGroup')
         visited = visited + ['Map____mapOfAudioSelectorGroup']
         {
-          test_key: Stubs::AudioSelectorGroup.default(visited)
+          test_key: AudioSelectorGroup.default(visited)
         }
       end
 
@@ -5001,7 +5001,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('AudioSelectorGroup')
         visited = visited + ['AudioSelectorGroup']
         {
-          audio_selector_names: Stubs::List____listOf__stringMin1.default(visited),
+          audio_selector_names: List____listOf__stringMin1.default(visited),
         }
       end
 
@@ -5039,9 +5039,9 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('EsamSettings')
         visited = visited + ['EsamSettings']
         {
-          manifest_confirm_condition_notification: Stubs::EsamManifestConfirmConditionNotification.default(visited),
+          manifest_confirm_condition_notification: EsamManifestConfirmConditionNotification.default(visited),
           response_signal_preroll: 1,
-          signal_processing_notification: Stubs::EsamSignalProcessingNotification.default(visited),
+          signal_processing_notification: EsamSignalProcessingNotification.default(visited),
         }
       end
 
@@ -5115,7 +5115,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfQueueTransition')
         visited = visited + ['List____listOfQueueTransition']
         [
-          Stubs::QueueTransition.default(visited)
+          QueueTransition.default(visited)
         ]
       end
 
@@ -5157,7 +5157,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfOutputGroupDetail')
         visited = visited + ['List____listOfOutputGroupDetail']
         [
-          Stubs::OutputGroupDetail.default(visited)
+          OutputGroupDetail.default(visited)
         ]
       end
 
@@ -5177,7 +5177,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('OutputGroupDetail')
         visited = visited + ['OutputGroupDetail']
         {
-          output_details: Stubs::List____listOfOutputDetail.default(visited),
+          output_details: List____listOfOutputDetail.default(visited),
         }
       end
 
@@ -5195,7 +5195,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfOutputDetail')
         visited = visited + ['List____listOfOutputDetail']
         [
-          Stubs::OutputDetail.default(visited)
+          OutputDetail.default(visited)
         ]
       end
 
@@ -5216,7 +5216,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['OutputDetail']
         {
           duration_in_ms: 1,
-          video_details: Stubs::VideoDetail.default(visited),
+          video_details: VideoDetail.default(visited),
         }
       end
 
@@ -5255,8 +5255,8 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('JobMessages')
         visited = visited + ['JobMessages']
         {
-          info: Stubs::List____listOf__string.default(visited),
-          warning: Stubs::List____listOf__string.default(visited),
+          info: List____listOf__string.default(visited),
+          warning: List____listOf__string.default(visited),
         }
       end
 
@@ -5295,7 +5295,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfHopDestination')
         visited = visited + ['List____listOfHopDestination']
         [
-          Stubs::HopDestination.default(visited)
+          HopDestination.default(visited)
         ]
       end
 
@@ -5353,7 +5353,7 @@ module AWS::SDK::MediaConvert
     class CreateJobTemplate
       def self.default(visited=[])
         {
-          job_template: Stubs::JobTemplate.default(visited),
+          job_template: JobTemplate.default(visited),
         }
       end
 
@@ -5372,17 +5372,17 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('JobTemplate')
         visited = visited + ['JobTemplate']
         {
-          acceleration_settings: Stubs::AccelerationSettings.default(visited),
+          acceleration_settings: AccelerationSettings.default(visited),
           arn: 'arn',
           category: 'category',
           created_at: Time.now,
           description: 'description',
-          hop_destinations: Stubs::List____listOfHopDestination.default(visited),
+          hop_destinations: List____listOfHopDestination.default(visited),
           last_updated: Time.now,
           name: 'name',
           priority: 1,
           queue: 'queue',
-          settings: Stubs::JobTemplateSettings.default(visited),
+          settings: JobTemplateSettings.default(visited),
           status_update_interval: 'status_update_interval',
           type: 'type',
         }
@@ -5415,17 +5415,17 @@ module AWS::SDK::MediaConvert
         visited = visited + ['JobTemplateSettings']
         {
           ad_avail_offset: 1,
-          avail_blanking: Stubs::AvailBlanking.default(visited),
-          esam: Stubs::EsamSettings.default(visited),
-          extended_data_services: Stubs::ExtendedDataServices.default(visited),
-          inputs: Stubs::List____listOfInputTemplate.default(visited),
-          kantar_watermark: Stubs::KantarWatermarkSettings.default(visited),
-          motion_image_inserter: Stubs::MotionImageInserter.default(visited),
-          nielsen_configuration: Stubs::NielsenConfiguration.default(visited),
-          nielsen_non_linear_watermark: Stubs::NielsenNonLinearWatermarkSettings.default(visited),
-          output_groups: Stubs::List____listOfOutputGroup.default(visited),
-          timecode_config: Stubs::TimecodeConfig.default(visited),
-          timed_metadata_insertion: Stubs::TimedMetadataInsertion.default(visited),
+          avail_blanking: AvailBlanking.default(visited),
+          esam: EsamSettings.default(visited),
+          extended_data_services: ExtendedDataServices.default(visited),
+          inputs: List____listOfInputTemplate.default(visited),
+          kantar_watermark: KantarWatermarkSettings.default(visited),
+          motion_image_inserter: MotionImageInserter.default(visited),
+          nielsen_configuration: NielsenConfiguration.default(visited),
+          nielsen_non_linear_watermark: NielsenNonLinearWatermarkSettings.default(visited),
+          output_groups: List____listOfOutputGroup.default(visited),
+          timecode_config: TimecodeConfig.default(visited),
+          timed_metadata_insertion: TimedMetadataInsertion.default(visited),
         }
       end
 
@@ -5454,7 +5454,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfInputTemplate')
         visited = visited + ['List____listOfInputTemplate']
         [
-          Stubs::InputTemplate.default(visited)
+          InputTemplate.default(visited)
         ]
       end
 
@@ -5474,24 +5474,24 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('InputTemplate')
         visited = visited + ['InputTemplate']
         {
-          audio_selector_groups: Stubs::Map____mapOfAudioSelectorGroup.default(visited),
-          audio_selectors: Stubs::Map____mapOfAudioSelector.default(visited),
-          caption_selectors: Stubs::Map____mapOfCaptionSelector.default(visited),
-          crop: Stubs::Rectangle.default(visited),
+          audio_selector_groups: Map____mapOfAudioSelectorGroup.default(visited),
+          audio_selectors: Map____mapOfAudioSelector.default(visited),
+          caption_selectors: Map____mapOfCaptionSelector.default(visited),
+          crop: Rectangle.default(visited),
           deblock_filter: 'deblock_filter',
           denoise_filter: 'denoise_filter',
           dolby_vision_metadata_xml: 'dolby_vision_metadata_xml',
           filter_enable: 'filter_enable',
           filter_strength: 1,
-          image_inserter: Stubs::ImageInserter.default(visited),
-          input_clippings: Stubs::List____listOfInputClipping.default(visited),
+          image_inserter: ImageInserter.default(visited),
+          input_clippings: List____listOfInputClipping.default(visited),
           input_scan_type: 'input_scan_type',
-          position: Stubs::Rectangle.default(visited),
+          position: Rectangle.default(visited),
           program_number: 1,
           psi_control: 'psi_control',
           timecode_source: 'timecode_source',
           timecode_start: 'timecode_start',
-          video_selector: Stubs::VideoSelector.default(visited),
+          video_selector: VideoSelector.default(visited),
         }
       end
 
@@ -5524,7 +5524,7 @@ module AWS::SDK::MediaConvert
     class CreatePreset
       def self.default(visited=[])
         {
-          preset: Stubs::Preset.default(visited),
+          preset: Preset.default(visited),
         }
       end
 
@@ -5549,7 +5549,7 @@ module AWS::SDK::MediaConvert
           description: 'description',
           last_updated: Time.now,
           name: 'name',
-          settings: Stubs::PresetSettings.default(visited),
+          settings: PresetSettings.default(visited),
           type: 'type',
         }
       end
@@ -5575,10 +5575,10 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('PresetSettings')
         visited = visited + ['PresetSettings']
         {
-          audio_descriptions: Stubs::List____listOfAudioDescription.default(visited),
-          caption_descriptions: Stubs::List____listOfCaptionDescriptionPreset.default(visited),
-          container_settings: Stubs::ContainerSettings.default(visited),
-          video_description: Stubs::VideoDescription.default(visited),
+          audio_descriptions: List____listOfAudioDescription.default(visited),
+          caption_descriptions: List____listOfCaptionDescriptionPreset.default(visited),
+          container_settings: ContainerSettings.default(visited),
+          video_description: VideoDescription.default(visited),
         }
       end
 
@@ -5599,7 +5599,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfCaptionDescriptionPreset')
         visited = visited + ['List____listOfCaptionDescriptionPreset']
         [
-          Stubs::CaptionDescriptionPreset.default(visited)
+          CaptionDescriptionPreset.default(visited)
         ]
       end
 
@@ -5620,7 +5620,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['CaptionDescriptionPreset']
         {
           custom_language_code: 'custom_language_code',
-          destination_settings: Stubs::CaptionDestinationSettings.default(visited),
+          destination_settings: CaptionDestinationSettings.default(visited),
           language_code: 'language_code',
           language_description: 'language_description',
         }
@@ -5641,7 +5641,7 @@ module AWS::SDK::MediaConvert
     class CreateQueue
       def self.default(visited=[])
         {
-          queue: Stubs::Queue.default(visited),
+          queue: Queue.default(visited),
         }
       end
 
@@ -5667,7 +5667,7 @@ module AWS::SDK::MediaConvert
           name: 'name',
           pricing_plan: 'pricing_plan',
           progressing_jobs_count: 1,
-          reservation_plan: Stubs::ReservationPlan.default(visited),
+          reservation_plan: ReservationPlan.default(visited),
           status: 'status',
           submitted_jobs_count: 1,
           type: 'type',
@@ -5776,7 +5776,7 @@ module AWS::SDK::MediaConvert
     class DescribeEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::List____listOfEndpoint.default(visited),
+          endpoints: List____listOfEndpoint.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5797,7 +5797,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfEndpoint')
         visited = visited + ['List____listOfEndpoint']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -5846,7 +5846,7 @@ module AWS::SDK::MediaConvert
     class GetJob
       def self.default(visited=[])
         {
-          job: Stubs::Job.default(visited),
+          job: Job.default(visited),
         }
       end
 
@@ -5863,7 +5863,7 @@ module AWS::SDK::MediaConvert
     class GetJobTemplate
       def self.default(visited=[])
         {
-          job_template: Stubs::JobTemplate.default(visited),
+          job_template: JobTemplate.default(visited),
         }
       end
 
@@ -5880,7 +5880,7 @@ module AWS::SDK::MediaConvert
     class GetPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 
@@ -5919,7 +5919,7 @@ module AWS::SDK::MediaConvert
     class GetPreset
       def self.default(visited=[])
         {
-          preset: Stubs::Preset.default(visited),
+          preset: Preset.default(visited),
         }
       end
 
@@ -5936,7 +5936,7 @@ module AWS::SDK::MediaConvert
     class GetQueue
       def self.default(visited=[])
         {
-          queue: Stubs::Queue.default(visited),
+          queue: Queue.default(visited),
         }
       end
 
@@ -5953,7 +5953,7 @@ module AWS::SDK::MediaConvert
     class ListJobTemplates
       def self.default(visited=[])
         {
-          job_templates: Stubs::List____listOfJobTemplate.default(visited),
+          job_templates: List____listOfJobTemplate.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5974,7 +5974,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfJobTemplate')
         visited = visited + ['List____listOfJobTemplate']
         [
-          Stubs::JobTemplate.default(visited)
+          JobTemplate.default(visited)
         ]
       end
 
@@ -5992,7 +5992,7 @@ module AWS::SDK::MediaConvert
     class ListJobs
       def self.default(visited=[])
         {
-          jobs: Stubs::List____listOfJob.default(visited),
+          jobs: List____listOfJob.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6013,7 +6013,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfJob')
         visited = visited + ['List____listOfJob']
         [
-          Stubs::Job.default(visited)
+          Job.default(visited)
         ]
       end
 
@@ -6032,7 +6032,7 @@ module AWS::SDK::MediaConvert
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          presets: Stubs::List____listOfPreset.default(visited),
+          presets: List____listOfPreset.default(visited),
         }
       end
 
@@ -6052,7 +6052,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfPreset')
         visited = visited + ['List____listOfPreset']
         [
-          Stubs::Preset.default(visited)
+          Preset.default(visited)
         ]
       end
 
@@ -6071,7 +6071,7 @@ module AWS::SDK::MediaConvert
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          queues: Stubs::List____listOfQueue.default(visited),
+          queues: List____listOfQueue.default(visited),
         }
       end
 
@@ -6091,7 +6091,7 @@ module AWS::SDK::MediaConvert
         return nil if visited.include?('List____listOfQueue')
         visited = visited + ['List____listOfQueue']
         [
-          Stubs::Queue.default(visited)
+          Queue.default(visited)
         ]
       end
 
@@ -6109,7 +6109,7 @@ module AWS::SDK::MediaConvert
     class ListTagsForResource
       def self.default(visited=[])
         {
-          resource_tags: Stubs::ResourceTags.default(visited),
+          resource_tags: ResourceTags.default(visited),
         }
       end
 
@@ -6129,7 +6129,7 @@ module AWS::SDK::MediaConvert
         visited = visited + ['ResourceTags']
         {
           arn: 'arn',
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -6146,7 +6146,7 @@ module AWS::SDK::MediaConvert
     class PutPolicy
       def self.default(visited=[])
         {
-          policy: Stubs::Policy.default(visited),
+          policy: Policy.default(visited),
         }
       end
 
@@ -6189,7 +6189,7 @@ module AWS::SDK::MediaConvert
     class UpdateJobTemplate
       def self.default(visited=[])
         {
-          job_template: Stubs::JobTemplate.default(visited),
+          job_template: JobTemplate.default(visited),
         }
       end
 
@@ -6206,7 +6206,7 @@ module AWS::SDK::MediaConvert
     class UpdatePreset
       def self.default(visited=[])
         {
-          preset: Stubs::Preset.default(visited),
+          preset: Preset.default(visited),
         }
       end
 
@@ -6223,7 +6223,7 @@ module AWS::SDK::MediaConvert
     class UpdateQueue
       def self.default(visited=[])
         {
-          queue: Stubs::Queue.default(visited),
+          queue: Queue.default(visited),
         }
       end
 

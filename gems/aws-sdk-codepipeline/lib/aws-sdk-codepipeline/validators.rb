@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CodePipeline
   module Validators
 
@@ -53,7 +55,7 @@ module AWS::SDK::CodePipeline
     class ActionConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionConfiguration, context: context)
-        Validators::ActionConfigurationMap.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ActionConfigurationMap.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionConfigurationProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionConfigurationProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -101,11 +103,11 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionDeclaration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
+        ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
         Hearth::Validator.validate!(input[:run_order], ::Integer, context: "#{context}[:run_order]")
-        Validators::ActionConfigurationMap.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::OutputArtifactList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
-        Validators::InputArtifactList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
+        ActionConfigurationMap.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        OutputArtifactList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
+        InputArtifactList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
@@ -124,7 +126,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:external_execution_id], ::String, context: "#{context}[:external_execution_id]")
         Hearth::Validator.validate!(input[:external_execution_url], ::String, context: "#{context}[:external_execution_url]")
         Hearth::Validator.validate!(input[:percent_complete], ::Integer, context: "#{context}[:percent_complete]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
       end
     end
 
@@ -139,8 +141,8 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ActionExecutionInput.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
-        Validators::ActionExecutionOutput.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
+        ActionExecutionInput.validate!(input[:input], context: "#{context}[:input]") unless input[:input].nil?
+        ActionExecutionOutput.validate!(input[:output], context: "#{context}[:output]") unless input[:output].nil?
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionExecutionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionExecutionDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -163,12 +165,12 @@ module AWS::SDK::CodePipeline
     class ActionExecutionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionExecutionInput, context: context)
-        Validators::ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
-        Validators::ActionConfigurationMap.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::ResolvedActionConfigurationMap.validate!(input[:resolved_configuration], context: "#{context}[:resolved_configuration]") unless input[:resolved_configuration].nil?
+        ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
+        ActionConfigurationMap.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ResolvedActionConfigurationMap.validate!(input[:resolved_configuration], context: "#{context}[:resolved_configuration]") unless input[:resolved_configuration].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::ArtifactDetailList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
+        ArtifactDetailList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
       end
     end
@@ -176,9 +178,9 @@ module AWS::SDK::CodePipeline
     class ActionExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionExecutionOutput, context: context)
-        Validators::ArtifactDetailList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
-        Validators::ActionExecutionResult.validate!(input[:execution_result], context: "#{context}[:execution_result]") unless input[:execution_result].nil?
-        Validators::OutputVariablesMap.validate!(input[:output_variables], context: "#{context}[:output_variables]") unless input[:output_variables].nil?
+        ArtifactDetailList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
+        ActionExecutionResult.validate!(input[:execution_result], context: "#{context}[:execution_result]") unless input[:execution_result].nil?
+        OutputVariablesMap.validate!(input[:output_variables], context: "#{context}[:output_variables]") unless input[:output_variables].nil?
       end
     end
 
@@ -211,8 +213,8 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionState, context: context)
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
-        Validators::ActionRevision.validate!(input[:current_revision], context: "#{context}[:current_revision]") unless input[:current_revision].nil?
-        Validators::ActionExecution.validate!(input[:latest_execution], context: "#{context}[:latest_execution]") unless input[:latest_execution].nil?
+        ActionRevision.validate!(input[:current_revision], context: "#{context}[:current_revision]") unless input[:current_revision].nil?
+        ActionExecution.validate!(input[:latest_execution], context: "#{context}[:latest_execution]") unless input[:latest_execution].nil?
         Hearth::Validator.validate!(input[:entity_url], ::String, context: "#{context}[:entity_url]")
         Hearth::Validator.validate!(input[:revision_url], ::String, context: "#{context}[:revision_url]")
       end
@@ -222,7 +224,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -230,11 +232,11 @@ module AWS::SDK::CodePipeline
     class ActionType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionType, context: context)
-        Validators::ActionTypeId.validate!(input[:id], context: "#{context}[:id]") unless input[:id].nil?
-        Validators::ActionTypeSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
-        Validators::ActionConfigurationPropertyList.validate!(input[:action_configuration_properties], context: "#{context}[:action_configuration_properties]") unless input[:action_configuration_properties].nil?
-        Validators::ArtifactDetails.validate!(input[:input_artifact_details], context: "#{context}[:input_artifact_details]") unless input[:input_artifact_details].nil?
-        Validators::ArtifactDetails.validate!(input[:output_artifact_details], context: "#{context}[:output_artifact_details]") unless input[:output_artifact_details].nil?
+        ActionTypeId.validate!(input[:id], context: "#{context}[:id]") unless input[:id].nil?
+        ActionTypeSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        ActionConfigurationPropertyList.validate!(input[:action_configuration_properties], context: "#{context}[:action_configuration_properties]") unless input[:action_configuration_properties].nil?
+        ArtifactDetails.validate!(input[:input_artifact_details], context: "#{context}[:input_artifact_details]") unless input[:input_artifact_details].nil?
+        ArtifactDetails.validate!(input[:output_artifact_details], context: "#{context}[:output_artifact_details]") unless input[:output_artifact_details].nil?
       end
     end
 
@@ -250,20 +252,20 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionTypeDeclaration, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionTypeExecutor.validate!(input[:executor], context: "#{context}[:executor]") unless input[:executor].nil?
-        Validators::ActionTypeIdentifier.validate!(input[:id], context: "#{context}[:id]") unless input[:id].nil?
-        Validators::ActionTypeArtifactDetails.validate!(input[:input_artifact_details], context: "#{context}[:input_artifact_details]") unless input[:input_artifact_details].nil?
-        Validators::ActionTypeArtifactDetails.validate!(input[:output_artifact_details], context: "#{context}[:output_artifact_details]") unless input[:output_artifact_details].nil?
-        Validators::ActionTypePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::ActionTypeProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
-        Validators::ActionTypeUrls.validate!(input[:urls], context: "#{context}[:urls]") unless input[:urls].nil?
+        ActionTypeExecutor.validate!(input[:executor], context: "#{context}[:executor]") unless input[:executor].nil?
+        ActionTypeIdentifier.validate!(input[:id], context: "#{context}[:id]") unless input[:id].nil?
+        ActionTypeArtifactDetails.validate!(input[:input_artifact_details], context: "#{context}[:input_artifact_details]") unless input[:input_artifact_details].nil?
+        ActionTypeArtifactDetails.validate!(input[:output_artifact_details], context: "#{context}[:output_artifact_details]") unless input[:output_artifact_details].nil?
+        ActionTypePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ActionTypeProperties.validate!(input[:properties], context: "#{context}[:properties]") unless input[:properties].nil?
+        ActionTypeUrls.validate!(input[:urls], context: "#{context}[:urls]") unless input[:urls].nil?
       end
     end
 
     class ActionTypeExecutor
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionTypeExecutor, context: context)
-        Validators::ExecutorConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ExecutorConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:policy_statements_template], ::String, context: "#{context}[:policy_statements_template]")
         Hearth::Validator.validate!(input[:job_timeout], ::Integer, context: "#{context}[:job_timeout]")
@@ -294,7 +296,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::CodePipeline
     class ActionTypePermissions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ActionTypePermissions, context: context)
-        Validators::AllowedAccounts.validate!(input[:allowed_accounts], context: "#{context}[:allowed_accounts]") unless input[:allowed_accounts].nil?
+        AllowedAccounts.validate!(input[:allowed_accounts], context: "#{context}[:allowed_accounts]") unless input[:allowed_accounts].nil?
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionTypeProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionTypeProperty.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -383,7 +385,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, Types::Artifact, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:revision], ::String, context: "#{context}[:revision]")
-        Validators::ArtifactLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ArtifactLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArtifactDetail, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::S3Location.validate!(input[:s3location], context: "#{context}[:s3location]") unless input[:s3location].nil?
+        S3Location.validate!(input[:s3location], context: "#{context}[:s3location]") unless input[:s3location].nil?
       end
     end
 
@@ -399,7 +401,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ArtifactDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ArtifactDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Artifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Artifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -425,7 +427,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArtifactLocation, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::S3ArtifactLocation.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3ArtifactLocation.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -445,7 +447,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ArtifactRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ArtifactRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, Types::ArtifactStore, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:location], ::String, context: "#{context}[:location]")
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
       end
     end
 
@@ -464,7 +466,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ArtifactStore.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ArtifactStore.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -497,35 +499,35 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:category], ::String, context: "#{context}[:category]")
         Hearth::Validator.validate!(input[:provider], ::String, context: "#{context}[:provider]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::ActionTypeSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
-        Validators::ActionConfigurationPropertyList.validate!(input[:configuration_properties], context: "#{context}[:configuration_properties]") unless input[:configuration_properties].nil?
-        Validators::ArtifactDetails.validate!(input[:input_artifact_details], context: "#{context}[:input_artifact_details]") unless input[:input_artifact_details].nil?
-        Validators::ArtifactDetails.validate!(input[:output_artifact_details], context: "#{context}[:output_artifact_details]") unless input[:output_artifact_details].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ActionTypeSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        ActionConfigurationPropertyList.validate!(input[:configuration_properties], context: "#{context}[:configuration_properties]") unless input[:configuration_properties].nil?
+        ArtifactDetails.validate!(input[:input_artifact_details], context: "#{context}[:input_artifact_details]") unless input[:input_artifact_details].nil?
+        ArtifactDetails.validate!(input[:output_artifact_details], context: "#{context}[:output_artifact_details]") unless input[:output_artifact_details].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateCustomActionTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCustomActionTypeOutput, context: context)
-        Validators::ActionType.validate!(input[:action_type], context: "#{context}[:action_type]") unless input[:action_type].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ActionType.validate!(input[:action_type], context: "#{context}[:action_type]") unless input[:action_type].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePipelineInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePipelineInput, context: context)
-        Validators::PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePipelineOutput, context: context)
-        Validators::PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -667,8 +669,8 @@ module AWS::SDK::CodePipeline
     class ExecutorConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecutorConfiguration, context: context)
-        Validators::LambdaExecutorConfiguration.validate!(input[:lambda_executor_configuration], context: "#{context}[:lambda_executor_configuration]") unless input[:lambda_executor_configuration].nil?
-        Validators::JobWorkerExecutorConfiguration.validate!(input[:job_worker_executor_configuration], context: "#{context}[:job_worker_executor_configuration]") unless input[:job_worker_executor_configuration].nil?
+        LambdaExecutorConfiguration.validate!(input[:lambda_executor_configuration], context: "#{context}[:lambda_executor_configuration]") unless input[:lambda_executor_configuration].nil?
+        JobWorkerExecutorConfiguration.validate!(input[:job_worker_executor_configuration], context: "#{context}[:job_worker_executor_configuration]") unless input[:job_worker_executor_configuration].nil?
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::CodePipeline
     class GetActionTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetActionTypeOutput, context: context)
-        Validators::ActionTypeDeclaration.validate!(input[:action_type], context: "#{context}[:action_type]") unless input[:action_type].nil?
+        ActionTypeDeclaration.validate!(input[:action_type], context: "#{context}[:action_type]") unless input[:action_type].nil?
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::CodePipeline
     class GetJobDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetJobDetailsOutput, context: context)
-        Validators::JobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
+        JobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
       end
     end
 
@@ -723,7 +725,7 @@ module AWS::SDK::CodePipeline
     class GetPipelineExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPipelineExecutionOutput, context: context)
-        Validators::PipelineExecution.validate!(input[:pipeline_execution], context: "#{context}[:pipeline_execution]") unless input[:pipeline_execution].nil?
+        PipelineExecution.validate!(input[:pipeline_execution], context: "#{context}[:pipeline_execution]") unless input[:pipeline_execution].nil?
       end
     end
 
@@ -738,8 +740,8 @@ module AWS::SDK::CodePipeline
     class GetPipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPipelineOutput, context: context)
-        Validators::PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
-        Validators::PipelineMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        PipelineMetadata.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -755,7 +757,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, Types::GetPipelineStateOutput, context: context)
         Hearth::Validator.validate!(input[:pipeline_name], ::String, context: "#{context}[:pipeline_name]")
         Hearth::Validator.validate!(input[:pipeline_version], ::Integer, context: "#{context}[:pipeline_version]")
-        Validators::StageStateList.validate!(input[:stage_states], context: "#{context}[:stage_states]") unless input[:stage_states].nil?
+        StageStateList.validate!(input[:stage_states], context: "#{context}[:stage_states]") unless input[:stage_states].nil?
         Hearth::Validator.validate!(input[:created], ::Time, context: "#{context}[:created]")
         Hearth::Validator.validate!(input[:updated], ::Time, context: "#{context}[:updated]")
       end
@@ -772,7 +774,7 @@ module AWS::SDK::CodePipeline
     class GetThirdPartyJobDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetThirdPartyJobDetailsOutput, context: context)
-        Validators::ThirdPartyJobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
+        ThirdPartyJobDetails.validate!(input[:job_details], context: "#{context}[:job_details]") unless input[:job_details].nil?
       end
     end
 
@@ -787,7 +789,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -894,7 +896,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Job, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::JobData.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
+        JobData.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
         Hearth::Validator.validate!(input[:nonce], ::String, context: "#{context}[:nonce]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
       end
@@ -903,14 +905,14 @@ module AWS::SDK::CodePipeline
     class JobData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobData, context: context)
-        Validators::ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
-        Validators::ActionConfiguration.validate!(input[:action_configuration], context: "#{context}[:action_configuration]") unless input[:action_configuration].nil?
-        Validators::PipelineContext.validate!(input[:pipeline_context], context: "#{context}[:pipeline_context]") unless input[:pipeline_context].nil?
-        Validators::ArtifactList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
-        Validators::ArtifactList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
-        Validators::AWSSessionCredentials.validate!(input[:artifact_credentials], context: "#{context}[:artifact_credentials]") unless input[:artifact_credentials].nil?
+        ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
+        ActionConfiguration.validate!(input[:action_configuration], context: "#{context}[:action_configuration]") unless input[:action_configuration].nil?
+        PipelineContext.validate!(input[:pipeline_context], context: "#{context}[:pipeline_context]") unless input[:pipeline_context].nil?
+        ArtifactList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
+        ArtifactList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
+        AWSSessionCredentials.validate!(input[:artifact_credentials], context: "#{context}[:artifact_credentials]") unless input[:artifact_credentials].nil?
         Hearth::Validator.validate!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
       end
     end
 
@@ -918,7 +920,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobDetails, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::JobData.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
+        JobData.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
       end
     end
@@ -927,7 +929,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Job.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -942,8 +944,8 @@ module AWS::SDK::CodePipeline
     class JobWorkerExecutorConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobWorkerExecutorConfiguration, context: context)
-        Validators::PollingAccountList.validate!(input[:polling_accounts], context: "#{context}[:polling_accounts]") unless input[:polling_accounts].nil?
-        Validators::PollingServicePrincipalList.validate!(input[:polling_service_principals], context: "#{context}[:polling_service_principals]") unless input[:polling_service_principals].nil?
+        PollingAccountList.validate!(input[:polling_accounts], context: "#{context}[:polling_accounts]") unless input[:polling_accounts].nil?
+        PollingServicePrincipalList.validate!(input[:polling_service_principals], context: "#{context}[:polling_service_principals]") unless input[:polling_service_principals].nil?
       end
     end
 
@@ -965,7 +967,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActionExecutionsInput, context: context)
         Hearth::Validator.validate!(input[:pipeline_name], ::String, context: "#{context}[:pipeline_name]")
-        Validators::ActionExecutionFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ActionExecutionFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -974,7 +976,7 @@ module AWS::SDK::CodePipeline
     class ListActionExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActionExecutionsOutput, context: context)
-        Validators::ActionExecutionDetailList.validate!(input[:action_execution_details], context: "#{context}[:action_execution_details]") unless input[:action_execution_details].nil?
+        ActionExecutionDetailList.validate!(input[:action_execution_details], context: "#{context}[:action_execution_details]") unless input[:action_execution_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -991,7 +993,7 @@ module AWS::SDK::CodePipeline
     class ListActionTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActionTypesOutput, context: context)
-        Validators::ActionTypeList.validate!(input[:action_types], context: "#{context}[:action_types]") unless input[:action_types].nil?
+        ActionTypeList.validate!(input[:action_types], context: "#{context}[:action_types]") unless input[:action_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::CodePipeline
     class ListPipelineExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPipelineExecutionsOutput, context: context)
-        Validators::PipelineExecutionSummaryList.validate!(input[:pipeline_execution_summaries], context: "#{context}[:pipeline_execution_summaries]") unless input[:pipeline_execution_summaries].nil?
+        PipelineExecutionSummaryList.validate!(input[:pipeline_execution_summaries], context: "#{context}[:pipeline_execution_summaries]") unless input[:pipeline_execution_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1024,7 +1026,7 @@ module AWS::SDK::CodePipeline
     class ListPipelinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPipelinesOutput, context: context)
-        Validators::PipelineList.validate!(input[:pipelines], context: "#{context}[:pipelines]") unless input[:pipelines].nil?
+        PipelineList.validate!(input[:pipelines], context: "#{context}[:pipelines]") unless input[:pipelines].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1041,7 +1043,7 @@ module AWS::SDK::CodePipeline
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1049,13 +1051,13 @@ module AWS::SDK::CodePipeline
     class ListWebhookItem
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebhookItem, context: context)
-        Validators::WebhookDefinition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        WebhookDefinition.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:last_triggered], ::Time, context: "#{context}[:last_triggered]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1070,7 +1072,7 @@ module AWS::SDK::CodePipeline
     class ListWebhooksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWebhooksOutput, context: context)
-        Validators::WebhookList.validate!(input[:webhooks], context: "#{context}[:webhooks]") unless input[:webhooks].nil?
+        WebhookList.validate!(input[:webhooks], context: "#{context}[:webhooks]") unless input[:webhooks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1093,7 +1095,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1119,8 +1121,8 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PipelineContext, context: context)
         Hearth::Validator.validate!(input[:pipeline_name], ::String, context: "#{context}[:pipeline_name]")
-        Validators::StageContext.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
-        Validators::ActionContext.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        StageContext.validate!(input[:stage], context: "#{context}[:stage]") unless input[:stage].nil?
+        ActionContext.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:pipeline_arn], ::String, context: "#{context}[:pipeline_arn]")
         Hearth::Validator.validate!(input[:pipeline_execution_id], ::String, context: "#{context}[:pipeline_execution_id]")
       end
@@ -1131,9 +1133,9 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, Types::PipelineDeclaration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::ArtifactStore.validate!(input[:artifact_store], context: "#{context}[:artifact_store]") unless input[:artifact_store].nil?
-        Validators::ArtifactStoreMap.validate!(input[:artifact_stores], context: "#{context}[:artifact_stores]") unless input[:artifact_stores].nil?
-        Validators::PipelineStageDeclarationList.validate!(input[:stages], context: "#{context}[:stages]") unless input[:stages].nil?
+        ArtifactStore.validate!(input[:artifact_store], context: "#{context}[:artifact_store]") unless input[:artifact_store].nil?
+        ArtifactStoreMap.validate!(input[:artifact_stores], context: "#{context}[:artifact_stores]") unless input[:artifact_stores].nil?
+        PipelineStageDeclarationList.validate!(input[:stages], context: "#{context}[:stages]") unless input[:stages].nil?
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
       end
     end
@@ -1146,7 +1148,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:pipeline_execution_id], ::String, context: "#{context}[:pipeline_execution_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_summary], ::String, context: "#{context}[:status_summary]")
-        Validators::ArtifactRevisionList.validate!(input[:artifact_revisions], context: "#{context}[:artifact_revisions]") unless input[:artifact_revisions].nil?
+        ArtifactRevisionList.validate!(input[:artifact_revisions], context: "#{context}[:artifact_revisions]") unless input[:artifact_revisions].nil?
       end
     end
 
@@ -1171,9 +1173,9 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::SourceRevisionList.validate!(input[:source_revisions], context: "#{context}[:source_revisions]") unless input[:source_revisions].nil?
-        Validators::ExecutionTrigger.validate!(input[:trigger], context: "#{context}[:trigger]") unless input[:trigger].nil?
-        Validators::StopExecutionTrigger.validate!(input[:stop_trigger], context: "#{context}[:stop_trigger]") unless input[:stop_trigger].nil?
+        SourceRevisionList.validate!(input[:source_revisions], context: "#{context}[:source_revisions]") unless input[:source_revisions].nil?
+        ExecutionTrigger.validate!(input[:trigger], context: "#{context}[:trigger]") unless input[:trigger].nil?
+        StopExecutionTrigger.validate!(input[:stop_trigger], context: "#{context}[:stop_trigger]") unless input[:stop_trigger].nil?
       end
     end
 
@@ -1181,7 +1183,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PipelineExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PipelineExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1190,7 +1192,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PipelineSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PipelineSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1222,7 +1224,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StageDeclaration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StageDeclaration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1247,23 +1249,23 @@ module AWS::SDK::CodePipeline
     class PollForJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PollForJobsInput, context: context)
-        Validators::ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
+        ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
-        Validators::QueryParamMap.validate!(input[:query_param], context: "#{context}[:query_param]") unless input[:query_param].nil?
+        QueryParamMap.validate!(input[:query_param], context: "#{context}[:query_param]") unless input[:query_param].nil?
       end
     end
 
     class PollForJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PollForJobsOutput, context: context)
-        Validators::JobList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        JobList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
       end
     end
 
     class PollForThirdPartyJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PollForThirdPartyJobsInput, context: context)
-        Validators::ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
+        ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -1271,7 +1273,7 @@ module AWS::SDK::CodePipeline
     class PollForThirdPartyJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PollForThirdPartyJobsOutput, context: context)
-        Validators::ThirdPartyJobList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        ThirdPartyJobList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
       end
     end
 
@@ -1299,7 +1301,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:pipeline_name], ::String, context: "#{context}[:pipeline_name]")
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
-        Validators::ActionRevision.validate!(input[:action_revision], context: "#{context}[:action_revision]") unless input[:action_revision].nil?
+        ActionRevision.validate!(input[:action_revision], context: "#{context}[:action_revision]") unless input[:action_revision].nil?
       end
     end
 
@@ -1317,7 +1319,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:pipeline_name], ::String, context: "#{context}[:pipeline_name]")
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
-        Validators::ApprovalResult.validate!(input[:result], context: "#{context}[:result]") unless input[:result].nil?
+        ApprovalResult.validate!(input[:result], context: "#{context}[:result]") unless input[:result].nil?
         Hearth::Validator.validate!(input[:token], ::String, context: "#{context}[:token]")
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutJobFailureResultInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
       end
     end
 
@@ -1347,10 +1349,10 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutJobSuccessResultInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::CurrentRevision.validate!(input[:current_revision], context: "#{context}[:current_revision]") unless input[:current_revision].nil?
+        CurrentRevision.validate!(input[:current_revision], context: "#{context}[:current_revision]") unless input[:current_revision].nil?
         Hearth::Validator.validate!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
-        Validators::ExecutionDetails.validate!(input[:execution_details], context: "#{context}[:execution_details]") unless input[:execution_details].nil?
-        Validators::OutputVariablesMap.validate!(input[:output_variables], context: "#{context}[:output_variables]") unless input[:output_variables].nil?
+        ExecutionDetails.validate!(input[:execution_details], context: "#{context}[:execution_details]") unless input[:execution_details].nil?
+        OutputVariablesMap.validate!(input[:output_variables], context: "#{context}[:output_variables]") unless input[:output_variables].nil?
       end
     end
 
@@ -1365,7 +1367,7 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, Types::PutThirdPartyJobFailureResultInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
+        FailureDetails.validate!(input[:failure_details], context: "#{context}[:failure_details]") unless input[:failure_details].nil?
       end
     end
 
@@ -1380,9 +1382,9 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input, Types::PutThirdPartyJobSuccessResultInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::CurrentRevision.validate!(input[:current_revision], context: "#{context}[:current_revision]") unless input[:current_revision].nil?
+        CurrentRevision.validate!(input[:current_revision], context: "#{context}[:current_revision]") unless input[:current_revision].nil?
         Hearth::Validator.validate!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
-        Validators::ExecutionDetails.validate!(input[:execution_details], context: "#{context}[:execution_details]") unless input[:execution_details].nil?
+        ExecutionDetails.validate!(input[:execution_details], context: "#{context}[:execution_details]") unless input[:execution_details].nil?
       end
     end
 
@@ -1395,15 +1397,15 @@ module AWS::SDK::CodePipeline
     class PutWebhookInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutWebhookInput, context: context)
-        Validators::WebhookDefinition.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        WebhookDefinition.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class PutWebhookOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutWebhookOutput, context: context)
-        Validators::ListWebhookItem.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
+        ListWebhookItem.validate!(input[:webhook], context: "#{context}[:webhook]") unless input[:webhook].nil?
       end
     end
 
@@ -1501,7 +1503,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SourceRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SourceRevision.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1510,7 +1512,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActionDeclaration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActionDeclaration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1519,7 +1521,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BlockerDeclaration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BlockerDeclaration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1535,8 +1537,8 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StageDeclaration, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StageBlockerDeclarationList.validate!(input[:blockers], context: "#{context}[:blockers]") unless input[:blockers].nil?
-        Validators::StageActionDeclarationList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        StageBlockerDeclarationList.validate!(input[:blockers], context: "#{context}[:blockers]") unless input[:blockers].nil?
+        StageActionDeclarationList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -1566,10 +1568,10 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StageState, context: context)
         Hearth::Validator.validate!(input[:stage_name], ::String, context: "#{context}[:stage_name]")
-        Validators::StageExecution.validate!(input[:inbound_execution], context: "#{context}[:inbound_execution]") unless input[:inbound_execution].nil?
-        Validators::TransitionState.validate!(input[:inbound_transition_state], context: "#{context}[:inbound_transition_state]") unless input[:inbound_transition_state].nil?
-        Validators::ActionStateList.validate!(input[:action_states], context: "#{context}[:action_states]") unless input[:action_states].nil?
-        Validators::StageExecution.validate!(input[:latest_execution], context: "#{context}[:latest_execution]") unless input[:latest_execution].nil?
+        StageExecution.validate!(input[:inbound_execution], context: "#{context}[:inbound_execution]") unless input[:inbound_execution].nil?
+        TransitionState.validate!(input[:inbound_transition_state], context: "#{context}[:inbound_transition_state]") unless input[:inbound_transition_state].nil?
+        ActionStateList.validate!(input[:action_states], context: "#{context}[:action_states]") unless input[:action_states].nil?
+        StageExecution.validate!(input[:latest_execution], context: "#{context}[:latest_execution]") unless input[:latest_execution].nil?
       end
     end
 
@@ -1577,7 +1579,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StageState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StageState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1642,7 +1644,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1651,7 +1653,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1672,14 +1674,14 @@ module AWS::SDK::CodePipeline
     class ThirdPartyJobData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThirdPartyJobData, context: context)
-        Validators::ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
-        Validators::ActionConfiguration.validate!(input[:action_configuration], context: "#{context}[:action_configuration]") unless input[:action_configuration].nil?
-        Validators::PipelineContext.validate!(input[:pipeline_context], context: "#{context}[:pipeline_context]") unless input[:pipeline_context].nil?
-        Validators::ArtifactList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
-        Validators::ArtifactList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
-        Validators::AWSSessionCredentials.validate!(input[:artifact_credentials], context: "#{context}[:artifact_credentials]") unless input[:artifact_credentials].nil?
+        ActionTypeId.validate!(input[:action_type_id], context: "#{context}[:action_type_id]") unless input[:action_type_id].nil?
+        ActionConfiguration.validate!(input[:action_configuration], context: "#{context}[:action_configuration]") unless input[:action_configuration].nil?
+        PipelineContext.validate!(input[:pipeline_context], context: "#{context}[:pipeline_context]") unless input[:pipeline_context].nil?
+        ArtifactList.validate!(input[:input_artifacts], context: "#{context}[:input_artifacts]") unless input[:input_artifacts].nil?
+        ArtifactList.validate!(input[:output_artifacts], context: "#{context}[:output_artifacts]") unless input[:output_artifacts].nil?
+        AWSSessionCredentials.validate!(input[:artifact_credentials], context: "#{context}[:artifact_credentials]") unless input[:artifact_credentials].nil?
         Hearth::Validator.validate!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
-        Validators::EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
+        EncryptionKey.validate!(input[:encryption_key], context: "#{context}[:encryption_key]") unless input[:encryption_key].nil?
       end
     end
 
@@ -1687,7 +1689,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThirdPartyJobDetails, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::ThirdPartyJobData.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
+        ThirdPartyJobData.validate!(input[:data], context: "#{context}[:data]") unless input[:data].nil?
         Hearth::Validator.validate!(input[:nonce], ::String, context: "#{context}[:nonce]")
       end
     end
@@ -1696,7 +1698,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThirdPartyJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThirdPartyJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1735,7 +1737,7 @@ module AWS::SDK::CodePipeline
     class UpdateActionTypeInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateActionTypeInput, context: context)
-        Validators::ActionTypeDeclaration.validate!(input[:action_type], context: "#{context}[:action_type]") unless input[:action_type].nil?
+        ActionTypeDeclaration.validate!(input[:action_type], context: "#{context}[:action_type]") unless input[:action_type].nil?
       end
     end
 
@@ -1748,14 +1750,14 @@ module AWS::SDK::CodePipeline
     class UpdatePipelineInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePipelineInput, context: context)
-        Validators::PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
       end
     end
 
     class UpdatePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdatePipelineOutput, context: context)
-        Validators::PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
+        PipelineDeclaration.validate!(input[:pipeline], context: "#{context}[:pipeline]") unless input[:pipeline].nil?
       end
     end
 
@@ -1780,9 +1782,9 @@ module AWS::SDK::CodePipeline
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:target_pipeline], ::String, context: "#{context}[:target_pipeline]")
         Hearth::Validator.validate!(input[:target_action], ::String, context: "#{context}[:target_action]")
-        Validators::WebhookFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        WebhookFilters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:authentication], ::String, context: "#{context}[:authentication]")
-        Validators::WebhookAuthConfiguration.validate!(input[:authentication_configuration], context: "#{context}[:authentication_configuration]") unless input[:authentication_configuration].nil?
+        WebhookAuthConfiguration.validate!(input[:authentication_configuration], context: "#{context}[:authentication_configuration]") unless input[:authentication_configuration].nil?
       end
     end
 
@@ -1798,7 +1800,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WebhookFilterRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WebhookFilterRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1807,7 +1809,7 @@ module AWS::SDK::CodePipeline
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListWebhookItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListWebhookItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

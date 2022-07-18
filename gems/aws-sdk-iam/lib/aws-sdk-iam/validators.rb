@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IAM
   module Validators
 
@@ -26,7 +28,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -204,7 +206,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContextEntry, context: context)
         Hearth::Validator.validate!(input[:context_key_name], ::String, context: "#{context}[:context_key_name]")
-        Validators::ContextKeyValueListType.validate!(input[:context_key_values], context: "#{context}[:context_key_values]") unless input[:context_key_values].nil?
+        ContextKeyValueListType.validate!(input[:context_key_values], context: "#{context}[:context_key_values]") unless input[:context_key_values].nil?
         Hearth::Validator.validate!(input[:context_key_type], ::String, context: "#{context}[:context_key_type]")
       end
     end
@@ -213,7 +215,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContextEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContextEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -246,7 +248,7 @@ module AWS::SDK::IAM
     class CreateAccessKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAccessKeyOutput, context: context)
-        Validators::AccessKey.validate!(input[:access_key], context: "#{context}[:access_key]") unless input[:access_key].nil?
+        AccessKey.validate!(input[:access_key], context: "#{context}[:access_key]") unless input[:access_key].nil?
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::IAM
     class CreateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
       end
     end
 
@@ -283,14 +285,14 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input, Types::CreateInstanceProfileInput, context: context)
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateInstanceProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstanceProfileOutput, context: context)
-        Validators::InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
+        InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::IAM
     class CreateLoginProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLoginProfileOutput, context: context)
-        Validators::LoginProfile.validate!(input[:login_profile], context: "#{context}[:login_profile]") unless input[:login_profile].nil?
+        LoginProfile.validate!(input[:login_profile], context: "#{context}[:login_profile]") unless input[:login_profile].nil?
       end
     end
 
@@ -314,9 +316,9 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOpenIDConnectProviderInput, context: context)
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
-        Validators::ClientIDListType.validate!(input[:client_id_list], context: "#{context}[:client_id_list]") unless input[:client_id_list].nil?
-        Validators::ThumbprintListType.validate!(input[:thumbprint_list], context: "#{context}[:thumbprint_list]") unless input[:thumbprint_list].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ClientIDListType.validate!(input[:client_id_list], context: "#{context}[:client_id_list]") unless input[:client_id_list].nil?
+        ThumbprintListType.validate!(input[:thumbprint_list], context: "#{context}[:thumbprint_list]") unless input[:thumbprint_list].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateOpenIDConnectProviderOutput, context: context)
         Hearth::Validator.validate!(input[:open_id_connect_provider_arn], ::String, context: "#{context}[:open_id_connect_provider_arn]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -335,14 +337,14 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
         Hearth::Validator.validate!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePolicyOutput, context: context)
-        Validators::Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::IAM
     class CreatePolicyVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePolicyVersionOutput, context: context)
-        Validators::PolicyVersion.validate!(input[:policy_version], context: "#{context}[:policy_version]") unless input[:policy_version].nil?
+        PolicyVersion.validate!(input[:policy_version], context: "#{context}[:policy_version]") unless input[:policy_version].nil?
       end
     end
 
@@ -371,14 +373,14 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:max_session_duration], ::Integer, context: "#{context}[:max_session_duration]")
         Hearth::Validator.validate!(input[:permissions_boundary], ::String, context: "#{context}[:permissions_boundary]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRoleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRoleOutput, context: context)
-        Validators::Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
+        Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
       end
     end
 
@@ -387,7 +389,7 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input, Types::CreateSAMLProviderInput, context: context)
         Hearth::Validator.validate!(input[:saml_metadata_document], ::String, context: "#{context}[:saml_metadata_document]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -395,7 +397,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSAMLProviderOutput, context: context)
         Hearth::Validator.validate!(input[:saml_provider_arn], ::String, context: "#{context}[:saml_provider_arn]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::IAM
     class CreateServiceLinkedRoleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceLinkedRoleOutput, context: context)
-        Validators::Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
+        Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::IAM
     class CreateServiceSpecificCredentialOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateServiceSpecificCredentialOutput, context: context)
-        Validators::ServiceSpecificCredential.validate!(input[:service_specific_credential], context: "#{context}[:service_specific_credential]") unless input[:service_specific_credential].nil?
+        ServiceSpecificCredential.validate!(input[:service_specific_credential], context: "#{context}[:service_specific_credential]") unless input[:service_specific_credential].nil?
       end
     end
 
@@ -436,14 +438,14 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
         Hearth::Validator.validate!(input[:permissions_boundary], ::String, context: "#{context}[:permissions_boundary]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -452,14 +454,14 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input, Types::CreateVirtualMFADeviceInput, context: context)
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
         Hearth::Validator.validate!(input[:virtual_mfa_device_name], ::String, context: "#{context}[:virtual_mfa_device_name]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateVirtualMFADeviceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateVirtualMFADeviceOutput, context: context)
-        Validators::VirtualMFADevice.validate!(input[:virtual_mfa_device], context: "#{context}[:virtual_mfa_device]") unless input[:virtual_mfa_device].nil?
+        VirtualMFADevice.validate!(input[:virtual_mfa_device], context: "#{context}[:virtual_mfa_device]") unless input[:virtual_mfa_device].nil?
       end
     end
 
@@ -816,7 +818,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeletionTaskFailureReasonType, context: context)
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::RoleUsageListType.validate!(input[:role_usage_list], context: "#{context}[:role_usage_list]") unless input[:role_usage_list].nil?
+        RoleUsageListType.validate!(input[:role_usage_list], context: "#{context}[:role_usage_list]") unless input[:role_usage_list].nil?
       end
     end
 
@@ -902,7 +904,7 @@ module AWS::SDK::IAM
     class EntityDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EntityDetails, context: context)
-        Validators::EntityInfo.validate!(input[:entity_info], context: "#{context}[:entity_info]") unless input[:entity_info].nil?
+        EntityInfo.validate!(input[:entity_info], context: "#{context}[:entity_info]") unless input[:entity_info].nil?
         Hearth::Validator.validate!(input[:last_authenticated], ::Time, context: "#{context}[:last_authenticated]")
       end
     end
@@ -949,12 +951,12 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:eval_action_name], ::String, context: "#{context}[:eval_action_name]")
         Hearth::Validator.validate!(input[:eval_resource_name], ::String, context: "#{context}[:eval_resource_name]")
         Hearth::Validator.validate!(input[:eval_decision], ::String, context: "#{context}[:eval_decision]")
-        Validators::StatementListType.validate!(input[:matched_statements], context: "#{context}[:matched_statements]") unless input[:matched_statements].nil?
-        Validators::ContextKeyNamesResultListType.validate!(input[:missing_context_values], context: "#{context}[:missing_context_values]") unless input[:missing_context_values].nil?
-        Validators::OrganizationsDecisionDetail.validate!(input[:organizations_decision_detail], context: "#{context}[:organizations_decision_detail]") unless input[:organizations_decision_detail].nil?
-        Validators::PermissionsBoundaryDecisionDetail.validate!(input[:permissions_boundary_decision_detail], context: "#{context}[:permissions_boundary_decision_detail]") unless input[:permissions_boundary_decision_detail].nil?
-        Validators::EvalDecisionDetailsType.validate!(input[:eval_decision_details], context: "#{context}[:eval_decision_details]") unless input[:eval_decision_details].nil?
-        Validators::ResourceSpecificResultListType.validate!(input[:resource_specific_results], context: "#{context}[:resource_specific_results]") unless input[:resource_specific_results].nil?
+        StatementListType.validate!(input[:matched_statements], context: "#{context}[:matched_statements]") unless input[:matched_statements].nil?
+        ContextKeyNamesResultListType.validate!(input[:missing_context_values], context: "#{context}[:missing_context_values]") unless input[:missing_context_values].nil?
+        OrganizationsDecisionDetail.validate!(input[:organizations_decision_detail], context: "#{context}[:organizations_decision_detail]") unless input[:organizations_decision_detail].nil?
+        PermissionsBoundaryDecisionDetail.validate!(input[:permissions_boundary_decision_detail], context: "#{context}[:permissions_boundary_decision_detail]") unless input[:permissions_boundary_decision_detail].nil?
+        EvalDecisionDetailsType.validate!(input[:eval_decision_details], context: "#{context}[:eval_decision_details]") unless input[:eval_decision_details].nil?
+        ResourceSpecificResultListType.validate!(input[:resource_specific_results], context: "#{context}[:resource_specific_results]") unless input[:resource_specific_results].nil?
       end
     end
 
@@ -962,7 +964,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EvaluationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EvaluationResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1022,14 +1024,14 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccessKeyLastUsedOutput, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::AccessKeyLastUsed.validate!(input[:access_key_last_used], context: "#{context}[:access_key_last_used]") unless input[:access_key_last_used].nil?
+        AccessKeyLastUsed.validate!(input[:access_key_last_used], context: "#{context}[:access_key_last_used]") unless input[:access_key_last_used].nil?
       end
     end
 
     class GetAccountAuthorizationDetailsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountAuthorizationDetailsInput, context: context)
-        Validators::EntityListType.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        EntityListType.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1038,10 +1040,10 @@ module AWS::SDK::IAM
     class GetAccountAuthorizationDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountAuthorizationDetailsOutput, context: context)
-        Validators::UserDetailListType.validate!(input[:user_detail_list], context: "#{context}[:user_detail_list]") unless input[:user_detail_list].nil?
-        Validators::GroupDetailListType.validate!(input[:group_detail_list], context: "#{context}[:group_detail_list]") unless input[:group_detail_list].nil?
-        Validators::RoleDetailListType.validate!(input[:role_detail_list], context: "#{context}[:role_detail_list]") unless input[:role_detail_list].nil?
-        Validators::ManagedPolicyDetailListType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        UserDetailListType.validate!(input[:user_detail_list], context: "#{context}[:user_detail_list]") unless input[:user_detail_list].nil?
+        GroupDetailListType.validate!(input[:group_detail_list], context: "#{context}[:group_detail_list]") unless input[:group_detail_list].nil?
+        RoleDetailListType.validate!(input[:role_detail_list], context: "#{context}[:role_detail_list]") unless input[:role_detail_list].nil?
+        ManagedPolicyDetailListType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1056,7 +1058,7 @@ module AWS::SDK::IAM
     class GetAccountPasswordPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountPasswordPolicyOutput, context: context)
-        Validators::PasswordPolicy.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
+        PasswordPolicy.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
       end
     end
 
@@ -1069,21 +1071,21 @@ module AWS::SDK::IAM
     class GetAccountSummaryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountSummaryOutput, context: context)
-        Validators::SummaryMapType.validate!(input[:summary_map], context: "#{context}[:summary_map]") unless input[:summary_map].nil?
+        SummaryMapType.validate!(input[:summary_map], context: "#{context}[:summary_map]") unless input[:summary_map].nil?
       end
     end
 
     class GetContextKeysForCustomPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContextKeysForCustomPolicyInput, context: context)
-        Validators::SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
+        SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
       end
     end
 
     class GetContextKeysForCustomPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContextKeysForCustomPolicyOutput, context: context)
-        Validators::ContextKeyNamesResultListType.validate!(input[:context_key_names], context: "#{context}[:context_key_names]") unless input[:context_key_names].nil?
+        ContextKeyNamesResultListType.validate!(input[:context_key_names], context: "#{context}[:context_key_names]") unless input[:context_key_names].nil?
       end
     end
 
@@ -1091,14 +1093,14 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContextKeysForPrincipalPolicyInput, context: context)
         Hearth::Validator.validate!(input[:policy_source_arn], ::String, context: "#{context}[:policy_source_arn]")
-        Validators::SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
+        SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
       end
     end
 
     class GetContextKeysForPrincipalPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContextKeysForPrincipalPolicyOutput, context: context)
-        Validators::ContextKeyNamesResultListType.validate!(input[:context_key_names], context: "#{context}[:context_key_names]") unless input[:context_key_names].nil?
+        ContextKeyNamesResultListType.validate!(input[:context_key_names], context: "#{context}[:context_key_names]") unless input[:context_key_names].nil?
       end
     end
 
@@ -1129,8 +1131,8 @@ module AWS::SDK::IAM
     class GetGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
-        Validators::UserListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        UserListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1163,7 +1165,7 @@ module AWS::SDK::IAM
     class GetInstanceProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceProfileOutput, context: context)
-        Validators::InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
+        InstanceProfile.validate!(input[:instance_profile], context: "#{context}[:instance_profile]") unless input[:instance_profile].nil?
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::IAM
     class GetLoginProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoginProfileOutput, context: context)
-        Validators::LoginProfile.validate!(input[:login_profile], context: "#{context}[:login_profile]") unless input[:login_profile].nil?
+        LoginProfile.validate!(input[:login_profile], context: "#{context}[:login_profile]") unless input[:login_profile].nil?
       end
     end
 
@@ -1192,10 +1194,10 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOpenIDConnectProviderOutput, context: context)
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
-        Validators::ClientIDListType.validate!(input[:client_id_list], context: "#{context}[:client_id_list]") unless input[:client_id_list].nil?
-        Validators::ThumbprintListType.validate!(input[:thumbprint_list], context: "#{context}[:thumbprint_list]") unless input[:thumbprint_list].nil?
+        ClientIDListType.validate!(input[:client_id_list], context: "#{context}[:client_id_list]") unless input[:client_id_list].nil?
+        ThumbprintListType.validate!(input[:thumbprint_list], context: "#{context}[:thumbprint_list]") unless input[:thumbprint_list].nil?
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1217,10 +1219,10 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:job_completion_date], ::Time, context: "#{context}[:job_completion_date]")
         Hearth::Validator.validate!(input[:number_of_services_accessible], ::Integer, context: "#{context}[:number_of_services_accessible]")
         Hearth::Validator.validate!(input[:number_of_services_not_accessed], ::Integer, context: "#{context}[:number_of_services_not_accessed]")
-        Validators::AccessDetails.validate!(input[:access_details], context: "#{context}[:access_details]") unless input[:access_details].nil?
+        AccessDetails.validate!(input[:access_details], context: "#{context}[:access_details]") unless input[:access_details].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
       end
     end
 
@@ -1234,7 +1236,7 @@ module AWS::SDK::IAM
     class GetPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPolicyOutput, context: context)
-        Validators::Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
+        Policy.validate!(input[:policy], context: "#{context}[:policy]") unless input[:policy].nil?
       end
     end
 
@@ -1249,7 +1251,7 @@ module AWS::SDK::IAM
     class GetPolicyVersionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPolicyVersionOutput, context: context)
-        Validators::PolicyVersion.validate!(input[:policy_version], context: "#{context}[:policy_version]") unless input[:policy_version].nil?
+        PolicyVersion.validate!(input[:policy_version], context: "#{context}[:policy_version]") unless input[:policy_version].nil?
       end
     end
 
@@ -1263,7 +1265,7 @@ module AWS::SDK::IAM
     class GetRoleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRoleOutput, context: context)
-        Validators::Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
+        Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
       end
     end
 
@@ -1297,7 +1299,7 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:saml_metadata_document], ::String, context: "#{context}[:saml_metadata_document]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:valid_until], ::Time, context: "#{context}[:valid_until]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1313,7 +1315,7 @@ module AWS::SDK::IAM
     class GetSSHPublicKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSSHPublicKeyOutput, context: context)
-        Validators::SSHPublicKey.validate!(input[:ssh_public_key], context: "#{context}[:ssh_public_key]") unless input[:ssh_public_key].nil?
+        SSHPublicKey.validate!(input[:ssh_public_key], context: "#{context}[:ssh_public_key]") unless input[:ssh_public_key].nil?
       end
     end
 
@@ -1327,7 +1329,7 @@ module AWS::SDK::IAM
     class GetServerCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServerCertificateOutput, context: context)
-        Validators::ServerCertificate.validate!(input[:server_certificate], context: "#{context}[:server_certificate]") unless input[:server_certificate].nil?
+        ServerCertificate.validate!(input[:server_certificate], context: "#{context}[:server_certificate]") unless input[:server_certificate].nil?
       end
     end
 
@@ -1346,11 +1348,11 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:job_type], ::String, context: "#{context}[:job_type]")
         Hearth::Validator.validate!(input[:job_creation_date], ::Time, context: "#{context}[:job_creation_date]")
-        Validators::ServicesLastAccessed.validate!(input[:services_last_accessed], context: "#{context}[:services_last_accessed]") unless input[:services_last_accessed].nil?
+        ServicesLastAccessed.validate!(input[:services_last_accessed], context: "#{context}[:services_last_accessed]") unless input[:services_last_accessed].nil?
         Hearth::Validator.validate!(input[:job_completion_date], ::Time, context: "#{context}[:job_completion_date]")
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ErrorDetails.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        ErrorDetails.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1370,10 +1372,10 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:job_status], ::String, context: "#{context}[:job_status]")
         Hearth::Validator.validate!(input[:job_creation_date], ::Time, context: "#{context}[:job_creation_date]")
         Hearth::Validator.validate!(input[:job_completion_date], ::Time, context: "#{context}[:job_completion_date]")
-        Validators::EntityDetailsListType.validate!(input[:entity_details_list], context: "#{context}[:entity_details_list]") unless input[:entity_details_list].nil?
+        EntityDetailsListType.validate!(input[:entity_details_list], context: "#{context}[:entity_details_list]") unless input[:entity_details_list].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
-        Validators::ErrorDetails.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        ErrorDetails.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
       end
     end
 
@@ -1388,7 +1390,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetServiceLinkedRoleDeletionStatusOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DeletionTaskFailureReasonType.validate!(input[:reason], context: "#{context}[:reason]") unless input[:reason].nil?
+        DeletionTaskFailureReasonType.validate!(input[:reason], context: "#{context}[:reason]") unless input[:reason].nil?
       end
     end
 
@@ -1402,7 +1404,7 @@ module AWS::SDK::IAM
     class GetUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
       end
     end
 
@@ -1442,8 +1444,8 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:group_id], ::String, context: "#{context}[:group_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
-        Validators::PolicyDetailListType.validate!(input[:group_policy_list], context: "#{context}[:group_policy_list]") unless input[:group_policy_list].nil?
-        Validators::AttachedPoliciesListType.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
+        PolicyDetailListType.validate!(input[:group_policy_list], context: "#{context}[:group_policy_list]") unless input[:group_policy_list].nil?
+        AttachedPoliciesListType.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
       end
     end
 
@@ -1455,8 +1457,8 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:instance_profile_id], ::String, context: "#{context}[:instance_profile_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
-        Validators::RoleListType.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RoleListType.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1521,7 +1523,7 @@ module AWS::SDK::IAM
     class ListAccessKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccessKeysOutput, context: context)
-        Validators::AccessKeyMetadataListType.validate!(input[:access_key_metadata], context: "#{context}[:access_key_metadata]") unless input[:access_key_metadata].nil?
+        AccessKeyMetadataListType.validate!(input[:access_key_metadata], context: "#{context}[:access_key_metadata]") unless input[:access_key_metadata].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1538,7 +1540,7 @@ module AWS::SDK::IAM
     class ListAccountAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountAliasesOutput, context: context)
-        Validators::AccountAliasListType.validate!(input[:account_aliases], context: "#{context}[:account_aliases]") unless input[:account_aliases].nil?
+        AccountAliasListType.validate!(input[:account_aliases], context: "#{context}[:account_aliases]") unless input[:account_aliases].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1557,7 +1559,7 @@ module AWS::SDK::IAM
     class ListAttachedGroupPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachedGroupPoliciesOutput, context: context)
-        Validators::AttachedPoliciesListType.validate!(input[:attached_policies], context: "#{context}[:attached_policies]") unless input[:attached_policies].nil?
+        AttachedPoliciesListType.validate!(input[:attached_policies], context: "#{context}[:attached_policies]") unless input[:attached_policies].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1576,7 +1578,7 @@ module AWS::SDK::IAM
     class ListAttachedRolePoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachedRolePoliciesOutput, context: context)
-        Validators::AttachedPoliciesListType.validate!(input[:attached_policies], context: "#{context}[:attached_policies]") unless input[:attached_policies].nil?
+        AttachedPoliciesListType.validate!(input[:attached_policies], context: "#{context}[:attached_policies]") unless input[:attached_policies].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1595,7 +1597,7 @@ module AWS::SDK::IAM
     class ListAttachedUserPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachedUserPoliciesOutput, context: context)
-        Validators::AttachedPoliciesListType.validate!(input[:attached_policies], context: "#{context}[:attached_policies]") unless input[:attached_policies].nil?
+        AttachedPoliciesListType.validate!(input[:attached_policies], context: "#{context}[:attached_policies]") unless input[:attached_policies].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1616,9 +1618,9 @@ module AWS::SDK::IAM
     class ListEntitiesForPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitiesForPolicyOutput, context: context)
-        Validators::PolicyGroupListType.validate!(input[:policy_groups], context: "#{context}[:policy_groups]") unless input[:policy_groups].nil?
-        Validators::PolicyUserListType.validate!(input[:policy_users], context: "#{context}[:policy_users]") unless input[:policy_users].nil?
-        Validators::PolicyRoleListType.validate!(input[:policy_roles], context: "#{context}[:policy_roles]") unless input[:policy_roles].nil?
+        PolicyGroupListType.validate!(input[:policy_groups], context: "#{context}[:policy_groups]") unless input[:policy_groups].nil?
+        PolicyUserListType.validate!(input[:policy_users], context: "#{context}[:policy_users]") unless input[:policy_users].nil?
+        PolicyRoleListType.validate!(input[:policy_roles], context: "#{context}[:policy_roles]") unless input[:policy_roles].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1636,7 +1638,7 @@ module AWS::SDK::IAM
     class ListGroupPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupPoliciesOutput, context: context)
-        Validators::PolicyNameListType.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
+        PolicyNameListType.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1654,7 +1656,7 @@ module AWS::SDK::IAM
     class ListGroupsForUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsForUserOutput, context: context)
-        Validators::GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1672,7 +1674,7 @@ module AWS::SDK::IAM
     class ListGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOutput, context: context)
-        Validators::GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        GroupListType.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1690,7 +1692,7 @@ module AWS::SDK::IAM
     class ListInstanceProfileTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceProfileTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1708,7 +1710,7 @@ module AWS::SDK::IAM
     class ListInstanceProfilesForRoleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceProfilesForRoleOutput, context: context)
-        Validators::InstanceProfileListType.validate!(input[:instance_profiles], context: "#{context}[:instance_profiles]") unless input[:instance_profiles].nil?
+        InstanceProfileListType.validate!(input[:instance_profiles], context: "#{context}[:instance_profiles]") unless input[:instance_profiles].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1726,7 +1728,7 @@ module AWS::SDK::IAM
     class ListInstanceProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstanceProfilesOutput, context: context)
-        Validators::InstanceProfileListType.validate!(input[:instance_profiles], context: "#{context}[:instance_profiles]") unless input[:instance_profiles].nil?
+        InstanceProfileListType.validate!(input[:instance_profiles], context: "#{context}[:instance_profiles]") unless input[:instance_profiles].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1744,7 +1746,7 @@ module AWS::SDK::IAM
     class ListMFADeviceTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMFADeviceTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1762,7 +1764,7 @@ module AWS::SDK::IAM
     class ListMFADevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMFADevicesOutput, context: context)
-        Validators::MfaDeviceListType.validate!(input[:mfa_devices], context: "#{context}[:mfa_devices]") unless input[:mfa_devices].nil?
+        MfaDeviceListType.validate!(input[:mfa_devices], context: "#{context}[:mfa_devices]") unless input[:mfa_devices].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1780,7 +1782,7 @@ module AWS::SDK::IAM
     class ListOpenIDConnectProviderTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOpenIDConnectProviderTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1795,7 +1797,7 @@ module AWS::SDK::IAM
     class ListOpenIDConnectProvidersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOpenIDConnectProvidersOutput, context: context)
-        Validators::OpenIDConnectProviderListType.validate!(input[:open_id_connect_provider_list], context: "#{context}[:open_id_connect_provider_list]") unless input[:open_id_connect_provider_list].nil?
+        OpenIDConnectProviderListType.validate!(input[:open_id_connect_provider_list], context: "#{context}[:open_id_connect_provider_list]") unless input[:open_id_connect_provider_list].nil?
       end
     end
 
@@ -1803,7 +1805,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPoliciesGrantingServiceAccessEntry, context: context)
         Hearth::Validator.validate!(input[:service_namespace], ::String, context: "#{context}[:service_namespace]")
-        Validators::PolicyGrantingServiceAccessListType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        PolicyGrantingServiceAccessListType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
       end
     end
 
@@ -1812,14 +1814,14 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input, Types::ListPoliciesGrantingServiceAccessInput, context: context)
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ServiceNamespaceListType.validate!(input[:service_namespaces], context: "#{context}[:service_namespaces]") unless input[:service_namespaces].nil?
+        ServiceNamespaceListType.validate!(input[:service_namespaces], context: "#{context}[:service_namespaces]") unless input[:service_namespaces].nil?
       end
     end
 
     class ListPoliciesGrantingServiceAccessOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPoliciesGrantingServiceAccessOutput, context: context)
-        Validators::ListPolicyGrantingServiceAccessResponseListType.validate!(input[:policies_granting_service_access], context: "#{context}[:policies_granting_service_access]") unless input[:policies_granting_service_access].nil?
+        ListPolicyGrantingServiceAccessResponseListType.validate!(input[:policies_granting_service_access], context: "#{context}[:policies_granting_service_access]") unless input[:policies_granting_service_access].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1840,7 +1842,7 @@ module AWS::SDK::IAM
     class ListPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPoliciesOutput, context: context)
-        Validators::PolicyListType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        PolicyListType.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1858,7 +1860,7 @@ module AWS::SDK::IAM
     class ListPolicyTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1876,7 +1878,7 @@ module AWS::SDK::IAM
     class ListPolicyVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyVersionsOutput, context: context)
-        Validators::PolicyDocumentVersionListType.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        PolicyDocumentVersionListType.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1894,7 +1896,7 @@ module AWS::SDK::IAM
     class ListRolePoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRolePoliciesOutput, context: context)
-        Validators::PolicyNameListType.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
+        PolicyNameListType.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1912,7 +1914,7 @@ module AWS::SDK::IAM
     class ListRoleTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoleTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1930,7 +1932,7 @@ module AWS::SDK::IAM
     class ListRolesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRolesOutput, context: context)
-        Validators::RoleListType.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
+        RoleListType.validate!(input[:roles], context: "#{context}[:roles]") unless input[:roles].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1948,7 +1950,7 @@ module AWS::SDK::IAM
     class ListSAMLProviderTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSAMLProviderTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1963,7 +1965,7 @@ module AWS::SDK::IAM
     class ListSAMLProvidersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSAMLProvidersOutput, context: context)
-        Validators::SAMLProviderListType.validate!(input[:saml_provider_list], context: "#{context}[:saml_provider_list]") unless input[:saml_provider_list].nil?
+        SAMLProviderListType.validate!(input[:saml_provider_list], context: "#{context}[:saml_provider_list]") unless input[:saml_provider_list].nil?
       end
     end
 
@@ -1979,7 +1981,7 @@ module AWS::SDK::IAM
     class ListSSHPublicKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSSHPublicKeysOutput, context: context)
-        Validators::SSHPublicKeyListType.validate!(input[:ssh_public_keys], context: "#{context}[:ssh_public_keys]") unless input[:ssh_public_keys].nil?
+        SSHPublicKeyListType.validate!(input[:ssh_public_keys], context: "#{context}[:ssh_public_keys]") unless input[:ssh_public_keys].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -1997,7 +1999,7 @@ module AWS::SDK::IAM
     class ListServerCertificateTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServerCertificateTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2015,7 +2017,7 @@ module AWS::SDK::IAM
     class ListServerCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServerCertificatesOutput, context: context)
-        Validators::ServerCertificateMetadataListType.validate!(input[:server_certificate_metadata_list], context: "#{context}[:server_certificate_metadata_list]") unless input[:server_certificate_metadata_list].nil?
+        ServerCertificateMetadataListType.validate!(input[:server_certificate_metadata_list], context: "#{context}[:server_certificate_metadata_list]") unless input[:server_certificate_metadata_list].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2032,7 +2034,7 @@ module AWS::SDK::IAM
     class ListServiceSpecificCredentialsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServiceSpecificCredentialsOutput, context: context)
-        Validators::ServiceSpecificCredentialsListType.validate!(input[:service_specific_credentials], context: "#{context}[:service_specific_credentials]") unless input[:service_specific_credentials].nil?
+        ServiceSpecificCredentialsListType.validate!(input[:service_specific_credentials], context: "#{context}[:service_specific_credentials]") unless input[:service_specific_credentials].nil?
       end
     end
 
@@ -2048,7 +2050,7 @@ module AWS::SDK::IAM
     class ListSigningCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSigningCertificatesOutput, context: context)
-        Validators::CertificateListType.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateListType.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2066,7 +2068,7 @@ module AWS::SDK::IAM
     class ListUserPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserPoliciesOutput, context: context)
-        Validators::PolicyNameListType.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
+        PolicyNameListType.validate!(input[:policy_names], context: "#{context}[:policy_names]") unless input[:policy_names].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2084,7 +2086,7 @@ module AWS::SDK::IAM
     class ListUserTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserTagsOutput, context: context)
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2102,7 +2104,7 @@ module AWS::SDK::IAM
     class ListUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
-        Validators::UserListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserListType.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2120,7 +2122,7 @@ module AWS::SDK::IAM
     class ListVirtualMFADevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVirtualMFADevicesOutput, context: context)
-        Validators::VirtualMFADeviceListType.validate!(input[:virtual_mfa_devices], context: "#{context}[:virtual_mfa_devices]") unless input[:virtual_mfa_devices].nil?
+        VirtualMFADeviceListType.validate!(input[:virtual_mfa_devices], context: "#{context}[:virtual_mfa_devices]") unless input[:virtual_mfa_devices].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2172,7 +2174,7 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:update_date], ::Time, context: "#{context}[:update_date]")
-        Validators::PolicyDocumentVersionListType.validate!(input[:policy_version_list], context: "#{context}[:policy_version_list]") unless input[:policy_version_list].nil?
+        PolicyDocumentVersionListType.validate!(input[:policy_version_list], context: "#{context}[:policy_version_list]") unless input[:policy_version_list].nil?
       end
     end
 
@@ -2180,7 +2182,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedPolicyDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedPolicyDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2203,7 +2205,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OpenIDConnectProviderListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OpenIDConnectProviderListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2259,7 +2261,7 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:update_date], ::Time, context: "#{context}[:update_date]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2301,7 +2303,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2325,7 +2327,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyRole.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyRole.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2342,7 +2344,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyUser.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2498,7 +2500,7 @@ module AWS::SDK::IAM
     class ResetServiceSpecificCredentialOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResetServiceSpecificCredentialOutput, context: context)
-        Validators::ServiceSpecificCredential.validate!(input[:service_specific_credential], context: "#{context}[:service_specific_credential]") unless input[:service_specific_credential].nil?
+        ServiceSpecificCredential.validate!(input[:service_specific_credential], context: "#{context}[:service_specific_credential]") unless input[:service_specific_credential].nil?
       end
     end
 
@@ -2516,10 +2518,10 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input, Types::ResourceSpecificResult, context: context)
         Hearth::Validator.validate!(input[:eval_resource_name], ::String, context: "#{context}[:eval_resource_name]")
         Hearth::Validator.validate!(input[:eval_resource_decision], ::String, context: "#{context}[:eval_resource_decision]")
-        Validators::StatementListType.validate!(input[:matched_statements], context: "#{context}[:matched_statements]") unless input[:matched_statements].nil?
-        Validators::ContextKeyNamesResultListType.validate!(input[:missing_context_values], context: "#{context}[:missing_context_values]") unless input[:missing_context_values].nil?
-        Validators::EvalDecisionDetailsType.validate!(input[:eval_decision_details], context: "#{context}[:eval_decision_details]") unless input[:eval_decision_details].nil?
-        Validators::PermissionsBoundaryDecisionDetail.validate!(input[:permissions_boundary_decision_detail], context: "#{context}[:permissions_boundary_decision_detail]") unless input[:permissions_boundary_decision_detail].nil?
+        StatementListType.validate!(input[:matched_statements], context: "#{context}[:matched_statements]") unless input[:matched_statements].nil?
+        ContextKeyNamesResultListType.validate!(input[:missing_context_values], context: "#{context}[:missing_context_values]") unless input[:missing_context_values].nil?
+        EvalDecisionDetailsType.validate!(input[:eval_decision_details], context: "#{context}[:eval_decision_details]") unless input[:eval_decision_details].nil?
+        PermissionsBoundaryDecisionDetail.validate!(input[:permissions_boundary_decision_detail], context: "#{context}[:permissions_boundary_decision_detail]") unless input[:permissions_boundary_decision_detail].nil?
       end
     end
 
@@ -2527,7 +2529,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceSpecificResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceSpecificResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2559,9 +2561,9 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:assume_role_policy_document], ::String, context: "#{context}[:assume_role_policy_document]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:max_session_duration], ::Integer, context: "#{context}[:max_session_duration]")
-        Validators::AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::RoleLastUsed.validate!(input[:role_last_used], context: "#{context}[:role_last_used]") unless input[:role_last_used].nil?
+        AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RoleLastUsed.validate!(input[:role_last_used], context: "#{context}[:role_last_used]") unless input[:role_last_used].nil?
       end
     end
 
@@ -2574,12 +2576,12 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:assume_role_policy_document], ::String, context: "#{context}[:assume_role_policy_document]")
-        Validators::InstanceProfileListType.validate!(input[:instance_profile_list], context: "#{context}[:instance_profile_list]") unless input[:instance_profile_list].nil?
-        Validators::PolicyDetailListType.validate!(input[:role_policy_list], context: "#{context}[:role_policy_list]") unless input[:role_policy_list].nil?
-        Validators::AttachedPoliciesListType.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
-        Validators::AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::RoleLastUsed.validate!(input[:role_last_used], context: "#{context}[:role_last_used]") unless input[:role_last_used].nil?
+        InstanceProfileListType.validate!(input[:instance_profile_list], context: "#{context}[:instance_profile_list]") unless input[:instance_profile_list].nil?
+        PolicyDetailListType.validate!(input[:role_policy_list], context: "#{context}[:role_policy_list]") unless input[:role_policy_list].nil?
+        AttachedPoliciesListType.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
+        AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RoleLastUsed.validate!(input[:role_last_used], context: "#{context}[:role_last_used]") unless input[:role_last_used].nil?
       end
     end
 
@@ -2595,7 +2597,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoleUsageType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoleUsageType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2604,7 +2606,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RoleUsageType, context: context)
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::ArnListType.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ArnListType.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
       end
     end
 
@@ -2621,7 +2623,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SAMLProviderListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SAMLProviderListEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2642,7 +2644,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SSHPublicKeyMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SSHPublicKeyMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2660,10 +2662,10 @@ module AWS::SDK::IAM
     class ServerCertificate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ServerCertificate, context: context)
-        Validators::ServerCertificateMetadata.validate!(input[:server_certificate_metadata], context: "#{context}[:server_certificate_metadata]") unless input[:server_certificate_metadata].nil?
+        ServerCertificateMetadata.validate!(input[:server_certificate_metadata], context: "#{context}[:server_certificate_metadata]") unless input[:server_certificate_metadata].nil?
         Hearth::Validator.validate!(input[:certificate_body], ::String, context: "#{context}[:certificate_body]")
         Hearth::Validator.validate!(input[:certificate_chain], ::String, context: "#{context}[:certificate_chain]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2695,7 +2697,7 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:last_authenticated_entity], ::String, context: "#{context}[:last_authenticated_entity]")
         Hearth::Validator.validate!(input[:last_authenticated_region], ::String, context: "#{context}[:last_authenticated_region]")
         Hearth::Validator.validate!(input[:total_authenticated_entities], ::Integer, context: "#{context}[:total_authenticated_entities]")
-        Validators::TrackedActionsLastAccessed.validate!(input[:tracked_actions_last_accessed], context: "#{context}[:tracked_actions_last_accessed]") unless input[:tracked_actions_last_accessed].nil?
+        TrackedActionsLastAccessed.validate!(input[:tracked_actions_last_accessed], context: "#{context}[:tracked_actions_last_accessed]") unless input[:tracked_actions_last_accessed].nil?
       end
     end
 
@@ -2735,7 +2737,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceSpecificCredentialMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceSpecificCredentialMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2744,7 +2746,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceLastAccessed.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceLastAccessed.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2790,14 +2792,14 @@ module AWS::SDK::IAM
     class SimulateCustomPolicyInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SimulateCustomPolicyInput, context: context)
-        Validators::SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
-        Validators::SimulationPolicyListType.validate!(input[:permissions_boundary_policy_input_list], context: "#{context}[:permissions_boundary_policy_input_list]") unless input[:permissions_boundary_policy_input_list].nil?
-        Validators::ActionNameListType.validate!(input[:action_names], context: "#{context}[:action_names]") unless input[:action_names].nil?
-        Validators::ResourceNameListType.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
+        SimulationPolicyListType.validate!(input[:permissions_boundary_policy_input_list], context: "#{context}[:permissions_boundary_policy_input_list]") unless input[:permissions_boundary_policy_input_list].nil?
+        ActionNameListType.validate!(input[:action_names], context: "#{context}[:action_names]") unless input[:action_names].nil?
+        ResourceNameListType.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
         Hearth::Validator.validate!(input[:resource_policy], ::String, context: "#{context}[:resource_policy]")
         Hearth::Validator.validate!(input[:resource_owner], ::String, context: "#{context}[:resource_owner]")
         Hearth::Validator.validate!(input[:caller_arn], ::String, context: "#{context}[:caller_arn]")
-        Validators::ContextEntryListType.validate!(input[:context_entries], context: "#{context}[:context_entries]") unless input[:context_entries].nil?
+        ContextEntryListType.validate!(input[:context_entries], context: "#{context}[:context_entries]") unless input[:context_entries].nil?
         Hearth::Validator.validate!(input[:resource_handling_option], ::String, context: "#{context}[:resource_handling_option]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
@@ -2807,7 +2809,7 @@ module AWS::SDK::IAM
     class SimulateCustomPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SimulateCustomPolicyOutput, context: context)
-        Validators::EvaluationResultsListType.validate!(input[:evaluation_results], context: "#{context}[:evaluation_results]") unless input[:evaluation_results].nil?
+        EvaluationResultsListType.validate!(input[:evaluation_results], context: "#{context}[:evaluation_results]") unless input[:evaluation_results].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2817,14 +2819,14 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SimulatePrincipalPolicyInput, context: context)
         Hearth::Validator.validate!(input[:policy_source_arn], ::String, context: "#{context}[:policy_source_arn]")
-        Validators::SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
-        Validators::SimulationPolicyListType.validate!(input[:permissions_boundary_policy_input_list], context: "#{context}[:permissions_boundary_policy_input_list]") unless input[:permissions_boundary_policy_input_list].nil?
-        Validators::ActionNameListType.validate!(input[:action_names], context: "#{context}[:action_names]") unless input[:action_names].nil?
-        Validators::ResourceNameListType.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        SimulationPolicyListType.validate!(input[:policy_input_list], context: "#{context}[:policy_input_list]") unless input[:policy_input_list].nil?
+        SimulationPolicyListType.validate!(input[:permissions_boundary_policy_input_list], context: "#{context}[:permissions_boundary_policy_input_list]") unless input[:permissions_boundary_policy_input_list].nil?
+        ActionNameListType.validate!(input[:action_names], context: "#{context}[:action_names]") unless input[:action_names].nil?
+        ResourceNameListType.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
         Hearth::Validator.validate!(input[:resource_policy], ::String, context: "#{context}[:resource_policy]")
         Hearth::Validator.validate!(input[:resource_owner], ::String, context: "#{context}[:resource_owner]")
         Hearth::Validator.validate!(input[:caller_arn], ::String, context: "#{context}[:caller_arn]")
-        Validators::ContextEntryListType.validate!(input[:context_entries], context: "#{context}[:context_entries]") unless input[:context_entries].nil?
+        ContextEntryListType.validate!(input[:context_entries], context: "#{context}[:context_entries]") unless input[:context_entries].nil?
         Hearth::Validator.validate!(input[:resource_handling_option], ::String, context: "#{context}[:resource_handling_option]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
@@ -2834,7 +2836,7 @@ module AWS::SDK::IAM
     class SimulatePrincipalPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SimulatePrincipalPolicyOutput, context: context)
-        Validators::EvaluationResultsListType.validate!(input[:evaluation_results], context: "#{context}[:evaluation_results]") unless input[:evaluation_results].nil?
+        EvaluationResultsListType.validate!(input[:evaluation_results], context: "#{context}[:evaluation_results]") unless input[:evaluation_results].nil?
         Hearth::Validator.validate!(input[:is_truncated], ::TrueClass, ::FalseClass, context: "#{context}[:is_truncated]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
       end
@@ -2854,8 +2856,8 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input, Types::Statement, context: context)
         Hearth::Validator.validate!(input[:source_policy_id], ::String, context: "#{context}[:source_policy_id]")
         Hearth::Validator.validate!(input[:source_policy_type], ::String, context: "#{context}[:source_policy_type]")
-        Validators::Position.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
-        Validators::Position.validate!(input[:end_position], context: "#{context}[:end_position]") unless input[:end_position].nil?
+        Position.validate!(input[:start_position], context: "#{context}[:start_position]") unless input[:start_position].nil?
+        Position.validate!(input[:end_position], context: "#{context}[:end_position]") unless input[:end_position].nil?
       end
     end
 
@@ -2863,7 +2865,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Statement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Statement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2880,7 +2882,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagInstanceProfileInput, context: context)
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2894,7 +2896,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagMFADeviceInput, context: context)
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2908,7 +2910,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagOpenIDConnectProviderInput, context: context)
         Hearth::Validator.validate!(input[:open_id_connect_provider_arn], ::String, context: "#{context}[:open_id_connect_provider_arn]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2922,7 +2924,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagPolicyInput, context: context)
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2936,7 +2938,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagRoleInput, context: context)
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2950,7 +2952,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagSAMLProviderInput, context: context)
         Hearth::Validator.validate!(input[:saml_provider_arn], ::String, context: "#{context}[:saml_provider_arn]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2964,7 +2966,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagServerCertificateInput, context: context)
         Hearth::Validator.validate!(input[:server_certificate_name], ::String, context: "#{context}[:server_certificate_name]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -2978,7 +2980,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagUserInput, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3002,7 +3004,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TrackedActionLastAccessed.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TrackedActionLastAccessed.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3025,7 +3027,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagInstanceProfileInput, context: context)
         Hearth::Validator.validate!(input[:instance_profile_name], ::String, context: "#{context}[:instance_profile_name]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3039,7 +3041,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagMFADeviceInput, context: context)
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3053,7 +3055,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagOpenIDConnectProviderInput, context: context)
         Hearth::Validator.validate!(input[:open_id_connect_provider_arn], ::String, context: "#{context}[:open_id_connect_provider_arn]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3067,7 +3069,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagPolicyInput, context: context)
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3081,7 +3083,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagRoleInput, context: context)
         Hearth::Validator.validate!(input[:role_name], ::String, context: "#{context}[:role_name]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3095,7 +3097,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagSAMLProviderInput, context: context)
         Hearth::Validator.validate!(input[:saml_provider_arn], ::String, context: "#{context}[:saml_provider_arn]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3109,7 +3111,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagServerCertificateInput, context: context)
         Hearth::Validator.validate!(input[:server_certificate_name], ::String, context: "#{context}[:server_certificate_name]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3123,7 +3125,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagUserInput, context: context)
         Hearth::Validator.validate!(input[:user_name], ::String, context: "#{context}[:user_name]")
-        Validators::TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyListType.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -3217,7 +3219,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateOpenIDConnectProviderThumbprintInput, context: context)
         Hearth::Validator.validate!(input[:open_id_connect_provider_arn], ::String, context: "#{context}[:open_id_connect_provider_arn]")
-        Validators::ThumbprintListType.validate!(input[:thumbprint_list], context: "#{context}[:thumbprint_list]") unless input[:thumbprint_list].nil?
+        ThumbprintListType.validate!(input[:thumbprint_list], context: "#{context}[:thumbprint_list]") unless input[:thumbprint_list].nil?
       end
     end
 
@@ -3238,7 +3240,7 @@ module AWS::SDK::IAM
     class UpdateRoleDescriptionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRoleDescriptionOutput, context: context)
-        Validators::Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
+        Role.validate!(input[:role], context: "#{context}[:role]") unless input[:role].nil?
       end
     end
 
@@ -3358,7 +3360,7 @@ module AWS::SDK::IAM
     class UploadSSHPublicKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UploadSSHPublicKeyOutput, context: context)
-        Validators::SSHPublicKey.validate!(input[:ssh_public_key], context: "#{context}[:ssh_public_key]") unless input[:ssh_public_key].nil?
+        SSHPublicKey.validate!(input[:ssh_public_key], context: "#{context}[:ssh_public_key]") unless input[:ssh_public_key].nil?
       end
     end
 
@@ -3370,15 +3372,15 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:certificate_body], ::String, context: "#{context}[:certificate_body]")
         Hearth::Validator.validate!(input[:private_key], ::String, context: "#{context}[:private_key]")
         Hearth::Validator.validate!(input[:certificate_chain], ::String, context: "#{context}[:certificate_chain]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class UploadServerCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UploadServerCertificateOutput, context: context)
-        Validators::ServerCertificateMetadata.validate!(input[:server_certificate_metadata], context: "#{context}[:server_certificate_metadata]") unless input[:server_certificate_metadata].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ServerCertificateMetadata.validate!(input[:server_certificate_metadata], context: "#{context}[:server_certificate_metadata]") unless input[:server_certificate_metadata].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3393,7 +3395,7 @@ module AWS::SDK::IAM
     class UploadSigningCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UploadSigningCertificateOutput, context: context)
-        Validators::SigningCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        SigningCertificate.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -3406,8 +3408,8 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
         Hearth::Validator.validate!(input[:password_last_used], ::Time, context: "#{context}[:password_last_used]")
-        Validators::AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3419,11 +3421,11 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:create_date], ::Time, context: "#{context}[:create_date]")
-        Validators::PolicyDetailListType.validate!(input[:user_policy_list], context: "#{context}[:user_policy_list]") unless input[:user_policy_list].nil?
-        Validators::GroupNameListType.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
-        Validators::AttachedPoliciesListType.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
-        Validators::AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        PolicyDetailListType.validate!(input[:user_policy_list], context: "#{context}[:user_policy_list]") unless input[:user_policy_list].nil?
+        GroupNameListType.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
+        AttachedPoliciesListType.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
+        AttachedPermissionsBoundary.validate!(input[:permissions_boundary], context: "#{context}[:permissions_boundary]") unless input[:permissions_boundary].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3433,9 +3435,9 @@ module AWS::SDK::IAM
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
         Hearth::Validator.validate!(input[:base32_string_seed], ::String, context: "#{context}[:base32_string_seed]")
         Hearth::Validator.validate!(input[:qr_code_png], ::String, context: "#{context}[:qr_code_png]")
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
         Hearth::Validator.validate!(input[:enable_date], ::Time, context: "#{context}[:enable_date]")
-        Validators::TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagListType.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3443,7 +3445,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessKeyMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessKeyMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3461,7 +3463,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttachedPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttachedPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3470,7 +3472,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SigningCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SigningCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3488,7 +3490,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntityDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntityDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3506,7 +3508,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3515,7 +3517,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3533,7 +3535,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceProfile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3542,7 +3544,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ListPoliciesGrantingServiceAccessEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ListPoliciesGrantingServiceAccessEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3551,7 +3553,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MFADevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MFADevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3560,7 +3562,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3569,7 +3571,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3578,7 +3580,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyGrantingServiceAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyGrantingServiceAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3587,7 +3589,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Policy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Policy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3605,7 +3607,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RoleDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RoleDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3614,7 +3616,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Role.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Role.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3623,7 +3625,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerCertificateMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerCertificateMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3660,7 +3662,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3678,7 +3680,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UserDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UserDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3687,7 +3689,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3696,7 +3698,7 @@ module AWS::SDK::IAM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualMFADevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualMFADevice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

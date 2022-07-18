@@ -14,7 +14,7 @@ module AWS::SDK::DirectConnect
     class AcceptDirectConnectGatewayAssociationProposal
       def self.default(visited=[])
         {
-          direct_connect_gateway_association: Stubs::DirectConnectGatewayAssociation.default(visited),
+          direct_connect_gateway_association: DirectConnectGatewayAssociation.default(visited),
         }
       end
 
@@ -36,9 +36,9 @@ module AWS::SDK::DirectConnect
           direct_connect_gateway_owner_account: 'direct_connect_gateway_owner_account',
           association_state: 'association_state',
           state_change_error: 'state_change_error',
-          associated_gateway: Stubs::AssociatedGateway.default(visited),
+          associated_gateway: AssociatedGateway.default(visited),
           association_id: 'association_id',
-          allowed_prefixes_to_direct_connect_gateway: Stubs::RouteFilterPrefixList.default(visited),
+          allowed_prefixes_to_direct_connect_gateway: RouteFilterPrefixList.default(visited),
           virtual_gateway_id: 'virtual_gateway_id',
           virtual_gateway_region: 'virtual_gateway_region',
           virtual_gateway_owner_account: 'virtual_gateway_owner_account',
@@ -68,7 +68,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('RouteFilterPrefixList')
         visited = visited + ['RouteFilterPrefixList']
         [
-          Stubs::RouteFilterPrefix.default(visited)
+          RouteFilterPrefix.default(visited)
         ]
       end
 
@@ -144,12 +144,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -188,7 +188,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('MacSecKeyList')
         visited = visited + ['MacSecKeyList']
         [
-          Stubs::MacSecKey.default(visited)
+          MacSecKey.default(visited)
         ]
       end
 
@@ -232,7 +232,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -286,12 +286,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -347,12 +347,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end
@@ -396,7 +396,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('BGPPeerList')
         visited = visited + ['BGPPeerList']
         [
-          Stubs::BGPPeer.default(visited)
+          BGPPeer.default(visited)
         ]
       end
 
@@ -469,12 +469,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end
@@ -516,7 +516,7 @@ module AWS::SDK::DirectConnect
     class AllocateTransitVirtualInterface
       def self.default(visited=[])
         {
-          virtual_interface: Stubs::VirtualInterface.default(visited),
+          virtual_interface: VirtualInterface.default(visited),
         }
       end
 
@@ -553,12 +553,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end
@@ -616,12 +616,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -674,12 +674,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -717,7 +717,7 @@ module AWS::SDK::DirectConnect
       def self.default(visited=[])
         {
           connection_id: 'connection_id',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -753,12 +753,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end
@@ -880,7 +880,7 @@ module AWS::SDK::DirectConnect
     class CreateBGPPeer
       def self.default(visited=[])
         {
-          virtual_interface: Stubs::VirtualInterface.default(visited),
+          virtual_interface: VirtualInterface.default(visited),
         }
       end
 
@@ -912,12 +912,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -954,7 +954,7 @@ module AWS::SDK::DirectConnect
     class CreateDirectConnectGateway
       def self.default(visited=[])
         {
-          direct_connect_gateway: Stubs::DirectConnectGateway.default(visited),
+          direct_connect_gateway: DirectConnectGateway.default(visited),
         }
       end
 
@@ -998,7 +998,7 @@ module AWS::SDK::DirectConnect
     class CreateDirectConnectGatewayAssociation
       def self.default(visited=[])
         {
-          direct_connect_gateway_association: Stubs::DirectConnectGatewayAssociation.default(visited),
+          direct_connect_gateway_association: DirectConnectGatewayAssociation.default(visited),
         }
       end
 
@@ -1014,7 +1014,7 @@ module AWS::SDK::DirectConnect
     class CreateDirectConnectGatewayAssociationProposal
       def self.default(visited=[])
         {
-          direct_connect_gateway_association_proposal: Stubs::DirectConnectGatewayAssociationProposal.default(visited),
+          direct_connect_gateway_association_proposal: DirectConnectGatewayAssociationProposal.default(visited),
         }
       end
 
@@ -1036,9 +1036,9 @@ module AWS::SDK::DirectConnect
           direct_connect_gateway_id: 'direct_connect_gateway_id',
           direct_connect_gateway_owner_account: 'direct_connect_gateway_owner_account',
           proposal_state: 'proposal_state',
-          associated_gateway: Stubs::AssociatedGateway.default(visited),
-          existing_allowed_prefixes_to_direct_connect_gateway: Stubs::RouteFilterPrefixList.default(visited),
-          requested_allowed_prefixes_to_direct_connect_gateway: Stubs::RouteFilterPrefixList.default(visited),
+          associated_gateway: AssociatedGateway.default(visited),
+          existing_allowed_prefixes_to_direct_connect_gateway: RouteFilterPrefixList.default(visited),
+          requested_allowed_prefixes_to_direct_connect_gateway: RouteFilterPrefixList.default(visited),
         }
       end
 
@@ -1073,7 +1073,7 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
         }
       end
@@ -1116,15 +1116,15 @@ module AWS::SDK::DirectConnect
           aws_device: 'aws_device',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
           allows_hosted_connections: false,
           jumbo_frame_capable: false,
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -1162,7 +1162,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('ConnectionList')
         visited = visited + ['ConnectionList']
         [
-          Stubs::Connection.default(visited)
+          Connection.default(visited)
         ]
       end
 
@@ -1198,12 +1198,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -1259,12 +1259,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end
@@ -1325,12 +1325,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end
@@ -1372,7 +1372,7 @@ module AWS::SDK::DirectConnect
     class CreateTransitVirtualInterface
       def self.default(visited=[])
         {
-          virtual_interface: Stubs::VirtualInterface.default(visited),
+          virtual_interface: VirtualInterface.default(visited),
         }
       end
 
@@ -1388,7 +1388,7 @@ module AWS::SDK::DirectConnect
     class DeleteBGPPeer
       def self.default(visited=[])
         {
-          virtual_interface: Stubs::VirtualInterface.default(visited),
+          virtual_interface: VirtualInterface.default(visited),
         }
       end
 
@@ -1420,12 +1420,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -1462,7 +1462,7 @@ module AWS::SDK::DirectConnect
     class DeleteDirectConnectGateway
       def self.default(visited=[])
         {
-          direct_connect_gateway: Stubs::DirectConnectGateway.default(visited),
+          direct_connect_gateway: DirectConnectGateway.default(visited),
         }
       end
 
@@ -1478,7 +1478,7 @@ module AWS::SDK::DirectConnect
     class DeleteDirectConnectGatewayAssociation
       def self.default(visited=[])
         {
-          direct_connect_gateway_association: Stubs::DirectConnectGatewayAssociation.default(visited),
+          direct_connect_gateway_association: DirectConnectGatewayAssociation.default(visited),
         }
       end
 
@@ -1494,7 +1494,7 @@ module AWS::SDK::DirectConnect
     class DeleteDirectConnectGatewayAssociationProposal
       def self.default(visited=[])
         {
-          direct_connect_gateway_association_proposal: Stubs::DirectConnectGatewayAssociationProposal.default(visited),
+          direct_connect_gateway_association_proposal: DirectConnectGatewayAssociationProposal.default(visited),
         }
       end
 
@@ -1538,15 +1538,15 @@ module AWS::SDK::DirectConnect
           aws_device: 'aws_device',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
           allows_hosted_connections: false,
           jumbo_frame_capable: false,
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -1598,7 +1598,7 @@ module AWS::SDK::DirectConnect
     class DescribeConnectionLoa
       def self.default(visited=[])
         {
-          loa: Stubs::Loa.default(visited),
+          loa: Loa.default(visited),
         }
       end
 
@@ -1634,7 +1634,7 @@ module AWS::SDK::DirectConnect
     class DescribeConnections
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
         }
       end
 
@@ -1650,7 +1650,7 @@ module AWS::SDK::DirectConnect
     class DescribeConnectionsOnInterconnect
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
         }
       end
 
@@ -1666,7 +1666,7 @@ module AWS::SDK::DirectConnect
     class DescribeCustomerMetadata
       def self.default(visited=[])
         {
-          agreements: Stubs::AgreementList.default(visited),
+          agreements: AgreementList.default(visited),
           nni_partner_type: 'nni_partner_type',
         }
       end
@@ -1686,7 +1686,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('AgreementList')
         visited = visited + ['AgreementList']
         [
-          Stubs::CustomerAgreement.default(visited)
+          CustomerAgreement.default(visited)
         ]
       end
 
@@ -1724,7 +1724,7 @@ module AWS::SDK::DirectConnect
     class DescribeDirectConnectGatewayAssociationProposals
       def self.default(visited=[])
         {
-          direct_connect_gateway_association_proposals: Stubs::DirectConnectGatewayAssociationProposalList.default(visited),
+          direct_connect_gateway_association_proposals: DirectConnectGatewayAssociationProposalList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1744,7 +1744,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('DirectConnectGatewayAssociationProposalList')
         visited = visited + ['DirectConnectGatewayAssociationProposalList']
         [
-          Stubs::DirectConnectGatewayAssociationProposal.default(visited)
+          DirectConnectGatewayAssociationProposal.default(visited)
         ]
       end
 
@@ -1762,7 +1762,7 @@ module AWS::SDK::DirectConnect
     class DescribeDirectConnectGatewayAssociations
       def self.default(visited=[])
         {
-          direct_connect_gateway_associations: Stubs::DirectConnectGatewayAssociationList.default(visited),
+          direct_connect_gateway_associations: DirectConnectGatewayAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1782,7 +1782,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('DirectConnectGatewayAssociationList')
         visited = visited + ['DirectConnectGatewayAssociationList']
         [
-          Stubs::DirectConnectGatewayAssociation.default(visited)
+          DirectConnectGatewayAssociation.default(visited)
         ]
       end
 
@@ -1800,7 +1800,7 @@ module AWS::SDK::DirectConnect
     class DescribeDirectConnectGatewayAttachments
       def self.default(visited=[])
         {
-          direct_connect_gateway_attachments: Stubs::DirectConnectGatewayAttachmentList.default(visited),
+          direct_connect_gateway_attachments: DirectConnectGatewayAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1820,7 +1820,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('DirectConnectGatewayAttachmentList')
         visited = visited + ['DirectConnectGatewayAttachmentList']
         [
-          Stubs::DirectConnectGatewayAttachment.default(visited)
+          DirectConnectGatewayAttachment.default(visited)
         ]
       end
 
@@ -1868,7 +1868,7 @@ module AWS::SDK::DirectConnect
     class DescribeDirectConnectGateways
       def self.default(visited=[])
         {
-          direct_connect_gateways: Stubs::DirectConnectGatewayList.default(visited),
+          direct_connect_gateways: DirectConnectGatewayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1888,7 +1888,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('DirectConnectGatewayList')
         visited = visited + ['DirectConnectGatewayList']
         [
-          Stubs::DirectConnectGateway.default(visited)
+          DirectConnectGateway.default(visited)
         ]
       end
 
@@ -1906,7 +1906,7 @@ module AWS::SDK::DirectConnect
     class DescribeHostedConnections
       def self.default(visited=[])
         {
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
         }
       end
 
@@ -1922,7 +1922,7 @@ module AWS::SDK::DirectConnect
     class DescribeInterconnectLoa
       def self.default(visited=[])
         {
-          loa: Stubs::Loa.default(visited),
+          loa: Loa.default(visited),
         }
       end
 
@@ -1938,7 +1938,7 @@ module AWS::SDK::DirectConnect
     class DescribeInterconnects
       def self.default(visited=[])
         {
-          interconnects: Stubs::InterconnectList.default(visited),
+          interconnects: InterconnectList.default(visited),
         }
       end
 
@@ -1956,7 +1956,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('InterconnectList')
         visited = visited + ['InterconnectList']
         [
-          Stubs::Interconnect.default(visited)
+          Interconnect.default(visited)
         ]
       end
 
@@ -1989,7 +1989,7 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
         }
       end
@@ -2020,7 +2020,7 @@ module AWS::SDK::DirectConnect
     class DescribeLags
       def self.default(visited=[])
         {
-          lags: Stubs::LagList.default(visited),
+          lags: LagList.default(visited),
         }
       end
 
@@ -2038,7 +2038,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('LagList')
         visited = visited + ['LagList']
         [
-          Stubs::Lag.default(visited)
+          Lag.default(visited)
         ]
       end
 
@@ -2070,15 +2070,15 @@ module AWS::SDK::DirectConnect
           aws_device: 'aws_device',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
           allows_hosted_connections: false,
           jumbo_frame_capable: false,
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -2132,7 +2132,7 @@ module AWS::SDK::DirectConnect
     class DescribeLocations
       def self.default(visited=[])
         {
-          locations: Stubs::LocationList.default(visited),
+          locations: LocationList.default(visited),
         }
       end
 
@@ -2150,7 +2150,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('LocationList')
         visited = visited + ['LocationList']
         [
-          Stubs::Location.default(visited)
+          Location.default(visited)
         ]
       end
 
@@ -2173,9 +2173,9 @@ module AWS::SDK::DirectConnect
           location_code: 'location_code',
           location_name: 'location_name',
           region: 'region',
-          available_port_speeds: Stubs::AvailablePortSpeeds.default(visited),
-          available_providers: Stubs::ProviderList.default(visited),
-          available_mac_sec_port_speeds: Stubs::AvailableMacSecPortSpeeds.default(visited),
+          available_port_speeds: AvailablePortSpeeds.default(visited),
+          available_providers: ProviderList.default(visited),
+          available_mac_sec_port_speeds: AvailableMacSecPortSpeeds.default(visited),
         }
       end
 
@@ -2257,7 +2257,7 @@ module AWS::SDK::DirectConnect
       def self.default(visited=[])
         {
           customer_router_config: 'customer_router_config',
-          router: Stubs::RouterType.default(visited),
+          router: RouterType.default(visited),
           virtual_interface_id: 'virtual_interface_id',
           virtual_interface_name: 'virtual_interface_name',
         }
@@ -2306,7 +2306,7 @@ module AWS::SDK::DirectConnect
     class DescribeTags
       def self.default(visited=[])
         {
-          resource_tags: Stubs::ResourceTagList.default(visited),
+          resource_tags: ResourceTagList.default(visited),
         }
       end
 
@@ -2324,7 +2324,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('ResourceTagList')
         visited = visited + ['ResourceTagList']
         [
-          Stubs::ResourceTag.default(visited)
+          ResourceTag.default(visited)
         ]
       end
 
@@ -2345,7 +2345,7 @@ module AWS::SDK::DirectConnect
         visited = visited + ['ResourceTag']
         {
           resource_arn: 'resource_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2362,7 +2362,7 @@ module AWS::SDK::DirectConnect
     class DescribeVirtualGateways
       def self.default(visited=[])
         {
-          virtual_gateways: Stubs::VirtualGatewayList.default(visited),
+          virtual_gateways: VirtualGatewayList.default(visited),
         }
       end
 
@@ -2380,7 +2380,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('VirtualGatewayList')
         visited = visited + ['VirtualGatewayList']
         [
-          Stubs::VirtualGateway.default(visited)
+          VirtualGateway.default(visited)
         ]
       end
 
@@ -2418,7 +2418,7 @@ module AWS::SDK::DirectConnect
     class DescribeVirtualInterfaces
       def self.default(visited=[])
         {
-          virtual_interfaces: Stubs::VirtualInterfaceList.default(visited),
+          virtual_interfaces: VirtualInterfaceList.default(visited),
         }
       end
 
@@ -2436,7 +2436,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('VirtualInterfaceList')
         visited = visited + ['VirtualInterfaceList']
         [
-          Stubs::VirtualInterface.default(visited)
+          VirtualInterface.default(visited)
         ]
       end
 
@@ -2470,12 +2470,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -2513,7 +2513,7 @@ module AWS::SDK::DirectConnect
       def self.default(visited=[])
         {
           connection_id: 'connection_id',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -2530,7 +2530,7 @@ module AWS::SDK::DirectConnect
     class ListVirtualInterfaceTestHistory
       def self.default(visited=[])
         {
-          virtual_interface_test_history: Stubs::VirtualInterfaceTestHistoryList.default(visited),
+          virtual_interface_test_history: VirtualInterfaceTestHistoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2550,7 +2550,7 @@ module AWS::SDK::DirectConnect
         return nil if visited.include?('VirtualInterfaceTestHistoryList')
         visited = visited + ['VirtualInterfaceTestHistoryList']
         [
-          Stubs::VirtualInterfaceTestHistory.default(visited)
+          VirtualInterfaceTestHistory.default(visited)
         ]
       end
 
@@ -2572,7 +2572,7 @@ module AWS::SDK::DirectConnect
         {
           test_id: 'test_id',
           virtual_interface_id: 'virtual_interface_id',
-          bgp_peers: Stubs::BGPPeerIdList.default(visited),
+          bgp_peers: BGPPeerIdList.default(visited),
           status: 'status',
           owner_account: 'owner_account',
           test_duration_in_minutes: 1,
@@ -2620,7 +2620,7 @@ module AWS::SDK::DirectConnect
     class StartBgpFailoverTest
       def self.default(visited=[])
         {
-          virtual_interface_test: Stubs::VirtualInterfaceTestHistory.default(visited),
+          virtual_interface_test: VirtualInterfaceTestHistory.default(visited),
         }
       end
 
@@ -2636,7 +2636,7 @@ module AWS::SDK::DirectConnect
     class StopBgpFailoverTest
       def self.default(visited=[])
         {
-          virtual_interface_test: Stubs::VirtualInterfaceTestHistory.default(visited),
+          virtual_interface_test: VirtualInterfaceTestHistory.default(visited),
         }
       end
 
@@ -2696,12 +2696,12 @@ module AWS::SDK::DirectConnect
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           port_encryption_status: 'port_encryption_status',
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -2738,7 +2738,7 @@ module AWS::SDK::DirectConnect
     class UpdateDirectConnectGateway
       def self.default(visited=[])
         {
-          direct_connect_gateway: Stubs::DirectConnectGateway.default(visited),
+          direct_connect_gateway: DirectConnectGateway.default(visited),
         }
       end
 
@@ -2754,7 +2754,7 @@ module AWS::SDK::DirectConnect
     class UpdateDirectConnectGatewayAssociation
       def self.default(visited=[])
         {
-          direct_connect_gateway_association: Stubs::DirectConnectGatewayAssociation.default(visited),
+          direct_connect_gateway_association: DirectConnectGatewayAssociation.default(visited),
         }
       end
 
@@ -2782,15 +2782,15 @@ module AWS::SDK::DirectConnect
           aws_device: 'aws_device',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          connections: Stubs::ConnectionList.default(visited),
+          connections: ConnectionList.default(visited),
           allows_hosted_connections: false,
           jumbo_frame_capable: false,
           has_logical_redundancy: 'has_logical_redundancy',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           provider_name: 'provider_name',
           mac_sec_capable: false,
           encryption_mode: 'encryption_mode',
-          mac_sec_keys: Stubs::MacSecKeyList.default(visited),
+          mac_sec_keys: MacSecKeyList.default(visited),
         }
       end
 
@@ -2845,12 +2845,12 @@ module AWS::SDK::DirectConnect
           jumbo_frame_capable: false,
           virtual_gateway_id: 'virtual_gateway_id',
           direct_connect_gateway_id: 'direct_connect_gateway_id',
-          route_filter_prefixes: Stubs::RouteFilterPrefixList.default(visited),
-          bgp_peers: Stubs::BGPPeerList.default(visited),
+          route_filter_prefixes: RouteFilterPrefixList.default(visited),
+          bgp_peers: BGPPeerList.default(visited),
           region: 'region',
           aws_device_v2: 'aws_device_v2',
           aws_logical_device_id: 'aws_logical_device_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           site_link_enabled: false,
         }
       end

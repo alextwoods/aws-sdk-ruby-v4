@@ -14,7 +14,7 @@ module AWS::SDK::Forecastquery
     class QueryForecast
       def self.default(visited=[])
         {
-          forecast: Stubs::Forecast.default(visited),
+          forecast: Forecast.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::Forecastquery
         return nil if visited.include?('Forecast')
         visited = visited + ['Forecast']
         {
-          predictions: Stubs::Predictions.default(visited),
+          predictions: Predictions.default(visited),
         }
       end
 
@@ -50,7 +50,7 @@ module AWS::SDK::Forecastquery
         return nil if visited.include?('Predictions')
         visited = visited + ['Predictions']
         {
-          test_key: Stubs::TimeSeries.default(visited)
+          test_key: TimeSeries.default(visited)
         }
       end
 
@@ -70,7 +70,7 @@ module AWS::SDK::Forecastquery
         return nil if visited.include?('TimeSeries')
         visited = visited + ['TimeSeries']
         [
-          Stubs::DataPoint.default(visited)
+          DataPoint.default(visited)
         ]
       end
 

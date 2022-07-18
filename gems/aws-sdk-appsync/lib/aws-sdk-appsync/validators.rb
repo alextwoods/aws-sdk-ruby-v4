@@ -21,9 +21,9 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AdditionalAuthenticationProvider, context: context)
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
-        Validators::OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
-        Validators::CognitoUserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
-        Validators::LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
+        OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
+        CognitoUserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
+        LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
       end
     end
 
@@ -31,7 +31,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AdditionalAuthenticationProvider.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AdditionalAuthenticationProvider.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -86,7 +86,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApiKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApiKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -109,7 +109,7 @@ module AWS::SDK::AppSync
     class AssociateApiOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateApiOutput, context: context)
-        Validators::ApiAssociation.validate!(input[:api_association], context: "#{context}[:api_association]") unless input[:api_association].nil?
+        ApiAssociation.validate!(input[:api_association], context: "#{context}[:api_association]") unless input[:api_association].nil?
       end
     end
 
@@ -117,7 +117,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthorizationConfig, context: context)
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
-        Validators::AwsIamConfig.validate!(input[:aws_iam_config], context: "#{context}[:aws_iam_config]") unless input[:aws_iam_config].nil?
+        AwsIamConfig.validate!(input[:aws_iam_config], context: "#{context}[:aws_iam_config]") unless input[:aws_iam_config].nil?
       end
     end
 
@@ -140,7 +140,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachingConfig, context: context)
         Hearth::Validator.validate!(input[:ttl], ::Integer, context: "#{context}[:ttl]")
-        Validators::CachingKeys.validate!(input[:caching_keys], context: "#{context}[:caching_keys]") unless input[:caching_keys].nil?
+        CachingKeys.validate!(input[:caching_keys], context: "#{context}[:caching_keys]") unless input[:caching_keys].nil?
       end
     end
 
@@ -184,7 +184,7 @@ module AWS::SDK::AppSync
     class CreateApiCacheOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApiCacheOutput, context: context)
-        Validators::ApiCache.validate!(input[:api_cache], context: "#{context}[:api_cache]") unless input[:api_cache].nil?
+        ApiCache.validate!(input[:api_cache], context: "#{context}[:api_cache]") unless input[:api_cache].nil?
       end
     end
 
@@ -200,7 +200,7 @@ module AWS::SDK::AppSync
     class CreateApiKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApiKeyOutput, context: context)
-        Validators::ApiKey.validate!(input[:api_key], context: "#{context}[:api_key]") unless input[:api_key].nil?
+        ApiKey.validate!(input[:api_key], context: "#{context}[:api_key]") unless input[:api_key].nil?
       end
     end
 
@@ -212,19 +212,19 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::DynamodbDataSourceConfig.validate!(input[:dynamodb_config], context: "#{context}[:dynamodb_config]") unless input[:dynamodb_config].nil?
-        Validators::LambdaDataSourceConfig.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
-        Validators::ElasticsearchDataSourceConfig.validate!(input[:elasticsearch_config], context: "#{context}[:elasticsearch_config]") unless input[:elasticsearch_config].nil?
-        Validators::OpenSearchServiceDataSourceConfig.validate!(input[:open_search_service_config], context: "#{context}[:open_search_service_config]") unless input[:open_search_service_config].nil?
-        Validators::HttpDataSourceConfig.validate!(input[:http_config], context: "#{context}[:http_config]") unless input[:http_config].nil?
-        Validators::RelationalDatabaseDataSourceConfig.validate!(input[:relational_database_config], context: "#{context}[:relational_database_config]") unless input[:relational_database_config].nil?
+        DynamodbDataSourceConfig.validate!(input[:dynamodb_config], context: "#{context}[:dynamodb_config]") unless input[:dynamodb_config].nil?
+        LambdaDataSourceConfig.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        ElasticsearchDataSourceConfig.validate!(input[:elasticsearch_config], context: "#{context}[:elasticsearch_config]") unless input[:elasticsearch_config].nil?
+        OpenSearchServiceDataSourceConfig.validate!(input[:open_search_service_config], context: "#{context}[:open_search_service_config]") unless input[:open_search_service_config].nil?
+        HttpDataSourceConfig.validate!(input[:http_config], context: "#{context}[:http_config]") unless input[:http_config].nil?
+        RelationalDatabaseDataSourceConfig.validate!(input[:relational_database_config], context: "#{context}[:relational_database_config]") unless input[:relational_database_config].nil?
       end
     end
 
     class CreateDataSourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDataSourceOutput, context: context)
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
       end
     end
 
@@ -240,7 +240,7 @@ module AWS::SDK::AppSync
     class CreateDomainNameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainNameOutput, context: context)
-        Validators::DomainNameConfig.validate!(input[:domain_name_config], context: "#{context}[:domain_name_config]") unless input[:domain_name_config].nil?
+        DomainNameConfig.validate!(input[:domain_name_config], context: "#{context}[:domain_name_config]") unless input[:domain_name_config].nil?
       end
     end
 
@@ -254,7 +254,7 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:request_mapping_template], ::String, context: "#{context}[:request_mapping_template]")
         Hearth::Validator.validate!(input[:response_mapping_template], ::String, context: "#{context}[:response_mapping_template]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
-        Validators::SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
+        SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -262,7 +262,7 @@ module AWS::SDK::AppSync
     class CreateFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFunctionOutput, context: context)
-        Validators::FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
+        FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
       end
     end
 
@@ -270,21 +270,21 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGraphqlApiInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LogConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
+        LogConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
-        Validators::UserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
-        Validators::OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AdditionalAuthenticationProviders.validate!(input[:additional_authentication_providers], context: "#{context}[:additional_authentication_providers]") unless input[:additional_authentication_providers].nil?
+        UserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
+        OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AdditionalAuthenticationProviders.validate!(input[:additional_authentication_providers], context: "#{context}[:additional_authentication_providers]") unless input[:additional_authentication_providers].nil?
         Hearth::Validator.validate!(input[:xray_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:xray_enabled]")
-        Validators::LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
+        LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
       end
     end
 
     class CreateGraphqlApiOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGraphqlApiOutput, context: context)
-        Validators::GraphqlApi.validate!(input[:graphql_api], context: "#{context}[:graphql_api]") unless input[:graphql_api].nil?
+        GraphqlApi.validate!(input[:graphql_api], context: "#{context}[:graphql_api]") unless input[:graphql_api].nil?
       end
     end
 
@@ -298,9 +298,9 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:request_mapping_template], ::String, context: "#{context}[:request_mapping_template]")
         Hearth::Validator.validate!(input[:response_mapping_template], ::String, context: "#{context}[:response_mapping_template]")
         Hearth::Validator.validate!(input[:kind], ::String, context: "#{context}[:kind]")
-        Validators::PipelineConfig.validate!(input[:pipeline_config], context: "#{context}[:pipeline_config]") unless input[:pipeline_config].nil?
-        Validators::SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
-        Validators::CachingConfig.validate!(input[:caching_config], context: "#{context}[:caching_config]") unless input[:caching_config].nil?
+        PipelineConfig.validate!(input[:pipeline_config], context: "#{context}[:pipeline_config]") unless input[:pipeline_config].nil?
+        SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
+        CachingConfig.validate!(input[:caching_config], context: "#{context}[:caching_config]") unless input[:caching_config].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -308,7 +308,7 @@ module AWS::SDK::AppSync
     class CreateResolverOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResolverOutput, context: context)
-        Validators::Resolver.validate!(input[:resolver], context: "#{context}[:resolver]") unless input[:resolver].nil?
+        Resolver.validate!(input[:resolver], context: "#{context}[:resolver]") unless input[:resolver].nil?
       end
     end
 
@@ -324,7 +324,7 @@ module AWS::SDK::AppSync
     class CreateTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTypeOutput, context: context)
-        Validators::Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
       end
     end
 
@@ -336,12 +336,12 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::DynamodbDataSourceConfig.validate!(input[:dynamodb_config], context: "#{context}[:dynamodb_config]") unless input[:dynamodb_config].nil?
-        Validators::LambdaDataSourceConfig.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
-        Validators::ElasticsearchDataSourceConfig.validate!(input[:elasticsearch_config], context: "#{context}[:elasticsearch_config]") unless input[:elasticsearch_config].nil?
-        Validators::OpenSearchServiceDataSourceConfig.validate!(input[:open_search_service_config], context: "#{context}[:open_search_service_config]") unless input[:open_search_service_config].nil?
-        Validators::HttpDataSourceConfig.validate!(input[:http_config], context: "#{context}[:http_config]") unless input[:http_config].nil?
-        Validators::RelationalDatabaseDataSourceConfig.validate!(input[:relational_database_config], context: "#{context}[:relational_database_config]") unless input[:relational_database_config].nil?
+        DynamodbDataSourceConfig.validate!(input[:dynamodb_config], context: "#{context}[:dynamodb_config]") unless input[:dynamodb_config].nil?
+        LambdaDataSourceConfig.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        ElasticsearchDataSourceConfig.validate!(input[:elasticsearch_config], context: "#{context}[:elasticsearch_config]") unless input[:elasticsearch_config].nil?
+        OpenSearchServiceDataSourceConfig.validate!(input[:open_search_service_config], context: "#{context}[:open_search_service_config]") unless input[:open_search_service_config].nil?
+        HttpDataSourceConfig.validate!(input[:http_config], context: "#{context}[:http_config]") unless input[:http_config].nil?
+        RelationalDatabaseDataSourceConfig.validate!(input[:relational_database_config], context: "#{context}[:relational_database_config]") unless input[:relational_database_config].nil?
       end
     end
 
@@ -349,7 +349,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -501,7 +501,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainNameConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainNameConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate!(input[:aws_region], ::String, context: "#{context}[:aws_region]")
         Hearth::Validator.validate!(input[:use_caller_credentials], ::TrueClass, ::FalseClass, context: "#{context}[:use_caller_credentials]")
-        Validators::DeltaSyncConfig.validate!(input[:delta_sync_config], context: "#{context}[:delta_sync_config]") unless input[:delta_sync_config].nil?
+        DeltaSyncConfig.validate!(input[:delta_sync_config], context: "#{context}[:delta_sync_config]") unless input[:delta_sync_config].nil?
         Hearth::Validator.validate!(input[:versioned], ::TrueClass, ::FalseClass, context: "#{context}[:versioned]")
       end
     end
@@ -549,7 +549,7 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:request_mapping_template], ::String, context: "#{context}[:request_mapping_template]")
         Hearth::Validator.validate!(input[:response_mapping_template], ::String, context: "#{context}[:response_mapping_template]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
-        Validators::SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
+        SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -558,7 +558,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FunctionConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FunctionConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -582,7 +582,7 @@ module AWS::SDK::AppSync
     class GetApiAssociationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApiAssociationOutput, context: context)
-        Validators::ApiAssociation.validate!(input[:api_association], context: "#{context}[:api_association]") unless input[:api_association].nil?
+        ApiAssociation.validate!(input[:api_association], context: "#{context}[:api_association]") unless input[:api_association].nil?
       end
     end
 
@@ -596,7 +596,7 @@ module AWS::SDK::AppSync
     class GetApiCacheOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetApiCacheOutput, context: context)
-        Validators::ApiCache.validate!(input[:api_cache], context: "#{context}[:api_cache]") unless input[:api_cache].nil?
+        ApiCache.validate!(input[:api_cache], context: "#{context}[:api_cache]") unless input[:api_cache].nil?
       end
     end
 
@@ -611,7 +611,7 @@ module AWS::SDK::AppSync
     class GetDataSourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDataSourceOutput, context: context)
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
       end
     end
 
@@ -625,7 +625,7 @@ module AWS::SDK::AppSync
     class GetDomainNameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainNameOutput, context: context)
-        Validators::DomainNameConfig.validate!(input[:domain_name_config], context: "#{context}[:domain_name_config]") unless input[:domain_name_config].nil?
+        DomainNameConfig.validate!(input[:domain_name_config], context: "#{context}[:domain_name_config]") unless input[:domain_name_config].nil?
       end
     end
 
@@ -640,7 +640,7 @@ module AWS::SDK::AppSync
     class GetFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFunctionOutput, context: context)
-        Validators::FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
+        FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
       end
     end
 
@@ -654,7 +654,7 @@ module AWS::SDK::AppSync
     class GetGraphqlApiOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGraphqlApiOutput, context: context)
-        Validators::GraphqlApi.validate!(input[:graphql_api], context: "#{context}[:graphql_api]") unless input[:graphql_api].nil?
+        GraphqlApi.validate!(input[:graphql_api], context: "#{context}[:graphql_api]") unless input[:graphql_api].nil?
       end
     end
 
@@ -686,7 +686,7 @@ module AWS::SDK::AppSync
     class GetResolverOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetResolverOutput, context: context)
-        Validators::Resolver.validate!(input[:resolver], context: "#{context}[:resolver]") unless input[:resolver].nil?
+        Resolver.validate!(input[:resolver], context: "#{context}[:resolver]") unless input[:resolver].nil?
       end
     end
 
@@ -717,7 +717,7 @@ module AWS::SDK::AppSync
     class GetTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTypeOutput, context: context)
-        Validators::Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
       end
     end
 
@@ -734,16 +734,16 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
-        Validators::LogConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
-        Validators::UserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
-        Validators::OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
+        LogConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
+        UserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
+        OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::MapOfStringToString.validate!(input[:uris], context: "#{context}[:uris]") unless input[:uris].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AdditionalAuthenticationProviders.validate!(input[:additional_authentication_providers], context: "#{context}[:additional_authentication_providers]") unless input[:additional_authentication_providers].nil?
+        MapOfStringToString.validate!(input[:uris], context: "#{context}[:uris]") unless input[:uris].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AdditionalAuthenticationProviders.validate!(input[:additional_authentication_providers], context: "#{context}[:additional_authentication_providers]") unless input[:additional_authentication_providers].nil?
         Hearth::Validator.validate!(input[:xray_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:xray_enabled]")
         Hearth::Validator.validate!(input[:waf_web_acl_arn], ::String, context: "#{context}[:waf_web_acl_arn]")
-        Validators::LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
+        LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
       end
     end
 
@@ -751,7 +751,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GraphqlApi.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GraphqlApi.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -760,7 +760,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpDataSourceConfig, context: context)
         Hearth::Validator.validate!(input[:endpoint], ::String, context: "#{context}[:endpoint]")
-        Validators::AuthorizationConfig.validate!(input[:authorization_config], context: "#{context}[:authorization_config]") unless input[:authorization_config].nil?
+        AuthorizationConfig.validate!(input[:authorization_config], context: "#{context}[:authorization_config]") unless input[:authorization_config].nil?
       end
     end
 
@@ -813,7 +813,7 @@ module AWS::SDK::AppSync
     class ListApiKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApiKeysOutput, context: context)
-        Validators::ApiKeys.validate!(input[:api_keys], context: "#{context}[:api_keys]") unless input[:api_keys].nil?
+        ApiKeys.validate!(input[:api_keys], context: "#{context}[:api_keys]") unless input[:api_keys].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -830,7 +830,7 @@ module AWS::SDK::AppSync
     class ListDataSourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSourcesOutput, context: context)
-        Validators::DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -846,7 +846,7 @@ module AWS::SDK::AppSync
     class ListDomainNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainNamesOutput, context: context)
-        Validators::DomainNameConfigs.validate!(input[:domain_name_configs], context: "#{context}[:domain_name_configs]") unless input[:domain_name_configs].nil?
+        DomainNameConfigs.validate!(input[:domain_name_configs], context: "#{context}[:domain_name_configs]") unless input[:domain_name_configs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -863,7 +863,7 @@ module AWS::SDK::AppSync
     class ListFunctionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFunctionsOutput, context: context)
-        Validators::Functions.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        Functions.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -879,7 +879,7 @@ module AWS::SDK::AppSync
     class ListGraphqlApisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGraphqlApisOutput, context: context)
-        Validators::GraphqlApis.validate!(input[:graphql_apis], context: "#{context}[:graphql_apis]") unless input[:graphql_apis].nil?
+        GraphqlApis.validate!(input[:graphql_apis], context: "#{context}[:graphql_apis]") unless input[:graphql_apis].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -897,7 +897,7 @@ module AWS::SDK::AppSync
     class ListResolversByFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResolversByFunctionOutput, context: context)
-        Validators::Resolvers.validate!(input[:resolvers], context: "#{context}[:resolvers]") unless input[:resolvers].nil?
+        Resolvers.validate!(input[:resolvers], context: "#{context}[:resolvers]") unless input[:resolvers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -915,7 +915,7 @@ module AWS::SDK::AppSync
     class ListResolversOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResolversOutput, context: context)
-        Validators::Resolvers.validate!(input[:resolvers], context: "#{context}[:resolvers]") unless input[:resolvers].nil?
+        Resolvers.validate!(input[:resolvers], context: "#{context}[:resolvers]") unless input[:resolvers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -930,7 +930,7 @@ module AWS::SDK::AppSync
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -947,7 +947,7 @@ module AWS::SDK::AppSync
     class ListTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTypesOutput, context: context)
-        Validators::TypeList.validate!(input[:types], context: "#{context}[:types]") unless input[:types].nil?
+        TypeList.validate!(input[:types], context: "#{context}[:types]") unless input[:types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -999,7 +999,7 @@ module AWS::SDK::AppSync
     class PipelineConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PipelineConfig, context: context)
-        Validators::FunctionsIds.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        FunctionsIds.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
       end
     end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RelationalDatabaseDataSourceConfig, context: context)
         Hearth::Validator.validate!(input[:relational_database_source_type], ::String, context: "#{context}[:relational_database_source_type]")
-        Validators::RdsHttpEndpointConfig.validate!(input[:rds_http_endpoint_config], context: "#{context}[:rds_http_endpoint_config]") unless input[:rds_http_endpoint_config].nil?
+        RdsHttpEndpointConfig.validate!(input[:rds_http_endpoint_config], context: "#{context}[:rds_http_endpoint_config]") unless input[:rds_http_endpoint_config].nil?
       end
     end
 
@@ -1032,9 +1032,9 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:request_mapping_template], ::String, context: "#{context}[:request_mapping_template]")
         Hearth::Validator.validate!(input[:response_mapping_template], ::String, context: "#{context}[:response_mapping_template]")
         Hearth::Validator.validate!(input[:kind], ::String, context: "#{context}[:kind]")
-        Validators::PipelineConfig.validate!(input[:pipeline_config], context: "#{context}[:pipeline_config]") unless input[:pipeline_config].nil?
-        Validators::SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
-        Validators::CachingConfig.validate!(input[:caching_config], context: "#{context}[:caching_config]") unless input[:caching_config].nil?
+        PipelineConfig.validate!(input[:pipeline_config], context: "#{context}[:pipeline_config]") unless input[:pipeline_config].nil?
+        SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
+        CachingConfig.validate!(input[:caching_config], context: "#{context}[:caching_config]") unless input[:caching_config].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -1043,7 +1043,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resolver.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resolver.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1068,7 +1068,7 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input, Types::SyncConfig, context: context)
         Hearth::Validator.validate!(input[:conflict_handler], ::String, context: "#{context}[:conflict_handler]")
         Hearth::Validator.validate!(input[:conflict_detection], ::String, context: "#{context}[:conflict_detection]")
-        Validators::LambdaConflictHandlerConfig.validate!(input[:lambda_conflict_handler_config], context: "#{context}[:lambda_conflict_handler_config]") unless input[:lambda_conflict_handler_config].nil?
+        LambdaConflictHandlerConfig.validate!(input[:lambda_conflict_handler_config], context: "#{context}[:lambda_conflict_handler_config]") unless input[:lambda_conflict_handler_config].nil?
       end
     end
 
@@ -1095,7 +1095,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1120,7 +1120,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Type.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Type.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1136,7 +1136,7 @@ module AWS::SDK::AppSync
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1159,7 +1159,7 @@ module AWS::SDK::AppSync
     class UpdateApiCacheOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApiCacheOutput, context: context)
-        Validators::ApiCache.validate!(input[:api_cache], context: "#{context}[:api_cache]") unless input[:api_cache].nil?
+        ApiCache.validate!(input[:api_cache], context: "#{context}[:api_cache]") unless input[:api_cache].nil?
       end
     end
 
@@ -1176,7 +1176,7 @@ module AWS::SDK::AppSync
     class UpdateApiKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApiKeyOutput, context: context)
-        Validators::ApiKey.validate!(input[:api_key], context: "#{context}[:api_key]") unless input[:api_key].nil?
+        ApiKey.validate!(input[:api_key], context: "#{context}[:api_key]") unless input[:api_key].nil?
       end
     end
 
@@ -1188,19 +1188,19 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:service_role_arn], ::String, context: "#{context}[:service_role_arn]")
-        Validators::DynamodbDataSourceConfig.validate!(input[:dynamodb_config], context: "#{context}[:dynamodb_config]") unless input[:dynamodb_config].nil?
-        Validators::LambdaDataSourceConfig.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
-        Validators::ElasticsearchDataSourceConfig.validate!(input[:elasticsearch_config], context: "#{context}[:elasticsearch_config]") unless input[:elasticsearch_config].nil?
-        Validators::OpenSearchServiceDataSourceConfig.validate!(input[:open_search_service_config], context: "#{context}[:open_search_service_config]") unless input[:open_search_service_config].nil?
-        Validators::HttpDataSourceConfig.validate!(input[:http_config], context: "#{context}[:http_config]") unless input[:http_config].nil?
-        Validators::RelationalDatabaseDataSourceConfig.validate!(input[:relational_database_config], context: "#{context}[:relational_database_config]") unless input[:relational_database_config].nil?
+        DynamodbDataSourceConfig.validate!(input[:dynamodb_config], context: "#{context}[:dynamodb_config]") unless input[:dynamodb_config].nil?
+        LambdaDataSourceConfig.validate!(input[:lambda_config], context: "#{context}[:lambda_config]") unless input[:lambda_config].nil?
+        ElasticsearchDataSourceConfig.validate!(input[:elasticsearch_config], context: "#{context}[:elasticsearch_config]") unless input[:elasticsearch_config].nil?
+        OpenSearchServiceDataSourceConfig.validate!(input[:open_search_service_config], context: "#{context}[:open_search_service_config]") unless input[:open_search_service_config].nil?
+        HttpDataSourceConfig.validate!(input[:http_config], context: "#{context}[:http_config]") unless input[:http_config].nil?
+        RelationalDatabaseDataSourceConfig.validate!(input[:relational_database_config], context: "#{context}[:relational_database_config]") unless input[:relational_database_config].nil?
       end
     end
 
     class UpdateDataSourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDataSourceOutput, context: context)
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
       end
     end
 
@@ -1215,7 +1215,7 @@ module AWS::SDK::AppSync
     class UpdateDomainNameOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainNameOutput, context: context)
-        Validators::DomainNameConfig.validate!(input[:domain_name_config], context: "#{context}[:domain_name_config]") unless input[:domain_name_config].nil?
+        DomainNameConfig.validate!(input[:domain_name_config], context: "#{context}[:domain_name_config]") unless input[:domain_name_config].nil?
       end
     end
 
@@ -1230,7 +1230,7 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:request_mapping_template], ::String, context: "#{context}[:request_mapping_template]")
         Hearth::Validator.validate!(input[:response_mapping_template], ::String, context: "#{context}[:response_mapping_template]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
-        Validators::SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
+        SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -1238,7 +1238,7 @@ module AWS::SDK::AppSync
     class UpdateFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFunctionOutput, context: context)
-        Validators::FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
+        FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
       end
     end
 
@@ -1247,20 +1247,20 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input, Types::UpdateGraphqlApiInput, context: context)
         Hearth::Validator.validate!(input[:api_id], ::String, context: "#{context}[:api_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LogConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
+        LogConfig.validate!(input[:log_config], context: "#{context}[:log_config]") unless input[:log_config].nil?
         Hearth::Validator.validate!(input[:authentication_type], ::String, context: "#{context}[:authentication_type]")
-        Validators::UserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
-        Validators::OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
-        Validators::AdditionalAuthenticationProviders.validate!(input[:additional_authentication_providers], context: "#{context}[:additional_authentication_providers]") unless input[:additional_authentication_providers].nil?
+        UserPoolConfig.validate!(input[:user_pool_config], context: "#{context}[:user_pool_config]") unless input[:user_pool_config].nil?
+        OpenIDConnectConfig.validate!(input[:open_id_connect_config], context: "#{context}[:open_id_connect_config]") unless input[:open_id_connect_config].nil?
+        AdditionalAuthenticationProviders.validate!(input[:additional_authentication_providers], context: "#{context}[:additional_authentication_providers]") unless input[:additional_authentication_providers].nil?
         Hearth::Validator.validate!(input[:xray_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:xray_enabled]")
-        Validators::LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
+        LambdaAuthorizerConfig.validate!(input[:lambda_authorizer_config], context: "#{context}[:lambda_authorizer_config]") unless input[:lambda_authorizer_config].nil?
       end
     end
 
     class UpdateGraphqlApiOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGraphqlApiOutput, context: context)
-        Validators::GraphqlApi.validate!(input[:graphql_api], context: "#{context}[:graphql_api]") unless input[:graphql_api].nil?
+        GraphqlApi.validate!(input[:graphql_api], context: "#{context}[:graphql_api]") unless input[:graphql_api].nil?
       end
     end
 
@@ -1274,9 +1274,9 @@ module AWS::SDK::AppSync
         Hearth::Validator.validate!(input[:request_mapping_template], ::String, context: "#{context}[:request_mapping_template]")
         Hearth::Validator.validate!(input[:response_mapping_template], ::String, context: "#{context}[:response_mapping_template]")
         Hearth::Validator.validate!(input[:kind], ::String, context: "#{context}[:kind]")
-        Validators::PipelineConfig.validate!(input[:pipeline_config], context: "#{context}[:pipeline_config]") unless input[:pipeline_config].nil?
-        Validators::SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
-        Validators::CachingConfig.validate!(input[:caching_config], context: "#{context}[:caching_config]") unless input[:caching_config].nil?
+        PipelineConfig.validate!(input[:pipeline_config], context: "#{context}[:pipeline_config]") unless input[:pipeline_config].nil?
+        SyncConfig.validate!(input[:sync_config], context: "#{context}[:sync_config]") unless input[:sync_config].nil?
+        CachingConfig.validate!(input[:caching_config], context: "#{context}[:caching_config]") unless input[:caching_config].nil?
         Hearth::Validator.validate!(input[:max_batch_size], ::Integer, context: "#{context}[:max_batch_size]")
       end
     end
@@ -1284,7 +1284,7 @@ module AWS::SDK::AppSync
     class UpdateResolverOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResolverOutput, context: context)
-        Validators::Resolver.validate!(input[:resolver], context: "#{context}[:resolver]") unless input[:resolver].nil?
+        Resolver.validate!(input[:resolver], context: "#{context}[:resolver]") unless input[:resolver].nil?
       end
     end
 
@@ -1301,7 +1301,7 @@ module AWS::SDK::AppSync
     class UpdateTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTypeOutput, context: context)
-        Validators::Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        Type.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
       end
     end
 

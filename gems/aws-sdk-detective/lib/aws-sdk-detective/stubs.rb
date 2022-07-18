@@ -44,8 +44,8 @@ module AWS::SDK::Detective
     class CreateMembers
       def self.default(visited=[])
         {
-          members: Stubs::MemberDetailList.default(visited),
-          unprocessed_accounts: Stubs::UnprocessedAccountList.default(visited),
+          members: MemberDetailList.default(visited),
+          unprocessed_accounts: UnprocessedAccountList.default(visited),
         }
       end
 
@@ -65,7 +65,7 @@ module AWS::SDK::Detective
         return nil if visited.include?('UnprocessedAccountList')
         visited = visited + ['UnprocessedAccountList']
         [
-          Stubs::UnprocessedAccount.default(visited)
+          UnprocessedAccount.default(visited)
         ]
       end
 
@@ -105,7 +105,7 @@ module AWS::SDK::Detective
         return nil if visited.include?('MemberDetailList')
         visited = visited + ['MemberDetailList']
         [
-          Stubs::MemberDetail.default(visited)
+          MemberDetail.default(visited)
         ]
       end
 
@@ -180,8 +180,8 @@ module AWS::SDK::Detective
     class DeleteMembers
       def self.default(visited=[])
         {
-          account_ids: Stubs::AccountIdList.default(visited),
-          unprocessed_accounts: Stubs::UnprocessedAccountList.default(visited),
+          account_ids: AccountIdList.default(visited),
+          unprocessed_accounts: UnprocessedAccountList.default(visited),
         }
       end
 
@@ -275,8 +275,8 @@ module AWS::SDK::Detective
     class GetMembers
       def self.default(visited=[])
         {
-          member_details: Stubs::MemberDetailList.default(visited),
-          unprocessed_accounts: Stubs::UnprocessedAccountList.default(visited),
+          member_details: MemberDetailList.default(visited),
+          unprocessed_accounts: UnprocessedAccountList.default(visited),
         }
       end
 
@@ -294,7 +294,7 @@ module AWS::SDK::Detective
     class ListGraphs
       def self.default(visited=[])
         {
-          graph_list: Stubs::GraphList.default(visited),
+          graph_list: GraphList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -315,7 +315,7 @@ module AWS::SDK::Detective
         return nil if visited.include?('GraphList')
         visited = visited + ['GraphList']
         [
-          Stubs::Graph.default(visited)
+          Graph.default(visited)
         ]
       end
 
@@ -353,7 +353,7 @@ module AWS::SDK::Detective
     class ListInvitations
       def self.default(visited=[])
         {
-          invitations: Stubs::MemberDetailList.default(visited),
+          invitations: MemberDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -372,7 +372,7 @@ module AWS::SDK::Detective
     class ListMembers
       def self.default(visited=[])
         {
-          member_details: Stubs::MemberDetailList.default(visited),
+          member_details: MemberDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -391,7 +391,7 @@ module AWS::SDK::Detective
     class ListOrganizationAdminAccounts
       def self.default(visited=[])
         {
-          administrators: Stubs::AdministratorList.default(visited),
+          administrators: AdministratorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -412,7 +412,7 @@ module AWS::SDK::Detective
         return nil if visited.include?('AdministratorList')
         visited = visited + ['AdministratorList']
         [
-          Stubs::Administrator.default(visited)
+          Administrator.default(visited)
         ]
       end
 
@@ -452,7 +452,7 @@ module AWS::SDK::Detective
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

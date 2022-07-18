@@ -92,7 +92,7 @@ module AWS::SDK::KMS
     class CreateKey
       def self.default(visited=[])
         {
-          key_metadata: Stubs::KeyMetadata.default(visited),
+          key_metadata: KeyMetadata.default(visited),
         }
       end
 
@@ -127,12 +127,12 @@ module AWS::SDK::KMS
           key_manager: 'key_manager',
           customer_master_key_spec: 'customer_master_key_spec',
           key_spec: 'key_spec',
-          encryption_algorithms: Stubs::EncryptionAlgorithmSpecList.default(visited),
-          signing_algorithms: Stubs::SigningAlgorithmSpecList.default(visited),
+          encryption_algorithms: EncryptionAlgorithmSpecList.default(visited),
+          signing_algorithms: SigningAlgorithmSpecList.default(visited),
           multi_region: false,
-          multi_region_configuration: Stubs::MultiRegionConfiguration.default(visited),
+          multi_region_configuration: MultiRegionConfiguration.default(visited),
           pending_deletion_window_in_days: 1,
-          mac_algorithms: Stubs::MacAlgorithmSpecList.default(visited),
+          mac_algorithms: MacAlgorithmSpecList.default(visited),
         }
       end
 
@@ -193,8 +193,8 @@ module AWS::SDK::KMS
         visited = visited + ['MultiRegionConfiguration']
         {
           multi_region_key_type: 'multi_region_key_type',
-          primary_key: Stubs::MultiRegionKey.default(visited),
-          replica_keys: Stubs::MultiRegionKeyList.default(visited),
+          primary_key: MultiRegionKey.default(visited),
+          replica_keys: MultiRegionKeyList.default(visited),
         }
       end
 
@@ -214,7 +214,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('MultiRegionKeyList')
         visited = visited + ['MultiRegionKeyList']
         [
-          Stubs::MultiRegionKey.default(visited)
+          MultiRegionKey.default(visited)
         ]
       end
 
@@ -354,7 +354,7 @@ module AWS::SDK::KMS
     class DescribeCustomKeyStores
       def self.default(visited=[])
         {
-          custom_key_stores: Stubs::CustomKeyStoresList.default(visited),
+          custom_key_stores: CustomKeyStoresList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -376,7 +376,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('CustomKeyStoresList')
         visited = visited + ['CustomKeyStoresList']
         [
-          Stubs::CustomKeyStoresListEntry.default(visited)
+          CustomKeyStoresListEntry.default(visited)
         ]
       end
 
@@ -424,7 +424,7 @@ module AWS::SDK::KMS
     class DescribeKey
       def self.default(visited=[])
         {
-          key_metadata: Stubs::KeyMetadata.default(visited),
+          key_metadata: KeyMetadata.default(visited),
         }
       end
 
@@ -709,8 +709,8 @@ module AWS::SDK::KMS
           customer_master_key_spec: 'customer_master_key_spec',
           key_spec: 'key_spec',
           key_usage: 'key_usage',
-          encryption_algorithms: Stubs::EncryptionAlgorithmSpecList.default(visited),
-          signing_algorithms: Stubs::SigningAlgorithmSpecList.default(visited),
+          encryption_algorithms: EncryptionAlgorithmSpecList.default(visited),
+          signing_algorithms: SigningAlgorithmSpecList.default(visited),
         }
       end
 
@@ -746,7 +746,7 @@ module AWS::SDK::KMS
     class ListAliases
       def self.default(visited=[])
         {
-          aliases: Stubs::AliasList.default(visited),
+          aliases: AliasList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -768,7 +768,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('AliasList')
         visited = visited + ['AliasList']
         [
-          Stubs::AliasListEntry.default(visited)
+          AliasListEntry.default(visited)
         ]
       end
 
@@ -812,7 +812,7 @@ module AWS::SDK::KMS
     class ListGrants
       def self.default(visited=[])
         {
-          grants: Stubs::GrantList.default(visited),
+          grants: GrantList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -834,7 +834,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('GrantList')
         visited = visited + ['GrantList']
         [
-          Stubs::GrantListEntry.default(visited)
+          GrantListEntry.default(visited)
         ]
       end
 
@@ -861,8 +861,8 @@ module AWS::SDK::KMS
           grantee_principal: 'grantee_principal',
           retiring_principal: 'retiring_principal',
           issuing_account: 'issuing_account',
-          operations: Stubs::GrantOperationList.default(visited),
-          constraints: Stubs::GrantConstraints.default(visited),
+          operations: GrantOperationList.default(visited),
+          constraints: GrantConstraints.default(visited),
         }
       end
 
@@ -888,8 +888,8 @@ module AWS::SDK::KMS
         return nil if visited.include?('GrantConstraints')
         visited = visited + ['GrantConstraints']
         {
-          encryption_context_subset: Stubs::EncryptionContextType.default(visited),
-          encryption_context_equals: Stubs::EncryptionContextType.default(visited),
+          encryption_context_subset: EncryptionContextType.default(visited),
+          encryption_context_equals: EncryptionContextType.default(visited),
         }
       end
 
@@ -946,7 +946,7 @@ module AWS::SDK::KMS
     class ListKeyPolicies
       def self.default(visited=[])
         {
-          policy_names: Stubs::PolicyNameList.default(visited),
+          policy_names: PolicyNameList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -986,7 +986,7 @@ module AWS::SDK::KMS
     class ListKeys
       def self.default(visited=[])
         {
-          keys: Stubs::KeyList.default(visited),
+          keys: KeyList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -1008,7 +1008,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('KeyList')
         visited = visited + ['KeyList']
         [
-          Stubs::KeyListEntry.default(visited)
+          KeyListEntry.default(visited)
         ]
       end
 
@@ -1046,7 +1046,7 @@ module AWS::SDK::KMS
     class ListResourceTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -1068,7 +1068,7 @@ module AWS::SDK::KMS
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1106,7 +1106,7 @@ module AWS::SDK::KMS
     class ListRetirableGrants
       def self.default(visited=[])
         {
-          grants: Stubs::GrantList.default(visited),
+          grants: GrantList.default(visited),
           next_marker: 'next_marker',
           truncated: false,
         }
@@ -1164,9 +1164,9 @@ module AWS::SDK::KMS
     class ReplicateKey
       def self.default(visited=[])
         {
-          replica_key_metadata: Stubs::KeyMetadata.default(visited),
+          replica_key_metadata: KeyMetadata.default(visited),
           replica_policy: 'replica_policy',
-          replica_tags: Stubs::TagList.default(visited),
+          replica_tags: TagList.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Keyspaces
   module Validators
 
@@ -48,7 +50,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ClusteringKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ClusteringKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeyspaceInput, context: context)
         Hearth::Validator.validate!(input[:keyspace_name], ::String, context: "#{context}[:keyspace_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -104,14 +106,14 @@ module AWS::SDK::Keyspaces
         Hearth::Validator.validate!(input, Types::CreateTableInput, context: context)
         Hearth::Validator.validate!(input[:keyspace_name], ::String, context: "#{context}[:keyspace_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::SchemaDefinition.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
-        Validators::CapacitySpecification.validate!(input[:capacity_specification], context: "#{context}[:capacity_specification]") unless input[:capacity_specification].nil?
-        Validators::EncryptionSpecification.validate!(input[:encryption_specification], context: "#{context}[:encryption_specification]") unless input[:encryption_specification].nil?
-        Validators::PointInTimeRecovery.validate!(input[:point_in_time_recovery], context: "#{context}[:point_in_time_recovery]") unless input[:point_in_time_recovery].nil?
-        Validators::TimeToLive.validate!(input[:ttl], context: "#{context}[:ttl]") unless input[:ttl].nil?
+        SchemaDefinition.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        CapacitySpecification.validate!(input[:capacity_specification], context: "#{context}[:capacity_specification]") unless input[:capacity_specification].nil?
+        EncryptionSpecification.validate!(input[:encryption_specification], context: "#{context}[:encryption_specification]") unless input[:encryption_specification].nil?
+        PointInTimeRecovery.validate!(input[:point_in_time_recovery], context: "#{context}[:point_in_time_recovery]") unless input[:point_in_time_recovery].nil?
+        TimeToLive.validate!(input[:ttl], context: "#{context}[:ttl]") unless input[:ttl].nil?
         Hearth::Validator.validate!(input[:default_time_to_live], ::Integer, context: "#{context}[:default_time_to_live]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -188,13 +190,13 @@ module AWS::SDK::Keyspaces
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::Time, context: "#{context}[:creation_timestamp]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::SchemaDefinition.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
-        Validators::CapacitySpecificationSummary.validate!(input[:capacity_specification], context: "#{context}[:capacity_specification]") unless input[:capacity_specification].nil?
-        Validators::EncryptionSpecification.validate!(input[:encryption_specification], context: "#{context}[:encryption_specification]") unless input[:encryption_specification].nil?
-        Validators::PointInTimeRecoverySummary.validate!(input[:point_in_time_recovery], context: "#{context}[:point_in_time_recovery]") unless input[:point_in_time_recovery].nil?
-        Validators::TimeToLive.validate!(input[:ttl], context: "#{context}[:ttl]") unless input[:ttl].nil?
+        SchemaDefinition.validate!(input[:schema_definition], context: "#{context}[:schema_definition]") unless input[:schema_definition].nil?
+        CapacitySpecificationSummary.validate!(input[:capacity_specification], context: "#{context}[:capacity_specification]") unless input[:capacity_specification].nil?
+        EncryptionSpecification.validate!(input[:encryption_specification], context: "#{context}[:encryption_specification]") unless input[:encryption_specification].nil?
+        PointInTimeRecoverySummary.validate!(input[:point_in_time_recovery], context: "#{context}[:point_in_time_recovery]") unless input[:point_in_time_recovery].nil?
+        TimeToLive.validate!(input[:ttl], context: "#{context}[:ttl]") unless input[:ttl].nil?
         Hearth::Validator.validate!(input[:default_time_to_live], ::Integer, context: "#{context}[:default_time_to_live]")
-        Validators::Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
+        Comment.validate!(input[:comment], context: "#{context}[:comment]") unless input[:comment].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyspaceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyspaceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListKeyspacesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::KeyspaceSummaryList.validate!(input[:keyspaces], context: "#{context}[:keyspaces]") unless input[:keyspaces].nil?
+        KeyspaceSummaryList.validate!(input[:keyspaces], context: "#{context}[:keyspaces]") unless input[:keyspaces].nil?
       end
     end
 
@@ -251,7 +253,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTablesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TableSummaryList.validate!(input[:tables], context: "#{context}[:tables]") unless input[:tables].nil?
+        TableSummaryList.validate!(input[:tables], context: "#{context}[:tables]") unless input[:tables].nil?
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -283,7 +285,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartitionKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartitionKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -319,10 +321,10 @@ module AWS::SDK::Keyspaces
         Hearth::Validator.validate!(input[:target_keyspace_name], ::String, context: "#{context}[:target_keyspace_name]")
         Hearth::Validator.validate!(input[:target_table_name], ::String, context: "#{context}[:target_table_name]")
         Hearth::Validator.validate!(input[:restore_timestamp], ::Time, context: "#{context}[:restore_timestamp]")
-        Validators::CapacitySpecification.validate!(input[:capacity_specification_override], context: "#{context}[:capacity_specification_override]") unless input[:capacity_specification_override].nil?
-        Validators::EncryptionSpecification.validate!(input[:encryption_specification_override], context: "#{context}[:encryption_specification_override]") unless input[:encryption_specification_override].nil?
-        Validators::PointInTimeRecovery.validate!(input[:point_in_time_recovery_override], context: "#{context}[:point_in_time_recovery_override]") unless input[:point_in_time_recovery_override].nil?
-        Validators::TagList.validate!(input[:tags_override], context: "#{context}[:tags_override]") unless input[:tags_override].nil?
+        CapacitySpecification.validate!(input[:capacity_specification_override], context: "#{context}[:capacity_specification_override]") unless input[:capacity_specification_override].nil?
+        EncryptionSpecification.validate!(input[:encryption_specification_override], context: "#{context}[:encryption_specification_override]") unless input[:encryption_specification_override].nil?
+        PointInTimeRecovery.validate!(input[:point_in_time_recovery_override], context: "#{context}[:point_in_time_recovery_override]") unless input[:point_in_time_recovery_override].nil?
+        TagList.validate!(input[:tags_override], context: "#{context}[:tags_override]") unless input[:tags_override].nil?
       end
     end
 
@@ -336,10 +338,10 @@ module AWS::SDK::Keyspaces
     class SchemaDefinition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SchemaDefinition, context: context)
-        Validators::ColumnDefinitionList.validate!(input[:all_columns], context: "#{context}[:all_columns]") unless input[:all_columns].nil?
-        Validators::PartitionKeyList.validate!(input[:partition_keys], context: "#{context}[:partition_keys]") unless input[:partition_keys].nil?
-        Validators::ClusteringKeyList.validate!(input[:clustering_keys], context: "#{context}[:clustering_keys]") unless input[:clustering_keys].nil?
-        Validators::StaticColumnList.validate!(input[:static_columns], context: "#{context}[:static_columns]") unless input[:static_columns].nil?
+        ColumnDefinitionList.validate!(input[:all_columns], context: "#{context}[:all_columns]") unless input[:all_columns].nil?
+        PartitionKeyList.validate!(input[:partition_keys], context: "#{context}[:partition_keys]") unless input[:partition_keys].nil?
+        ClusteringKeyList.validate!(input[:clustering_keys], context: "#{context}[:clustering_keys]") unless input[:clustering_keys].nil?
+        StaticColumnList.validate!(input[:static_columns], context: "#{context}[:static_columns]") unless input[:static_columns].nil?
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StaticColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StaticColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -379,7 +381,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TableSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TableSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -405,7 +407,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::Keyspaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -441,11 +443,11 @@ module AWS::SDK::Keyspaces
         Hearth::Validator.validate!(input, Types::UpdateTableInput, context: context)
         Hearth::Validator.validate!(input[:keyspace_name], ::String, context: "#{context}[:keyspace_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::ColumnDefinitionList.validate!(input[:add_columns], context: "#{context}[:add_columns]") unless input[:add_columns].nil?
-        Validators::CapacitySpecification.validate!(input[:capacity_specification], context: "#{context}[:capacity_specification]") unless input[:capacity_specification].nil?
-        Validators::EncryptionSpecification.validate!(input[:encryption_specification], context: "#{context}[:encryption_specification]") unless input[:encryption_specification].nil?
-        Validators::PointInTimeRecovery.validate!(input[:point_in_time_recovery], context: "#{context}[:point_in_time_recovery]") unless input[:point_in_time_recovery].nil?
-        Validators::TimeToLive.validate!(input[:ttl], context: "#{context}[:ttl]") unless input[:ttl].nil?
+        ColumnDefinitionList.validate!(input[:add_columns], context: "#{context}[:add_columns]") unless input[:add_columns].nil?
+        CapacitySpecification.validate!(input[:capacity_specification], context: "#{context}[:capacity_specification]") unless input[:capacity_specification].nil?
+        EncryptionSpecification.validate!(input[:encryption_specification], context: "#{context}[:encryption_specification]") unless input[:encryption_specification].nil?
+        PointInTimeRecovery.validate!(input[:point_in_time_recovery], context: "#{context}[:point_in_time_recovery]") unless input[:point_in_time_recovery].nil?
+        TimeToLive.validate!(input[:ttl], context: "#{context}[:ttl]") unless input[:ttl].nil?
         Hearth::Validator.validate!(input[:default_time_to_live], ::Integer, context: "#{context}[:default_time_to_live]")
       end
     end

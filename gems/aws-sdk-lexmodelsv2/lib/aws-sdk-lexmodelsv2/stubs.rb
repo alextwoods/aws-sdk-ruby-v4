@@ -43,12 +43,12 @@ module AWS::SDK::LexModelsV2
           bot_name: 'bot_name',
           description: 'description',
           role_arn: 'role_arn',
-          data_privacy: Stubs::DataPrivacy.default(visited),
+          data_privacy: DataPrivacy.default(visited),
           idle_session_ttl_in_seconds: 1,
           bot_status: 'bot_status',
           creation_date_time: Time.now,
-          bot_tags: Stubs::TagMap.default(visited),
-          test_bot_alias_tags: Stubs::TagMap.default(visited),
+          bot_tags: TagMap.default(visited),
+          test_bot_alias_tags: TagMap.default(visited),
         }
       end
 
@@ -116,13 +116,13 @@ module AWS::SDK::LexModelsV2
           bot_alias_name: 'bot_alias_name',
           description: 'description',
           bot_version: 'bot_version',
-          bot_alias_locale_settings: Stubs::BotAliasLocaleSettingsMap.default(visited),
-          conversation_log_settings: Stubs::ConversationLogSettings.default(visited),
-          sentiment_analysis_settings: Stubs::SentimentAnalysisSettings.default(visited),
+          bot_alias_locale_settings: BotAliasLocaleSettingsMap.default(visited),
+          conversation_log_settings: ConversationLogSettings.default(visited),
+          sentiment_analysis_settings: SentimentAnalysisSettings.default(visited),
           bot_alias_status: 'bot_alias_status',
           bot_id: 'bot_id',
           creation_date_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -169,8 +169,8 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ConversationLogSettings')
         visited = visited + ['ConversationLogSettings']
         {
-          text_log_settings: Stubs::TextLogSettingsList.default(visited),
-          audio_log_settings: Stubs::AudioLogSettingsList.default(visited),
+          text_log_settings: TextLogSettingsList.default(visited),
+          audio_log_settings: AudioLogSettingsList.default(visited),
         }
       end
 
@@ -189,7 +189,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('AudioLogSettingsList')
         visited = visited + ['AudioLogSettingsList']
         [
-          Stubs::AudioLogSetting.default(visited)
+          AudioLogSetting.default(visited)
         ]
       end
 
@@ -210,7 +210,7 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['AudioLogSetting']
         {
           enabled: false,
-          destination: Stubs::AudioLogDestination.default(visited),
+          destination: AudioLogDestination.default(visited),
         }
       end
 
@@ -229,7 +229,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('AudioLogDestination')
         visited = visited + ['AudioLogDestination']
         {
-          s3_bucket: Stubs::S3BucketLogDestination.default(visited),
+          s3_bucket: S3BucketLogDestination.default(visited),
         }
       end
 
@@ -269,7 +269,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('TextLogSettingsList')
         visited = visited + ['TextLogSettingsList']
         [
-          Stubs::TextLogSetting.default(visited)
+          TextLogSetting.default(visited)
         ]
       end
 
@@ -290,7 +290,7 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['TextLogSetting']
         {
           enabled: false,
-          destination: Stubs::TextLogDestination.default(visited),
+          destination: TextLogDestination.default(visited),
         }
       end
 
@@ -309,7 +309,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('TextLogDestination')
         visited = visited + ['TextLogDestination']
         {
-          cloud_watch: Stubs::CloudWatchLogGroupLogDestination.default(visited),
+          cloud_watch: CloudWatchLogGroupLogDestination.default(visited),
         }
       end
 
@@ -347,7 +347,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotAliasLocaleSettingsMap')
         visited = visited + ['BotAliasLocaleSettingsMap']
         {
-          test_key: Stubs::BotAliasLocaleSettings.default(visited)
+          test_key: BotAliasLocaleSettings.default(visited)
         }
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['BotAliasLocaleSettings']
         {
           enabled: false,
-          code_hook_specification: Stubs::CodeHookSpecification.default(visited),
+          code_hook_specification: CodeHookSpecification.default(visited),
         }
       end
 
@@ -387,7 +387,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('CodeHookSpecification')
         visited = visited + ['CodeHookSpecification']
         {
-          lambda_code_hook: Stubs::LambdaCodeHook.default(visited),
+          lambda_code_hook: LambdaCodeHook.default(visited),
         }
       end
 
@@ -429,7 +429,7 @@ module AWS::SDK::LexModelsV2
           locale_id: 'locale_id',
           description: 'description',
           nlu_intent_confidence_threshold: 1.0,
-          voice_settings: Stubs::VoiceSettings.default(visited),
+          voice_settings: VoiceSettings.default(visited),
           bot_locale_status: 'bot_locale_status',
           creation_date_time: Time.now,
         }
@@ -479,7 +479,7 @@ module AWS::SDK::LexModelsV2
           bot_id: 'bot_id',
           description: 'description',
           bot_version: 'bot_version',
-          bot_version_locale_specification: Stubs::BotVersionLocaleSpecification.default(visited),
+          bot_version_locale_specification: BotVersionLocaleSpecification.default(visited),
           bot_status: 'bot_status',
           creation_date_time: Time.now,
         }
@@ -505,7 +505,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotVersionLocaleSpecification')
         visited = visited + ['BotVersionLocaleSpecification']
         {
-          test_key: Stubs::BotVersionLocaleDetails.default(visited)
+          test_key: BotVersionLocaleDetails.default(visited)
         }
       end
 
@@ -542,7 +542,7 @@ module AWS::SDK::LexModelsV2
       def self.default(visited=[])
         {
           export_id: 'export_id',
-          resource_specification: Stubs::ExportResourceSpecification.default(visited),
+          resource_specification: ExportResourceSpecification.default(visited),
           file_format: 'file_format',
           export_status: 'export_status',
           creation_date_time: Time.now,
@@ -568,9 +568,9 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ExportResourceSpecification')
         visited = visited + ['ExportResourceSpecification']
         {
-          bot_export_specification: Stubs::BotExportSpecification.default(visited),
-          bot_locale_export_specification: Stubs::BotLocaleExportSpecification.default(visited),
-          custom_vocabulary_export_specification: Stubs::CustomVocabularyExportSpecification.default(visited),
+          bot_export_specification: BotExportSpecification.default(visited),
+          bot_locale_export_specification: BotLocaleExportSpecification.default(visited),
+          custom_vocabulary_export_specification: CustomVocabularyExportSpecification.default(visited),
         }
       end
 
@@ -656,14 +656,14 @@ module AWS::SDK::LexModelsV2
           intent_name: 'intent_name',
           description: 'description',
           parent_intent_signature: 'parent_intent_signature',
-          sample_utterances: Stubs::SampleUtterancesList.default(visited),
-          dialog_code_hook: Stubs::DialogCodeHookSettings.default(visited),
-          fulfillment_code_hook: Stubs::FulfillmentCodeHookSettings.default(visited),
-          intent_confirmation_setting: Stubs::IntentConfirmationSetting.default(visited),
-          intent_closing_setting: Stubs::IntentClosingSetting.default(visited),
-          input_contexts: Stubs::InputContextsList.default(visited),
-          output_contexts: Stubs::OutputContextsList.default(visited),
-          kendra_configuration: Stubs::KendraConfiguration.default(visited),
+          sample_utterances: SampleUtterancesList.default(visited),
+          dialog_code_hook: DialogCodeHookSettings.default(visited),
+          fulfillment_code_hook: FulfillmentCodeHookSettings.default(visited),
+          intent_confirmation_setting: IntentConfirmationSetting.default(visited),
+          intent_closing_setting: IntentClosingSetting.default(visited),
+          input_contexts: InputContextsList.default(visited),
+          output_contexts: OutputContextsList.default(visited),
+          kendra_configuration: KendraConfiguration.default(visited),
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
@@ -723,7 +723,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('OutputContextsList')
         visited = visited + ['OutputContextsList']
         [
-          Stubs::OutputContext.default(visited)
+          OutputContext.default(visited)
         ]
       end
 
@@ -765,7 +765,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('InputContextsList')
         visited = visited + ['InputContextsList']
         [
-          Stubs::InputContext.default(visited)
+          InputContext.default(visited)
         ]
       end
 
@@ -803,7 +803,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('IntentClosingSetting')
         visited = visited + ['IntentClosingSetting']
         {
-          closing_response: Stubs::ResponseSpecification.default(visited),
+          closing_response: ResponseSpecification.default(visited),
           active: false,
         }
       end
@@ -823,7 +823,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ResponseSpecification')
         visited = visited + ['ResponseSpecification']
         {
-          message_groups: Stubs::MessageGroupsList.default(visited),
+          message_groups: MessageGroupsList.default(visited),
           allow_interrupt: false,
         }
       end
@@ -843,7 +843,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('MessageGroupsList')
         visited = visited + ['MessageGroupsList']
         [
-          Stubs::MessageGroup.default(visited)
+          MessageGroup.default(visited)
         ]
       end
 
@@ -863,8 +863,8 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('MessageGroup')
         visited = visited + ['MessageGroup']
         {
-          message: Stubs::Message.default(visited),
-          variations: Stubs::MessageVariationsList.default(visited),
+          message: Message.default(visited),
+          variations: MessageVariationsList.default(visited),
         }
       end
 
@@ -883,7 +883,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('MessageVariationsList')
         visited = visited + ['MessageVariationsList']
         [
-          Stubs::Message.default(visited)
+          Message.default(visited)
         ]
       end
 
@@ -903,10 +903,10 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('Message')
         visited = visited + ['Message']
         {
-          plain_text_message: Stubs::PlainTextMessage.default(visited),
-          custom_payload: Stubs::CustomPayload.default(visited),
-          ssml_message: Stubs::SSMLMessage.default(visited),
-          image_response_card: Stubs::ImageResponseCard.default(visited),
+          plain_text_message: PlainTextMessage.default(visited),
+          custom_payload: CustomPayload.default(visited),
+          ssml_message: SSMLMessage.default(visited),
+          image_response_card: ImageResponseCard.default(visited),
         }
       end
 
@@ -930,7 +930,7 @@ module AWS::SDK::LexModelsV2
           title: 'title',
           subtitle: 'subtitle',
           image_url: 'image_url',
-          buttons: Stubs::ButtonsList.default(visited),
+          buttons: ButtonsList.default(visited),
         }
       end
 
@@ -951,7 +951,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ButtonsList')
         visited = visited + ['ButtonsList']
         [
-          Stubs::Button.default(visited)
+          Button.default(visited)
         ]
       end
 
@@ -1045,8 +1045,8 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('IntentConfirmationSetting')
         visited = visited + ['IntentConfirmationSetting']
         {
-          prompt_specification: Stubs::PromptSpecification.default(visited),
-          declination_response: Stubs::ResponseSpecification.default(visited),
+          prompt_specification: PromptSpecification.default(visited),
+          declination_response: ResponseSpecification.default(visited),
           active: false,
         }
       end
@@ -1067,7 +1067,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('PromptSpecification')
         visited = visited + ['PromptSpecification']
         {
-          message_groups: Stubs::MessageGroupsList.default(visited),
+          message_groups: MessageGroupsList.default(visited),
           max_retries: 1,
           allow_interrupt: false,
         }
@@ -1090,8 +1090,8 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['FulfillmentCodeHookSettings']
         {
           enabled: false,
-          post_fulfillment_status_specification: Stubs::PostFulfillmentStatusSpecification.default(visited),
-          fulfillment_updates_specification: Stubs::FulfillmentUpdatesSpecification.default(visited),
+          post_fulfillment_status_specification: PostFulfillmentStatusSpecification.default(visited),
+          fulfillment_updates_specification: FulfillmentUpdatesSpecification.default(visited),
         }
       end
 
@@ -1112,8 +1112,8 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['FulfillmentUpdatesSpecification']
         {
           active: false,
-          start_response: Stubs::FulfillmentStartResponseSpecification.default(visited),
-          update_response: Stubs::FulfillmentUpdateResponseSpecification.default(visited),
+          start_response: FulfillmentStartResponseSpecification.default(visited),
+          update_response: FulfillmentUpdateResponseSpecification.default(visited),
           timeout_in_seconds: 1,
         }
       end
@@ -1136,7 +1136,7 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['FulfillmentUpdateResponseSpecification']
         {
           frequency_in_seconds: 1,
-          message_groups: Stubs::MessageGroupsList.default(visited),
+          message_groups: MessageGroupsList.default(visited),
           allow_interrupt: false,
         }
       end
@@ -1158,7 +1158,7 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['FulfillmentStartResponseSpecification']
         {
           delay_in_seconds: 1,
-          message_groups: Stubs::MessageGroupsList.default(visited),
+          message_groups: MessageGroupsList.default(visited),
           allow_interrupt: false,
         }
       end
@@ -1179,9 +1179,9 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('PostFulfillmentStatusSpecification')
         visited = visited + ['PostFulfillmentStatusSpecification']
         {
-          success_response: Stubs::ResponseSpecification.default(visited),
-          failure_response: Stubs::ResponseSpecification.default(visited),
-          timeout_response: Stubs::ResponseSpecification.default(visited),
+          success_response: ResponseSpecification.default(visited),
+          failure_response: ResponseSpecification.default(visited),
+          timeout_response: ResponseSpecification.default(visited),
         }
       end
 
@@ -1219,7 +1219,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SampleUtterancesList')
         visited = visited + ['SampleUtterancesList']
         [
-          Stubs::SampleUtterance.default(visited)
+          SampleUtterance.default(visited)
         ]
       end
 
@@ -1297,14 +1297,14 @@ module AWS::SDK::LexModelsV2
           slot_name: 'slot_name',
           description: 'description',
           slot_type_id: 'slot_type_id',
-          value_elicitation_setting: Stubs::SlotValueElicitationSetting.default(visited),
-          obfuscation_setting: Stubs::ObfuscationSetting.default(visited),
+          value_elicitation_setting: SlotValueElicitationSetting.default(visited),
+          obfuscation_setting: ObfuscationSetting.default(visited),
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           intent_id: 'intent_id',
           creation_date_time: Time.now,
-          multiple_values_setting: Stubs::MultipleValuesSetting.default(visited),
+          multiple_values_setting: MultipleValuesSetting.default(visited),
         }
       end
 
@@ -1370,11 +1370,11 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotValueElicitationSetting')
         visited = visited + ['SlotValueElicitationSetting']
         {
-          default_value_specification: Stubs::SlotDefaultValueSpecification.default(visited),
+          default_value_specification: SlotDefaultValueSpecification.default(visited),
           slot_constraint: 'slot_constraint',
-          prompt_specification: Stubs::PromptSpecification.default(visited),
-          sample_utterances: Stubs::SampleUtterancesList.default(visited),
-          wait_and_continue_specification: Stubs::WaitAndContinueSpecification.default(visited),
+          prompt_specification: PromptSpecification.default(visited),
+          sample_utterances: SampleUtterancesList.default(visited),
+          wait_and_continue_specification: WaitAndContinueSpecification.default(visited),
         }
       end
 
@@ -1396,9 +1396,9 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('WaitAndContinueSpecification')
         visited = visited + ['WaitAndContinueSpecification']
         {
-          waiting_response: Stubs::ResponseSpecification.default(visited),
-          continue_response: Stubs::ResponseSpecification.default(visited),
-          still_waiting_response: Stubs::StillWaitingResponseSpecification.default(visited),
+          waiting_response: ResponseSpecification.default(visited),
+          continue_response: ResponseSpecification.default(visited),
+          still_waiting_response: StillWaitingResponseSpecification.default(visited),
           active: false,
         }
       end
@@ -1420,7 +1420,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('StillWaitingResponseSpecification')
         visited = visited + ['StillWaitingResponseSpecification']
         {
-          message_groups: Stubs::MessageGroupsList.default(visited),
+          message_groups: MessageGroupsList.default(visited),
           frequency_in_seconds: 1,
           timeout_in_seconds: 1,
           allow_interrupt: false,
@@ -1444,7 +1444,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotDefaultValueSpecification')
         visited = visited + ['SlotDefaultValueSpecification']
         {
-          default_value_list: Stubs::SlotDefaultValueList.default(visited),
+          default_value_list: SlotDefaultValueList.default(visited),
         }
       end
 
@@ -1462,7 +1462,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotDefaultValueList')
         visited = visited + ['SlotDefaultValueList']
         [
-          Stubs::SlotDefaultValue.default(visited)
+          SlotDefaultValue.default(visited)
         ]
       end
 
@@ -1501,14 +1501,14 @@ module AWS::SDK::LexModelsV2
           slot_type_id: 'slot_type_id',
           slot_type_name: 'slot_type_name',
           description: 'description',
-          slot_type_values: Stubs::SlotTypeValues.default(visited),
-          value_selection_setting: Stubs::SlotValueSelectionSetting.default(visited),
+          slot_type_values: SlotTypeValues.default(visited),
+          value_selection_setting: SlotValueSelectionSetting.default(visited),
           parent_slot_type_signature: 'parent_slot_type_signature',
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           creation_date_time: Time.now,
-          external_source_setting: Stubs::ExternalSourceSetting.default(visited),
+          external_source_setting: ExternalSourceSetting.default(visited),
         }
       end
 
@@ -1537,7 +1537,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ExternalSourceSetting')
         visited = visited + ['ExternalSourceSetting']
         {
-          grammar_slot_type_setting: Stubs::GrammarSlotTypeSetting.default(visited),
+          grammar_slot_type_setting: GrammarSlotTypeSetting.default(visited),
         }
       end
 
@@ -1555,7 +1555,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('GrammarSlotTypeSetting')
         visited = visited + ['GrammarSlotTypeSetting']
         {
-          source: Stubs::GrammarSlotTypeSource.default(visited),
+          source: GrammarSlotTypeSource.default(visited),
         }
       end
 
@@ -1596,8 +1596,8 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['SlotValueSelectionSetting']
         {
           resolution_strategy: 'resolution_strategy',
-          regex_filter: Stubs::SlotValueRegexFilter.default(visited),
-          advanced_recognition_setting: Stubs::AdvancedRecognitionSetting.default(visited),
+          regex_filter: SlotValueRegexFilter.default(visited),
+          advanced_recognition_setting: AdvancedRecognitionSetting.default(visited),
         }
       end
 
@@ -1653,7 +1653,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotTypeValues')
         visited = visited + ['SlotTypeValues']
         [
-          Stubs::SlotTypeValue.default(visited)
+          SlotTypeValue.default(visited)
         ]
       end
 
@@ -1673,8 +1673,8 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotTypeValue')
         visited = visited + ['SlotTypeValue']
         {
-          sample_value: Stubs::SampleValue.default(visited),
-          synonyms: Stubs::SynonymList.default(visited),
+          sample_value: SampleValue.default(visited),
+          synonyms: SynonymList.default(visited),
         }
       end
 
@@ -1693,7 +1693,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SynonymList')
         visited = visited + ['SynonymList']
         [
-          Stubs::SampleValue.default(visited)
+          SampleValue.default(visited)
         ]
       end
 
@@ -1987,7 +1987,7 @@ module AWS::SDK::LexModelsV2
           bot_name: 'bot_name',
           description: 'description',
           role_arn: 'role_arn',
-          data_privacy: Stubs::DataPrivacy.default(visited),
+          data_privacy: DataPrivacy.default(visited),
           idle_session_ttl_in_seconds: 1,
           bot_status: 'bot_status',
           creation_date_time: Time.now,
@@ -2020,10 +2020,10 @@ module AWS::SDK::LexModelsV2
           bot_alias_name: 'bot_alias_name',
           description: 'description',
           bot_version: 'bot_version',
-          bot_alias_locale_settings: Stubs::BotAliasLocaleSettingsMap.default(visited),
-          conversation_log_settings: Stubs::ConversationLogSettings.default(visited),
-          sentiment_analysis_settings: Stubs::SentimentAnalysisSettings.default(visited),
-          bot_alias_history_events: Stubs::BotAliasHistoryEventsList.default(visited),
+          bot_alias_locale_settings: BotAliasLocaleSettingsMap.default(visited),
+          conversation_log_settings: ConversationLogSettings.default(visited),
+          sentiment_analysis_settings: SentimentAnalysisSettings.default(visited),
+          bot_alias_history_events: BotAliasHistoryEventsList.default(visited),
           bot_alias_status: 'bot_alias_status',
           bot_id: 'bot_id',
           creation_date_time: Time.now,
@@ -2057,7 +2057,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotAliasHistoryEventsList')
         visited = visited + ['BotAliasHistoryEventsList']
         [
-          Stubs::BotAliasHistoryEvent.default(visited)
+          BotAliasHistoryEvent.default(visited)
         ]
       end
 
@@ -2103,16 +2103,16 @@ module AWS::SDK::LexModelsV2
           locale_name: 'locale_name',
           description: 'description',
           nlu_intent_confidence_threshold: 1.0,
-          voice_settings: Stubs::VoiceSettings.default(visited),
+          voice_settings: VoiceSettings.default(visited),
           intents_count: 1,
           slot_types_count: 1,
           bot_locale_status: 'bot_locale_status',
-          failure_reasons: Stubs::FailureReasons.default(visited),
+          failure_reasons: FailureReasons.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
           last_build_submitted_date_time: Time.now,
-          bot_locale_history_events: Stubs::BotLocaleHistoryEventsList.default(visited),
-          recommended_actions: Stubs::RecommendedActions.default(visited),
+          bot_locale_history_events: BotLocaleHistoryEventsList.default(visited),
+          recommended_actions: RecommendedActions.default(visited),
         }
       end
 
@@ -2166,7 +2166,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotLocaleHistoryEventsList')
         visited = visited + ['BotLocaleHistoryEventsList']
         [
-          Stubs::BotLocaleHistoryEvent.default(visited)
+          BotLocaleHistoryEvent.default(visited)
         ]
       end
 
@@ -2229,12 +2229,12 @@ module AWS::SDK::LexModelsV2
           locale_id: 'locale_id',
           bot_recommendation_status: 'bot_recommendation_status',
           bot_recommendation_id: 'bot_recommendation_id',
-          failure_reasons: Stubs::FailureReasons.default(visited),
+          failure_reasons: FailureReasons.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          transcript_source_setting: Stubs::TranscriptSourceSetting.default(visited),
-          encryption_setting: Stubs::EncryptionSetting.default(visited),
-          bot_recommendation_results: Stubs::BotRecommendationResults.default(visited),
+          transcript_source_setting: TranscriptSourceSetting.default(visited),
+          encryption_setting: EncryptionSetting.default(visited),
+          bot_recommendation_results: BotRecommendationResults.default(visited),
         }
       end
 
@@ -2265,7 +2265,7 @@ module AWS::SDK::LexModelsV2
         {
           bot_locale_export_url: 'bot_locale_export_url',
           associated_transcripts_url: 'associated_transcripts_url',
-          statistics: Stubs::BotRecommendationResultStatistics.default(visited),
+          statistics: BotRecommendationResultStatistics.default(visited),
         }
       end
 
@@ -2285,8 +2285,8 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotRecommendationResultStatistics')
         visited = visited + ['BotRecommendationResultStatistics']
         {
-          intents: Stubs::IntentStatistics.default(visited),
-          slot_types: Stubs::SlotTypeStatistics.default(visited),
+          intents: IntentStatistics.default(visited),
+          slot_types: SlotTypeStatistics.default(visited),
         }
       end
 
@@ -2363,7 +2363,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('TranscriptSourceSetting')
         visited = visited + ['TranscriptSourceSetting']
         {
-          s3_bucket_transcript_source: Stubs::S3BucketTranscriptSource.default(visited),
+          s3_bucket_transcript_source: S3BucketTranscriptSource.default(visited),
         }
       end
 
@@ -2382,9 +2382,9 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['S3BucketTranscriptSource']
         {
           s3_bucket_name: 's3_bucket_name',
-          path_format: Stubs::PathFormat.default(visited),
+          path_format: PathFormat.default(visited),
           transcript_format: 'transcript_format',
-          transcript_filter: Stubs::TranscriptFilter.default(visited),
+          transcript_filter: TranscriptFilter.default(visited),
           kms_key_arn: 'kms_key_arn',
         }
       end
@@ -2407,7 +2407,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('TranscriptFilter')
         visited = visited + ['TranscriptFilter']
         {
-          lex_transcript_filter: Stubs::LexTranscriptFilter.default(visited),
+          lex_transcript_filter: LexTranscriptFilter.default(visited),
         }
       end
 
@@ -2425,7 +2425,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('LexTranscriptFilter')
         visited = visited + ['LexTranscriptFilter']
         {
-          date_range_filter: Stubs::DateRangeFilter.default(visited),
+          date_range_filter: DateRangeFilter.default(visited),
         }
       end
 
@@ -2463,7 +2463,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('PathFormat')
         visited = visited + ['PathFormat']
         {
-          object_prefixes: Stubs::ObjectPrefixes.default(visited),
+          object_prefixes: ObjectPrefixes.default(visited),
         }
       end
 
@@ -2504,10 +2504,10 @@ module AWS::SDK::LexModelsV2
           bot_version: 'bot_version',
           description: 'description',
           role_arn: 'role_arn',
-          data_privacy: Stubs::DataPrivacy.default(visited),
+          data_privacy: DataPrivacy.default(visited),
           idle_session_ttl_in_seconds: 1,
           bot_status: 'bot_status',
-          failure_reasons: Stubs::FailureReasons.default(visited),
+          failure_reasons: FailureReasons.default(visited),
           creation_date_time: Time.now,
         }
       end
@@ -2562,10 +2562,10 @@ module AWS::SDK::LexModelsV2
       def self.default(visited=[])
         {
           export_id: 'export_id',
-          resource_specification: Stubs::ExportResourceSpecification.default(visited),
+          resource_specification: ExportResourceSpecification.default(visited),
           file_format: 'file_format',
           export_status: 'export_status',
-          failure_reasons: Stubs::FailureReasons.default(visited),
+          failure_reasons: FailureReasons.default(visited),
           download_url: 'download_url',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
@@ -2593,12 +2593,12 @@ module AWS::SDK::LexModelsV2
       def self.default(visited=[])
         {
           import_id: 'import_id',
-          resource_specification: Stubs::ImportResourceSpecification.default(visited),
+          resource_specification: ImportResourceSpecification.default(visited),
           imported_resource_id: 'imported_resource_id',
           imported_resource_name: 'imported_resource_name',
           merge_strategy: 'merge_strategy',
           import_status: 'import_status',
-          failure_reasons: Stubs::FailureReasons.default(visited),
+          failure_reasons: FailureReasons.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
         }
@@ -2627,9 +2627,9 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ImportResourceSpecification')
         visited = visited + ['ImportResourceSpecification']
         {
-          bot_import_specification: Stubs::BotImportSpecification.default(visited),
-          bot_locale_import_specification: Stubs::BotLocaleImportSpecification.default(visited),
-          custom_vocabulary_import_specification: Stubs::CustomVocabularyImportSpecification.default(visited),
+          bot_import_specification: BotImportSpecification.default(visited),
+          bot_locale_import_specification: BotLocaleImportSpecification.default(visited),
+          custom_vocabulary_import_specification: CustomVocabularyImportSpecification.default(visited),
         }
       end
 
@@ -2675,7 +2675,7 @@ module AWS::SDK::LexModelsV2
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           nlu_intent_confidence_threshold: 1.0,
-          voice_settings: Stubs::VoiceSettings.default(visited),
+          voice_settings: VoiceSettings.default(visited),
         }
       end
 
@@ -2699,10 +2699,10 @@ module AWS::SDK::LexModelsV2
         {
           bot_name: 'bot_name',
           role_arn: 'role_arn',
-          data_privacy: Stubs::DataPrivacy.default(visited),
+          data_privacy: DataPrivacy.default(visited),
           idle_session_ttl_in_seconds: 1,
-          bot_tags: Stubs::TagMap.default(visited),
-          test_bot_alias_tags: Stubs::TagMap.default(visited),
+          bot_tags: TagMap.default(visited),
+          test_bot_alias_tags: TagMap.default(visited),
         }
       end
 
@@ -2727,15 +2727,15 @@ module AWS::SDK::LexModelsV2
           intent_name: 'intent_name',
           description: 'description',
           parent_intent_signature: 'parent_intent_signature',
-          sample_utterances: Stubs::SampleUtterancesList.default(visited),
-          dialog_code_hook: Stubs::DialogCodeHookSettings.default(visited),
-          fulfillment_code_hook: Stubs::FulfillmentCodeHookSettings.default(visited),
-          slot_priorities: Stubs::SlotPrioritiesList.default(visited),
-          intent_confirmation_setting: Stubs::IntentConfirmationSetting.default(visited),
-          intent_closing_setting: Stubs::IntentClosingSetting.default(visited),
-          input_contexts: Stubs::InputContextsList.default(visited),
-          output_contexts: Stubs::OutputContextsList.default(visited),
-          kendra_configuration: Stubs::KendraConfiguration.default(visited),
+          sample_utterances: SampleUtterancesList.default(visited),
+          dialog_code_hook: DialogCodeHookSettings.default(visited),
+          fulfillment_code_hook: FulfillmentCodeHookSettings.default(visited),
+          slot_priorities: SlotPrioritiesList.default(visited),
+          intent_confirmation_setting: IntentConfirmationSetting.default(visited),
+          intent_closing_setting: IntentClosingSetting.default(visited),
+          input_contexts: InputContextsList.default(visited),
+          output_contexts: OutputContextsList.default(visited),
+          kendra_configuration: KendraConfiguration.default(visited),
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
@@ -2776,7 +2776,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotPrioritiesList')
         visited = visited + ['SlotPrioritiesList']
         [
-          Stubs::SlotPriority.default(visited)
+          SlotPriority.default(visited)
         ]
       end
 
@@ -2839,15 +2839,15 @@ module AWS::SDK::LexModelsV2
           slot_name: 'slot_name',
           description: 'description',
           slot_type_id: 'slot_type_id',
-          value_elicitation_setting: Stubs::SlotValueElicitationSetting.default(visited),
-          obfuscation_setting: Stubs::ObfuscationSetting.default(visited),
+          value_elicitation_setting: SlotValueElicitationSetting.default(visited),
+          obfuscation_setting: ObfuscationSetting.default(visited),
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           intent_id: 'intent_id',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          multiple_values_setting: Stubs::MultipleValuesSetting.default(visited),
+          multiple_values_setting: MultipleValuesSetting.default(visited),
         }
       end
 
@@ -2879,15 +2879,15 @@ module AWS::SDK::LexModelsV2
           slot_type_id: 'slot_type_id',
           slot_type_name: 'slot_type_name',
           description: 'description',
-          slot_type_values: Stubs::SlotTypeValues.default(visited),
-          value_selection_setting: Stubs::SlotValueSelectionSetting.default(visited),
+          slot_type_values: SlotTypeValues.default(visited),
+          value_selection_setting: SlotValueSelectionSetting.default(visited),
           parent_slot_type_signature: 'parent_slot_type_signature',
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          external_source_setting: Stubs::ExternalSourceSetting.default(visited),
+          external_source_setting: ExternalSourceSetting.default(visited),
         }
       end
 
@@ -2919,11 +2919,11 @@ module AWS::SDK::LexModelsV2
           bot_alias_id: 'bot_alias_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
-          aggregation_duration: Stubs::UtteranceAggregationDuration.default(visited),
+          aggregation_duration: UtteranceAggregationDuration.default(visited),
           aggregation_window_start_time: Time.now,
           aggregation_window_end_time: Time.now,
           aggregation_last_refreshed_date_time: Time.now,
-          aggregated_utterances_summaries: Stubs::AggregatedUtterancesSummaryList.default(visited),
+          aggregated_utterances_summaries: AggregatedUtterancesSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2952,7 +2952,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('AggregatedUtterancesSummaryList')
         visited = visited + ['AggregatedUtterancesSummaryList']
         [
-          Stubs::AggregatedUtterancesSummary.default(visited)
+          AggregatedUtterancesSummary.default(visited)
         ]
       end
 
@@ -3000,7 +3000,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('UtteranceAggregationDuration')
         visited = visited + ['UtteranceAggregationDuration']
         {
-          relative_aggregation_duration: Stubs::RelativeAggregationDuration.default(visited),
+          relative_aggregation_duration: RelativeAggregationDuration.default(visited),
         }
       end
 
@@ -3036,7 +3036,7 @@ module AWS::SDK::LexModelsV2
     class ListBotAliases
       def self.default(visited=[])
         {
-          bot_alias_summaries: Stubs::BotAliasSummaryList.default(visited),
+          bot_alias_summaries: BotAliasSummaryList.default(visited),
           next_token: 'next_token',
           bot_id: 'bot_id',
         }
@@ -3059,7 +3059,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotAliasSummaryList')
         visited = visited + ['BotAliasSummaryList']
         [
-          Stubs::BotAliasSummary.default(visited)
+          BotAliasSummary.default(visited)
         ]
       end
 
@@ -3110,7 +3110,7 @@ module AWS::SDK::LexModelsV2
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           next_token: 'next_token',
-          bot_locale_summaries: Stubs::BotLocaleSummaryList.default(visited),
+          bot_locale_summaries: BotLocaleSummaryList.default(visited),
         }
       end
 
@@ -3132,7 +3132,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotLocaleSummaryList')
         visited = visited + ['BotLocaleSummaryList']
         [
-          Stubs::BotLocaleSummary.default(visited)
+          BotLocaleSummary.default(visited)
         ]
       end
 
@@ -3181,7 +3181,7 @@ module AWS::SDK::LexModelsV2
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
-          bot_recommendation_summaries: Stubs::BotRecommendationSummaryList.default(visited),
+          bot_recommendation_summaries: BotRecommendationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3205,7 +3205,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotRecommendationSummaryList')
         visited = visited + ['BotRecommendationSummaryList']
         [
-          Stubs::BotRecommendationSummary.default(visited)
+          BotRecommendationSummary.default(visited)
         ]
       end
 
@@ -3248,7 +3248,7 @@ module AWS::SDK::LexModelsV2
       def self.default(visited=[])
         {
           bot_id: 'bot_id',
-          bot_version_summaries: Stubs::BotVersionSummaryList.default(visited),
+          bot_version_summaries: BotVersionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3270,7 +3270,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotVersionSummaryList')
         visited = visited + ['BotVersionSummaryList']
         [
-          Stubs::BotVersionSummary.default(visited)
+          BotVersionSummary.default(visited)
         ]
       end
 
@@ -3314,7 +3314,7 @@ module AWS::SDK::LexModelsV2
     class ListBots
       def self.default(visited=[])
         {
-          bot_summaries: Stubs::BotSummaryList.default(visited),
+          bot_summaries: BotSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3335,7 +3335,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BotSummaryList')
         visited = visited + ['BotSummaryList']
         [
-          Stubs::BotSummary.default(visited)
+          BotSummary.default(visited)
         ]
       end
 
@@ -3381,7 +3381,7 @@ module AWS::SDK::LexModelsV2
     class ListBuiltInIntents
       def self.default(visited=[])
         {
-          built_in_intent_summaries: Stubs::BuiltInIntentSummaryList.default(visited),
+          built_in_intent_summaries: BuiltInIntentSummaryList.default(visited),
           next_token: 'next_token',
           locale_id: 'locale_id',
         }
@@ -3404,7 +3404,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BuiltInIntentSummaryList')
         visited = visited + ['BuiltInIntentSummaryList']
         [
-          Stubs::BuiltInIntentSummary.default(visited)
+          BuiltInIntentSummary.default(visited)
         ]
       end
 
@@ -3442,7 +3442,7 @@ module AWS::SDK::LexModelsV2
     class ListBuiltInSlotTypes
       def self.default(visited=[])
         {
-          built_in_slot_type_summaries: Stubs::BuiltInSlotTypeSummaryList.default(visited),
+          built_in_slot_type_summaries: BuiltInSlotTypeSummaryList.default(visited),
           next_token: 'next_token',
           locale_id: 'locale_id',
         }
@@ -3465,7 +3465,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('BuiltInSlotTypeSummaryList')
         visited = visited + ['BuiltInSlotTypeSummaryList']
         [
-          Stubs::BuiltInSlotTypeSummary.default(visited)
+          BuiltInSlotTypeSummary.default(visited)
         ]
       end
 
@@ -3505,7 +3505,7 @@ module AWS::SDK::LexModelsV2
         {
           bot_id: 'bot_id',
           bot_version: 'bot_version',
-          export_summaries: Stubs::ExportSummaryList.default(visited),
+          export_summaries: ExportSummaryList.default(visited),
           next_token: 'next_token',
           locale_id: 'locale_id',
         }
@@ -3530,7 +3530,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ExportSummaryList')
         visited = visited + ['ExportSummaryList']
         [
-          Stubs::ExportSummary.default(visited)
+          ExportSummary.default(visited)
         ]
       end
 
@@ -3551,7 +3551,7 @@ module AWS::SDK::LexModelsV2
         visited = visited + ['ExportSummary']
         {
           export_id: 'export_id',
-          resource_specification: Stubs::ExportResourceSpecification.default(visited),
+          resource_specification: ExportResourceSpecification.default(visited),
           file_format: 'file_format',
           export_status: 'export_status',
           creation_date_time: Time.now,
@@ -3578,7 +3578,7 @@ module AWS::SDK::LexModelsV2
         {
           bot_id: 'bot_id',
           bot_version: 'bot_version',
-          import_summaries: Stubs::ImportSummaryList.default(visited),
+          import_summaries: ImportSummaryList.default(visited),
           next_token: 'next_token',
           locale_id: 'locale_id',
         }
@@ -3603,7 +3603,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('ImportSummaryList')
         visited = visited + ['ImportSummaryList']
         [
-          Stubs::ImportSummary.default(visited)
+          ImportSummary.default(visited)
         ]
       end
 
@@ -3656,7 +3656,7 @@ module AWS::SDK::LexModelsV2
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
-          intent_summaries: Stubs::IntentSummaryList.default(visited),
+          intent_summaries: IntentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3680,7 +3680,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('IntentSummaryList')
         visited = visited + ['IntentSummaryList']
         [
-          Stubs::IntentSummary.default(visited)
+          IntentSummary.default(visited)
         ]
       end
 
@@ -3704,8 +3704,8 @@ module AWS::SDK::LexModelsV2
           intent_name: 'intent_name',
           description: 'description',
           parent_intent_signature: 'parent_intent_signature',
-          input_contexts: Stubs::InputContextsList.default(visited),
-          output_contexts: Stubs::OutputContextsList.default(visited),
+          input_contexts: InputContextsList.default(visited),
+          output_contexts: OutputContextsList.default(visited),
           last_updated_date_time: Time.now,
         }
       end
@@ -3732,7 +3732,7 @@ module AWS::SDK::LexModelsV2
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           bot_recommendation_id: 'bot_recommendation_id',
-          summary_list: Stubs::RecommendedIntentSummaryList.default(visited),
+          summary_list: RecommendedIntentSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3757,7 +3757,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('RecommendedIntentSummaryList')
         visited = visited + ['RecommendedIntentSummaryList']
         [
-          Stubs::RecommendedIntentSummary.default(visited)
+          RecommendedIntentSummary.default(visited)
         ]
       end
 
@@ -3800,7 +3800,7 @@ module AWS::SDK::LexModelsV2
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
-          slot_type_summaries: Stubs::SlotTypeSummaryList.default(visited),
+          slot_type_summaries: SlotTypeSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3824,7 +3824,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotTypeSummaryList')
         visited = visited + ['SlotTypeSummaryList']
         [
-          Stubs::SlotTypeSummary.default(visited)
+          SlotTypeSummary.default(visited)
         ]
       end
 
@@ -3874,7 +3874,7 @@ module AWS::SDK::LexModelsV2
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           intent_id: 'intent_id',
-          slot_summaries: Stubs::SlotSummaryList.default(visited),
+          slot_summaries: SlotSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3899,7 +3899,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('SlotSummaryList')
         visited = visited + ['SlotSummaryList']
         [
-          Stubs::SlotSummary.default(visited)
+          SlotSummary.default(visited)
         ]
       end
 
@@ -3924,7 +3924,7 @@ module AWS::SDK::LexModelsV2
           description: 'description',
           slot_constraint: 'slot_constraint',
           slot_type_id: 'slot_type_id',
-          value_elicitation_prompt_specification: Stubs::PromptSpecification.default(visited),
+          value_elicitation_prompt_specification: PromptSpecification.default(visited),
           last_updated_date_time: Time.now,
         }
       end
@@ -3947,7 +3947,7 @@ module AWS::SDK::LexModelsV2
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3969,7 +3969,7 @@ module AWS::SDK::LexModelsV2
           locale_id: 'locale_id',
           bot_recommendation_id: 'bot_recommendation_id',
           next_index: 1,
-          associated_transcripts: Stubs::AssociatedTranscriptList.default(visited),
+          associated_transcripts: AssociatedTranscriptList.default(visited),
           total_results: 1,
         }
       end
@@ -3995,7 +3995,7 @@ module AWS::SDK::LexModelsV2
         return nil if visited.include?('AssociatedTranscriptList')
         visited = visited + ['AssociatedTranscriptList']
         [
-          Stubs::AssociatedTranscript.default(visited)
+          AssociatedTranscript.default(visited)
         ]
       end
 
@@ -4037,8 +4037,8 @@ module AWS::SDK::LexModelsV2
           bot_recommendation_status: 'bot_recommendation_status',
           bot_recommendation_id: 'bot_recommendation_id',
           creation_date_time: Time.now,
-          transcript_source_setting: Stubs::TranscriptSourceSetting.default(visited),
-          encryption_setting: Stubs::EncryptionSetting.default(visited),
+          transcript_source_setting: TranscriptSourceSetting.default(visited),
+          encryption_setting: EncryptionSetting.default(visited),
         }
       end
 
@@ -4063,7 +4063,7 @@ module AWS::SDK::LexModelsV2
       def self.default(visited=[])
         {
           import_id: 'import_id',
-          resource_specification: Stubs::ImportResourceSpecification.default(visited),
+          resource_specification: ImportResourceSpecification.default(visited),
           merge_strategy: 'merge_strategy',
           import_status: 'import_status',
           creation_date_time: Time.now,
@@ -4117,7 +4117,7 @@ module AWS::SDK::LexModelsV2
           bot_name: 'bot_name',
           description: 'description',
           role_arn: 'role_arn',
-          data_privacy: Stubs::DataPrivacy.default(visited),
+          data_privacy: DataPrivacy.default(visited),
           idle_session_ttl_in_seconds: 1,
           bot_status: 'bot_status',
           creation_date_time: Time.now,
@@ -4150,9 +4150,9 @@ module AWS::SDK::LexModelsV2
           bot_alias_name: 'bot_alias_name',
           description: 'description',
           bot_version: 'bot_version',
-          bot_alias_locale_settings: Stubs::BotAliasLocaleSettingsMap.default(visited),
-          conversation_log_settings: Stubs::ConversationLogSettings.default(visited),
-          sentiment_analysis_settings: Stubs::SentimentAnalysisSettings.default(visited),
+          bot_alias_locale_settings: BotAliasLocaleSettingsMap.default(visited),
+          conversation_log_settings: ConversationLogSettings.default(visited),
+          sentiment_analysis_settings: SentimentAnalysisSettings.default(visited),
           bot_alias_status: 'bot_alias_status',
           bot_id: 'bot_id',
           creation_date_time: Time.now,
@@ -4189,12 +4189,12 @@ module AWS::SDK::LexModelsV2
           locale_name: 'locale_name',
           description: 'description',
           nlu_intent_confidence_threshold: 1.0,
-          voice_settings: Stubs::VoiceSettings.default(visited),
+          voice_settings: VoiceSettings.default(visited),
           bot_locale_status: 'bot_locale_status',
-          failure_reasons: Stubs::FailureReasons.default(visited),
+          failure_reasons: FailureReasons.default(visited),
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          recommended_actions: Stubs::RecommendedActions.default(visited),
+          recommended_actions: RecommendedActions.default(visited),
         }
       end
 
@@ -4229,8 +4229,8 @@ module AWS::SDK::LexModelsV2
           bot_recommendation_id: 'bot_recommendation_id',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          transcript_source_setting: Stubs::TranscriptSourceSetting.default(visited),
-          encryption_setting: Stubs::EncryptionSetting.default(visited),
+          transcript_source_setting: TranscriptSourceSetting.default(visited),
+          encryption_setting: EncryptionSetting.default(visited),
         }
       end
 
@@ -4256,7 +4256,7 @@ module AWS::SDK::LexModelsV2
       def self.default(visited=[])
         {
           export_id: 'export_id',
-          resource_specification: Stubs::ExportResourceSpecification.default(visited),
+          resource_specification: ExportResourceSpecification.default(visited),
           file_format: 'file_format',
           export_status: 'export_status',
           creation_date_time: Time.now,
@@ -4286,15 +4286,15 @@ module AWS::SDK::LexModelsV2
           intent_name: 'intent_name',
           description: 'description',
           parent_intent_signature: 'parent_intent_signature',
-          sample_utterances: Stubs::SampleUtterancesList.default(visited),
-          dialog_code_hook: Stubs::DialogCodeHookSettings.default(visited),
-          fulfillment_code_hook: Stubs::FulfillmentCodeHookSettings.default(visited),
-          slot_priorities: Stubs::SlotPrioritiesList.default(visited),
-          intent_confirmation_setting: Stubs::IntentConfirmationSetting.default(visited),
-          intent_closing_setting: Stubs::IntentClosingSetting.default(visited),
-          input_contexts: Stubs::InputContextsList.default(visited),
-          output_contexts: Stubs::OutputContextsList.default(visited),
-          kendra_configuration: Stubs::KendraConfiguration.default(visited),
+          sample_utterances: SampleUtterancesList.default(visited),
+          dialog_code_hook: DialogCodeHookSettings.default(visited),
+          fulfillment_code_hook: FulfillmentCodeHookSettings.default(visited),
+          slot_priorities: SlotPrioritiesList.default(visited),
+          intent_confirmation_setting: IntentConfirmationSetting.default(visited),
+          intent_closing_setting: IntentClosingSetting.default(visited),
+          input_contexts: InputContextsList.default(visited),
+          output_contexts: OutputContextsList.default(visited),
+          kendra_configuration: KendraConfiguration.default(visited),
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
@@ -4356,15 +4356,15 @@ module AWS::SDK::LexModelsV2
           slot_name: 'slot_name',
           description: 'description',
           slot_type_id: 'slot_type_id',
-          value_elicitation_setting: Stubs::SlotValueElicitationSetting.default(visited),
-          obfuscation_setting: Stubs::ObfuscationSetting.default(visited),
+          value_elicitation_setting: SlotValueElicitationSetting.default(visited),
+          obfuscation_setting: ObfuscationSetting.default(visited),
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           intent_id: 'intent_id',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          multiple_values_setting: Stubs::MultipleValuesSetting.default(visited),
+          multiple_values_setting: MultipleValuesSetting.default(visited),
         }
       end
 
@@ -4396,15 +4396,15 @@ module AWS::SDK::LexModelsV2
           slot_type_id: 'slot_type_id',
           slot_type_name: 'slot_type_name',
           description: 'description',
-          slot_type_values: Stubs::SlotTypeValues.default(visited),
-          value_selection_setting: Stubs::SlotValueSelectionSetting.default(visited),
+          slot_type_values: SlotTypeValues.default(visited),
+          value_selection_setting: SlotValueSelectionSetting.default(visited),
           parent_slot_type_signature: 'parent_slot_type_signature',
           bot_id: 'bot_id',
           bot_version: 'bot_version',
           locale_id: 'locale_id',
           creation_date_time: Time.now,
           last_updated_date_time: Time.now,
-          external_source_setting: Stubs::ExternalSourceSetting.default(visited),
+          external_source_setting: ExternalSourceSetting.default(visited),
         }
       end
 

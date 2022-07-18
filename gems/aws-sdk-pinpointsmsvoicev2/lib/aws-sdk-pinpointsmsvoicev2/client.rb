@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::PinpointSMSVoiceV2
@@ -100,7 +102,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def associate_origination_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateOriginationIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateOriginationIdentityInput,
         validate_input: @config.validate_input
@@ -194,7 +196,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def create_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationSetInput,
         validate_input: @config.validate_input
@@ -325,7 +327,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def create_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventDestinationInput,
         validate_input: @config.validate_input
@@ -423,7 +425,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def create_opt_out_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOptOutListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOptOutListInput,
         validate_input: @config.validate_input
@@ -548,7 +550,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def create_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePoolInput,
         validate_input: @config.validate_input
@@ -639,7 +641,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_configuration_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationSetInput,
         validate_input: @config.validate_input
@@ -718,7 +720,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_default_message_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDefaultMessageTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDefaultMessageTypeInput,
         validate_input: @config.validate_input
@@ -794,7 +796,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_default_sender_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDefaultSenderIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDefaultSenderIdInput,
         validate_input: @config.validate_input
@@ -888,7 +890,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventDestinationInput,
         validate_input: @config.validate_input
@@ -974,7 +976,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_keyword(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeywordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeywordInput,
         validate_input: @config.validate_input
@@ -1049,7 +1051,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_opt_out_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOptOutListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOptOutListInput,
         validate_input: @config.validate_input
@@ -1130,7 +1132,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_opted_out_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOptedOutNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOptedOutNumberInput,
         validate_input: @config.validate_input
@@ -1214,7 +1216,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePoolInput,
         validate_input: @config.validate_input
@@ -1282,7 +1284,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_text_message_spend_limit_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTextMessageSpendLimitOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTextMessageSpendLimitOverrideInput,
         validate_input: @config.validate_input
@@ -1350,7 +1352,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def delete_voice_message_spend_limit_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteVoiceMessageSpendLimitOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteVoiceMessageSpendLimitOverrideInput,
         validate_input: @config.validate_input
@@ -1434,7 +1436,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -1520,7 +1522,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_account_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountLimitsInput,
         validate_input: @config.validate_input
@@ -1639,7 +1641,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_configuration_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationSetsInput,
         validate_input: @config.validate_input
@@ -1751,7 +1753,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_keywords(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKeywordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKeywordsInput,
         validate_input: @config.validate_input
@@ -1842,7 +1844,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_opt_out_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOptOutListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOptOutListsInput,
         validate_input: @config.validate_input
@@ -1952,7 +1954,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_opted_out_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOptedOutNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOptedOutNumbersInput,
         validate_input: @config.validate_input
@@ -2069,7 +2071,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_phone_numbers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePhoneNumbersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePhoneNumbersInput,
         validate_input: @config.validate_input
@@ -2183,7 +2185,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePoolsInput,
         validate_input: @config.validate_input
@@ -2290,7 +2292,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_sender_ids(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSenderIdsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSenderIdsInput,
         validate_input: @config.validate_input
@@ -2376,7 +2378,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def describe_spend_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSpendLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSpendLimitsInput,
         validate_input: @config.validate_input
@@ -2470,7 +2472,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def disassociate_origination_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateOriginationIdentityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateOriginationIdentityInput,
         validate_input: @config.validate_input
@@ -2571,7 +2573,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def list_pool_origination_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoolOriginationIdentitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoolOriginationIdentitiesInput,
         validate_input: @config.validate_input
@@ -2644,7 +2646,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2750,7 +2752,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def put_keyword(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutKeywordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutKeywordInput,
         validate_input: @config.validate_input
@@ -2829,7 +2831,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def put_opted_out_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutOptedOutNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutOptedOutNumberInput,
         validate_input: @config.validate_input
@@ -2916,7 +2918,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def release_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReleasePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReleasePhoneNumberInput,
         validate_input: @config.validate_input
@@ -3059,7 +3061,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def request_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestPhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestPhoneNumberInput,
         validate_input: @config.validate_input
@@ -3189,7 +3191,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def send_text_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendTextMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendTextMessageInput,
         validate_input: @config.validate_input
@@ -3314,7 +3316,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def send_voice_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendVoiceMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendVoiceMessageInput,
         validate_input: @config.validate_input
@@ -3397,7 +3399,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def set_default_message_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDefaultMessageTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDefaultMessageTypeInput,
         validate_input: @config.validate_input
@@ -3480,7 +3482,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def set_default_sender_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetDefaultSenderIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetDefaultSenderIdInput,
         validate_input: @config.validate_input
@@ -3551,7 +3553,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def set_text_message_spend_limit_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetTextMessageSpendLimitOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetTextMessageSpendLimitOverrideInput,
         validate_input: @config.validate_input
@@ -3622,7 +3624,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def set_voice_message_spend_limit_override(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetVoiceMessageSpendLimitOverrideInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetVoiceMessageSpendLimitOverrideInput,
         validate_input: @config.validate_input
@@ -3704,7 +3706,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3780,7 +3782,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3905,7 +3907,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def update_event_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventDestinationInput,
         validate_input: @config.validate_input
@@ -4021,7 +4023,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def update_phone_number(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePhoneNumberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePhoneNumberInput,
         validate_input: @config.validate_input
@@ -4134,7 +4136,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     def update_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePoolInput,
         validate_input: @config.validate_input

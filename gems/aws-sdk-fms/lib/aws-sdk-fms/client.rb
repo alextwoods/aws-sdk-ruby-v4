@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::FMS
@@ -69,7 +71,7 @@ module AWS::SDK::FMS
     def associate_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAdminAccountInput,
         validate_input: @config.validate_input
@@ -138,7 +140,7 @@ module AWS::SDK::FMS
     def associate_third_party_firewall(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateThirdPartyFirewallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateThirdPartyFirewallInput,
         validate_input: @config.validate_input
@@ -207,7 +209,7 @@ module AWS::SDK::FMS
     def delete_apps_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppsListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppsListInput,
         validate_input: @config.validate_input
@@ -271,7 +273,7 @@ module AWS::SDK::FMS
     def delete_notification_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotificationChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotificationChannelInput,
         validate_input: @config.validate_input
@@ -373,7 +375,7 @@ module AWS::SDK::FMS
     def delete_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePolicyInput,
         validate_input: @config.validate_input
@@ -442,7 +444,7 @@ module AWS::SDK::FMS
     def delete_protocols_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProtocolsListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProtocolsListInput,
         validate_input: @config.validate_input
@@ -507,7 +509,7 @@ module AWS::SDK::FMS
     def disassociate_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateAdminAccountInput,
         validate_input: @config.validate_input
@@ -576,7 +578,7 @@ module AWS::SDK::FMS
     def disassociate_third_party_firewall(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateThirdPartyFirewallInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateThirdPartyFirewallInput,
         validate_input: @config.validate_input
@@ -642,7 +644,7 @@ module AWS::SDK::FMS
     def get_admin_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAdminAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAdminAccountInput,
         validate_input: @config.validate_input
@@ -727,7 +729,7 @@ module AWS::SDK::FMS
     def get_apps_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppsListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppsListInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::FMS
     def get_compliance_detail(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComplianceDetailInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComplianceDetailInput,
         validate_input: @config.validate_input
@@ -905,7 +907,7 @@ module AWS::SDK::FMS
     def get_notification_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNotificationChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNotificationChannelInput,
         validate_input: @config.validate_input
@@ -1000,7 +1002,7 @@ module AWS::SDK::FMS
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -1103,7 +1105,7 @@ module AWS::SDK::FMS
     def get_protection_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProtectionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProtectionStatusInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::FMS
     def get_protocols_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProtocolsListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProtocolsListInput,
         validate_input: @config.validate_input
@@ -1255,7 +1257,7 @@ module AWS::SDK::FMS
     def get_third_party_firewall_association_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetThirdPartyFirewallAssociationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetThirdPartyFirewallAssociationStatusInput,
         validate_input: @config.validate_input
@@ -1587,7 +1589,7 @@ module AWS::SDK::FMS
     def get_violation_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetViolationDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetViolationDetailsInput,
         validate_input: @config.validate_input
@@ -1679,7 +1681,7 @@ module AWS::SDK::FMS
     def list_apps_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppsListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppsListsInput,
         validate_input: @config.validate_input
@@ -1782,7 +1784,7 @@ module AWS::SDK::FMS
     def list_compliance_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListComplianceStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListComplianceStatusInput,
         validate_input: @config.validate_input
@@ -1868,7 +1870,7 @@ module AWS::SDK::FMS
     def list_member_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMemberAccountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMemberAccountsInput,
         validate_input: @config.validate_input
@@ -1959,7 +1961,7 @@ module AWS::SDK::FMS
     def list_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPoliciesInput,
         validate_input: @config.validate_input
@@ -2048,7 +2050,7 @@ module AWS::SDK::FMS
     def list_protocols_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProtocolsListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProtocolsListsInput,
         validate_input: @config.validate_input
@@ -2120,7 +2122,7 @@ module AWS::SDK::FMS
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2210,7 +2212,7 @@ module AWS::SDK::FMS
     def list_third_party_firewall_firewall_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListThirdPartyFirewallFirewallPoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListThirdPartyFirewallFirewallPoliciesInput,
         validate_input: @config.validate_input
@@ -2313,7 +2315,7 @@ module AWS::SDK::FMS
     def put_apps_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppsListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppsListInput,
         validate_input: @config.validate_input
@@ -2391,7 +2393,7 @@ module AWS::SDK::FMS
     def put_notification_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutNotificationChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutNotificationChannelInput,
         validate_input: @config.validate_input
@@ -2561,7 +2563,7 @@ module AWS::SDK::FMS
     def put_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPolicyInput,
         validate_input: @config.validate_input
@@ -2657,7 +2659,7 @@ module AWS::SDK::FMS
     def put_protocols_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutProtocolsListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProtocolsListInput,
         validate_input: @config.validate_input
@@ -2734,7 +2736,7 @@ module AWS::SDK::FMS
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2808,7 +2810,7 @@ module AWS::SDK::FMS
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

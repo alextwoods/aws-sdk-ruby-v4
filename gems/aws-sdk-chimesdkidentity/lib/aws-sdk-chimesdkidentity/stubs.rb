@@ -31,7 +31,7 @@ module AWS::SDK::ChimeSDKIdentity
     class CreateAppInstanceAdmin
       def self.default(visited=[])
         {
-          app_instance_admin: Stubs::Identity.default(visited),
+          app_instance_admin: Identity.default(visited),
           app_instance_arn: 'app_instance_arn',
         }
       end
@@ -139,7 +139,7 @@ module AWS::SDK::ChimeSDKIdentity
     class DescribeAppInstance
       def self.default(visited=[])
         {
-          app_instance: Stubs::AppInstance.default(visited),
+          app_instance: AppInstance.default(visited),
         }
       end
 
@@ -182,7 +182,7 @@ module AWS::SDK::ChimeSDKIdentity
     class DescribeAppInstanceAdmin
       def self.default(visited=[])
         {
-          app_instance_admin: Stubs::AppInstanceAdmin.default(visited),
+          app_instance_admin: AppInstanceAdmin.default(visited),
         }
       end
 
@@ -201,7 +201,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceAdmin')
         visited = visited + ['AppInstanceAdmin']
         {
-          admin: Stubs::Identity.default(visited),
+          admin: Identity.default(visited),
           app_instance_arn: 'app_instance_arn',
           created_timestamp: Time.now,
         }
@@ -221,7 +221,7 @@ module AWS::SDK::ChimeSDKIdentity
     class DescribeAppInstanceUser
       def self.default(visited=[])
         {
-          app_instance_user: Stubs::AppInstanceUser.default(visited),
+          app_instance_user: AppInstanceUser.default(visited),
         }
       end
 
@@ -264,7 +264,7 @@ module AWS::SDK::ChimeSDKIdentity
     class DescribeAppInstanceUserEndpoint
       def self.default(visited=[])
         {
-          app_instance_user_endpoint: Stubs::AppInstanceUserEndpoint.default(visited),
+          app_instance_user_endpoint: AppInstanceUserEndpoint.default(visited),
         }
       end
 
@@ -288,11 +288,11 @@ module AWS::SDK::ChimeSDKIdentity
           name: 'name',
           type: 'type',
           resource_arn: 'resource_arn',
-          endpoint_attributes: Stubs::EndpointAttributes.default(visited),
+          endpoint_attributes: EndpointAttributes.default(visited),
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
           allow_messages: 'allow_messages',
-          endpoint_state: Stubs::EndpointState.default(visited),
+          endpoint_state: EndpointState.default(visited),
         }
       end
 
@@ -357,7 +357,7 @@ module AWS::SDK::ChimeSDKIdentity
     class GetAppInstanceRetentionSettings
       def self.default(visited=[])
         {
-          app_instance_retention_settings: Stubs::AppInstanceRetentionSettings.default(visited),
+          app_instance_retention_settings: AppInstanceRetentionSettings.default(visited),
           initiate_deletion_timestamp: Time.now,
         }
       end
@@ -378,7 +378,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceRetentionSettings')
         visited = visited + ['AppInstanceRetentionSettings']
         {
-          channel_retention_settings: Stubs::ChannelRetentionSettings.default(visited),
+          channel_retention_settings: ChannelRetentionSettings.default(visited),
         }
       end
 
@@ -413,7 +413,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.default(visited=[])
         {
           app_instance_arn: 'app_instance_arn',
-          app_instance_admins: Stubs::AppInstanceAdminList.default(visited),
+          app_instance_admins: AppInstanceAdminList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -435,7 +435,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceAdminList')
         visited = visited + ['AppInstanceAdminList']
         [
-          Stubs::AppInstanceAdminSummary.default(visited)
+          AppInstanceAdminSummary.default(visited)
         ]
       end
 
@@ -455,7 +455,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceAdminSummary')
         visited = visited + ['AppInstanceAdminSummary']
         {
-          admin: Stubs::Identity.default(visited),
+          admin: Identity.default(visited),
         }
       end
 
@@ -471,7 +471,7 @@ module AWS::SDK::ChimeSDKIdentity
     class ListAppInstanceUserEndpoints
       def self.default(visited=[])
         {
-          app_instance_user_endpoints: Stubs::AppInstanceUserEndpointSummaryList.default(visited),
+          app_instance_user_endpoints: AppInstanceUserEndpointSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -492,7 +492,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceUserEndpointSummaryList')
         visited = visited + ['AppInstanceUserEndpointSummaryList']
         [
-          Stubs::AppInstanceUserEndpointSummary.default(visited)
+          AppInstanceUserEndpointSummary.default(visited)
         ]
       end
 
@@ -517,7 +517,7 @@ module AWS::SDK::ChimeSDKIdentity
           name: 'name',
           type: 'type',
           allow_messages: 'allow_messages',
-          endpoint_state: Stubs::EndpointState.default(visited),
+          endpoint_state: EndpointState.default(visited),
         }
       end
 
@@ -539,7 +539,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.default(visited=[])
         {
           app_instance_arn: 'app_instance_arn',
-          app_instance_users: Stubs::AppInstanceUserList.default(visited),
+          app_instance_users: AppInstanceUserList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -561,7 +561,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceUserList')
         visited = visited + ['AppInstanceUserList']
         [
-          Stubs::AppInstanceUserSummary.default(visited)
+          AppInstanceUserSummary.default(visited)
         ]
       end
 
@@ -601,7 +601,7 @@ module AWS::SDK::ChimeSDKIdentity
     class ListAppInstances
       def self.default(visited=[])
         {
-          app_instances: Stubs::AppInstanceList.default(visited),
+          app_instances: AppInstanceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -622,7 +622,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('AppInstanceList')
         visited = visited + ['AppInstanceList']
         [
-          Stubs::AppInstanceSummary.default(visited)
+          AppInstanceSummary.default(visited)
         ]
       end
 
@@ -662,7 +662,7 @@ module AWS::SDK::ChimeSDKIdentity
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -681,7 +681,7 @@ module AWS::SDK::ChimeSDKIdentity
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -719,7 +719,7 @@ module AWS::SDK::ChimeSDKIdentity
     class PutAppInstanceRetentionSettings
       def self.default(visited=[])
         {
-          app_instance_retention_settings: Stubs::AppInstanceRetentionSettings.default(visited),
+          app_instance_retention_settings: AppInstanceRetentionSettings.default(visited),
           initiate_deletion_timestamp: Time.now,
         }
       end

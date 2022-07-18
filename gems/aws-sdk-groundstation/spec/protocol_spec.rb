@@ -9,9 +9,6 @@
 
 require 'aws-sdk-groundstation'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::GroundStation
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

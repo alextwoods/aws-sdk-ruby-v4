@@ -9,9 +9,6 @@
 
 require 'aws-sdk-cognitosync'
 
-require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
-
 module AWS::SDK::CognitoSync
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

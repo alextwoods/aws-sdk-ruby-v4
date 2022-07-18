@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SMS
@@ -177,7 +179,7 @@ module AWS::SDK::SMS
     def create_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInput,
         validate_input: @config.validate_input
@@ -303,7 +305,7 @@ module AWS::SDK::SMS
     def create_replication_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationJobInput,
         validate_input: @config.validate_input
@@ -382,7 +384,7 @@ module AWS::SDK::SMS
     def delete_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInput,
         validate_input: @config.validate_input
@@ -450,7 +452,7 @@ module AWS::SDK::SMS
     def delete_app_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -518,7 +520,7 @@ module AWS::SDK::SMS
     def delete_app_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -586,7 +588,7 @@ module AWS::SDK::SMS
     def delete_app_validation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppValidationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppValidationConfigurationInput,
         validate_input: @config.validate_input
@@ -657,7 +659,7 @@ module AWS::SDK::SMS
     def delete_replication_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationJobInput,
         validate_input: @config.validate_input
@@ -720,7 +722,7 @@ module AWS::SDK::SMS
     def delete_server_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteServerCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteServerCatalogInput,
         validate_input: @config.validate_input
@@ -790,7 +792,7 @@ module AWS::SDK::SMS
     def disassociate_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateConnectorInput,
         validate_input: @config.validate_input
@@ -866,7 +868,7 @@ module AWS::SDK::SMS
     def generate_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateChangeSetInput,
         validate_input: @config.validate_input
@@ -942,7 +944,7 @@ module AWS::SDK::SMS
     def generate_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateTemplateInput,
         validate_input: @config.validate_input
@@ -1055,7 +1057,7 @@ module AWS::SDK::SMS
     def get_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppInput,
         validate_input: @config.validate_input
@@ -1159,7 +1161,7 @@ module AWS::SDK::SMS
     def get_app_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -1254,7 +1256,7 @@ module AWS::SDK::SMS
     def get_app_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -1361,7 +1363,7 @@ module AWS::SDK::SMS
     def get_app_validation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppValidationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppValidationConfigurationInput,
         validate_input: @config.validate_input
@@ -1455,7 +1457,7 @@ module AWS::SDK::SMS
     def get_app_validation_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAppValidationOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAppValidationOutputInput,
         validate_input: @config.validate_input
@@ -1543,7 +1545,7 @@ module AWS::SDK::SMS
     def get_connectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectorsInput,
         validate_input: @config.validate_input
@@ -1663,7 +1665,7 @@ module AWS::SDK::SMS
     def get_replication_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReplicationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReplicationJobsInput,
         validate_input: @config.validate_input
@@ -1783,7 +1785,7 @@ module AWS::SDK::SMS
     def get_replication_runs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReplicationRunsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReplicationRunsInput,
         validate_input: @config.validate_input
@@ -1884,7 +1886,7 @@ module AWS::SDK::SMS
     def get_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetServersInput,
         validate_input: @config.validate_input
@@ -1954,7 +1956,7 @@ module AWS::SDK::SMS
     def import_app_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportAppCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportAppCatalogInput,
         validate_input: @config.validate_input
@@ -2020,7 +2022,7 @@ module AWS::SDK::SMS
     def import_server_catalog(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportServerCatalogInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportServerCatalogInput,
         validate_input: @config.validate_input
@@ -2088,7 +2090,7 @@ module AWS::SDK::SMS
     def launch_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::LaunchAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LaunchAppInput,
         validate_input: @config.validate_input
@@ -2193,7 +2195,7 @@ module AWS::SDK::SMS
     def list_apps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppsInput,
         validate_input: @config.validate_input
@@ -2269,7 +2271,7 @@ module AWS::SDK::SMS
     def notify_app_validation_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::NotifyAppValidationOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::NotifyAppValidationOutputInput,
         validate_input: @config.validate_input
@@ -2390,7 +2392,7 @@ module AWS::SDK::SMS
     def put_app_launch_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppLaunchConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppLaunchConfigurationInput,
         validate_input: @config.validate_input
@@ -2495,7 +2497,7 @@ module AWS::SDK::SMS
     def put_app_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -2620,7 +2622,7 @@ module AWS::SDK::SMS
     def put_app_validation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAppValidationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAppValidationConfigurationInput,
         validate_input: @config.validate_input
@@ -2689,7 +2691,7 @@ module AWS::SDK::SMS
     def start_app_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartAppReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartAppReplicationInput,
         validate_input: @config.validate_input
@@ -2761,7 +2763,7 @@ module AWS::SDK::SMS
     def start_on_demand_app_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartOnDemandAppReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartOnDemandAppReplicationInput,
         validate_input: @config.validate_input
@@ -2838,7 +2840,7 @@ module AWS::SDK::SMS
     def start_on_demand_replication_run(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartOnDemandReplicationRunInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartOnDemandReplicationRunInput,
         validate_input: @config.validate_input
@@ -2907,7 +2909,7 @@ module AWS::SDK::SMS
     def stop_app_replication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopAppReplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopAppReplicationInput,
         validate_input: @config.validate_input
@@ -2975,7 +2977,7 @@ module AWS::SDK::SMS
     def terminate_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateAppInput,
         validate_input: @config.validate_input
@@ -3136,7 +3138,7 @@ module AWS::SDK::SMS
     def update_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppInput,
         validate_input: @config.validate_input
@@ -3256,7 +3258,7 @@ module AWS::SDK::SMS
     def update_replication_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReplicationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReplicationJobInput,
         validate_input: @config.validate_input

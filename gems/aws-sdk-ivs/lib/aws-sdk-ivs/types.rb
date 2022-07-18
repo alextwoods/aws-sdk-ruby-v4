@@ -54,13 +54,13 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_bitrate ||= 0
         self.sample_rate ||= 0
         self.channels ||= 0
       end
-
     end
 
     # <p>Error related to a specific channel, specified by its ARN.</p>
@@ -236,11 +236,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorized ||= false
       end
-
     end
 
     # Includes enum constants for ChannelLatencyMode
@@ -318,11 +318,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorized ||= false
       end
-
     end
 
     # Includes enum constants for ChannelType
@@ -416,11 +416,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorized ||= false
       end
-
     end
 
     # @!attribute channel
@@ -859,11 +859,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute channels
@@ -902,11 +902,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute key_pairs
@@ -945,11 +945,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute recording_configurations
@@ -994,11 +994,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute stream_keys
@@ -1043,11 +1043,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute stream_sessions
@@ -1092,11 +1092,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute streams
@@ -1479,11 +1479,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.viewer_count ||= 0
       end
-
     end
 
     # <p>Object specifying a stream’s events. For a list of events, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">Using Amazon EventBridge with Amazon
@@ -1697,11 +1697,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.has_error_event ||= false
       end
-
     end
 
     # Includes enum constants for StreamState
@@ -1765,11 +1765,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.viewer_count ||= 0
       end
-
     end
 
     # <p/>
@@ -1852,11 +1852,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_interval_seconds ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -1949,11 +1949,11 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorized ||= false
       end
-
     end
 
     # @!attribute channel
@@ -2038,6 +2038,7 @@ module AWS::SDK::Ivs
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_bitrate ||= 0
@@ -2045,7 +2046,6 @@ module AWS::SDK::Ivs
         self.video_height ||= 0
         self.video_width ||= 0
       end
-
     end
 
   end

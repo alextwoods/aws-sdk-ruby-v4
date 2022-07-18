@@ -254,7 +254,7 @@ module AWS::SDK::Proton
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateEnvironmentAccountConnectionInput, context: context)
         type = Types::CreateEnvironmentAccountConnectionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.management_account_id = params[:management_account_id]
         type.role_arn = params[:role_arn]
         type.environment_name = params[:environment_name]
@@ -328,7 +328,7 @@ module AWS::SDK::Proton
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateEnvironmentTemplateVersionInput, context: context)
         type = Types::CreateEnvironmentTemplateVersionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.template_name = params[:template_name]
         type.description = params[:description]
         type.major_version = params[:major_version]
@@ -423,7 +423,7 @@ module AWS::SDK::Proton
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateServiceTemplateVersionInput, context: context)
         type = Types::CreateServiceTemplateVersionInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.template_name = params[:template_name]
         type.description = params[:description]
         type.major_version = params[:major_version]

@@ -28,11 +28,11 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>A container for the calculated facet values and counts.</p>
@@ -152,6 +152,7 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
@@ -160,7 +161,6 @@ module AWS::SDK::CloudSearchDomain
         self.sum_of_squares ||= 0
         self.stddev ||= 0
       end
-
     end
 
     # <p>Information about a document that matches the search request.</p>
@@ -225,12 +225,12 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.found ||= 0
         self.start ||= 0
       end
-
     end
 
     # Includes enum constants for QueryParser
@@ -570,13 +570,13 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.partial ||= false
         self.size ||= 0
         self.start ||= 0
       end
-
     end
 
     # <p>The result of a <code>Search</code> request. Contains the documents that match the specified search criteria and any requested fields, highlights, and facet information.</p>
@@ -629,11 +629,11 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timems ||= 0
       end
-
     end
 
     # <p>Container for the parameters to the <code>Suggest</code> request.</p>
@@ -660,11 +660,11 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Container for the suggestion information returned in a <code>SuggestResponse</code>.</p>
@@ -691,11 +691,11 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.found ||= 0
       end
-
     end
 
     # <p>Contains the response to a <code>Suggest</code> request.</p>
@@ -736,11 +736,11 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timems ||= 0
       end
-
     end
 
     # <p>An autocomplete suggestion that matches the query string specified in a <code>SuggestRequest</code>. </p>
@@ -767,11 +767,11 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # <p>Container for the parameters to the <code>UploadDocuments</code> request.</p>
@@ -830,12 +830,12 @@ module AWS::SDK::CloudSearchDomain
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.adds ||= 0
         self.deletes ||= 0
       end
-
     end
 
   end

@@ -20,8 +20,8 @@ module AWS::SDK::AppIntegrations
           description: 'description',
           kms_key: 'kms_key',
           source_uri: 'source_uri',
-          schedule_configuration: Stubs::ScheduleConfiguration.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          schedule_configuration: ScheduleConfiguration.default(visited),
+          tags: TagMap.default(visited),
           client_token: 'client_token',
         }
       end
@@ -138,8 +138,8 @@ module AWS::SDK::AppIntegrations
           description: 'description',
           kms_key: 'kms_key',
           source_uri: 'source_uri',
-          schedule_configuration: Stubs::ScheduleConfiguration.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          schedule_configuration: ScheduleConfiguration.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -167,8 +167,8 @@ module AWS::SDK::AppIntegrations
           description: 'description',
           event_integration_arn: 'event_integration_arn',
           event_bridge_bus: 'event_bridge_bus',
-          event_filter: Stubs::EventFilter.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          event_filter: EventFilter.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -208,7 +208,7 @@ module AWS::SDK::AppIntegrations
     class ListDataIntegrationAssociations
       def self.default(visited=[])
         {
-          data_integration_associations: Stubs::DataIntegrationAssociationsList.default(visited),
+          data_integration_associations: DataIntegrationAssociationsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -229,7 +229,7 @@ module AWS::SDK::AppIntegrations
         return nil if visited.include?('DataIntegrationAssociationsList')
         visited = visited + ['DataIntegrationAssociationsList']
         [
-          Stubs::DataIntegrationAssociationSummary.default(visited)
+          DataIntegrationAssociationSummary.default(visited)
         ]
       end
 
@@ -269,7 +269,7 @@ module AWS::SDK::AppIntegrations
     class ListDataIntegrations
       def self.default(visited=[])
         {
-          data_integrations: Stubs::DataIntegrationsList.default(visited),
+          data_integrations: DataIntegrationsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -290,7 +290,7 @@ module AWS::SDK::AppIntegrations
         return nil if visited.include?('DataIntegrationsList')
         visited = visited + ['DataIntegrationsList']
         [
-          Stubs::DataIntegrationSummary.default(visited)
+          DataIntegrationSummary.default(visited)
         ]
       end
 
@@ -330,7 +330,7 @@ module AWS::SDK::AppIntegrations
     class ListEventIntegrationAssociations
       def self.default(visited=[])
         {
-          event_integration_associations: Stubs::EventIntegrationAssociationsList.default(visited),
+          event_integration_associations: EventIntegrationAssociationsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -351,7 +351,7 @@ module AWS::SDK::AppIntegrations
         return nil if visited.include?('EventIntegrationAssociationsList')
         visited = visited + ['EventIntegrationAssociationsList']
         [
-          Stubs::EventIntegrationAssociation.default(visited)
+          EventIntegrationAssociation.default(visited)
         ]
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::AppIntegrations
           event_integration_name: 'event_integration_name',
           client_id: 'client_id',
           event_bridge_rule_name: 'event_bridge_rule_name',
-          client_association_metadata: Stubs::ClientAssociationMetadata.default(visited),
+          client_association_metadata: ClientAssociationMetadata.default(visited),
         }
       end
 
@@ -417,7 +417,7 @@ module AWS::SDK::AppIntegrations
     class ListEventIntegrations
       def self.default(visited=[])
         {
-          event_integrations: Stubs::EventIntegrationsList.default(visited),
+          event_integrations: EventIntegrationsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -438,7 +438,7 @@ module AWS::SDK::AppIntegrations
         return nil if visited.include?('EventIntegrationsList')
         visited = visited + ['EventIntegrationsList']
         [
-          Stubs::EventIntegration.default(visited)
+          EventIntegration.default(visited)
         ]
       end
 
@@ -461,9 +461,9 @@ module AWS::SDK::AppIntegrations
           event_integration_arn: 'event_integration_arn',
           name: 'name',
           description: 'description',
-          event_filter: Stubs::EventFilter.default(visited),
+          event_filter: EventFilter.default(visited),
           event_bridge_bus: 'event_bridge_bus',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -484,7 +484,7 @@ module AWS::SDK::AppIntegrations
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

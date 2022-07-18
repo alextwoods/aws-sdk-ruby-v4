@@ -42,11 +42,11 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The specified load balancer does not exist.</p>
@@ -226,11 +226,11 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_port ||= 0
       end
-
     end
 
     # <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
@@ -300,11 +300,11 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Information about the <code>ConnectionSettings</code> attribute.</p>
@@ -551,11 +551,11 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Contains the parameters for DeleteLoadBalancer.</p>
@@ -1115,6 +1115,7 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
@@ -1122,7 +1123,6 @@ module AWS::SDK::ElasticLoadBalancing
         self.unhealthy_threshold ||= 0
         self.healthy_threshold ||= 0
       end
-
     end
 
     # <p>The ID of an EC2 instance.</p>
@@ -1398,12 +1398,12 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.load_balancer_port ||= 0
         self.instance_port ||= 0
       end
-
     end
 
     # <p>The policies enabled for a listener.</p>
@@ -1947,11 +1947,11 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.load_balancer_port ||= 0
       end
-
     end
 
     # <p>Contains the output of SetLoadBalancerListenerSSLCertificate.</p>
@@ -2022,11 +2022,11 @@ module AWS::SDK::ElasticLoadBalancing
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.load_balancer_port ||= 0
       end
-
     end
 
     # <p>Contains the output of SetLoadBalancePoliciesOfListener.</p>

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Forecast
@@ -259,7 +261,7 @@ module AWS::SDK::Forecast
     def create_auto_predictor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAutoPredictorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAutoPredictorInput,
         validate_input: @config.validate_input
@@ -458,7 +460,7 @@ module AWS::SDK::Forecast
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -599,7 +601,7 @@ module AWS::SDK::Forecast
     def create_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetGroupInput,
         validate_input: @config.validate_input
@@ -802,7 +804,7 @@ module AWS::SDK::Forecast
     def create_dataset_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetImportJobInput,
         validate_input: @config.validate_input
@@ -1082,7 +1084,7 @@ module AWS::SDK::Forecast
     def create_explainability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExplainabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExplainabilityInput,
         validate_input: @config.validate_input
@@ -1218,7 +1220,7 @@ module AWS::SDK::Forecast
     def create_explainability_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExplainabilityExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExplainabilityExportInput,
         validate_input: @config.validate_input
@@ -1409,7 +1411,7 @@ module AWS::SDK::Forecast
     def create_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateForecastInput,
         validate_input: @config.validate_input
@@ -1557,7 +1559,7 @@ module AWS::SDK::Forecast
     def create_forecast_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateForecastExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateForecastExportJobInput,
         validate_input: @config.validate_input
@@ -1641,7 +1643,7 @@ module AWS::SDK::Forecast
     def create_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMonitorInput,
         validate_input: @config.validate_input
@@ -2016,7 +2018,7 @@ module AWS::SDK::Forecast
     def create_predictor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePredictorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePredictorInput,
         validate_input: @config.validate_input
@@ -2158,7 +2160,7 @@ module AWS::SDK::Forecast
     def create_predictor_backtest_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePredictorBacktestExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePredictorBacktestExportJobInput,
         validate_input: @config.validate_input
@@ -2233,7 +2235,7 @@ module AWS::SDK::Forecast
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -2304,7 +2306,7 @@ module AWS::SDK::Forecast
     def delete_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetGroupInput,
         validate_input: @config.validate_input
@@ -2375,7 +2377,7 @@ module AWS::SDK::Forecast
     def delete_dataset_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetImportJobInput,
         validate_input: @config.validate_input
@@ -2445,7 +2447,7 @@ module AWS::SDK::Forecast
     def delete_explainability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExplainabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExplainabilityInput,
         validate_input: @config.validate_input
@@ -2513,7 +2515,7 @@ module AWS::SDK::Forecast
     def delete_explainability_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExplainabilityExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExplainabilityExportInput,
         validate_input: @config.validate_input
@@ -2585,7 +2587,7 @@ module AWS::SDK::Forecast
     def delete_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteForecastInput,
         validate_input: @config.validate_input
@@ -2655,7 +2657,7 @@ module AWS::SDK::Forecast
     def delete_forecast_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteForecastExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteForecastExportJobInput,
         validate_input: @config.validate_input
@@ -2723,7 +2725,7 @@ module AWS::SDK::Forecast
     def delete_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMonitorInput,
         validate_input: @config.validate_input
@@ -2792,7 +2794,7 @@ module AWS::SDK::Forecast
     def delete_predictor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePredictorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePredictorInput,
         validate_input: @config.validate_input
@@ -2860,7 +2862,7 @@ module AWS::SDK::Forecast
     def delete_predictor_backtest_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePredictorBacktestExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePredictorBacktestExportJobInput,
         validate_input: @config.validate_input
@@ -2960,7 +2962,7 @@ module AWS::SDK::Forecast
     def delete_resource_tree(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceTreeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceTreeInput,
         validate_input: @config.validate_input
@@ -3074,7 +3076,7 @@ module AWS::SDK::Forecast
     def describe_auto_predictor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutoPredictorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutoPredictorInput,
         validate_input: @config.validate_input
@@ -3177,7 +3179,7 @@ module AWS::SDK::Forecast
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -3277,7 +3279,7 @@ module AWS::SDK::Forecast
     def describe_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetGroupInput,
         validate_input: @config.validate_input
@@ -3412,7 +3414,7 @@ module AWS::SDK::Forecast
     def describe_dataset_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetImportJobInput,
         validate_input: @config.validate_input
@@ -3504,7 +3506,7 @@ module AWS::SDK::Forecast
     def describe_explainability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExplainabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExplainabilityInput,
         validate_input: @config.validate_input
@@ -3585,7 +3587,7 @@ module AWS::SDK::Forecast
     def describe_explainability_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExplainabilityExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExplainabilityExportInput,
         validate_input: @config.validate_input
@@ -3705,7 +3707,7 @@ module AWS::SDK::Forecast
     def describe_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeForecastInput,
         validate_input: @config.validate_input
@@ -3810,7 +3812,7 @@ module AWS::SDK::Forecast
     def describe_forecast_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeForecastExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeForecastExportJobInput,
         validate_input: @config.validate_input
@@ -3931,7 +3933,7 @@ module AWS::SDK::Forecast
     def describe_monitor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMonitorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMonitorInput,
         validate_input: @config.validate_input
@@ -4111,7 +4113,7 @@ module AWS::SDK::Forecast
     def describe_predictor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePredictorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePredictorInput,
         validate_input: @config.validate_input
@@ -4216,7 +4218,7 @@ module AWS::SDK::Forecast
     def describe_predictor_backtest_export_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePredictorBacktestExportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePredictorBacktestExportJobInput,
         validate_input: @config.validate_input
@@ -4327,7 +4329,7 @@ module AWS::SDK::Forecast
     def get_accuracy_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccuracyMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccuracyMetricsInput,
         validate_input: @config.validate_input
@@ -4412,7 +4414,7 @@ module AWS::SDK::Forecast
     def list_dataset_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetGroupsInput,
         validate_input: @config.validate_input
@@ -4542,7 +4544,7 @@ module AWS::SDK::Forecast
     def list_dataset_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetImportJobsInput,
         validate_input: @config.validate_input
@@ -4627,7 +4629,7 @@ module AWS::SDK::Forecast
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -4750,7 +4752,7 @@ module AWS::SDK::Forecast
     def list_explainabilities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExplainabilitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExplainabilitiesInput,
         validate_input: @config.validate_input
@@ -4873,7 +4875,7 @@ module AWS::SDK::Forecast
     def list_explainability_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExplainabilityExportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExplainabilityExportsInput,
         validate_input: @config.validate_input
@@ -5004,7 +5006,7 @@ module AWS::SDK::Forecast
     def list_forecast_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListForecastExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListForecastExportJobsInput,
         validate_input: @config.validate_input
@@ -5132,7 +5134,7 @@ module AWS::SDK::Forecast
     def list_forecasts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListForecastsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListForecastsInput,
         validate_input: @config.validate_input
@@ -5271,7 +5273,7 @@ module AWS::SDK::Forecast
     def list_monitor_evaluations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMonitorEvaluationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMonitorEvaluationsInput,
         validate_input: @config.validate_input
@@ -5391,7 +5393,7 @@ module AWS::SDK::Forecast
     def list_monitors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMonitorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMonitorsInput,
         validate_input: @config.validate_input
@@ -5516,7 +5518,7 @@ module AWS::SDK::Forecast
     def list_predictor_backtest_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPredictorBacktestExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPredictorBacktestExportJobsInput,
         validate_input: @config.validate_input
@@ -5646,7 +5648,7 @@ module AWS::SDK::Forecast
     def list_predictors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPredictorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPredictorsInput,
         validate_input: @config.validate_input
@@ -5719,7 +5721,7 @@ module AWS::SDK::Forecast
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5787,7 +5789,7 @@ module AWS::SDK::Forecast
     def resume_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeResourceInput,
         validate_input: @config.validate_input
@@ -5887,7 +5889,7 @@ module AWS::SDK::Forecast
     def stop_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopResourceInput,
         validate_input: @config.validate_input
@@ -6001,7 +6003,7 @@ module AWS::SDK::Forecast
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6076,7 +6078,7 @@ module AWS::SDK::Forecast
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6156,7 +6158,7 @@ module AWS::SDK::Forecast
     def update_dataset_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatasetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatasetGroupInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::LicenseManager
   module Validators
 
@@ -91,10 +93,10 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CheckoutBorrowLicenseInput, context: context)
         Hearth::Validator.validate!(input[:license_arn], ::String, context: "#{context}[:license_arn]")
-        Validators::EntitlementDataList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        EntitlementDataList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:digital_signature_method], ::String, context: "#{context}[:digital_signature_method]")
         Hearth::Validator.validate!(input[:node_id], ::String, context: "#{context}[:node_id]")
-        Validators::MetadataList.validate!(input[:checkout_metadata], context: "#{context}[:checkout_metadata]") unless input[:checkout_metadata].nil?
+        MetadataList.validate!(input[:checkout_metadata], context: "#{context}[:checkout_metadata]") unless input[:checkout_metadata].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -104,12 +106,12 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::CheckoutBorrowLicenseOutput, context: context)
         Hearth::Validator.validate!(input[:license_arn], ::String, context: "#{context}[:license_arn]")
         Hearth::Validator.validate!(input[:license_consumption_token], ::String, context: "#{context}[:license_consumption_token]")
-        Validators::EntitlementDataList.validate!(input[:entitlements_allowed], context: "#{context}[:entitlements_allowed]") unless input[:entitlements_allowed].nil?
+        EntitlementDataList.validate!(input[:entitlements_allowed], context: "#{context}[:entitlements_allowed]") unless input[:entitlements_allowed].nil?
         Hearth::Validator.validate!(input[:node_id], ::String, context: "#{context}[:node_id]")
         Hearth::Validator.validate!(input[:signed_token], ::String, context: "#{context}[:signed_token]")
         Hearth::Validator.validate!(input[:issued_at], ::String, context: "#{context}[:issued_at]")
         Hearth::Validator.validate!(input[:expiration], ::String, context: "#{context}[:expiration]")
-        Validators::MetadataList.validate!(input[:checkout_metadata], context: "#{context}[:checkout_metadata]") unless input[:checkout_metadata].nil?
+        MetadataList.validate!(input[:checkout_metadata], context: "#{context}[:checkout_metadata]") unless input[:checkout_metadata].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:product_sku], ::String, context: "#{context}[:product_sku]")
         Hearth::Validator.validate!(input[:checkout_type], ::String, context: "#{context}[:checkout_type]")
         Hearth::Validator.validate!(input[:key_fingerprint], ::String, context: "#{context}[:key_fingerprint]")
-        Validators::EntitlementDataList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        EntitlementDataList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:beneficiary], ::String, context: "#{context}[:beneficiary]")
         Hearth::Validator.validate!(input[:node_id], ::String, context: "#{context}[:node_id]")
@@ -131,7 +133,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::CheckoutLicenseOutput, context: context)
         Hearth::Validator.validate!(input[:checkout_type], ::String, context: "#{context}[:checkout_type]")
         Hearth::Validator.validate!(input[:license_consumption_token], ::String, context: "#{context}[:license_consumption_token]")
-        Validators::EntitlementDataList.validate!(input[:entitlements_allowed], context: "#{context}[:entitlements_allowed]") unless input[:entitlements_allowed].nil?
+        EntitlementDataList.validate!(input[:entitlements_allowed], context: "#{context}[:entitlements_allowed]") unless input[:entitlements_allowed].nil?
         Hearth::Validator.validate!(input[:signed_token], ::String, context: "#{context}[:signed_token]")
         Hearth::Validator.validate!(input[:node_id], ::String, context: "#{context}[:node_id]")
         Hearth::Validator.validate!(input[:issued_at], ::String, context: "#{context}[:issued_at]")
@@ -159,7 +161,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConsumedLicenseSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConsumedLicenseSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -168,8 +170,8 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConsumptionConfiguration, context: context)
         Hearth::Validator.validate!(input[:renew_type], ::String, context: "#{context}[:renew_type]")
-        Validators::ProvisionalConfiguration.validate!(input[:provisional_configuration], context: "#{context}[:provisional_configuration]") unless input[:provisional_configuration].nil?
-        Validators::BorrowConfiguration.validate!(input[:borrow_configuration], context: "#{context}[:borrow_configuration]") unless input[:borrow_configuration].nil?
+        ProvisionalConfiguration.validate!(input[:provisional_configuration], context: "#{context}[:provisional_configuration]") unless input[:provisional_configuration].nil?
+        BorrowConfiguration.validate!(input[:borrow_configuration], context: "#{context}[:borrow_configuration]") unless input[:borrow_configuration].nil?
       end
     end
 
@@ -179,9 +181,9 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:grant_name], ::String, context: "#{context}[:grant_name]")
         Hearth::Validator.validate!(input[:license_arn], ::String, context: "#{context}[:license_arn]")
-        Validators::PrincipalArnList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        PrincipalArnList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
-        Validators::AllowedOperationList.validate!(input[:allowed_operations], context: "#{context}[:allowed_operations]") unless input[:allowed_operations].nil?
+        AllowedOperationList.validate!(input[:allowed_operations], context: "#{context}[:allowed_operations]") unless input[:allowed_operations].nil?
       end
     end
 
@@ -200,7 +202,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:grant_arn], ::String, context: "#{context}[:grant_arn]")
         Hearth::Validator.validate!(input[:grant_name], ::String, context: "#{context}[:grant_name]")
-        Validators::AllowedOperationList.validate!(input[:allowed_operations], context: "#{context}[:allowed_operations]") unless input[:allowed_operations].nil?
+        AllowedOperationList.validate!(input[:allowed_operations], context: "#{context}[:allowed_operations]") unless input[:allowed_operations].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
@@ -224,10 +226,10 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:license_counting_type], ::String, context: "#{context}[:license_counting_type]")
         Hearth::Validator.validate!(input[:license_count], ::Integer, context: "#{context}[:license_count]")
         Hearth::Validator.validate!(input[:license_count_hard_limit], ::TrueClass, ::FalseClass, context: "#{context}[:license_count_hard_limit]")
-        Validators::StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:disassociate_when_not_found], ::TrueClass, ::FalseClass, context: "#{context}[:disassociate_when_not_found]")
-        Validators::ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
+        ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
       end
     end
 
@@ -242,8 +244,8 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLicenseConversionTaskForResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::LicenseConversionContext.validate!(input[:source_license_context], context: "#{context}[:source_license_context]") unless input[:source_license_context].nil?
-        Validators::LicenseConversionContext.validate!(input[:destination_license_context], context: "#{context}[:destination_license_context]") unless input[:destination_license_context].nil?
+        LicenseConversionContext.validate!(input[:source_license_context], context: "#{context}[:source_license_context]") unless input[:source_license_context].nil?
+        LicenseConversionContext.validate!(input[:destination_license_context], context: "#{context}[:destination_license_context]") unless input[:destination_license_context].nil?
       end
     end
 
@@ -260,13 +262,13 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:license_name], ::String, context: "#{context}[:license_name]")
         Hearth::Validator.validate!(input[:product_name], ::String, context: "#{context}[:product_name]")
         Hearth::Validator.validate!(input[:product_sku], ::String, context: "#{context}[:product_sku]")
-        Validators::Issuer.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
+        Issuer.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
-        Validators::DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
-        Validators::EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
+        EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
         Hearth::Validator.validate!(input[:beneficiary], ::String, context: "#{context}[:beneficiary]")
-        Validators::ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
-        Validators::MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
+        ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
+        MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -275,12 +277,12 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLicenseManagerReportGeneratorInput, context: context)
         Hearth::Validator.validate!(input[:report_generator_name], ::String, context: "#{context}[:report_generator_name]")
-        Validators::ReportTypeList.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
-        Validators::ReportContext.validate!(input[:report_context], context: "#{context}[:report_context]") unless input[:report_context].nil?
-        Validators::ReportFrequency.validate!(input[:report_frequency], context: "#{context}[:report_frequency]") unless input[:report_frequency].nil?
+        ReportTypeList.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        ReportContext.validate!(input[:report_context], context: "#{context}[:report_context]") unless input[:report_context].nil?
+        ReportFrequency.validate!(input[:report_frequency], context: "#{context}[:report_frequency]") unless input[:report_frequency].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -306,12 +308,12 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:license_arn], ::String, context: "#{context}[:license_arn]")
         Hearth::Validator.validate!(input[:license_name], ::String, context: "#{context}[:license_name]")
         Hearth::Validator.validate!(input[:product_name], ::String, context: "#{context}[:product_name]")
-        Validators::Issuer.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
+        Issuer.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
-        Validators::DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
-        Validators::MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
-        Validators::EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
-        Validators::ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
+        DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
+        MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
+        EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:source_version], ::String, context: "#{context}[:source_version]")
@@ -331,9 +333,9 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTokenInput, context: context)
         Hearth::Validator.validate!(input[:license_arn], ::String, context: "#{context}[:license_arn]")
-        Validators::ArnList.validate!(input[:role_arns], context: "#{context}[:role_arns]") unless input[:role_arns].nil?
+        ArnList.validate!(input[:role_arns], context: "#{context}[:role_arns]") unless input[:role_arns].nil?
         Hearth::Validator.validate!(input[:expiration_in_days], ::Integer, context: "#{context}[:expiration_in_days]")
-        Validators::MaxSize3StringList.validate!(input[:token_properties], context: "#{context}[:token_properties]") unless input[:token_properties].nil?
+        MaxSize3StringList.validate!(input[:token_properties], context: "#{context}[:token_properties]") unless input[:token_properties].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -453,7 +455,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntitlementData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntitlementData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -462,7 +464,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Entitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Entitlement.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -488,7 +490,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntitlementUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntitlementUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -521,7 +523,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -536,7 +538,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccessTokenInput, context: context)
         Hearth::Validator.validate!(input[:token], ::String, context: "#{context}[:token]")
-        Validators::MaxSize3StringList.validate!(input[:token_properties], context: "#{context}[:token_properties]") unless input[:token_properties].nil?
+        MaxSize3StringList.validate!(input[:token_properties], context: "#{context}[:token_properties]") unless input[:token_properties].nil?
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::LicenseManager
     class GetGrantOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGrantOutput, context: context)
-        Validators::Grant.validate!(input[:grant], context: "#{context}[:grant]") unless input[:grant].nil?
+        Grant.validate!(input[:grant], context: "#{context}[:grant]") unless input[:grant].nil?
       end
     end
 
@@ -604,17 +606,17 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:license_counting_type], ::String, context: "#{context}[:license_counting_type]")
-        Validators::StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
+        StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
         Hearth::Validator.validate!(input[:license_count], ::Integer, context: "#{context}[:license_count]")
         Hearth::Validator.validate!(input[:license_count_hard_limit], ::TrueClass, ::FalseClass, context: "#{context}[:license_count_hard_limit]")
         Hearth::Validator.validate!(input[:consumed_licenses], ::Integer, context: "#{context}[:consumed_licenses]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:owner_account_id], ::String, context: "#{context}[:owner_account_id]")
-        Validators::ConsumedLicenseSummaryList.validate!(input[:consumed_license_summary_list], context: "#{context}[:consumed_license_summary_list]") unless input[:consumed_license_summary_list].nil?
-        Validators::ManagedResourceSummaryList.validate!(input[:managed_resource_summary_list], context: "#{context}[:managed_resource_summary_list]") unless input[:managed_resource_summary_list].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
-        Validators::AutomatedDiscoveryInformation.validate!(input[:automated_discovery_information], context: "#{context}[:automated_discovery_information]") unless input[:automated_discovery_information].nil?
+        ConsumedLicenseSummaryList.validate!(input[:consumed_license_summary_list], context: "#{context}[:consumed_license_summary_list]") unless input[:consumed_license_summary_list].nil?
+        ManagedResourceSummaryList.validate!(input[:managed_resource_summary_list], context: "#{context}[:managed_resource_summary_list]") unless input[:managed_resource_summary_list].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
+        AutomatedDiscoveryInformation.validate!(input[:automated_discovery_information], context: "#{context}[:automated_discovery_information]") unless input[:automated_discovery_information].nil?
         Hearth::Validator.validate!(input[:disassociate_when_not_found], ::TrueClass, ::FalseClass, context: "#{context}[:disassociate_when_not_found]")
       end
     end
@@ -631,8 +633,8 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::GetLicenseConversionTaskOutput, context: context)
         Hearth::Validator.validate!(input[:license_conversion_task_id], ::String, context: "#{context}[:license_conversion_task_id]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::LicenseConversionContext.validate!(input[:source_license_context], context: "#{context}[:source_license_context]") unless input[:source_license_context].nil?
-        Validators::LicenseConversionContext.validate!(input[:destination_license_context], context: "#{context}[:destination_license_context]") unless input[:destination_license_context].nil?
+        LicenseConversionContext.validate!(input[:source_license_context], context: "#{context}[:source_license_context]") unless input[:source_license_context].nil?
+        LicenseConversionContext.validate!(input[:destination_license_context], context: "#{context}[:destination_license_context]") unless input[:destination_license_context].nil?
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
@@ -659,14 +661,14 @@ module AWS::SDK::LicenseManager
     class GetLicenseManagerReportGeneratorOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLicenseManagerReportGeneratorOutput, context: context)
-        Validators::ReportGenerator.validate!(input[:report_generator], context: "#{context}[:report_generator]") unless input[:report_generator].nil?
+        ReportGenerator.validate!(input[:report_generator], context: "#{context}[:report_generator]") unless input[:report_generator].nil?
       end
     end
 
     class GetLicenseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLicenseOutput, context: context)
-        Validators::License.validate!(input[:license], context: "#{context}[:license]") unless input[:license].nil?
+        License.validate!(input[:license], context: "#{context}[:license]") unless input[:license].nil?
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::LicenseManager
     class GetLicenseUsageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLicenseUsageOutput, context: context)
-        Validators::LicenseUsage.validate!(input[:license_usage], context: "#{context}[:license_usage]") unless input[:license_usage].nil?
+        LicenseUsage.validate!(input[:license_usage], context: "#{context}[:license_usage]") unless input[:license_usage].nil?
       end
     end
 
@@ -695,7 +697,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::GetServiceSettingsOutput, context: context)
         Hearth::Validator.validate!(input[:s3_bucket_arn], ::String, context: "#{context}[:s3_bucket_arn]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::OrganizationConfiguration.validate!(input[:organization_configuration], context: "#{context}[:organization_configuration]") unless input[:organization_configuration].nil?
+        OrganizationConfiguration.validate!(input[:organization_configuration], context: "#{context}[:organization_configuration]") unless input[:organization_configuration].nil?
         Hearth::Validator.validate!(input[:enable_cross_accounts_discovery], ::TrueClass, ::FalseClass, context: "#{context}[:enable_cross_accounts_discovery]")
         Hearth::Validator.validate!(input[:license_manager_resource_share_arn], ::String, context: "#{context}[:license_manager_resource_share_arn]")
       end
@@ -713,7 +715,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:grant_status], ::String, context: "#{context}[:grant_status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::AllowedOperationList.validate!(input[:granted_operations], context: "#{context}[:granted_operations]") unless input[:granted_operations].nil?
+        AllowedOperationList.validate!(input[:granted_operations], context: "#{context}[:granted_operations]") unless input[:granted_operations].nil?
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Grant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Grant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -733,17 +735,17 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:license_name], ::String, context: "#{context}[:license_name]")
         Hearth::Validator.validate!(input[:product_name], ::String, context: "#{context}[:product_name]")
         Hearth::Validator.validate!(input[:product_sku], ::String, context: "#{context}[:product_sku]")
-        Validators::IssuerDetails.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
+        IssuerDetails.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
+        DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
         Hearth::Validator.validate!(input[:beneficiary], ::String, context: "#{context}[:beneficiary]")
-        Validators::EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
-        Validators::ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
-        Validators::MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
+        EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
+        MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
         Hearth::Validator.validate!(input[:create_time], ::String, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::ReceivedMetadata.validate!(input[:received_metadata], context: "#{context}[:received_metadata]") unless input[:received_metadata].nil?
+        ReceivedMetadata.validate!(input[:received_metadata], context: "#{context}[:received_metadata]") unless input[:received_metadata].nil?
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GrantedLicense.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GrantedLicense.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -783,7 +785,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InventoryFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InventoryFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -812,14 +814,14 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:license_name], ::String, context: "#{context}[:license_name]")
         Hearth::Validator.validate!(input[:product_name], ::String, context: "#{context}[:product_name]")
         Hearth::Validator.validate!(input[:product_sku], ::String, context: "#{context}[:product_sku]")
-        Validators::IssuerDetails.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
+        IssuerDetails.validate!(input[:issuer], context: "#{context}[:issuer]") unless input[:issuer].nil?
         Hearth::Validator.validate!(input[:home_region], ::String, context: "#{context}[:home_region]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
+        DatetimeRange.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
         Hearth::Validator.validate!(input[:beneficiary], ::String, context: "#{context}[:beneficiary]")
-        Validators::EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
-        Validators::ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
-        Validators::MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
+        EntitlementList.validate!(input[:entitlements], context: "#{context}[:entitlements]") unless input[:entitlements].nil?
+        ConsumptionConfiguration.validate!(input[:consumption_configuration], context: "#{context}[:consumption_configuration]") unless input[:consumption_configuration].nil?
+        MetadataList.validate!(input[:license_metadata], context: "#{context}[:license_metadata]") unless input[:license_metadata].nil?
         Hearth::Validator.validate!(input[:create_time], ::String, context: "#{context}[:create_time]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
@@ -833,17 +835,17 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:license_counting_type], ::String, context: "#{context}[:license_counting_type]")
-        Validators::StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
+        StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
         Hearth::Validator.validate!(input[:license_count], ::Integer, context: "#{context}[:license_count]")
         Hearth::Validator.validate!(input[:license_count_hard_limit], ::TrueClass, ::FalseClass, context: "#{context}[:license_count_hard_limit]")
         Hearth::Validator.validate!(input[:disassociate_when_not_found], ::TrueClass, ::FalseClass, context: "#{context}[:disassociate_when_not_found]")
         Hearth::Validator.validate!(input[:consumed_licenses], ::Integer, context: "#{context}[:consumed_licenses]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:owner_account_id], ::String, context: "#{context}[:owner_account_id]")
-        Validators::ConsumedLicenseSummaryList.validate!(input[:consumed_license_summary_list], context: "#{context}[:consumed_license_summary_list]") unless input[:consumed_license_summary_list].nil?
-        Validators::ManagedResourceSummaryList.validate!(input[:managed_resource_summary_list], context: "#{context}[:managed_resource_summary_list]") unless input[:managed_resource_summary_list].nil?
-        Validators::ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
-        Validators::AutomatedDiscoveryInformation.validate!(input[:automated_discovery_information], context: "#{context}[:automated_discovery_information]") unless input[:automated_discovery_information].nil?
+        ConsumedLicenseSummaryList.validate!(input[:consumed_license_summary_list], context: "#{context}[:consumed_license_summary_list]") unless input[:consumed_license_summary_list].nil?
+        ManagedResourceSummaryList.validate!(input[:managed_resource_summary_list], context: "#{context}[:managed_resource_summary_list]") unless input[:managed_resource_summary_list].nil?
+        ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
+        AutomatedDiscoveryInformation.validate!(input[:automated_discovery_information], context: "#{context}[:automated_discovery_information]") unless input[:automated_discovery_information].nil?
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseConfigurationAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseConfigurationAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -883,7 +885,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseConfigurationUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseConfigurationUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -892,7 +894,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -909,8 +911,8 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::LicenseConversionTask, context: context)
         Hearth::Validator.validate!(input[:license_conversion_task_id], ::String, context: "#{context}[:license_conversion_task_id]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::LicenseConversionContext.validate!(input[:source_license_context], context: "#{context}[:source_license_context]") unless input[:source_license_context].nil?
-        Validators::LicenseConversionContext.validate!(input[:destination_license_context], context: "#{context}[:destination_license_context]") unless input[:destination_license_context].nil?
+        LicenseConversionContext.validate!(input[:source_license_context], context: "#{context}[:source_license_context]") unless input[:source_license_context].nil?
+        LicenseConversionContext.validate!(input[:destination_license_context], context: "#{context}[:destination_license_context]") unless input[:destination_license_context].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
@@ -923,7 +925,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseConversionTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseConversionTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -932,7 +934,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::License.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          License.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -947,7 +949,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:operation_name], ::String, context: "#{context}[:operation_name]")
         Hearth::Validator.validate!(input[:resource_owner_id], ::String, context: "#{context}[:resource_owner_id]")
         Hearth::Validator.validate!(input[:operation_requested_by], ::String, context: "#{context}[:operation_requested_by]")
-        Validators::MetadataList.validate!(input[:metadata_list], context: "#{context}[:metadata_list]") unless input[:metadata_list].nil?
+        MetadataList.validate!(input[:metadata_list], context: "#{context}[:metadata_list]") unless input[:metadata_list].nil?
       end
     end
 
@@ -955,7 +957,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseOperationFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseOperationFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -972,7 +974,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LicenseSpecification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LicenseSpecification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -980,7 +982,7 @@ module AWS::SDK::LicenseManager
     class LicenseUsage
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LicenseUsage, context: context)
-        Validators::EntitlementUsageList.validate!(input[:entitlement_usages], context: "#{context}[:entitlement_usages]") unless input[:entitlement_usages].nil?
+        EntitlementUsageList.validate!(input[:entitlement_usages], context: "#{context}[:entitlement_usages]") unless input[:entitlement_usages].nil?
       end
     end
 
@@ -1003,7 +1005,7 @@ module AWS::SDK::LicenseManager
     class ListAssociationsForLicenseConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssociationsForLicenseConfigurationOutput, context: context)
-        Validators::LicenseConfigurationAssociations.validate!(input[:license_configuration_associations], context: "#{context}[:license_configuration_associations]") unless input[:license_configuration_associations].nil?
+        LicenseConfigurationAssociations.validate!(input[:license_configuration_associations], context: "#{context}[:license_configuration_associations]") unless input[:license_configuration_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1011,8 +1013,8 @@ module AWS::SDK::LicenseManager
     class ListDistributedGrantsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributedGrantsInput, context: context)
-        Validators::ArnList.validate!(input[:grant_arns], context: "#{context}[:grant_arns]") unless input[:grant_arns].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ArnList.validate!(input[:grant_arns], context: "#{context}[:grant_arns]") unless input[:grant_arns].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1021,7 +1023,7 @@ module AWS::SDK::LicenseManager
     class ListDistributedGrantsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDistributedGrantsOutput, context: context)
-        Validators::GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
+        GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1038,7 +1040,7 @@ module AWS::SDK::LicenseManager
     class ListFailuresForLicenseConfigurationOperationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFailuresForLicenseConfigurationOperationsOutput, context: context)
-        Validators::LicenseOperationFailureList.validate!(input[:license_operation_failure_list], context: "#{context}[:license_operation_failure_list]") unless input[:license_operation_failure_list].nil?
+        LicenseOperationFailureList.validate!(input[:license_operation_failure_list], context: "#{context}[:license_operation_failure_list]") unless input[:license_operation_failure_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1046,17 +1048,17 @@ module AWS::SDK::LicenseManager
     class ListLicenseConfigurationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseConfigurationsInput, context: context)
-        Validators::StringList.validate!(input[:license_configuration_arns], context: "#{context}[:license_configuration_arns]") unless input[:license_configuration_arns].nil?
+        StringList.validate!(input[:license_configuration_arns], context: "#{context}[:license_configuration_arns]") unless input[:license_configuration_arns].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListLicenseConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseConfigurationsOutput, context: context)
-        Validators::LicenseConfigurations.validate!(input[:license_configurations], context: "#{context}[:license_configurations]") unless input[:license_configurations].nil?
+        LicenseConfigurations.validate!(input[:license_configurations], context: "#{context}[:license_configurations]") unless input[:license_configurations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1066,14 +1068,14 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::ListLicenseConversionTasksInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListLicenseConversionTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseConversionTasksOutput, context: context)
-        Validators::LicenseConversionTasks.validate!(input[:license_conversion_tasks], context: "#{context}[:license_conversion_tasks]") unless input[:license_conversion_tasks].nil?
+        LicenseConversionTasks.validate!(input[:license_conversion_tasks], context: "#{context}[:license_conversion_tasks]") unless input[:license_conversion_tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1081,7 +1083,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseManagerReportGeneratorsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseManagerReportGeneratorsInput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1090,7 +1092,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseManagerReportGeneratorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseManagerReportGeneratorsOutput, context: context)
-        Validators::ReportGeneratorList.validate!(input[:report_generators], context: "#{context}[:report_generators]") unless input[:report_generators].nil?
+        ReportGeneratorList.validate!(input[:report_generators], context: "#{context}[:report_generators]") unless input[:report_generators].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1107,7 +1109,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseSpecificationsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseSpecificationsForResourceOutput, context: context)
-        Validators::LicenseSpecifications.validate!(input[:license_specifications], context: "#{context}[:license_specifications]") unless input[:license_specifications].nil?
+        LicenseSpecifications.validate!(input[:license_specifications], context: "#{context}[:license_specifications]") unless input[:license_specifications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1124,7 +1126,7 @@ module AWS::SDK::LicenseManager
     class ListLicenseVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicenseVersionsOutput, context: context)
-        Validators::LicenseList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
+        LicenseList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1132,8 +1134,8 @@ module AWS::SDK::LicenseManager
     class ListLicensesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicensesInput, context: context)
-        Validators::ArnList.validate!(input[:license_arns], context: "#{context}[:license_arns]") unless input[:license_arns].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ArnList.validate!(input[:license_arns], context: "#{context}[:license_arns]") unless input[:license_arns].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1142,7 +1144,7 @@ module AWS::SDK::LicenseManager
     class ListLicensesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLicensesOutput, context: context)
-        Validators::LicenseList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
+        LicenseList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1150,8 +1152,8 @@ module AWS::SDK::LicenseManager
     class ListReceivedGrantsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReceivedGrantsInput, context: context)
-        Validators::ArnList.validate!(input[:grant_arns], context: "#{context}[:grant_arns]") unless input[:grant_arns].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ArnList.validate!(input[:grant_arns], context: "#{context}[:grant_arns]") unless input[:grant_arns].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1160,7 +1162,7 @@ module AWS::SDK::LicenseManager
     class ListReceivedGrantsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReceivedGrantsOutput, context: context)
-        Validators::GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
+        GrantList.validate!(input[:grants], context: "#{context}[:grants]") unless input[:grants].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1168,8 +1170,8 @@ module AWS::SDK::LicenseManager
     class ListReceivedLicensesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReceivedLicensesInput, context: context)
-        Validators::ArnList.validate!(input[:license_arns], context: "#{context}[:license_arns]") unless input[:license_arns].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        ArnList.validate!(input[:license_arns], context: "#{context}[:license_arns]") unless input[:license_arns].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1178,7 +1180,7 @@ module AWS::SDK::LicenseManager
     class ListReceivedLicensesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReceivedLicensesOutput, context: context)
-        Validators::GrantedLicenseList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
+        GrantedLicenseList.validate!(input[:licenses], context: "#{context}[:licenses]") unless input[:licenses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1188,14 +1190,14 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::ListResourceInventoryInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::InventoryFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        InventoryFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListResourceInventoryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceInventoryOutput, context: context)
-        Validators::ResourceInventoryList.validate!(input[:resource_inventory_list], context: "#{context}[:resource_inventory_list]") unless input[:resource_inventory_list].nil?
+        ResourceInventoryList.validate!(input[:resource_inventory_list], context: "#{context}[:resource_inventory_list]") unless input[:resource_inventory_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1210,15 +1212,15 @@ module AWS::SDK::LicenseManager
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class ListTokensInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTokensInput, context: context)
-        Validators::StringList.validate!(input[:token_ids], context: "#{context}[:token_ids]") unless input[:token_ids].nil?
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        StringList.validate!(input[:token_ids], context: "#{context}[:token_ids]") unless input[:token_ids].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1227,7 +1229,7 @@ module AWS::SDK::LicenseManager
     class ListTokensOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTokensOutput, context: context)
-        Validators::TokenList.validate!(input[:tokens], context: "#{context}[:tokens]") unless input[:tokens].nil?
+        TokenList.validate!(input[:tokens], context: "#{context}[:tokens]") unless input[:tokens].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1238,14 +1240,14 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:license_configuration_arn], ::String, context: "#{context}[:license_configuration_arn]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListUsageForLicenseConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsageForLicenseConfigurationOutput, context: context)
-        Validators::LicenseConfigurationUsageList.validate!(input[:license_configuration_usage_list], context: "#{context}[:license_configuration_usage_list]") unless input[:license_configuration_usage_list].nil?
+        LicenseConfigurationUsageList.validate!(input[:license_configuration_usage_list], context: "#{context}[:license_configuration_usage_list]") unless input[:license_configuration_usage_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1262,7 +1264,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedResourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedResourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1288,7 +1290,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Metadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Metadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1320,7 +1322,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProductInformation, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ProductInformationFilterList.validate!(input[:product_information_filter_list], context: "#{context}[:product_information_filter_list]") unless input[:product_information_filter_list].nil?
+        ProductInformationFilterList.validate!(input[:product_information_filter_list], context: "#{context}[:product_information_filter_list]") unless input[:product_information_filter_list].nil?
       end
     end
 
@@ -1328,7 +1330,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProductInformationFilter, context: context)
         Hearth::Validator.validate!(input[:product_information_filter_name], ::String, context: "#{context}[:product_information_filter_name]")
-        Validators::StringList.validate!(input[:product_information_filter_value], context: "#{context}[:product_information_filter_value]") unless input[:product_information_filter_value].nil?
+        StringList.validate!(input[:product_information_filter_value], context: "#{context}[:product_information_filter_value]") unless input[:product_information_filter_value].nil?
         Hearth::Validator.validate!(input[:product_information_filter_comparator], ::String, context: "#{context}[:product_information_filter_comparator]")
       end
     end
@@ -1337,7 +1339,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProductInformationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProductInformationFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1346,7 +1348,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProductInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProductInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1370,7 +1372,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::ReceivedMetadata, context: context)
         Hearth::Validator.validate!(input[:received_status], ::String, context: "#{context}[:received_status]")
         Hearth::Validator.validate!(input[:received_status_reason], ::String, context: "#{context}[:received_status_reason]")
-        Validators::AllowedOperationList.validate!(input[:allowed_operations], context: "#{context}[:allowed_operations]") unless input[:allowed_operations].nil?
+        AllowedOperationList.validate!(input[:allowed_operations], context: "#{context}[:allowed_operations]") unless input[:allowed_operations].nil?
       end
     end
 
@@ -1401,7 +1403,7 @@ module AWS::SDK::LicenseManager
     class ReportContext
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReportContext, context: context)
-        Validators::ArnList.validate!(input[:license_configuration_arns], context: "#{context}[:license_configuration_arns]") unless input[:license_configuration_arns].nil?
+        ArnList.validate!(input[:license_configuration_arns], context: "#{context}[:license_configuration_arns]") unless input[:license_configuration_arns].nil?
       end
     end
 
@@ -1417,18 +1419,18 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReportGenerator, context: context)
         Hearth::Validator.validate!(input[:report_generator_name], ::String, context: "#{context}[:report_generator_name]")
-        Validators::ReportTypeList.validate!(input[:report_type], context: "#{context}[:report_type]") unless input[:report_type].nil?
-        Validators::ReportContext.validate!(input[:report_context], context: "#{context}[:report_context]") unless input[:report_context].nil?
-        Validators::ReportFrequency.validate!(input[:report_frequency], context: "#{context}[:report_frequency]") unless input[:report_frequency].nil?
+        ReportTypeList.validate!(input[:report_type], context: "#{context}[:report_type]") unless input[:report_type].nil?
+        ReportContext.validate!(input[:report_context], context: "#{context}[:report_context]") unless input[:report_context].nil?
+        ReportFrequency.validate!(input[:report_frequency], context: "#{context}[:report_frequency]") unless input[:report_frequency].nil?
         Hearth::Validator.validate!(input[:license_manager_report_generator_arn], ::String, context: "#{context}[:license_manager_report_generator_arn]")
         Hearth::Validator.validate!(input[:last_run_status], ::String, context: "#{context}[:last_run_status]")
         Hearth::Validator.validate!(input[:last_run_failure_reason], ::String, context: "#{context}[:last_run_failure_reason]")
         Hearth::Validator.validate!(input[:last_report_generation_time], ::String, context: "#{context}[:last_report_generation_time]")
         Hearth::Validator.validate!(input[:report_creator_account], ::String, context: "#{context}[:report_creator_account]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
         Hearth::Validator.validate!(input[:create_time], ::String, context: "#{context}[:create_time]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1436,7 +1438,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ReportGenerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ReportGenerator.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1466,7 +1468,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceInventory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceInventory.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1530,7 +1532,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1539,7 +1541,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1556,8 +1558,8 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input[:token_type], ::String, context: "#{context}[:token_type]")
         Hearth::Validator.validate!(input[:license_arn], ::String, context: "#{context}[:license_arn]")
         Hearth::Validator.validate!(input[:expiration_time], ::String, context: "#{context}[:expiration_time]")
-        Validators::MaxSize3StringList.validate!(input[:token_properties], context: "#{context}[:token_properties]") unless input[:token_properties].nil?
-        Validators::ArnList.validate!(input[:role_arns], context: "#{context}[:role_arns]") unless input[:role_arns].nil?
+        MaxSize3StringList.validate!(input[:token_properties], context: "#{context}[:token_properties]") unless input[:token_properties].nil?
+        ArnList.validate!(input[:role_arns], context: "#{context}[:role_arns]") unless input[:role_arns].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -1566,7 +1568,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TokenData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TokenData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1582,7 +1584,7 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1597,12 +1599,12 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::UpdateLicenseConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:license_configuration_arn], ::String, context: "#{context}[:license_configuration_arn]")
         Hearth::Validator.validate!(input[:license_configuration_status], ::String, context: "#{context}[:license_configuration_status]")
-        Validators::StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
+        StringList.validate!(input[:license_rules], context: "#{context}[:license_rules]") unless input[:license_rules].nil?
         Hearth::Validator.validate!(input[:license_count], ::Integer, context: "#{context}[:license_count]")
         Hearth::Validator.validate!(input[:license_count_hard_limit], ::TrueClass, ::FalseClass, context: "#{context}[:license_count_hard_limit]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
+        ProductInformationList.validate!(input[:product_information_list], context: "#{context}[:product_information_list]") unless input[:product_information_list].nil?
         Hearth::Validator.validate!(input[:disassociate_when_not_found], ::TrueClass, ::FalseClass, context: "#{context}[:disassociate_when_not_found]")
       end
     end
@@ -1618,9 +1620,9 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::UpdateLicenseManagerReportGeneratorInput, context: context)
         Hearth::Validator.validate!(input[:license_manager_report_generator_arn], ::String, context: "#{context}[:license_manager_report_generator_arn]")
         Hearth::Validator.validate!(input[:report_generator_name], ::String, context: "#{context}[:report_generator_name]")
-        Validators::ReportTypeList.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
-        Validators::ReportContext.validate!(input[:report_context], context: "#{context}[:report_context]") unless input[:report_context].nil?
-        Validators::ReportFrequency.validate!(input[:report_frequency], context: "#{context}[:report_frequency]") unless input[:report_frequency].nil?
+        ReportTypeList.validate!(input[:type], context: "#{context}[:type]") unless input[:type].nil?
+        ReportContext.validate!(input[:report_context], context: "#{context}[:report_context]") unless input[:report_context].nil?
+        ReportFrequency.validate!(input[:report_frequency], context: "#{context}[:report_frequency]") unless input[:report_frequency].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
       end
@@ -1636,8 +1638,8 @@ module AWS::SDK::LicenseManager
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLicenseSpecificationsForResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::LicenseSpecifications.validate!(input[:add_license_specifications], context: "#{context}[:add_license_specifications]") unless input[:add_license_specifications].nil?
-        Validators::LicenseSpecifications.validate!(input[:remove_license_specifications], context: "#{context}[:remove_license_specifications]") unless input[:remove_license_specifications].nil?
+        LicenseSpecifications.validate!(input[:add_license_specifications], context: "#{context}[:add_license_specifications]") unless input[:add_license_specifications].nil?
+        LicenseSpecifications.validate!(input[:remove_license_specifications], context: "#{context}[:remove_license_specifications]") unless input[:remove_license_specifications].nil?
       end
     end
 
@@ -1652,7 +1654,7 @@ module AWS::SDK::LicenseManager
         Hearth::Validator.validate!(input, Types::UpdateServiceSettingsInput, context: context)
         Hearth::Validator.validate!(input[:s3_bucket_arn], ::String, context: "#{context}[:s3_bucket_arn]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::OrganizationConfiguration.validate!(input[:organization_configuration], context: "#{context}[:organization_configuration]") unless input[:organization_configuration].nil?
+        OrganizationConfiguration.validate!(input[:organization_configuration], context: "#{context}[:organization_configuration]") unless input[:organization_configuration].nil?
         Hearth::Validator.validate!(input[:enable_cross_accounts_discovery], ::TrueClass, ::FalseClass, context: "#{context}[:enable_cross_accounts_discovery]")
       end
     end

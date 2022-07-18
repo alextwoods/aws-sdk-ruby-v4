@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MigrationHubRefactorSpaces
   module Validators
 
@@ -65,7 +67,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -81,10 +83,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:proxy_type], ::String, context: "#{context}[:proxy_type]")
-        Validators::ApiGatewayProxySummary.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
+        ApiGatewayProxySummary.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -115,8 +117,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:environment_identifier], ::String, context: "#{context}[:environment_identifier]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:proxy_type], ::String, context: "#{context}[:proxy_type]")
-        Validators::ApiGatewayProxyInput.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ApiGatewayProxyInput.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -132,9 +134,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:proxy_type], ::String, context: "#{context}[:proxy_type]")
-        Validators::ApiGatewayProxyInput.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
+        ApiGatewayProxyInput.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -146,7 +148,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:network_fabric_type], ::String, context: "#{context}[:network_fabric_type]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -161,7 +163,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:network_fabric_type], ::String, context: "#{context}[:network_fabric_type]")
         Hearth::Validator.validate!(input[:owner_account_id], ::String, context: "#{context}[:owner_account_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -174,8 +176,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_identifier], ::String, context: "#{context}[:application_identifier]")
         Hearth::Validator.validate!(input[:service_identifier], ::String, context: "#{context}[:service_identifier]")
         Hearth::Validator.validate!(input[:route_type], ::String, context: "#{context}[:route_type]")
-        Validators::UriPathRouteInput.validate!(input[:uri_path_route], context: "#{context}[:uri_path_route]") unless input[:uri_path_route].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UriPathRouteInput.validate!(input[:uri_path_route], context: "#{context}[:uri_path_route]") unless input[:uri_path_route].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -190,9 +192,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:route_type], ::String, context: "#{context}[:route_type]")
         Hearth::Validator.validate!(input[:service_id], ::String, context: "#{context}[:service_id]")
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
-        Validators::UriPathRouteInput.validate!(input[:uri_path_route], context: "#{context}[:uri_path_route]") unless input[:uri_path_route].nil?
+        UriPathRouteInput.validate!(input[:uri_path_route], context: "#{context}[:uri_path_route]") unless input[:uri_path_route].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -207,9 +209,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_identifier], ::String, context: "#{context}[:application_identifier]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
-        Validators::UrlEndpointInput.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
-        Validators::LambdaEndpointInput.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        UrlEndpointInput.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
+        LambdaEndpointInput.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -227,10 +229,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
-        Validators::UrlEndpointInput.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
-        Validators::LambdaEndpointInput.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
+        UrlEndpointInput.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
+        LambdaEndpointInput.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -334,7 +336,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -350,8 +352,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:owner_account_id], ::String, context: "#{context}[:owner_account_id]")
         Hearth::Validator.validate!(input[:transit_gateway_id], ::String, context: "#{context}[:transit_gateway_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -363,7 +365,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::CidrBlocks.validate!(input[:cidr_blocks], context: "#{context}[:cidr_blocks]") unless input[:cidr_blocks].nil?
+        CidrBlocks.validate!(input[:cidr_blocks], context: "#{context}[:cidr_blocks]") unless input[:cidr_blocks].nil?
         Hearth::Validator.validate!(input[:vpc_name], ::String, context: "#{context}[:vpc_name]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
@@ -374,7 +376,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnvironmentVpc.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnvironmentVpc.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -387,7 +389,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:resource_identifier], ::String, context: "#{context}[:resource_identifier]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::AdditionalDetails.validate!(input[:additional_details], context: "#{context}[:additional_details]") unless input[:additional_details].nil?
+        AdditionalDetails.validate!(input[:additional_details], context: "#{context}[:additional_details]") unless input[:additional_details].nil?
       end
     end
 
@@ -410,10 +412,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:proxy_type], ::String, context: "#{context}[:proxy_type]")
-        Validators::ApiGatewayProxyConfig.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
+        ApiGatewayProxyConfig.validate!(input[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless input[:api_gateway_proxy].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -437,8 +439,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:owner_account_id], ::String, context: "#{context}[:owner_account_id]")
         Hearth::Validator.validate!(input[:transit_gateway_id], ::String, context: "#{context}[:transit_gateway_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -479,12 +481,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:source_path], ::String, context: "#{context}[:source_path]")
-        Validators::HttpMethods.validate!(input[:member_methods], context: "#{context}[:member_methods]") unless input[:member_methods].nil?
+        HttpMethods.validate!(input[:member_methods], context: "#{context}[:member_methods]") unless input[:member_methods].nil?
         Hearth::Validator.validate!(input[:include_child_paths], ::TrueClass, ::FalseClass, context: "#{context}[:include_child_paths]")
-        Validators::PathResourceToId.validate!(input[:path_resource_to_id], context: "#{context}[:path_resource_to_id]") unless input[:path_resource_to_id].nil?
+        PathResourceToId.validate!(input[:path_resource_to_id], context: "#{context}[:path_resource_to_id]") unless input[:path_resource_to_id].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -512,11 +514,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
-        Validators::UrlEndpointConfig.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
-        Validators::LambdaEndpointConfig.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
+        UrlEndpointConfig.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
+        LambdaEndpointConfig.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -578,7 +580,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationsOutput, context: context)
-        Validators::ApplicationSummaries.validate!(input[:application_summary_list], context: "#{context}[:application_summary_list]") unless input[:application_summary_list].nil?
+        ApplicationSummaries.validate!(input[:application_summary_list], context: "#{context}[:application_summary_list]") unless input[:application_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -595,7 +597,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListEnvironmentVpcsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentVpcsOutput, context: context)
-        Validators::EnvironmentVpcs.validate!(input[:environment_vpc_list], context: "#{context}[:environment_vpc_list]") unless input[:environment_vpc_list].nil?
+        EnvironmentVpcs.validate!(input[:environment_vpc_list], context: "#{context}[:environment_vpc_list]") unless input[:environment_vpc_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListEnvironmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEnvironmentsOutput, context: context)
-        Validators::EnvironmentSummaries.validate!(input[:environment_summary_list], context: "#{context}[:environment_summary_list]") unless input[:environment_summary_list].nil?
+        EnvironmentSummaries.validate!(input[:environment_summary_list], context: "#{context}[:environment_summary_list]") unless input[:environment_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -629,7 +631,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListRoutesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoutesOutput, context: context)
-        Validators::RouteSummaries.validate!(input[:route_summary_list], context: "#{context}[:route_summary_list]") unless input[:route_summary_list].nil?
+        RouteSummaries.validate!(input[:route_summary_list], context: "#{context}[:route_summary_list]") unless input[:route_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -647,7 +649,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListServicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListServicesOutput, context: context)
-        Validators::ServiceSummaries.validate!(input[:service_summary_list], context: "#{context}[:service_summary_list]") unless input[:service_summary_list].nil?
+        ServiceSummaries.validate!(input[:service_summary_list], context: "#{context}[:service_summary_list]") unless input[:service_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -703,7 +705,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RouteSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RouteSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -720,12 +722,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:environment_id], ::String, context: "#{context}[:environment_id]")
         Hearth::Validator.validate!(input[:source_path], ::String, context: "#{context}[:source_path]")
-        Validators::HttpMethods.validate!(input[:member_methods], context: "#{context}[:member_methods]") unless input[:member_methods].nil?
+        HttpMethods.validate!(input[:member_methods], context: "#{context}[:member_methods]") unless input[:member_methods].nil?
         Hearth::Validator.validate!(input[:include_child_paths], ::TrueClass, ::FalseClass, context: "#{context}[:include_child_paths]")
-        Validators::PathResourceToId.validate!(input[:path_resource_to_id], context: "#{context}[:path_resource_to_id]") unless input[:path_resource_to_id].nil?
+        PathResourceToId.validate!(input[:path_resource_to_id], context: "#{context}[:path_resource_to_id]") unless input[:path_resource_to_id].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -746,7 +748,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServiceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -764,11 +766,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input[:application_id], ::String, context: "#{context}[:application_id]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:endpoint_type], ::String, context: "#{context}[:endpoint_type]")
-        Validators::UrlEndpointSummary.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
-        Validators::LambdaEndpointSummary.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
+        UrlEndpointSummary.validate!(input[:url_endpoint], context: "#{context}[:url_endpoint]") unless input[:url_endpoint].nil?
+        LambdaEndpointSummary.validate!(input[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless input[:lambda_endpoint].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ErrorResponse.validate!(input[:error], context: "#{context}[:error]") unless input[:error].nil?
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
       end
@@ -797,7 +799,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -821,7 +823,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -836,7 +838,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         Hearth::Validator.validate!(input, Types::UriPathRouteInput, context: context)
         Hearth::Validator.validate!(input[:source_path], ::String, context: "#{context}[:source_path]")
         Hearth::Validator.validate!(input[:activation_state], ::String, context: "#{context}[:activation_state]")
-        Validators::HttpMethods.validate!(input[:member_methods], context: "#{context}[:member_methods]") unless input[:member_methods].nil?
+        HttpMethods.validate!(input[:member_methods], context: "#{context}[:member_methods]") unless input[:member_methods].nil?
         Hearth::Validator.validate!(input[:include_child_paths], ::TrueClass, ::FalseClass, context: "#{context}[:include_child_paths]")
       end
     end

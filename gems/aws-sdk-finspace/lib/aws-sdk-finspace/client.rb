@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Finspace
@@ -125,7 +127,7 @@ module AWS::SDK::Finspace
     def create_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentInput,
         validate_input: @config.validate_input
@@ -193,7 +195,7 @@ module AWS::SDK::Finspace
     def delete_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentInput,
         validate_input: @config.validate_input
@@ -280,7 +282,7 @@ module AWS::SDK::Finspace
     def get_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentInput,
         validate_input: @config.validate_input
@@ -375,7 +377,7 @@ module AWS::SDK::Finspace
     def list_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentsInput,
         validate_input: @config.validate_input
@@ -444,7 +446,7 @@ module AWS::SDK::Finspace
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::Finspace
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -592,7 +594,7 @@ module AWS::SDK::Finspace
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -714,7 +716,7 @@ module AWS::SDK::Finspace
     def update_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentInput,
         validate_input: @config.validate_input

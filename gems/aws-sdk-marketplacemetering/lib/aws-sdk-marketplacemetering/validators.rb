@@ -7,13 +7,15 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MarketplaceMetering
   module Validators
 
     class BatchMeterUsageInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchMeterUsageInput, context: context)
-        Validators::UsageRecordList.validate!(input[:usage_records], context: "#{context}[:usage_records]") unless input[:usage_records].nil?
+        UsageRecordList.validate!(input[:usage_records], context: "#{context}[:usage_records]") unless input[:usage_records].nil?
         Hearth::Validator.validate!(input[:product_code], ::String, context: "#{context}[:product_code]")
       end
     end
@@ -21,8 +23,8 @@ module AWS::SDK::MarketplaceMetering
     class BatchMeterUsageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchMeterUsageOutput, context: context)
-        Validators::UsageRecordResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
-        Validators::UsageRecordList.validate!(input[:unprocessed_records], context: "#{context}[:unprocessed_records]") unless input[:unprocessed_records].nil?
+        UsageRecordResultList.validate!(input[:results], context: "#{context}[:results]") unless input[:results].nil?
+        UsageRecordList.validate!(input[:unprocessed_records], context: "#{context}[:unprocessed_records]") unless input[:unprocessed_records].nil?
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::MarketplaceMetering
         Hearth::Validator.validate!(input[:usage_dimension], ::String, context: "#{context}[:usage_dimension]")
         Hearth::Validator.validate!(input[:usage_quantity], ::Integer, context: "#{context}[:usage_quantity]")
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
-        Validators::UsageAllocations.validate!(input[:usage_allocations], context: "#{context}[:usage_allocations]") unless input[:usage_allocations].nil?
+        UsageAllocations.validate!(input[:usage_allocations], context: "#{context}[:usage_allocations]") unless input[:usage_allocations].nil?
       end
     end
 
@@ -195,7 +197,7 @@ module AWS::SDK::MarketplaceMetering
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -218,7 +220,7 @@ module AWS::SDK::MarketplaceMetering
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UsageAllocation, context: context)
         Hearth::Validator.validate!(input[:allocated_usage_quantity], ::Integer, context: "#{context}[:allocated_usage_quantity]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::MarketplaceMetering
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UsageAllocation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UsageAllocation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -238,7 +240,7 @@ module AWS::SDK::MarketplaceMetering
         Hearth::Validator.validate!(input[:customer_identifier], ::String, context: "#{context}[:customer_identifier]")
         Hearth::Validator.validate!(input[:dimension], ::String, context: "#{context}[:dimension]")
         Hearth::Validator.validate!(input[:quantity], ::Integer, context: "#{context}[:quantity]")
-        Validators::UsageAllocations.validate!(input[:usage_allocations], context: "#{context}[:usage_allocations]") unless input[:usage_allocations].nil?
+        UsageAllocations.validate!(input[:usage_allocations], context: "#{context}[:usage_allocations]") unless input[:usage_allocations].nil?
       end
     end
 
@@ -246,7 +248,7 @@ module AWS::SDK::MarketplaceMetering
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UsageRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UsageRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::MarketplaceMetering
     class UsageRecordResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UsageRecordResult, context: context)
-        Validators::UsageRecord.validate!(input[:usage_record], context: "#{context}[:usage_record]") unless input[:usage_record].nil?
+        UsageRecord.validate!(input[:usage_record], context: "#{context}[:usage_record]") unless input[:usage_record].nil?
         Hearth::Validator.validate!(input[:metering_record_id], ::String, context: "#{context}[:metering_record_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
@@ -264,7 +266,7 @@ module AWS::SDK::MarketplaceMetering
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UsageRecordResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UsageRecordResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

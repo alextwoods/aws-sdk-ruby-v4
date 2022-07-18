@@ -100,12 +100,12 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.used ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for AccountLimitName
@@ -777,6 +777,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
@@ -784,7 +785,6 @@ module AWS::SDK::PinpointSMSVoiceV2
         self.shared_routes_enabled ||= false
         self.deletion_protection_enabled ||= false
       end
-
     end
 
     # @!attribute configuration_set_name
@@ -1118,11 +1118,11 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.end_user_opted_out ||= false
       end
-
     end
 
     # @!attribute pool_id
@@ -1222,13 +1222,13 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
         self.self_managed_opt_outs_enabled ||= false
         self.shared_routes_enabled ||= false
       end
-
     end
 
     DeleteTextMessageSpendLimitOverrideInput = ::Struct.new(
@@ -2376,11 +2376,11 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.end_user_opted_out ||= false
       end
-
     end
 
     # <p>The metadata for an origination identity associated with a pool.</p>
@@ -2597,13 +2597,13 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
         self.self_managed_opt_outs_enabled ||= false
         self.deletion_protection_enabled ||= false
       end
-
     end
 
     # <p>The information for a pool that meets a specified criteria.</p>
@@ -2749,6 +2749,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
@@ -2756,7 +2757,6 @@ module AWS::SDK::PinpointSMSVoiceV2
         self.shared_routes_enabled ||= false
         self.deletion_protection_enabled ||= false
       end
-
     end
 
     # <p>Information about origination identities associated with a pool that meets a specified
@@ -2947,11 +2947,11 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.end_user_opted_out ||= false
       end
-
     end
 
     # @!attribute phone_number_id
@@ -3067,12 +3067,12 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
         self.self_managed_opt_outs_enabled ||= false
       end
-
     end
 
     # @!attribute iso_country_code
@@ -3276,13 +3276,13 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
         self.self_managed_opt_outs_enabled ||= false
         self.deletion_protection_enabled ||= false
       end
-
     end
 
     # Includes enum constants for RequestableNumberType
@@ -3456,11 +3456,11 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute message_id
@@ -3559,11 +3559,11 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute message_id
@@ -3959,13 +3959,13 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enforced_limit ||= 0
         self.max_limit ||= 0
         self.overridden ||= false
       end
-
     end
 
     # Includes enum constants for SpendLimitName
@@ -4294,13 +4294,13 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
         self.self_managed_opt_outs_enabled ||= false
         self.deletion_protection_enabled ||= false
       end
-
     end
 
     # @!attribute pool_id
@@ -4437,6 +4437,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.two_way_enabled ||= false
@@ -4444,7 +4445,6 @@ module AWS::SDK::PinpointSMSVoiceV2
         self.shared_routes_enabled ||= false
         self.deletion_protection_enabled ||= false
       end
-
     end
 
     # <p>A validation exception for a field.</p>

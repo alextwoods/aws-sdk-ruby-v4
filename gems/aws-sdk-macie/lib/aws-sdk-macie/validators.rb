@@ -35,14 +35,14 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateS3ResourcesInput, context: context)
         Hearth::Validator.validate!(input[:member_account_id], ::String, context: "#{context}[:member_account_id]")
-        Validators::S3ResourcesClassification.validate!(input[:s3_resources], context: "#{context}[:s3_resources]") unless input[:s3_resources].nil?
+        S3ResourcesClassification.validate!(input[:s3_resources], context: "#{context}[:s3_resources]") unless input[:s3_resources].nil?
       end
     end
 
     class AssociateS3ResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateS3ResourcesOutput, context: context)
-        Validators::FailedS3Resources.validate!(input[:failed_s3_resources], context: "#{context}[:failed_s3_resources]") unless input[:failed_s3_resources].nil?
+        FailedS3Resources.validate!(input[:failed_s3_resources], context: "#{context}[:failed_s3_resources]") unless input[:failed_s3_resources].nil?
       end
     end
 
@@ -79,21 +79,21 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateS3ResourcesInput, context: context)
         Hearth::Validator.validate!(input[:member_account_id], ::String, context: "#{context}[:member_account_id]")
-        Validators::S3Resources.validate!(input[:associated_s3_resources], context: "#{context}[:associated_s3_resources]") unless input[:associated_s3_resources].nil?
+        S3Resources.validate!(input[:associated_s3_resources], context: "#{context}[:associated_s3_resources]") unless input[:associated_s3_resources].nil?
       end
     end
 
     class DisassociateS3ResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisassociateS3ResourcesOutput, context: context)
-        Validators::FailedS3Resources.validate!(input[:failed_s3_resources], context: "#{context}[:failed_s3_resources]") unless input[:failed_s3_resources].nil?
+        FailedS3Resources.validate!(input[:failed_s3_resources], context: "#{context}[:failed_s3_resources]") unless input[:failed_s3_resources].nil?
       end
     end
 
     class FailedS3Resource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailedS3Resource, context: context)
-        Validators::S3Resource.validate!(input[:failed_item], context: "#{context}[:failed_item]") unless input[:failed_item].nil?
+        S3Resource.validate!(input[:failed_item], context: "#{context}[:failed_item]") unless input[:failed_item].nil?
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
@@ -103,7 +103,7 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedS3Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedS3Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -145,7 +145,7 @@ module AWS::SDK::Macie
     class ListMemberAccountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMemberAccountsOutput, context: context)
-        Validators::MemberAccounts.validate!(input[:member_accounts], context: "#{context}[:member_accounts]") unless input[:member_accounts].nil?
+        MemberAccounts.validate!(input[:member_accounts], context: "#{context}[:member_accounts]") unless input[:member_accounts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -162,7 +162,7 @@ module AWS::SDK::Macie
     class ListS3ResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListS3ResourcesOutput, context: context)
-        Validators::S3ResourcesClassification.validate!(input[:s3_resources], context: "#{context}[:s3_resources]") unless input[:s3_resources].nil?
+        S3ResourcesClassification.validate!(input[:s3_resources], context: "#{context}[:s3_resources]") unless input[:s3_resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -178,7 +178,7 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -196,7 +196,7 @@ module AWS::SDK::Macie
         Hearth::Validator.validate!(input, Types::S3ResourceClassification, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        Validators::ClassificationType.validate!(input[:classification_type], context: "#{context}[:classification_type]") unless input[:classification_type].nil?
+        ClassificationType.validate!(input[:classification_type], context: "#{context}[:classification_type]") unless input[:classification_type].nil?
       end
     end
 
@@ -205,7 +205,7 @@ module AWS::SDK::Macie
         Hearth::Validator.validate!(input, Types::S3ResourceClassificationUpdate, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:prefix], ::String, context: "#{context}[:prefix]")
-        Validators::ClassificationTypeUpdate.validate!(input[:classification_type_update], context: "#{context}[:classification_type_update]") unless input[:classification_type_update].nil?
+        ClassificationTypeUpdate.validate!(input[:classification_type_update], context: "#{context}[:classification_type_update]") unless input[:classification_type_update].nil?
       end
     end
 
@@ -213,7 +213,7 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -222,7 +222,7 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3ResourceClassification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3ResourceClassification.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -231,7 +231,7 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3ResourceClassificationUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3ResourceClassificationUpdate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -240,14 +240,14 @@ module AWS::SDK::Macie
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateS3ResourcesInput, context: context)
         Hearth::Validator.validate!(input[:member_account_id], ::String, context: "#{context}[:member_account_id]")
-        Validators::S3ResourcesClassificationUpdate.validate!(input[:s3_resources_update], context: "#{context}[:s3_resources_update]") unless input[:s3_resources_update].nil?
+        S3ResourcesClassificationUpdate.validate!(input[:s3_resources_update], context: "#{context}[:s3_resources_update]") unless input[:s3_resources_update].nil?
       end
     end
 
     class UpdateS3ResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateS3ResourcesOutput, context: context)
-        Validators::FailedS3Resources.validate!(input[:failed_s3_resources], context: "#{context}[:failed_s3_resources]") unless input[:failed_s3_resources].nil?
+        FailedS3Resources.validate!(input[:failed_s3_resources], context: "#{context}[:failed_s3_resources]") unless input[:failed_s3_resources].nil?
       end
     end
 

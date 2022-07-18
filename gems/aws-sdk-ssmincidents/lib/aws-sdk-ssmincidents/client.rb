@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSMIncidents
@@ -76,7 +78,7 @@ module AWS::SDK::SSMIncidents
     def create_replication_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationSetInput,
         validate_input: @config.validate_input
@@ -145,7 +147,7 @@ module AWS::SDK::SSMIncidents
     #   <p>The Chatbot chat channel used for collaboration during an
     #               incident.</p>
     #
-    # @option params [Set<String>] :engagements
+    # @option params [Array<String>] :engagements
     #   <p>The contacts and escalation plans that the response plan engages during an
     #               incident.</p>
     #
@@ -220,7 +222,7 @@ module AWS::SDK::SSMIncidents
     def create_response_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResponsePlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResponsePlanInput,
         validate_input: @config.validate_input
@@ -312,7 +314,7 @@ module AWS::SDK::SSMIncidents
     def create_timeline_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTimelineEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTimelineEventInput,
         validate_input: @config.validate_input
@@ -380,7 +382,7 @@ module AWS::SDK::SSMIncidents
     def delete_incident_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIncidentRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIncidentRecordInput,
         validate_input: @config.validate_input
@@ -449,7 +451,7 @@ module AWS::SDK::SSMIncidents
     def delete_replication_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationSetInput,
         validate_input: @config.validate_input
@@ -521,7 +523,7 @@ module AWS::SDK::SSMIncidents
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -590,7 +592,7 @@ module AWS::SDK::SSMIncidents
     def delete_response_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResponsePlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResponsePlanInput,
         validate_input: @config.validate_input
@@ -664,7 +666,7 @@ module AWS::SDK::SSMIncidents
     def delete_timeline_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTimelineEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTimelineEventInput,
         validate_input: @config.validate_input
@@ -739,21 +741,26 @@ module AWS::SDK::SSMIncidents
     #   resp.data.incident_record.last_modified_time #=> Time
     #   resp.data.incident_record.last_modified_by #=> String
     #   resp.data.incident_record.automation_executions #=> Array<AutomationExecution>
-    #   resp.data.incident_record.automation_executions[0] #=> AutomationExecution
+    #   resp.data.incident_record.automation_executions[0] #=> Types::AutomationExecution, one of [SsmExecutionArn]
+    #   resp.data.incident_record.automation_executions[0].ssm_execution_arn #=> String
     #   resp.data.incident_record.incident_record_source #=> Types::IncidentRecordSource
     #   resp.data.incident_record.incident_record_source.created_by #=> String
     #   resp.data.incident_record.incident_record_source.invoked_by #=> String
     #   resp.data.incident_record.incident_record_source.resource_arn #=> String
     #   resp.data.incident_record.incident_record_source.source #=> String
     #   resp.data.incident_record.dedupe_string #=> String
-    #   resp.data.incident_record.chat_channel #=> ChatChannel
+    #   resp.data.incident_record.chat_channel #=> Types::ChatChannel, one of [Empty, ChatbotSns]
+    #   resp.data.incident_record.chat_channel.empty #=> Types::EmptyChatChannel
+    #   resp.data.incident_record.chat_channel.chatbot_sns #=> Array<String>
+    #   resp.data.incident_record.chat_channel.chatbot_sns[0] #=> String
     #   resp.data.incident_record.notification_targets #=> Array<NotificationTargetItem>
-    #   resp.data.incident_record.notification_targets[0] #=> NotificationTargetItem
+    #   resp.data.incident_record.notification_targets[0] #=> Types::NotificationTargetItem, one of [SnsTopicArn]
+    #   resp.data.incident_record.notification_targets[0].sns_topic_arn #=> String
     #
     def get_incident_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIncidentRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIncidentRecordInput,
         validate_input: @config.validate_input
@@ -834,7 +841,7 @@ module AWS::SDK::SSMIncidents
     def get_replication_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReplicationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReplicationSetInput,
         validate_input: @config.validate_input
@@ -915,7 +922,7 @@ module AWS::SDK::SSMIncidents
     def get_resource_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePoliciesInput,
         validate_input: @config.validate_input
@@ -988,17 +995,32 @@ module AWS::SDK::SSMIncidents
     #   resp.data.incident_template.summary #=> String
     #   resp.data.incident_template.dedupe_string #=> String
     #   resp.data.incident_template.notification_targets #=> Array<NotificationTargetItem>
-    #   resp.data.incident_template.notification_targets[0] #=> NotificationTargetItem
-    #   resp.data.chat_channel #=> ChatChannel
-    #   resp.data.engagements #=> Set<String>
+    #   resp.data.incident_template.notification_targets[0] #=> Types::NotificationTargetItem, one of [SnsTopicArn]
+    #   resp.data.incident_template.notification_targets[0].sns_topic_arn #=> String
+    #   resp.data.chat_channel #=> Types::ChatChannel, one of [Empty, ChatbotSns]
+    #   resp.data.chat_channel.empty #=> Types::EmptyChatChannel
+    #   resp.data.chat_channel.chatbot_sns #=> Array<String>
+    #   resp.data.chat_channel.chatbot_sns[0] #=> String
+    #   resp.data.engagements #=> Array<String>
     #   resp.data.engagements[0] #=> String
     #   resp.data.actions #=> Array<Action>
-    #   resp.data.actions[0] #=> Action
+    #   resp.data.actions[0] #=> Types::Action, one of [SsmAutomation]
+    #   resp.data.actions[0].ssm_automation #=> Types::SsmAutomation
+    #   resp.data.actions[0].ssm_automation.role_arn #=> String
+    #   resp.data.actions[0].ssm_automation.document_name #=> String
+    #   resp.data.actions[0].ssm_automation.document_version #=> String
+    #   resp.data.actions[0].ssm_automation.target_account #=> String, one of ["RESPONSE_PLAN_OWNER_ACCOUNT", "IMPACTED_ACCOUNT"]
+    #   resp.data.actions[0].ssm_automation.parameters #=> Hash<String, Array<String>>
+    #   resp.data.actions[0].ssm_automation.parameters['key'] #=> Array<String>
+    #   resp.data.actions[0].ssm_automation.parameters['key'][0] #=> String
+    #   resp.data.actions[0].ssm_automation.dynamic_parameters #=> Hash<String, DynamicSsmParameterValue>
+    #   resp.data.actions[0].ssm_automation.dynamic_parameters['key'] #=> Types::DynamicSsmParameterValue, one of [Variable]
+    #   resp.data.actions[0].ssm_automation.dynamic_parameters['key'].variable #=> String, one of ["INCIDENT_RECORD_ARN", "INVOLVED_RESOURCES"]
     #
     def get_response_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResponsePlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponsePlanInput,
         validate_input: @config.validate_input
@@ -1078,7 +1100,7 @@ module AWS::SDK::SSMIncidents
     def get_timeline_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTimelineEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTimelineEventInput,
         validate_input: @config.validate_input
@@ -1224,7 +1246,7 @@ module AWS::SDK::SSMIncidents
     def list_incident_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIncidentRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIncidentRecordsInput,
         validate_input: @config.validate_input
@@ -1300,7 +1322,10 @@ module AWS::SDK::SSMIncidents
     #   resp.data.related_items #=> Array<RelatedItem>
     #   resp.data.related_items[0] #=> Types::RelatedItem
     #   resp.data.related_items[0].identifier #=> Types::ItemIdentifier
-    #   resp.data.related_items[0].identifier.value #=> ItemValue
+    #   resp.data.related_items[0].identifier.value #=> Types::ItemValue, one of [Arn, Url, MetricDefinition]
+    #   resp.data.related_items[0].identifier.value.arn #=> String
+    #   resp.data.related_items[0].identifier.value.url #=> String
+    #   resp.data.related_items[0].identifier.value.metric_definition #=> String
     #   resp.data.related_items[0].identifier.type #=> String, one of ["ANALYSIS", "INCIDENT", "METRIC", "PARENT", "ATTACHMENT", "OTHER", "AUTOMATION", "INVOLVED_RESOURCE"]
     #   resp.data.related_items[0].title #=> String
     #   resp.data.next_token #=> String
@@ -1308,7 +1333,7 @@ module AWS::SDK::SSMIncidents
     def list_related_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRelatedItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRelatedItemsInput,
         validate_input: @config.validate_input
@@ -1383,7 +1408,7 @@ module AWS::SDK::SSMIncidents
     def list_replication_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReplicationSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReplicationSetsInput,
         validate_input: @config.validate_input
@@ -1461,7 +1486,7 @@ module AWS::SDK::SSMIncidents
     def list_response_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResponsePlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResponsePlansInput,
         validate_input: @config.validate_input
@@ -1531,7 +1556,7 @@ module AWS::SDK::SSMIncidents
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1674,7 +1699,7 @@ module AWS::SDK::SSMIncidents
     def list_timeline_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTimelineEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTimelineEventsInput,
         validate_input: @config.validate_input
@@ -1751,7 +1776,7 @@ module AWS::SDK::SSMIncidents
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1894,7 +1919,7 @@ module AWS::SDK::SSMIncidents
     def start_incident(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartIncidentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartIncidentInput,
         validate_input: @config.validate_input
@@ -1968,7 +1993,7 @@ module AWS::SDK::SSMIncidents
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2042,7 +2067,7 @@ module AWS::SDK::SSMIncidents
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2119,7 +2144,7 @@ module AWS::SDK::SSMIncidents
     def update_deletion_protection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeletionProtectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeletionProtectionInput,
         validate_input: @config.validate_input
@@ -2264,7 +2289,7 @@ module AWS::SDK::SSMIncidents
     def update_incident_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIncidentRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIncidentRecordInput,
         validate_input: @config.validate_input
@@ -2356,7 +2381,7 @@ module AWS::SDK::SSMIncidents
     def update_related_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRelatedItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRelatedItemsInput,
         validate_input: @config.validate_input
@@ -2444,7 +2469,7 @@ module AWS::SDK::SSMIncidents
     def update_replication_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReplicationSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReplicationSetInput,
         validate_input: @config.validate_input
@@ -2554,7 +2579,7 @@ module AWS::SDK::SSMIncidents
     #               incident.</p>
     #           <p>Use the empty structure to remove the chat channel from the response plan.</p>
     #
-    # @option params [Set<String>] :engagements
+    # @option params [Array<String>] :engagements
     #   <p>The contacts and escalation plans that Incident Manager engages at the start of the incident.</p>
     #
     # @option params [Array<Action>] :actions
@@ -2619,7 +2644,7 @@ module AWS::SDK::SSMIncidents
     def update_response_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResponsePlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResponsePlanInput,
         validate_input: @config.validate_input
@@ -2711,7 +2736,7 @@ module AWS::SDK::SSMIncidents
     def update_timeline_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTimelineEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTimelineEventInput,
         validate_input: @config.validate_input

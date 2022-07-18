@@ -14,7 +14,7 @@ module AWS::SDK::DAX
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -39,16 +39,16 @@ module AWS::SDK::DAX
           active_nodes: 1,
           node_type: 'node_type',
           status: 'status',
-          cluster_discovery_endpoint: Stubs::Endpoint.default(visited),
-          node_ids_to_remove: Stubs::NodeIdentifierList.default(visited),
-          nodes: Stubs::NodeList.default(visited),
+          cluster_discovery_endpoint: Endpoint.default(visited),
+          node_ids_to_remove: NodeIdentifierList.default(visited),
+          nodes: NodeList.default(visited),
           preferred_maintenance_window: 'preferred_maintenance_window',
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
           subnet_group: 'subnet_group',
-          security_groups: Stubs::SecurityGroupMembershipList.default(visited),
+          security_groups: SecurityGroupMembershipList.default(visited),
           iam_role_arn: 'iam_role_arn',
-          parameter_group: Stubs::ParameterGroupStatus.default(visited),
-          sse_description: Stubs::SSEDescription.default(visited),
+          parameter_group: ParameterGroupStatus.default(visited),
+          sse_description: SSEDescription.default(visited),
           cluster_endpoint_encryption_type: 'cluster_endpoint_encryption_type',
         }
       end
@@ -104,7 +104,7 @@ module AWS::SDK::DAX
         {
           parameter_group_name: 'parameter_group_name',
           parameter_apply_status: 'parameter_apply_status',
-          node_ids_to_reboot: Stubs::NodeIdentifierList.default(visited),
+          node_ids_to_reboot: NodeIdentifierList.default(visited),
         }
       end
 
@@ -144,7 +144,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('SecurityGroupMembershipList')
         visited = visited + ['SecurityGroupMembershipList']
         [
-          Stubs::SecurityGroupMembership.default(visited)
+          SecurityGroupMembership.default(visited)
         ]
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('NodeList')
         visited = visited + ['NodeList']
         [
-          Stubs::Node.default(visited)
+          Node.default(visited)
         ]
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::DAX
         visited = visited + ['Node']
         {
           node_id: 'node_id',
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
           node_create_time: Time.now,
           availability_zone: 'availability_zone',
           node_status: 'node_status',
@@ -272,7 +272,7 @@ module AWS::SDK::DAX
     class CreateParameterGroup
       def self.default(visited=[])
         {
-          parameter_group: Stubs::ParameterGroup.default(visited),
+          parameter_group: ParameterGroup.default(visited),
         }
       end
 
@@ -308,7 +308,7 @@ module AWS::SDK::DAX
     class CreateSubnetGroup
       def self.default(visited=[])
         {
-          subnet_group: Stubs::SubnetGroup.default(visited),
+          subnet_group: SubnetGroup.default(visited),
         }
       end
 
@@ -329,7 +329,7 @@ module AWS::SDK::DAX
           subnet_group_name: 'subnet_group_name',
           description: 'description',
           vpc_id: 'vpc_id',
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
         }
       end
 
@@ -350,7 +350,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -388,7 +388,7 @@ module AWS::SDK::DAX
     class DecreaseReplicationFactor
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -404,7 +404,7 @@ module AWS::SDK::DAX
     class DeleteCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -453,7 +453,7 @@ module AWS::SDK::DAX
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          clusters: Stubs::ClusterList.default(visited),
+          clusters: ClusterList.default(visited),
         }
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('ClusterList')
         visited = visited + ['ClusterList']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -491,7 +491,7 @@ module AWS::SDK::DAX
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          parameters: Stubs::ParameterList.default(visited),
+          parameters: ParameterList.default(visited),
         }
       end
 
@@ -510,7 +510,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('ParameterList')
         visited = visited + ['ParameterList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -533,7 +533,7 @@ module AWS::SDK::DAX
           parameter_name: 'parameter_name',
           parameter_type: 'parameter_type',
           parameter_value: 'parameter_value',
-          node_type_specific_values: Stubs::NodeTypeSpecificValueList.default(visited),
+          node_type_specific_values: NodeTypeSpecificValueList.default(visited),
           description: 'description',
           source: 'source',
           data_type: 'data_type',
@@ -566,7 +566,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('NodeTypeSpecificValueList')
         visited = visited + ['NodeTypeSpecificValueList']
         [
-          Stubs::NodeTypeSpecificValue.default(visited)
+          NodeTypeSpecificValue.default(visited)
         ]
       end
 
@@ -605,7 +605,7 @@ module AWS::SDK::DAX
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -624,7 +624,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -667,7 +667,7 @@ module AWS::SDK::DAX
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          parameter_groups: Stubs::ParameterGroupList.default(visited),
+          parameter_groups: ParameterGroupList.default(visited),
         }
       end
 
@@ -686,7 +686,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('ParameterGroupList')
         visited = visited + ['ParameterGroupList']
         [
-          Stubs::ParameterGroup.default(visited)
+          ParameterGroup.default(visited)
         ]
       end
 
@@ -705,7 +705,7 @@ module AWS::SDK::DAX
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          parameters: Stubs::ParameterList.default(visited),
+          parameters: ParameterList.default(visited),
         }
       end
 
@@ -723,7 +723,7 @@ module AWS::SDK::DAX
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          subnet_groups: Stubs::SubnetGroupList.default(visited),
+          subnet_groups: SubnetGroupList.default(visited),
         }
       end
 
@@ -742,7 +742,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('SubnetGroupList')
         visited = visited + ['SubnetGroupList']
         [
-          Stubs::SubnetGroup.default(visited)
+          SubnetGroup.default(visited)
         ]
       end
 
@@ -760,7 +760,7 @@ module AWS::SDK::DAX
     class IncreaseReplicationFactor
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -776,7 +776,7 @@ module AWS::SDK::DAX
     class ListTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -796,7 +796,7 @@ module AWS::SDK::DAX
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -834,7 +834,7 @@ module AWS::SDK::DAX
     class RebootNode
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -850,7 +850,7 @@ module AWS::SDK::DAX
     class TagResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -866,7 +866,7 @@ module AWS::SDK::DAX
     class UntagResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -882,7 +882,7 @@ module AWS::SDK::DAX
     class UpdateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -898,7 +898,7 @@ module AWS::SDK::DAX
     class UpdateParameterGroup
       def self.default(visited=[])
         {
-          parameter_group: Stubs::ParameterGroup.default(visited),
+          parameter_group: ParameterGroup.default(visited),
         }
       end
 
@@ -914,7 +914,7 @@ module AWS::SDK::DAX
     class UpdateSubnetGroup
       def self.default(visited=[])
         {
-          subnet_group: Stubs::SubnetGroup.default(visited),
+          subnet_group: SubnetGroup.default(visited),
         }
       end
 

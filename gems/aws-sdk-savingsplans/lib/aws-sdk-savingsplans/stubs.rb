@@ -45,7 +45,7 @@ module AWS::SDK::Savingsplans
       def self.default(visited=[])
         {
           savings_plan_id: 'savings_plan_id',
-          search_results: Stubs::SavingsPlanRateList.default(visited),
+          search_results: SavingsPlanRateList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -67,7 +67,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanRateList')
         visited = visited + ['SavingsPlanRateList']
         [
-          Stubs::SavingsPlanRate.default(visited)
+          SavingsPlanRate.default(visited)
         ]
       end
 
@@ -94,7 +94,7 @@ module AWS::SDK::Savingsplans
           service_code: 'service_code',
           usage_type: 'usage_type',
           operation: 'operation',
-          properties: Stubs::SavingsPlanRatePropertyList.default(visited),
+          properties: SavingsPlanRatePropertyList.default(visited),
         }
       end
 
@@ -119,7 +119,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanRatePropertyList')
         visited = visited + ['SavingsPlanRatePropertyList']
         [
-          Stubs::SavingsPlanRateProperty.default(visited)
+          SavingsPlanRateProperty.default(visited)
         ]
       end
 
@@ -157,7 +157,7 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlans
       def self.default(visited=[])
         {
-          savings_plans: Stubs::SavingsPlanList.default(visited),
+          savings_plans: SavingsPlanList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -178,7 +178,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanList')
         visited = visited + ['SavingsPlanList']
         [
-          Stubs::SavingsPlan.default(visited)
+          SavingsPlan.default(visited)
         ]
       end
 
@@ -209,13 +209,13 @@ module AWS::SDK::Savingsplans
           ec2_instance_family: 'ec2_instance_family',
           savings_plan_type: 'savings_plan_type',
           payment_option: 'payment_option',
-          product_types: Stubs::SavingsPlanProductTypeList.default(visited),
+          product_types: SavingsPlanProductTypeList.default(visited),
           currency: 'currency',
           commitment: 'commitment',
           upfront_payment_amount: 'upfront_payment_amount',
           recurring_payment_amount: 'recurring_payment_amount',
           term_duration_in_seconds: 1,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -288,7 +288,7 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansOfferingRates
       def self.default(visited=[])
         {
-          search_results: Stubs::SavingsPlanOfferingRatesList.default(visited),
+          search_results: SavingsPlanOfferingRatesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -309,7 +309,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanOfferingRatesList')
         visited = visited + ['SavingsPlanOfferingRatesList']
         [
-          Stubs::SavingsPlanOfferingRate.default(visited)
+          SavingsPlanOfferingRate.default(visited)
         ]
       end
 
@@ -329,14 +329,14 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanOfferingRate')
         visited = visited + ['SavingsPlanOfferingRate']
         {
-          savings_plan_offering: Stubs::ParentSavingsPlanOffering.default(visited),
+          savings_plan_offering: ParentSavingsPlanOffering.default(visited),
           rate: 'rate',
           unit: 'unit',
           product_type: 'product_type',
           service_code: 'service_code',
           usage_type: 'usage_type',
           operation: 'operation',
-          properties: Stubs::SavingsPlanOfferingRatePropertyList.default(visited),
+          properties: SavingsPlanOfferingRatePropertyList.default(visited),
         }
       end
 
@@ -361,7 +361,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanOfferingRatePropertyList')
         visited = visited + ['SavingsPlanOfferingRatePropertyList']
         [
-          Stubs::SavingsPlanOfferingRateProperty.default(visited)
+          SavingsPlanOfferingRateProperty.default(visited)
         ]
       end
 
@@ -427,7 +427,7 @@ module AWS::SDK::Savingsplans
     class DescribeSavingsPlansOfferings
       def self.default(visited=[])
         {
-          search_results: Stubs::SavingsPlanOfferingsList.default(visited),
+          search_results: SavingsPlanOfferingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -448,7 +448,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanOfferingsList')
         visited = visited + ['SavingsPlanOfferingsList']
         [
-          Stubs::SavingsPlanOffering.default(visited)
+          SavingsPlanOffering.default(visited)
         ]
       end
 
@@ -469,7 +469,7 @@ module AWS::SDK::Savingsplans
         visited = visited + ['SavingsPlanOffering']
         {
           offering_id: 'offering_id',
-          product_types: Stubs::SavingsPlanProductTypeList.default(visited),
+          product_types: SavingsPlanProductTypeList.default(visited),
           plan_type: 'plan_type',
           description: 'description',
           payment_option: 'payment_option',
@@ -478,7 +478,7 @@ module AWS::SDK::Savingsplans
           service_code: 'service_code',
           usage_type: 'usage_type',
           operation: 'operation',
-          properties: Stubs::SavingsPlanOfferingPropertyList.default(visited),
+          properties: SavingsPlanOfferingPropertyList.default(visited),
         }
       end
 
@@ -506,7 +506,7 @@ module AWS::SDK::Savingsplans
         return nil if visited.include?('SavingsPlanOfferingPropertyList')
         visited = visited + ['SavingsPlanOfferingPropertyList']
         [
-          Stubs::SavingsPlanOfferingProperty.default(visited)
+          SavingsPlanOfferingProperty.default(visited)
         ]
       end
 
@@ -544,7 +544,7 @@ module AWS::SDK::Savingsplans
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::EventBridge
   module Validators
 
@@ -42,7 +44,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApiDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApiDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Archive.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Archive.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -73,8 +75,8 @@ module AWS::SDK::EventBridge
     class AwsVpcConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsVpcConfiguration, context: context)
-        Validators::StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::StringList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        StringList.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        StringList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:assign_public_ip], ::String, context: "#{context}[:assign_public_ip]")
       end
     end
@@ -91,8 +93,8 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::BatchParameters, context: context)
         Hearth::Validator.validate!(input[:job_definition], ::String, context: "#{context}[:job_definition]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
-        Validators::BatchArrayProperties.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
-        Validators::BatchRetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
+        BatchArrayProperties.validate!(input[:array_properties], context: "#{context}[:array_properties]") unless input[:array_properties].nil?
+        BatchRetryStrategy.validate!(input[:retry_strategy], context: "#{context}[:retry_strategy]") unless input[:retry_strategy].nil?
       end
     end
 
@@ -123,7 +125,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CapacityProviderStrategyItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CapacityProviderStrategyItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -177,10 +179,10 @@ module AWS::SDK::EventBridge
     class ConnectionAuthResponseParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectionAuthResponseParameters, context: context)
-        Validators::ConnectionBasicAuthResponseParameters.validate!(input[:basic_auth_parameters], context: "#{context}[:basic_auth_parameters]") unless input[:basic_auth_parameters].nil?
-        Validators::ConnectionOAuthResponseParameters.validate!(input[:o_auth_parameters], context: "#{context}[:o_auth_parameters]") unless input[:o_auth_parameters].nil?
-        Validators::ConnectionApiKeyAuthResponseParameters.validate!(input[:api_key_auth_parameters], context: "#{context}[:api_key_auth_parameters]") unless input[:api_key_auth_parameters].nil?
-        Validators::ConnectionHttpParameters.validate!(input[:invocation_http_parameters], context: "#{context}[:invocation_http_parameters]") unless input[:invocation_http_parameters].nil?
+        ConnectionBasicAuthResponseParameters.validate!(input[:basic_auth_parameters], context: "#{context}[:basic_auth_parameters]") unless input[:basic_auth_parameters].nil?
+        ConnectionOAuthResponseParameters.validate!(input[:o_auth_parameters], context: "#{context}[:o_auth_parameters]") unless input[:o_auth_parameters].nil?
+        ConnectionApiKeyAuthResponseParameters.validate!(input[:api_key_auth_parameters], context: "#{context}[:api_key_auth_parameters]") unless input[:api_key_auth_parameters].nil?
+        ConnectionHttpParameters.validate!(input[:invocation_http_parameters], context: "#{context}[:invocation_http_parameters]") unless input[:invocation_http_parameters].nil?
       end
     end
 
@@ -204,7 +206,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectionBodyParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectionBodyParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -222,7 +224,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectionHeaderParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectionHeaderParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -230,9 +232,9 @@ module AWS::SDK::EventBridge
     class ConnectionHttpParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectionHttpParameters, context: context)
-        Validators::ConnectionHeaderParametersList.validate!(input[:header_parameters], context: "#{context}[:header_parameters]") unless input[:header_parameters].nil?
-        Validators::ConnectionQueryStringParametersList.validate!(input[:query_string_parameters], context: "#{context}[:query_string_parameters]") unless input[:query_string_parameters].nil?
-        Validators::ConnectionBodyParametersList.validate!(input[:body_parameters], context: "#{context}[:body_parameters]") unless input[:body_parameters].nil?
+        ConnectionHeaderParametersList.validate!(input[:header_parameters], context: "#{context}[:header_parameters]") unless input[:header_parameters].nil?
+        ConnectionQueryStringParametersList.validate!(input[:query_string_parameters], context: "#{context}[:query_string_parameters]") unless input[:query_string_parameters].nil?
+        ConnectionBodyParametersList.validate!(input[:body_parameters], context: "#{context}[:body_parameters]") unless input[:body_parameters].nil?
       end
     end
 
@@ -246,10 +248,10 @@ module AWS::SDK::EventBridge
     class ConnectionOAuthResponseParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectionOAuthResponseParameters, context: context)
-        Validators::ConnectionOAuthClientResponseParameters.validate!(input[:client_parameters], context: "#{context}[:client_parameters]") unless input[:client_parameters].nil?
+        ConnectionOAuthClientResponseParameters.validate!(input[:client_parameters], context: "#{context}[:client_parameters]") unless input[:client_parameters].nil?
         Hearth::Validator.validate!(input[:authorization_endpoint], ::String, context: "#{context}[:authorization_endpoint]")
         Hearth::Validator.validate!(input[:http_method], ::String, context: "#{context}[:http_method]")
-        Validators::ConnectionHttpParameters.validate!(input[:o_auth_http_parameters], context: "#{context}[:o_auth_http_parameters]") unless input[:o_auth_http_parameters].nil?
+        ConnectionHttpParameters.validate!(input[:o_auth_http_parameters], context: "#{context}[:o_auth_http_parameters]") unless input[:o_auth_http_parameters].nil?
       end
     end
 
@@ -266,7 +268,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectionQueryStringParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectionQueryStringParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connection.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -334,10 +336,10 @@ module AWS::SDK::EventBridge
     class CreateConnectionAuthRequestParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectionAuthRequestParameters, context: context)
-        Validators::CreateConnectionBasicAuthRequestParameters.validate!(input[:basic_auth_parameters], context: "#{context}[:basic_auth_parameters]") unless input[:basic_auth_parameters].nil?
-        Validators::CreateConnectionOAuthRequestParameters.validate!(input[:o_auth_parameters], context: "#{context}[:o_auth_parameters]") unless input[:o_auth_parameters].nil?
-        Validators::CreateConnectionApiKeyAuthRequestParameters.validate!(input[:api_key_auth_parameters], context: "#{context}[:api_key_auth_parameters]") unless input[:api_key_auth_parameters].nil?
-        Validators::ConnectionHttpParameters.validate!(input[:invocation_http_parameters], context: "#{context}[:invocation_http_parameters]") unless input[:invocation_http_parameters].nil?
+        CreateConnectionBasicAuthRequestParameters.validate!(input[:basic_auth_parameters], context: "#{context}[:basic_auth_parameters]") unless input[:basic_auth_parameters].nil?
+        CreateConnectionOAuthRequestParameters.validate!(input[:o_auth_parameters], context: "#{context}[:o_auth_parameters]") unless input[:o_auth_parameters].nil?
+        CreateConnectionApiKeyAuthRequestParameters.validate!(input[:api_key_auth_parameters], context: "#{context}[:api_key_auth_parameters]") unless input[:api_key_auth_parameters].nil?
+        ConnectionHttpParameters.validate!(input[:invocation_http_parameters], context: "#{context}[:invocation_http_parameters]") unless input[:invocation_http_parameters].nil?
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
-        Validators::CreateConnectionAuthRequestParameters.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
+        CreateConnectionAuthRequestParameters.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
       end
     end
 
@@ -370,10 +372,10 @@ module AWS::SDK::EventBridge
     class CreateConnectionOAuthRequestParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectionOAuthRequestParameters, context: context)
-        Validators::CreateConnectionOAuthClientRequestParameters.validate!(input[:client_parameters], context: "#{context}[:client_parameters]") unless input[:client_parameters].nil?
+        CreateConnectionOAuthClientRequestParameters.validate!(input[:client_parameters], context: "#{context}[:client_parameters]") unless input[:client_parameters].nil?
         Hearth::Validator.validate!(input[:authorization_endpoint], ::String, context: "#{context}[:authorization_endpoint]")
         Hearth::Validator.validate!(input[:http_method], ::String, context: "#{context}[:http_method]")
-        Validators::ConnectionHttpParameters.validate!(input[:o_auth_http_parameters], context: "#{context}[:o_auth_http_parameters]") unless input[:o_auth_http_parameters].nil?
+        ConnectionHttpParameters.validate!(input[:o_auth_http_parameters], context: "#{context}[:o_auth_http_parameters]") unless input[:o_auth_http_parameters].nil?
       end
     end
 
@@ -392,9 +394,9 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::CreateEndpointInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
-        Validators::ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
-        Validators::EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
+        ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
+        EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -404,9 +406,9 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::CreateEndpointOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
-        Validators::ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
-        Validators::EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
+        ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
+        EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
       end
@@ -417,7 +419,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::CreateEventBusInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:event_source_name], ::String, context: "#{context}[:event_source_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -644,7 +646,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:state_reason], ::String, context: "#{context}[:state_reason]")
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
         Hearth::Validator.validate!(input[:secret_arn], ::String, context: "#{context}[:secret_arn]")
-        Validators::ConnectionAuthResponseParameters.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
+        ConnectionAuthResponseParameters.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
         Hearth::Validator.validate!(input[:last_authorized_time], ::Time, context: "#{context}[:last_authorized_time]")
@@ -665,9 +667,9 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
-        Validators::ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
-        Validators::EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
+        ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
+        EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
         Hearth::Validator.validate!(input[:endpoint_url], ::String, context: "#{context}[:endpoint_url]")
@@ -744,7 +746,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:state_reason], ::String, context: "#{context}[:state_reason]")
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
-        Validators::ReplayDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        ReplayDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
         Hearth::Validator.validate!(input[:event_start_time], ::Time, context: "#{context}[:event_start_time]")
         Hearth::Validator.validate!(input[:event_end_time], ::Time, context: "#{context}[:event_end_time]")
         Hearth::Validator.validate!(input[:event_last_replayed_time], ::Time, context: "#{context}[:event_last_replayed_time]")
@@ -797,17 +799,17 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:task_definition_arn], ::String, context: "#{context}[:task_definition_arn]")
         Hearth::Validator.validate!(input[:task_count], ::Integer, context: "#{context}[:task_count]")
         Hearth::Validator.validate!(input[:launch_type], ::String, context: "#{context}[:launch_type]")
-        Validators::NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
+        NetworkConfiguration.validate!(input[:network_configuration], context: "#{context}[:network_configuration]") unless input[:network_configuration].nil?
         Hearth::Validator.validate!(input[:platform_version], ::String, context: "#{context}[:platform_version]")
         Hearth::Validator.validate!(input[:group], ::String, context: "#{context}[:group]")
-        Validators::CapacityProviderStrategy.validate!(input[:capacity_provider_strategy], context: "#{context}[:capacity_provider_strategy]") unless input[:capacity_provider_strategy].nil?
+        CapacityProviderStrategy.validate!(input[:capacity_provider_strategy], context: "#{context}[:capacity_provider_strategy]") unless input[:capacity_provider_strategy].nil?
         Hearth::Validator.validate!(input[:enable_ecs_managed_tags], ::TrueClass, ::FalseClass, context: "#{context}[:enable_ecs_managed_tags]")
         Hearth::Validator.validate!(input[:enable_execute_command], ::TrueClass, ::FalseClass, context: "#{context}[:enable_execute_command]")
-        Validators::PlacementConstraints.validate!(input[:placement_constraints], context: "#{context}[:placement_constraints]") unless input[:placement_constraints].nil?
-        Validators::PlacementStrategies.validate!(input[:placement_strategy], context: "#{context}[:placement_strategy]") unless input[:placement_strategy].nil?
+        PlacementConstraints.validate!(input[:placement_constraints], context: "#{context}[:placement_constraints]") unless input[:placement_constraints].nil?
+        PlacementStrategies.validate!(input[:placement_strategy], context: "#{context}[:placement_strategy]") unless input[:placement_strategy].nil?
         Hearth::Validator.validate!(input[:propagate_tags], ::String, context: "#{context}[:propagate_tags]")
         Hearth::Validator.validate!(input[:reference_id], ::String, context: "#{context}[:reference_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -831,9 +833,9 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
-        Validators::ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
-        Validators::EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
+        ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
+        EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
         Hearth::Validator.validate!(input[:endpoint_url], ::String, context: "#{context}[:endpoint_url]")
@@ -855,7 +857,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EndpointEventBus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EndpointEventBus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -864,7 +866,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Endpoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -882,7 +884,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventBus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventBus.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -912,7 +914,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -920,8 +922,8 @@ module AWS::SDK::EventBridge
     class FailoverConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailoverConfig, context: context)
-        Validators::Primary.validate!(input[:primary], context: "#{context}[:primary]") unless input[:primary].nil?
-        Validators::Secondary.validate!(input[:secondary], context: "#{context}[:secondary]") unless input[:secondary].nil?
+        Primary.validate!(input[:primary], context: "#{context}[:primary]") unless input[:primary].nil?
+        Secondary.validate!(input[:secondary], context: "#{context}[:secondary]") unless input[:secondary].nil?
       end
     end
 
@@ -938,9 +940,9 @@ module AWS::SDK::EventBridge
     class HttpParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpParameters, context: context)
-        Validators::PathParameterList.validate!(input[:path_parameter_values], context: "#{context}[:path_parameter_values]") unless input[:path_parameter_values].nil?
-        Validators::HeaderParametersMap.validate!(input[:header_parameters], context: "#{context}[:header_parameters]") unless input[:header_parameters].nil?
-        Validators::QueryStringParametersMap.validate!(input[:query_string_parameters], context: "#{context}[:query_string_parameters]") unless input[:query_string_parameters].nil?
+        PathParameterList.validate!(input[:path_parameter_values], context: "#{context}[:path_parameter_values]") unless input[:path_parameter_values].nil?
+        HeaderParametersMap.validate!(input[:header_parameters], context: "#{context}[:header_parameters]") unless input[:header_parameters].nil?
+        QueryStringParametersMap.validate!(input[:query_string_parameters], context: "#{context}[:query_string_parameters]") unless input[:query_string_parameters].nil?
       end
     end
 
@@ -954,7 +956,7 @@ module AWS::SDK::EventBridge
     class InputTransformer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InputTransformer, context: context)
-        Validators::TransformerPaths.validate!(input[:input_paths_map], context: "#{context}[:input_paths_map]") unless input[:input_paths_map].nil?
+        TransformerPaths.validate!(input[:input_paths_map], context: "#{context}[:input_paths_map]") unless input[:input_paths_map].nil?
         Hearth::Validator.validate!(input[:input_template], ::String, context: "#{context}[:input_template]")
       end
     end
@@ -1007,7 +1009,7 @@ module AWS::SDK::EventBridge
     class ListApiDestinationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApiDestinationsOutput, context: context)
-        Validators::ApiDestinationResponseList.validate!(input[:api_destinations], context: "#{context}[:api_destinations]") unless input[:api_destinations].nil?
+        ApiDestinationResponseList.validate!(input[:api_destinations], context: "#{context}[:api_destinations]") unless input[:api_destinations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1026,7 +1028,7 @@ module AWS::SDK::EventBridge
     class ListArchivesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListArchivesOutput, context: context)
-        Validators::ArchiveResponseList.validate!(input[:archives], context: "#{context}[:archives]") unless input[:archives].nil?
+        ArchiveResponseList.validate!(input[:archives], context: "#{context}[:archives]") unless input[:archives].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1044,7 +1046,7 @@ module AWS::SDK::EventBridge
     class ListConnectionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectionsOutput, context: context)
-        Validators::ConnectionResponseList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
+        ConnectionResponseList.validate!(input[:connections], context: "#{context}[:connections]") unless input[:connections].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1062,7 +1064,7 @@ module AWS::SDK::EventBridge
     class ListEndpointsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEndpointsOutput, context: context)
-        Validators::EndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
+        EndpointList.validate!(input[:endpoints], context: "#{context}[:endpoints]") unless input[:endpoints].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1079,7 +1081,7 @@ module AWS::SDK::EventBridge
     class ListEventBusesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventBusesOutput, context: context)
-        Validators::EventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        EventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1096,7 +1098,7 @@ module AWS::SDK::EventBridge
     class ListEventSourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventSourcesOutput, context: context)
-        Validators::EventSourceList.validate!(input[:event_sources], context: "#{context}[:event_sources]") unless input[:event_sources].nil?
+        EventSourceList.validate!(input[:event_sources], context: "#{context}[:event_sources]") unless input[:event_sources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1113,7 +1115,7 @@ module AWS::SDK::EventBridge
     class ListPartnerEventSourceAccountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPartnerEventSourceAccountsOutput, context: context)
-        Validators::PartnerEventSourceAccountList.validate!(input[:partner_event_source_accounts], context: "#{context}[:partner_event_source_accounts]") unless input[:partner_event_source_accounts].nil?
+        PartnerEventSourceAccountList.validate!(input[:partner_event_source_accounts], context: "#{context}[:partner_event_source_accounts]") unless input[:partner_event_source_accounts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1130,7 +1132,7 @@ module AWS::SDK::EventBridge
     class ListPartnerEventSourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPartnerEventSourcesOutput, context: context)
-        Validators::PartnerEventSourceList.validate!(input[:partner_event_sources], context: "#{context}[:partner_event_sources]") unless input[:partner_event_sources].nil?
+        PartnerEventSourceList.validate!(input[:partner_event_sources], context: "#{context}[:partner_event_sources]") unless input[:partner_event_sources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1149,7 +1151,7 @@ module AWS::SDK::EventBridge
     class ListReplaysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListReplaysOutput, context: context)
-        Validators::ReplayList.validate!(input[:replays], context: "#{context}[:replays]") unless input[:replays].nil?
+        ReplayList.validate!(input[:replays], context: "#{context}[:replays]") unless input[:replays].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1167,7 +1169,7 @@ module AWS::SDK::EventBridge
     class ListRuleNamesByTargetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRuleNamesByTargetOutput, context: context)
-        Validators::RuleNameList.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
+        RuleNameList.validate!(input[:rule_names], context: "#{context}[:rule_names]") unless input[:rule_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1185,7 +1187,7 @@ module AWS::SDK::EventBridge
     class ListRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRulesOutput, context: context)
-        Validators::RuleResponseList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleResponseList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1200,7 +1202,7 @@ module AWS::SDK::EventBridge
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1217,7 +1219,7 @@ module AWS::SDK::EventBridge
     class ListTargetsByRuleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTargetsByRuleOutput, context: context)
-        Validators::TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1232,7 +1234,7 @@ module AWS::SDK::EventBridge
     class NetworkConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkConfiguration, context: context)
-        Validators::AwsVpcConfiguration.validate!(input[:awsvpc_configuration], context: "#{context}[:awsvpc_configuration]") unless input[:awsvpc_configuration].nil?
+        AwsVpcConfiguration.validate!(input[:awsvpc_configuration], context: "#{context}[:awsvpc_configuration]") unless input[:awsvpc_configuration].nil?
       end
     end
 
@@ -1265,7 +1267,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartnerEventSourceAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartnerEventSourceAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1274,7 +1276,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PartnerEventSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PartnerEventSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1300,7 +1302,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlacementConstraint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlacementConstraint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1309,7 +1311,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PlacementStrategy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PlacementStrategy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1339,7 +1341,7 @@ module AWS::SDK::EventBridge
     class PutEventsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutEventsInput, context: context)
-        Validators::PutEventsRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        PutEventsRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
       end
     end
@@ -1348,7 +1350,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutEventsOutput, context: context)
         Hearth::Validator.validate!(input[:failed_entry_count], ::Integer, context: "#{context}[:failed_entry_count]")
-        Validators::PutEventsResultEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        PutEventsResultEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
@@ -1357,7 +1359,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::PutEventsRequestEntry, context: context)
         Hearth::Validator.validate!(input[:time], ::Time, context: "#{context}[:time]")
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
-        Validators::EventResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        EventResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:detail_type], ::String, context: "#{context}[:detail_type]")
         Hearth::Validator.validate!(input[:detail], ::String, context: "#{context}[:detail]")
         Hearth::Validator.validate!(input[:event_bus_name], ::String, context: "#{context}[:event_bus_name]")
@@ -1369,7 +1371,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutEventsRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutEventsRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1387,7 +1389,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutEventsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutEventsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1395,7 +1397,7 @@ module AWS::SDK::EventBridge
     class PutPartnerEventsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutPartnerEventsInput, context: context)
-        Validators::PutPartnerEventsRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        PutPartnerEventsRequestEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
@@ -1403,7 +1405,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutPartnerEventsOutput, context: context)
         Hearth::Validator.validate!(input[:failed_entry_count], ::Integer, context: "#{context}[:failed_entry_count]")
-        Validators::PutPartnerEventsResultEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
+        PutPartnerEventsResultEntryList.validate!(input[:entries], context: "#{context}[:entries]") unless input[:entries].nil?
       end
     end
 
@@ -1412,7 +1414,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::PutPartnerEventsRequestEntry, context: context)
         Hearth::Validator.validate!(input[:time], ::Time, context: "#{context}[:time]")
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
-        Validators::EventResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        EventResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:detail_type], ::String, context: "#{context}[:detail_type]")
         Hearth::Validator.validate!(input[:detail], ::String, context: "#{context}[:detail]")
       end
@@ -1422,7 +1424,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutPartnerEventsRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutPartnerEventsRequestEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1440,7 +1442,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutPartnerEventsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutPartnerEventsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1452,7 +1454,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:principal], ::String, context: "#{context}[:principal]")
         Hearth::Validator.validate!(input[:statement_id], ::String, context: "#{context}[:statement_id]")
-        Validators::Condition.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
+        Condition.validate!(input[:condition], context: "#{context}[:condition]") unless input[:condition].nil?
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
       end
     end
@@ -1472,7 +1474,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:event_bus_name], ::String, context: "#{context}[:event_bus_name]")
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::PutTargetsInput, context: context)
         Hearth::Validator.validate!(input[:rule], ::String, context: "#{context}[:rule]")
         Hearth::Validator.validate!(input[:event_bus_name], ::String, context: "#{context}[:event_bus_name]")
-        Validators::TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
       end
     end
 
@@ -1497,7 +1499,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutTargetsOutput, context: context)
         Hearth::Validator.validate!(input[:failed_entry_count], ::Integer, context: "#{context}[:failed_entry_count]")
-        Validators::PutTargetsResultEntryList.validate!(input[:failed_entries], context: "#{context}[:failed_entries]") unless input[:failed_entries].nil?
+        PutTargetsResultEntryList.validate!(input[:failed_entries], context: "#{context}[:failed_entries]") unless input[:failed_entries].nil?
       end
     end
 
@@ -1514,7 +1516,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutTargetsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutTargetsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1561,7 +1563,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::RemoveTargetsInput, context: context)
         Hearth::Validator.validate!(input[:rule], ::String, context: "#{context}[:rule]")
         Hearth::Validator.validate!(input[:event_bus_name], ::String, context: "#{context}[:event_bus_name]")
-        Validators::TargetIdList.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
+        TargetIdList.validate!(input[:ids], context: "#{context}[:ids]") unless input[:ids].nil?
         Hearth::Validator.validate!(input[:force], ::TrueClass, ::FalseClass, context: "#{context}[:force]")
       end
     end
@@ -1570,7 +1572,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTargetsOutput, context: context)
         Hearth::Validator.validate!(input[:failed_entry_count], ::Integer, context: "#{context}[:failed_entry_count]")
-        Validators::RemoveTargetsResultEntryList.validate!(input[:failed_entries], context: "#{context}[:failed_entries]") unless input[:failed_entries].nil?
+        RemoveTargetsResultEntryList.validate!(input[:failed_entries], context: "#{context}[:failed_entries]") unless input[:failed_entries].nil?
       end
     end
 
@@ -1587,7 +1589,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RemoveTargetsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RemoveTargetsResultEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1611,7 +1613,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplayDestination, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ReplayDestinationFilters.validate!(input[:filter_arns], context: "#{context}[:filter_arns]") unless input[:filter_arns].nil?
+        ReplayDestinationFilters.validate!(input[:filter_arns], context: "#{context}[:filter_arns]") unless input[:filter_arns].nil?
       end
     end
 
@@ -1628,7 +1630,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Replay.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Replay.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1665,7 +1667,7 @@ module AWS::SDK::EventBridge
     class RoutingConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RoutingConfig, context: context)
-        Validators::FailoverConfig.validate!(input[:failover_config], context: "#{context}[:failover_config]") unless input[:failover_config].nil?
+        FailoverConfig.validate!(input[:failover_config], context: "#{context}[:failover_config]") unless input[:failover_config].nil?
       end
     end
 
@@ -1697,7 +1699,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Rule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1705,7 +1707,7 @@ module AWS::SDK::EventBridge
     class RunCommandParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RunCommandParameters, context: context)
-        Validators::RunCommandTargets.validate!(input[:run_command_targets], context: "#{context}[:run_command_targets]") unless input[:run_command_targets].nil?
+        RunCommandTargets.validate!(input[:run_command_targets], context: "#{context}[:run_command_targets]") unless input[:run_command_targets].nil?
       end
     end
 
@@ -1713,7 +1715,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RunCommandTarget, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::RunCommandTargetValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        RunCommandTargetValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1730,7 +1732,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RunCommandTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RunCommandTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1747,7 +1749,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SageMakerPipelineParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SageMakerPipelineParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1755,7 +1757,7 @@ module AWS::SDK::EventBridge
     class SageMakerPipelineParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SageMakerPipelineParameters, context: context)
-        Validators::SageMakerPipelineParameterList.validate!(input[:pipeline_parameter_list], context: "#{context}[:pipeline_parameter_list]") unless input[:pipeline_parameter_list].nil?
+        SageMakerPipelineParameterList.validate!(input[:pipeline_parameter_list], context: "#{context}[:pipeline_parameter_list]") unless input[:pipeline_parameter_list].nil?
       end
     end
 
@@ -1781,7 +1783,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
         Hearth::Validator.validate!(input[:event_start_time], ::Time, context: "#{context}[:event_start_time]")
         Hearth::Validator.validate!(input[:event_end_time], ::Time, context: "#{context}[:event_end_time]")
-        Validators::ReplayDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        ReplayDestination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
       end
     end
 
@@ -1825,7 +1827,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1834,7 +1836,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1852,17 +1854,17 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:input], ::String, context: "#{context}[:input]")
         Hearth::Validator.validate!(input[:input_path], ::String, context: "#{context}[:input_path]")
-        Validators::InputTransformer.validate!(input[:input_transformer], context: "#{context}[:input_transformer]") unless input[:input_transformer].nil?
-        Validators::KinesisParameters.validate!(input[:kinesis_parameters], context: "#{context}[:kinesis_parameters]") unless input[:kinesis_parameters].nil?
-        Validators::RunCommandParameters.validate!(input[:run_command_parameters], context: "#{context}[:run_command_parameters]") unless input[:run_command_parameters].nil?
-        Validators::EcsParameters.validate!(input[:ecs_parameters], context: "#{context}[:ecs_parameters]") unless input[:ecs_parameters].nil?
-        Validators::BatchParameters.validate!(input[:batch_parameters], context: "#{context}[:batch_parameters]") unless input[:batch_parameters].nil?
-        Validators::SqsParameters.validate!(input[:sqs_parameters], context: "#{context}[:sqs_parameters]") unless input[:sqs_parameters].nil?
-        Validators::HttpParameters.validate!(input[:http_parameters], context: "#{context}[:http_parameters]") unless input[:http_parameters].nil?
-        Validators::RedshiftDataParameters.validate!(input[:redshift_data_parameters], context: "#{context}[:redshift_data_parameters]") unless input[:redshift_data_parameters].nil?
-        Validators::SageMakerPipelineParameters.validate!(input[:sage_maker_pipeline_parameters], context: "#{context}[:sage_maker_pipeline_parameters]") unless input[:sage_maker_pipeline_parameters].nil?
-        Validators::DeadLetterConfig.validate!(input[:dead_letter_config], context: "#{context}[:dead_letter_config]") unless input[:dead_letter_config].nil?
-        Validators::RetryPolicy.validate!(input[:retry_policy], context: "#{context}[:retry_policy]") unless input[:retry_policy].nil?
+        InputTransformer.validate!(input[:input_transformer], context: "#{context}[:input_transformer]") unless input[:input_transformer].nil?
+        KinesisParameters.validate!(input[:kinesis_parameters], context: "#{context}[:kinesis_parameters]") unless input[:kinesis_parameters].nil?
+        RunCommandParameters.validate!(input[:run_command_parameters], context: "#{context}[:run_command_parameters]") unless input[:run_command_parameters].nil?
+        EcsParameters.validate!(input[:ecs_parameters], context: "#{context}[:ecs_parameters]") unless input[:ecs_parameters].nil?
+        BatchParameters.validate!(input[:batch_parameters], context: "#{context}[:batch_parameters]") unless input[:batch_parameters].nil?
+        SqsParameters.validate!(input[:sqs_parameters], context: "#{context}[:sqs_parameters]") unless input[:sqs_parameters].nil?
+        HttpParameters.validate!(input[:http_parameters], context: "#{context}[:http_parameters]") unless input[:http_parameters].nil?
+        RedshiftDataParameters.validate!(input[:redshift_data_parameters], context: "#{context}[:redshift_data_parameters]") unless input[:redshift_data_parameters].nil?
+        SageMakerPipelineParameters.validate!(input[:sage_maker_pipeline_parameters], context: "#{context}[:sage_maker_pipeline_parameters]") unless input[:sage_maker_pipeline_parameters].nil?
+        DeadLetterConfig.validate!(input[:dead_letter_config], context: "#{context}[:dead_letter_config]") unless input[:dead_letter_config].nil?
+        RetryPolicy.validate!(input[:retry_policy], context: "#{context}[:retry_policy]") unless input[:retry_policy].nil?
       end
     end
 
@@ -1879,7 +1881,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Target.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1913,7 +1915,7 @@ module AWS::SDK::EventBridge
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1976,10 +1978,10 @@ module AWS::SDK::EventBridge
     class UpdateConnectionAuthRequestParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConnectionAuthRequestParameters, context: context)
-        Validators::UpdateConnectionBasicAuthRequestParameters.validate!(input[:basic_auth_parameters], context: "#{context}[:basic_auth_parameters]") unless input[:basic_auth_parameters].nil?
-        Validators::UpdateConnectionOAuthRequestParameters.validate!(input[:o_auth_parameters], context: "#{context}[:o_auth_parameters]") unless input[:o_auth_parameters].nil?
-        Validators::UpdateConnectionApiKeyAuthRequestParameters.validate!(input[:api_key_auth_parameters], context: "#{context}[:api_key_auth_parameters]") unless input[:api_key_auth_parameters].nil?
-        Validators::ConnectionHttpParameters.validate!(input[:invocation_http_parameters], context: "#{context}[:invocation_http_parameters]") unless input[:invocation_http_parameters].nil?
+        UpdateConnectionBasicAuthRequestParameters.validate!(input[:basic_auth_parameters], context: "#{context}[:basic_auth_parameters]") unless input[:basic_auth_parameters].nil?
+        UpdateConnectionOAuthRequestParameters.validate!(input[:o_auth_parameters], context: "#{context}[:o_auth_parameters]") unless input[:o_auth_parameters].nil?
+        UpdateConnectionApiKeyAuthRequestParameters.validate!(input[:api_key_auth_parameters], context: "#{context}[:api_key_auth_parameters]") unless input[:api_key_auth_parameters].nil?
+        ConnectionHttpParameters.validate!(input[:invocation_http_parameters], context: "#{context}[:invocation_http_parameters]") unless input[:invocation_http_parameters].nil?
       end
     end
 
@@ -1997,7 +1999,7 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:authorization_type], ::String, context: "#{context}[:authorization_type]")
-        Validators::UpdateConnectionAuthRequestParameters.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
+        UpdateConnectionAuthRequestParameters.validate!(input[:auth_parameters], context: "#{context}[:auth_parameters]") unless input[:auth_parameters].nil?
       end
     end
 
@@ -2012,10 +2014,10 @@ module AWS::SDK::EventBridge
     class UpdateConnectionOAuthRequestParameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConnectionOAuthRequestParameters, context: context)
-        Validators::UpdateConnectionOAuthClientRequestParameters.validate!(input[:client_parameters], context: "#{context}[:client_parameters]") unless input[:client_parameters].nil?
+        UpdateConnectionOAuthClientRequestParameters.validate!(input[:client_parameters], context: "#{context}[:client_parameters]") unless input[:client_parameters].nil?
         Hearth::Validator.validate!(input[:authorization_endpoint], ::String, context: "#{context}[:authorization_endpoint]")
         Hearth::Validator.validate!(input[:http_method], ::String, context: "#{context}[:http_method]")
-        Validators::ConnectionHttpParameters.validate!(input[:o_auth_http_parameters], context: "#{context}[:o_auth_http_parameters]") unless input[:o_auth_http_parameters].nil?
+        ConnectionHttpParameters.validate!(input[:o_auth_http_parameters], context: "#{context}[:o_auth_http_parameters]") unless input[:o_auth_http_parameters].nil?
       end
     end
 
@@ -2035,9 +2037,9 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::UpdateEndpointInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
-        Validators::ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
-        Validators::EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
+        ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
+        EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -2047,9 +2049,9 @@ module AWS::SDK::EventBridge
         Hearth::Validator.validate!(input, Types::UpdateEndpointOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
-        Validators::ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
-        Validators::EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
+        RoutingConfig.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
+        ReplicationConfig.validate!(input[:replication_config], context: "#{context}[:replication_config]") unless input[:replication_config].nil?
+        EndpointEventBusList.validate!(input[:event_buses], context: "#{context}[:event_buses]") unless input[:event_buses].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:endpoint_id], ::String, context: "#{context}[:endpoint_id]")
         Hearth::Validator.validate!(input[:endpoint_url], ::String, context: "#{context}[:endpoint_url]")

@@ -285,12 +285,12 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.billed_memory_used_in_mb ||= 0
         self.billed_duration_in_milliseconds ||= 0
       end
-
     end
 
     # <p>Provides details about execution input or output.</p>
@@ -306,11 +306,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.included ||= false
       end
-
     end
 
     # <p></p>
@@ -1276,12 +1276,12 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.reverse_order ||= false
       end
-
     end
 
     # @!attribute events
@@ -1530,12 +1530,12 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.id ||= 0
         self.previous_event_id ||= 0
       end
-
     end
 
     # <p>Provides details about input or output in an execution history event.</p>
@@ -1551,11 +1551,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.truncated ||= false
       end
-
     end
 
     # Includes enum constants for HistoryEventType
@@ -2077,11 +2077,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute activities
@@ -2137,11 +2137,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute executions
@@ -2182,11 +2182,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute state_machines
@@ -2294,11 +2294,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_execution_data ||= false
       end
-
     end
 
     # <p>Contains details about an iteration of a Map state.</p>
@@ -2319,11 +2319,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index ||= 0
       end
-
     end
 
     # <p>Details about a Map state that was started.</p>
@@ -2338,11 +2338,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.length ||= 0
       end
-
     end
 
     # <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
@@ -3439,11 +3439,11 @@ module AWS::SDK::SFN
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # @!attribute resource_arn

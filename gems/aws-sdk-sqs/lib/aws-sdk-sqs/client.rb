@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SQS
@@ -187,7 +189,7 @@ module AWS::SDK::SQS
     def add_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
         validate_input: @config.validate_input
@@ -299,7 +301,7 @@ module AWS::SDK::SQS
     def change_message_visibility(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangeMessageVisibilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeMessageVisibilityInput,
         validate_input: @config.validate_input
@@ -401,7 +403,7 @@ module AWS::SDK::SQS
     def change_message_visibility_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangeMessageVisibilityBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeMessageVisibilityBatchInput,
         validate_input: @config.validate_input
@@ -734,7 +736,7 @@ module AWS::SDK::SQS
     def create_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQueueInput,
         validate_input: @config.validate_input
@@ -826,7 +828,7 @@ module AWS::SDK::SQS
     def delete_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMessageInput,
         validate_input: @config.validate_input
@@ -924,7 +926,7 @@ module AWS::SDK::SQS
     def delete_message_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMessageBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMessageBatchInput,
         validate_input: @config.validate_input
@@ -1007,7 +1009,7 @@ module AWS::SDK::SQS
     def delete_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueueInput,
         validate_input: @config.validate_input
@@ -1256,7 +1258,7 @@ module AWS::SDK::SQS
     def get_queue_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueueAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueueAttributesInput,
         validate_input: @config.validate_input
@@ -1335,7 +1337,7 @@ module AWS::SDK::SQS
     def get_queue_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueueUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueueUrlInput,
         validate_input: @config.validate_input
@@ -1426,7 +1428,7 @@ module AWS::SDK::SQS
     def list_dead_letter_source_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeadLetterSourceQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeadLetterSourceQueuesInput,
         validate_input: @config.validate_input
@@ -1502,7 +1504,7 @@ module AWS::SDK::SQS
     def list_queue_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueueTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueueTagsInput,
         validate_input: @config.validate_input
@@ -1596,7 +1598,7 @@ module AWS::SDK::SQS
     def list_queues(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListQueuesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueuesInput,
         validate_input: @config.validate_input
@@ -1678,7 +1680,7 @@ module AWS::SDK::SQS
     def purge_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurgeQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurgeQueueInput,
         validate_input: @config.validate_input
@@ -1959,7 +1961,7 @@ module AWS::SDK::SQS
     def receive_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReceiveMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReceiveMessageInput,
         validate_input: @config.validate_input
@@ -2049,7 +2051,7 @@ module AWS::SDK::SQS
     def remove_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: @config.validate_input
@@ -2271,7 +2273,7 @@ module AWS::SDK::SQS
     def send_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendMessageInput,
         validate_input: @config.validate_input
@@ -2406,7 +2408,7 @@ module AWS::SDK::SQS
     def send_message_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendMessageBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendMessageBatchInput,
         validate_input: @config.validate_input
@@ -2651,7 +2653,7 @@ module AWS::SDK::SQS
     def set_queue_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetQueueAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetQueueAttributesInput,
         validate_input: @config.validate_input
@@ -2750,7 +2752,7 @@ module AWS::SDK::SQS
     def tag_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagQueueInput,
         validate_input: @config.validate_input
@@ -2830,7 +2832,7 @@ module AWS::SDK::SQS
     def untag_queue(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagQueueInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagQueueInput,
         validate_input: @config.validate_input

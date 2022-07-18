@@ -1107,11 +1107,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.deleted ||= false
       end
-
     end
 
     # <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
@@ -1581,6 +1581,7 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_conflicts ||= 0
@@ -1588,7 +1589,6 @@ module AWS::SDK::CodeCommit
         self.file_mode_conflict ||= false
         self.object_type_conflict ||= false
       end
-
     end
 
     # <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
@@ -1823,11 +1823,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute commit_id
@@ -2137,11 +2137,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute commit_id
@@ -2337,11 +2337,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute commit_id
@@ -2816,12 +2816,12 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.approved ||= false
         self.overridden ||= false
       end
-
     end
 
     # <p>Returns information about a file in a repository.</p>
@@ -3079,13 +3079,13 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source ||= 0
         self.destination ||= 0
         self.base ||= 0
       end
-
     end
 
     # <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
@@ -3631,11 +3631,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.file_size ||= 0
       end
-
     end
 
     # @!attribute repository_name
@@ -3905,11 +3905,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mergeable ||= false
       end
-
     end
 
     # @!attribute repository_name
@@ -4079,11 +4079,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.overridden ||= false
       end
-
     end
 
     # <p>Represents the input of a get repository operation.</p>
@@ -5730,11 +5730,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute commit_id
@@ -5841,11 +5841,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute commit_id
@@ -5900,11 +5900,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_conflict ||= false
       end
-
     end
 
     # <p>Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.</p>
@@ -5966,11 +5966,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_merged ||= false
       end
-
     end
 
     # <p>Information about the file operation conflicts in a merge operation.</p>
@@ -6144,11 +6144,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute pull_request
@@ -6242,11 +6242,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.keep_empty_folders ||= false
       end
-
     end
 
     # @!attribute pull_request
@@ -8208,11 +8208,11 @@ module AWS::SDK::CodeCommit
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_move ||= false
       end
-
     end
 
     # <p>Returns information about a submodule reference in a repository folder.</p>

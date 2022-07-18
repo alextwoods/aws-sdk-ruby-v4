@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Inspector2
   module Validators
 
@@ -22,7 +24,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::Account, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ResourceStatus.validate!(input[:resource_status], context: "#{context}[:resource_status]") unless input[:resource_status].nil?
+        ResourceStatus.validate!(input[:resource_status], context: "#{context}[:resource_status]") unless input[:resource_status].nil?
       end
     end
 
@@ -40,13 +42,13 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountAggregationResponse, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
       end
     end
 
     class AccountIdSet
       def self.validate!(input, context:)
-        Hearth::Validator.validate!(input, ::Set, context: context)
+        Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
         end
@@ -57,7 +59,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Account.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Account.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -66,8 +68,8 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccountState, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::State.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
-        Validators::ResourceState.validate!(input[:resource_state], context: "#{context}[:resource_state]") unless input[:resource_state].nil?
+        State.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        ResourceState.validate!(input[:resource_state], context: "#{context}[:resource_state]") unless input[:resource_state].nil?
       end
     end
 
@@ -75,7 +77,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -84,23 +86,23 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         case input
         when Types::AggregationRequest::AccountAggregation
-          Validators::AccountAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AccountAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::AmiAggregation
-          Validators::AmiAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AmiAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::AwsEcrContainerAggregation
-          Validators::AwsEcrContainerAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AwsEcrContainerAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::Ec2InstanceAggregation
-          Validators::Ec2InstanceAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Ec2InstanceAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::FindingTypeAggregation
-          Validators::FindingTypeAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          FindingTypeAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::ImageLayerAggregation
-          Validators::ImageLayerAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ImageLayerAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::PackageAggregation
-          Validators::PackageAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          PackageAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::RepositoryAggregation
-          Validators::RepositoryAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RepositoryAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationRequest::TitleAggregation
-          Validators::TitleAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TitleAggregation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -167,23 +169,23 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         case input
         when Types::AggregationResponse::AccountAggregation
-          Validators::AccountAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AccountAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::AmiAggregation
-          Validators::AmiAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AmiAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::AwsEcrContainerAggregation
-          Validators::AwsEcrContainerAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AwsEcrContainerAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::Ec2InstanceAggregation
-          Validators::Ec2InstanceAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Ec2InstanceAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::FindingTypeAggregation
-          Validators::FindingTypeAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          FindingTypeAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::ImageLayerAggregation
-          Validators::ImageLayerAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ImageLayerAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::PackageAggregation
-          Validators::PackageAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          PackageAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::RepositoryAggregation
-          Validators::RepositoryAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RepositoryAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::AggregationResponse::TitleAggregation
-          Validators::TitleAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TitleAggregationResponse.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -250,7 +252,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AggregationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AggregationResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -258,7 +260,7 @@ module AWS::SDK::Inspector2
     class AmiAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AmiAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:amis], context: "#{context}[:amis]") unless input[:amis].nil?
+        StringFilterList.validate!(input[:amis], context: "#{context}[:amis]") unless input[:amis].nil?
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
       end
@@ -269,7 +271,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::AmiAggregationResponse, context: context)
         Hearth::Validator.validate!(input[:ami], ::String, context: "#{context}[:ami]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
         Hearth::Validator.validate!(input[:affected_instances], ::Integer, context: "#{context}[:affected_instances]")
       end
     end
@@ -301,8 +303,8 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::AwsEc2InstanceDetails, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:image_id], ::String, context: "#{context}[:image_id]")
-        Validators::IpV4AddressList.validate!(input[:ip_v4_addresses], context: "#{context}[:ip_v4_addresses]") unless input[:ip_v4_addresses].nil?
-        Validators::IpV6AddressList.validate!(input[:ip_v6_addresses], context: "#{context}[:ip_v6_addresses]") unless input[:ip_v6_addresses].nil?
+        IpV4AddressList.validate!(input[:ip_v4_addresses], context: "#{context}[:ip_v4_addresses]") unless input[:ip_v4_addresses].nil?
+        IpV6AddressList.validate!(input[:ip_v6_addresses], context: "#{context}[:ip_v6_addresses]") unless input[:ip_v6_addresses].nil?
         Hearth::Validator.validate!(input[:key_name], ::String, context: "#{context}[:key_name]")
         Hearth::Validator.validate!(input[:iam_instance_profile_arn], ::String, context: "#{context}[:iam_instance_profile_arn]")
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
@@ -315,11 +317,11 @@ module AWS::SDK::Inspector2
     class AwsEcrContainerAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsEcrContainerAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
-        Validators::StringFilterList.validate!(input[:image_shas], context: "#{context}[:image_shas]") unless input[:image_shas].nil?
-        Validators::StringFilterList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
-        Validators::StringFilterList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
-        Validators::StringFilterList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
+        StringFilterList.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
+        StringFilterList.validate!(input[:image_shas], context: "#{context}[:image_shas]") unless input[:image_shas].nil?
+        StringFilterList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        StringFilterList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        StringFilterList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
       end
@@ -332,9 +334,9 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:image_sha], ::String, context: "#{context}[:image_sha]")
         Hearth::Validator.validate!(input[:repository], ::String, context: "#{context}[:repository]")
         Hearth::Validator.validate!(input[:architecture], ::String, context: "#{context}[:architecture]")
-        Validators::StringList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
+        StringList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsEcrContainerImageDetails, context: context)
         Hearth::Validator.validate!(input[:repository_name], ::String, context: "#{context}[:repository_name]")
-        Validators::ImageTagList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
+        ImageTagList.validate!(input[:image_tags], context: "#{context}[:image_tags]") unless input[:image_tags].nil?
         Hearth::Validator.validate!(input[:pushed_at], ::Time, context: "#{context}[:pushed_at]")
         Hearth::Validator.validate!(input[:author], ::String, context: "#{context}[:author]")
         Hearth::Validator.validate!(input[:architecture], ::String, context: "#{context}[:architecture]")
@@ -362,30 +364,30 @@ module AWS::SDK::Inspector2
     class BatchGetAccountStatusInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetAccountStatusInput, context: context)
-        Validators::AccountIdSet.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AccountIdSet.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
       end
     end
 
     class BatchGetAccountStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetAccountStatusOutput, context: context)
-        Validators::AccountStateList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
-        Validators::FailedAccountList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
+        AccountStateList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        FailedAccountList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
       end
     end
 
     class BatchGetFreeTrialInfoInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetFreeTrialInfoInput, context: context)
-        Validators::MeteringAccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        MeteringAccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
       end
     end
 
     class BatchGetFreeTrialInfoOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchGetFreeTrialInfoOutput, context: context)
-        Validators::FreeTrialAccountInfoList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
-        Validators::FreeTrialInfoErrorList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
+        FreeTrialAccountInfoList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        FreeTrialInfoErrorList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
       end
     end
 
@@ -424,7 +426,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Counts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Counts.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -432,15 +434,15 @@ module AWS::SDK::Inspector2
     class CoverageFilterCriteria
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CoverageFilterCriteria, context: context)
-        Validators::CoverageStringFilterList.validate!(input[:scan_status_code], context: "#{context}[:scan_status_code]") unless input[:scan_status_code].nil?
-        Validators::CoverageStringFilterList.validate!(input[:scan_status_reason], context: "#{context}[:scan_status_reason]") unless input[:scan_status_reason].nil?
-        Validators::CoverageStringFilterList.validate!(input[:account_id], context: "#{context}[:account_id]") unless input[:account_id].nil?
-        Validators::CoverageStringFilterList.validate!(input[:resource_id], context: "#{context}[:resource_id]") unless input[:resource_id].nil?
-        Validators::CoverageStringFilterList.validate!(input[:resource_type], context: "#{context}[:resource_type]") unless input[:resource_type].nil?
-        Validators::CoverageStringFilterList.validate!(input[:scan_type], context: "#{context}[:scan_type]") unless input[:scan_type].nil?
-        Validators::CoverageStringFilterList.validate!(input[:ecr_repository_name], context: "#{context}[:ecr_repository_name]") unless input[:ecr_repository_name].nil?
-        Validators::CoverageStringFilterList.validate!(input[:ecr_image_tags], context: "#{context}[:ecr_image_tags]") unless input[:ecr_image_tags].nil?
-        Validators::CoverageMapFilterList.validate!(input[:ec2_instance_tags], context: "#{context}[:ec2_instance_tags]") unless input[:ec2_instance_tags].nil?
+        CoverageStringFilterList.validate!(input[:scan_status_code], context: "#{context}[:scan_status_code]") unless input[:scan_status_code].nil?
+        CoverageStringFilterList.validate!(input[:scan_status_reason], context: "#{context}[:scan_status_reason]") unless input[:scan_status_reason].nil?
+        CoverageStringFilterList.validate!(input[:account_id], context: "#{context}[:account_id]") unless input[:account_id].nil?
+        CoverageStringFilterList.validate!(input[:resource_id], context: "#{context}[:resource_id]") unless input[:resource_id].nil?
+        CoverageStringFilterList.validate!(input[:resource_type], context: "#{context}[:resource_type]") unless input[:resource_type].nil?
+        CoverageStringFilterList.validate!(input[:scan_type], context: "#{context}[:scan_type]") unless input[:scan_type].nil?
+        CoverageStringFilterList.validate!(input[:ecr_repository_name], context: "#{context}[:ecr_repository_name]") unless input[:ecr_repository_name].nil?
+        CoverageStringFilterList.validate!(input[:ecr_image_tags], context: "#{context}[:ecr_image_tags]") unless input[:ecr_image_tags].nil?
+        CoverageMapFilterList.validate!(input[:ec2_instance_tags], context: "#{context}[:ec2_instance_tags]") unless input[:ec2_instance_tags].nil?
       end
     end
 
@@ -457,7 +459,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoverageMapFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoverageMapFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoverageStringFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoverageStringFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -486,8 +488,8 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:scan_type], ::String, context: "#{context}[:scan_type]")
-        Validators::ScanStatus.validate!(input[:scan_status], context: "#{context}[:scan_status]") unless input[:scan_status].nil?
-        Validators::ResourceScanMetadata.validate!(input[:resource_metadata], context: "#{context}[:resource_metadata]") unless input[:resource_metadata].nil?
+        ScanStatus.validate!(input[:scan_status], context: "#{context}[:scan_status]") unless input[:scan_status].nil?
+        ResourceScanMetadata.validate!(input[:resource_metadata], context: "#{context}[:resource_metadata]") unless input[:resource_metadata].nil?
       end
     end
 
@@ -495,7 +497,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CoveredResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CoveredResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -505,9 +507,9 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::CreateFilterInput, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -521,9 +523,9 @@ module AWS::SDK::Inspector2
     class CreateFindingsReportInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFindingsReportInput, context: context)
-        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:report_format], ::String, context: "#{context}[:report_format]")
-        Validators::Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
@@ -556,7 +558,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CvssScoreAdjustment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CvssScoreAdjustment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -569,7 +571,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:score], ::Float, context: "#{context}[:score]")
         Hearth::Validator.validate!(input[:scoring_vector], ::String, context: "#{context}[:scoring_vector]")
-        Validators::CvssScoreAdjustmentList.validate!(input[:adjustments], context: "#{context}[:adjustments]") unless input[:adjustments].nil?
+        CvssScoreAdjustmentList.validate!(input[:adjustments], context: "#{context}[:adjustments]") unless input[:adjustments].nil?
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CvssScore.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CvssScore.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -594,7 +596,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DateFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -619,7 +621,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DelegatedAdminAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DelegatedAdminAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -647,7 +649,7 @@ module AWS::SDK::Inspector2
     class DescribeOrganizationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeOrganizationConfigurationOutput, context: context)
-        Validators::AutoEnable.validate!(input[:auto_enable], context: "#{context}[:auto_enable]") unless input[:auto_enable].nil?
+        AutoEnable.validate!(input[:auto_enable], context: "#{context}[:auto_enable]") unless input[:auto_enable].nil?
         Hearth::Validator.validate!(input[:max_account_limit_reached], ::TrueClass, ::FalseClass, context: "#{context}[:max_account_limit_reached]")
       end
     end
@@ -678,16 +680,16 @@ module AWS::SDK::Inspector2
     class DisableInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableInput, context: context)
-        Validators::AccountIdSet.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::DisableResourceTypeList.validate!(input[:resource_types], context: "#{context}[:resource_types]") unless input[:resource_types].nil?
+        AccountIdSet.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        DisableResourceTypeList.validate!(input[:resource_types], context: "#{context}[:resource_types]") unless input[:resource_types].nil?
       end
     end
 
     class DisableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableOutput, context: context)
-        Validators::AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
-        Validators::FailedAccountList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
+        AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        FailedAccountList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
       end
     end
 
@@ -717,10 +719,10 @@ module AWS::SDK::Inspector2
     class Ec2InstanceAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Ec2InstanceAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:amis], context: "#{context}[:amis]") unless input[:amis].nil?
-        Validators::StringFilterList.validate!(input[:operating_systems], context: "#{context}[:operating_systems]") unless input[:operating_systems].nil?
-        Validators::StringFilterList.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
-        Validators::MapFilterList.validate!(input[:instance_tags], context: "#{context}[:instance_tags]") unless input[:instance_tags].nil?
+        StringFilterList.validate!(input[:amis], context: "#{context}[:amis]") unless input[:amis].nil?
+        StringFilterList.validate!(input[:operating_systems], context: "#{context}[:operating_systems]") unless input[:operating_systems].nil?
+        StringFilterList.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        MapFilterList.validate!(input[:instance_tags], context: "#{context}[:instance_tags]") unless input[:instance_tags].nil?
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
       end
@@ -732,9 +734,9 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
         Hearth::Validator.validate!(input[:ami], ::String, context: "#{context}[:ami]")
         Hearth::Validator.validate!(input[:operating_system], ::String, context: "#{context}[:operating_system]")
-        Validators::TagMap.validate!(input[:instance_tags], context: "#{context}[:instance_tags]") unless input[:instance_tags].nil?
+        TagMap.validate!(input[:instance_tags], context: "#{context}[:instance_tags]") unless input[:instance_tags].nil?
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
         Hearth::Validator.validate!(input[:network_findings], ::Integer, context: "#{context}[:network_findings]")
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::Inspector2
     class Ec2Metadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Ec2Metadata, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:ami_id], ::String, context: "#{context}[:ami_id]")
         Hearth::Validator.validate!(input[:platform], ::String, context: "#{context}[:platform]")
       end
@@ -751,7 +753,7 @@ module AWS::SDK::Inspector2
     class EcrContainerImageMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EcrContainerImageMetadata, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -781,8 +783,8 @@ module AWS::SDK::Inspector2
     class EnableInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableInput, context: context)
-        Validators::AccountIdSet.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::EnableResourceTypeList.validate!(input[:resource_types], context: "#{context}[:resource_types]") unless input[:resource_types].nil?
+        AccountIdSet.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        EnableResourceTypeList.validate!(input[:resource_types], context: "#{context}[:resource_types]") unless input[:resource_types].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -790,8 +792,8 @@ module AWS::SDK::Inspector2
     class EnableOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableOutput, context: context)
-        Validators::AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
-        Validators::FailedAccountList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
+        AccountList.validate!(input[:accounts], context: "#{context}[:accounts]") unless input[:accounts].nil?
+        FailedAccountList.validate!(input[:failed_accounts], context: "#{context}[:failed_accounts]") unless input[:failed_accounts].nil?
       end
     end
 
@@ -809,7 +811,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::FailedAccount, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ResourceStatus.validate!(input[:resource_status], context: "#{context}[:resource_status]") unless input[:resource_status].nil?
+        ResourceStatus.validate!(input[:resource_status], context: "#{context}[:resource_status]") unless input[:resource_status].nil?
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
       end
@@ -819,7 +821,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -830,13 +832,13 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:owner_id], ::String, context: "#{context}[:owner_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterCriteria.validate!(input[:criteria], context: "#{context}[:criteria]") unless input[:criteria].nil?
+        FilterCriteria.validate!(input[:criteria], context: "#{context}[:criteria]") unless input[:criteria].nil?
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -852,37 +854,37 @@ module AWS::SDK::Inspector2
     class FilterCriteria
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FilterCriteria, context: context)
-        Validators::StringFilterList.validate!(input[:finding_arn], context: "#{context}[:finding_arn]") unless input[:finding_arn].nil?
-        Validators::StringFilterList.validate!(input[:aws_account_id], context: "#{context}[:aws_account_id]") unless input[:aws_account_id].nil?
-        Validators::StringFilterList.validate!(input[:finding_type], context: "#{context}[:finding_type]") unless input[:finding_type].nil?
-        Validators::StringFilterList.validate!(input[:severity], context: "#{context}[:severity]") unless input[:severity].nil?
-        Validators::DateFilterList.validate!(input[:first_observed_at], context: "#{context}[:first_observed_at]") unless input[:first_observed_at].nil?
-        Validators::DateFilterList.validate!(input[:last_observed_at], context: "#{context}[:last_observed_at]") unless input[:last_observed_at].nil?
-        Validators::DateFilterList.validate!(input[:updated_at], context: "#{context}[:updated_at]") unless input[:updated_at].nil?
-        Validators::StringFilterList.validate!(input[:finding_status], context: "#{context}[:finding_status]") unless input[:finding_status].nil?
-        Validators::StringFilterList.validate!(input[:title], context: "#{context}[:title]") unless input[:title].nil?
-        Validators::NumberFilterList.validate!(input[:inspector_score], context: "#{context}[:inspector_score]") unless input[:inspector_score].nil?
-        Validators::StringFilterList.validate!(input[:resource_type], context: "#{context}[:resource_type]") unless input[:resource_type].nil?
-        Validators::StringFilterList.validate!(input[:resource_id], context: "#{context}[:resource_id]") unless input[:resource_id].nil?
-        Validators::MapFilterList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
-        Validators::StringFilterList.validate!(input[:ec2_instance_image_id], context: "#{context}[:ec2_instance_image_id]") unless input[:ec2_instance_image_id].nil?
-        Validators::StringFilterList.validate!(input[:ec2_instance_vpc_id], context: "#{context}[:ec2_instance_vpc_id]") unless input[:ec2_instance_vpc_id].nil?
-        Validators::StringFilterList.validate!(input[:ec2_instance_subnet_id], context: "#{context}[:ec2_instance_subnet_id]") unless input[:ec2_instance_subnet_id].nil?
-        Validators::DateFilterList.validate!(input[:ecr_image_pushed_at], context: "#{context}[:ecr_image_pushed_at]") unless input[:ecr_image_pushed_at].nil?
-        Validators::StringFilterList.validate!(input[:ecr_image_architecture], context: "#{context}[:ecr_image_architecture]") unless input[:ecr_image_architecture].nil?
-        Validators::StringFilterList.validate!(input[:ecr_image_registry], context: "#{context}[:ecr_image_registry]") unless input[:ecr_image_registry].nil?
-        Validators::StringFilterList.validate!(input[:ecr_image_repository_name], context: "#{context}[:ecr_image_repository_name]") unless input[:ecr_image_repository_name].nil?
-        Validators::StringFilterList.validate!(input[:ecr_image_tags], context: "#{context}[:ecr_image_tags]") unless input[:ecr_image_tags].nil?
-        Validators::StringFilterList.validate!(input[:ecr_image_hash], context: "#{context}[:ecr_image_hash]") unless input[:ecr_image_hash].nil?
-        Validators::PortRangeFilterList.validate!(input[:port_range], context: "#{context}[:port_range]") unless input[:port_range].nil?
-        Validators::StringFilterList.validate!(input[:network_protocol], context: "#{context}[:network_protocol]") unless input[:network_protocol].nil?
-        Validators::StringFilterList.validate!(input[:component_id], context: "#{context}[:component_id]") unless input[:component_id].nil?
-        Validators::StringFilterList.validate!(input[:component_type], context: "#{context}[:component_type]") unless input[:component_type].nil?
-        Validators::StringFilterList.validate!(input[:vulnerability_id], context: "#{context}[:vulnerability_id]") unless input[:vulnerability_id].nil?
-        Validators::StringFilterList.validate!(input[:vulnerability_source], context: "#{context}[:vulnerability_source]") unless input[:vulnerability_source].nil?
-        Validators::StringFilterList.validate!(input[:vendor_severity], context: "#{context}[:vendor_severity]") unless input[:vendor_severity].nil?
-        Validators::PackageFilterList.validate!(input[:vulnerable_packages], context: "#{context}[:vulnerable_packages]") unless input[:vulnerable_packages].nil?
-        Validators::StringFilterList.validate!(input[:related_vulnerabilities], context: "#{context}[:related_vulnerabilities]") unless input[:related_vulnerabilities].nil?
+        StringFilterList.validate!(input[:finding_arn], context: "#{context}[:finding_arn]") unless input[:finding_arn].nil?
+        StringFilterList.validate!(input[:aws_account_id], context: "#{context}[:aws_account_id]") unless input[:aws_account_id].nil?
+        StringFilterList.validate!(input[:finding_type], context: "#{context}[:finding_type]") unless input[:finding_type].nil?
+        StringFilterList.validate!(input[:severity], context: "#{context}[:severity]") unless input[:severity].nil?
+        DateFilterList.validate!(input[:first_observed_at], context: "#{context}[:first_observed_at]") unless input[:first_observed_at].nil?
+        DateFilterList.validate!(input[:last_observed_at], context: "#{context}[:last_observed_at]") unless input[:last_observed_at].nil?
+        DateFilterList.validate!(input[:updated_at], context: "#{context}[:updated_at]") unless input[:updated_at].nil?
+        StringFilterList.validate!(input[:finding_status], context: "#{context}[:finding_status]") unless input[:finding_status].nil?
+        StringFilterList.validate!(input[:title], context: "#{context}[:title]") unless input[:title].nil?
+        NumberFilterList.validate!(input[:inspector_score], context: "#{context}[:inspector_score]") unless input[:inspector_score].nil?
+        StringFilterList.validate!(input[:resource_type], context: "#{context}[:resource_type]") unless input[:resource_type].nil?
+        StringFilterList.validate!(input[:resource_id], context: "#{context}[:resource_id]") unless input[:resource_id].nil?
+        MapFilterList.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        StringFilterList.validate!(input[:ec2_instance_image_id], context: "#{context}[:ec2_instance_image_id]") unless input[:ec2_instance_image_id].nil?
+        StringFilterList.validate!(input[:ec2_instance_vpc_id], context: "#{context}[:ec2_instance_vpc_id]") unless input[:ec2_instance_vpc_id].nil?
+        StringFilterList.validate!(input[:ec2_instance_subnet_id], context: "#{context}[:ec2_instance_subnet_id]") unless input[:ec2_instance_subnet_id].nil?
+        DateFilterList.validate!(input[:ecr_image_pushed_at], context: "#{context}[:ecr_image_pushed_at]") unless input[:ecr_image_pushed_at].nil?
+        StringFilterList.validate!(input[:ecr_image_architecture], context: "#{context}[:ecr_image_architecture]") unless input[:ecr_image_architecture].nil?
+        StringFilterList.validate!(input[:ecr_image_registry], context: "#{context}[:ecr_image_registry]") unless input[:ecr_image_registry].nil?
+        StringFilterList.validate!(input[:ecr_image_repository_name], context: "#{context}[:ecr_image_repository_name]") unless input[:ecr_image_repository_name].nil?
+        StringFilterList.validate!(input[:ecr_image_tags], context: "#{context}[:ecr_image_tags]") unless input[:ecr_image_tags].nil?
+        StringFilterList.validate!(input[:ecr_image_hash], context: "#{context}[:ecr_image_hash]") unless input[:ecr_image_hash].nil?
+        PortRangeFilterList.validate!(input[:port_range], context: "#{context}[:port_range]") unless input[:port_range].nil?
+        StringFilterList.validate!(input[:network_protocol], context: "#{context}[:network_protocol]") unless input[:network_protocol].nil?
+        StringFilterList.validate!(input[:component_id], context: "#{context}[:component_id]") unless input[:component_id].nil?
+        StringFilterList.validate!(input[:component_type], context: "#{context}[:component_type]") unless input[:component_type].nil?
+        StringFilterList.validate!(input[:vulnerability_id], context: "#{context}[:vulnerability_id]") unless input[:vulnerability_id].nil?
+        StringFilterList.validate!(input[:vulnerability_source], context: "#{context}[:vulnerability_source]") unless input[:vulnerability_source].nil?
+        StringFilterList.validate!(input[:vendor_severity], context: "#{context}[:vendor_severity]") unless input[:vendor_severity].nil?
+        PackageFilterList.validate!(input[:vulnerable_packages], context: "#{context}[:vulnerable_packages]") unless input[:vulnerable_packages].nil?
+        StringFilterList.validate!(input[:related_vulnerabilities], context: "#{context}[:related_vulnerabilities]") unless input[:related_vulnerabilities].nil?
       end
     end
 
@@ -890,7 +892,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -903,17 +905,17 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
-        Validators::Remediation.validate!(input[:remediation], context: "#{context}[:remediation]") unless input[:remediation].nil?
+        Remediation.validate!(input[:remediation], context: "#{context}[:remediation]") unless input[:remediation].nil?
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
         Hearth::Validator.validate!(input[:first_observed_at], ::Time, context: "#{context}[:first_observed_at]")
         Hearth::Validator.validate!(input[:last_observed_at], ::Time, context: "#{context}[:last_observed_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ResourceList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:inspector_score], ::Float, context: "#{context}[:inspector_score]")
-        Validators::InspectorScoreDetails.validate!(input[:inspector_score_details], context: "#{context}[:inspector_score_details]") unless input[:inspector_score_details].nil?
-        Validators::NetworkReachabilityDetails.validate!(input[:network_reachability_details], context: "#{context}[:network_reachability_details]") unless input[:network_reachability_details].nil?
-        Validators::PackageVulnerabilityDetails.validate!(input[:package_vulnerability_details], context: "#{context}[:package_vulnerability_details]") unless input[:package_vulnerability_details].nil?
+        InspectorScoreDetails.validate!(input[:inspector_score_details], context: "#{context}[:inspector_score_details]") unless input[:inspector_score_details].nil?
+        NetworkReachabilityDetails.validate!(input[:network_reachability_details], context: "#{context}[:network_reachability_details]") unless input[:network_reachability_details].nil?
+        PackageVulnerabilityDetails.validate!(input[:package_vulnerability_details], context: "#{context}[:package_vulnerability_details]") unless input[:package_vulnerability_details].nil?
       end
     end
 
@@ -921,7 +923,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Finding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Finding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -940,7 +942,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FindingTypeAggregationResponse, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
       end
     end
 
@@ -948,7 +950,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FreeTrialAccountInfo, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::FreeTrialInfoList.validate!(input[:free_trial_info], context: "#{context}[:free_trial_info]") unless input[:free_trial_info].nil?
+        FreeTrialInfoList.validate!(input[:free_trial_info], context: "#{context}[:free_trial_info]") unless input[:free_trial_info].nil?
       end
     end
 
@@ -956,7 +958,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FreeTrialAccountInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FreeTrialAccountInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -984,7 +986,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FreeTrialInfoError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FreeTrialInfoError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -993,7 +995,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FreeTrialInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FreeTrialInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1007,7 +1009,7 @@ module AWS::SDK::Inspector2
     class GetDelegatedAdminAccountOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDelegatedAdminAccountOutput, context: context)
-        Validators::DelegatedAdmin.validate!(input[:delegated_admin], context: "#{context}[:delegated_admin]") unless input[:delegated_admin].nil?
+        DelegatedAdmin.validate!(input[:delegated_admin], context: "#{context}[:delegated_admin]") unless input[:delegated_admin].nil?
       end
     end
 
@@ -1025,8 +1027,8 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:error_code], ::String, context: "#{context}[:error_code]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
-        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
       end
     end
 
@@ -1040,16 +1042,16 @@ module AWS::SDK::Inspector2
     class GetMemberOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMemberOutput, context: context)
-        Validators::Member.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
+        Member.validate!(input[:member], context: "#{context}[:member]") unless input[:member].nil?
       end
     end
 
     class ImageLayerAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImageLayerAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
-        Validators::StringFilterList.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
-        Validators::StringFilterList.validate!(input[:layer_hashes], context: "#{context}[:layer_hashes]") unless input[:layer_hashes].nil?
+        StringFilterList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        StringFilterList.validate!(input[:resource_ids], context: "#{context}[:resource_ids]") unless input[:resource_ids].nil?
+        StringFilterList.validate!(input[:layer_hashes], context: "#{context}[:layer_hashes]") unless input[:layer_hashes].nil?
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
       end
@@ -1062,7 +1064,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:layer_hash], ::String, context: "#{context}[:layer_hash]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
       end
     end
 
@@ -1078,7 +1080,7 @@ module AWS::SDK::Inspector2
     class InspectorScoreDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InspectorScoreDetails, context: context)
-        Validators::CvssScoreDetails.validate!(input[:adjusted_cvss], context: "#{context}[:adjusted_cvss]") unless input[:adjusted_cvss].nil?
+        CvssScoreDetails.validate!(input[:adjusted_cvss], context: "#{context}[:adjusted_cvss]") unless input[:adjusted_cvss].nil?
       end
     end
 
@@ -1120,7 +1122,7 @@ module AWS::SDK::Inspector2
     class ListAccountPermissionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountPermissionsOutput, context: context)
-        Validators::Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1130,7 +1132,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::ListCoverageInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CoverageFilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        CoverageFilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
       end
     end
 
@@ -1138,14 +1140,14 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoverageOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CoveredResources.validate!(input[:covered_resources], context: "#{context}[:covered_resources]") unless input[:covered_resources].nil?
+        CoveredResources.validate!(input[:covered_resources], context: "#{context}[:covered_resources]") unless input[:covered_resources].nil?
       end
     end
 
     class ListCoverageStatisticsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoverageStatisticsInput, context: context)
-        Validators::CoverageFilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        CoverageFilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:group_by], ::String, context: "#{context}[:group_by]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1154,7 +1156,7 @@ module AWS::SDK::Inspector2
     class ListCoverageStatisticsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoverageStatisticsOutput, context: context)
-        Validators::CountsList.validate!(input[:counts_by_group], context: "#{context}[:counts_by_group]") unless input[:counts_by_group].nil?
+        CountsList.validate!(input[:counts_by_group], context: "#{context}[:counts_by_group]") unless input[:counts_by_group].nil?
         Hearth::Validator.validate!(input[:total_counts], ::Integer, context: "#{context}[:total_counts]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -1171,7 +1173,7 @@ module AWS::SDK::Inspector2
     class ListDelegatedAdminAccountsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDelegatedAdminAccountsOutput, context: context)
-        Validators::DelegatedAdminAccountList.validate!(input[:delegated_admin_accounts], context: "#{context}[:delegated_admin_accounts]") unless input[:delegated_admin_accounts].nil?
+        DelegatedAdminAccountList.validate!(input[:delegated_admin_accounts], context: "#{context}[:delegated_admin_accounts]") unless input[:delegated_admin_accounts].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1179,7 +1181,7 @@ module AWS::SDK::Inspector2
     class ListFiltersInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFiltersInput, context: context)
-        Validators::FilterArnList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
+        FilterArnList.validate!(input[:arns], context: "#{context}[:arns]") unless input[:arns].nil?
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -1189,7 +1191,7 @@ module AWS::SDK::Inspector2
     class ListFiltersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFiltersOutput, context: context)
-        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1200,8 +1202,8 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:aggregation_type], ::String, context: "#{context}[:aggregation_type]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::StringFilterList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
-        Validators::AggregationRequest.validate!(input[:aggregation_request], context: "#{context}[:aggregation_request]") unless input[:aggregation_request].nil?
+        StringFilterList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AggregationRequest.validate!(input[:aggregation_request], context: "#{context}[:aggregation_request]") unless input[:aggregation_request].nil?
       end
     end
 
@@ -1209,7 +1211,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFindingAggregationsOutput, context: context)
         Hearth::Validator.validate!(input[:aggregation_type], ::String, context: "#{context}[:aggregation_type]")
-        Validators::AggregationResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
+        AggregationResponseList.validate!(input[:responses], context: "#{context}[:responses]") unless input[:responses].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1219,8 +1221,8 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::ListFindingsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
-        Validators::SortCriteria.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
+        FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        SortCriteria.validate!(input[:sort_criteria], context: "#{context}[:sort_criteria]") unless input[:sort_criteria].nil?
       end
     end
 
@@ -1228,7 +1230,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFindingsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::FindingList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
+        FindingList.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
       end
     end
 
@@ -1244,7 +1246,7 @@ module AWS::SDK::Inspector2
     class ListMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMembersOutput, context: context)
-        Validators::MemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        MemberList.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1259,7 +1261,7 @@ module AWS::SDK::Inspector2
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1268,7 +1270,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::ListUsageTotalsInput, context: context)
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::UsageAccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        UsageAccountIdList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
       end
     end
 
@@ -1276,7 +1278,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsageTotalsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::UsageTotalList.validate!(input[:totals], context: "#{context}[:totals]") unless input[:totals].nil?
+        UsageTotalList.validate!(input[:totals], context: "#{context}[:totals]") unless input[:totals].nil?
       end
     end
 
@@ -1293,7 +1295,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MapFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MapFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1312,7 +1314,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Member.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Member.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1329,16 +1331,16 @@ module AWS::SDK::Inspector2
     class NetworkPath
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkPath, context: context)
-        Validators::StepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
+        StepList.validate!(input[:steps], context: "#{context}[:steps]") unless input[:steps].nil?
       end
     end
 
     class NetworkReachabilityDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NetworkReachabilityDetails, context: context)
-        Validators::PortRange.validate!(input[:open_port_range], context: "#{context}[:open_port_range]") unless input[:open_port_range].nil?
+        PortRange.validate!(input[:open_port_range], context: "#{context}[:open_port_range]") unless input[:open_port_range].nil?
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
-        Validators::NetworkPath.validate!(input[:network_path], context: "#{context}[:network_path]") unless input[:network_path].nil?
+        NetworkPath.validate!(input[:network_path], context: "#{context}[:network_path]") unless input[:network_path].nil?
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NumberFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NumberFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1371,7 +1373,7 @@ module AWS::SDK::Inspector2
     class PackageAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PackageAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:package_names], context: "#{context}[:package_names]") unless input[:package_names].nil?
+        StringFilterList.validate!(input[:package_names], context: "#{context}[:package_names]") unless input[:package_names].nil?
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
       end
@@ -1382,19 +1384,19 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::PackageAggregationResponse, context: context)
         Hearth::Validator.validate!(input[:package_name], ::String, context: "#{context}[:package_name]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
       end
     end
 
     class PackageFilter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PackageFilter, context: context)
-        Validators::StringFilter.validate!(input[:name], context: "#{context}[:name]") unless input[:name].nil?
-        Validators::StringFilter.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
-        Validators::NumberFilter.validate!(input[:epoch], context: "#{context}[:epoch]") unless input[:epoch].nil?
-        Validators::StringFilter.validate!(input[:release], context: "#{context}[:release]") unless input[:release].nil?
-        Validators::StringFilter.validate!(input[:architecture], context: "#{context}[:architecture]") unless input[:architecture].nil?
-        Validators::StringFilter.validate!(input[:source_layer_hash], context: "#{context}[:source_layer_hash]") unless input[:source_layer_hash].nil?
+        StringFilter.validate!(input[:name], context: "#{context}[:name]") unless input[:name].nil?
+        StringFilter.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
+        NumberFilter.validate!(input[:epoch], context: "#{context}[:epoch]") unless input[:epoch].nil?
+        StringFilter.validate!(input[:release], context: "#{context}[:release]") unless input[:release].nil?
+        StringFilter.validate!(input[:architecture], context: "#{context}[:architecture]") unless input[:architecture].nil?
+        StringFilter.validate!(input[:source_layer_hash], context: "#{context}[:source_layer_hash]") unless input[:source_layer_hash].nil?
       end
     end
 
@@ -1402,7 +1404,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PackageFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PackageFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1411,15 +1413,15 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PackageVulnerabilityDetails, context: context)
         Hearth::Validator.validate!(input[:vulnerability_id], ::String, context: "#{context}[:vulnerability_id]")
-        Validators::VulnerablePackageList.validate!(input[:vulnerable_packages], context: "#{context}[:vulnerable_packages]") unless input[:vulnerable_packages].nil?
+        VulnerablePackageList.validate!(input[:vulnerable_packages], context: "#{context}[:vulnerable_packages]") unless input[:vulnerable_packages].nil?
         Hearth::Validator.validate!(input[:source], ::String, context: "#{context}[:source]")
-        Validators::CvssScoreList.validate!(input[:cvss], context: "#{context}[:cvss]") unless input[:cvss].nil?
-        Validators::VulnerabilityIdList.validate!(input[:related_vulnerabilities], context: "#{context}[:related_vulnerabilities]") unless input[:related_vulnerabilities].nil?
+        CvssScoreList.validate!(input[:cvss], context: "#{context}[:cvss]") unless input[:cvss].nil?
+        VulnerabilityIdList.validate!(input[:related_vulnerabilities], context: "#{context}[:related_vulnerabilities]") unless input[:related_vulnerabilities].nil?
         Hearth::Validator.validate!(input[:source_url], ::String, context: "#{context}[:source_url]")
         Hearth::Validator.validate!(input[:vendor_severity], ::String, context: "#{context}[:vendor_severity]")
         Hearth::Validator.validate!(input[:vendor_created_at], ::Time, context: "#{context}[:vendor_created_at]")
         Hearth::Validator.validate!(input[:vendor_updated_at], ::Time, context: "#{context}[:vendor_updated_at]")
-        Validators::NonEmptyStringList.validate!(input[:reference_urls], context: "#{context}[:reference_urls]") unless input[:reference_urls].nil?
+        NonEmptyStringList.validate!(input[:reference_urls], context: "#{context}[:reference_urls]") unless input[:reference_urls].nil?
       end
     end
 
@@ -1435,7 +1437,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1460,7 +1462,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortRangeFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortRangeFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1476,14 +1478,14 @@ module AWS::SDK::Inspector2
     class Remediation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Remediation, context: context)
-        Validators::Recommendation.validate!(input[:recommendation], context: "#{context}[:recommendation]") unless input[:recommendation].nil?
+        Recommendation.validate!(input[:recommendation], context: "#{context}[:recommendation]") unless input[:recommendation].nil?
       end
     end
 
     class RepositoryAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RepositoryAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
+        StringFilterList.validate!(input[:repositories], context: "#{context}[:repositories]") unless input[:repositories].nil?
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
       end
@@ -1494,7 +1496,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::RepositoryAggregationResponse, context: context)
         Hearth::Validator.validate!(input[:repository], ::String, context: "#{context}[:repository]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
         Hearth::Validator.validate!(input[:affected_images], ::Integer, context: "#{context}[:affected_images]")
       end
     end
@@ -1506,16 +1508,16 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:partition], ::String, context: "#{context}[:partition]")
         Hearth::Validator.validate!(input[:region], ::String, context: "#{context}[:region]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ResourceDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourceDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
       end
     end
 
     class ResourceDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceDetails, context: context)
-        Validators::AwsEc2InstanceDetails.validate!(input[:aws_ec2_instance], context: "#{context}[:aws_ec2_instance]") unless input[:aws_ec2_instance].nil?
-        Validators::AwsEcrContainerImageDetails.validate!(input[:aws_ecr_container_image], context: "#{context}[:aws_ecr_container_image]") unless input[:aws_ecr_container_image].nil?
+        AwsEc2InstanceDetails.validate!(input[:aws_ec2_instance], context: "#{context}[:aws_ec2_instance]") unless input[:aws_ec2_instance].nil?
+        AwsEcrContainerImageDetails.validate!(input[:aws_ecr_container_image], context: "#{context}[:aws_ecr_container_image]") unless input[:aws_ecr_container_image].nil?
       end
     end
 
@@ -1523,7 +1525,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1538,17 +1540,17 @@ module AWS::SDK::Inspector2
     class ResourceScanMetadata
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceScanMetadata, context: context)
-        Validators::EcrRepositoryMetadata.validate!(input[:ecr_repository], context: "#{context}[:ecr_repository]") unless input[:ecr_repository].nil?
-        Validators::EcrContainerImageMetadata.validate!(input[:ecr_image], context: "#{context}[:ecr_image]") unless input[:ecr_image].nil?
-        Validators::Ec2Metadata.validate!(input[:ec2], context: "#{context}[:ec2]") unless input[:ec2].nil?
+        EcrRepositoryMetadata.validate!(input[:ecr_repository], context: "#{context}[:ecr_repository]") unless input[:ecr_repository].nil?
+        EcrContainerImageMetadata.validate!(input[:ecr_image], context: "#{context}[:ecr_image]") unless input[:ecr_image].nil?
+        Ec2Metadata.validate!(input[:ec2], context: "#{context}[:ec2]") unless input[:ec2].nil?
       end
     end
 
     class ResourceState
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceState, context: context)
-        Validators::State.validate!(input[:ec2], context: "#{context}[:ec2]") unless input[:ec2].nil?
-        Validators::State.validate!(input[:ecr], context: "#{context}[:ecr]") unless input[:ecr].nil?
+        State.validate!(input[:ec2], context: "#{context}[:ec2]") unless input[:ec2].nil?
+        State.validate!(input[:ecr], context: "#{context}[:ecr]") unless input[:ecr].nil?
       end
     end
 
@@ -1615,7 +1617,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Step.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Step.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1632,7 +1634,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StringFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StringFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1678,7 +1680,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1698,8 +1700,8 @@ module AWS::SDK::Inspector2
     class TitleAggregation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TitleAggregation, context: context)
-        Validators::StringFilterList.validate!(input[:titles], context: "#{context}[:titles]") unless input[:titles].nil?
-        Validators::StringFilterList.validate!(input[:vulnerability_ids], context: "#{context}[:vulnerability_ids]") unless input[:vulnerability_ids].nil?
+        StringFilterList.validate!(input[:titles], context: "#{context}[:titles]") unless input[:titles].nil?
+        StringFilterList.validate!(input[:vulnerability_ids], context: "#{context}[:vulnerability_ids]") unless input[:vulnerability_ids].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:sort_order], ::String, context: "#{context}[:sort_order]")
         Hearth::Validator.validate!(input[:sort_by], ::String, context: "#{context}[:sort_by]")
@@ -1712,7 +1714,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input[:title], ::String, context: "#{context}[:title]")
         Hearth::Validator.validate!(input[:vulnerability_id], ::String, context: "#{context}[:vulnerability_id]")
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
+        SeverityCounts.validate!(input[:severity_counts], context: "#{context}[:severity_counts]") unless input[:severity_counts].nil?
       end
     end
 
@@ -1720,7 +1722,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1735,7 +1737,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::UpdateFilterInput, context: context)
         Hearth::Validator.validate!(input[:action], ::String, context: "#{context}[:action]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
+        FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:filter_arn], ::String, context: "#{context}[:filter_arn]")
       end
@@ -1751,14 +1753,14 @@ module AWS::SDK::Inspector2
     class UpdateOrganizationConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateOrganizationConfigurationInput, context: context)
-        Validators::AutoEnable.validate!(input[:auto_enable], context: "#{context}[:auto_enable]") unless input[:auto_enable].nil?
+        AutoEnable.validate!(input[:auto_enable], context: "#{context}[:auto_enable]") unless input[:auto_enable].nil?
       end
     end
 
     class UpdateOrganizationConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateOrganizationConfigurationOutput, context: context)
-        Validators::AutoEnable.validate!(input[:auto_enable], context: "#{context}[:auto_enable]") unless input[:auto_enable].nil?
+        AutoEnable.validate!(input[:auto_enable], context: "#{context}[:auto_enable]") unless input[:auto_enable].nil?
       end
     end
 
@@ -1785,7 +1787,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Usage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Usage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1794,7 +1796,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UsageTotal, context: context)
         Hearth::Validator.validate!(input[:account_id], ::String, context: "#{context}[:account_id]")
-        Validators::UsageList.validate!(input[:usage], context: "#{context}[:usage]") unless input[:usage].nil?
+        UsageList.validate!(input[:usage], context: "#{context}[:usage]") unless input[:usage].nil?
       end
     end
 
@@ -1802,7 +1804,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UsageTotal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UsageTotal.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1812,7 +1814,7 @@ module AWS::SDK::Inspector2
         Hearth::Validator.validate!(input, Types::ValidationException, context: context)
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
         Hearth::Validator.validate!(input[:reason], ::String, context: "#{context}[:reason]")
-        Validators::ValidationExceptionFields.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
+        ValidationExceptionFields.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
       end
     end
 
@@ -1828,7 +1830,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationExceptionField.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1861,7 +1863,7 @@ module AWS::SDK::Inspector2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VulnerablePackage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VulnerablePackage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

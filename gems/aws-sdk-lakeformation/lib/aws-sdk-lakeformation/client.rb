@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LakeFormation
@@ -129,7 +131,7 @@ module AWS::SDK::LakeFormation
     def add_lf_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddLFTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddLFTagsToResourceInput,
         validate_input: @config.validate_input
@@ -310,7 +312,7 @@ module AWS::SDK::LakeFormation
     def batch_grant_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGrantPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGrantPermissionsInput,
         validate_input: @config.validate_input
@@ -491,7 +493,7 @@ module AWS::SDK::LakeFormation
     def batch_revoke_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchRevokePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchRevokePermissionsInput,
         validate_input: @config.validate_input
@@ -559,7 +561,7 @@ module AWS::SDK::LakeFormation
     def cancel_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelTransactionInput,
         validate_input: @config.validate_input
@@ -628,7 +630,7 @@ module AWS::SDK::LakeFormation
     def commit_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CommitTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CommitTransactionInput,
         validate_input: @config.validate_input
@@ -710,7 +712,7 @@ module AWS::SDK::LakeFormation
     def create_data_cells_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataCellsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataCellsFilterInput,
         validate_input: @config.validate_input
@@ -788,7 +790,7 @@ module AWS::SDK::LakeFormation
     def create_lf_tag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLFTagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLFTagInput,
         validate_input: @config.validate_input
@@ -868,7 +870,7 @@ module AWS::SDK::LakeFormation
     def delete_data_cells_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataCellsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataCellsFilterInput,
         validate_input: @config.validate_input
@@ -940,7 +942,7 @@ module AWS::SDK::LakeFormation
     def delete_lf_tag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLFTagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLFTagInput,
         validate_input: @config.validate_input
@@ -1036,7 +1038,7 @@ module AWS::SDK::LakeFormation
     def delete_objects_on_cancel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObjectsOnCancelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObjectsOnCancelInput,
         validate_input: @config.validate_input
@@ -1106,7 +1108,7 @@ module AWS::SDK::LakeFormation
     def deregister_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterResourceInput,
         validate_input: @config.validate_input
@@ -1178,7 +1180,7 @@ module AWS::SDK::LakeFormation
     def describe_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourceInput,
         validate_input: @config.validate_input
@@ -1251,7 +1253,7 @@ module AWS::SDK::LakeFormation
     def describe_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransactionInput,
         validate_input: @config.validate_input
@@ -1321,7 +1323,7 @@ module AWS::SDK::LakeFormation
     def extend_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExtendTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExtendTransactionInput,
         validate_input: @config.validate_input
@@ -1405,7 +1407,7 @@ module AWS::SDK::LakeFormation
     def get_data_lake_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataLakeSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataLakeSettingsInput,
         validate_input: @config.validate_input
@@ -1535,7 +1537,7 @@ module AWS::SDK::LakeFormation
     def get_effective_permissions_for_path(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEffectivePermissionsForPathInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEffectivePermissionsForPathInput,
         validate_input: @config.validate_input
@@ -1611,7 +1613,7 @@ module AWS::SDK::LakeFormation
     def get_lf_tag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLFTagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLFTagInput,
         validate_input: @config.validate_input
@@ -1681,7 +1683,7 @@ module AWS::SDK::LakeFormation
     def get_query_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryStateInput,
         validate_input: @config.validate_input
@@ -1763,7 +1765,7 @@ module AWS::SDK::LakeFormation
     def get_query_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryStatisticsInput,
         validate_input: @config.validate_input
@@ -1902,7 +1904,7 @@ module AWS::SDK::LakeFormation
     def get_resource_lf_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceLFTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceLFTagsInput,
         validate_input: @config.validate_input
@@ -2019,7 +2021,7 @@ module AWS::SDK::LakeFormation
     def get_table_objects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTableObjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTableObjectsInput,
         validate_input: @config.validate_input
@@ -2121,7 +2123,7 @@ module AWS::SDK::LakeFormation
     def get_temporary_glue_partition_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemporaryGluePartitionCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemporaryGluePartitionCredentialsInput,
         validate_input: @config.validate_input
@@ -2215,7 +2217,7 @@ module AWS::SDK::LakeFormation
     def get_temporary_glue_table_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTemporaryGlueTableCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTemporaryGlueTableCredentialsInput,
         validate_input: @config.validate_input
@@ -2379,7 +2381,7 @@ module AWS::SDK::LakeFormation
     def get_work_units(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkUnitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkUnitsInput,
         validate_input: @config.validate_input
@@ -2520,7 +2522,7 @@ module AWS::SDK::LakeFormation
     def grant_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GrantPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GrantPermissionsInput,
         validate_input: @config.validate_input
@@ -2615,7 +2617,7 @@ module AWS::SDK::LakeFormation
     def list_data_cells_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataCellsFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataCellsFilterInput,
         validate_input: @config.validate_input
@@ -2702,7 +2704,7 @@ module AWS::SDK::LakeFormation
     def list_lf_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLFTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLFTagsInput,
         validate_input: @config.validate_input
@@ -2896,7 +2898,7 @@ module AWS::SDK::LakeFormation
     def list_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionsInput,
         validate_input: @config.validate_input
@@ -2986,7 +2988,7 @@ module AWS::SDK::LakeFormation
     def list_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourcesInput,
         validate_input: @config.validate_input
@@ -3083,7 +3085,7 @@ module AWS::SDK::LakeFormation
     def list_table_storage_optimizers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTableStorageOptimizersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTableStorageOptimizersInput,
         validate_input: @config.validate_input
@@ -3171,7 +3173,7 @@ module AWS::SDK::LakeFormation
     def list_transactions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTransactionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTransactionsInput,
         validate_input: @config.validate_input
@@ -3265,7 +3267,7 @@ module AWS::SDK::LakeFormation
     def put_data_lake_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDataLakeSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDataLakeSettingsInput,
         validate_input: @config.validate_input
@@ -3358,7 +3360,7 @@ module AWS::SDK::LakeFormation
     def register_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterResourceInput,
         validate_input: @config.validate_input
@@ -3497,7 +3499,7 @@ module AWS::SDK::LakeFormation
     def remove_lf_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveLFTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveLFTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -3633,7 +3635,7 @@ module AWS::SDK::LakeFormation
     def revoke_permissions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokePermissionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokePermissionsInput,
         validate_input: @config.validate_input
@@ -3732,7 +3734,7 @@ module AWS::SDK::LakeFormation
     def search_databases_by_lf_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchDatabasesByLFTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchDatabasesByLFTagsInput,
         validate_input: @config.validate_input
@@ -3838,7 +3840,7 @@ module AWS::SDK::LakeFormation
     def search_tables_by_lf_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchTablesByLFTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchTablesByLFTagsInput,
         validate_input: @config.validate_input
@@ -3921,7 +3923,7 @@ module AWS::SDK::LakeFormation
     def start_query_planning(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartQueryPlanningInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartQueryPlanningInput,
         validate_input: @config.validate_input
@@ -3994,7 +3996,7 @@ module AWS::SDK::LakeFormation
     def start_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTransactionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTransactionInput,
         validate_input: @config.validate_input
@@ -4075,7 +4077,7 @@ module AWS::SDK::LakeFormation
     def update_lf_tag(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLFTagInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLFTagInput,
         validate_input: @config.validate_input
@@ -4147,7 +4149,7 @@ module AWS::SDK::LakeFormation
     def update_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceInput,
         validate_input: @config.validate_input
@@ -4246,7 +4248,7 @@ module AWS::SDK::LakeFormation
     def update_table_objects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableObjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableObjectsInput,
         validate_input: @config.validate_input
@@ -4331,7 +4333,7 @@ module AWS::SDK::LakeFormation
     def update_table_storage_optimizer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableStorageOptimizerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableStorageOptimizerInput,
         validate_input: @config.validate_input
@@ -4388,7 +4390,7 @@ module AWS::SDK::LakeFormation
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

@@ -380,11 +380,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>Returns information about the specified configuration revision.</p>
@@ -411,11 +411,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revision ||= 0
       end
-
     end
 
     # <p>Broker configuration information</p>
@@ -592,12 +592,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_minor_version_upgrade ||= false
         self.publicly_accessible ||= false
       end
-
     end
 
     # @!attribute broker_arn
@@ -767,11 +767,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.console_access ||= false
       end
-
     end
 
     CreateUserOutput = ::Struct.new(
@@ -925,11 +925,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute broker_engine_types
@@ -954,11 +954,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute broker_id
@@ -1007,11 +1007,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute broker_instance_options
@@ -1036,11 +1036,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute actions_required
@@ -1233,12 +1233,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_minor_version_upgrade ||= false
         self.publicly_accessible ||= false
       end
-
     end
 
     # @!attribute configuration_id
@@ -1423,11 +1423,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.console_access ||= false
       end
-
     end
 
     # <important><p>Does not apply to RabbitMQ brokers.</p></important> <p>Encryption options for the broker.</p>
@@ -1448,11 +1448,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_aws_owned_key ||= false
       end
-
     end
 
     # Includes enum constants for EngineType
@@ -1598,12 +1598,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.role_search_subtree ||= false
         self.user_search_subtree ||= false
       end
-
     end
 
     # <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
@@ -1676,12 +1676,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.role_search_subtree ||= false
         self.user_search_subtree ||= false
       end
-
     end
 
     # @!attribute max_results
@@ -1700,11 +1700,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute broker_summaries
@@ -1747,11 +1747,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute configuration_id
@@ -1782,11 +1782,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute max_results
@@ -1805,11 +1805,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute configurations
@@ -1834,11 +1834,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -1887,11 +1887,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute broker_id
@@ -1922,11 +1922,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The list of information about logs to be enabled for the specified broker.</p>
@@ -1947,12 +1947,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audit ||= false
         self.general ||= false
       end
-
     end
 
     # <p>The list of information about logs currently enabled and pending to be deployed for the specified broker.</p>
@@ -1991,12 +1991,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audit ||= false
         self.general ||= false
       end
-
     end
 
     # <p>Returns information about an error.</p>
@@ -2037,12 +2037,12 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audit ||= false
         self.general ||= false
       end
-
     end
 
     # @!attribute broker_id
@@ -2196,11 +2196,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_minor_version_upgrade ||= false
       end
-
     end
 
     # @!attribute authentication_strategy
@@ -2269,11 +2269,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_minor_version_upgrade ||= false
       end
-
     end
 
     # <p>Updates the specified configuration.</p>
@@ -2380,11 +2380,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.console_access ||= false
       end
-
     end
 
     UpdateUserOutput = ::Struct.new(
@@ -2424,11 +2424,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.console_access ||= false
       end
-
     end
 
     # <p>Returns information about the status of the changes pending for the ActiveMQ user.</p>
@@ -2457,11 +2457,11 @@ module AWS::SDK::Mq
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.console_access ||= false
       end
-
     end
 
     # <p>Returns a list of all broker users. Does not apply to RabbitMQ brokers.</p>

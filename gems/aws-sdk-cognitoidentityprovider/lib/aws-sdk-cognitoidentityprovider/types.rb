@@ -65,11 +65,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.notify ||= false
       end
-
     end
 
     # <p>Account takeover actions type.</p>
@@ -317,12 +317,12 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_admin_create_user_only ||= false
         self.unused_account_validity_days ||= 0
       end
-
     end
 
     # <p>Represents the request to create a user in the specified user pool.</p>
@@ -485,6 +485,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_alias_creation ||= false
@@ -899,6 +900,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
@@ -1919,6 +1921,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.permanent ||= false
@@ -2310,11 +2313,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.user_data_shared ||= false
       end
-
     end
 
     # <p>An Amazon Pinpoint analytics endpoint.</p>
@@ -2569,6 +2572,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.expires_in ||= 0
@@ -2896,11 +2900,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.user_confirmation_necessary ||= false
       end
-
     end
 
     # <p>The request representing the confirmation for a password reset.</p>
@@ -3114,6 +3118,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_alias_creation ||= false
@@ -3799,13 +3804,13 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.generate_secret ||= false
         self.refresh_token_validity ||= 0
         self.allowed_o_auth_flows_user_pool_client ||= false
       end
-
     end
 
     # <p>Represents the response from the server to create a user pool client.</p>
@@ -4638,12 +4643,12 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.challenge_required_on_new_device ||= false
         self.device_only_remembered_on_user_prompt ||= false
       end
-
     end
 
     # Includes enum constants for DeviceRememberedStatusType
@@ -6756,11 +6761,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute resource_servers
@@ -6831,11 +6836,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Represents the response from the server to the request to list the user import
@@ -6886,11 +6891,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Represents the response from the server that lists user pool clients.</p>
@@ -6934,11 +6939,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Represents the response to list user pools.</p>
@@ -7441,6 +7446,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.minimum_length ||= 0
@@ -7450,7 +7456,6 @@ module AWS::SDK::CognitoIdentityProvider
         self.require_symbols ||= false
         self.temporary_password_validity_days ||= 0
       end
-
     end
 
     # <p>This exception is thrown when a password reset is required.</p>
@@ -7591,11 +7596,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>Represents the request to resend the confirmation code.</p>
@@ -8159,12 +8164,12 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.preferred_mfa ||= false
       end
-
     end
 
     # <p>Contains information about the schema attribute.</p>
@@ -8665,11 +8670,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.user_confirmed ||= false
       end
-
     end
 
     # <p>The SMS configuration type is the settings that your Amazon Cognito user pool must use to send
@@ -8771,11 +8776,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The type used for enabling software token MFA at the user level. If an MFA type is
@@ -8802,12 +8807,12 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.preferred_mfa ||= false
       end
-
     end
 
     # <p>Represents the request to start the user import job.</p>
@@ -9815,6 +9820,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.refresh_token_validity ||= 0
@@ -10304,13 +10310,13 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.imported_users ||= 0
         self.skipped_users ||= 0
         self.failed_users ||= 0
       end
-
     end
 
     # <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
@@ -10733,6 +10739,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.refresh_token_validity ||= 0
@@ -11117,11 +11124,11 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated_number_of_users ||= 0
       end
-
     end
 
     # Includes enum constants for UserStatusType
@@ -11232,6 +11239,7 @@ module AWS::SDK::CognitoIdentityProvider
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false

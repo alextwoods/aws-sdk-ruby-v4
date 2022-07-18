@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::WorkMail
   module Validators
 
@@ -16,12 +18,12 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IpRangeList.validate!(input[:ip_ranges], context: "#{context}[:ip_ranges]") unless input[:ip_ranges].nil?
-        Validators::IpRangeList.validate!(input[:not_ip_ranges], context: "#{context}[:not_ip_ranges]") unless input[:not_ip_ranges].nil?
-        Validators::ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::ActionsList.validate!(input[:not_actions], context: "#{context}[:not_actions]") unless input[:not_actions].nil?
-        Validators::UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
-        Validators::UserIdList.validate!(input[:not_user_ids], context: "#{context}[:not_user_ids]") unless input[:not_user_ids].nil?
+        IpRangeList.validate!(input[:ip_ranges], context: "#{context}[:ip_ranges]") unless input[:ip_ranges].nil?
+        IpRangeList.validate!(input[:not_ip_ranges], context: "#{context}[:not_ip_ranges]") unless input[:not_ip_ranges].nil?
+        ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ActionsList.validate!(input[:not_actions], context: "#{context}[:not_actions]") unless input[:not_actions].nil?
+        UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        UserIdList.validate!(input[:not_user_ids], context: "#{context}[:not_user_ids]") unless input[:not_user_ids].nil?
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_modified], ::Time, context: "#{context}[:date_modified]")
       end
@@ -40,7 +42,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessControlRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessControlRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -155,14 +157,14 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
-        Validators::DeviceTypeList.validate!(input[:device_types], context: "#{context}[:device_types]") unless input[:device_types].nil?
-        Validators::DeviceTypeList.validate!(input[:not_device_types], context: "#{context}[:not_device_types]") unless input[:not_device_types].nil?
-        Validators::DeviceModelList.validate!(input[:device_models], context: "#{context}[:device_models]") unless input[:device_models].nil?
-        Validators::DeviceModelList.validate!(input[:not_device_models], context: "#{context}[:not_device_models]") unless input[:not_device_models].nil?
-        Validators::DeviceOperatingSystemList.validate!(input[:device_operating_systems], context: "#{context}[:device_operating_systems]") unless input[:device_operating_systems].nil?
-        Validators::DeviceOperatingSystemList.validate!(input[:not_device_operating_systems], context: "#{context}[:not_device_operating_systems]") unless input[:not_device_operating_systems].nil?
-        Validators::DeviceUserAgentList.validate!(input[:device_user_agents], context: "#{context}[:device_user_agents]") unless input[:device_user_agents].nil?
-        Validators::DeviceUserAgentList.validate!(input[:not_device_user_agents], context: "#{context}[:not_device_user_agents]") unless input[:not_device_user_agents].nil?
+        DeviceTypeList.validate!(input[:device_types], context: "#{context}[:device_types]") unless input[:device_types].nil?
+        DeviceTypeList.validate!(input[:not_device_types], context: "#{context}[:not_device_types]") unless input[:not_device_types].nil?
+        DeviceModelList.validate!(input[:device_models], context: "#{context}[:device_models]") unless input[:device_models].nil?
+        DeviceModelList.validate!(input[:not_device_models], context: "#{context}[:not_device_models]") unless input[:not_device_models].nil?
+        DeviceOperatingSystemList.validate!(input[:device_operating_systems], context: "#{context}[:device_operating_systems]") unless input[:device_operating_systems].nil?
+        DeviceOperatingSystemList.validate!(input[:not_device_operating_systems], context: "#{context}[:not_device_operating_systems]") unless input[:not_device_operating_systems].nil?
+        DeviceUserAgentList.validate!(input[:device_user_agents], context: "#{context}[:device_user_agents]") unless input[:device_user_agents].nil?
+        DeviceUserAgentList.validate!(input[:not_device_user_agents], context: "#{context}[:not_device_user_agents]") unless input[:not_device_user_agents].nil?
       end
     end
 
@@ -179,7 +181,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:directory_id], ::String, context: "#{context}[:directory_id]")
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
-        Validators::Domains.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        Domains.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
         Hearth::Validator.validate!(input[:enable_interoperability], ::TrueClass, ::FalseClass, context: "#{context}[:enable_interoperability]")
       end
@@ -532,7 +534,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:email], ::String, context: "#{context}[:email]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::BookingOptions.validate!(input[:booking_options], context: "#{context}[:booking_options]") unless input[:booking_options].nil?
+        BookingOptions.validate!(input[:booking_options], context: "#{context}[:booking_options]") unless input[:booking_options].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:enabled_date], ::Time, context: "#{context}[:enabled_date]")
         Hearth::Validator.validate!(input[:disabled_date], ::Time, context: "#{context}[:disabled_date]")
@@ -661,7 +663,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DnsRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DnsRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -678,7 +680,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Domain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Domain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -724,7 +726,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FolderConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FolderConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -743,7 +745,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccessControlEffectOutput, context: context)
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
-        Validators::AccessControlRuleNameList.validate!(input[:matched_rules], context: "#{context}[:matched_rules]") unless input[:matched_rules].nil?
+        AccessControlRuleNameList.validate!(input[:matched_rules], context: "#{context}[:matched_rules]") unless input[:matched_rules].nil?
       end
     end
 
@@ -760,7 +762,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::FolderConfigurations.validate!(input[:folder_configurations], context: "#{context}[:folder_configurations]") unless input[:folder_configurations].nil?
+        FolderConfigurations.validate!(input[:folder_configurations], context: "#{context}[:folder_configurations]") unless input[:folder_configurations].nil?
       end
     end
 
@@ -775,7 +777,7 @@ module AWS::SDK::WorkMail
     class GetMailDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMailDomainOutput, context: context)
-        Validators::DnsRecords.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        DnsRecords.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
         Hearth::Validator.validate!(input[:is_test_domain], ::TrueClass, ::FalseClass, context: "#{context}[:is_test_domain]")
         Hearth::Validator.validate!(input[:is_default], ::TrueClass, ::FalseClass, context: "#{context}[:is_default]")
         Hearth::Validator.validate!(input[:ownership_verification_status], ::String, context: "#{context}[:ownership_verification_status]")
@@ -814,7 +816,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMobileDeviceAccessEffectOutput, context: context)
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
-        Validators::MobileDeviceAccessMatchedRuleList.validate!(input[:matched_rules], context: "#{context}[:matched_rules]") unless input[:matched_rules].nil?
+        MobileDeviceAccessMatchedRuleList.validate!(input[:matched_rules], context: "#{context}[:matched_rules]") unless input[:matched_rules].nil?
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -901,7 +903,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MailboxExportJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MailboxExportJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -923,7 +925,7 @@ module AWS::SDK::WorkMail
     class ListAccessControlRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccessControlRulesOutput, context: context)
-        Validators::AccessControlRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        AccessControlRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -940,7 +942,7 @@ module AWS::SDK::WorkMail
     class ListAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAliasesOutput, context: context)
-        Validators::Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
+        Aliases.validate!(input[:aliases], context: "#{context}[:aliases]") unless input[:aliases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::WorkMail
     class ListGroupMembersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupMembersOutput, context: context)
-        Validators::Members.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
+        Members.validate!(input[:members], context: "#{context}[:members]") unless input[:members].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -975,7 +977,7 @@ module AWS::SDK::WorkMail
     class ListGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOutput, context: context)
-        Validators::Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        Groups.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -992,7 +994,7 @@ module AWS::SDK::WorkMail
     class ListMailDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMailDomainsOutput, context: context)
-        Validators::MailDomains.validate!(input[:mail_domains], context: "#{context}[:mail_domains]") unless input[:mail_domains].nil?
+        MailDomains.validate!(input[:mail_domains], context: "#{context}[:mail_domains]") unless input[:mail_domains].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::WorkMail
     class ListMailboxExportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMailboxExportJobsOutput, context: context)
-        Validators::Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        Jobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1027,7 +1029,7 @@ module AWS::SDK::WorkMail
     class ListMailboxPermissionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMailboxPermissionsOutput, context: context)
-        Validators::Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        Permissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1046,7 +1048,7 @@ module AWS::SDK::WorkMail
     class ListMobileDeviceAccessOverridesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMobileDeviceAccessOverridesOutput, context: context)
-        Validators::MobileDeviceAccessOverridesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
+        MobileDeviceAccessOverridesList.validate!(input[:overrides], context: "#{context}[:overrides]") unless input[:overrides].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1061,7 +1063,7 @@ module AWS::SDK::WorkMail
     class ListMobileDeviceAccessRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMobileDeviceAccessRulesOutput, context: context)
-        Validators::MobileDeviceAccessRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        MobileDeviceAccessRulesList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
       end
     end
 
@@ -1076,7 +1078,7 @@ module AWS::SDK::WorkMail
     class ListOrganizationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOrganizationsOutput, context: context)
-        Validators::OrganizationSummaries.validate!(input[:organization_summaries], context: "#{context}[:organization_summaries]") unless input[:organization_summaries].nil?
+        OrganizationSummaries.validate!(input[:organization_summaries], context: "#{context}[:organization_summaries]") unless input[:organization_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1094,7 +1096,7 @@ module AWS::SDK::WorkMail
     class ListResourceDelegatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceDelegatesOutput, context: context)
-        Validators::ResourceDelegates.validate!(input[:delegates], context: "#{context}[:delegates]") unless input[:delegates].nil?
+        ResourceDelegates.validate!(input[:delegates], context: "#{context}[:delegates]") unless input[:delegates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1111,7 +1113,7 @@ module AWS::SDK::WorkMail
     class ListResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourcesOutput, context: context)
-        Validators::Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1126,7 +1128,7 @@ module AWS::SDK::WorkMail
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1142,7 +1144,7 @@ module AWS::SDK::WorkMail
     class ListUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
-        Validators::Users.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        Users.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1180,7 +1182,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MailDomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MailDomainSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1216,7 +1218,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Member.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Member.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1233,7 +1235,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MobileDeviceAccessMatchedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MobileDeviceAccessMatchedRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1254,7 +1256,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MobileDeviceAccessOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MobileDeviceAccessOverride.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1266,14 +1268,14 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
-        Validators::DeviceTypeList.validate!(input[:device_types], context: "#{context}[:device_types]") unless input[:device_types].nil?
-        Validators::DeviceTypeList.validate!(input[:not_device_types], context: "#{context}[:not_device_types]") unless input[:not_device_types].nil?
-        Validators::DeviceModelList.validate!(input[:device_models], context: "#{context}[:device_models]") unless input[:device_models].nil?
-        Validators::DeviceModelList.validate!(input[:not_device_models], context: "#{context}[:not_device_models]") unless input[:not_device_models].nil?
-        Validators::DeviceOperatingSystemList.validate!(input[:device_operating_systems], context: "#{context}[:device_operating_systems]") unless input[:device_operating_systems].nil?
-        Validators::DeviceOperatingSystemList.validate!(input[:not_device_operating_systems], context: "#{context}[:not_device_operating_systems]") unless input[:not_device_operating_systems].nil?
-        Validators::DeviceUserAgentList.validate!(input[:device_user_agents], context: "#{context}[:device_user_agents]") unless input[:device_user_agents].nil?
-        Validators::DeviceUserAgentList.validate!(input[:not_device_user_agents], context: "#{context}[:not_device_user_agents]") unless input[:not_device_user_agents].nil?
+        DeviceTypeList.validate!(input[:device_types], context: "#{context}[:device_types]") unless input[:device_types].nil?
+        DeviceTypeList.validate!(input[:not_device_types], context: "#{context}[:not_device_types]") unless input[:not_device_types].nil?
+        DeviceModelList.validate!(input[:device_models], context: "#{context}[:device_models]") unless input[:device_models].nil?
+        DeviceModelList.validate!(input[:not_device_models], context: "#{context}[:not_device_models]") unless input[:not_device_models].nil?
+        DeviceOperatingSystemList.validate!(input[:device_operating_systems], context: "#{context}[:device_operating_systems]") unless input[:device_operating_systems].nil?
+        DeviceOperatingSystemList.validate!(input[:not_device_operating_systems], context: "#{context}[:not_device_operating_systems]") unless input[:not_device_operating_systems].nil?
+        DeviceUserAgentList.validate!(input[:device_user_agents], context: "#{context}[:device_user_agents]") unless input[:device_user_agents].nil?
+        DeviceUserAgentList.validate!(input[:not_device_user_agents], context: "#{context}[:not_device_user_agents]") unless input[:not_device_user_agents].nil?
         Hearth::Validator.validate!(input[:date_created], ::Time, context: "#{context}[:date_created]")
         Hearth::Validator.validate!(input[:date_modified], ::Time, context: "#{context}[:date_modified]")
       end
@@ -1283,7 +1285,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MobileDeviceAccessRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MobileDeviceAccessRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1313,7 +1315,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OrganizationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OrganizationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1334,7 +1336,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input, Types::Permission, context: context)
         Hearth::Validator.validate!(input[:grantee_id], ::String, context: "#{context}[:grantee_id]")
         Hearth::Validator.validate!(input[:grantee_type], ::String, context: "#{context}[:grantee_type]")
-        Validators::PermissionValues.validate!(input[:permission_values], context: "#{context}[:permission_values]") unless input[:permission_values].nil?
+        PermissionValues.validate!(input[:permission_values], context: "#{context}[:permission_values]") unless input[:permission_values].nil?
       end
     end
 
@@ -1351,7 +1353,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Permission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1362,12 +1364,12 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IpRangeList.validate!(input[:ip_ranges], context: "#{context}[:ip_ranges]") unless input[:ip_ranges].nil?
-        Validators::IpRangeList.validate!(input[:not_ip_ranges], context: "#{context}[:not_ip_ranges]") unless input[:not_ip_ranges].nil?
-        Validators::ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::ActionsList.validate!(input[:not_actions], context: "#{context}[:not_actions]") unless input[:not_actions].nil?
-        Validators::UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
-        Validators::UserIdList.validate!(input[:not_user_ids], context: "#{context}[:not_user_ids]") unless input[:not_user_ids].nil?
+        IpRangeList.validate!(input[:ip_ranges], context: "#{context}[:ip_ranges]") unless input[:ip_ranges].nil?
+        IpRangeList.validate!(input[:not_ip_ranges], context: "#{context}[:not_ip_ranges]") unless input[:not_ip_ranges].nil?
+        ActionsList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ActionsList.validate!(input[:not_actions], context: "#{context}[:not_actions]") unless input[:not_actions].nil?
+        UserIdList.validate!(input[:user_ids], context: "#{context}[:user_ids]") unless input[:user_ids].nil?
+        UserIdList.validate!(input[:not_user_ids], context: "#{context}[:not_user_ids]") unless input[:not_user_ids].nil?
         Hearth::Validator.validate!(input[:organization_id], ::String, context: "#{context}[:organization_id]")
       end
     end
@@ -1413,7 +1415,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:organization_id], ::String, context: "#{context}[:organization_id]")
         Hearth::Validator.validate!(input[:entity_id], ::String, context: "#{context}[:entity_id]")
         Hearth::Validator.validate!(input[:grantee_id], ::String, context: "#{context}[:grantee_id]")
-        Validators::PermissionValues.validate!(input[:permission_values], context: "#{context}[:permission_values]") unless input[:permission_values].nil?
+        PermissionValues.validate!(input[:permission_values], context: "#{context}[:permission_values]") unless input[:permission_values].nil?
       end
     end
 
@@ -1447,7 +1449,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::FolderConfigurations.validate!(input[:folder_configurations], context: "#{context}[:folder_configurations]") unless input[:folder_configurations].nil?
+        FolderConfigurations.validate!(input[:folder_configurations], context: "#{context}[:folder_configurations]") unless input[:folder_configurations].nil?
       end
     end
 
@@ -1526,7 +1528,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Delegate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Delegate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1542,7 +1544,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1589,7 +1591,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1598,7 +1600,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1626,7 +1628,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1673,14 +1675,14 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:effect], ::String, context: "#{context}[:effect]")
-        Validators::DeviceTypeList.validate!(input[:device_types], context: "#{context}[:device_types]") unless input[:device_types].nil?
-        Validators::DeviceTypeList.validate!(input[:not_device_types], context: "#{context}[:not_device_types]") unless input[:not_device_types].nil?
-        Validators::DeviceModelList.validate!(input[:device_models], context: "#{context}[:device_models]") unless input[:device_models].nil?
-        Validators::DeviceModelList.validate!(input[:not_device_models], context: "#{context}[:not_device_models]") unless input[:not_device_models].nil?
-        Validators::DeviceOperatingSystemList.validate!(input[:device_operating_systems], context: "#{context}[:device_operating_systems]") unless input[:device_operating_systems].nil?
-        Validators::DeviceOperatingSystemList.validate!(input[:not_device_operating_systems], context: "#{context}[:not_device_operating_systems]") unless input[:not_device_operating_systems].nil?
-        Validators::DeviceUserAgentList.validate!(input[:device_user_agents], context: "#{context}[:device_user_agents]") unless input[:device_user_agents].nil?
-        Validators::DeviceUserAgentList.validate!(input[:not_device_user_agents], context: "#{context}[:not_device_user_agents]") unless input[:not_device_user_agents].nil?
+        DeviceTypeList.validate!(input[:device_types], context: "#{context}[:device_types]") unless input[:device_types].nil?
+        DeviceTypeList.validate!(input[:not_device_types], context: "#{context}[:not_device_types]") unless input[:not_device_types].nil?
+        DeviceModelList.validate!(input[:device_models], context: "#{context}[:device_models]") unless input[:device_models].nil?
+        DeviceModelList.validate!(input[:not_device_models], context: "#{context}[:not_device_models]") unless input[:not_device_models].nil?
+        DeviceOperatingSystemList.validate!(input[:device_operating_systems], context: "#{context}[:device_operating_systems]") unless input[:device_operating_systems].nil?
+        DeviceOperatingSystemList.validate!(input[:not_device_operating_systems], context: "#{context}[:not_device_operating_systems]") unless input[:not_device_operating_systems].nil?
+        DeviceUserAgentList.validate!(input[:device_user_agents], context: "#{context}[:device_user_agents]") unless input[:device_user_agents].nil?
+        DeviceUserAgentList.validate!(input[:not_device_user_agents], context: "#{context}[:not_device_user_agents]") unless input[:not_device_user_agents].nil?
       end
     end
 
@@ -1711,7 +1713,7 @@ module AWS::SDK::WorkMail
         Hearth::Validator.validate!(input[:organization_id], ::String, context: "#{context}[:organization_id]")
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::BookingOptions.validate!(input[:booking_options], context: "#{context}[:booking_options]") unless input[:booking_options].nil?
+        BookingOptions.validate!(input[:booking_options], context: "#{context}[:booking_options]") unless input[:booking_options].nil?
       end
     end
 
@@ -1748,7 +1750,7 @@ module AWS::SDK::WorkMail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

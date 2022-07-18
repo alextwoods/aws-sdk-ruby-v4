@@ -1772,11 +1772,11 @@ module AWS::SDK::IoTAnalytics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_statistics ||= false
       end
-
     end
 
     # @!attribute channel
@@ -1840,11 +1840,11 @@ module AWS::SDK::IoTAnalytics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_statistics ||= false
       end
-
     end
 
     # @!attribute datastore
@@ -2582,11 +2582,11 @@ module AWS::SDK::IoTAnalytics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>An activity that computes an arithmetic expression using the message's attributes.</p>
@@ -2991,11 +2991,11 @@ module AWS::SDK::IoTAnalytics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.volume_size_in_gb ||= 0
       end
-
     end
 
     # <p>A resource with the specified name could not be found.</p>
@@ -3030,11 +3030,11 @@ module AWS::SDK::IoTAnalytics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unlimited ||= false
       end
-
     end
 
     # @!attribute pipeline_activity
@@ -3709,11 +3709,11 @@ module AWS::SDK::IoTAnalytics
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unlimited ||= false
       end
-
     end
 
   end

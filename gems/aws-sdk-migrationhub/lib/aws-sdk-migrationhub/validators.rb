@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MigrationHub
   module Validators
 
@@ -39,7 +41,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::MigrationHub
         Hearth::Validator.validate!(input, Types::AssociateCreatedArtifactInput, context: context)
         Hearth::Validator.validate!(input[:progress_update_stream], ::String, context: "#{context}[:progress_update_stream]")
         Hearth::Validator.validate!(input[:migration_task_name], ::String, context: "#{context}[:migration_task_name]")
-        Validators::CreatedArtifact.validate!(input[:created_artifact], context: "#{context}[:created_artifact]") unless input[:created_artifact].nil?
+        CreatedArtifact.validate!(input[:created_artifact], context: "#{context}[:created_artifact]") unless input[:created_artifact].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::MigrationHub
         Hearth::Validator.validate!(input, Types::AssociateDiscoveredResourceInput, context: context)
         Hearth::Validator.validate!(input[:progress_update_stream], ::String, context: "#{context}[:progress_update_stream]")
         Hearth::Validator.validate!(input[:migration_task_name], ::String, context: "#{context}[:migration_task_name]")
-        Validators::DiscoveredResource.validate!(input[:discovered_resource], context: "#{context}[:discovered_resource]") unless input[:discovered_resource].nil?
+        DiscoveredResource.validate!(input[:discovered_resource], context: "#{context}[:discovered_resource]") unless input[:discovered_resource].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -102,7 +104,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CreatedArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CreatedArtifact.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::MigrationHub
     class DescribeMigrationTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeMigrationTaskOutput, context: context)
-        Validators::MigrationTask.validate!(input[:migration_task], context: "#{context}[:migration_task]") unless input[:migration_task].nil?
+        MigrationTask.validate!(input[:migration_task], context: "#{context}[:migration_task]") unless input[:migration_task].nil?
       end
     end
 
@@ -195,7 +197,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DiscoveredResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DiscoveredResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -247,7 +249,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::MigrationHub
     class ListApplicationStatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationStatesInput, context: context)
-        Validators::ApplicationIds.validate!(input[:application_ids], context: "#{context}[:application_ids]") unless input[:application_ids].nil?
+        ApplicationIds.validate!(input[:application_ids], context: "#{context}[:application_ids]") unless input[:application_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -264,7 +266,7 @@ module AWS::SDK::MigrationHub
     class ListApplicationStatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationStatesOutput, context: context)
-        Validators::ApplicationStateList.validate!(input[:application_state_list], context: "#{context}[:application_state_list]") unless input[:application_state_list].nil?
+        ApplicationStateList.validate!(input[:application_state_list], context: "#{context}[:application_state_list]") unless input[:application_state_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCreatedArtifactsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CreatedArtifactList.validate!(input[:created_artifact_list], context: "#{context}[:created_artifact_list]") unless input[:created_artifact_list].nil?
+        CreatedArtifactList.validate!(input[:created_artifact_list], context: "#{context}[:created_artifact_list]") unless input[:created_artifact_list].nil?
       end
     end
 
@@ -301,7 +303,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDiscoveredResourcesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::DiscoveredResourceList.validate!(input[:discovered_resource_list], context: "#{context}[:discovered_resource_list]") unless input[:discovered_resource_list].nil?
+        DiscoveredResourceList.validate!(input[:discovered_resource_list], context: "#{context}[:discovered_resource_list]") unless input[:discovered_resource_list].nil?
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMigrationTasksOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::MigrationTaskSummaryList.validate!(input[:migration_task_summary_list], context: "#{context}[:migration_task_summary_list]") unless input[:migration_task_summary_list].nil?
+        MigrationTaskSummaryList.validate!(input[:migration_task_summary_list], context: "#{context}[:migration_task_summary_list]") unless input[:migration_task_summary_list].nil?
       end
     end
 
@@ -333,7 +335,7 @@ module AWS::SDK::MigrationHub
     class ListProgressUpdateStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProgressUpdateStreamsOutput, context: context)
-        Validators::ProgressUpdateStreamSummaryList.validate!(input[:progress_update_stream_summary_list], context: "#{context}[:progress_update_stream_summary_list]") unless input[:progress_update_stream_summary_list].nil?
+        ProgressUpdateStreamSummaryList.validate!(input[:progress_update_stream_summary_list], context: "#{context}[:progress_update_stream_summary_list]") unless input[:progress_update_stream_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -343,9 +345,9 @@ module AWS::SDK::MigrationHub
         Hearth::Validator.validate!(input, Types::MigrationTask, context: context)
         Hearth::Validator.validate!(input[:progress_update_stream], ::String, context: "#{context}[:progress_update_stream]")
         Hearth::Validator.validate!(input[:migration_task_name], ::String, context: "#{context}[:migration_task_name]")
-        Validators::Task.validate!(input[:task], context: "#{context}[:task]") unless input[:task].nil?
+        Task.validate!(input[:task], context: "#{context}[:task]") unless input[:task].nil?
         Hearth::Validator.validate!(input[:update_date_time], ::Time, context: "#{context}[:update_date_time]")
-        Validators::LatestResourceAttributeList.validate!(input[:resource_attribute_list], context: "#{context}[:resource_attribute_list]") unless input[:resource_attribute_list].nil?
+        LatestResourceAttributeList.validate!(input[:resource_attribute_list], context: "#{context}[:resource_attribute_list]") unless input[:resource_attribute_list].nil?
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MigrationTaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MigrationTaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -391,7 +393,7 @@ module AWS::SDK::MigrationHub
         Hearth::Validator.validate!(input, Types::NotifyMigrationTaskStateInput, context: context)
         Hearth::Validator.validate!(input[:progress_update_stream], ::String, context: "#{context}[:progress_update_stream]")
         Hearth::Validator.validate!(input[:migration_task_name], ::String, context: "#{context}[:migration_task_name]")
-        Validators::Task.validate!(input[:task], context: "#{context}[:task]") unless input[:task].nil?
+        Task.validate!(input[:task], context: "#{context}[:task]") unless input[:task].nil?
         Hearth::Validator.validate!(input[:update_date_time], ::Time, context: "#{context}[:update_date_time]")
         Hearth::Validator.validate!(input[:next_update_seconds], ::Integer, context: "#{context}[:next_update_seconds]")
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
@@ -422,7 +424,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProgressUpdateStreamSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProgressUpdateStreamSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -432,7 +434,7 @@ module AWS::SDK::MigrationHub
         Hearth::Validator.validate!(input, Types::PutResourceAttributesInput, context: context)
         Hearth::Validator.validate!(input[:progress_update_stream], ::String, context: "#{context}[:progress_update_stream]")
         Hearth::Validator.validate!(input[:migration_task_name], ::String, context: "#{context}[:migration_task_name]")
-        Validators::ResourceAttributeList.validate!(input[:resource_attribute_list], context: "#{context}[:resource_attribute_list]") unless input[:resource_attribute_list].nil?
+        ResourceAttributeList.validate!(input[:resource_attribute_list], context: "#{context}[:resource_attribute_list]") unless input[:resource_attribute_list].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::MigrationHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

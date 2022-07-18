@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::QuickSight
   module Validators
 
@@ -58,7 +60,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActiveIAMPolicyAssignment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActiveIAMPolicyAssignment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -100,12 +102,12 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AnalysisErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
-        Validators::DataSetArnsList.validate!(input[:data_set_arns], context: "#{context}[:data_set_arns]") unless input[:data_set_arns].nil?
+        AnalysisErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        DataSetArnsList.validate!(input[:data_set_arns], context: "#{context}[:data_set_arns]") unless input[:data_set_arns].nil?
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
-        Validators::SheetList.validate!(input[:sheets], context: "#{context}[:sheets]") unless input[:sheets].nil?
+        SheetList.validate!(input[:sheets], context: "#{context}[:sheets]") unless input[:sheets].nil?
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnalysisError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnalysisError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -139,7 +141,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnalysisSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnalysisSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -147,14 +149,14 @@ module AWS::SDK::QuickSight
     class AnalysisSourceEntity
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalysisSourceEntity, context: context)
-        Validators::AnalysisSourceTemplate.validate!(input[:source_template], context: "#{context}[:source_template]") unless input[:source_template].nil?
+        AnalysisSourceTemplate.validate!(input[:source_template], context: "#{context}[:source_template]") unless input[:source_template].nil?
       end
     end
 
     class AnalysisSourceTemplate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnalysisSourceTemplate, context: context)
-        Validators::DataSetReferenceList.validate!(input[:data_set_references], context: "#{context}[:data_set_references]") unless input[:data_set_references].nil?
+        DataSetReferenceList.validate!(input[:data_set_references], context: "#{context}[:data_set_references]") unless input[:data_set_references].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AnalysisSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AnalysisSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::QuickSight
     class AnonymousUserEmbeddingExperienceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AnonymousUserEmbeddingExperienceConfiguration, context: context)
-        Validators::AnonymousUserDashboardEmbeddingConfiguration.validate!(input[:dashboard], context: "#{context}[:dashboard]") unless input[:dashboard].nil?
+        AnonymousUserDashboardEmbeddingConfiguration.validate!(input[:dashboard], context: "#{context}[:dashboard]") unless input[:dashboard].nil?
       end
     end
 
@@ -255,7 +257,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CalculatedColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CalculatedColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::QuickSight
     class ColumnGroup
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ColumnGroup, context: context)
-        Validators::GeoSpatialColumnGroup.validate!(input[:geo_spatial_column_group], context: "#{context}[:geo_spatial_column_group]") unless input[:geo_spatial_column_group].nil?
+        GeoSpatialColumnGroup.validate!(input[:geo_spatial_column_group], context: "#{context}[:geo_spatial_column_group]") unless input[:geo_spatial_column_group].nil?
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnGroupColumnSchema.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnGroupColumnSchema.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -331,7 +333,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -340,7 +342,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ColumnGroupSchema, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ColumnGroupColumnSchemaList.validate!(input[:column_group_column_schema_list], context: "#{context}[:column_group_column_schema_list]") unless input[:column_group_column_schema_list].nil?
+        ColumnGroupColumnSchemaList.validate!(input[:column_group_column_schema_list], context: "#{context}[:column_group_column_schema_list]") unless input[:column_group_column_schema_list].nil?
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnGroupSchema.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnGroupSchema.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -356,8 +358,8 @@ module AWS::SDK::QuickSight
     class ColumnLevelPermissionRule
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ColumnLevelPermissionRule, context: context)
-        Validators::PrincipalList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
-        Validators::ColumnNameList.validate!(input[:column_names], context: "#{context}[:column_names]") unless input[:column_names].nil?
+        PrincipalList.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        ColumnNameList.validate!(input[:column_names], context: "#{context}[:column_names]") unless input[:column_names].nil?
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnLevelPermissionRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnLevelPermissionRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -401,7 +403,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnSchema.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnSchema.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -410,7 +412,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ColumnTag, context: context)
         Hearth::Validator.validate!(input[:column_geographic_role], ::String, context: "#{context}[:column_geographic_role]")
-        Validators::ColumnDescription.validate!(input[:column_description], context: "#{context}[:column_description]") unless input[:column_description].nil?
+        ColumnDescription.validate!(input[:column_description], context: "#{context}[:column_description]") unless input[:column_description].nil?
       end
     end
 
@@ -418,7 +420,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -453,8 +455,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::CreateAccountCustomizationInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -464,7 +466,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
+        AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -476,11 +478,11 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:analysis_id], ::String, context: "#{context}[:analysis_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::AnalysisSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
+        Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        AnalysisSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::QuickSight
     class CreateColumnsOperation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateColumnsOperation, context: context)
-        Validators::CalculatedColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        CalculatedColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
       end
     end
 
@@ -508,12 +510,12 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:dashboard_id], ::String, context: "#{context}[:dashboard_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::DashboardSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        DashboardSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version_description], ::String, context: "#{context}[:version_description]")
-        Validators::DashboardPublishOptions.validate!(input[:dashboard_publish_options], context: "#{context}[:dashboard_publish_options]") unless input[:dashboard_publish_options].nil?
+        DashboardPublishOptions.validate!(input[:dashboard_publish_options], context: "#{context}[:dashboard_publish_options]") unless input[:dashboard_publish_options].nil?
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
       end
     end
@@ -536,17 +538,17 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::PhysicalTableMap.validate!(input[:physical_table_map], context: "#{context}[:physical_table_map]") unless input[:physical_table_map].nil?
-        Validators::LogicalTableMap.validate!(input[:logical_table_map], context: "#{context}[:logical_table_map]") unless input[:logical_table_map].nil?
+        PhysicalTableMap.validate!(input[:physical_table_map], context: "#{context}[:physical_table_map]") unless input[:physical_table_map].nil?
+        LogicalTableMap.validate!(input[:logical_table_map], context: "#{context}[:logical_table_map]") unless input[:logical_table_map].nil?
         Hearth::Validator.validate!(input[:import_mode], ::String, context: "#{context}[:import_mode]")
-        Validators::ColumnGroupList.validate!(input[:column_groups], context: "#{context}[:column_groups]") unless input[:column_groups].nil?
-        Validators::FieldFolderMap.validate!(input[:field_folders], context: "#{context}[:field_folders]") unless input[:field_folders].nil?
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
-        Validators::RowLevelPermissionTagConfiguration.validate!(input[:row_level_permission_tag_configuration], context: "#{context}[:row_level_permission_tag_configuration]") unless input[:row_level_permission_tag_configuration].nil?
-        Validators::ColumnLevelPermissionRuleList.validate!(input[:column_level_permission_rules], context: "#{context}[:column_level_permission_rules]") unless input[:column_level_permission_rules].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::DataSetUsageConfiguration.validate!(input[:data_set_usage_configuration], context: "#{context}[:data_set_usage_configuration]") unless input[:data_set_usage_configuration].nil?
+        ColumnGroupList.validate!(input[:column_groups], context: "#{context}[:column_groups]") unless input[:column_groups].nil?
+        FieldFolderMap.validate!(input[:field_folders], context: "#{context}[:field_folders]") unless input[:field_folders].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
+        RowLevelPermissionTagConfiguration.validate!(input[:row_level_permission_tag_configuration], context: "#{context}[:row_level_permission_tag_configuration]") unless input[:row_level_permission_tag_configuration].nil?
+        ColumnLevelPermissionRuleList.validate!(input[:column_level_permission_rules], context: "#{context}[:column_level_permission_rules]") unless input[:column_level_permission_rules].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataSetUsageConfiguration.validate!(input[:data_set_usage_configuration], context: "#{context}[:data_set_usage_configuration]") unless input[:data_set_usage_configuration].nil?
       end
     end
 
@@ -569,12 +571,12 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DataSourceParameters.validate!(input[:data_source_parameters], context: "#{context}[:data_source_parameters]") unless input[:data_source_parameters].nil?
-        Validators::DataSourceCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::VpcConnectionProperties.validate!(input[:vpc_connection_properties], context: "#{context}[:vpc_connection_properties]") unless input[:vpc_connection_properties].nil?
-        Validators::SslProperties.validate!(input[:ssl_properties], context: "#{context}[:ssl_properties]") unless input[:ssl_properties].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DataSourceParameters.validate!(input[:data_source_parameters], context: "#{context}[:data_source_parameters]") unless input[:data_source_parameters].nil?
+        DataSourceCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        VpcConnectionProperties.validate!(input[:vpc_connection_properties], context: "#{context}[:vpc_connection_properties]") unless input[:vpc_connection_properties].nil?
+        SslProperties.validate!(input[:ssl_properties], context: "#{context}[:ssl_properties]") unless input[:ssl_properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -597,8 +599,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:folder_type], ::String, context: "#{context}[:folder_type]")
         Hearth::Validator.validate!(input[:parent_folder_arn], ::String, context: "#{context}[:parent_folder_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -616,7 +618,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFolderMembershipOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
-        Validators::FolderMember.validate!(input[:folder_member], context: "#{context}[:folder_member]") unless input[:folder_member].nil?
+        FolderMember.validate!(input[:folder_member], context: "#{context}[:folder_member]") unless input[:folder_member].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
     end
@@ -654,7 +656,7 @@ module AWS::SDK::QuickSight
     class CreateGroupMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupMembershipOutput, context: context)
-        Validators::GroupMember.validate!(input[:group_member], context: "#{context}[:group_member]") unless input[:group_member].nil?
+        GroupMember.validate!(input[:group_member], context: "#{context}[:group_member]") unless input[:group_member].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -663,7 +665,7 @@ module AWS::SDK::QuickSight
     class CreateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -676,7 +678,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:assignment_name], ::String, context: "#{context}[:assignment_name]")
         Hearth::Validator.validate!(input[:assignment_status], ::String, context: "#{context}[:assignment_status]")
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
+        IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
       end
     end
@@ -688,7 +690,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:assignment_id], ::String, context: "#{context}[:assignment_id]")
         Hearth::Validator.validate!(input[:assignment_status], ::String, context: "#{context}[:assignment_status]")
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
+        IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -721,7 +723,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:identity_store], ::String, context: "#{context}[:identity_store]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::QuickSight
     class CreateTemplateAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTemplateAliasOutput, context: context)
-        Validators::TemplateAlias.validate!(input[:template_alias], context: "#{context}[:template_alias]") unless input[:template_alias].nil?
+        TemplateAlias.validate!(input[:template_alias], context: "#{context}[:template_alias]") unless input[:template_alias].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -763,9 +765,9 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:template_id], ::String, context: "#{context}[:template_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::TemplateSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        TemplateSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version_description], ::String, context: "#{context}[:version_description]")
       end
     end
@@ -795,7 +797,7 @@ module AWS::SDK::QuickSight
     class CreateThemeAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateThemeAliasOutput, context: context)
-        Validators::ThemeAlias.validate!(input[:theme_alias], context: "#{context}[:theme_alias]") unless input[:theme_alias].nil?
+        ThemeAlias.validate!(input[:theme_alias], context: "#{context}[:theme_alias]") unless input[:theme_alias].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -809,9 +811,9 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:base_theme_id], ::String, context: "#{context}[:base_theme_id]")
         Hearth::Validator.validate!(input[:version_description], ::String, context: "#{context}[:version_description]")
-        Validators::ThemeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThemeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -832,7 +834,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::CredentialPair, context: context)
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::DataSourceParametersList.validate!(input[:alternate_data_source_parameters], context: "#{context}[:alternate_data_source_parameters]") unless input[:alternate_data_source_parameters].nil?
+        DataSourceParametersList.validate!(input[:alternate_data_source_parameters], context: "#{context}[:alternate_data_source_parameters]") unless input[:alternate_data_source_parameters].nil?
       end
     end
 
@@ -842,7 +844,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:data_source_arn], ::String, context: "#{context}[:data_source_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:sql_query], ::String, context: "#{context}[:sql_query]")
-        Validators::InputColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        InputColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
       end
     end
 
@@ -852,7 +854,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:dashboard_id], ::String, context: "#{context}[:dashboard_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DashboardVersion.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
+        DashboardVersion.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_published_time], ::Time, context: "#{context}[:last_published_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
@@ -871,7 +873,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashboardError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashboardError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -879,9 +881,9 @@ module AWS::SDK::QuickSight
     class DashboardPublishOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashboardPublishOptions, context: context)
-        Validators::AdHocFilteringOption.validate!(input[:ad_hoc_filtering_option], context: "#{context}[:ad_hoc_filtering_option]") unless input[:ad_hoc_filtering_option].nil?
-        Validators::ExportToCSVOption.validate!(input[:export_to_csv_option], context: "#{context}[:export_to_csv_option]") unless input[:export_to_csv_option].nil?
-        Validators::SheetControlsOption.validate!(input[:sheet_controls_option], context: "#{context}[:sheet_controls_option]") unless input[:sheet_controls_option].nil?
+        AdHocFilteringOption.validate!(input[:ad_hoc_filtering_option], context: "#{context}[:ad_hoc_filtering_option]") unless input[:ad_hoc_filtering_option].nil?
+        ExportToCSVOption.validate!(input[:export_to_csv_option], context: "#{context}[:export_to_csv_option]") unless input[:export_to_csv_option].nil?
+        SheetControlsOption.validate!(input[:sheet_controls_option], context: "#{context}[:sheet_controls_option]") unless input[:sheet_controls_option].nil?
       end
     end
 
@@ -898,7 +900,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashboardSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashboardSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -906,14 +908,14 @@ module AWS::SDK::QuickSight
     class DashboardSourceEntity
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashboardSourceEntity, context: context)
-        Validators::DashboardSourceTemplate.validate!(input[:source_template], context: "#{context}[:source_template]") unless input[:source_template].nil?
+        DashboardSourceTemplate.validate!(input[:source_template], context: "#{context}[:source_template]") unless input[:source_template].nil?
       end
     end
 
     class DashboardSourceTemplate
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashboardSourceTemplate, context: context)
-        Validators::DataSetReferenceList.validate!(input[:data_set_references], context: "#{context}[:data_set_references]") unless input[:data_set_references].nil?
+        DataSetReferenceList.validate!(input[:data_set_references], context: "#{context}[:data_set_references]") unless input[:data_set_references].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -935,7 +937,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashboardSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashboardSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -944,15 +946,15 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DashboardVersion, context: context)
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
-        Validators::DashboardErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        DashboardErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:version_number], ::Integer, context: "#{context}[:version_number]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:source_entity_arn], ::String, context: "#{context}[:source_entity_arn]")
-        Validators::DataSetArnsList.validate!(input[:data_set_arns], context: "#{context}[:data_set_arns]") unless input[:data_set_arns].nil?
+        DataSetArnsList.validate!(input[:data_set_arns], context: "#{context}[:data_set_arns]") unless input[:data_set_arns].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
-        Validators::SheetList.validate!(input[:sheets], context: "#{context}[:sheets]") unless input[:sheets].nil?
+        SheetList.validate!(input[:sheets], context: "#{context}[:sheets]") unless input[:sheets].nil?
       end
     end
 
@@ -972,7 +974,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DashboardVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DashboardVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -980,8 +982,8 @@ module AWS::SDK::QuickSight
     class DataColorPalette
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataColorPalette, context: context)
-        Validators::ColorList.validate!(input[:colors], context: "#{context}[:colors]") unless input[:colors].nil?
-        Validators::ColorList.validate!(input[:min_max_gradient], context: "#{context}[:min_max_gradient]") unless input[:min_max_gradient].nil?
+        ColorList.validate!(input[:colors], context: "#{context}[:colors]") unless input[:colors].nil?
+        ColorList.validate!(input[:min_max_gradient], context: "#{context}[:min_max_gradient]") unless input[:min_max_gradient].nil?
         Hearth::Validator.validate!(input[:empty_fill_color], ::String, context: "#{context}[:empty_fill_color]")
       end
     end
@@ -994,17 +996,17 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
-        Validators::PhysicalTableMap.validate!(input[:physical_table_map], context: "#{context}[:physical_table_map]") unless input[:physical_table_map].nil?
-        Validators::LogicalTableMap.validate!(input[:logical_table_map], context: "#{context}[:logical_table_map]") unless input[:logical_table_map].nil?
-        Validators::OutputColumnList.validate!(input[:output_columns], context: "#{context}[:output_columns]") unless input[:output_columns].nil?
+        PhysicalTableMap.validate!(input[:physical_table_map], context: "#{context}[:physical_table_map]") unless input[:physical_table_map].nil?
+        LogicalTableMap.validate!(input[:logical_table_map], context: "#{context}[:logical_table_map]") unless input[:logical_table_map].nil?
+        OutputColumnList.validate!(input[:output_columns], context: "#{context}[:output_columns]") unless input[:output_columns].nil?
         Hearth::Validator.validate!(input[:import_mode], ::String, context: "#{context}[:import_mode]")
         Hearth::Validator.validate!(input[:consumed_spice_capacity_in_bytes], ::Integer, context: "#{context}[:consumed_spice_capacity_in_bytes]")
-        Validators::ColumnGroupList.validate!(input[:column_groups], context: "#{context}[:column_groups]") unless input[:column_groups].nil?
-        Validators::FieldFolderMap.validate!(input[:field_folders], context: "#{context}[:field_folders]") unless input[:field_folders].nil?
-        Validators::RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
-        Validators::RowLevelPermissionTagConfiguration.validate!(input[:row_level_permission_tag_configuration], context: "#{context}[:row_level_permission_tag_configuration]") unless input[:row_level_permission_tag_configuration].nil?
-        Validators::ColumnLevelPermissionRuleList.validate!(input[:column_level_permission_rules], context: "#{context}[:column_level_permission_rules]") unless input[:column_level_permission_rules].nil?
-        Validators::DataSetUsageConfiguration.validate!(input[:data_set_usage_configuration], context: "#{context}[:data_set_usage_configuration]") unless input[:data_set_usage_configuration].nil?
+        ColumnGroupList.validate!(input[:column_groups], context: "#{context}[:column_groups]") unless input[:column_groups].nil?
+        FieldFolderMap.validate!(input[:field_folders], context: "#{context}[:field_folders]") unless input[:field_folders].nil?
+        RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
+        RowLevelPermissionTagConfiguration.validate!(input[:row_level_permission_tag_configuration], context: "#{context}[:row_level_permission_tag_configuration]") unless input[:row_level_permission_tag_configuration].nil?
+        ColumnLevelPermissionRuleList.validate!(input[:column_level_permission_rules], context: "#{context}[:column_level_permission_rules]") unless input[:column_level_permission_rules].nil?
+        DataSetUsageConfiguration.validate!(input[:data_set_usage_configuration], context: "#{context}[:data_set_usage_configuration]") unless input[:data_set_usage_configuration].nil?
       end
     end
 
@@ -1021,8 +1023,8 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSetConfiguration, context: context)
         Hearth::Validator.validate!(input[:placeholder], ::String, context: "#{context}[:placeholder]")
-        Validators::DataSetSchema.validate!(input[:data_set_schema], context: "#{context}[:data_set_schema]") unless input[:data_set_schema].nil?
-        Validators::ColumnGroupSchemaList.validate!(input[:column_group_schema_list], context: "#{context}[:column_group_schema_list]") unless input[:column_group_schema_list].nil?
+        DataSetSchema.validate!(input[:data_set_schema], context: "#{context}[:data_set_schema]") unless input[:data_set_schema].nil?
+        ColumnGroupSchemaList.validate!(input[:column_group_schema_list], context: "#{context}[:column_group_schema_list]") unless input[:column_group_schema_list].nil?
       end
     end
 
@@ -1030,7 +1032,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSetConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSetConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1047,7 +1049,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSetReference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSetReference.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1055,7 +1057,7 @@ module AWS::SDK::QuickSight
     class DataSetSchema
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSetSchema, context: context)
-        Validators::ColumnSchemaList.validate!(input[:column_schema_list], context: "#{context}[:column_schema_list]") unless input[:column_schema_list].nil?
+        ColumnSchemaList.validate!(input[:column_schema_list], context: "#{context}[:column_schema_list]") unless input[:column_schema_list].nil?
       end
     end
 
@@ -1068,7 +1070,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:import_mode], ::String, context: "#{context}[:import_mode]")
-        Validators::RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
+        RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
         Hearth::Validator.validate!(input[:row_level_permission_tag_configuration_applied], ::TrueClass, ::FalseClass, context: "#{context}[:row_level_permission_tag_configuration_applied]")
         Hearth::Validator.validate!(input[:column_level_permission_rules_applied], ::TrueClass, ::FalseClass, context: "#{context}[:column_level_permission_rules_applied]")
       end
@@ -1078,7 +1080,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSetSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,18 +1103,18 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
-        Validators::DataSourceParameters.validate!(input[:data_source_parameters], context: "#{context}[:data_source_parameters]") unless input[:data_source_parameters].nil?
-        Validators::DataSourceParametersList.validate!(input[:alternate_data_source_parameters], context: "#{context}[:alternate_data_source_parameters]") unless input[:alternate_data_source_parameters].nil?
-        Validators::VpcConnectionProperties.validate!(input[:vpc_connection_properties], context: "#{context}[:vpc_connection_properties]") unless input[:vpc_connection_properties].nil?
-        Validators::SslProperties.validate!(input[:ssl_properties], context: "#{context}[:ssl_properties]") unless input[:ssl_properties].nil?
-        Validators::DataSourceErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        DataSourceParameters.validate!(input[:data_source_parameters], context: "#{context}[:data_source_parameters]") unless input[:data_source_parameters].nil?
+        DataSourceParametersList.validate!(input[:alternate_data_source_parameters], context: "#{context}[:alternate_data_source_parameters]") unless input[:alternate_data_source_parameters].nil?
+        VpcConnectionProperties.validate!(input[:vpc_connection_properties], context: "#{context}[:vpc_connection_properties]") unless input[:vpc_connection_properties].nil?
+        SslProperties.validate!(input[:ssl_properties], context: "#{context}[:ssl_properties]") unless input[:ssl_properties].nil?
+        DataSourceErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
       end
     end
 
     class DataSourceCredentials
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DataSourceCredentials, context: context)
-        Validators::CredentialPair.validate!(input[:credential_pair], context: "#{context}[:credential_pair]") unless input[:credential_pair].nil?
+        CredentialPair.validate!(input[:credential_pair], context: "#{context}[:credential_pair]") unless input[:credential_pair].nil?
         Hearth::Validator.validate!(input[:copy_source_arn], ::String, context: "#{context}[:copy_source_arn]")
       end
     end
@@ -1129,7 +1131,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1138,49 +1140,49 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         case input
         when Types::DataSourceParameters::AmazonElasticsearchParameters
-          Validators::AmazonElasticsearchParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AmazonElasticsearchParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::AthenaParameters
-          Validators::AthenaParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AthenaParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::AuroraParameters
-          Validators::AuroraParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AuroraParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::AuroraPostgreSqlParameters
-          Validators::AuroraPostgreSqlParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AuroraPostgreSqlParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::AwsIotAnalyticsParameters
-          Validators::AwsIotAnalyticsParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AwsIotAnalyticsParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::JiraParameters
-          Validators::JiraParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          JiraParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::MariaDbParameters
-          Validators::MariaDbParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MariaDbParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::MySqlParameters
-          Validators::MySqlParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          MySqlParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::OracleParameters
-          Validators::OracleParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          OracleParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::PostgreSqlParameters
-          Validators::PostgreSqlParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          PostgreSqlParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::PrestoParameters
-          Validators::PrestoParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          PrestoParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::RdsParameters
-          Validators::RdsParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RdsParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::RedshiftParameters
-          Validators::RedshiftParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RedshiftParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::S3Parameters
-          Validators::S3Parameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3Parameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::ServiceNowParameters
-          Validators::ServiceNowParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ServiceNowParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::SnowflakeParameters
-          Validators::SnowflakeParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SnowflakeParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::SparkParameters
-          Validators::SparkParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SparkParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::SqlServerParameters
-          Validators::SqlServerParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          SqlServerParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::TeradataParameters
-          Validators::TeradataParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TeradataParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::TwitterParameters
-          Validators::TwitterParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TwitterParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::AmazonOpenSearchParameters
-          Validators::AmazonOpenSearchParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          AmazonOpenSearchParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::DataSourceParameters::ExasolParameters
-          Validators::ExasolParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ExasolParameters.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -1325,7 +1327,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSourceParameters.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSourceParameters.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1334,7 +1336,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DateTimeParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TimestampList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        TimestampList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1342,7 +1344,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DateTimeParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DateTimeParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1351,7 +1353,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DecimalParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DoubleList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        DoubleList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -1359,7 +1361,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DecimalParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DecimalParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1688,7 +1690,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
+        AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1704,7 +1706,7 @@ module AWS::SDK::QuickSight
     class DescribeAccountSettingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountSettingsOutput, context: context)
-        Validators::AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
+        AccountSettings.validate!(input[:account_settings], context: "#{context}[:account_settings]") unless input[:account_settings].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1721,7 +1723,7 @@ module AWS::SDK::QuickSight
     class DescribeAnalysisOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAnalysisOutput, context: context)
-        Validators::Analysis.validate!(input[:analysis], context: "#{context}[:analysis]") unless input[:analysis].nil?
+        Analysis.validate!(input[:analysis], context: "#{context}[:analysis]") unless input[:analysis].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -1740,7 +1742,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::DescribeAnalysisPermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:analysis_id], ::String, context: "#{context}[:analysis_id]")
         Hearth::Validator.validate!(input[:analysis_arn], ::String, context: "#{context}[:analysis_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -1759,7 +1761,7 @@ module AWS::SDK::QuickSight
     class DescribeDashboardOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDashboardOutput, context: context)
-        Validators::Dashboard.validate!(input[:dashboard], context: "#{context}[:dashboard]") unless input[:dashboard].nil?
+        Dashboard.validate!(input[:dashboard], context: "#{context}[:dashboard]") unless input[:dashboard].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -1778,10 +1780,10 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::DescribeDashboardPermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:dashboard_id], ::String, context: "#{context}[:dashboard_id]")
         Hearth::Validator.validate!(input[:dashboard_arn], ::String, context: "#{context}[:dashboard_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
-        Validators::LinkSharingConfiguration.validate!(input[:link_sharing_configuration], context: "#{context}[:link_sharing_configuration]") unless input[:link_sharing_configuration].nil?
+        LinkSharingConfiguration.validate!(input[:link_sharing_configuration], context: "#{context}[:link_sharing_configuration]") unless input[:link_sharing_configuration].nil?
       end
     end
 
@@ -1796,7 +1798,7 @@ module AWS::SDK::QuickSight
     class DescribeDataSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataSetOutput, context: context)
-        Validators::DataSet.validate!(input[:data_set], context: "#{context}[:data_set]") unless input[:data_set].nil?
+        DataSet.validate!(input[:data_set], context: "#{context}[:data_set]") unless input[:data_set].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1815,7 +1817,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::DescribeDataSetPermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:data_set_arn], ::String, context: "#{context}[:data_set_arn]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1832,7 +1834,7 @@ module AWS::SDK::QuickSight
     class DescribeDataSourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDataSourceOutput, context: context)
-        Validators::DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
+        DataSource.validate!(input[:data_source], context: "#{context}[:data_source]") unless input[:data_source].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1851,7 +1853,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::DescribeDataSourcePermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:data_source_arn], ::String, context: "#{context}[:data_source_arn]")
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1869,7 +1871,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFolderOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
-        Validators::Folder.validate!(input[:folder], context: "#{context}[:folder]") unless input[:folder].nil?
+        Folder.validate!(input[:folder], context: "#{context}[:folder]") unless input[:folder].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
     end
@@ -1888,7 +1890,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:folder_id], ::String, context: "#{context}[:folder_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
     end
@@ -1907,7 +1909,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:folder_id], ::String, context: "#{context}[:folder_id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
     end
@@ -1934,7 +1936,7 @@ module AWS::SDK::QuickSight
     class DescribeGroupMembershipOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGroupMembershipOutput, context: context)
-        Validators::GroupMember.validate!(input[:group_member], context: "#{context}[:group_member]") unless input[:group_member].nil?
+        GroupMember.validate!(input[:group_member], context: "#{context}[:group_member]") unless input[:group_member].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1943,7 +1945,7 @@ module AWS::SDK::QuickSight
     class DescribeGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1961,7 +1963,7 @@ module AWS::SDK::QuickSight
     class DescribeIAMPolicyAssignmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeIAMPolicyAssignmentOutput, context: context)
-        Validators::IAMPolicyAssignment.validate!(input[:iam_policy_assignment], context: "#{context}[:iam_policy_assignment]") unless input[:iam_policy_assignment].nil?
+        IAMPolicyAssignment.validate!(input[:iam_policy_assignment], context: "#{context}[:iam_policy_assignment]") unless input[:iam_policy_assignment].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1979,7 +1981,7 @@ module AWS::SDK::QuickSight
     class DescribeIngestionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeIngestionOutput, context: context)
-        Validators::Ingestion.validate!(input[:ingestion], context: "#{context}[:ingestion]") unless input[:ingestion].nil?
+        Ingestion.validate!(input[:ingestion], context: "#{context}[:ingestion]") unless input[:ingestion].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -1996,7 +1998,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeIpRestrictionOutput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
-        Validators::IpRestrictionRuleMap.validate!(input[:ip_restriction_rule_map], context: "#{context}[:ip_restriction_rule_map]") unless input[:ip_restriction_rule_map].nil?
+        IpRestrictionRuleMap.validate!(input[:ip_restriction_rule_map], context: "#{context}[:ip_restriction_rule_map]") unless input[:ip_restriction_rule_map].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2014,7 +2016,7 @@ module AWS::SDK::QuickSight
     class DescribeNamespaceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeNamespaceOutput, context: context)
-        Validators::NamespaceInfoV2.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
+        NamespaceInfoV2.validate!(input[:namespace], context: "#{context}[:namespace]") unless input[:namespace].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -2032,7 +2034,7 @@ module AWS::SDK::QuickSight
     class DescribeTemplateAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTemplateAliasOutput, context: context)
-        Validators::TemplateAlias.validate!(input[:template_alias], context: "#{context}[:template_alias]") unless input[:template_alias].nil?
+        TemplateAlias.validate!(input[:template_alias], context: "#{context}[:template_alias]") unless input[:template_alias].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -2051,7 +2053,7 @@ module AWS::SDK::QuickSight
     class DescribeTemplateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeTemplateOutput, context: context)
-        Validators::Template.validate!(input[:template], context: "#{context}[:template]") unless input[:template].nil?
+        Template.validate!(input[:template], context: "#{context}[:template]") unless input[:template].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -2070,7 +2072,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::DescribeTemplatePermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:template_id], ::String, context: "#{context}[:template_id]")
         Hearth::Validator.validate!(input[:template_arn], ::String, context: "#{context}[:template_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -2088,7 +2090,7 @@ module AWS::SDK::QuickSight
     class DescribeThemeAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeThemeAliasOutput, context: context)
-        Validators::ThemeAlias.validate!(input[:theme_alias], context: "#{context}[:theme_alias]") unless input[:theme_alias].nil?
+        ThemeAlias.validate!(input[:theme_alias], context: "#{context}[:theme_alias]") unless input[:theme_alias].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -2107,7 +2109,7 @@ module AWS::SDK::QuickSight
     class DescribeThemeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeThemeOutput, context: context)
-        Validators::Theme.validate!(input[:theme], context: "#{context}[:theme]") unless input[:theme].nil?
+        Theme.validate!(input[:theme], context: "#{context}[:theme]") unless input[:theme].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -2126,7 +2128,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::DescribeThemePermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:theme_id], ::String, context: "#{context}[:theme_id]")
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -2144,7 +2146,7 @@ module AWS::SDK::QuickSight
     class DescribeUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -2194,7 +2196,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FieldFolder, context: context)
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::FolderColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        FolderColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
       end
     end
 
@@ -2203,7 +2205,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::FieldFolder.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          FieldFolder.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2222,7 +2224,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:folder_type], ::String, context: "#{context}[:folder_type]")
-        Validators::Path.validate!(input[:folder_path], context: "#{context}[:folder_path]") unless input[:folder_path].nil?
+        Path.validate!(input[:folder_path], context: "#{context}[:folder_path]") unless input[:folder_path].nil?
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
       end
@@ -2249,7 +2251,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MemberIdArnPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MemberIdArnPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2267,7 +2269,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FolderSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FolderSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2288,7 +2290,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FolderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FolderSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2299,9 +2301,9 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:session_lifetime_in_minutes], ::Integer, context: "#{context}[:session_lifetime_in_minutes]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::SessionTagList.validate!(input[:session_tags], context: "#{context}[:session_tags]") unless input[:session_tags].nil?
-        Validators::ArnList.validate!(input[:authorized_resource_arns], context: "#{context}[:authorized_resource_arns]") unless input[:authorized_resource_arns].nil?
-        Validators::AnonymousUserEmbeddingExperienceConfiguration.validate!(input[:experience_configuration], context: "#{context}[:experience_configuration]") unless input[:experience_configuration].nil?
+        SessionTagList.validate!(input[:session_tags], context: "#{context}[:session_tags]") unless input[:session_tags].nil?
+        ArnList.validate!(input[:authorized_resource_arns], context: "#{context}[:authorized_resource_arns]") unless input[:authorized_resource_arns].nil?
+        AnonymousUserEmbeddingExperienceConfiguration.validate!(input[:experience_configuration], context: "#{context}[:experience_configuration]") unless input[:experience_configuration].nil?
       end
     end
 
@@ -2320,7 +2322,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:session_lifetime_in_minutes], ::Integer, context: "#{context}[:session_lifetime_in_minutes]")
         Hearth::Validator.validate!(input[:user_arn], ::String, context: "#{context}[:user_arn]")
-        Validators::RegisteredUserEmbeddingExperienceConfiguration.validate!(input[:experience_configuration], context: "#{context}[:experience_configuration]") unless input[:experience_configuration].nil?
+        RegisteredUserEmbeddingExperienceConfiguration.validate!(input[:experience_configuration], context: "#{context}[:experience_configuration]") unless input[:experience_configuration].nil?
       end
     end
 
@@ -2338,7 +2340,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::GeoSpatialColumnGroup, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:country_code], ::String, context: "#{context}[:country_code]")
-        Validators::ColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
+        ColumnList.validate!(input[:columns], context: "#{context}[:columns]") unless input[:columns].nil?
       end
     end
 
@@ -2354,7 +2356,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:state_persistence_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:state_persistence_enabled]")
         Hearth::Validator.validate!(input[:user_arn], ::String, context: "#{context}[:user_arn]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::AdditionalDashboardIdList.validate!(input[:additional_dashboard_ids], context: "#{context}[:additional_dashboard_ids]") unless input[:additional_dashboard_ids].nil?
+        AdditionalDashboardIdList.validate!(input[:additional_dashboard_ids], context: "#{context}[:additional_dashboard_ids]") unless input[:additional_dashboard_ids].nil?
       end
     end
 
@@ -2400,7 +2402,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Group.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2417,7 +2419,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupMember.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2435,7 +2437,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupSearchFilter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2454,7 +2456,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:assignment_id], ::String, context: "#{context}[:assignment_id]")
         Hearth::Validator.validate!(input[:assignment_name], ::String, context: "#{context}[:assignment_name]")
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
+        IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
         Hearth::Validator.validate!(input[:assignment_status], ::String, context: "#{context}[:assignment_status]")
       end
     end
@@ -2471,7 +2473,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IAMPolicyAssignmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IAMPolicyAssignmentSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2481,7 +2483,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::IdentityNameList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          IdentityNameList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -2509,9 +2511,9 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:ingestion_id], ::String, context: "#{context}[:ingestion_id]")
         Hearth::Validator.validate!(input[:ingestion_status], ::String, context: "#{context}[:ingestion_status]")
-        Validators::ErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
-        Validators::RowInfo.validate!(input[:row_info], context: "#{context}[:row_info]") unless input[:row_info].nil?
-        Validators::QueueInfo.validate!(input[:queue_info], context: "#{context}[:queue_info]") unless input[:queue_info].nil?
+        ErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        RowInfo.validate!(input[:row_info], context: "#{context}[:row_info]") unless input[:row_info].nil?
+        QueueInfo.validate!(input[:queue_info], context: "#{context}[:queue_info]") unless input[:queue_info].nil?
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:ingestion_time_in_seconds], ::Integer, context: "#{context}[:ingestion_time_in_seconds]")
         Hearth::Validator.validate!(input[:ingestion_size_in_bytes], ::Integer, context: "#{context}[:ingestion_size_in_bytes]")
@@ -2524,7 +2526,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Ingestion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Ingestion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2541,7 +2543,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2550,7 +2552,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IntegerParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LongList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        LongList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -2558,7 +2560,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IntegerParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IntegerParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2609,8 +2611,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::JoinInstruction, context: context)
         Hearth::Validator.validate!(input[:left_operand], ::String, context: "#{context}[:left_operand]")
         Hearth::Validator.validate!(input[:right_operand], ::String, context: "#{context}[:right_operand]")
-        Validators::JoinKeyProperties.validate!(input[:left_join_key_properties], context: "#{context}[:left_join_key_properties]") unless input[:left_join_key_properties].nil?
-        Validators::JoinKeyProperties.validate!(input[:right_join_key_properties], context: "#{context}[:right_join_key_properties]") unless input[:right_join_key_properties].nil?
+        JoinKeyProperties.validate!(input[:left_join_key_properties], context: "#{context}[:left_join_key_properties]") unless input[:left_join_key_properties].nil?
+        JoinKeyProperties.validate!(input[:right_join_key_properties], context: "#{context}[:right_join_key_properties]") unless input[:right_join_key_properties].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:on_clause], ::String, context: "#{context}[:on_clause]")
       end
@@ -2635,7 +2637,7 @@ module AWS::SDK::QuickSight
     class LinkSharingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LinkSharingConfiguration, context: context)
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
       end
     end
 
@@ -2651,7 +2653,7 @@ module AWS::SDK::QuickSight
     class ListAnalysesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAnalysesOutput, context: context)
-        Validators::AnalysisSummaryList.validate!(input[:analysis_summary_list], context: "#{context}[:analysis_summary_list]") unless input[:analysis_summary_list].nil?
+        AnalysisSummaryList.validate!(input[:analysis_summary_list], context: "#{context}[:analysis_summary_list]") unless input[:analysis_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -2671,7 +2673,7 @@ module AWS::SDK::QuickSight
     class ListDashboardVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDashboardVersionsOutput, context: context)
-        Validators::DashboardVersionSummaryList.validate!(input[:dashboard_version_summary_list], context: "#{context}[:dashboard_version_summary_list]") unless input[:dashboard_version_summary_list].nil?
+        DashboardVersionSummaryList.validate!(input[:dashboard_version_summary_list], context: "#{context}[:dashboard_version_summary_list]") unless input[:dashboard_version_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -2690,7 +2692,7 @@ module AWS::SDK::QuickSight
     class ListDashboardsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDashboardsOutput, context: context)
-        Validators::DashboardSummaryList.validate!(input[:dashboard_summary_list], context: "#{context}[:dashboard_summary_list]") unless input[:dashboard_summary_list].nil?
+        DashboardSummaryList.validate!(input[:dashboard_summary_list], context: "#{context}[:dashboard_summary_list]") unless input[:dashboard_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -2709,7 +2711,7 @@ module AWS::SDK::QuickSight
     class ListDataSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSetsOutput, context: context)
-        Validators::DataSetSummaryList.validate!(input[:data_set_summaries], context: "#{context}[:data_set_summaries]") unless input[:data_set_summaries].nil?
+        DataSetSummaryList.validate!(input[:data_set_summaries], context: "#{context}[:data_set_summaries]") unless input[:data_set_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2728,7 +2730,7 @@ module AWS::SDK::QuickSight
     class ListDataSourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSourcesOutput, context: context)
-        Validators::DataSourceList.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        DataSourceList.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2749,7 +2751,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFolderMembersOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
-        Validators::FolderMemberList.validate!(input[:folder_member_list], context: "#{context}[:folder_member_list]") unless input[:folder_member_list].nil?
+        FolderMemberList.validate!(input[:folder_member_list], context: "#{context}[:folder_member_list]") unless input[:folder_member_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -2768,7 +2770,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFoldersOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
-        Validators::FolderSummaryList.validate!(input[:folder_summary_list], context: "#{context}[:folder_summary_list]") unless input[:folder_summary_list].nil?
+        FolderSummaryList.validate!(input[:folder_summary_list], context: "#{context}[:folder_summary_list]") unless input[:folder_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -2788,7 +2790,7 @@ module AWS::SDK::QuickSight
     class ListGroupMembershipsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupMembershipsOutput, context: context)
-        Validators::GroupMemberList.validate!(input[:group_member_list], context: "#{context}[:group_member_list]") unless input[:group_member_list].nil?
+        GroupMemberList.validate!(input[:group_member_list], context: "#{context}[:group_member_list]") unless input[:group_member_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2808,7 +2810,7 @@ module AWS::SDK::QuickSight
     class ListGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOutput, context: context)
-        Validators::GroupList.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
+        GroupList.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2829,7 +2831,7 @@ module AWS::SDK::QuickSight
     class ListIAMPolicyAssignmentsForUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIAMPolicyAssignmentsForUserOutput, context: context)
-        Validators::ActiveIAMPolicyAssignmentList.validate!(input[:active_assignments], context: "#{context}[:active_assignments]") unless input[:active_assignments].nil?
+        ActiveIAMPolicyAssignmentList.validate!(input[:active_assignments], context: "#{context}[:active_assignments]") unless input[:active_assignments].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2850,7 +2852,7 @@ module AWS::SDK::QuickSight
     class ListIAMPolicyAssignmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIAMPolicyAssignmentsOutput, context: context)
-        Validators::IAMPolicyAssignmentSummaryList.validate!(input[:iam_policy_assignments], context: "#{context}[:iam_policy_assignments]") unless input[:iam_policy_assignments].nil?
+        IAMPolicyAssignmentSummaryList.validate!(input[:iam_policy_assignments], context: "#{context}[:iam_policy_assignments]") unless input[:iam_policy_assignments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2870,7 +2872,7 @@ module AWS::SDK::QuickSight
     class ListIngestionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIngestionsOutput, context: context)
-        Validators::Ingestions.validate!(input[:ingestions], context: "#{context}[:ingestions]") unless input[:ingestions].nil?
+        Ingestions.validate!(input[:ingestions], context: "#{context}[:ingestions]") unless input[:ingestions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2889,7 +2891,7 @@ module AWS::SDK::QuickSight
     class ListNamespacesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListNamespacesOutput, context: context)
-        Validators::Namespaces.validate!(input[:namespaces], context: "#{context}[:namespaces]") unless input[:namespaces].nil?
+        Namespaces.validate!(input[:namespaces], context: "#{context}[:namespaces]") unless input[:namespaces].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -2906,7 +2908,7 @@ module AWS::SDK::QuickSight
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -2925,7 +2927,7 @@ module AWS::SDK::QuickSight
     class ListTemplateAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTemplateAliasesOutput, context: context)
-        Validators::TemplateAliasList.validate!(input[:template_alias_list], context: "#{context}[:template_alias_list]") unless input[:template_alias_list].nil?
+        TemplateAliasList.validate!(input[:template_alias_list], context: "#{context}[:template_alias_list]") unless input[:template_alias_list].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -2945,7 +2947,7 @@ module AWS::SDK::QuickSight
     class ListTemplateVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTemplateVersionsOutput, context: context)
-        Validators::TemplateVersionSummaryList.validate!(input[:template_version_summary_list], context: "#{context}[:template_version_summary_list]") unless input[:template_version_summary_list].nil?
+        TemplateVersionSummaryList.validate!(input[:template_version_summary_list], context: "#{context}[:template_version_summary_list]") unless input[:template_version_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -2964,7 +2966,7 @@ module AWS::SDK::QuickSight
     class ListTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTemplatesOutput, context: context)
-        Validators::TemplateSummaryList.validate!(input[:template_summary_list], context: "#{context}[:template_summary_list]") unless input[:template_summary_list].nil?
+        TemplateSummaryList.validate!(input[:template_summary_list], context: "#{context}[:template_summary_list]") unless input[:template_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -2984,7 +2986,7 @@ module AWS::SDK::QuickSight
     class ListThemeAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThemeAliasesOutput, context: context)
-        Validators::ThemeAliasList.validate!(input[:theme_alias_list], context: "#{context}[:theme_alias_list]") unless input[:theme_alias_list].nil?
+        ThemeAliasList.validate!(input[:theme_alias_list], context: "#{context}[:theme_alias_list]") unless input[:theme_alias_list].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -3004,7 +3006,7 @@ module AWS::SDK::QuickSight
     class ListThemeVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThemeVersionsOutput, context: context)
-        Validators::ThemeVersionSummaryList.validate!(input[:theme_version_summary_list], context: "#{context}[:theme_version_summary_list]") unless input[:theme_version_summary_list].nil?
+        ThemeVersionSummaryList.validate!(input[:theme_version_summary_list], context: "#{context}[:theme_version_summary_list]") unless input[:theme_version_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -3024,7 +3026,7 @@ module AWS::SDK::QuickSight
     class ListThemesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThemesOutput, context: context)
-        Validators::ThemeSummaryList.validate!(input[:theme_summary_list], context: "#{context}[:theme_summary_list]") unless input[:theme_summary_list].nil?
+        ThemeSummaryList.validate!(input[:theme_summary_list], context: "#{context}[:theme_summary_list]") unless input[:theme_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -3045,7 +3047,7 @@ module AWS::SDK::QuickSight
     class ListUserGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUserGroupsOutput, context: context)
-        Validators::GroupList.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
+        GroupList.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -3065,7 +3067,7 @@ module AWS::SDK::QuickSight
     class ListUsersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListUsersOutput, context: context)
-        Validators::UserList.validate!(input[:user_list], context: "#{context}[:user_list]") unless input[:user_list].nil?
+        UserList.validate!(input[:user_list], context: "#{context}[:user_list]") unless input[:user_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -3076,8 +3078,8 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogicalTable, context: context)
         Hearth::Validator.validate!(input[:alias], ::String, context: "#{context}[:alias]")
-        Validators::TransformOperationList.validate!(input[:data_transforms], context: "#{context}[:data_transforms]") unless input[:data_transforms].nil?
-        Validators::LogicalTableSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        TransformOperationList.validate!(input[:data_transforms], context: "#{context}[:data_transforms]") unless input[:data_transforms].nil?
+        LogicalTableSource.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
       end
     end
 
@@ -3086,7 +3088,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::LogicalTable.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          LogicalTable.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -3094,7 +3096,7 @@ module AWS::SDK::QuickSight
     class LogicalTableSource
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogicalTableSource, context: context)
-        Validators::JoinInstruction.validate!(input[:join_instruction], context: "#{context}[:join_instruction]") unless input[:join_instruction].nil?
+        JoinInstruction.validate!(input[:join_instruction], context: "#{context}[:join_instruction]") unless input[:join_instruction].nil?
         Hearth::Validator.validate!(input[:physical_table_id], ::String, context: "#{context}[:physical_table_id]")
         Hearth::Validator.validate!(input[:data_set_arn], ::String, context: "#{context}[:data_set_arn]")
       end
@@ -3166,7 +3168,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:capacity_region], ::String, context: "#{context}[:capacity_region]")
         Hearth::Validator.validate!(input[:creation_status], ::String, context: "#{context}[:creation_status]")
         Hearth::Validator.validate!(input[:identity_store], ::String, context: "#{context}[:identity_store]")
-        Validators::NamespaceError.validate!(input[:namespace_error], context: "#{context}[:namespace_error]") unless input[:namespace_error].nil?
+        NamespaceError.validate!(input[:namespace_error], context: "#{context}[:namespace_error]") unless input[:namespace_error].nil?
       end
     end
 
@@ -3174,7 +3176,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::NamespaceInfoV2.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          NamespaceInfoV2.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3201,7 +3203,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputColumn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3209,10 +3211,10 @@ module AWS::SDK::QuickSight
     class Parameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Parameters, context: context)
-        Validators::StringParameterList.validate!(input[:string_parameters], context: "#{context}[:string_parameters]") unless input[:string_parameters].nil?
-        Validators::IntegerParameterList.validate!(input[:integer_parameters], context: "#{context}[:integer_parameters]") unless input[:integer_parameters].nil?
-        Validators::DecimalParameterList.validate!(input[:decimal_parameters], context: "#{context}[:decimal_parameters]") unless input[:decimal_parameters].nil?
-        Validators::DateTimeParameterList.validate!(input[:date_time_parameters], context: "#{context}[:date_time_parameters]") unless input[:date_time_parameters].nil?
+        StringParameterList.validate!(input[:string_parameters], context: "#{context}[:string_parameters]") unless input[:string_parameters].nil?
+        IntegerParameterList.validate!(input[:integer_parameters], context: "#{context}[:integer_parameters]") unless input[:integer_parameters].nil?
+        DecimalParameterList.validate!(input[:decimal_parameters], context: "#{context}[:decimal_parameters]") unless input[:decimal_parameters].nil?
+        DateTimeParameterList.validate!(input[:date_time_parameters], context: "#{context}[:date_time_parameters]") unless input[:date_time_parameters].nil?
       end
     end
 
@@ -3229,11 +3231,11 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         case input
         when Types::PhysicalTable::RelationalTable
-          Validators::RelationalTable.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RelationalTable.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::PhysicalTable::CustomSql
-          Validators::CustomSql.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          CustomSql.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::PhysicalTable::S3Source
-          Validators::S3Source.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          S3Source.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -3265,7 +3267,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::PhysicalTable.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          PhysicalTable.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -3308,7 +3310,7 @@ module AWS::SDK::QuickSight
     class ProjectOperation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProjectOperation, context: context)
-        Validators::ProjectedColumnList.validate!(input[:projected_columns], context: "#{context}[:projected_columns]") unless input[:projected_columns].nil?
+        ProjectedColumnList.validate!(input[:projected_columns], context: "#{context}[:projected_columns]") unless input[:projected_columns].nil?
       end
     end
 
@@ -3376,7 +3378,7 @@ module AWS::SDK::QuickSight
     class RegisterUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
         Hearth::Validator.validate!(input[:user_invitation_url], ::String, context: "#{context}[:user_invitation_url]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -3393,9 +3395,9 @@ module AWS::SDK::QuickSight
     class RegisteredUserEmbeddingExperienceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisteredUserEmbeddingExperienceConfiguration, context: context)
-        Validators::RegisteredUserDashboardEmbeddingConfiguration.validate!(input[:dashboard], context: "#{context}[:dashboard]") unless input[:dashboard].nil?
-        Validators::RegisteredUserQuickSightConsoleEmbeddingConfiguration.validate!(input[:quick_sight_console], context: "#{context}[:quick_sight_console]") unless input[:quick_sight_console].nil?
-        Validators::RegisteredUserQSearchBarEmbeddingConfiguration.validate!(input[:q_search_bar], context: "#{context}[:q_search_bar]") unless input[:q_search_bar].nil?
+        RegisteredUserDashboardEmbeddingConfiguration.validate!(input[:dashboard], context: "#{context}[:dashboard]") unless input[:dashboard].nil?
+        RegisteredUserQuickSightConsoleEmbeddingConfiguration.validate!(input[:quick_sight_console], context: "#{context}[:quick_sight_console]") unless input[:quick_sight_console].nil?
+        RegisteredUserQSearchBarEmbeddingConfiguration.validate!(input[:q_search_bar], context: "#{context}[:q_search_bar]") unless input[:q_search_bar].nil?
       end
     end
 
@@ -3420,7 +3422,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:catalog], ::String, context: "#{context}[:catalog]")
         Hearth::Validator.validate!(input[:schema], ::String, context: "#{context}[:schema]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::InputColumnList.validate!(input[:input_columns], context: "#{context}[:input_columns]") unless input[:input_columns].nil?
+        InputColumnList.validate!(input[:input_columns], context: "#{context}[:input_columns]") unless input[:input_columns].nil?
       end
     end
 
@@ -3454,7 +3456,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourcePermission, context: context)
         Hearth::Validator.validate!(input[:principal], ::String, context: "#{context}[:principal]")
-        Validators::ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
       end
     end
 
@@ -3462,7 +3464,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3518,7 +3520,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RowLevelPermissionTagConfiguration, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::RowLevelPermissionTagRuleList.validate!(input[:tag_rules], context: "#{context}[:tag_rules]") unless input[:tag_rules].nil?
+        RowLevelPermissionTagRuleList.validate!(input[:tag_rules], context: "#{context}[:tag_rules]") unless input[:tag_rules].nil?
       end
     end
 
@@ -3536,7 +3538,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RowLevelPermissionTagRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RowLevelPermissionTagRule.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3544,7 +3546,7 @@ module AWS::SDK::QuickSight
     class S3Parameters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3Parameters, context: context)
-        Validators::ManifestFileLocation.validate!(input[:manifest_file_location], context: "#{context}[:manifest_file_location]") unless input[:manifest_file_location].nil?
+        ManifestFileLocation.validate!(input[:manifest_file_location], context: "#{context}[:manifest_file_location]") unless input[:manifest_file_location].nil?
       end
     end
 
@@ -3552,8 +3554,8 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3Source, context: context)
         Hearth::Validator.validate!(input[:data_source_arn], ::String, context: "#{context}[:data_source_arn]")
-        Validators::UploadSettings.validate!(input[:upload_settings], context: "#{context}[:upload_settings]") unless input[:upload_settings].nil?
-        Validators::InputColumnList.validate!(input[:input_columns], context: "#{context}[:input_columns]") unless input[:input_columns].nil?
+        UploadSettings.validate!(input[:upload_settings], context: "#{context}[:upload_settings]") unless input[:upload_settings].nil?
+        InputColumnList.validate!(input[:input_columns], context: "#{context}[:input_columns]") unless input[:input_columns].nil?
       end
     end
 
@@ -3561,7 +3563,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchAnalysesInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
-        Validators::AnalysisSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        AnalysisSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -3570,7 +3572,7 @@ module AWS::SDK::QuickSight
     class SearchAnalysesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchAnalysesOutput, context: context)
-        Validators::AnalysisSummaryList.validate!(input[:analysis_summary_list], context: "#{context}[:analysis_summary_list]") unless input[:analysis_summary_list].nil?
+        AnalysisSummaryList.validate!(input[:analysis_summary_list], context: "#{context}[:analysis_summary_list]") unless input[:analysis_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -3581,7 +3583,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchDashboardsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
-        Validators::DashboardSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        DashboardSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -3590,7 +3592,7 @@ module AWS::SDK::QuickSight
     class SearchDashboardsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchDashboardsOutput, context: context)
-        Validators::DashboardSummaryList.validate!(input[:dashboard_summary_list], context: "#{context}[:dashboard_summary_list]") unless input[:dashboard_summary_list].nil?
+        DashboardSummaryList.validate!(input[:dashboard_summary_list], context: "#{context}[:dashboard_summary_list]") unless input[:dashboard_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
@@ -3601,7 +3603,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchFoldersInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
-        Validators::FolderSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        FolderSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -3611,7 +3613,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchFoldersOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
-        Validators::FolderSummaryList.validate!(input[:folder_summary_list], context: "#{context}[:folder_summary_list]") unless input[:folder_summary_list].nil?
+        FolderSummaryList.validate!(input[:folder_summary_list], context: "#{context}[:folder_summary_list]") unless input[:folder_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -3624,14 +3626,14 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::GroupSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        GroupSearchFilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class SearchGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchGroupsOutput, context: context)
-        Validators::GroupList.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
+        GroupList.validate!(input[:group_list], context: "#{context}[:group_list]") unless input[:group_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -3665,7 +3667,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SessionTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SessionTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3689,7 +3691,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Sheet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Sheet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3697,8 +3699,8 @@ module AWS::SDK::QuickSight
     class SheetStyle
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SheetStyle, context: context)
-        Validators::TileStyle.validate!(input[:tile], context: "#{context}[:tile]") unless input[:tile].nil?
-        Validators::TileLayoutStyle.validate!(input[:tile_layout], context: "#{context}[:tile_layout]") unless input[:tile_layout].nil?
+        TileStyle.validate!(input[:tile], context: "#{context}[:tile]") unless input[:tile].nil?
+        TileLayoutStyle.validate!(input[:tile_layout], context: "#{context}[:tile_layout]") unless input[:tile_layout].nil?
       end
     end
 
@@ -3748,7 +3750,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StringParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        StringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -3756,7 +3758,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StringParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StringParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3773,7 +3775,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagColumnOperation, context: context)
         Hearth::Validator.validate!(input[:column_name], ::String, context: "#{context}[:column_name]")
-        Validators::ColumnTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ColumnTagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3790,7 +3792,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3799,7 +3801,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3816,7 +3818,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::Template, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TemplateVersion.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
+        TemplateVersion.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
         Hearth::Validator.validate!(input[:template_id], ::String, context: "#{context}[:template_id]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
@@ -3836,7 +3838,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TemplateAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TemplateAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3853,7 +3855,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TemplateError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TemplateError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3862,15 +3864,15 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TemplateSourceAnalysis, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::DataSetReferenceList.validate!(input[:data_set_references], context: "#{context}[:data_set_references]") unless input[:data_set_references].nil?
+        DataSetReferenceList.validate!(input[:data_set_references], context: "#{context}[:data_set_references]") unless input[:data_set_references].nil?
       end
     end
 
     class TemplateSourceEntity
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TemplateSourceEntity, context: context)
-        Validators::TemplateSourceAnalysis.validate!(input[:source_analysis], context: "#{context}[:source_analysis]") unless input[:source_analysis].nil?
-        Validators::TemplateSourceTemplate.validate!(input[:source_template], context: "#{context}[:source_template]") unless input[:source_template].nil?
+        TemplateSourceAnalysis.validate!(input[:source_analysis], context: "#{context}[:source_analysis]") unless input[:source_analysis].nil?
+        TemplateSourceTemplate.validate!(input[:source_template], context: "#{context}[:source_template]") unless input[:source_template].nil?
       end
     end
 
@@ -3897,7 +3899,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3906,14 +3908,14 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TemplateVersion, context: context)
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
-        Validators::TemplateErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        TemplateErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:version_number], ::Integer, context: "#{context}[:version_number]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DataSetConfigurationList.validate!(input[:data_set_configurations], context: "#{context}[:data_set_configurations]") unless input[:data_set_configurations].nil?
+        DataSetConfigurationList.validate!(input[:data_set_configurations], context: "#{context}[:data_set_configurations]") unless input[:data_set_configurations].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:source_entity_arn], ::String, context: "#{context}[:source_entity_arn]")
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
-        Validators::SheetList.validate!(input[:sheets], context: "#{context}[:sheets]") unless input[:sheets].nil?
+        SheetList.validate!(input[:sheets], context: "#{context}[:sheets]") unless input[:sheets].nil?
       end
     end
 
@@ -3932,7 +3934,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3952,7 +3954,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:theme_id], ::String, context: "#{context}[:theme_id]")
-        Validators::ThemeVersion.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
+        ThemeVersion.validate!(input[:version], context: "#{context}[:version]") unless input[:version].nil?
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:last_updated_time], ::Time, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
@@ -3972,7 +3974,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThemeAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThemeAlias.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3980,9 +3982,9 @@ module AWS::SDK::QuickSight
     class ThemeConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThemeConfiguration, context: context)
-        Validators::DataColorPalette.validate!(input[:data_color_palette], context: "#{context}[:data_color_palette]") unless input[:data_color_palette].nil?
-        Validators::UIColorPalette.validate!(input[:ui_color_palette], context: "#{context}[:ui_color_palette]") unless input[:ui_color_palette].nil?
-        Validators::SheetStyle.validate!(input[:sheet], context: "#{context}[:sheet]") unless input[:sheet].nil?
+        DataColorPalette.validate!(input[:data_color_palette], context: "#{context}[:data_color_palette]") unless input[:data_color_palette].nil?
+        UIColorPalette.validate!(input[:ui_color_palette], context: "#{context}[:ui_color_palette]") unless input[:ui_color_palette].nil?
+        SheetStyle.validate!(input[:sheet], context: "#{context}[:sheet]") unless input[:sheet].nil?
       end
     end
 
@@ -3998,7 +4000,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThemeError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThemeError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4019,7 +4021,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThemeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThemeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4032,8 +4034,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:base_theme_id], ::String, context: "#{context}[:base_theme_id]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
-        Validators::ThemeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
-        Validators::ThemeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        ThemeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ThemeErrorList.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -4053,7 +4055,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThemeVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThemeVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4069,15 +4071,15 @@ module AWS::SDK::QuickSight
     class TileLayoutStyle
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TileLayoutStyle, context: context)
-        Validators::GutterStyle.validate!(input[:gutter], context: "#{context}[:gutter]") unless input[:gutter].nil?
-        Validators::MarginStyle.validate!(input[:margin], context: "#{context}[:margin]") unless input[:margin].nil?
+        GutterStyle.validate!(input[:gutter], context: "#{context}[:gutter]") unless input[:gutter].nil?
+        MarginStyle.validate!(input[:margin], context: "#{context}[:margin]") unless input[:margin].nil?
       end
     end
 
     class TileStyle
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TileStyle, context: context)
-        Validators::BorderStyle.validate!(input[:border], context: "#{context}[:border]") unless input[:border].nil?
+        BorderStyle.validate!(input[:border], context: "#{context}[:border]") unless input[:border].nil?
       end
     end
 
@@ -4094,19 +4096,19 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         case input
         when Types::TransformOperation::ProjectOperation
-          Validators::ProjectOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ProjectOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TransformOperation::FilterOperation
-          Validators::FilterOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          FilterOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TransformOperation::CreateColumnsOperation
-          Validators::CreateColumnsOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          CreateColumnsOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TransformOperation::RenameColumnOperation
-          Validators::RenameColumnOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          RenameColumnOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TransformOperation::CastColumnTypeOperation
-          Validators::CastColumnTypeOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          CastColumnTypeOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TransformOperation::TagColumnOperation
-          Validators::TagColumnOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          TagColumnOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::TransformOperation::UntagColumnOperation
-          Validators::UntagColumnOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          UntagColumnOperation.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -4161,7 +4163,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TransformOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TransformOperation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4216,7 +4218,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagColumnOperation, context: context)
         Hearth::Validator.validate!(input[:column_name], ::String, context: "#{context}[:column_name]")
-        Validators::ColumnTagNames.validate!(input[:tag_names], context: "#{context}[:tag_names]") unless input[:tag_names].nil?
+        ColumnTagNames.validate!(input[:tag_names], context: "#{context}[:tag_names]") unless input[:tag_names].nil?
       end
     end
 
@@ -4224,7 +4226,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -4241,7 +4243,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateAccountCustomizationInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
+        AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
       end
     end
 
@@ -4251,7 +4253,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
-        Validators::AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
+        AccountCustomization.validate!(input[:account_customization], context: "#{context}[:account_customization]") unless input[:account_customization].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -4280,8 +4282,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:analysis_id], ::String, context: "#{context}[:analysis_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
-        Validators::AnalysisSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
+        Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        AnalysisSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
       end
     end
@@ -4302,8 +4304,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateAnalysisPermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:analysis_id], ::String, context: "#{context}[:analysis_id]")
-        Validators::UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
       end
     end
 
@@ -4312,7 +4314,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateAnalysisPermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:analysis_arn], ::String, context: "#{context}[:analysis_arn]")
         Hearth::Validator.validate!(input[:analysis_id], ::String, context: "#{context}[:analysis_id]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -4324,10 +4326,10 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:dashboard_id], ::String, context: "#{context}[:dashboard_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DashboardSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
-        Validators::Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        DashboardSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
+        Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:version_description], ::String, context: "#{context}[:version_description]")
-        Validators::DashboardPublishOptions.validate!(input[:dashboard_publish_options], context: "#{context}[:dashboard_publish_options]") unless input[:dashboard_publish_options].nil?
+        DashboardPublishOptions.validate!(input[:dashboard_publish_options], context: "#{context}[:dashboard_publish_options]") unless input[:dashboard_publish_options].nil?
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
       end
     end
@@ -4349,10 +4351,10 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateDashboardPermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:dashboard_id], ::String, context: "#{context}[:dashboard_id]")
-        Validators::UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
-        Validators::UpdateLinkPermissionList.validate!(input[:grant_link_permissions], context: "#{context}[:grant_link_permissions]") unless input[:grant_link_permissions].nil?
-        Validators::UpdateLinkPermissionList.validate!(input[:revoke_link_permissions], context: "#{context}[:revoke_link_permissions]") unless input[:revoke_link_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        UpdateLinkPermissionList.validate!(input[:grant_link_permissions], context: "#{context}[:grant_link_permissions]") unless input[:grant_link_permissions].nil?
+        UpdateLinkPermissionList.validate!(input[:revoke_link_permissions], context: "#{context}[:revoke_link_permissions]") unless input[:revoke_link_permissions].nil?
       end
     end
 
@@ -4361,10 +4363,10 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateDashboardPermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:dashboard_arn], ::String, context: "#{context}[:dashboard_arn]")
         Hearth::Validator.validate!(input[:dashboard_id], ::String, context: "#{context}[:dashboard_id]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
-        Validators::LinkSharingConfiguration.validate!(input[:link_sharing_configuration], context: "#{context}[:link_sharing_configuration]") unless input[:link_sharing_configuration].nil?
+        LinkSharingConfiguration.validate!(input[:link_sharing_configuration], context: "#{context}[:link_sharing_configuration]") unless input[:link_sharing_configuration].nil?
       end
     end
 
@@ -4393,15 +4395,15 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::PhysicalTableMap.validate!(input[:physical_table_map], context: "#{context}[:physical_table_map]") unless input[:physical_table_map].nil?
-        Validators::LogicalTableMap.validate!(input[:logical_table_map], context: "#{context}[:logical_table_map]") unless input[:logical_table_map].nil?
+        PhysicalTableMap.validate!(input[:physical_table_map], context: "#{context}[:physical_table_map]") unless input[:physical_table_map].nil?
+        LogicalTableMap.validate!(input[:logical_table_map], context: "#{context}[:logical_table_map]") unless input[:logical_table_map].nil?
         Hearth::Validator.validate!(input[:import_mode], ::String, context: "#{context}[:import_mode]")
-        Validators::ColumnGroupList.validate!(input[:column_groups], context: "#{context}[:column_groups]") unless input[:column_groups].nil?
-        Validators::FieldFolderMap.validate!(input[:field_folders], context: "#{context}[:field_folders]") unless input[:field_folders].nil?
-        Validators::RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
-        Validators::RowLevelPermissionTagConfiguration.validate!(input[:row_level_permission_tag_configuration], context: "#{context}[:row_level_permission_tag_configuration]") unless input[:row_level_permission_tag_configuration].nil?
-        Validators::ColumnLevelPermissionRuleList.validate!(input[:column_level_permission_rules], context: "#{context}[:column_level_permission_rules]") unless input[:column_level_permission_rules].nil?
-        Validators::DataSetUsageConfiguration.validate!(input[:data_set_usage_configuration], context: "#{context}[:data_set_usage_configuration]") unless input[:data_set_usage_configuration].nil?
+        ColumnGroupList.validate!(input[:column_groups], context: "#{context}[:column_groups]") unless input[:column_groups].nil?
+        FieldFolderMap.validate!(input[:field_folders], context: "#{context}[:field_folders]") unless input[:field_folders].nil?
+        RowLevelPermissionDataSet.validate!(input[:row_level_permission_data_set], context: "#{context}[:row_level_permission_data_set]") unless input[:row_level_permission_data_set].nil?
+        RowLevelPermissionTagConfiguration.validate!(input[:row_level_permission_tag_configuration], context: "#{context}[:row_level_permission_tag_configuration]") unless input[:row_level_permission_tag_configuration].nil?
+        ColumnLevelPermissionRuleList.validate!(input[:column_level_permission_rules], context: "#{context}[:column_level_permission_rules]") unless input[:column_level_permission_rules].nil?
+        DataSetUsageConfiguration.validate!(input[:data_set_usage_configuration], context: "#{context}[:data_set_usage_configuration]") unless input[:data_set_usage_configuration].nil?
       end
     end
 
@@ -4422,8 +4424,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateDataSetPermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::ResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::ResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        ResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        ResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
       end
     end
 
@@ -4443,10 +4445,10 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DataSourceParameters.validate!(input[:data_source_parameters], context: "#{context}[:data_source_parameters]") unless input[:data_source_parameters].nil?
-        Validators::DataSourceCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
-        Validators::VpcConnectionProperties.validate!(input[:vpc_connection_properties], context: "#{context}[:vpc_connection_properties]") unless input[:vpc_connection_properties].nil?
-        Validators::SslProperties.validate!(input[:ssl_properties], context: "#{context}[:ssl_properties]") unless input[:ssl_properties].nil?
+        DataSourceParameters.validate!(input[:data_source_parameters], context: "#{context}[:data_source_parameters]") unless input[:data_source_parameters].nil?
+        DataSourceCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
+        VpcConnectionProperties.validate!(input[:vpc_connection_properties], context: "#{context}[:vpc_connection_properties]") unless input[:vpc_connection_properties].nil?
+        SslProperties.validate!(input[:ssl_properties], context: "#{context}[:ssl_properties]") unless input[:ssl_properties].nil?
       end
     end
 
@@ -4466,8 +4468,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateDataSourcePermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:data_source_id], ::String, context: "#{context}[:data_source_id]")
-        Validators::ResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::ResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        ResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        ResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
       end
     end
 
@@ -4505,8 +4507,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateFolderPermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:folder_id], ::String, context: "#{context}[:folder_id]")
-        Validators::ResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::ResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        ResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        ResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
       end
     end
 
@@ -4516,7 +4518,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:folder_id], ::String, context: "#{context}[:folder_id]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
     end
@@ -4534,7 +4536,7 @@ module AWS::SDK::QuickSight
     class UpdateGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateGroupOutput, context: context)
-        Validators::Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
+        Group.validate!(input[:group], context: "#{context}[:group]") unless input[:group].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -4548,7 +4550,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:namespace], ::String, context: "#{context}[:namespace]")
         Hearth::Validator.validate!(input[:assignment_status], ::String, context: "#{context}[:assignment_status]")
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
+        IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
       end
     end
 
@@ -4558,7 +4560,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:assignment_name], ::String, context: "#{context}[:assignment_name]")
         Hearth::Validator.validate!(input[:assignment_id], ::String, context: "#{context}[:assignment_id]")
         Hearth::Validator.validate!(input[:policy_arn], ::String, context: "#{context}[:policy_arn]")
-        Validators::IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
+        IdentityMap.validate!(input[:identities], context: "#{context}[:identities]") unless input[:identities].nil?
         Hearth::Validator.validate!(input[:assignment_status], ::String, context: "#{context}[:assignment_status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
@@ -4569,7 +4571,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateIpRestrictionInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
-        Validators::IpRestrictionRuleMap.validate!(input[:ip_restriction_rule_map], context: "#{context}[:ip_restriction_rule_map]") unless input[:ip_restriction_rule_map].nil?
+        IpRestrictionRuleMap.validate!(input[:ip_restriction_rule_map], context: "#{context}[:ip_restriction_rule_map]") unless input[:ip_restriction_rule_map].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
       end
     end
@@ -4587,7 +4589,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4612,7 +4614,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourcePermission.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4630,7 +4632,7 @@ module AWS::SDK::QuickSight
     class UpdateTemplateAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateTemplateAliasOutput, context: context)
-        Validators::TemplateAlias.validate!(input[:template_alias], context: "#{context}[:template_alias]") unless input[:template_alias].nil?
+        TemplateAlias.validate!(input[:template_alias], context: "#{context}[:template_alias]") unless input[:template_alias].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -4641,7 +4643,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateTemplateInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:template_id], ::String, context: "#{context}[:template_id]")
-        Validators::TemplateSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
+        TemplateSourceEntity.validate!(input[:source_entity], context: "#{context}[:source_entity]") unless input[:source_entity].nil?
         Hearth::Validator.validate!(input[:version_description], ::String, context: "#{context}[:version_description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
@@ -4664,8 +4666,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateTemplatePermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:template_id], ::String, context: "#{context}[:template_id]")
-        Validators::UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
       end
     end
 
@@ -4674,7 +4676,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateTemplatePermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:template_id], ::String, context: "#{context}[:template_id]")
         Hearth::Validator.validate!(input[:template_arn], ::String, context: "#{context}[:template_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -4693,7 +4695,7 @@ module AWS::SDK::QuickSight
     class UpdateThemeAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateThemeAliasOutput, context: context)
-        Validators::ThemeAlias.validate!(input[:theme_alias], context: "#{context}[:theme_alias]") unless input[:theme_alias].nil?
+        ThemeAlias.validate!(input[:theme_alias], context: "#{context}[:theme_alias]") unless input[:theme_alias].nil?
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
       end
@@ -4707,7 +4709,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:base_theme_id], ::String, context: "#{context}[:base_theme_id]")
         Hearth::Validator.validate!(input[:version_description], ::String, context: "#{context}[:version_description]")
-        Validators::ThemeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
+        ThemeConfiguration.validate!(input[:configuration], context: "#{context}[:configuration]") unless input[:configuration].nil?
       end
     end
 
@@ -4728,8 +4730,8 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateThemePermissionsInput, context: context)
         Hearth::Validator.validate!(input[:aws_account_id], ::String, context: "#{context}[:aws_account_id]")
         Hearth::Validator.validate!(input[:theme_id], ::String, context: "#{context}[:theme_id]")
-        Validators::UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
-        Validators::UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:grant_permissions], context: "#{context}[:grant_permissions]") unless input[:grant_permissions].nil?
+        UpdateResourcePermissionList.validate!(input[:revoke_permissions], context: "#{context}[:revoke_permissions]") unless input[:revoke_permissions].nil?
       end
     end
 
@@ -4738,7 +4740,7 @@ module AWS::SDK::QuickSight
         Hearth::Validator.validate!(input, Types::UpdateThemePermissionsOutput, context: context)
         Hearth::Validator.validate!(input[:theme_id], ::String, context: "#{context}[:theme_id]")
         Hearth::Validator.validate!(input[:theme_arn], ::String, context: "#{context}[:theme_arn]")
-        Validators::ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        ResourcePermissionList.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -4763,7 +4765,7 @@ module AWS::SDK::QuickSight
     class UpdateUserOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateUserOutput, context: context)
-        Validators::User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
+        User.validate!(input[:user], context: "#{context}[:user]") unless input[:user].nil?
         Hearth::Validator.validate!(input[:request_id], ::String, context: "#{context}[:request_id]")
         Hearth::Validator.validate!(input[:status], ::Integer, context: "#{context}[:status]")
       end
@@ -4801,7 +4803,7 @@ module AWS::SDK::QuickSight
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

@@ -14,7 +14,7 @@ module AWS::SDK::Mobile
     class CreateProject
       def self.default(visited=[])
         {
-          details: Stubs::ProjectDetails.default(visited),
+          details: ProjectDetails.default(visited),
         }
       end
 
@@ -40,7 +40,7 @@ module AWS::SDK::Mobile
           created_date: Time.now,
           last_updated_date: Time.now,
           console_url: 'console_url',
-          resources: Stubs::Resources.default(visited),
+          resources: Resources.default(visited),
         }
       end
 
@@ -65,7 +65,7 @@ module AWS::SDK::Mobile
         return nil if visited.include?('Resources')
         visited = visited + ['Resources']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -89,7 +89,7 @@ module AWS::SDK::Mobile
           name: 'name',
           arn: 'arn',
           feature: 'feature',
-          attributes: Stubs::Attributes.default(visited),
+          attributes: Attributes.default(visited),
         }
       end
 
@@ -129,8 +129,8 @@ module AWS::SDK::Mobile
     class DeleteProject
       def self.default(visited=[])
         {
-          deleted_resources: Stubs::Resources.default(visited),
-          orphaned_resources: Stubs::Resources.default(visited),
+          deleted_resources: Resources.default(visited),
+          orphaned_resources: Resources.default(visited),
         }
       end
 
@@ -148,7 +148,7 @@ module AWS::SDK::Mobile
     class DescribeBundle
       def self.default(visited=[])
         {
-          details: Stubs::BundleDetails.default(visited),
+          details: BundleDetails.default(visited),
         }
       end
 
@@ -172,7 +172,7 @@ module AWS::SDK::Mobile
           version: 'version',
           description: 'description',
           icon_url: 'icon_url',
-          available_platforms: Stubs::Platforms.default(visited),
+          available_platforms: Platforms.default(visited),
         }
       end
 
@@ -213,7 +213,7 @@ module AWS::SDK::Mobile
     class DescribeProject
       def self.default(visited=[])
         {
-          details: Stubs::ProjectDetails.default(visited),
+          details: ProjectDetails.default(visited),
         }
       end
 
@@ -268,7 +268,7 @@ module AWS::SDK::Mobile
     class ListBundles
       def self.default(visited=[])
         {
-          bundle_list: Stubs::BundleList.default(visited),
+          bundle_list: BundleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -289,7 +289,7 @@ module AWS::SDK::Mobile
         return nil if visited.include?('BundleList')
         visited = visited + ['BundleList']
         [
-          Stubs::BundleDetails.default(visited)
+          BundleDetails.default(visited)
         ]
       end
 
@@ -307,7 +307,7 @@ module AWS::SDK::Mobile
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::ProjectSummaries.default(visited),
+          projects: ProjectSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -328,7 +328,7 @@ module AWS::SDK::Mobile
         return nil if visited.include?('ProjectSummaries')
         visited = visited + ['ProjectSummaries']
         [
-          Stubs::ProjectSummary.default(visited)
+          ProjectSummary.default(visited)
         ]
       end
 
@@ -366,7 +366,7 @@ module AWS::SDK::Mobile
     class UpdateProject
       def self.default(visited=[])
         {
-          details: Stubs::ProjectDetails.default(visited),
+          details: ProjectDetails.default(visited),
         }
       end
 

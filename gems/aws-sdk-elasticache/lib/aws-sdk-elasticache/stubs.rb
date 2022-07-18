@@ -14,7 +14,7 @@ module AWS::SDK::ElastiCache
     class AddTagsToResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -36,7 +36,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -73,7 +73,7 @@ module AWS::SDK::ElastiCache
     class AuthorizeCacheSecurityGroupIngress
       def self.default(visited=[])
         {
-          cache_security_group: Stubs::CacheSecurityGroup.default(visited),
+          cache_security_group: CacheSecurityGroup.default(visited),
         }
       end
 
@@ -98,7 +98,7 @@ module AWS::SDK::ElastiCache
           owner_id: 'owner_id',
           cache_security_group_name: 'cache_security_group_name',
           description: 'description',
-          ec2_security_groups: Stubs::EC2SecurityGroupList.default(visited),
+          ec2_security_groups: EC2SecurityGroupList.default(visited),
           arn: 'arn',
         }
       end
@@ -121,7 +121,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('EC2SecurityGroupList')
         visited = visited + ['EC2SecurityGroupList']
         [
-          Stubs::EC2SecurityGroup.default(visited)
+          EC2SecurityGroup.default(visited)
         ]
       end
 
@@ -160,8 +160,8 @@ module AWS::SDK::ElastiCache
     class BatchApplyUpdateAction
       def self.default(visited=[])
         {
-          processed_update_actions: Stubs::ProcessedUpdateActionList.default(visited),
-          unprocessed_update_actions: Stubs::UnprocessedUpdateActionList.default(visited),
+          processed_update_actions: ProcessedUpdateActionList.default(visited),
+          unprocessed_update_actions: UnprocessedUpdateActionList.default(visited),
         }
       end
 
@@ -184,7 +184,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('UnprocessedUpdateActionList')
         visited = visited + ['UnprocessedUpdateActionList']
         [
-          Stubs::UnprocessedUpdateAction.default(visited)
+          UnprocessedUpdateAction.default(visited)
         ]
       end
 
@@ -229,7 +229,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ProcessedUpdateActionList')
         visited = visited + ['ProcessedUpdateActionList']
         [
-          Stubs::ProcessedUpdateAction.default(visited)
+          ProcessedUpdateAction.default(visited)
         ]
       end
 
@@ -270,8 +270,8 @@ module AWS::SDK::ElastiCache
     class BatchStopUpdateAction
       def self.default(visited=[])
         {
-          processed_update_actions: Stubs::ProcessedUpdateActionList.default(visited),
-          unprocessed_update_actions: Stubs::UnprocessedUpdateActionList.default(visited),
+          processed_update_actions: ProcessedUpdateActionList.default(visited),
+          unprocessed_update_actions: UnprocessedUpdateActionList.default(visited),
         }
       end
 
@@ -292,7 +292,7 @@ module AWS::SDK::ElastiCache
     class CompleteMigration
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -316,15 +316,15 @@ module AWS::SDK::ElastiCache
         {
           replication_group_id: 'replication_group_id',
           description: 'description',
-          global_replication_group_info: Stubs::GlobalReplicationGroupInfo.default(visited),
+          global_replication_group_info: GlobalReplicationGroupInfo.default(visited),
           status: 'status',
-          pending_modified_values: Stubs::ReplicationGroupPendingModifiedValues.default(visited),
-          member_clusters: Stubs::ClusterIdList.default(visited),
-          node_groups: Stubs::NodeGroupList.default(visited),
+          pending_modified_values: ReplicationGroupPendingModifiedValues.default(visited),
+          member_clusters: ClusterIdList.default(visited),
+          node_groups: NodeGroupList.default(visited),
           snapshotting_cluster_id: 'snapshotting_cluster_id',
           automatic_failover: 'automatic_failover',
           multi_az: 'multi_az',
-          configuration_endpoint: Stubs::Endpoint.default(visited),
+          configuration_endpoint: Endpoint.default(visited),
           snapshot_retention_limit: 1,
           snapshot_window: 'snapshot_window',
           cluster_enabled: false,
@@ -333,11 +333,11 @@ module AWS::SDK::ElastiCache
           auth_token_last_modified_date: Time.now,
           transit_encryption_enabled: false,
           at_rest_encryption_enabled: false,
-          member_clusters_outpost_arns: Stubs::ReplicationGroupOutpostArnList.default(visited),
+          member_clusters_outpost_arns: ReplicationGroupOutpostArnList.default(visited),
           kms_key_id: 'kms_key_id',
           arn: 'arn',
-          user_group_ids: Stubs::UserGroupIdList.default(visited),
-          log_delivery_configurations: Stubs::LogDeliveryConfigurationList.default(visited),
+          user_group_ids: UserGroupIdList.default(visited),
+          log_delivery_configurations: LogDeliveryConfigurationList.default(visited),
           replication_group_create_time: Time.now,
           data_tiering: 'data_tiering',
         }
@@ -382,7 +382,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('LogDeliveryConfigurationList')
         visited = visited + ['LogDeliveryConfigurationList']
         [
-          Stubs::LogDeliveryConfiguration.default(visited)
+          LogDeliveryConfiguration.default(visited)
         ]
       end
 
@@ -403,7 +403,7 @@ module AWS::SDK::ElastiCache
         {
           log_type: 'log_type',
           destination_type: 'destination_type',
-          destination_details: Stubs::DestinationDetails.default(visited),
+          destination_details: DestinationDetails.default(visited),
           log_format: 'log_format',
           status: 'status',
           message: 'message',
@@ -429,8 +429,8 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('DestinationDetails')
         visited = visited + ['DestinationDetails']
         {
-          cloud_watch_logs_details: Stubs::CloudWatchLogsDestinationDetails.default(visited),
-          kinesis_firehose_details: Stubs::KinesisFirehoseDestinationDetails.default(visited),
+          cloud_watch_logs_details: CloudWatchLogsDestinationDetails.default(visited),
+          kinesis_firehose_details: KinesisFirehoseDestinationDetails.default(visited),
         }
       end
 
@@ -543,7 +543,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('NodeGroupList')
         visited = visited + ['NodeGroupList']
         [
-          Stubs::NodeGroup.default(visited)
+          NodeGroup.default(visited)
         ]
       end
 
@@ -564,10 +564,10 @@ module AWS::SDK::ElastiCache
         {
           node_group_id: 'node_group_id',
           status: 'status',
-          primary_endpoint: Stubs::Endpoint.default(visited),
-          reader_endpoint: Stubs::Endpoint.default(visited),
+          primary_endpoint: Endpoint.default(visited),
+          reader_endpoint: Endpoint.default(visited),
           slots: 'slots',
-          node_group_members: Stubs::NodeGroupMemberList.default(visited),
+          node_group_members: NodeGroupMemberList.default(visited),
         }
       end
 
@@ -590,7 +590,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('NodeGroupMemberList')
         visited = visited + ['NodeGroupMemberList']
         [
-          Stubs::NodeGroupMember.default(visited)
+          NodeGroupMember.default(visited)
         ]
       end
 
@@ -611,7 +611,7 @@ module AWS::SDK::ElastiCache
         {
           cache_cluster_id: 'cache_cluster_id',
           cache_node_id: 'cache_node_id',
-          read_endpoint: Stubs::Endpoint.default(visited),
+          read_endpoint: Endpoint.default(visited),
           preferred_availability_zone: 'preferred_availability_zone',
           preferred_outpost_arn: 'preferred_outpost_arn',
           current_role: 'current_role',
@@ -658,10 +658,10 @@ module AWS::SDK::ElastiCache
         {
           primary_cluster_id: 'primary_cluster_id',
           automatic_failover_status: 'automatic_failover_status',
-          resharding: Stubs::ReshardingStatus.default(visited),
+          resharding: ReshardingStatus.default(visited),
           auth_token_status: 'auth_token_status',
-          user_groups: Stubs::UserGroupsUpdateStatus.default(visited),
-          log_delivery_configurations: Stubs::PendingLogDeliveryConfigurationList.default(visited),
+          user_groups: UserGroupsUpdateStatus.default(visited),
+          log_delivery_configurations: PendingLogDeliveryConfigurationList.default(visited),
         }
       end
 
@@ -684,7 +684,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('PendingLogDeliveryConfigurationList')
         visited = visited + ['PendingLogDeliveryConfigurationList']
         [
-          Stubs::PendingLogDeliveryConfiguration.default(visited)
+          PendingLogDeliveryConfiguration.default(visited)
         ]
       end
 
@@ -705,7 +705,7 @@ module AWS::SDK::ElastiCache
         {
           log_type: 'log_type',
           destination_type: 'destination_type',
-          destination_details: Stubs::DestinationDetails.default(visited),
+          destination_details: DestinationDetails.default(visited),
           log_format: 'log_format',
         }
       end
@@ -727,8 +727,8 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('UserGroupsUpdateStatus')
         visited = visited + ['UserGroupsUpdateStatus']
         {
-          user_group_ids_to_add: Stubs::UserGroupIdList.default(visited),
-          user_group_ids_to_remove: Stubs::UserGroupIdList.default(visited),
+          user_group_ids_to_add: UserGroupIdList.default(visited),
+          user_group_ids_to_remove: UserGroupIdList.default(visited),
         }
       end
 
@@ -747,7 +747,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ReshardingStatus')
         visited = visited + ['ReshardingStatus']
         {
-          slot_migration: Stubs::SlotMigration.default(visited),
+          slot_migration: SlotMigration.default(visited),
         }
       end
 
@@ -801,7 +801,7 @@ module AWS::SDK::ElastiCache
     class CopySnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -847,7 +847,7 @@ module AWS::SDK::ElastiCache
           snapshot_window: 'snapshot_window',
           num_node_groups: 1,
           automatic_failover: 'automatic_failover',
-          node_snapshots: Stubs::NodeSnapshotList.default(visited),
+          node_snapshots: NodeSnapshotList.default(visited),
           kms_key_id: 'kms_key_id',
           arn: 'arn',
           data_tiering: 'data_tiering',
@@ -895,7 +895,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('NodeSnapshotList')
         visited = visited + ['NodeSnapshotList']
         [
-          Stubs::NodeSnapshot.default(visited)
+          NodeSnapshot.default(visited)
         ]
       end
 
@@ -917,7 +917,7 @@ module AWS::SDK::ElastiCache
           cache_cluster_id: 'cache_cluster_id',
           node_group_id: 'node_group_id',
           cache_node_id: 'cache_node_id',
-          node_group_configuration: Stubs::NodeGroupConfiguration.default(visited),
+          node_group_configuration: NodeGroupConfiguration.default(visited),
           cache_size: 'cache_size',
           cache_node_create_time: Time.now,
           snapshot_create_time: Time.now,
@@ -948,9 +948,9 @@ module AWS::SDK::ElastiCache
           slots: 'slots',
           replica_count: 1,
           primary_availability_zone: 'primary_availability_zone',
-          replica_availability_zones: Stubs::AvailabilityZonesList.default(visited),
+          replica_availability_zones: AvailabilityZonesList.default(visited),
           primary_outpost_arn: 'primary_outpost_arn',
-          replica_outpost_arns: Stubs::OutpostArnsList.default(visited),
+          replica_outpost_arns: OutpostArnsList.default(visited),
         }
       end
 
@@ -1010,7 +1010,7 @@ module AWS::SDK::ElastiCache
     class CreateCacheCluster
       def self.default(visited=[])
         {
-          cache_cluster: Stubs::CacheCluster.default(visited),
+          cache_cluster: CacheCluster.default(visited),
         }
       end
 
@@ -1033,7 +1033,7 @@ module AWS::SDK::ElastiCache
         visited = visited + ['CacheCluster']
         {
           cache_cluster_id: 'cache_cluster_id',
-          configuration_endpoint: Stubs::Endpoint.default(visited),
+          configuration_endpoint: Endpoint.default(visited),
           client_download_landing_page: 'client_download_landing_page',
           cache_node_type: 'cache_node_type',
           engine: 'engine',
@@ -1044,14 +1044,14 @@ module AWS::SDK::ElastiCache
           preferred_outpost_arn: 'preferred_outpost_arn',
           cache_cluster_create_time: Time.now,
           preferred_maintenance_window: 'preferred_maintenance_window',
-          pending_modified_values: Stubs::PendingModifiedValues.default(visited),
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
-          cache_security_groups: Stubs::CacheSecurityGroupMembershipList.default(visited),
-          cache_parameter_group: Stubs::CacheParameterGroupStatus.default(visited),
+          pending_modified_values: PendingModifiedValues.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
+          cache_security_groups: CacheSecurityGroupMembershipList.default(visited),
+          cache_parameter_group: CacheParameterGroupStatus.default(visited),
           cache_subnet_group_name: 'cache_subnet_group_name',
-          cache_nodes: Stubs::CacheNodeList.default(visited),
+          cache_nodes: CacheNodeList.default(visited),
           auto_minor_version_upgrade: false,
-          security_groups: Stubs::SecurityGroupMembershipList.default(visited),
+          security_groups: SecurityGroupMembershipList.default(visited),
           replication_group_id: 'replication_group_id',
           snapshot_retention_limit: 1,
           snapshot_window: 'snapshot_window',
@@ -1061,7 +1061,7 @@ module AWS::SDK::ElastiCache
           at_rest_encryption_enabled: false,
           arn: 'arn',
           replication_group_log_delivery_enabled: false,
-          log_delivery_configurations: Stubs::LogDeliveryConfigurationList.default(visited),
+          log_delivery_configurations: LogDeliveryConfigurationList.default(visited),
         }
       end
 
@@ -1108,7 +1108,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('SecurityGroupMembershipList')
         visited = visited + ['SecurityGroupMembershipList']
         [
-          Stubs::SecurityGroupMembership.default(visited)
+          SecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1147,7 +1147,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheNodeList')
         visited = visited + ['CacheNodeList']
         [
-          Stubs::CacheNode.default(visited)
+          CacheNode.default(visited)
         ]
       end
 
@@ -1169,7 +1169,7 @@ module AWS::SDK::ElastiCache
           cache_node_id: 'cache_node_id',
           cache_node_status: 'cache_node_status',
           cache_node_create_time: Time.now,
-          endpoint: Stubs::Endpoint.default(visited),
+          endpoint: Endpoint.default(visited),
           parameter_group_status: 'parameter_group_status',
           source_cache_node_id: 'source_cache_node_id',
           customer_availability_zone: 'customer_availability_zone',
@@ -1200,7 +1200,7 @@ module AWS::SDK::ElastiCache
         {
           cache_parameter_group_name: 'cache_parameter_group_name',
           parameter_apply_status: 'parameter_apply_status',
-          cache_node_ids_to_reboot: Stubs::CacheNodeIdsList.default(visited),
+          cache_node_ids_to_reboot: CacheNodeIdsList.default(visited),
         }
       end
 
@@ -1239,7 +1239,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheSecurityGroupMembershipList')
         visited = visited + ['CacheSecurityGroupMembershipList']
         [
-          Stubs::CacheSecurityGroupMembership.default(visited)
+          CacheSecurityGroupMembership.default(visited)
         ]
       end
 
@@ -1299,11 +1299,11 @@ module AWS::SDK::ElastiCache
         visited = visited + ['PendingModifiedValues']
         {
           num_cache_nodes: 1,
-          cache_node_ids_to_remove: Stubs::CacheNodeIdsList.default(visited),
+          cache_node_ids_to_remove: CacheNodeIdsList.default(visited),
           engine_version: 'engine_version',
           cache_node_type: 'cache_node_type',
           auth_token_status: 'auth_token_status',
-          log_delivery_configurations: Stubs::PendingLogDeliveryConfigurationList.default(visited),
+          log_delivery_configurations: PendingLogDeliveryConfigurationList.default(visited),
         }
       end
 
@@ -1324,7 +1324,7 @@ module AWS::SDK::ElastiCache
     class CreateCacheParameterGroup
       def self.default(visited=[])
         {
-          cache_parameter_group: Stubs::CacheParameterGroup.default(visited),
+          cache_parameter_group: CacheParameterGroup.default(visited),
         }
       end
 
@@ -1370,7 +1370,7 @@ module AWS::SDK::ElastiCache
     class CreateCacheSecurityGroup
       def self.default(visited=[])
         {
-          cache_security_group: Stubs::CacheSecurityGroup.default(visited),
+          cache_security_group: CacheSecurityGroup.default(visited),
         }
       end
 
@@ -1390,7 +1390,7 @@ module AWS::SDK::ElastiCache
     class CreateCacheSubnetGroup
       def self.default(visited=[])
         {
-          cache_subnet_group: Stubs::CacheSubnetGroup.default(visited),
+          cache_subnet_group: CacheSubnetGroup.default(visited),
         }
       end
 
@@ -1415,7 +1415,7 @@ module AWS::SDK::ElastiCache
           cache_subnet_group_name: 'cache_subnet_group_name',
           cache_subnet_group_description: 'cache_subnet_group_description',
           vpc_id: 'vpc_id',
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
           arn: 'arn',
         }
       end
@@ -1438,7 +1438,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -1458,8 +1458,8 @@ module AWS::SDK::ElastiCache
         visited = visited + ['Subnet']
         {
           subnet_identifier: 'subnet_identifier',
-          subnet_availability_zone: Stubs::AvailabilityZone.default(visited),
-          subnet_outpost: Stubs::SubnetOutpost.default(visited),
+          subnet_availability_zone: AvailabilityZone.default(visited),
+          subnet_outpost: SubnetOutpost.default(visited),
         }
       end
 
@@ -1513,7 +1513,7 @@ module AWS::SDK::ElastiCache
     class CreateGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -1541,9 +1541,9 @@ module AWS::SDK::ElastiCache
           cache_node_type: 'cache_node_type',
           engine: 'engine',
           engine_version: 'engine_version',
-          members: Stubs::GlobalReplicationGroupMemberList.default(visited),
+          members: GlobalReplicationGroupMemberList.default(visited),
           cluster_enabled: false,
-          global_node_groups: Stubs::GlobalNodeGroupList.default(visited),
+          global_node_groups: GlobalNodeGroupList.default(visited),
           auth_token_enabled: false,
           transit_encryption_enabled: false,
           at_rest_encryption_enabled: false,
@@ -1577,7 +1577,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('GlobalNodeGroupList')
         visited = visited + ['GlobalNodeGroupList']
         [
-          Stubs::GlobalNodeGroup.default(visited)
+          GlobalNodeGroup.default(visited)
         ]
       end
 
@@ -1616,7 +1616,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('GlobalReplicationGroupMemberList')
         visited = visited + ['GlobalReplicationGroupMemberList']
         [
-          Stubs::GlobalReplicationGroupMember.default(visited)
+          GlobalReplicationGroupMember.default(visited)
         ]
       end
 
@@ -1659,7 +1659,7 @@ module AWS::SDK::ElastiCache
     class CreateReplicationGroup
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -1679,7 +1679,7 @@ module AWS::SDK::ElastiCache
     class CreateSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -1705,8 +1705,8 @@ module AWS::SDK::ElastiCache
           engine: 'engine',
           minimum_engine_version: 'minimum_engine_version',
           access_string: 'access_string',
-          user_group_ids: Stubs::UserGroupIdList.default(visited),
-          authentication: Stubs::Authentication.default(visited),
+          user_group_ids: UserGroupIdList.default(visited),
+          authentication: Authentication.default(visited),
           arn: 'arn',
         }
       end
@@ -1758,10 +1758,10 @@ module AWS::SDK::ElastiCache
           user_group_id: 'user_group_id',
           status: 'status',
           engine: 'engine',
-          user_ids: Stubs::UserIdList.default(visited),
+          user_ids: UserIdList.default(visited),
           minimum_engine_version: 'minimum_engine_version',
-          pending_changes: Stubs::UserGroupPendingChanges.default(visited),
-          replication_groups: Stubs::UGReplicationGroupIdList.default(visited),
+          pending_changes: UserGroupPendingChanges.default(visited),
+          replication_groups: UGReplicationGroupIdList.default(visited),
           arn: 'arn',
         }
       end
@@ -1810,8 +1810,8 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('UserGroupPendingChanges')
         visited = visited + ['UserGroupPendingChanges']
         {
-          user_ids_to_remove: Stubs::UserIdList.default(visited),
-          user_ids_to_add: Stubs::UserIdList.default(visited),
+          user_ids_to_remove: UserIdList.default(visited),
+          user_ids_to_add: UserIdList.default(visited),
         }
       end
 
@@ -1847,7 +1847,7 @@ module AWS::SDK::ElastiCache
     class DecreaseNodeGroupsInGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -1867,7 +1867,7 @@ module AWS::SDK::ElastiCache
     class DecreaseReplicaCount
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -1887,7 +1887,7 @@ module AWS::SDK::ElastiCache
     class DeleteCacheCluster
       def self.default(visited=[])
         {
-          cache_cluster: Stubs::CacheCluster.default(visited),
+          cache_cluster: CacheCluster.default(visited),
         }
       end
 
@@ -1961,7 +1961,7 @@ module AWS::SDK::ElastiCache
     class DeleteGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -1981,7 +1981,7 @@ module AWS::SDK::ElastiCache
     class DeleteReplicationGroup
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -2001,7 +2001,7 @@ module AWS::SDK::ElastiCache
     class DeleteSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -2027,8 +2027,8 @@ module AWS::SDK::ElastiCache
           engine: 'engine',
           minimum_engine_version: 'minimum_engine_version',
           access_string: 'access_string',
-          user_group_ids: Stubs::UserGroupIdList.default(visited),
-          authentication: Stubs::Authentication.default(visited),
+          user_group_ids: UserGroupIdList.default(visited),
+          authentication: Authentication.default(visited),
           arn: 'arn',
         }
       end
@@ -2060,10 +2060,10 @@ module AWS::SDK::ElastiCache
           user_group_id: 'user_group_id',
           status: 'status',
           engine: 'engine',
-          user_ids: Stubs::UserIdList.default(visited),
+          user_ids: UserIdList.default(visited),
           minimum_engine_version: 'minimum_engine_version',
-          pending_changes: Stubs::UserGroupPendingChanges.default(visited),
-          replication_groups: Stubs::UGReplicationGroupIdList.default(visited),
+          pending_changes: UserGroupPendingChanges.default(visited),
+          replication_groups: UGReplicationGroupIdList.default(visited),
           arn: 'arn',
         }
       end
@@ -2092,7 +2092,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          cache_clusters: Stubs::CacheClusterList.default(visited),
+          cache_clusters: CacheClusterList.default(visited),
         }
       end
 
@@ -2115,7 +2115,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheClusterList')
         visited = visited + ['CacheClusterList']
         [
-          Stubs::CacheCluster.default(visited)
+          CacheCluster.default(visited)
         ]
       end
 
@@ -2133,7 +2133,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          cache_engine_versions: Stubs::CacheEngineVersionList.default(visited),
+          cache_engine_versions: CacheEngineVersionList.default(visited),
         }
       end
 
@@ -2156,7 +2156,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheEngineVersionList')
         visited = visited + ['CacheEngineVersionList']
         [
-          Stubs::CacheEngineVersion.default(visited)
+          CacheEngineVersion.default(visited)
         ]
       end
 
@@ -2200,7 +2200,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          cache_parameter_groups: Stubs::CacheParameterGroupList.default(visited),
+          cache_parameter_groups: CacheParameterGroupList.default(visited),
         }
       end
 
@@ -2223,7 +2223,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheParameterGroupList')
         visited = visited + ['CacheParameterGroupList']
         [
-          Stubs::CacheParameterGroup.default(visited)
+          CacheParameterGroup.default(visited)
         ]
       end
 
@@ -2241,8 +2241,8 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          parameters: Stubs::ParametersList.default(visited),
-          cache_node_type_specific_parameters: Stubs::CacheNodeTypeSpecificParametersList.default(visited),
+          parameters: ParametersList.default(visited),
+          cache_node_type_specific_parameters: CacheNodeTypeSpecificParametersList.default(visited),
         }
       end
 
@@ -2266,7 +2266,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheNodeTypeSpecificParametersList')
         visited = visited + ['CacheNodeTypeSpecificParametersList']
         [
-          Stubs::CacheNodeTypeSpecificParameter.default(visited)
+          CacheNodeTypeSpecificParameter.default(visited)
         ]
       end
 
@@ -2292,7 +2292,7 @@ module AWS::SDK::ElastiCache
           allowed_values: 'allowed_values',
           is_modifiable: false,
           minimum_engine_version: 'minimum_engine_version',
-          cache_node_type_specific_values: Stubs::CacheNodeTypeSpecificValueList.default(visited),
+          cache_node_type_specific_values: CacheNodeTypeSpecificValueList.default(visited),
           change_type: 'change_type',
         }
       end
@@ -2319,7 +2319,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheNodeTypeSpecificValueList')
         visited = visited + ['CacheNodeTypeSpecificValueList']
         [
-          Stubs::CacheNodeTypeSpecificValue.default(visited)
+          CacheNodeTypeSpecificValue.default(visited)
         ]
       end
 
@@ -2358,7 +2358,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ParametersList')
         visited = visited + ['ParametersList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -2410,7 +2410,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          cache_security_groups: Stubs::CacheSecurityGroups.default(visited),
+          cache_security_groups: CacheSecurityGroups.default(visited),
         }
       end
 
@@ -2433,7 +2433,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheSecurityGroups')
         visited = visited + ['CacheSecurityGroups']
         [
-          Stubs::CacheSecurityGroup.default(visited)
+          CacheSecurityGroup.default(visited)
         ]
       end
 
@@ -2451,7 +2451,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          cache_subnet_groups: Stubs::CacheSubnetGroups.default(visited),
+          cache_subnet_groups: CacheSubnetGroups.default(visited),
         }
       end
 
@@ -2474,7 +2474,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheSubnetGroups')
         visited = visited + ['CacheSubnetGroups']
         [
-          Stubs::CacheSubnetGroup.default(visited)
+          CacheSubnetGroup.default(visited)
         ]
       end
 
@@ -2491,7 +2491,7 @@ module AWS::SDK::ElastiCache
     class DescribeEngineDefaultParameters
       def self.default(visited=[])
         {
-          engine_defaults: Stubs::EngineDefaults.default(visited),
+          engine_defaults: EngineDefaults.default(visited),
         }
       end
 
@@ -2515,8 +2515,8 @@ module AWS::SDK::ElastiCache
         {
           cache_parameter_group_family: 'cache_parameter_group_family',
           marker: 'marker',
-          parameters: Stubs::ParametersList.default(visited),
-          cache_node_type_specific_parameters: Stubs::CacheNodeTypeSpecificParametersList.default(visited),
+          parameters: ParametersList.default(visited),
+          cache_node_type_specific_parameters: CacheNodeTypeSpecificParametersList.default(visited),
         }
       end
 
@@ -2536,7 +2536,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
         }
       end
 
@@ -2559,7 +2559,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -2601,7 +2601,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          global_replication_groups: Stubs::GlobalReplicationGroupList.default(visited),
+          global_replication_groups: GlobalReplicationGroupList.default(visited),
         }
       end
 
@@ -2624,7 +2624,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('GlobalReplicationGroupList')
         visited = visited + ['GlobalReplicationGroupList']
         [
-          Stubs::GlobalReplicationGroup.default(visited)
+          GlobalReplicationGroup.default(visited)
         ]
       end
 
@@ -2642,7 +2642,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          replication_groups: Stubs::ReplicationGroupList.default(visited),
+          replication_groups: ReplicationGroupList.default(visited),
         }
       end
 
@@ -2665,7 +2665,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ReplicationGroupList')
         visited = visited + ['ReplicationGroupList']
         [
-          Stubs::ReplicationGroup.default(visited)
+          ReplicationGroup.default(visited)
         ]
       end
 
@@ -2683,7 +2683,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_cache_nodes: Stubs::ReservedCacheNodeList.default(visited),
+          reserved_cache_nodes: ReservedCacheNodeList.default(visited),
         }
       end
 
@@ -2706,7 +2706,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ReservedCacheNodeList')
         visited = visited + ['ReservedCacheNodeList']
         [
-          Stubs::ReservedCacheNode.default(visited)
+          ReservedCacheNode.default(visited)
         ]
       end
 
@@ -2736,7 +2736,7 @@ module AWS::SDK::ElastiCache
           product_description: 'product_description',
           offering_type: 'offering_type',
           state: 'state',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
           reservation_arn: 'reservation_arn',
         }
       end
@@ -2767,7 +2767,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('RecurringChargeList')
         visited = visited + ['RecurringChargeList']
         [
-          Stubs::RecurringCharge.default(visited)
+          RecurringCharge.default(visited)
         ]
       end
 
@@ -2805,7 +2805,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          reserved_cache_nodes_offerings: Stubs::ReservedCacheNodesOfferingList.default(visited),
+          reserved_cache_nodes_offerings: ReservedCacheNodesOfferingList.default(visited),
         }
       end
 
@@ -2828,7 +2828,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ReservedCacheNodesOfferingList')
         visited = visited + ['ReservedCacheNodesOfferingList']
         [
-          Stubs::ReservedCacheNodesOffering.default(visited)
+          ReservedCacheNodesOffering.default(visited)
         ]
       end
 
@@ -2854,7 +2854,7 @@ module AWS::SDK::ElastiCache
           usage_price: 1.0,
           product_description: 'product_description',
           offering_type: 'offering_type',
-          recurring_charges: Stubs::RecurringChargeList.default(visited),
+          recurring_charges: RecurringChargeList.default(visited),
         }
       end
 
@@ -2878,7 +2878,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          service_updates: Stubs::ServiceUpdateList.default(visited),
+          service_updates: ServiceUpdateList.default(visited),
         }
       end
 
@@ -2901,7 +2901,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('ServiceUpdateList')
         visited = visited + ['ServiceUpdateList']
         [
-          Stubs::ServiceUpdate.default(visited)
+          ServiceUpdate.default(visited)
         ]
       end
 
@@ -2959,7 +2959,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          snapshots: Stubs::SnapshotList.default(visited),
+          snapshots: SnapshotList.default(visited),
         }
       end
 
@@ -2982,7 +2982,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('SnapshotList')
         visited = visited + ['SnapshotList']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -3000,7 +3000,7 @@ module AWS::SDK::ElastiCache
       def self.default(visited=[])
         {
           marker: 'marker',
-          update_actions: Stubs::UpdateActionList.default(visited),
+          update_actions: UpdateActionList.default(visited),
         }
       end
 
@@ -3023,7 +3023,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('UpdateActionList')
         visited = visited + ['UpdateActionList']
         [
-          Stubs::UpdateAction.default(visited)
+          UpdateAction.default(visited)
         ]
       end
 
@@ -3055,8 +3055,8 @@ module AWS::SDK::ElastiCache
           nodes_updated: 'nodes_updated',
           update_action_status_modified_date: Time.now,
           sla_met: 'sla_met',
-          node_group_update_status: Stubs::NodeGroupUpdateStatusList.default(visited),
-          cache_node_update_status: Stubs::CacheNodeUpdateStatusList.default(visited),
+          node_group_update_status: NodeGroupUpdateStatusList.default(visited),
+          cache_node_update_status: CacheNodeUpdateStatusList.default(visited),
           estimated_update_time: 'estimated_update_time',
           engine: 'engine',
         }
@@ -3092,7 +3092,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('CacheNodeUpdateStatusList')
         visited = visited + ['CacheNodeUpdateStatusList']
         [
-          Stubs::CacheNodeUpdateStatus.default(visited)
+          CacheNodeUpdateStatus.default(visited)
         ]
       end
 
@@ -3143,7 +3143,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('NodeGroupUpdateStatusList')
         visited = visited + ['NodeGroupUpdateStatusList']
         [
-          Stubs::NodeGroupUpdateStatus.default(visited)
+          NodeGroupUpdateStatus.default(visited)
         ]
       end
 
@@ -3163,7 +3163,7 @@ module AWS::SDK::ElastiCache
         visited = visited + ['NodeGroupUpdateStatus']
         {
           node_group_id: 'node_group_id',
-          node_group_member_update_status: Stubs::NodeGroupMemberUpdateStatusList.default(visited),
+          node_group_member_update_status: NodeGroupMemberUpdateStatusList.default(visited),
         }
       end
 
@@ -3182,7 +3182,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('NodeGroupMemberUpdateStatusList')
         visited = visited + ['NodeGroupMemberUpdateStatusList']
         [
-          Stubs::NodeGroupMemberUpdateStatus.default(visited)
+          NodeGroupMemberUpdateStatus.default(visited)
         ]
       end
 
@@ -3233,7 +3233,7 @@ module AWS::SDK::ElastiCache
     class DescribeUserGroups
       def self.default(visited=[])
         {
-          user_groups: Stubs::UserGroupList.default(visited),
+          user_groups: UserGroupList.default(visited),
           marker: 'marker',
         }
       end
@@ -3257,7 +3257,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('UserGroupList')
         visited = visited + ['UserGroupList']
         [
-          Stubs::UserGroup.default(visited)
+          UserGroup.default(visited)
         ]
       end
 
@@ -3279,10 +3279,10 @@ module AWS::SDK::ElastiCache
           user_group_id: 'user_group_id',
           status: 'status',
           engine: 'engine',
-          user_ids: Stubs::UserIdList.default(visited),
+          user_ids: UserIdList.default(visited),
           minimum_engine_version: 'minimum_engine_version',
-          pending_changes: Stubs::UserGroupPendingChanges.default(visited),
-          replication_groups: Stubs::UGReplicationGroupIdList.default(visited),
+          pending_changes: UserGroupPendingChanges.default(visited),
+          replication_groups: UGReplicationGroupIdList.default(visited),
           arn: 'arn',
         }
       end
@@ -3306,7 +3306,7 @@ module AWS::SDK::ElastiCache
     class DescribeUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserList.default(visited),
+          users: UserList.default(visited),
           marker: 'marker',
         }
       end
@@ -3330,7 +3330,7 @@ module AWS::SDK::ElastiCache
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -3355,8 +3355,8 @@ module AWS::SDK::ElastiCache
           engine: 'engine',
           minimum_engine_version: 'minimum_engine_version',
           access_string: 'access_string',
-          user_group_ids: Stubs::UserGroupIdList.default(visited),
-          authentication: Stubs::Authentication.default(visited),
+          user_group_ids: UserGroupIdList.default(visited),
+          authentication: Authentication.default(visited),
           arn: 'arn',
         }
       end
@@ -3381,7 +3381,7 @@ module AWS::SDK::ElastiCache
     class DisassociateGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -3401,7 +3401,7 @@ module AWS::SDK::ElastiCache
     class FailoverGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -3421,7 +3421,7 @@ module AWS::SDK::ElastiCache
     class IncreaseNodeGroupsInGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -3441,7 +3441,7 @@ module AWS::SDK::ElastiCache
     class IncreaseReplicaCount
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -3461,8 +3461,8 @@ module AWS::SDK::ElastiCache
     class ListAllowedNodeTypeModifications
       def self.default(visited=[])
         {
-          scale_up_modifications: Stubs::NodeTypeList.default(visited),
-          scale_down_modifications: Stubs::NodeTypeList.default(visited),
+          scale_up_modifications: NodeTypeList.default(visited),
+          scale_down_modifications: NodeTypeList.default(visited),
         }
       end
 
@@ -3502,7 +3502,7 @@ module AWS::SDK::ElastiCache
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -3522,7 +3522,7 @@ module AWS::SDK::ElastiCache
     class ModifyCacheCluster
       def self.default(visited=[])
         {
-          cache_cluster: Stubs::CacheCluster.default(visited),
+          cache_cluster: CacheCluster.default(visited),
         }
       end
 
@@ -3562,7 +3562,7 @@ module AWS::SDK::ElastiCache
     class ModifyCacheSubnetGroup
       def self.default(visited=[])
         {
-          cache_subnet_group: Stubs::CacheSubnetGroup.default(visited),
+          cache_subnet_group: CacheSubnetGroup.default(visited),
         }
       end
 
@@ -3582,7 +3582,7 @@ module AWS::SDK::ElastiCache
     class ModifyGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -3602,7 +3602,7 @@ module AWS::SDK::ElastiCache
     class ModifyReplicationGroup
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -3622,7 +3622,7 @@ module AWS::SDK::ElastiCache
     class ModifyReplicationGroupShardConfiguration
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -3648,8 +3648,8 @@ module AWS::SDK::ElastiCache
           engine: 'engine',
           minimum_engine_version: 'minimum_engine_version',
           access_string: 'access_string',
-          user_group_ids: Stubs::UserGroupIdList.default(visited),
-          authentication: Stubs::Authentication.default(visited),
+          user_group_ids: UserGroupIdList.default(visited),
+          authentication: Authentication.default(visited),
           arn: 'arn',
         }
       end
@@ -3681,10 +3681,10 @@ module AWS::SDK::ElastiCache
           user_group_id: 'user_group_id',
           status: 'status',
           engine: 'engine',
-          user_ids: Stubs::UserIdList.default(visited),
+          user_ids: UserIdList.default(visited),
           minimum_engine_version: 'minimum_engine_version',
-          pending_changes: Stubs::UserGroupPendingChanges.default(visited),
-          replication_groups: Stubs::UGReplicationGroupIdList.default(visited),
+          pending_changes: UserGroupPendingChanges.default(visited),
+          replication_groups: UGReplicationGroupIdList.default(visited),
           arn: 'arn',
         }
       end
@@ -3712,7 +3712,7 @@ module AWS::SDK::ElastiCache
     class PurchaseReservedCacheNodesOffering
       def self.default(visited=[])
         {
-          reserved_cache_node: Stubs::ReservedCacheNode.default(visited),
+          reserved_cache_node: ReservedCacheNode.default(visited),
         }
       end
 
@@ -3732,7 +3732,7 @@ module AWS::SDK::ElastiCache
     class RebalanceSlotsInGlobalReplicationGroup
       def self.default(visited=[])
         {
-          global_replication_group: Stubs::GlobalReplicationGroup.default(visited),
+          global_replication_group: GlobalReplicationGroup.default(visited),
         }
       end
 
@@ -3752,7 +3752,7 @@ module AWS::SDK::ElastiCache
     class RebootCacheCluster
       def self.default(visited=[])
         {
-          cache_cluster: Stubs::CacheCluster.default(visited),
+          cache_cluster: CacheCluster.default(visited),
         }
       end
 
@@ -3772,7 +3772,7 @@ module AWS::SDK::ElastiCache
     class RemoveTagsFromResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -3812,7 +3812,7 @@ module AWS::SDK::ElastiCache
     class RevokeCacheSecurityGroupIngress
       def self.default(visited=[])
         {
-          cache_security_group: Stubs::CacheSecurityGroup.default(visited),
+          cache_security_group: CacheSecurityGroup.default(visited),
         }
       end
 
@@ -3832,7 +3832,7 @@ module AWS::SDK::ElastiCache
     class StartMigration
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 
@@ -3852,7 +3852,7 @@ module AWS::SDK::ElastiCache
     class TestFailover
       def self.default(visited=[])
         {
-          replication_group: Stubs::ReplicationGroup.default(visited),
+          replication_group: ReplicationGroup.default(visited),
         }
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ApplicationCostProfiler
@@ -64,7 +66,7 @@ module AWS::SDK::ApplicationCostProfiler
     def delete_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReportDefinitionInput,
         validate_input: @config.validate_input
@@ -140,7 +142,7 @@ module AWS::SDK::ApplicationCostProfiler
     def get_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReportDefinitionInput,
         validate_input: @config.validate_input
@@ -215,7 +217,7 @@ module AWS::SDK::ApplicationCostProfiler
     def import_application_usage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportApplicationUsageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportApplicationUsageInput,
         validate_input: @config.validate_input
@@ -300,7 +302,7 @@ module AWS::SDK::ApplicationCostProfiler
     def list_report_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReportDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReportDefinitionsInput,
         validate_input: @config.validate_input
@@ -389,7 +391,7 @@ module AWS::SDK::ApplicationCostProfiler
     def put_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutReportDefinitionInput,
         validate_input: @config.validate_input
@@ -478,7 +480,7 @@ module AWS::SDK::ApplicationCostProfiler
     def update_report_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReportDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReportDefinitionInput,
         validate_input: @config.validate_input

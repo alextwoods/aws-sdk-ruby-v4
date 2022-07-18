@@ -28,7 +28,7 @@ module AWS::SDK::ApiGatewayManagementApi
       def self.default(visited=[])
         {
           connected_at: Time.now,
-          identity: Stubs::Identity.default(visited),
+          identity: Identity.default(visited),
           last_active_at: Time.now,
         }
       end

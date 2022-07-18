@@ -21,7 +21,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ArrayValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ArrayValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -30,15 +30,15 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         case input
         when Types::ArrayValue::BooleanValues
-          Validators::BooleanArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          BooleanArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ArrayValue::LongValues
-          Validators::LongArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          LongArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ArrayValue::DoubleValues
-          Validators::DoubleArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          DoubleArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ArrayValue::StringValues
-          Validators::StringArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          StringArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::ArrayValue::ArrayValues
-          Validators::ArrayOfArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ArrayOfArray.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -81,7 +81,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Value.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Value.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -101,7 +101,7 @@ module AWS::SDK::RDSData
         Hearth::Validator.validate!(input[:sql], ::String, context: "#{context}[:sql]")
         Hearth::Validator.validate!(input[:database], ::String, context: "#{context}[:database]")
         Hearth::Validator.validate!(input[:schema], ::String, context: "#{context}[:schema]")
-        Validators::SqlParameterSets.validate!(input[:parameter_sets], context: "#{context}[:parameter_sets]") unless input[:parameter_sets].nil?
+        SqlParameterSets.validate!(input[:parameter_sets], context: "#{context}[:parameter_sets]") unless input[:parameter_sets].nil?
         Hearth::Validator.validate!(input[:transaction_id], ::String, context: "#{context}[:transaction_id]")
       end
     end
@@ -109,7 +109,7 @@ module AWS::SDK::RDSData
     class BatchExecuteStatementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchExecuteStatementOutput, context: context)
-        Validators::UpdateResults.validate!(input[:update_results], context: "#{context}[:update_results]") unless input[:update_results].nil?
+        UpdateResults.validate!(input[:update_results], context: "#{context}[:update_results]") unless input[:update_results].nil?
       end
     end
 
@@ -198,7 +198,7 @@ module AWS::SDK::RDSData
     class ExecuteSqlOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteSqlOutput, context: context)
-        Validators::SqlStatementResults.validate!(input[:sql_statement_results], context: "#{context}[:sql_statement_results]") unless input[:sql_statement_results].nil?
+        SqlStatementResults.validate!(input[:sql_statement_results], context: "#{context}[:sql_statement_results]") unless input[:sql_statement_results].nil?
       end
     end
 
@@ -210,11 +210,11 @@ module AWS::SDK::RDSData
         Hearth::Validator.validate!(input[:sql], ::String, context: "#{context}[:sql]")
         Hearth::Validator.validate!(input[:database], ::String, context: "#{context}[:database]")
         Hearth::Validator.validate!(input[:schema], ::String, context: "#{context}[:schema]")
-        Validators::SqlParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        SqlParametersList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:transaction_id], ::String, context: "#{context}[:transaction_id]")
         Hearth::Validator.validate!(input[:include_result_metadata], ::TrueClass, ::FalseClass, context: "#{context}[:include_result_metadata]")
         Hearth::Validator.validate!(input[:continue_after_timeout], ::TrueClass, ::FalseClass, context: "#{context}[:continue_after_timeout]")
-        Validators::ResultSetOptions.validate!(input[:result_set_options], context: "#{context}[:result_set_options]") unless input[:result_set_options].nil?
+        ResultSetOptions.validate!(input[:result_set_options], context: "#{context}[:result_set_options]") unless input[:result_set_options].nil?
         Hearth::Validator.validate!(input[:format_records_as], ::String, context: "#{context}[:format_records_as]")
       end
     end
@@ -222,10 +222,10 @@ module AWS::SDK::RDSData
     class ExecuteStatementOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExecuteStatementOutput, context: context)
-        Validators::SqlRecords.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
-        Validators::Metadata.validate!(input[:column_metadata], context: "#{context}[:column_metadata]") unless input[:column_metadata].nil?
+        SqlRecords.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        Metadata.validate!(input[:column_metadata], context: "#{context}[:column_metadata]") unless input[:column_metadata].nil?
         Hearth::Validator.validate!(input[:number_of_records_updated], ::Integer, context: "#{context}[:number_of_records_updated]")
-        Validators::FieldList.validate!(input[:generated_fields], context: "#{context}[:generated_fields]") unless input[:generated_fields].nil?
+        FieldList.validate!(input[:generated_fields], context: "#{context}[:generated_fields]") unless input[:generated_fields].nil?
         Hearth::Validator.validate!(input[:formatted_records], ::String, context: "#{context}[:formatted_records]")
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::RDSData
         when Types::Field::BlobValue
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::Field::ArrayValue
-          Validators::ArrayValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ArrayValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -301,7 +301,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Field.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Field.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -332,7 +332,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ColumnMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ColumnMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -347,7 +347,7 @@ module AWS::SDK::RDSData
     class Record
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Record, context: context)
-        Validators::Row.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        Row.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -355,7 +355,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Record.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -363,8 +363,8 @@ module AWS::SDK::RDSData
     class ResultFrame
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResultFrame, context: context)
-        Validators::ResultSetMetadata.validate!(input[:result_set_metadata], context: "#{context}[:result_set_metadata]") unless input[:result_set_metadata].nil?
-        Validators::Records.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
+        ResultSetMetadata.validate!(input[:result_set_metadata], context: "#{context}[:result_set_metadata]") unless input[:result_set_metadata].nil?
+        Records.validate!(input[:records], context: "#{context}[:records]") unless input[:records].nil?
       end
     end
 
@@ -372,7 +372,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResultSetMetadata, context: context)
         Hearth::Validator.validate!(input[:column_count], ::Integer, context: "#{context}[:column_count]")
-        Validators::Metadata.validate!(input[:column_metadata], context: "#{context}[:column_metadata]") unless input[:column_metadata].nil?
+        Metadata.validate!(input[:column_metadata], context: "#{context}[:column_metadata]") unless input[:column_metadata].nil?
       end
     end
 
@@ -404,7 +404,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Value.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Value.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -419,7 +419,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SqlParameter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Field.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        Field.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:type_hint], ::String, context: "#{context}[:type_hint]")
       end
     end
@@ -428,7 +428,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlParametersList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlParametersList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FieldList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FieldList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -454,7 +454,7 @@ module AWS::SDK::RDSData
     class SqlStatementResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SqlStatementResult, context: context)
-        Validators::ResultFrame.validate!(input[:result_frame], context: "#{context}[:result_frame]") unless input[:result_frame].nil?
+        ResultFrame.validate!(input[:result_frame], context: "#{context}[:result_frame]") unless input[:result_frame].nil?
         Hearth::Validator.validate!(input[:number_of_records_updated], ::Integer, context: "#{context}[:number_of_records_updated]")
       end
     end
@@ -463,7 +463,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SqlStatementResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SqlStatementResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -488,14 +488,14 @@ module AWS::SDK::RDSData
     class StructValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StructValue, context: context)
-        Validators::ArrayValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ArrayValueList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
     class UpdateResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateResult, context: context)
-        Validators::FieldList.validate!(input[:generated_fields], context: "#{context}[:generated_fields]") unless input[:generated_fields].nil?
+        FieldList.validate!(input[:generated_fields], context: "#{context}[:generated_fields]") unless input[:generated_fields].nil?
       end
     end
 
@@ -503,7 +503,7 @@ module AWS::SDK::RDSData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UpdateResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UpdateResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -528,9 +528,9 @@ module AWS::SDK::RDSData
         when Types::Value::BlobValue
           Hearth::Validator.validate!(input.__getobj__, ::String, context: context)
         when Types::Value::ArrayValues
-          Validators::ArrayValueList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          ArrayValueList.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::Value::StructValue
-          Validators::StructValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          StructValue.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\

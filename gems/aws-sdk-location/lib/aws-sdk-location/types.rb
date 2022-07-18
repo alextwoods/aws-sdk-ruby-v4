@@ -4593,6 +4593,7 @@ module AWS::SDK::Location
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
@@ -4675,6 +4676,7 @@ module AWS::SDK::Location
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
@@ -5004,6 +5006,7 @@ module AWS::SDK::Location
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
@@ -5129,6 +5132,7 @@ module AWS::SDK::Location
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0

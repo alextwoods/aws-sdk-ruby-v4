@@ -246,7 +246,7 @@ module AWS::SDK::M2
         type.engine_type = params[:engine_type]
         type.definition = Definition.build(params[:definition], context: "#{context}[:definition]") unless params[:definition].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -268,7 +268,7 @@ module AWS::SDK::M2
         type = Types::CreateDataSetImportTaskInput.new
         type.application_id = params[:application_id]
         type.import_config = DataSetImportConfig.build(params[:import_config], context: "#{context}[:import_config]") unless params[:import_config].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::M2
         type.environment_id = params[:environment_id]
         type.application_id = params[:application_id]
         type.application_version = params[:application_version]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::M2
         type.high_availability_config = HighAvailabilityConfig.build(params[:high_availability_config], context: "#{context}[:high_availability_config]") unless params[:high_availability_config].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.preferred_maintenance_window = params[:preferred_maintenance_window]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

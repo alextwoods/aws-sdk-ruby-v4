@@ -18,18 +18,18 @@ module AWS::SDK::ApiGatewayV2
           api_gateway_managed: false,
           api_id: 'api_id',
           api_key_selection_expression: 'api_key_selection_expression',
-          cors_configuration: Stubs::Cors.default(visited),
+          cors_configuration: Cors.default(visited),
           created_date: Time.now,
           description: 'description',
           disable_schema_validation: false,
           disable_execute_api_endpoint: false,
-          import_info: Stubs::List____listOf__string.default(visited),
+          import_info: List____listOf__string.default(visited),
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version: 'version',
-          warnings: Stubs::List____listOf__string.default(visited),
+          warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -104,10 +104,10 @@ module AWS::SDK::ApiGatewayV2
         visited = visited + ['Cors']
         {
           allow_credentials: false,
-          allow_headers: Stubs::CorsHeaderList.default(visited),
-          allow_methods: Stubs::CorsMethodList.default(visited),
-          allow_origins: Stubs::CorsOriginList.default(visited),
-          expose_headers: Stubs::CorsHeaderList.default(visited),
+          allow_headers: CorsHeaderList.default(visited),
+          allow_methods: CorsMethodList.default(visited),
+          allow_origins: CorsOriginList.default(visited),
+          expose_headers: CorsHeaderList.default(visited),
           max_age: 1,
         }
       end
@@ -219,9 +219,9 @@ module AWS::SDK::ApiGatewayV2
           authorizer_type: 'authorizer_type',
           authorizer_uri: 'authorizer_uri',
           enable_simple_responses: false,
-          identity_source: Stubs::IdentitySourceList.default(visited),
+          identity_source: IdentitySourceList.default(visited),
           identity_validation_expression: 'identity_validation_expression',
-          jwt_configuration: Stubs::JWTConfiguration.default(visited),
+          jwt_configuration: JWTConfiguration.default(visited),
           name: 'name',
         }
       end
@@ -251,7 +251,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('JWTConfiguration')
         visited = visited + ['JWTConfiguration']
         {
-          audience: Stubs::List____listOf__string.default(visited),
+          audience: List____listOf__string.default(visited),
           issuer: 'issuer',
         }
       end
@@ -318,9 +318,9 @@ module AWS::SDK::ApiGatewayV2
         {
           api_mapping_selection_expression: 'api_mapping_selection_expression',
           domain_name: 'domain_name',
-          domain_name_configurations: Stubs::DomainNameConfigurations.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
-          tags: Stubs::Tags.default(visited),
+          domain_name_configurations: DomainNameConfigurations.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -345,7 +345,7 @@ module AWS::SDK::ApiGatewayV2
         {
           truststore_uri: 'truststore_uri',
           truststore_version: 'truststore_version',
-          truststore_warnings: Stubs::List____listOf__string.default(visited),
+          truststore_warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -365,7 +365,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('DomainNameConfigurations')
         visited = visited + ['DomainNameConfigurations']
         [
-          Stubs::DomainNameConfiguration.default(visited)
+          DomainNameConfiguration.default(visited)
         ]
       end
 
@@ -433,12 +433,12 @@ module AWS::SDK::ApiGatewayV2
           integration_uri: 'integration_uri',
           passthrough_behavior: 'passthrough_behavior',
           payload_format_version: 'payload_format_version',
-          request_parameters: Stubs::IntegrationParameters.default(visited),
-          request_templates: Stubs::TemplateMap.default(visited),
-          response_parameters: Stubs::ResponseParameters.default(visited),
+          request_parameters: IntegrationParameters.default(visited),
+          request_templates: TemplateMap.default(visited),
+          response_parameters: ResponseParameters.default(visited),
           template_selection_expression: 'template_selection_expression',
           timeout_in_millis: 1,
-          tls_config: Stubs::TlsConfig.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('ResponseParameters')
         visited = visited + ['ResponseParameters']
         {
-          test_key: Stubs::IntegrationParameters.default(visited)
+          test_key: IntegrationParameters.default(visited)
         }
       end
 
@@ -555,8 +555,8 @@ module AWS::SDK::ApiGatewayV2
           content_handling_strategy: 'content_handling_strategy',
           integration_response_id: 'integration_response_id',
           integration_response_key: 'integration_response_key',
-          response_parameters: Stubs::IntegrationParameters.default(visited),
-          response_templates: Stubs::TemplateMap.default(visited),
+          response_parameters: IntegrationParameters.default(visited),
+          response_templates: TemplateMap.default(visited),
           template_selection_expression: 'template_selection_expression',
         }
       end
@@ -606,13 +606,13 @@ module AWS::SDK::ApiGatewayV2
         {
           api_gateway_managed: false,
           api_key_required: false,
-          authorization_scopes: Stubs::AuthorizationScopes.default(visited),
+          authorization_scopes: AuthorizationScopes.default(visited),
           authorization_type: 'authorization_type',
           authorizer_id: 'authorizer_id',
           model_selection_expression: 'model_selection_expression',
           operation_name: 'operation_name',
-          request_models: Stubs::RouteModels.default(visited),
-          request_parameters: Stubs::RouteParameters.default(visited),
+          request_models: RouteModels.default(visited),
+          request_parameters: RouteParameters.default(visited),
           route_id: 'route_id',
           route_key: 'route_key',
           route_response_selection_expression: 'route_response_selection_expression',
@@ -647,7 +647,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('RouteParameters')
         visited = visited + ['RouteParameters']
         {
-          test_key: Stubs::ParameterConstraints.default(visited)
+          test_key: ParameterConstraints.default(visited)
         }
       end
 
@@ -724,8 +724,8 @@ module AWS::SDK::ApiGatewayV2
       def self.default(visited=[])
         {
           model_selection_expression: 'model_selection_expression',
-          response_models: Stubs::RouteModels.default(visited),
-          response_parameters: Stubs::RouteParameters.default(visited),
+          response_models: RouteModels.default(visited),
+          response_parameters: RouteParameters.default(visited),
           route_response_id: 'route_response_id',
           route_response_key: 'route_response_key',
         }
@@ -748,20 +748,20 @@ module AWS::SDK::ApiGatewayV2
     class CreateStage
       def self.default(visited=[])
         {
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
           api_gateway_managed: false,
           auto_deploy: false,
           client_certificate_id: 'client_certificate_id',
           created_date: Time.now,
-          default_route_settings: Stubs::RouteSettings.default(visited),
+          default_route_settings: RouteSettings.default(visited),
           deployment_id: 'deployment_id',
           description: 'description',
           last_deployment_status_message: 'last_deployment_status_message',
           last_updated_date: Time.now,
-          route_settings: Stubs::RouteSettingsMap.default(visited),
+          route_settings: RouteSettingsMap.default(visited),
           stage_name: 'stage_name',
-          stage_variables: Stubs::StageVariablesMap.default(visited),
-          tags: Stubs::Tags.default(visited),
+          stage_variables: StageVariablesMap.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -813,7 +813,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('RouteSettingsMap')
         visited = visited + ['RouteSettingsMap']
         {
-          test_key: Stubs::RouteSettings.default(visited)
+          test_key: RouteSettings.default(visited)
         }
       end
 
@@ -879,9 +879,9 @@ module AWS::SDK::ApiGatewayV2
         {
           created_date: Time.now,
           name: 'name',
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          tags: Stubs::Tags.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          tags: Tags.default(visited),
           vpc_link_id: 'vpc_link_id',
           vpc_link_status: 'vpc_link_status',
           vpc_link_status_message: 'vpc_link_status_message',
@@ -1178,18 +1178,18 @@ module AWS::SDK::ApiGatewayV2
           api_gateway_managed: false,
           api_id: 'api_id',
           api_key_selection_expression: 'api_key_selection_expression',
-          cors_configuration: Stubs::Cors.default(visited),
+          cors_configuration: Cors.default(visited),
           created_date: Time.now,
           description: 'description',
           disable_schema_validation: false,
           disable_execute_api_endpoint: false,
-          import_info: Stubs::List____listOf__string.default(visited),
+          import_info: List____listOf__string.default(visited),
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version: 'version',
-          warnings: Stubs::List____listOf__string.default(visited),
+          warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::ApiGatewayV2
     class GetApiMappings
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfApiMapping.default(visited),
+          items: List____listOfApiMapping.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1265,7 +1265,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfApiMapping')
         visited = visited + ['List____listOfApiMapping']
         [
-          Stubs::ApiMapping.default(visited)
+          ApiMapping.default(visited)
         ]
       end
 
@@ -1307,7 +1307,7 @@ module AWS::SDK::ApiGatewayV2
     class GetApis
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfApi.default(visited),
+          items: List____listOfApi.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1328,7 +1328,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfApi')
         visited = visited + ['List____listOfApi']
         [
-          Stubs::Api.default(visited)
+          Api.default(visited)
         ]
       end
 
@@ -1352,18 +1352,18 @@ module AWS::SDK::ApiGatewayV2
           api_gateway_managed: false,
           api_id: 'api_id',
           api_key_selection_expression: 'api_key_selection_expression',
-          cors_configuration: Stubs::Cors.default(visited),
+          cors_configuration: Cors.default(visited),
           created_date: Time.now,
           description: 'description',
           disable_schema_validation: false,
           disable_execute_api_endpoint: false,
-          import_info: Stubs::List____listOf__string.default(visited),
+          import_info: List____listOf__string.default(visited),
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version: 'version',
-          warnings: Stubs::List____listOf__string.default(visited),
+          warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -1401,9 +1401,9 @@ module AWS::SDK::ApiGatewayV2
           authorizer_type: 'authorizer_type',
           authorizer_uri: 'authorizer_uri',
           enable_simple_responses: false,
-          identity_source: Stubs::IdentitySourceList.default(visited),
+          identity_source: IdentitySourceList.default(visited),
           identity_validation_expression: 'identity_validation_expression',
-          jwt_configuration: Stubs::JWTConfiguration.default(visited),
+          jwt_configuration: JWTConfiguration.default(visited),
           name: 'name',
         }
       end
@@ -1431,7 +1431,7 @@ module AWS::SDK::ApiGatewayV2
     class GetAuthorizers
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfAuthorizer.default(visited),
+          items: List____listOfAuthorizer.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1452,7 +1452,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfAuthorizer')
         visited = visited + ['List____listOfAuthorizer']
         [
-          Stubs::Authorizer.default(visited)
+          Authorizer.default(visited)
         ]
       end
 
@@ -1479,9 +1479,9 @@ module AWS::SDK::ApiGatewayV2
           authorizer_type: 'authorizer_type',
           authorizer_uri: 'authorizer_uri',
           enable_simple_responses: false,
-          identity_source: Stubs::IdentitySourceList.default(visited),
+          identity_source: IdentitySourceList.default(visited),
           identity_validation_expression: 'identity_validation_expression',
-          jwt_configuration: Stubs::JWTConfiguration.default(visited),
+          jwt_configuration: JWTConfiguration.default(visited),
           name: 'name',
         }
       end
@@ -1535,7 +1535,7 @@ module AWS::SDK::ApiGatewayV2
     class GetDeployments
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfDeployment.default(visited),
+          items: List____listOfDeployment.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1556,7 +1556,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfDeployment')
         visited = visited + ['List____listOfDeployment']
         [
-          Stubs::Deployment.default(visited)
+          Deployment.default(visited)
         ]
       end
 
@@ -1604,9 +1604,9 @@ module AWS::SDK::ApiGatewayV2
         {
           api_mapping_selection_expression: 'api_mapping_selection_expression',
           domain_name: 'domain_name',
-          domain_name_configurations: Stubs::DomainNameConfigurations.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
-          tags: Stubs::Tags.default(visited),
+          domain_name_configurations: DomainNameConfigurations.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1627,7 +1627,7 @@ module AWS::SDK::ApiGatewayV2
     class GetDomainNames
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfDomainName.default(visited),
+          items: List____listOfDomainName.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1648,7 +1648,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfDomainName')
         visited = visited + ['List____listOfDomainName']
         [
-          Stubs::DomainName.default(visited)
+          DomainName.default(visited)
         ]
       end
 
@@ -1670,9 +1670,9 @@ module AWS::SDK::ApiGatewayV2
         {
           api_mapping_selection_expression: 'api_mapping_selection_expression',
           domain_name: 'domain_name',
-          domain_name_configurations: Stubs::DomainNameConfigurations.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
-          tags: Stubs::Tags.default(visited),
+          domain_name_configurations: DomainNameConfigurations.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1706,12 +1706,12 @@ module AWS::SDK::ApiGatewayV2
           integration_uri: 'integration_uri',
           passthrough_behavior: 'passthrough_behavior',
           payload_format_version: 'payload_format_version',
-          request_parameters: Stubs::IntegrationParameters.default(visited),
-          request_templates: Stubs::TemplateMap.default(visited),
-          response_parameters: Stubs::ResponseParameters.default(visited),
+          request_parameters: IntegrationParameters.default(visited),
+          request_templates: TemplateMap.default(visited),
+          response_parameters: ResponseParameters.default(visited),
           template_selection_expression: 'template_selection_expression',
           timeout_in_millis: 1,
-          tls_config: Stubs::TlsConfig.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -1750,8 +1750,8 @@ module AWS::SDK::ApiGatewayV2
           content_handling_strategy: 'content_handling_strategy',
           integration_response_id: 'integration_response_id',
           integration_response_key: 'integration_response_key',
-          response_parameters: Stubs::IntegrationParameters.default(visited),
-          response_templates: Stubs::TemplateMap.default(visited),
+          response_parameters: IntegrationParameters.default(visited),
+          response_templates: TemplateMap.default(visited),
           template_selection_expression: 'template_selection_expression',
         }
       end
@@ -1774,7 +1774,7 @@ module AWS::SDK::ApiGatewayV2
     class GetIntegrationResponses
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfIntegrationResponse.default(visited),
+          items: List____listOfIntegrationResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1795,7 +1795,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfIntegrationResponse')
         visited = visited + ['List____listOfIntegrationResponse']
         [
-          Stubs::IntegrationResponse.default(visited)
+          IntegrationResponse.default(visited)
         ]
       end
 
@@ -1818,8 +1818,8 @@ module AWS::SDK::ApiGatewayV2
           content_handling_strategy: 'content_handling_strategy',
           integration_response_id: 'integration_response_id',
           integration_response_key: 'integration_response_key',
-          response_parameters: Stubs::IntegrationParameters.default(visited),
-          response_templates: Stubs::TemplateMap.default(visited),
+          response_parameters: IntegrationParameters.default(visited),
+          response_templates: TemplateMap.default(visited),
           template_selection_expression: 'template_selection_expression',
         }
       end
@@ -1841,7 +1841,7 @@ module AWS::SDK::ApiGatewayV2
     class GetIntegrations
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfIntegration.default(visited),
+          items: List____listOfIntegration.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1862,7 +1862,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfIntegration')
         visited = visited + ['List____listOfIntegration']
         [
-          Stubs::Integration.default(visited)
+          Integration.default(visited)
         ]
       end
 
@@ -1896,12 +1896,12 @@ module AWS::SDK::ApiGatewayV2
           integration_uri: 'integration_uri',
           passthrough_behavior: 'passthrough_behavior',
           payload_format_version: 'payload_format_version',
-          request_parameters: Stubs::IntegrationParameters.default(visited),
-          request_templates: Stubs::TemplateMap.default(visited),
-          response_parameters: Stubs::ResponseParameters.default(visited),
+          request_parameters: IntegrationParameters.default(visited),
+          request_templates: TemplateMap.default(visited),
+          response_parameters: ResponseParameters.default(visited),
           template_selection_expression: 'template_selection_expression',
           timeout_in_millis: 1,
-          tls_config: Stubs::TlsConfig.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -1978,7 +1978,7 @@ module AWS::SDK::ApiGatewayV2
     class GetModels
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfModel.default(visited),
+          items: List____listOfModel.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1999,7 +1999,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfModel')
         visited = visited + ['List____listOfModel']
         [
-          Stubs::Model.default(visited)
+          Model.default(visited)
         ]
       end
 
@@ -2045,13 +2045,13 @@ module AWS::SDK::ApiGatewayV2
         {
           api_gateway_managed: false,
           api_key_required: false,
-          authorization_scopes: Stubs::AuthorizationScopes.default(visited),
+          authorization_scopes: AuthorizationScopes.default(visited),
           authorization_type: 'authorization_type',
           authorizer_id: 'authorizer_id',
           model_selection_expression: 'model_selection_expression',
           operation_name: 'operation_name',
-          request_models: Stubs::RouteModels.default(visited),
-          request_parameters: Stubs::RouteParameters.default(visited),
+          request_models: RouteModels.default(visited),
+          request_parameters: RouteParameters.default(visited),
           route_id: 'route_id',
           route_key: 'route_key',
           route_response_selection_expression: 'route_response_selection_expression',
@@ -2085,8 +2085,8 @@ module AWS::SDK::ApiGatewayV2
       def self.default(visited=[])
         {
           model_selection_expression: 'model_selection_expression',
-          response_models: Stubs::RouteModels.default(visited),
-          response_parameters: Stubs::RouteParameters.default(visited),
+          response_models: RouteModels.default(visited),
+          response_parameters: RouteParameters.default(visited),
           route_response_id: 'route_response_id',
           route_response_key: 'route_response_key',
         }
@@ -2109,7 +2109,7 @@ module AWS::SDK::ApiGatewayV2
     class GetRouteResponses
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfRouteResponse.default(visited),
+          items: List____listOfRouteResponse.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2130,7 +2130,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfRouteResponse')
         visited = visited + ['List____listOfRouteResponse']
         [
-          Stubs::RouteResponse.default(visited)
+          RouteResponse.default(visited)
         ]
       end
 
@@ -2151,8 +2151,8 @@ module AWS::SDK::ApiGatewayV2
         visited = visited + ['RouteResponse']
         {
           model_selection_expression: 'model_selection_expression',
-          response_models: Stubs::RouteModels.default(visited),
-          response_parameters: Stubs::RouteParameters.default(visited),
+          response_models: RouteModels.default(visited),
+          response_parameters: RouteParameters.default(visited),
           route_response_id: 'route_response_id',
           route_response_key: 'route_response_key',
         }
@@ -2174,7 +2174,7 @@ module AWS::SDK::ApiGatewayV2
     class GetRoutes
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfRoute.default(visited),
+          items: List____listOfRoute.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2195,7 +2195,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfRoute')
         visited = visited + ['List____listOfRoute']
         [
-          Stubs::Route.default(visited)
+          Route.default(visited)
         ]
       end
 
@@ -2217,13 +2217,13 @@ module AWS::SDK::ApiGatewayV2
         {
           api_gateway_managed: false,
           api_key_required: false,
-          authorization_scopes: Stubs::AuthorizationScopes.default(visited),
+          authorization_scopes: AuthorizationScopes.default(visited),
           authorization_type: 'authorization_type',
           authorizer_id: 'authorizer_id',
           model_selection_expression: 'model_selection_expression',
           operation_name: 'operation_name',
-          request_models: Stubs::RouteModels.default(visited),
-          request_parameters: Stubs::RouteParameters.default(visited),
+          request_models: RouteModels.default(visited),
+          request_parameters: RouteParameters.default(visited),
           route_id: 'route_id',
           route_key: 'route_key',
           route_response_selection_expression: 'route_response_selection_expression',
@@ -2255,20 +2255,20 @@ module AWS::SDK::ApiGatewayV2
     class GetStage
       def self.default(visited=[])
         {
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
           api_gateway_managed: false,
           auto_deploy: false,
           client_certificate_id: 'client_certificate_id',
           created_date: Time.now,
-          default_route_settings: Stubs::RouteSettings.default(visited),
+          default_route_settings: RouteSettings.default(visited),
           deployment_id: 'deployment_id',
           description: 'description',
           last_deployment_status_message: 'last_deployment_status_message',
           last_updated_date: Time.now,
-          route_settings: Stubs::RouteSettingsMap.default(visited),
+          route_settings: RouteSettingsMap.default(visited),
           stage_name: 'stage_name',
-          stage_variables: Stubs::StageVariablesMap.default(visited),
-          tags: Stubs::Tags.default(visited),
+          stage_variables: StageVariablesMap.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2298,7 +2298,7 @@ module AWS::SDK::ApiGatewayV2
     class GetStages
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfStage.default(visited),
+          items: List____listOfStage.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2319,7 +2319,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfStage')
         visited = visited + ['List____listOfStage']
         [
-          Stubs::Stage.default(visited)
+          Stage.default(visited)
         ]
       end
 
@@ -2339,20 +2339,20 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('Stage')
         visited = visited + ['Stage']
         {
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
           api_gateway_managed: false,
           auto_deploy: false,
           client_certificate_id: 'client_certificate_id',
           created_date: Time.now,
-          default_route_settings: Stubs::RouteSettings.default(visited),
+          default_route_settings: RouteSettings.default(visited),
           deployment_id: 'deployment_id',
           description: 'description',
           last_deployment_status_message: 'last_deployment_status_message',
           last_updated_date: Time.now,
-          route_settings: Stubs::RouteSettingsMap.default(visited),
+          route_settings: RouteSettingsMap.default(visited),
           stage_name: 'stage_name',
-          stage_variables: Stubs::StageVariablesMap.default(visited),
-          tags: Stubs::Tags.default(visited),
+          stage_variables: StageVariablesMap.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2381,7 +2381,7 @@ module AWS::SDK::ApiGatewayV2
     class GetTags
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2400,9 +2400,9 @@ module AWS::SDK::ApiGatewayV2
         {
           created_date: Time.now,
           name: 'name',
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          tags: Stubs::Tags.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          tags: Tags.default(visited),
           vpc_link_id: 'vpc_link_id',
           vpc_link_status: 'vpc_link_status',
           vpc_link_status_message: 'vpc_link_status_message',
@@ -2431,7 +2431,7 @@ module AWS::SDK::ApiGatewayV2
     class GetVpcLinks
       def self.default(visited=[])
         {
-          items: Stubs::List____listOfVpcLink.default(visited),
+          items: List____listOfVpcLink.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2452,7 +2452,7 @@ module AWS::SDK::ApiGatewayV2
         return nil if visited.include?('List____listOfVpcLink')
         visited = visited + ['List____listOfVpcLink']
         [
-          Stubs::VpcLink.default(visited)
+          VpcLink.default(visited)
         ]
       end
 
@@ -2474,9 +2474,9 @@ module AWS::SDK::ApiGatewayV2
         {
           created_date: Time.now,
           name: 'name',
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          tags: Stubs::Tags.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          tags: Tags.default(visited),
           vpc_link_id: 'vpc_link_id',
           vpc_link_status: 'vpc_link_status',
           vpc_link_status_message: 'vpc_link_status_message',
@@ -2508,18 +2508,18 @@ module AWS::SDK::ApiGatewayV2
           api_gateway_managed: false,
           api_id: 'api_id',
           api_key_selection_expression: 'api_key_selection_expression',
-          cors_configuration: Stubs::Cors.default(visited),
+          cors_configuration: Cors.default(visited),
           created_date: Time.now,
           description: 'description',
           disable_schema_validation: false,
           disable_execute_api_endpoint: false,
-          import_info: Stubs::List____listOf__string.default(visited),
+          import_info: List____listOf__string.default(visited),
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version: 'version',
-          warnings: Stubs::List____listOf__string.default(visited),
+          warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -2555,18 +2555,18 @@ module AWS::SDK::ApiGatewayV2
           api_gateway_managed: false,
           api_id: 'api_id',
           api_key_selection_expression: 'api_key_selection_expression',
-          cors_configuration: Stubs::Cors.default(visited),
+          cors_configuration: Cors.default(visited),
           created_date: Time.now,
           description: 'description',
           disable_schema_validation: false,
           disable_execute_api_endpoint: false,
-          import_info: Stubs::List____listOf__string.default(visited),
+          import_info: List____listOf__string.default(visited),
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version: 'version',
-          warnings: Stubs::List____listOf__string.default(visited),
+          warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -2641,18 +2641,18 @@ module AWS::SDK::ApiGatewayV2
           api_gateway_managed: false,
           api_id: 'api_id',
           api_key_selection_expression: 'api_key_selection_expression',
-          cors_configuration: Stubs::Cors.default(visited),
+          cors_configuration: Cors.default(visited),
           created_date: Time.now,
           description: 'description',
           disable_schema_validation: false,
           disable_execute_api_endpoint: false,
-          import_info: Stubs::List____listOf__string.default(visited),
+          import_info: List____listOf__string.default(visited),
           name: 'name',
           protocol_type: 'protocol_type',
           route_selection_expression: 'route_selection_expression',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           version: 'version',
-          warnings: Stubs::List____listOf__string.default(visited),
+          warnings: List____listOf__string.default(visited),
         }
       end
 
@@ -2714,9 +2714,9 @@ module AWS::SDK::ApiGatewayV2
           authorizer_type: 'authorizer_type',
           authorizer_uri: 'authorizer_uri',
           enable_simple_responses: false,
-          identity_source: Stubs::IdentitySourceList.default(visited),
+          identity_source: IdentitySourceList.default(visited),
           identity_validation_expression: 'identity_validation_expression',
-          jwt_configuration: Stubs::JWTConfiguration.default(visited),
+          jwt_configuration: JWTConfiguration.default(visited),
           name: 'name',
         }
       end
@@ -2773,9 +2773,9 @@ module AWS::SDK::ApiGatewayV2
         {
           api_mapping_selection_expression: 'api_mapping_selection_expression',
           domain_name: 'domain_name',
-          domain_name_configurations: Stubs::DomainNameConfigurations.default(visited),
-          mutual_tls_authentication: Stubs::MutualTlsAuthentication.default(visited),
-          tags: Stubs::Tags.default(visited),
+          domain_name_configurations: DomainNameConfigurations.default(visited),
+          mutual_tls_authentication: MutualTlsAuthentication.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -2810,12 +2810,12 @@ module AWS::SDK::ApiGatewayV2
           integration_uri: 'integration_uri',
           passthrough_behavior: 'passthrough_behavior',
           payload_format_version: 'payload_format_version',
-          request_parameters: Stubs::IntegrationParameters.default(visited),
-          request_templates: Stubs::TemplateMap.default(visited),
-          response_parameters: Stubs::ResponseParameters.default(visited),
+          request_parameters: IntegrationParameters.default(visited),
+          request_templates: TemplateMap.default(visited),
+          response_parameters: ResponseParameters.default(visited),
           template_selection_expression: 'template_selection_expression',
           timeout_in_millis: 1,
-          tls_config: Stubs::TlsConfig.default(visited),
+          tls_config: TlsConfig.default(visited),
         }
       end
 
@@ -2854,8 +2854,8 @@ module AWS::SDK::ApiGatewayV2
           content_handling_strategy: 'content_handling_strategy',
           integration_response_id: 'integration_response_id',
           integration_response_key: 'integration_response_key',
-          response_parameters: Stubs::IntegrationParameters.default(visited),
-          response_templates: Stubs::TemplateMap.default(visited),
+          response_parameters: IntegrationParameters.default(visited),
+          response_templates: TemplateMap.default(visited),
           template_selection_expression: 'template_selection_expression',
         }
       end
@@ -2905,13 +2905,13 @@ module AWS::SDK::ApiGatewayV2
         {
           api_gateway_managed: false,
           api_key_required: false,
-          authorization_scopes: Stubs::AuthorizationScopes.default(visited),
+          authorization_scopes: AuthorizationScopes.default(visited),
           authorization_type: 'authorization_type',
           authorizer_id: 'authorizer_id',
           model_selection_expression: 'model_selection_expression',
           operation_name: 'operation_name',
-          request_models: Stubs::RouteModels.default(visited),
-          request_parameters: Stubs::RouteParameters.default(visited),
+          request_models: RouteModels.default(visited),
+          request_parameters: RouteParameters.default(visited),
           route_id: 'route_id',
           route_key: 'route_key',
           route_response_selection_expression: 'route_response_selection_expression',
@@ -2945,8 +2945,8 @@ module AWS::SDK::ApiGatewayV2
       def self.default(visited=[])
         {
           model_selection_expression: 'model_selection_expression',
-          response_models: Stubs::RouteModels.default(visited),
-          response_parameters: Stubs::RouteParameters.default(visited),
+          response_models: RouteModels.default(visited),
+          response_parameters: RouteParameters.default(visited),
           route_response_id: 'route_response_id',
           route_response_key: 'route_response_key',
         }
@@ -2969,20 +2969,20 @@ module AWS::SDK::ApiGatewayV2
     class UpdateStage
       def self.default(visited=[])
         {
-          access_log_settings: Stubs::AccessLogSettings.default(visited),
+          access_log_settings: AccessLogSettings.default(visited),
           api_gateway_managed: false,
           auto_deploy: false,
           client_certificate_id: 'client_certificate_id',
           created_date: Time.now,
-          default_route_settings: Stubs::RouteSettings.default(visited),
+          default_route_settings: RouteSettings.default(visited),
           deployment_id: 'deployment_id',
           description: 'description',
           last_deployment_status_message: 'last_deployment_status_message',
           last_updated_date: Time.now,
-          route_settings: Stubs::RouteSettingsMap.default(visited),
+          route_settings: RouteSettingsMap.default(visited),
           stage_name: 'stage_name',
-          stage_variables: Stubs::StageVariablesMap.default(visited),
-          tags: Stubs::Tags.default(visited),
+          stage_variables: StageVariablesMap.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -3014,9 +3014,9 @@ module AWS::SDK::ApiGatewayV2
         {
           created_date: Time.now,
           name: 'name',
-          security_group_ids: Stubs::SecurityGroupIdList.default(visited),
-          subnet_ids: Stubs::SubnetIdList.default(visited),
-          tags: Stubs::Tags.default(visited),
+          security_group_ids: SecurityGroupIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
+          tags: Tags.default(visited),
           vpc_link_id: 'vpc_link_id',
           vpc_link_status: 'vpc_link_status',
           vpc_link_status_message: 'vpc_link_status_message',

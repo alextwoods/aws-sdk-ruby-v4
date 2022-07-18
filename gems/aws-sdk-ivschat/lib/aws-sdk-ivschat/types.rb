@@ -106,11 +106,11 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.session_duration_in_minutes ||= 0
       end
-
     end
 
     # @!attribute token
@@ -178,12 +178,12 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_message_rate_per_second ||= 0
         self.maximum_message_length ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -248,12 +248,12 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_message_rate_per_second ||= 0
         self.maximum_message_length ||= 0
       end
-
     end
 
     # @!attribute room_identifier
@@ -436,12 +436,12 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_message_rate_per_second ||= 0
         self.maximum_message_length ||= 0
       end
-
     end
 
     # <p/>
@@ -486,11 +486,11 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute rooms
@@ -733,11 +733,11 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -796,11 +796,11 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -867,12 +867,12 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_message_rate_per_second ||= 0
         self.maximum_message_length ||= 0
       end
-
     end
 
     # @!attribute arn
@@ -936,12 +936,12 @@ module AWS::SDK::Ivschat
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_message_rate_per_second ||= 0
         self.maximum_message_length ||= 0
       end
-
     end
 
     # <p/>

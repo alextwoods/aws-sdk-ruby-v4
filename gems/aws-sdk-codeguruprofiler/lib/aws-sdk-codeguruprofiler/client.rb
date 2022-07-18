@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeGuruProfiler
@@ -64,7 +66,7 @@ module AWS::SDK::CodeGuruProfiler
     # @option params [String] :profiling_group_name
     #   <p>The name of the profiling group that we are setting up notifications for.</p>
     #
-    # @option params [Set<Channel>] :channels
+    # @option params [Array<Channel>] :channels
     #   <p>One or 2 channels to report to when anomalies are detected.</p>
     #
     # @return [Types::AddNotificationChannelsOutput]
@@ -88,17 +90,17 @@ module AWS::SDK::CodeGuruProfiler
     #
     #   resp.data #=> Types::AddNotificationChannelsOutput
     #   resp.data.notification_configuration #=> Types::NotificationConfiguration
-    #   resp.data.notification_configuration.channels #=> Set<Channel>
+    #   resp.data.notification_configuration.channels #=> Array<Channel>
     #   resp.data.notification_configuration.channels[0] #=> Types::Channel
     #   resp.data.notification_configuration.channels[0].id #=> String
     #   resp.data.notification_configuration.channels[0].uri #=> String
-    #   resp.data.notification_configuration.channels[0].event_publishers #=> Set<String>
+    #   resp.data.notification_configuration.channels[0].event_publishers #=> Array<String>
     #   resp.data.notification_configuration.channels[0].event_publishers[0] #=> String, one of ["AnomalyDetection"]
     #
     def add_notification_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddNotificationChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddNotificationChannelsInput,
         validate_input: @config.validate_input
@@ -253,7 +255,7 @@ module AWS::SDK::CodeGuruProfiler
     def batch_get_frame_metric_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetFrameMetricDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetFrameMetricDataInput,
         validate_input: @config.validate_input
@@ -394,7 +396,7 @@ module AWS::SDK::CodeGuruProfiler
     def configure_agent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfigureAgentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfigureAgentInput,
         validate_input: @config.validate_input
@@ -508,7 +510,7 @@ module AWS::SDK::CodeGuruProfiler
     def create_profiling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProfilingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProfilingGroupInput,
         validate_input: @config.validate_input
@@ -576,7 +578,7 @@ module AWS::SDK::CodeGuruProfiler
     def delete_profiling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProfilingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProfilingGroupInput,
         validate_input: @config.validate_input
@@ -666,7 +668,7 @@ module AWS::SDK::CodeGuruProfiler
     def describe_profiling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProfilingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProfilingGroupInput,
         validate_input: @config.validate_input
@@ -768,7 +770,7 @@ module AWS::SDK::CodeGuruProfiler
     def get_findings_report_account_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFindingsReportAccountSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFindingsReportAccountSummaryInput,
         validate_input: @config.validate_input
@@ -832,17 +834,17 @@ module AWS::SDK::CodeGuruProfiler
     #
     #   resp.data #=> Types::GetNotificationConfigurationOutput
     #   resp.data.notification_configuration #=> Types::NotificationConfiguration
-    #   resp.data.notification_configuration.channels #=> Set<Channel>
+    #   resp.data.notification_configuration.channels #=> Array<Channel>
     #   resp.data.notification_configuration.channels[0] #=> Types::Channel
     #   resp.data.notification_configuration.channels[0].id #=> String
     #   resp.data.notification_configuration.channels[0].uri #=> String
-    #   resp.data.notification_configuration.channels[0].event_publishers #=> Set<String>
+    #   resp.data.notification_configuration.channels[0].event_publishers #=> Array<String>
     #   resp.data.notification_configuration.channels[0].event_publishers[0] #=> String, one of ["AnomalyDetection"]
     #
     def get_notification_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNotificationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNotificationConfigurationInput,
         validate_input: @config.validate_input
@@ -913,7 +915,7 @@ module AWS::SDK::CodeGuruProfiler
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: @config.validate_input
@@ -1123,7 +1125,7 @@ module AWS::SDK::CodeGuruProfiler
     def get_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProfileInput,
         validate_input: @config.validate_input
@@ -1324,7 +1326,7 @@ module AWS::SDK::CodeGuruProfiler
     def get_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommendationsInput,
         validate_input: @config.validate_input
@@ -1443,7 +1445,7 @@ module AWS::SDK::CodeGuruProfiler
     def list_findings_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFindingsReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFindingsReportsInput,
         validate_input: @config.validate_input
@@ -1575,7 +1577,7 @@ module AWS::SDK::CodeGuruProfiler
     def list_profile_times(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProfileTimesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProfileTimesInput,
         validate_input: @config.validate_input
@@ -1696,7 +1698,7 @@ module AWS::SDK::CodeGuruProfiler
     def list_profiling_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProfilingGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProfilingGroupsInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::CodeGuruProfiler
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1881,7 +1883,7 @@ module AWS::SDK::CodeGuruProfiler
     def post_agent_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PostAgentProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PostAgentProfileInput,
         validate_input: @config.validate_input
@@ -2003,7 +2005,7 @@ module AWS::SDK::CodeGuruProfiler
     def put_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutPermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPermissionInput,
         validate_input: @config.validate_input
@@ -2072,17 +2074,17 @@ module AWS::SDK::CodeGuruProfiler
     #
     #   resp.data #=> Types::RemoveNotificationChannelOutput
     #   resp.data.notification_configuration #=> Types::NotificationConfiguration
-    #   resp.data.notification_configuration.channels #=> Set<Channel>
+    #   resp.data.notification_configuration.channels #=> Array<Channel>
     #   resp.data.notification_configuration.channels[0] #=> Types::Channel
     #   resp.data.notification_configuration.channels[0].id #=> String
     #   resp.data.notification_configuration.channels[0].uri #=> String
-    #   resp.data.notification_configuration.channels[0].event_publishers #=> Set<String>
+    #   resp.data.notification_configuration.channels[0].event_publishers #=> Array<String>
     #   resp.data.notification_configuration.channels[0].event_publishers[0] #=> String, one of ["AnomalyDetection"]
     #
     def remove_notification_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveNotificationChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveNotificationChannelInput,
         validate_input: @config.validate_input
@@ -2174,7 +2176,7 @@ module AWS::SDK::CodeGuruProfiler
     def remove_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: @config.validate_input
@@ -2260,7 +2262,7 @@ module AWS::SDK::CodeGuruProfiler
     def submit_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SubmitFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SubmitFeedbackInput,
         validate_input: @config.validate_input
@@ -2340,7 +2342,7 @@ module AWS::SDK::CodeGuruProfiler
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2421,7 +2423,7 @@ module AWS::SDK::CodeGuruProfiler
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2512,7 +2514,7 @@ module AWS::SDK::CodeGuruProfiler
     def update_profiling_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProfilingGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProfilingGroupInput,
         validate_input: @config.validate_input

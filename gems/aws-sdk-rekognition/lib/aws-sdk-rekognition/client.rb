@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Rekognition
@@ -506,7 +508,7 @@ module AWS::SDK::Rekognition
     def compare_faces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CompareFacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompareFacesInput,
         validate_input: @config.validate_input
@@ -597,7 +599,7 @@ module AWS::SDK::Rekognition
     def create_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCollectionInput,
         validate_input: @config.validate_input
@@ -717,7 +719,7 @@ module AWS::SDK::Rekognition
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -788,7 +790,7 @@ module AWS::SDK::Rekognition
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -971,7 +973,7 @@ module AWS::SDK::Rekognition
     def create_project_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectVersionInput,
         validate_input: @config.validate_input
@@ -1164,7 +1166,7 @@ module AWS::SDK::Rekognition
     def create_stream_processor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamProcessorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamProcessorInput,
         validate_input: @config.validate_input
@@ -1237,7 +1239,7 @@ module AWS::SDK::Rekognition
     def delete_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCollectionInput,
         validate_input: @config.validate_input
@@ -1316,7 +1318,7 @@ module AWS::SDK::Rekognition
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -1395,7 +1397,7 @@ module AWS::SDK::Rekognition
     def delete_faces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFacesInput,
         validate_input: @config.validate_input
@@ -1471,7 +1473,7 @@ module AWS::SDK::Rekognition
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -1547,7 +1549,7 @@ module AWS::SDK::Rekognition
     def delete_project_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectVersionInput,
         validate_input: @config.validate_input
@@ -1616,7 +1618,7 @@ module AWS::SDK::Rekognition
     def delete_stream_processor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamProcessorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamProcessorInput,
         validate_input: @config.validate_input
@@ -1693,7 +1695,7 @@ module AWS::SDK::Rekognition
     def describe_collection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCollectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCollectionInput,
         validate_input: @config.validate_input
@@ -1778,7 +1780,7 @@ module AWS::SDK::Rekognition
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -1908,7 +1910,7 @@ module AWS::SDK::Rekognition
     def describe_project_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectVersionsInput,
         validate_input: @config.validate_input
@@ -2006,7 +2008,7 @@ module AWS::SDK::Rekognition
     def describe_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectsInput,
         validate_input: @config.validate_input
@@ -2115,7 +2117,7 @@ module AWS::SDK::Rekognition
     def describe_stream_processor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStreamProcessorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStreamProcessorInput,
         validate_input: @config.validate_input
@@ -2296,7 +2298,7 @@ module AWS::SDK::Rekognition
     def detect_custom_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectCustomLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectCustomLabelsInput,
         validate_input: @config.validate_input
@@ -2462,7 +2464,7 @@ module AWS::SDK::Rekognition
     def detect_faces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectFacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectFacesInput,
         validate_input: @config.validate_input
@@ -2643,7 +2645,7 @@ module AWS::SDK::Rekognition
     def detect_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectLabelsInput,
         validate_input: @config.validate_input
@@ -2767,7 +2769,7 @@ module AWS::SDK::Rekognition
     def detect_moderation_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectModerationLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectModerationLabelsInput,
         validate_input: @config.validate_input
@@ -2918,7 +2920,7 @@ module AWS::SDK::Rekognition
     def detect_protective_equipment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectProtectiveEquipmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectProtectiveEquipmentInput,
         validate_input: @config.validate_input
@@ -3062,7 +3064,7 @@ module AWS::SDK::Rekognition
     def detect_text(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectTextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectTextInput,
         validate_input: @config.validate_input
@@ -3147,7 +3149,7 @@ module AWS::SDK::Rekognition
     def distribute_dataset_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DistributeDatasetEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DistributeDatasetEntriesInput,
         validate_input: @config.validate_input
@@ -3228,7 +3230,7 @@ module AWS::SDK::Rekognition
     def get_celebrity_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCelebrityInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCelebrityInfoInput,
         validate_input: @config.validate_input
@@ -3425,7 +3427,7 @@ module AWS::SDK::Rekognition
     def get_celebrity_recognition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCelebrityRecognitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCelebrityRecognitionInput,
         validate_input: @config.validate_input
@@ -3562,7 +3564,7 @@ module AWS::SDK::Rekognition
     def get_content_moderation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContentModerationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContentModerationInput,
         validate_input: @config.validate_input
@@ -3717,7 +3719,7 @@ module AWS::SDK::Rekognition
     def get_face_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFaceDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFaceDetectionInput,
         validate_input: @config.validate_input
@@ -3908,7 +3910,7 @@ module AWS::SDK::Rekognition
     def get_face_search(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFaceSearchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFaceSearchInput,
         validate_input: @config.validate_input
@@ -4045,7 +4047,7 @@ module AWS::SDK::Rekognition
     def get_label_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLabelDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLabelDetectionInput,
         validate_input: @config.validate_input
@@ -4228,7 +4230,7 @@ module AWS::SDK::Rekognition
     def get_person_tracking(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPersonTrackingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPersonTrackingInput,
         validate_input: @config.validate_input
@@ -4368,7 +4370,7 @@ module AWS::SDK::Rekognition
     def get_segment_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSegmentDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSegmentDetectionInput,
         validate_input: @config.validate_input
@@ -4495,7 +4497,7 @@ module AWS::SDK::Rekognition
     def get_text_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetTextDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetTextDetectionInput,
         validate_input: @config.validate_input
@@ -4793,7 +4795,7 @@ module AWS::SDK::Rekognition
     def index_faces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IndexFacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IndexFacesInput,
         validate_input: @config.validate_input
@@ -4875,7 +4877,7 @@ module AWS::SDK::Rekognition
     def list_collections(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCollectionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCollectionsInput,
         validate_input: @config.validate_input
@@ -5001,7 +5003,7 @@ module AWS::SDK::Rekognition
     def list_dataset_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetEntriesInput,
         validate_input: @config.validate_input
@@ -5095,7 +5097,7 @@ module AWS::SDK::Rekognition
     def list_dataset_labels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetLabelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetLabelsInput,
         validate_input: @config.validate_input
@@ -5194,7 +5196,7 @@ module AWS::SDK::Rekognition
     def list_faces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFacesInput,
         validate_input: @config.validate_input
@@ -5272,7 +5274,7 @@ module AWS::SDK::Rekognition
     def list_stream_processors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamProcessorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamProcessorsInput,
         validate_input: @config.validate_input
@@ -5348,7 +5350,7 @@ module AWS::SDK::Rekognition
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5494,7 +5496,7 @@ module AWS::SDK::Rekognition
     def recognize_celebrities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RecognizeCelebritiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RecognizeCelebritiesInput,
         validate_input: @config.validate_input
@@ -5614,7 +5616,7 @@ module AWS::SDK::Rekognition
     def search_faces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchFacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchFacesInput,
         validate_input: @config.validate_input
@@ -5788,7 +5790,7 @@ module AWS::SDK::Rekognition
     def search_faces_by_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchFacesByImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchFacesByImageInput,
         validate_input: @config.validate_input
@@ -5894,7 +5896,7 @@ module AWS::SDK::Rekognition
     def start_celebrity_recognition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartCelebrityRecognitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartCelebrityRecognitionInput,
         validate_input: @config.validate_input
@@ -6008,7 +6010,7 @@ module AWS::SDK::Rekognition
     def start_content_moderation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartContentModerationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartContentModerationInput,
         validate_input: @config.validate_input
@@ -6123,7 +6125,7 @@ module AWS::SDK::Rekognition
     def start_face_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFaceDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFaceDetectionInput,
         validate_input: @config.validate_input
@@ -6235,7 +6237,7 @@ module AWS::SDK::Rekognition
     def start_face_search(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFaceSearchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFaceSearchInput,
         validate_input: @config.validate_input
@@ -6353,7 +6355,7 @@ module AWS::SDK::Rekognition
     def start_label_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartLabelDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartLabelDetectionInput,
         validate_input: @config.validate_input
@@ -6456,7 +6458,7 @@ module AWS::SDK::Rekognition
     def start_person_tracking(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPersonTrackingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPersonTrackingInput,
         validate_input: @config.validate_input
@@ -6542,7 +6544,7 @@ module AWS::SDK::Rekognition
     def start_project_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartProjectVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartProjectVersionInput,
         validate_input: @config.validate_input
@@ -6673,7 +6675,7 @@ module AWS::SDK::Rekognition
     def start_segment_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSegmentDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSegmentDetectionInput,
         validate_input: @config.validate_input
@@ -6769,7 +6771,7 @@ module AWS::SDK::Rekognition
     def start_stream_processor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartStreamProcessorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartStreamProcessorInput,
         validate_input: @config.validate_input
@@ -6898,7 +6900,7 @@ module AWS::SDK::Rekognition
     def start_text_detection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartTextDetectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartTextDetectionInput,
         validate_input: @config.validate_input
@@ -6969,7 +6971,7 @@ module AWS::SDK::Rekognition
     def stop_project_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopProjectVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopProjectVersionInput,
         validate_input: @config.validate_input
@@ -7037,7 +7039,7 @@ module AWS::SDK::Rekognition
     def stop_stream_processor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopStreamProcessorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopStreamProcessorInput,
         validate_input: @config.validate_input
@@ -7119,7 +7121,7 @@ module AWS::SDK::Rekognition
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -7201,7 +7203,7 @@ module AWS::SDK::Rekognition
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -7306,7 +7308,7 @@ module AWS::SDK::Rekognition
     def update_dataset_entries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatasetEntriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatasetEntriesInput,
         validate_input: @config.validate_input
@@ -7429,7 +7431,7 @@ module AWS::SDK::Rekognition
     def update_stream_processor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamProcessorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamProcessorInput,
         validate_input: @config.validate_input

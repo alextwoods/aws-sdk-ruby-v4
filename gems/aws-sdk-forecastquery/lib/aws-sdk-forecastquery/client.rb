@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Forecastquery
@@ -104,7 +106,7 @@ module AWS::SDK::Forecastquery
     def query_forecast(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryForecastInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryForecastInput,
         validate_input: @config.validate_input

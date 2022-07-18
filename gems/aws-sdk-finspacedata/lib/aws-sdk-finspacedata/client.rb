@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::FinspaceData
@@ -153,7 +155,7 @@ module AWS::SDK::FinspaceData
     def create_changeset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChangesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChangesetInput,
         validate_input: @config.validate_input
@@ -257,7 +259,7 @@ module AWS::SDK::FinspaceData
     def create_data_view(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataViewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataViewInput,
         validate_input: @config.validate_input
@@ -388,7 +390,7 @@ module AWS::SDK::FinspaceData
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -501,7 +503,7 @@ module AWS::SDK::FinspaceData
     def create_permission_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePermissionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePermissionGroupInput,
         validate_input: @config.validate_input
@@ -614,7 +616,7 @@ module AWS::SDK::FinspaceData
     def create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserInput,
         validate_input: @config.validate_input
@@ -687,7 +689,7 @@ module AWS::SDK::FinspaceData
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -759,7 +761,7 @@ module AWS::SDK::FinspaceData
     def delete_permission_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePermissionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePermissionGroupInput,
         validate_input: @config.validate_input
@@ -831,7 +833,7 @@ module AWS::SDK::FinspaceData
     def disable_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableUserInput,
         validate_input: @config.validate_input
@@ -904,7 +906,7 @@ module AWS::SDK::FinspaceData
     def enable_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableUserInput,
         validate_input: @config.validate_input
@@ -993,7 +995,7 @@ module AWS::SDK::FinspaceData
     def get_changeset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetChangesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetChangesetInput,
         validate_input: @config.validate_input
@@ -1084,7 +1086,7 @@ module AWS::SDK::FinspaceData
     def get_data_view(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDataViewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDataViewInput,
         validate_input: @config.validate_input
@@ -1169,7 +1171,7 @@ module AWS::SDK::FinspaceData
     def get_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDatasetInput,
         validate_input: @config.validate_input
@@ -1245,7 +1247,7 @@ module AWS::SDK::FinspaceData
     def get_programmatic_access_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProgrammaticAccessCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProgrammaticAccessCredentialsInput,
         validate_input: @config.validate_input
@@ -1325,7 +1327,7 @@ module AWS::SDK::FinspaceData
     def get_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserInput,
         validate_input: @config.validate_input
@@ -1408,7 +1410,7 @@ module AWS::SDK::FinspaceData
     def get_working_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkingLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkingLocationInput,
         validate_input: @config.validate_input
@@ -1504,7 +1506,7 @@ module AWS::SDK::FinspaceData
     def list_changesets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChangesetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChangesetsInput,
         validate_input: @config.validate_input
@@ -1602,7 +1604,7 @@ module AWS::SDK::FinspaceData
     def list_data_views(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataViewsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataViewsInput,
         validate_input: @config.validate_input
@@ -1697,7 +1699,7 @@ module AWS::SDK::FinspaceData
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -1778,7 +1780,7 @@ module AWS::SDK::FinspaceData
     def list_permission_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionGroupsInput,
         validate_input: @config.validate_input
@@ -1865,7 +1867,7 @@ module AWS::SDK::FinspaceData
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -1938,7 +1940,7 @@ module AWS::SDK::FinspaceData
     def reset_user_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetUserPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetUserPasswordInput,
         validate_input: @config.validate_input
@@ -2085,7 +2087,7 @@ module AWS::SDK::FinspaceData
     def update_changeset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChangesetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChangesetInput,
         validate_input: @config.validate_input
@@ -2201,7 +2203,7 @@ module AWS::SDK::FinspaceData
     def update_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDatasetInput,
         validate_input: @config.validate_input
@@ -2318,7 +2320,7 @@ module AWS::SDK::FinspaceData
     def update_permission_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePermissionGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePermissionGroupInput,
         validate_input: @config.validate_input
@@ -2431,7 +2433,7 @@ module AWS::SDK::FinspaceData
     def update_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserInput,
         validate_input: @config.validate_input

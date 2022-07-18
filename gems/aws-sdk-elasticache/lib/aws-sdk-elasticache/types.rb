@@ -877,12 +877,12 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_minor_version_upgrade ||= false
         self.replication_group_log_delivery_enabled ||= false
       end
-
     end
 
     # <p>You already have a cluster with the given identifier.</p>
@@ -1345,11 +1345,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
       end
-
     end
 
     # <p>A value that applies only to a certain cache node type.</p>
@@ -1479,11 +1479,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_global ||= false
       end
-
     end
 
     # <p>A cache parameter group with the requested name already exists.</p>
@@ -1836,11 +1836,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute replication_group
@@ -1911,11 +1911,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.new_replica_count ||= 0
       end
-
     end
 
     # <p>Represents the input of a <code>CopySnapshotMessage</code> operation.</p>
@@ -3719,12 +3719,12 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.node_group_count ||= 0
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute global_replication_group
@@ -3806,11 +3806,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute replication_group
@@ -3970,11 +3970,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retain_primary_replication_group ||= false
       end
-
     end
 
     # @!attribute global_replication_group
@@ -4351,11 +4351,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_only ||= false
       end
-
     end
 
     # <p>Represents the output of a <a>DescribeCacheEngineVersions</a> operation.</p>
@@ -6016,11 +6016,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
@@ -6413,12 +6413,12 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.node_group_count ||= 0
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute global_replication_group
@@ -6477,11 +6477,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute replication_group
@@ -7327,11 +7327,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute cache_cluster
@@ -7493,11 +7493,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute global_replication_group
@@ -7792,11 +7792,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute replication_group
@@ -7875,12 +7875,12 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.node_group_count ||= 0
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute replication_group
@@ -8578,11 +8578,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_modifiable ||= false
       end
-
     end
 
     # <p>Describes a name-value pair that is used to update the value of a parameter.</p>
@@ -8809,11 +8809,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.apply_immediately ||= false
       end
-
     end
 
     # @!attribute global_replication_group
@@ -8888,11 +8888,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.recurring_charge_amount ||= 0
       end
-
     end
 
     # <p>A list of the replication groups </p>
@@ -9622,6 +9622,7 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -9629,7 +9630,6 @@ module AWS::SDK::ElastiCache
         self.usage_price ||= 0
         self.cache_node_count ||= 0
       end
-
     end
 
     # <p>You already have a reservation with the given identifier.</p>
@@ -9984,13 +9984,13 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # <p>The requested cache node offering does not exist.</p>
@@ -10039,11 +10039,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.reset_all_parameters ||= false
       end
-
     end
 
     # <p>Represents the output of one of the following operations:</p>
@@ -10371,11 +10371,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progress_percentage ||= 0
       end
-
     end
 
     # <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
@@ -10891,11 +10891,11 @@ module AWS::SDK::ElastiCache
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.auto_minor_version_upgrade ||= false
       end
-
     end
 
     # <p>You already have a snapshot with the given name.</p>

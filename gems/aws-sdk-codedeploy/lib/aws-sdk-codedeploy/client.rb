@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeDeploy
@@ -169,7 +171,7 @@ module AWS::SDK::CodeDeploy
     def add_tags_to_on_premises_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToOnPremisesInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToOnPremisesInstancesInput,
         validate_input: @config.validate_input
@@ -296,7 +298,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_application_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetApplicationRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetApplicationRevisionsInput,
         validate_input: @config.validate_input
@@ -376,7 +378,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetApplicationsInput,
         validate_input: @config.validate_input
@@ -548,7 +550,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_deployment_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDeploymentGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDeploymentGroupsInput,
         validate_input: @config.validate_input
@@ -652,7 +654,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_deployment_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDeploymentInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDeploymentInstancesInput,
         validate_input: @config.validate_input
@@ -838,7 +840,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_deployment_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDeploymentTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDeploymentTargetsInput,
         validate_input: @config.validate_input
@@ -1007,7 +1009,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetDeploymentsInput,
         validate_input: @config.validate_input
@@ -1091,7 +1093,7 @@ module AWS::SDK::CodeDeploy
     def batch_get_on_premises_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetOnPremisesInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetOnPremisesInstancesInput,
         validate_input: @config.validate_input
@@ -1171,7 +1173,7 @@ module AWS::SDK::CodeDeploy
     def continue_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ContinueDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ContinueDeploymentInput,
         validate_input: @config.validate_input
@@ -1257,7 +1259,7 @@ module AWS::SDK::CodeDeploy
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -1450,7 +1452,7 @@ module AWS::SDK::CodeDeploy
     def create_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentInput,
         validate_input: @config.validate_input
@@ -1563,7 +1565,7 @@ module AWS::SDK::CodeDeploy
     def create_deployment_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentConfigInput,
         validate_input: @config.validate_input
@@ -1819,7 +1821,7 @@ module AWS::SDK::CodeDeploy
     def create_deployment_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeploymentGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeploymentGroupInput,
         validate_input: @config.validate_input
@@ -1888,7 +1890,7 @@ module AWS::SDK::CodeDeploy
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -1961,7 +1963,7 @@ module AWS::SDK::CodeDeploy
     def delete_deployment_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeploymentConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeploymentConfigInput,
         validate_input: @config.validate_input
@@ -2038,7 +2040,7 @@ module AWS::SDK::CodeDeploy
     def delete_deployment_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeploymentGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeploymentGroupInput,
         validate_input: @config.validate_input
@@ -2107,7 +2109,7 @@ module AWS::SDK::CodeDeploy
     def delete_git_hub_account_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGitHubAccountTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGitHubAccountTokenInput,
         validate_input: @config.validate_input
@@ -2176,7 +2178,7 @@ module AWS::SDK::CodeDeploy
     def delete_resources_by_external_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcesByExternalIdInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcesByExternalIdInput,
         validate_input: @config.validate_input
@@ -2244,7 +2246,7 @@ module AWS::SDK::CodeDeploy
     def deregister_on_premises_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterOnPremisesInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterOnPremisesInstanceInput,
         validate_input: @config.validate_input
@@ -2320,7 +2322,7 @@ module AWS::SDK::CodeDeploy
     def get_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationInput,
         validate_input: @config.validate_input
@@ -2438,7 +2440,7 @@ module AWS::SDK::CodeDeploy
     def get_application_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetApplicationRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetApplicationRevisionInput,
         validate_input: @config.validate_input
@@ -2608,7 +2610,7 @@ module AWS::SDK::CodeDeploy
     def get_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentInput,
         validate_input: @config.validate_input
@@ -2693,7 +2695,7 @@ module AWS::SDK::CodeDeploy
     def get_deployment_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentConfigInput,
         validate_input: @config.validate_input
@@ -2861,7 +2863,7 @@ module AWS::SDK::CodeDeploy
     def get_deployment_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentGroupInput,
         validate_input: @config.validate_input
@@ -2953,7 +2955,7 @@ module AWS::SDK::CodeDeploy
     def get_deployment_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentInstanceInput,
         validate_input: @config.validate_input
@@ -3084,7 +3086,7 @@ module AWS::SDK::CodeDeploy
     def get_deployment_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeploymentTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeploymentTargetInput,
         validate_input: @config.validate_input
@@ -3163,7 +3165,7 @@ module AWS::SDK::CodeDeploy
     def get_on_premises_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOnPremisesInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOnPremisesInstanceInput,
         validate_input: @config.validate_input
@@ -3326,7 +3328,7 @@ module AWS::SDK::CodeDeploy
     def list_application_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationRevisionsInput,
         validate_input: @config.validate_input
@@ -3398,7 +3400,7 @@ module AWS::SDK::CodeDeploy
     def list_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListApplicationsInput,
         validate_input: @config.validate_input
@@ -3470,7 +3472,7 @@ module AWS::SDK::CodeDeploy
     def list_deployment_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentConfigsInput,
         validate_input: @config.validate_input
@@ -3549,7 +3551,7 @@ module AWS::SDK::CodeDeploy
     def list_deployment_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentGroupsInput,
         validate_input: @config.validate_input
@@ -3677,7 +3679,7 @@ module AWS::SDK::CodeDeploy
     def list_deployment_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentInstancesInput,
         validate_input: @config.validate_input
@@ -3775,7 +3777,7 @@ module AWS::SDK::CodeDeploy
     def list_deployment_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentTargetsInput,
         validate_input: @config.validate_input
@@ -3915,7 +3917,7 @@ module AWS::SDK::CodeDeploy
     def list_deployments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeploymentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeploymentsInput,
         validate_input: @config.validate_input
@@ -3987,7 +3989,7 @@ module AWS::SDK::CodeDeploy
     def list_git_hub_account_token_names(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGitHubAccountTokenNamesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGitHubAccountTokenNamesInput,
         validate_input: @config.validate_input
@@ -4089,7 +4091,7 @@ module AWS::SDK::CodeDeploy
     def list_on_premises_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOnPremisesInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOnPremisesInstancesInput,
         validate_input: @config.validate_input
@@ -4170,7 +4172,7 @@ module AWS::SDK::CodeDeploy
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4259,7 +4261,7 @@ module AWS::SDK::CodeDeploy
     def put_lifecycle_event_hook_execution_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLifecycleEventHookExecutionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLifecycleEventHookExecutionStatusInput,
         validate_input: @config.validate_input
@@ -4358,7 +4360,7 @@ module AWS::SDK::CodeDeploy
     def register_application_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterApplicationRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterApplicationRevisionInput,
         validate_input: @config.validate_input
@@ -4438,7 +4440,7 @@ module AWS::SDK::CodeDeploy
     def register_on_premises_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterOnPremisesInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterOnPremisesInstanceInput,
         validate_input: @config.validate_input
@@ -4517,7 +4519,7 @@ module AWS::SDK::CodeDeploy
     def remove_tags_from_on_premises_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromOnPremisesInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromOnPremisesInstancesInput,
         validate_input: @config.validate_input
@@ -4590,7 +4592,7 @@ module AWS::SDK::CodeDeploy
     def skip_wait_time_for_instance_termination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SkipWaitTimeForInstanceTerminationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SkipWaitTimeForInstanceTerminationInput,
         validate_input: @config.validate_input
@@ -4665,7 +4667,7 @@ module AWS::SDK::CodeDeploy
     def stop_deployment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDeploymentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDeploymentInput,
         validate_input: @config.validate_input
@@ -4744,7 +4746,7 @@ module AWS::SDK::CodeDeploy
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4823,7 +4825,7 @@ module AWS::SDK::CodeDeploy
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4895,7 +4897,7 @@ module AWS::SDK::CodeDeploy
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input
@@ -5136,7 +5138,7 @@ module AWS::SDK::CodeDeploy
     def update_deployment_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeploymentGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeploymentGroupInput,
         validate_input: @config.validate_input

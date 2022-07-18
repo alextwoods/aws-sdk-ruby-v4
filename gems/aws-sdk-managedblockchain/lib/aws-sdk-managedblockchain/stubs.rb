@@ -110,7 +110,7 @@ module AWS::SDK::ManagedBlockchain
     class GetMember
       def self.default(visited=[])
         {
-          member: Stubs::Member.default(visited),
+          member: Member.default(visited),
         }
       end
 
@@ -133,11 +133,11 @@ module AWS::SDK::ManagedBlockchain
           id: 'id',
           name: 'name',
           description: 'description',
-          framework_attributes: Stubs::MemberFrameworkAttributes.default(visited),
-          log_publishing_configuration: Stubs::MemberLogPublishingConfiguration.default(visited),
+          framework_attributes: MemberFrameworkAttributes.default(visited),
+          log_publishing_configuration: MemberLogPublishingConfiguration.default(visited),
           status: 'status',
           creation_date: Time.now,
-          tags: Stubs::OutputTagMap.default(visited),
+          tags: OutputTagMap.default(visited),
           arn: 'arn',
           kms_key_arn: 'kms_key_arn',
         }
@@ -187,7 +187,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('MemberLogPublishingConfiguration')
         visited = visited + ['MemberLogPublishingConfiguration']
         {
-          fabric: Stubs::MemberFabricLogPublishingConfiguration.default(visited),
+          fabric: MemberFabricLogPublishingConfiguration.default(visited),
         }
       end
 
@@ -205,7 +205,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('MemberFabricLogPublishingConfiguration')
         visited = visited + ['MemberFabricLogPublishingConfiguration']
         {
-          ca_logs: Stubs::LogConfigurations.default(visited),
+          ca_logs: LogConfigurations.default(visited),
         }
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('LogConfigurations')
         visited = visited + ['LogConfigurations']
         {
-          cloudwatch: Stubs::LogConfiguration.default(visited),
+          cloudwatch: LogConfiguration.default(visited),
         }
       end
 
@@ -259,7 +259,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('MemberFrameworkAttributes')
         visited = visited + ['MemberFrameworkAttributes']
         {
-          fabric: Stubs::MemberFabricAttributes.default(visited),
+          fabric: MemberFabricAttributes.default(visited),
         }
       end
 
@@ -295,7 +295,7 @@ module AWS::SDK::ManagedBlockchain
     class GetNetwork
       def self.default(visited=[])
         {
-          network: Stubs::Network.default(visited),
+          network: Network.default(visited),
         }
       end
 
@@ -319,12 +319,12 @@ module AWS::SDK::ManagedBlockchain
           description: 'description',
           framework: 'framework',
           framework_version: 'framework_version',
-          framework_attributes: Stubs::NetworkFrameworkAttributes.default(visited),
+          framework_attributes: NetworkFrameworkAttributes.default(visited),
           vpc_endpoint_service_name: 'vpc_endpoint_service_name',
-          voting_policy: Stubs::VotingPolicy.default(visited),
+          voting_policy: VotingPolicy.default(visited),
           status: 'status',
           creation_date: Time.now,
-          tags: Stubs::OutputTagMap.default(visited),
+          tags: OutputTagMap.default(visited),
           arn: 'arn',
         }
       end
@@ -354,7 +354,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('VotingPolicy')
         visited = visited + ['VotingPolicy']
         {
-          approval_threshold_policy: Stubs::ApprovalThresholdPolicy.default(visited),
+          approval_threshold_policy: ApprovalThresholdPolicy.default(visited),
         }
       end
 
@@ -394,8 +394,8 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('NetworkFrameworkAttributes')
         visited = visited + ['NetworkFrameworkAttributes']
         {
-          fabric: Stubs::NetworkFabricAttributes.default(visited),
-          ethereum: Stubs::NetworkEthereumAttributes.default(visited),
+          fabric: NetworkFabricAttributes.default(visited),
+          ethereum: NetworkEthereumAttributes.default(visited),
         }
       end
 
@@ -450,7 +450,7 @@ module AWS::SDK::ManagedBlockchain
     class GetNode
       def self.default(visited=[])
         {
-          node: Stubs::Node.default(visited),
+          node: Node.default(visited),
         }
       end
 
@@ -474,12 +474,12 @@ module AWS::SDK::ManagedBlockchain
           id: 'id',
           instance_type: 'instance_type',
           availability_zone: 'availability_zone',
-          framework_attributes: Stubs::NodeFrameworkAttributes.default(visited),
-          log_publishing_configuration: Stubs::NodeLogPublishingConfiguration.default(visited),
+          framework_attributes: NodeFrameworkAttributes.default(visited),
+          log_publishing_configuration: NodeLogPublishingConfiguration.default(visited),
           state_db: 'state_db',
           status: 'status',
           creation_date: Time.now,
-          tags: Stubs::OutputTagMap.default(visited),
+          tags: OutputTagMap.default(visited),
           arn: 'arn',
           kms_key_arn: 'kms_key_arn',
         }
@@ -511,7 +511,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('NodeLogPublishingConfiguration')
         visited = visited + ['NodeLogPublishingConfiguration']
         {
-          fabric: Stubs::NodeFabricLogPublishingConfiguration.default(visited),
+          fabric: NodeFabricLogPublishingConfiguration.default(visited),
         }
       end
 
@@ -529,8 +529,8 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('NodeFabricLogPublishingConfiguration')
         visited = visited + ['NodeFabricLogPublishingConfiguration']
         {
-          chaincode_logs: Stubs::LogConfigurations.default(visited),
-          peer_logs: Stubs::LogConfigurations.default(visited),
+          chaincode_logs: LogConfigurations.default(visited),
+          peer_logs: LogConfigurations.default(visited),
         }
       end
 
@@ -549,8 +549,8 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('NodeFrameworkAttributes')
         visited = visited + ['NodeFrameworkAttributes']
         {
-          fabric: Stubs::NodeFabricAttributes.default(visited),
-          ethereum: Stubs::NodeEthereumAttributes.default(visited),
+          fabric: NodeFabricAttributes.default(visited),
+          ethereum: NodeEthereumAttributes.default(visited),
         }
       end
 
@@ -607,7 +607,7 @@ module AWS::SDK::ManagedBlockchain
     class GetProposal
       def self.default(visited=[])
         {
-          proposal: Stubs::Proposal.default(visited),
+          proposal: Proposal.default(visited),
         }
       end
 
@@ -629,7 +629,7 @@ module AWS::SDK::ManagedBlockchain
           proposal_id: 'proposal_id',
           network_id: 'network_id',
           description: 'description',
-          actions: Stubs::ProposalActions.default(visited),
+          actions: ProposalActions.default(visited),
           proposed_by_member_id: 'proposed_by_member_id',
           proposed_by_member_name: 'proposed_by_member_name',
           status: 'status',
@@ -638,7 +638,7 @@ module AWS::SDK::ManagedBlockchain
           yes_vote_count: 1,
           no_vote_count: 1,
           outstanding_vote_count: 1,
-          tags: Stubs::OutputTagMap.default(visited),
+          tags: OutputTagMap.default(visited),
           arn: 'arn',
         }
       end
@@ -670,8 +670,8 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('ProposalActions')
         visited = visited + ['ProposalActions']
         {
-          invitations: Stubs::InviteActionList.default(visited),
-          removals: Stubs::RemoveActionList.default(visited),
+          invitations: InviteActionList.default(visited),
+          removals: RemoveActionList.default(visited),
         }
       end
 
@@ -690,7 +690,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('RemoveActionList')
         visited = visited + ['RemoveActionList']
         [
-          Stubs::RemoveAction.default(visited)
+          RemoveAction.default(visited)
         ]
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('InviteActionList')
         visited = visited + ['InviteActionList']
         [
-          Stubs::InviteAction.default(visited)
+          InviteAction.default(visited)
         ]
       end
 
@@ -764,7 +764,7 @@ module AWS::SDK::ManagedBlockchain
     class ListInvitations
       def self.default(visited=[])
         {
-          invitations: Stubs::InvitationList.default(visited),
+          invitations: InvitationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -785,7 +785,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('InvitationList')
         visited = visited + ['InvitationList']
         [
-          Stubs::Invitation.default(visited)
+          Invitation.default(visited)
         ]
       end
 
@@ -809,7 +809,7 @@ module AWS::SDK::ManagedBlockchain
           creation_date: Time.now,
           expiration_date: Time.now,
           status: 'status',
-          network_summary: Stubs::NetworkSummary.default(visited),
+          network_summary: NetworkSummary.default(visited),
           arn: 'arn',
         }
       end
@@ -863,7 +863,7 @@ module AWS::SDK::ManagedBlockchain
     class ListMembers
       def self.default(visited=[])
         {
-          members: Stubs::MemberSummaryList.default(visited),
+          members: MemberSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -884,7 +884,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('MemberSummaryList')
         visited = visited + ['MemberSummaryList']
         [
-          Stubs::MemberSummary.default(visited)
+          MemberSummary.default(visited)
         ]
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::ManagedBlockchain
     class ListNetworks
       def self.default(visited=[])
         {
-          networks: Stubs::NetworkSummaryList.default(visited),
+          networks: NetworkSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -953,7 +953,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('NetworkSummaryList')
         visited = visited + ['NetworkSummaryList']
         [
-          Stubs::NetworkSummary.default(visited)
+          NetworkSummary.default(visited)
         ]
       end
 
@@ -971,7 +971,7 @@ module AWS::SDK::ManagedBlockchain
     class ListNodes
       def self.default(visited=[])
         {
-          nodes: Stubs::NodeSummaryList.default(visited),
+          nodes: NodeSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -992,7 +992,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('NodeSummaryList')
         visited = visited + ['NodeSummaryList']
         [
-          Stubs::NodeSummary.default(visited)
+          NodeSummary.default(visited)
         ]
       end
 
@@ -1038,7 +1038,7 @@ module AWS::SDK::ManagedBlockchain
     class ListProposalVotes
       def self.default(visited=[])
         {
-          proposal_votes: Stubs::ProposalVoteList.default(visited),
+          proposal_votes: ProposalVoteList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1059,7 +1059,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('ProposalVoteList')
         visited = visited + ['ProposalVoteList']
         [
-          Stubs::VoteSummary.default(visited)
+          VoteSummary.default(visited)
         ]
       end
 
@@ -1099,7 +1099,7 @@ module AWS::SDK::ManagedBlockchain
     class ListProposals
       def self.default(visited=[])
         {
-          proposals: Stubs::ProposalSummaryList.default(visited),
+          proposals: ProposalSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1120,7 +1120,7 @@ module AWS::SDK::ManagedBlockchain
         return nil if visited.include?('ProposalSummaryList')
         visited = visited + ['ProposalSummaryList']
         [
-          Stubs::ProposalSummary.default(visited)
+          ProposalSummary.default(visited)
         ]
       end
 
@@ -1170,7 +1170,7 @@ module AWS::SDK::ManagedBlockchain
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::OutputTagMap.default(visited),
+          tags: OutputTagMap.default(visited),
         }
       end
 

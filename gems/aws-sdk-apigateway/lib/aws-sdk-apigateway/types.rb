@@ -96,11 +96,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for ApiKeySourceType
@@ -378,12 +378,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_traffic ||= 0
         self.use_stage_cache ||= false
       end
-
     end
 
     # <p>Represents a client certificate used to configure client-side SSL authentication while sending requests to the integration endpoint.</p>
@@ -521,12 +521,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
         self.generate_distinct_id ||= false
       end
-
     end
 
     # <p>A resource that can be distributed to callers for executing Method resources that require an API key. API keys can be mapped to any Stage on any RestApi, which indicates that the callers with the API key can make requests to that stage.</p>
@@ -595,11 +595,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Request to add a new Authorizer to an existing RestApi resource.</p>
@@ -1354,12 +1354,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.validate_request_body ||= false
         self.validate_request_parameters ||= false
       end
-
     end
 
     # <p>A set of validation rules for incoming Method requests.</p>
@@ -1392,12 +1392,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.validate_request_body ||= false
         self.validate_request_parameters ||= false
       end
-
     end
 
     # <p>Requests API Gateway to create a Resource resource.</p>
@@ -1544,11 +1544,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Represents a REST API.</p>
@@ -1643,11 +1643,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Requests API Gateway to create a Stage resource.</p>
@@ -1726,12 +1726,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_cluster_enabled ||= false
         self.tracing_enabled ||= false
       end
-
     end
 
     # <p>Represents a unique identifier for a version of a deployed RestApi that is callable by users.</p>
@@ -1847,12 +1847,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_cluster_enabled ||= false
         self.tracing_enabled ||= false
       end
-
     end
 
     # <p>The POST request to create a usage plan with the name, description, throttle limits and quota limits, as well as the associated API stages, specified in the payload.</p>
@@ -2726,12 +2726,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.percent_traffic ||= 0
         self.use_stage_cache ||= false
       end
-
     end
 
     # <p>A documentation part for a targeted API entity.</p>
@@ -3149,11 +3149,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_response ||= false
       end
-
     end
 
     # Includes enum constants for GatewayResponseType
@@ -3435,11 +3435,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>A request to get information about the current ApiKeys resource.</p>
@@ -4460,11 +4460,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_response ||= false
       end
-
     end
 
     # <p>Gets the GatewayResponses collection on the given RestApi. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default GatewayResponses collection for the supported response types.</p>
@@ -4675,11 +4675,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Represents a get integration response request.</p>
@@ -4946,11 +4946,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.flatten ||= false
       end
-
     end
 
     # <p>Represents the data structure of a method's request or response payload.</p>
@@ -5121,12 +5121,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.validate_request_body ||= false
         self.validate_request_parameters ||= false
       end
-
     end
 
     # <p>Gets the RequestValidators collection of a given RestApi.</p>
@@ -5397,11 +5397,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>The GET request to list existing RestApis defined for your collection.</p>
@@ -5715,12 +5715,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_cluster_enabled ||= false
         self.tracing_enabled ||= false
       end
-
     end
 
     # <p>Requests API Gateway to get information about one or more Stage resources.</p>
@@ -6234,11 +6234,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_warnings ||= false
       end
-
     end
 
     # <p>The identifier of an ApiKey used in a UsagePlan.</p>
@@ -6293,11 +6293,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_warnings ||= false
       end
-
     end
 
     # <p>A collection of the imported  DocumentationPart identifiers.</p>
@@ -6350,11 +6350,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_warnings ||= false
       end
-
     end
 
     # <p>Represents a REST API.</p>
@@ -6449,11 +6449,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.</p>
@@ -6592,11 +6592,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Represents an integration response. The status code must map to an existing MethodResponse, and parameters and templates can be used to transform the back-end response.</p>
@@ -6871,6 +6871,7 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.metrics_enabled ||= false
@@ -6882,7 +6883,6 @@ module AWS::SDK::APIGateway
         self.cache_data_encrypted ||= false
         self.require_authorization_for_cache_control ||= false
       end
-
     end
 
     # <p>Represents a summary of a Method resource, given a particular date and time.</p>
@@ -6903,11 +6903,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_key_required ||= false
       end
-
     end
 
     # <p>Represents the data structure of a method's request or response payload.</p>
@@ -7178,11 +7178,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_response ||= false
       end
-
     end
 
     # <p>Sets up a method's integration.</p>
@@ -7455,11 +7455,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Represents a put integration response request.</p>
@@ -7638,11 +7638,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.api_key_required ||= false
       end
-
     end
 
     # <p>
@@ -7848,11 +7848,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fail_on_warnings ||= false
       end
-
     end
 
     # <p>Represents a REST API.</p>
@@ -7947,11 +7947,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # Includes enum constants for QuotaPeriodType
@@ -7996,12 +7996,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.limit ||= 0
         self.offset ||= 0
       end
-
     end
 
     # <p>A set of validation rules for incoming Method requests.</p>
@@ -8034,12 +8034,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.validate_request_body ||= false
         self.validate_request_parameters ||= false
       end
-
     end
 
     # <p>Represents an API resource.</p>
@@ -8172,11 +8172,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>A configuration property of an SDK type.</p>
@@ -8215,11 +8215,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.required ||= false
       end
-
     end
 
     # <p>A type of SDK that API Gateway can generate.</p>
@@ -8397,12 +8397,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_cluster_enabled ||= false
         self.tracing_enabled ||= false
       end
-
     end
 
     # <p>A reference to a unique stage identified in the format <code>{restApiId}/{stage}</code>.</p>
@@ -8556,12 +8556,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.client_status ||= 0
         self.latency ||= 0
       end
-
     end
 
     # <p>Make a request to simulate the invocation of a Method.</p>
@@ -8668,12 +8668,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
         self.latency ||= 0
       end
-
     end
 
     # <p> The API request rate limits.</p>
@@ -8694,12 +8694,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.burst_limit ||= 0
         self.rate_limit ||= 0
       end
-
     end
 
     # <p>Specifies the TLS configuration for an integration.</p>
@@ -8720,11 +8720,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.insecure_skip_verification ||= false
       end
-
     end
 
     # <p>The request has reached its throttling limit. Retry after the specified time period.</p>
@@ -8933,11 +8933,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Request to update an existing Authorizer resource.</p>
@@ -9534,11 +9534,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_response ||= false
       end
-
     end
 
     # <p>Represents an update integration request.</p>
@@ -9709,11 +9709,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timeout_in_millis ||= 0
       end
-
     end
 
     # <p>Represents an update integration response request.</p>
@@ -10094,12 +10094,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.validate_request_body ||= false
         self.validate_request_parameters ||= false
       end
-
     end
 
     # <p>Request to change information about a Resource resource.</p>
@@ -10278,11 +10278,11 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_execute_api_endpoint ||= false
       end
-
     end
 
     # <p>Requests API Gateway to change information about a Stage resource.</p>
@@ -10424,12 +10424,12 @@ module AWS::SDK::APIGateway
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_cluster_enabled ||= false
         self.tracing_enabled ||= false
       end
-
     end
 
     # <p>The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>

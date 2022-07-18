@@ -41,7 +41,7 @@ module AWS::SDK::AppConfig
           description: 'description',
           location_uri: 'location_uri',
           retrieval_role_arn: 'retrieval_role_arn',
-          validators: Stubs::ValidatorList.default(visited),
+          validators: ValidatorList.default(visited),
           type: 'type',
         }
       end
@@ -68,7 +68,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('ValidatorList')
         visited = visited + ['ValidatorList']
         [
-          Stubs::Validator.default(visited)
+          Validator.default(visited)
         ]
       end
 
@@ -142,7 +142,7 @@ module AWS::SDK::AppConfig
           name: 'name',
           description: 'description',
           state: 'state',
-          monitors: Stubs::MonitorList.default(visited),
+          monitors: MonitorList.default(visited),
         }
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('MonitorList')
         visited = visited + ['MonitorList']
         [
-          Stubs::Monitor.default(visited)
+          Monitor.default(visited)
         ]
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::AppConfig
           description: 'description',
           location_uri: 'location_uri',
           retrieval_role_arn: 'retrieval_role_arn',
-          validators: Stubs::ValidatorList.default(visited),
+          validators: ValidatorList.default(visited),
           type: 'type',
         }
       end
@@ -381,7 +381,7 @@ module AWS::SDK::AppConfig
           growth_factor: 1.0,
           final_bake_time_in_minutes: 1,
           state: 'state',
-          event_log: Stubs::DeploymentEvents.default(visited),
+          event_log: DeploymentEvents.default(visited),
           percentage_complete: 1.0,
           started_at: Time.now,
           completed_at: Time.now,
@@ -420,7 +420,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('DeploymentEvents')
         visited = visited + ['DeploymentEvents']
         [
-          Stubs::DeploymentEvent.default(visited)
+          DeploymentEvent.default(visited)
         ]
       end
 
@@ -498,7 +498,7 @@ module AWS::SDK::AppConfig
           name: 'name',
           description: 'description',
           state: 'state',
-          monitors: Stubs::MonitorList.default(visited),
+          monitors: MonitorList.default(visited),
         }
       end
 
@@ -546,7 +546,7 @@ module AWS::SDK::AppConfig
     class ListApplications
       def self.default(visited=[])
         {
-          items: Stubs::ApplicationList.default(visited),
+          items: ApplicationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -567,7 +567,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('ApplicationList')
         visited = visited + ['ApplicationList']
         [
-          Stubs::Application.default(visited)
+          Application.default(visited)
         ]
       end
 
@@ -607,7 +607,7 @@ module AWS::SDK::AppConfig
     class ListConfigurationProfiles
       def self.default(visited=[])
         {
-          items: Stubs::ConfigurationProfileSummaryList.default(visited),
+          items: ConfigurationProfileSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -628,7 +628,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('ConfigurationProfileSummaryList')
         visited = visited + ['ConfigurationProfileSummaryList']
         [
-          Stubs::ConfigurationProfileSummary.default(visited)
+          ConfigurationProfileSummary.default(visited)
         ]
       end
 
@@ -652,7 +652,7 @@ module AWS::SDK::AppConfig
           id: 'id',
           name: 'name',
           location_uri: 'location_uri',
-          validator_types: Stubs::ValidatorTypeList.default(visited),
+          validator_types: ValidatorTypeList.default(visited),
           type: 'type',
         }
       end
@@ -694,7 +694,7 @@ module AWS::SDK::AppConfig
     class ListDeploymentStrategies
       def self.default(visited=[])
         {
-          items: Stubs::DeploymentStrategyList.default(visited),
+          items: DeploymentStrategyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -715,7 +715,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('DeploymentStrategyList')
         visited = visited + ['DeploymentStrategyList']
         [
-          Stubs::DeploymentStrategy.default(visited)
+          DeploymentStrategy.default(visited)
         ]
       end
 
@@ -765,7 +765,7 @@ module AWS::SDK::AppConfig
     class ListDeployments
       def self.default(visited=[])
         {
-          items: Stubs::DeploymentList.default(visited),
+          items: DeploymentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -786,7 +786,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('DeploymentList')
         visited = visited + ['DeploymentList']
         [
-          Stubs::DeploymentSummary.default(visited)
+          DeploymentSummary.default(visited)
         ]
       end
 
@@ -842,7 +842,7 @@ module AWS::SDK::AppConfig
     class ListEnvironments
       def self.default(visited=[])
         {
-          items: Stubs::EnvironmentList.default(visited),
+          items: EnvironmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -863,7 +863,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('EnvironmentList')
         visited = visited + ['EnvironmentList']
         [
-          Stubs::Environment.default(visited)
+          Environment.default(visited)
         ]
       end
 
@@ -888,7 +888,7 @@ module AWS::SDK::AppConfig
           name: 'name',
           description: 'description',
           state: 'state',
-          monitors: Stubs::MonitorList.default(visited),
+          monitors: MonitorList.default(visited),
         }
       end
 
@@ -909,7 +909,7 @@ module AWS::SDK::AppConfig
     class ListHostedConfigurationVersions
       def self.default(visited=[])
         {
-          items: Stubs::HostedConfigurationVersionSummaryList.default(visited),
+          items: HostedConfigurationVersionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -930,7 +930,7 @@ module AWS::SDK::AppConfig
         return nil if visited.include?('HostedConfigurationVersionSummaryList')
         visited = visited + ['HostedConfigurationVersionSummaryList']
         [
-          Stubs::HostedConfigurationVersionSummary.default(visited)
+          HostedConfigurationVersionSummary.default(visited)
         ]
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::AppConfig
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1025,7 +1025,7 @@ module AWS::SDK::AppConfig
           growth_factor: 1.0,
           final_bake_time_in_minutes: 1,
           state: 'state',
-          event_log: Stubs::DeploymentEvents.default(visited),
+          event_log: DeploymentEvents.default(visited),
           percentage_complete: 1.0,
           started_at: Time.now,
           completed_at: Time.now,
@@ -1076,7 +1076,7 @@ module AWS::SDK::AppConfig
           growth_factor: 1.0,
           final_bake_time_in_minutes: 1,
           state: 'state',
-          event_log: Stubs::DeploymentEvents.default(visited),
+          event_log: DeploymentEvents.default(visited),
           percentage_complete: 1.0,
           started_at: Time.now,
           completed_at: Time.now,
@@ -1166,7 +1166,7 @@ module AWS::SDK::AppConfig
           description: 'description',
           location_uri: 'location_uri',
           retrieval_role_arn: 'retrieval_role_arn',
-          validators: Stubs::ValidatorList.default(visited),
+          validators: ValidatorList.default(visited),
           type: 'type',
         }
       end
@@ -1227,7 +1227,7 @@ module AWS::SDK::AppConfig
           name: 'name',
           description: 'description',
           state: 'state',
-          monitors: Stubs::MonitorList.default(visited),
+          monitors: MonitorList.default(visited),
         }
       end
 

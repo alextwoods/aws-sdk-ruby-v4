@@ -14,8 +14,8 @@ module AWS::SDK::Athena
     class BatchGetNamedQuery
       def self.default(visited=[])
         {
-          named_queries: Stubs::NamedQueryList.default(visited),
-          unprocessed_named_query_ids: Stubs::UnprocessedNamedQueryIdList.default(visited),
+          named_queries: NamedQueryList.default(visited),
+          unprocessed_named_query_ids: UnprocessedNamedQueryIdList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('UnprocessedNamedQueryIdList')
         visited = visited + ['UnprocessedNamedQueryIdList']
         [
-          Stubs::UnprocessedNamedQueryId.default(visited)
+          UnprocessedNamedQueryId.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('NamedQueryList')
         visited = visited + ['NamedQueryList']
         [
-          Stubs::NamedQuery.default(visited)
+          NamedQuery.default(visited)
         ]
       end
 
@@ -122,8 +122,8 @@ module AWS::SDK::Athena
     class BatchGetQueryExecution
       def self.default(visited=[])
         {
-          query_executions: Stubs::QueryExecutionList.default(visited),
-          unprocessed_query_execution_ids: Stubs::UnprocessedQueryExecutionIdList.default(visited),
+          query_executions: QueryExecutionList.default(visited),
+          unprocessed_query_execution_ids: UnprocessedQueryExecutionIdList.default(visited),
         }
       end
 
@@ -142,7 +142,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('UnprocessedQueryExecutionIdList')
         visited = visited + ['UnprocessedQueryExecutionIdList']
         [
-          Stubs::UnprocessedQueryExecutionId.default(visited)
+          UnprocessedQueryExecutionId.default(visited)
         ]
       end
 
@@ -184,7 +184,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('QueryExecutionList')
         visited = visited + ['QueryExecutionList']
         [
-          Stubs::QueryExecution.default(visited)
+          QueryExecution.default(visited)
         ]
       end
 
@@ -207,12 +207,12 @@ module AWS::SDK::Athena
           query_execution_id: 'query_execution_id',
           query: 'query',
           statement_type: 'statement_type',
-          result_configuration: Stubs::ResultConfiguration.default(visited),
-          query_execution_context: Stubs::QueryExecutionContext.default(visited),
-          status: Stubs::QueryExecutionStatus.default(visited),
-          statistics: Stubs::QueryExecutionStatistics.default(visited),
+          result_configuration: ResultConfiguration.default(visited),
+          query_execution_context: QueryExecutionContext.default(visited),
+          status: QueryExecutionStatus.default(visited),
+          statistics: QueryExecutionStatistics.default(visited),
           work_group: 'work_group',
-          engine_version: Stubs::EngineVersion.default(visited),
+          engine_version: EngineVersion.default(visited),
         }
       end
 
@@ -292,7 +292,7 @@ module AWS::SDK::Athena
           state_change_reason: 'state_change_reason',
           submission_date_time: Time.now,
           completion_date_time: Time.now,
-          athena_error: Stubs::AthenaError.default(visited),
+          athena_error: AthenaError.default(visited),
         }
       end
 
@@ -359,9 +359,9 @@ module AWS::SDK::Athena
         visited = visited + ['ResultConfiguration']
         {
           output_location: 'output_location',
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
           expected_bucket_owner: 'expected_bucket_owner',
-          acl_configuration: Stubs::AclConfiguration.default(visited),
+          acl_configuration: AclConfiguration.default(visited),
         }
       end
 
@@ -532,7 +532,7 @@ module AWS::SDK::Athena
     class GetDataCatalog
       def self.default(visited=[])
         {
-          data_catalog: Stubs::DataCatalog.default(visited),
+          data_catalog: DataCatalog.default(visited),
         }
       end
 
@@ -553,7 +553,7 @@ module AWS::SDK::Athena
           name: 'name',
           description: 'description',
           type: 'type',
-          parameters: Stubs::ParametersMap.default(visited),
+          parameters: ParametersMap.default(visited),
         }
       end
 
@@ -592,7 +592,7 @@ module AWS::SDK::Athena
     class GetDatabase
       def self.default(visited=[])
         {
-          database: Stubs::Database.default(visited),
+          database: Database.default(visited),
         }
       end
 
@@ -612,7 +612,7 @@ module AWS::SDK::Athena
         {
           name: 'name',
           description: 'description',
-          parameters: Stubs::ParametersMap.default(visited),
+          parameters: ParametersMap.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::Athena
     class GetNamedQuery
       def self.default(visited=[])
         {
-          named_query: Stubs::NamedQuery.default(visited),
+          named_query: NamedQuery.default(visited),
         }
       end
 
@@ -646,7 +646,7 @@ module AWS::SDK::Athena
     class GetPreparedStatement
       def self.default(visited=[])
         {
-          prepared_statement: Stubs::PreparedStatement.default(visited),
+          prepared_statement: PreparedStatement.default(visited),
         }
       end
 
@@ -688,7 +688,7 @@ module AWS::SDK::Athena
     class GetQueryExecution
       def self.default(visited=[])
         {
-          query_execution: Stubs::QueryExecution.default(visited),
+          query_execution: QueryExecution.default(visited),
         }
       end
 
@@ -705,7 +705,7 @@ module AWS::SDK::Athena
       def self.default(visited=[])
         {
           update_count: 1,
-          result_set: Stubs::ResultSet.default(visited),
+          result_set: ResultSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -726,8 +726,8 @@ module AWS::SDK::Athena
         return nil if visited.include?('ResultSet')
         visited = visited + ['ResultSet']
         {
-          rows: Stubs::RowList.default(visited),
-          result_set_metadata: Stubs::ResultSetMetadata.default(visited),
+          rows: RowList.default(visited),
+          result_set_metadata: ResultSetMetadata.default(visited),
         }
       end
 
@@ -746,7 +746,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('ResultSetMetadata')
         visited = visited + ['ResultSetMetadata']
         {
-          column_info: Stubs::ColumnInfoList.default(visited),
+          column_info: ColumnInfoList.default(visited),
         }
       end
 
@@ -764,7 +764,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('ColumnInfoList')
         visited = visited + ['ColumnInfoList']
         [
-          Stubs::ColumnInfo.default(visited)
+          ColumnInfo.default(visited)
         ]
       end
 
@@ -820,7 +820,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('RowList')
         visited = visited + ['RowList']
         [
-          Stubs::Row.default(visited)
+          Row.default(visited)
         ]
       end
 
@@ -840,7 +840,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('Row')
         visited = visited + ['Row']
         {
-          data: Stubs::DatumList.default(visited),
+          data: DatumList.default(visited),
         }
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('DatumList')
         visited = visited + ['DatumList']
         [
-          Stubs::Datum.default(visited)
+          Datum.default(visited)
         ]
       end
 
@@ -894,7 +894,7 @@ module AWS::SDK::Athena
     class GetTableMetadata
       def self.default(visited=[])
         {
-          table_metadata: Stubs::TableMetadata.default(visited),
+          table_metadata: TableMetadata.default(visited),
         }
       end
 
@@ -916,9 +916,9 @@ module AWS::SDK::Athena
           create_time: Time.now,
           last_access_time: Time.now,
           table_type: 'table_type',
-          columns: Stubs::ColumnList.default(visited),
-          partition_keys: Stubs::ColumnList.default(visited),
-          parameters: Stubs::ParametersMap.default(visited),
+          columns: ColumnList.default(visited),
+          partition_keys: ColumnList.default(visited),
+          parameters: ParametersMap.default(visited),
         }
       end
 
@@ -942,7 +942,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('ColumnList')
         visited = visited + ['ColumnList']
         [
-          Stubs::Column.default(visited)
+          Column.default(visited)
         ]
       end
 
@@ -982,7 +982,7 @@ module AWS::SDK::Athena
     class GetWorkGroup
       def self.default(visited=[])
         {
-          work_group: Stubs::WorkGroup.default(visited),
+          work_group: WorkGroup.default(visited),
         }
       end
 
@@ -1002,7 +1002,7 @@ module AWS::SDK::Athena
         {
           name: 'name',
           state: 'state',
-          configuration: Stubs::WorkGroupConfiguration.default(visited),
+          configuration: WorkGroupConfiguration.default(visited),
           description: 'description',
           creation_time: Time.now,
         }
@@ -1026,12 +1026,12 @@ module AWS::SDK::Athena
         return nil if visited.include?('WorkGroupConfiguration')
         visited = visited + ['WorkGroupConfiguration']
         {
-          result_configuration: Stubs::ResultConfiguration.default(visited),
+          result_configuration: ResultConfiguration.default(visited),
           enforce_work_group_configuration: false,
           publish_cloud_watch_metrics_enabled: false,
           bytes_scanned_cutoff_per_query: 1,
           requester_pays_enabled: false,
-          engine_version: Stubs::EngineVersion.default(visited),
+          engine_version: EngineVersion.default(visited),
         }
       end
 
@@ -1052,7 +1052,7 @@ module AWS::SDK::Athena
     class ListDataCatalogs
       def self.default(visited=[])
         {
-          data_catalogs_summary: Stubs::DataCatalogSummaryList.default(visited),
+          data_catalogs_summary: DataCatalogSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1072,7 +1072,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('DataCatalogSummaryList')
         visited = visited + ['DataCatalogSummaryList']
         [
-          Stubs::DataCatalogSummary.default(visited)
+          DataCatalogSummary.default(visited)
         ]
       end
 
@@ -1110,7 +1110,7 @@ module AWS::SDK::Athena
     class ListDatabases
       def self.default(visited=[])
         {
-          database_list: Stubs::DatabaseList.default(visited),
+          database_list: DatabaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1130,7 +1130,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('DatabaseList')
         visited = visited + ['DatabaseList']
         [
-          Stubs::Database.default(visited)
+          Database.default(visited)
         ]
       end
 
@@ -1148,7 +1148,7 @@ module AWS::SDK::Athena
     class ListEngineVersions
       def self.default(visited=[])
         {
-          engine_versions: Stubs::EngineVersionsList.default(visited),
+          engine_versions: EngineVersionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1168,7 +1168,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('EngineVersionsList')
         visited = visited + ['EngineVersionsList']
         [
-          Stubs::EngineVersion.default(visited)
+          EngineVersion.default(visited)
         ]
       end
 
@@ -1186,7 +1186,7 @@ module AWS::SDK::Athena
     class ListNamedQueries
       def self.default(visited=[])
         {
-          named_query_ids: Stubs::NamedQueryIdList.default(visited),
+          named_query_ids: NamedQueryIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1224,7 +1224,7 @@ module AWS::SDK::Athena
     class ListPreparedStatements
       def self.default(visited=[])
         {
-          prepared_statements: Stubs::PreparedStatementsList.default(visited),
+          prepared_statements: PreparedStatementsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1244,7 +1244,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('PreparedStatementsList')
         visited = visited + ['PreparedStatementsList']
         [
-          Stubs::PreparedStatementSummary.default(visited)
+          PreparedStatementSummary.default(visited)
         ]
       end
 
@@ -1282,7 +1282,7 @@ module AWS::SDK::Athena
     class ListQueryExecutions
       def self.default(visited=[])
         {
-          query_execution_ids: Stubs::QueryExecutionIdList.default(visited),
+          query_execution_ids: QueryExecutionIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1320,7 +1320,7 @@ module AWS::SDK::Athena
     class ListTableMetadata
       def self.default(visited=[])
         {
-          table_metadata_list: Stubs::TableMetadataList.default(visited),
+          table_metadata_list: TableMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('TableMetadataList')
         visited = visited + ['TableMetadataList']
         [
-          Stubs::TableMetadata.default(visited)
+          TableMetadata.default(visited)
         ]
       end
 
@@ -1358,7 +1358,7 @@ module AWS::SDK::Athena
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1378,7 +1378,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1416,7 +1416,7 @@ module AWS::SDK::Athena
     class ListWorkGroups
       def self.default(visited=[])
         {
-          work_groups: Stubs::WorkGroupsList.default(visited),
+          work_groups: WorkGroupsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1436,7 +1436,7 @@ module AWS::SDK::Athena
         return nil if visited.include?('WorkGroupsList')
         visited = visited + ['WorkGroupsList']
         [
-          Stubs::WorkGroupSummary.default(visited)
+          WorkGroupSummary.default(visited)
         ]
       end
 
@@ -1460,7 +1460,7 @@ module AWS::SDK::Athena
           state: 'state',
           description: 'description',
           creation_time: Time.now,
-          engine_version: Stubs::EngineVersion.default(visited),
+          engine_version: EngineVersion.default(visited),
         }
       end
 

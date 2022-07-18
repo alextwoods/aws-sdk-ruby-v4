@@ -153,7 +153,7 @@ module AWS::SDK::Transfer
       def self.default(visited=[])
         {
           server_id: 'server_id',
-          access: Stubs::DescribedAccess.default(visited),
+          access: DescribedAccess.default(visited),
         }
       end
 
@@ -173,10 +173,10 @@ module AWS::SDK::Transfer
         visited = visited + ['DescribedAccess']
         {
           home_directory: 'home_directory',
-          home_directory_mappings: Stubs::HomeDirectoryMappings.default(visited),
+          home_directory_mappings: HomeDirectoryMappings.default(visited),
           home_directory_type: 'home_directory_type',
           policy: 'policy',
-          posix_profile: Stubs::PosixProfile.default(visited),
+          posix_profile: PosixProfile.default(visited),
           role: 'role',
           external_id: 'external_id',
         }
@@ -204,7 +204,7 @@ module AWS::SDK::Transfer
         {
           uid: 1,
           gid: 1,
-          secondary_gids: Stubs::SecondaryGids.default(visited),
+          secondary_gids: SecondaryGids.default(visited),
         }
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('HomeDirectoryMappings')
         visited = visited + ['HomeDirectoryMappings']
         [
-          Stubs::HomeDirectoryMapEntry.default(visited)
+          HomeDirectoryMapEntry.default(visited)
         ]
       end
 
@@ -283,7 +283,7 @@ module AWS::SDK::Transfer
       def self.default(visited=[])
         {
           workflow_id: 'workflow_id',
-          execution: Stubs::DescribedExecution.default(visited),
+          execution: DescribedExecution.default(visited),
         }
       end
 
@@ -303,13 +303,13 @@ module AWS::SDK::Transfer
         visited = visited + ['DescribedExecution']
         {
           execution_id: 'execution_id',
-          initial_file_location: Stubs::FileLocation.default(visited),
-          service_metadata: Stubs::ServiceMetadata.default(visited),
+          initial_file_location: FileLocation.default(visited),
+          service_metadata: ServiceMetadata.default(visited),
           execution_role: 'execution_role',
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
-          posix_profile: Stubs::PosixProfile.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
+          posix_profile: PosixProfile.default(visited),
           status: 'status',
-          results: Stubs::ExecutionResults.default(visited),
+          results: ExecutionResults.default(visited),
         }
       end
 
@@ -334,8 +334,8 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ExecutionResults')
         visited = visited + ['ExecutionResults']
         {
-          steps: Stubs::ExecutionStepResults.default(visited),
-          on_exception_steps: Stubs::ExecutionStepResults.default(visited),
+          steps: ExecutionStepResults.default(visited),
+          on_exception_steps: ExecutionStepResults.default(visited),
         }
       end
 
@@ -354,7 +354,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ExecutionStepResults')
         visited = visited + ['ExecutionStepResults']
         [
-          Stubs::ExecutionStepResult.default(visited)
+          ExecutionStepResult.default(visited)
         ]
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::Transfer
         {
           step_type: 'step_type',
           outputs: 'outputs',
-          error: Stubs::ExecutionError.default(visited),
+          error: ExecutionError.default(visited),
         }
       end
 
@@ -436,7 +436,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ServiceMetadata')
         visited = visited + ['ServiceMetadata']
         {
-          user_details: Stubs::UserDetails.default(visited),
+          user_details: UserDetails.default(visited),
         }
       end
 
@@ -476,8 +476,8 @@ module AWS::SDK::Transfer
         return nil if visited.include?('FileLocation')
         visited = visited + ['FileLocation']
         {
-          s3_file_location: Stubs::S3FileLocation.default(visited),
-          efs_file_location: Stubs::EfsFileLocation.default(visited),
+          s3_file_location: S3FileLocation.default(visited),
+          efs_file_location: EfsFileLocation.default(visited),
         }
       end
 
@@ -538,7 +538,7 @@ module AWS::SDK::Transfer
     class DescribeSecurityPolicy
       def self.default(visited=[])
         {
-          security_policy: Stubs::DescribedSecurityPolicy.default(visited),
+          security_policy: DescribedSecurityPolicy.default(visited),
         }
       end
 
@@ -558,10 +558,10 @@ module AWS::SDK::Transfer
         {
           fips: false,
           security_policy_name: 'security_policy_name',
-          ssh_ciphers: Stubs::SecurityPolicyOptions.default(visited),
-          ssh_kexs: Stubs::SecurityPolicyOptions.default(visited),
-          ssh_macs: Stubs::SecurityPolicyOptions.default(visited),
-          tls_ciphers: Stubs::SecurityPolicyOptions.default(visited),
+          ssh_ciphers: SecurityPolicyOptions.default(visited),
+          ssh_kexs: SecurityPolicyOptions.default(visited),
+          ssh_macs: SecurityPolicyOptions.default(visited),
+          tls_ciphers: SecurityPolicyOptions.default(visited),
         }
       end
 
@@ -602,7 +602,7 @@ module AWS::SDK::Transfer
     class DescribeServer
       def self.default(visited=[])
         {
-          server: Stubs::DescribedServer.default(visited),
+          server: DescribedServer.default(visited),
         }
       end
 
@@ -622,23 +622,23 @@ module AWS::SDK::Transfer
         {
           arn: 'arn',
           certificate: 'certificate',
-          protocol_details: Stubs::ProtocolDetails.default(visited),
+          protocol_details: ProtocolDetails.default(visited),
           domain: 'domain',
-          endpoint_details: Stubs::EndpointDetails.default(visited),
+          endpoint_details: EndpointDetails.default(visited),
           endpoint_type: 'endpoint_type',
           host_key_fingerprint: 'host_key_fingerprint',
-          identity_provider_details: Stubs::IdentityProviderDetails.default(visited),
+          identity_provider_details: IdentityProviderDetails.default(visited),
           identity_provider_type: 'identity_provider_type',
           logging_role: 'logging_role',
           post_authentication_login_banner: 'post_authentication_login_banner',
           pre_authentication_login_banner: 'pre_authentication_login_banner',
-          protocols: Stubs::Protocols.default(visited),
+          protocols: Protocols.default(visited),
           security_policy_name: 'security_policy_name',
           server_id: 'server_id',
           state: 'state',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           user_count: 1,
-          workflow_details: Stubs::WorkflowDetails.default(visited),
+          workflow_details: WorkflowDetails.default(visited),
         }
       end
 
@@ -674,7 +674,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('WorkflowDetails')
         visited = visited + ['WorkflowDetails']
         {
-          on_upload: Stubs::OnUploadWorkflowDetails.default(visited),
+          on_upload: OnUploadWorkflowDetails.default(visited),
         }
       end
 
@@ -692,7 +692,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('OnUploadWorkflowDetails')
         visited = visited + ['OnUploadWorkflowDetails']
         [
-          Stubs::WorkflowDetail.default(visited)
+          WorkflowDetail.default(visited)
         ]
       end
 
@@ -732,7 +732,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -816,11 +816,11 @@ module AWS::SDK::Transfer
         return nil if visited.include?('EndpointDetails')
         visited = visited + ['EndpointDetails']
         {
-          address_allocation_ids: Stubs::AddressAllocationIds.default(visited),
-          subnet_ids: Stubs::SubnetIds.default(visited),
+          address_allocation_ids: AddressAllocationIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
           vpc_endpoint_id: 'vpc_endpoint_id',
           vpc_id: 'vpc_id',
-          security_group_ids: Stubs::SecurityGroupIds.default(visited),
+          security_group_ids: SecurityGroupIds.default(visited),
         }
       end
 
@@ -923,7 +923,7 @@ module AWS::SDK::Transfer
       def self.default(visited=[])
         {
           server_id: 'server_id',
-          user: Stubs::DescribedUser.default(visited),
+          user: DescribedUser.default(visited),
         }
       end
 
@@ -944,13 +944,13 @@ module AWS::SDK::Transfer
         {
           arn: 'arn',
           home_directory: 'home_directory',
-          home_directory_mappings: Stubs::HomeDirectoryMappings.default(visited),
+          home_directory_mappings: HomeDirectoryMappings.default(visited),
           home_directory_type: 'home_directory_type',
           policy: 'policy',
-          posix_profile: Stubs::PosixProfile.default(visited),
+          posix_profile: PosixProfile.default(visited),
           role: 'role',
-          ssh_public_keys: Stubs::SshPublicKeys.default(visited),
-          tags: Stubs::Tags.default(visited),
+          ssh_public_keys: SshPublicKeys.default(visited),
+          tags: Tags.default(visited),
           user_name: 'user_name',
         }
       end
@@ -978,7 +978,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('SshPublicKeys')
         visited = visited + ['SshPublicKeys']
         [
-          Stubs::SshPublicKey.default(visited)
+          SshPublicKey.default(visited)
         ]
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::Transfer
     class DescribeWorkflow
       def self.default(visited=[])
         {
-          workflow: Stubs::DescribedWorkflow.default(visited),
+          workflow: DescribedWorkflow.default(visited),
         }
       end
 
@@ -1038,10 +1038,10 @@ module AWS::SDK::Transfer
         {
           arn: 'arn',
           description: 'description',
-          steps: Stubs::WorkflowSteps.default(visited),
-          on_exception_steps: Stubs::WorkflowSteps.default(visited),
+          steps: WorkflowSteps.default(visited),
+          on_exception_steps: WorkflowSteps.default(visited),
           workflow_id: 'workflow_id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1064,7 +1064,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('WorkflowSteps')
         visited = visited + ['WorkflowSteps']
         [
-          Stubs::WorkflowStep.default(visited)
+          WorkflowStep.default(visited)
         ]
       end
 
@@ -1085,10 +1085,10 @@ module AWS::SDK::Transfer
         visited = visited + ['WorkflowStep']
         {
           type: 'type',
-          copy_step_details: Stubs::CopyStepDetails.default(visited),
-          custom_step_details: Stubs::CustomStepDetails.default(visited),
-          delete_step_details: Stubs::DeleteStepDetails.default(visited),
-          tag_step_details: Stubs::TagStepDetails.default(visited),
+          copy_step_details: CopyStepDetails.default(visited),
+          custom_step_details: CustomStepDetails.default(visited),
+          delete_step_details: DeleteStepDetails.default(visited),
+          tag_step_details: TagStepDetails.default(visited),
         }
       end
 
@@ -1111,7 +1111,7 @@ module AWS::SDK::Transfer
         visited = visited + ['TagStepDetails']
         {
           name: 'name',
-          tags: Stubs::S3Tags.default(visited),
+          tags: S3Tags.default(visited),
           source_file_location: 'source_file_location',
         }
       end
@@ -1132,7 +1132,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('S3Tags')
         visited = visited + ['S3Tags']
         [
-          Stubs::S3Tag.default(visited)
+          S3Tag.default(visited)
         ]
       end
 
@@ -1217,7 +1217,7 @@ module AWS::SDK::Transfer
         visited = visited + ['CopyStepDetails']
         {
           name: 'name',
-          destination_file_location: Stubs::InputFileLocation.default(visited),
+          destination_file_location: InputFileLocation.default(visited),
           overwrite_existing: 'overwrite_existing',
           source_file_location: 'source_file_location',
         }
@@ -1240,8 +1240,8 @@ module AWS::SDK::Transfer
         return nil if visited.include?('InputFileLocation')
         visited = visited + ['InputFileLocation']
         {
-          s3_file_location: Stubs::S3InputFileLocation.default(visited),
-          efs_file_location: Stubs::EfsFileLocation.default(visited),
+          s3_file_location: S3InputFileLocation.default(visited),
+          efs_file_location: EfsFileLocation.default(visited),
         }
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::Transfer
         {
           next_token: 'next_token',
           server_id: 'server_id',
-          accesses: Stubs::ListedAccesses.default(visited),
+          accesses: ListedAccesses.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ListedAccesses')
         visited = visited + ['ListedAccesses']
         [
-          Stubs::ListedAccess.default(visited)
+          ListedAccess.default(visited)
         ]
       end
 
@@ -1364,7 +1364,7 @@ module AWS::SDK::Transfer
         {
           next_token: 'next_token',
           workflow_id: 'workflow_id',
-          executions: Stubs::ListedExecutions.default(visited),
+          executions: ListedExecutions.default(visited),
         }
       end
 
@@ -1384,7 +1384,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ListedExecutions')
         visited = visited + ['ListedExecutions']
         [
-          Stubs::ListedExecution.default(visited)
+          ListedExecution.default(visited)
         ]
       end
 
@@ -1405,8 +1405,8 @@ module AWS::SDK::Transfer
         visited = visited + ['ListedExecution']
         {
           execution_id: 'execution_id',
-          initial_file_location: Stubs::FileLocation.default(visited),
-          service_metadata: Stubs::ServiceMetadata.default(visited),
+          initial_file_location: FileLocation.default(visited),
+          service_metadata: ServiceMetadata.default(visited),
           status: 'status',
         }
       end
@@ -1427,7 +1427,7 @@ module AWS::SDK::Transfer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          security_policy_names: Stubs::SecurityPolicyNames.default(visited),
+          security_policy_names: SecurityPolicyNames.default(visited),
         }
       end
 
@@ -1465,7 +1465,7 @@ module AWS::SDK::Transfer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          servers: Stubs::ListedServers.default(visited),
+          servers: ListedServers.default(visited),
         }
       end
 
@@ -1484,7 +1484,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ListedServers')
         visited = visited + ['ListedServers']
         [
-          Stubs::ListedServer.default(visited)
+          ListedServer.default(visited)
         ]
       end
 
@@ -1536,7 +1536,7 @@ module AWS::SDK::Transfer
         {
           arn: 'arn',
           next_token: 'next_token',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::Transfer
         {
           next_token: 'next_token',
           server_id: 'server_id',
-          users: Stubs::ListedUsers.default(visited),
+          users: ListedUsers.default(visited),
         }
       end
 
@@ -1576,7 +1576,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ListedUsers')
         visited = visited + ['ListedUsers']
         [
-          Stubs::ListedUser.default(visited)
+          ListedUser.default(visited)
         ]
       end
 
@@ -1623,7 +1623,7 @@ module AWS::SDK::Transfer
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          workflows: Stubs::ListedWorkflows.default(visited),
+          workflows: ListedWorkflows.default(visited),
         }
       end
 
@@ -1642,7 +1642,7 @@ module AWS::SDK::Transfer
         return nil if visited.include?('ListedWorkflows')
         visited = visited + ['ListedWorkflows']
         [
-          Stubs::ListedWorkflow.default(visited)
+          ListedWorkflow.default(visited)
         ]
       end
 

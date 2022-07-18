@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::DataExchange
   module Validators
 
@@ -20,7 +22,7 @@ module AWS::SDK::DataExchange
     class Action
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Action, context: context)
-        Validators::AutoExportRevisionToS3RequestDetails.validate!(input[:export_revision_to_s3], context: "#{context}[:export_revision_to_s3]") unless input[:export_revision_to_s3].nil?
+        AutoExportRevisionToS3RequestDetails.validate!(input[:export_revision_to_s3], context: "#{context}[:export_revision_to_s3]") unless input[:export_revision_to_s3].nil?
       end
     end
 
@@ -51,9 +53,9 @@ module AWS::SDK::DataExchange
     class AssetDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssetDetails, context: context)
-        Validators::S3SnapshotAsset.validate!(input[:s3_snapshot_asset], context: "#{context}[:s3_snapshot_asset]") unless input[:s3_snapshot_asset].nil?
-        Validators::RedshiftDataShareAsset.validate!(input[:redshift_data_share_asset], context: "#{context}[:redshift_data_share_asset]") unless input[:redshift_data_share_asset].nil?
-        Validators::ApiGatewayApiAsset.validate!(input[:api_gateway_api_asset], context: "#{context}[:api_gateway_api_asset]") unless input[:api_gateway_api_asset].nil?
+        S3SnapshotAsset.validate!(input[:s3_snapshot_asset], context: "#{context}[:s3_snapshot_asset]") unless input[:s3_snapshot_asset].nil?
+        RedshiftDataShareAsset.validate!(input[:redshift_data_share_asset], context: "#{context}[:redshift_data_share_asset]") unless input[:redshift_data_share_asset].nil?
+        ApiGatewayApiAsset.validate!(input[:api_gateway_api_asset], context: "#{context}[:api_gateway_api_asset]") unless input[:api_gateway_api_asset].nil?
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssetEntry, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::AssetDetails.validate!(input[:asset_details], context: "#{context}[:asset_details]") unless input[:asset_details].nil?
+        AssetDetails.validate!(input[:asset_details], context: "#{context}[:asset_details]") unless input[:asset_details].nil?
         Hearth::Validator.validate!(input[:asset_type], ::String, context: "#{context}[:asset_type]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
@@ -92,8 +94,8 @@ module AWS::SDK::DataExchange
     class AutoExportRevisionToS3RequestDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AutoExportRevisionToS3RequestDetails, context: context)
-        Validators::ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::AutoExportRevisionDestinationEntry.validate!(input[:revision_destination], context: "#{context}[:revision_destination]") unless input[:revision_destination].nil?
+        ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        AutoExportRevisionDestinationEntry.validate!(input[:revision_destination], context: "#{context}[:revision_destination]") unless input[:revision_destination].nil?
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:asset_type], ::String, context: "#{context}[:asset_type]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -139,9 +141,9 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:origin], ::String, context: "#{context}[:origin]")
-        Validators::OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
+        OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
     end
@@ -149,18 +151,18 @@ module AWS::SDK::DataExchange
     class CreateEventActionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEventActionInput, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
       end
     end
 
     class CreateEventActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateEventActionOutput, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -169,7 +171,7 @@ module AWS::SDK::DataExchange
     class CreateJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateJobInput, context: context)
-        Validators::RequestDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        RequestDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
       end
     end
@@ -179,8 +181,8 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input, Types::CreateJobOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResponseDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
-        Validators::ListOfJobError.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        ResponseDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ListOfJobError.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
@@ -193,7 +195,7 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input, Types::CreateRevisionInput, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -207,7 +209,7 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:finalized], ::TrueClass, ::FalseClass, context: "#{context}[:finalized]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:revocation_comment], ::String, context: "#{context}[:revocation_comment]")
         Hearth::Validator.validate!(input[:revoked], ::TrueClass, ::FalseClass, context: "#{context}[:revoked]")
@@ -225,7 +227,7 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:origin], ::String, context: "#{context}[:origin]")
-        Validators::OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
+        OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -289,25 +291,25 @@ module AWS::SDK::DataExchange
     class Details
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Details, context: context)
-        Validators::ImportAssetFromSignedUrlJobErrorDetails.validate!(input[:import_asset_from_signed_url_job_error_details], context: "#{context}[:import_asset_from_signed_url_job_error_details]") unless input[:import_asset_from_signed_url_job_error_details].nil?
-        Validators::ListOfAssetSourceEntry.validate!(input[:import_assets_from_s3_job_error_details], context: "#{context}[:import_assets_from_s3_job_error_details]") unless input[:import_assets_from_s3_job_error_details].nil?
+        ImportAssetFromSignedUrlJobErrorDetails.validate!(input[:import_asset_from_signed_url_job_error_details], context: "#{context}[:import_asset_from_signed_url_job_error_details]") unless input[:import_asset_from_signed_url_job_error_details].nil?
+        ListOfAssetSourceEntry.validate!(input[:import_assets_from_s3_job_error_details], context: "#{context}[:import_assets_from_s3_job_error_details]") unless input[:import_assets_from_s3_job_error_details].nil?
       end
     end
 
     class Event
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Event, context: context)
-        Validators::RevisionPublished.validate!(input[:revision_published], context: "#{context}[:revision_published]") unless input[:revision_published].nil?
+        RevisionPublished.validate!(input[:revision_published], context: "#{context}[:revision_published]") unless input[:revision_published].nil?
       end
     end
 
     class EventActionEntry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventActionEntry, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -336,9 +338,9 @@ module AWS::SDK::DataExchange
     class ExportAssetsToS3RequestDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportAssetsToS3RequestDetails, context: context)
-        Validators::ListOfAssetDestinationEntry.validate!(input[:asset_destinations], context: "#{context}[:asset_destinations]") unless input[:asset_destinations].nil?
+        ListOfAssetDestinationEntry.validate!(input[:asset_destinations], context: "#{context}[:asset_destinations]") unless input[:asset_destinations].nil?
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
     end
@@ -346,9 +348,9 @@ module AWS::SDK::DataExchange
     class ExportAssetsToS3ResponseDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportAssetsToS3ResponseDetails, context: context)
-        Validators::ListOfAssetDestinationEntry.validate!(input[:asset_destinations], context: "#{context}[:asset_destinations]") unless input[:asset_destinations].nil?
+        ListOfAssetDestinationEntry.validate!(input[:asset_destinations], context: "#{context}[:asset_destinations]") unless input[:asset_destinations].nil?
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
     end
@@ -357,8 +359,8 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportRevisionsToS3RequestDetails, context: context)
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::ListOfRevisionDestinationEntry.validate!(input[:revision_destinations], context: "#{context}[:revision_destinations]") unless input[:revision_destinations].nil?
+        ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        ListOfRevisionDestinationEntry.validate!(input[:revision_destinations], context: "#{context}[:revision_destinations]") unless input[:revision_destinations].nil?
       end
     end
 
@@ -366,8 +368,8 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportRevisionsToS3ResponseDetails, context: context)
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
-        Validators::ListOfRevisionDestinationEntry.validate!(input[:revision_destinations], context: "#{context}[:revision_destinations]") unless input[:revision_destinations].nil?
+        ExportServerSideEncryption.validate!(input[:encryption], context: "#{context}[:encryption]") unless input[:encryption].nil?
+        ListOfRevisionDestinationEntry.validate!(input[:revision_destinations], context: "#{context}[:revision_destinations]") unless input[:revision_destinations].nil?
         Hearth::Validator.validate!(input[:event_action_arn], ::String, context: "#{context}[:event_action_arn]")
       end
     end
@@ -393,7 +395,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssetOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::AssetDetails.validate!(input[:asset_details], context: "#{context}[:asset_details]") unless input[:asset_details].nil?
+        AssetDetails.validate!(input[:asset_details], context: "#{context}[:asset_details]") unless input[:asset_details].nil?
         Hearth::Validator.validate!(input[:asset_type], ::String, context: "#{context}[:asset_type]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
@@ -422,9 +424,9 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:origin], ::String, context: "#{context}[:origin]")
-        Validators::OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
+        OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
     end
@@ -439,10 +441,10 @@ module AWS::SDK::DataExchange
     class GetEventActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEventActionOutput, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -460,8 +462,8 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input, Types::GetJobOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResponseDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
-        Validators::ListOfJobError.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        ResponseDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ListOfJobError.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
@@ -487,7 +489,7 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:finalized], ::TrueClass, ::FalseClass, context: "#{context}[:finalized]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
         Hearth::Validator.validate!(input[:revocation_comment], ::String, context: "#{context}[:revocation_comment]")
         Hearth::Validator.validate!(input[:revoked], ::TrueClass, ::FalseClass, context: "#{context}[:revoked]")
@@ -559,7 +561,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromRedshiftDataSharesRequestDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportAssetsFromRedshiftDataSharesRequestDetails, context: context)
-        Validators::ListOfRedshiftDataShareAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
+        ListOfRedshiftDataShareAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
@@ -568,7 +570,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromRedshiftDataSharesResponseDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportAssetsFromRedshiftDataSharesResponseDetails, context: context)
-        Validators::ListOfRedshiftDataShareAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
+        ListOfRedshiftDataShareAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
@@ -577,7 +579,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromS3RequestDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportAssetsFromS3RequestDetails, context: context)
-        Validators::ListOfAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
+        ListOfAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
@@ -586,7 +588,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromS3ResponseDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportAssetsFromS3ResponseDetails, context: context)
-        Validators::ListOfAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
+        ListOfAssetSourceEntry.validate!(input[:asset_sources], context: "#{context}[:asset_sources]") unless input[:asset_sources].nil?
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
       end
@@ -604,8 +606,8 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input, Types::JobEntry, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResponseDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
-        Validators::ListOfJobError.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
+        ResponseDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        ListOfJobError.validate!(input[:errors], context: "#{context}[:errors]") unless input[:errors].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
@@ -617,7 +619,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobError, context: context)
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
-        Validators::Details.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        Details.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
         Hearth::Validator.validate!(input[:limit_name], ::String, context: "#{context}[:limit_name]")
         Hearth::Validator.validate!(input[:limit_value], ::Float, context: "#{context}[:limit_value]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
@@ -639,7 +641,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSetRevisionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ListOfRevisionEntry.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
+        ListOfRevisionEntry.validate!(input[:revisions], context: "#{context}[:revisions]") unless input[:revisions].nil?
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::DataExchange
     class ListDataSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDataSetsOutput, context: context)
-        Validators::ListOfDataSetEntry.validate!(input[:data_sets], context: "#{context}[:data_sets]") unless input[:data_sets].nil?
+        ListOfDataSetEntry.validate!(input[:data_sets], context: "#{context}[:data_sets]") unless input[:data_sets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -672,7 +674,7 @@ module AWS::SDK::DataExchange
     class ListEventActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEventActionsOutput, context: context)
-        Validators::ListOfEventActionEntry.validate!(input[:event_actions], context: "#{context}[:event_actions]") unless input[:event_actions].nil?
+        ListOfEventActionEntry.validate!(input[:event_actions], context: "#{context}[:event_actions]") unless input[:event_actions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -690,7 +692,7 @@ module AWS::SDK::DataExchange
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::ListOfJobEntry.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        ListOfJobEntry.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -699,7 +701,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetDestinationEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetDestinationEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -708,7 +710,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -717,7 +719,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetSourceEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetSourceEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -726,7 +728,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSetEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSetEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -735,7 +737,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventActionEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventActionEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -744,7 +746,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -753,7 +755,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -762,7 +764,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RedshiftDataShareAssetSourceEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RedshiftDataShareAssetSourceEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -771,7 +773,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RevisionDestinationEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RevisionDestinationEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -780,7 +782,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RevisionEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RevisionEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -807,7 +809,7 @@ module AWS::SDK::DataExchange
     class ListRevisionAssetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRevisionAssetsOutput, context: context)
-        Validators::ListOfAssetEntry.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
+        ListOfAssetEntry.validate!(input[:assets], context: "#{context}[:assets]") unless input[:assets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -822,7 +824,7 @@ module AWS::SDK::DataExchange
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -860,13 +862,13 @@ module AWS::SDK::DataExchange
     class RequestDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RequestDetails, context: context)
-        Validators::ExportAssetToSignedUrlRequestDetails.validate!(input[:export_asset_to_signed_url], context: "#{context}[:export_asset_to_signed_url]") unless input[:export_asset_to_signed_url].nil?
-        Validators::ExportAssetsToS3RequestDetails.validate!(input[:export_assets_to_s3], context: "#{context}[:export_assets_to_s3]") unless input[:export_assets_to_s3].nil?
-        Validators::ExportRevisionsToS3RequestDetails.validate!(input[:export_revisions_to_s3], context: "#{context}[:export_revisions_to_s3]") unless input[:export_revisions_to_s3].nil?
-        Validators::ImportAssetFromSignedUrlRequestDetails.validate!(input[:import_asset_from_signed_url], context: "#{context}[:import_asset_from_signed_url]") unless input[:import_asset_from_signed_url].nil?
-        Validators::ImportAssetsFromS3RequestDetails.validate!(input[:import_assets_from_s3], context: "#{context}[:import_assets_from_s3]") unless input[:import_assets_from_s3].nil?
-        Validators::ImportAssetsFromRedshiftDataSharesRequestDetails.validate!(input[:import_assets_from_redshift_data_shares], context: "#{context}[:import_assets_from_redshift_data_shares]") unless input[:import_assets_from_redshift_data_shares].nil?
-        Validators::ImportAssetFromApiGatewayApiRequestDetails.validate!(input[:import_asset_from_api_gateway_api], context: "#{context}[:import_asset_from_api_gateway_api]") unless input[:import_asset_from_api_gateway_api].nil?
+        ExportAssetToSignedUrlRequestDetails.validate!(input[:export_asset_to_signed_url], context: "#{context}[:export_asset_to_signed_url]") unless input[:export_asset_to_signed_url].nil?
+        ExportAssetsToS3RequestDetails.validate!(input[:export_assets_to_s3], context: "#{context}[:export_assets_to_s3]") unless input[:export_assets_to_s3].nil?
+        ExportRevisionsToS3RequestDetails.validate!(input[:export_revisions_to_s3], context: "#{context}[:export_revisions_to_s3]") unless input[:export_revisions_to_s3].nil?
+        ImportAssetFromSignedUrlRequestDetails.validate!(input[:import_asset_from_signed_url], context: "#{context}[:import_asset_from_signed_url]") unless input[:import_asset_from_signed_url].nil?
+        ImportAssetsFromS3RequestDetails.validate!(input[:import_assets_from_s3], context: "#{context}[:import_assets_from_s3]") unless input[:import_assets_from_s3].nil?
+        ImportAssetsFromRedshiftDataSharesRequestDetails.validate!(input[:import_assets_from_redshift_data_shares], context: "#{context}[:import_assets_from_redshift_data_shares]") unless input[:import_assets_from_redshift_data_shares].nil?
+        ImportAssetFromApiGatewayApiRequestDetails.validate!(input[:import_asset_from_api_gateway_api], context: "#{context}[:import_asset_from_api_gateway_api]") unless input[:import_asset_from_api_gateway_api].nil?
       end
     end
 
@@ -882,13 +884,13 @@ module AWS::SDK::DataExchange
     class ResponseDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseDetails, context: context)
-        Validators::ExportAssetToSignedUrlResponseDetails.validate!(input[:export_asset_to_signed_url], context: "#{context}[:export_asset_to_signed_url]") unless input[:export_asset_to_signed_url].nil?
-        Validators::ExportAssetsToS3ResponseDetails.validate!(input[:export_assets_to_s3], context: "#{context}[:export_assets_to_s3]") unless input[:export_assets_to_s3].nil?
-        Validators::ExportRevisionsToS3ResponseDetails.validate!(input[:export_revisions_to_s3], context: "#{context}[:export_revisions_to_s3]") unless input[:export_revisions_to_s3].nil?
-        Validators::ImportAssetFromSignedUrlResponseDetails.validate!(input[:import_asset_from_signed_url], context: "#{context}[:import_asset_from_signed_url]") unless input[:import_asset_from_signed_url].nil?
-        Validators::ImportAssetsFromS3ResponseDetails.validate!(input[:import_assets_from_s3], context: "#{context}[:import_assets_from_s3]") unless input[:import_assets_from_s3].nil?
-        Validators::ImportAssetsFromRedshiftDataSharesResponseDetails.validate!(input[:import_assets_from_redshift_data_shares], context: "#{context}[:import_assets_from_redshift_data_shares]") unless input[:import_assets_from_redshift_data_shares].nil?
-        Validators::ImportAssetFromApiGatewayApiResponseDetails.validate!(input[:import_asset_from_api_gateway_api], context: "#{context}[:import_asset_from_api_gateway_api]") unless input[:import_asset_from_api_gateway_api].nil?
+        ExportAssetToSignedUrlResponseDetails.validate!(input[:export_asset_to_signed_url], context: "#{context}[:export_asset_to_signed_url]") unless input[:export_asset_to_signed_url].nil?
+        ExportAssetsToS3ResponseDetails.validate!(input[:export_assets_to_s3], context: "#{context}[:export_assets_to_s3]") unless input[:export_assets_to_s3].nil?
+        ExportRevisionsToS3ResponseDetails.validate!(input[:export_revisions_to_s3], context: "#{context}[:export_revisions_to_s3]") unless input[:export_revisions_to_s3].nil?
+        ImportAssetFromSignedUrlResponseDetails.validate!(input[:import_asset_from_signed_url], context: "#{context}[:import_asset_from_signed_url]") unless input[:import_asset_from_signed_url].nil?
+        ImportAssetsFromS3ResponseDetails.validate!(input[:import_assets_from_s3], context: "#{context}[:import_assets_from_s3]") unless input[:import_assets_from_s3].nil?
+        ImportAssetsFromRedshiftDataSharesResponseDetails.validate!(input[:import_assets_from_redshift_data_shares], context: "#{context}[:import_assets_from_redshift_data_shares]") unless input[:import_assets_from_redshift_data_shares].nil?
+        ImportAssetFromApiGatewayApiResponseDetails.validate!(input[:import_asset_from_api_gateway_api], context: "#{context}[:import_asset_from_api_gateway_api]") unless input[:import_asset_from_api_gateway_api].nil?
       end
     end
 
@@ -962,10 +964,10 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendApiAssetInput, context: context)
         Hearth::Validator.validate!(input[:body], ::String, context: "#{context}[:body]")
-        Validators::MapOf__string.validate!(input[:query_string_parameters], context: "#{context}[:query_string_parameters]") unless input[:query_string_parameters].nil?
+        MapOf__string.validate!(input[:query_string_parameters], context: "#{context}[:query_string_parameters]") unless input[:query_string_parameters].nil?
         Hearth::Validator.validate!(input[:asset_id], ::String, context: "#{context}[:asset_id]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
-        Validators::MapOf__string.validate!(input[:request_headers], context: "#{context}[:request_headers]") unless input[:request_headers].nil?
+        MapOf__string.validate!(input[:request_headers], context: "#{context}[:request_headers]") unless input[:request_headers].nil?
         Hearth::Validator.validate!(input[:member_method], ::String, context: "#{context}[:member_method]")
         Hearth::Validator.validate!(input[:path], ::String, context: "#{context}[:path]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
@@ -976,7 +978,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendApiAssetOutput, context: context)
         Hearth::Validator.validate!(input[:body], ::String, context: "#{context}[:body]")
-        Validators::MapOf__string.validate!(input[:response_headers], context: "#{context}[:response_headers]") unless input[:response_headers].nil?
+        MapOf__string.validate!(input[:response_headers], context: "#{context}[:response_headers]") unless input[:response_headers].nil?
       end
     end
 
@@ -1006,7 +1008,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MapOf__string.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1027,7 +1029,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::ListOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        ListOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1051,7 +1053,7 @@ module AWS::SDK::DataExchange
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAssetOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::AssetDetails.validate!(input[:asset_details], context: "#{context}[:asset_details]") unless input[:asset_details].nil?
+        AssetDetails.validate!(input[:asset_details], context: "#{context}[:asset_details]") unless input[:asset_details].nil?
         Hearth::Validator.validate!(input[:asset_type], ::String, context: "#{context}[:asset_type]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:data_set_id], ::String, context: "#{context}[:data_set_id]")
@@ -1082,7 +1084,7 @@ module AWS::SDK::DataExchange
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:origin], ::String, context: "#{context}[:origin]")
-        Validators::OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
+        OriginDetails.validate!(input[:origin_details], context: "#{context}[:origin_details]") unless input[:origin_details].nil?
         Hearth::Validator.validate!(input[:source_id], ::String, context: "#{context}[:source_id]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -1091,7 +1093,7 @@ module AWS::SDK::DataExchange
     class UpdateEventActionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEventActionInput, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:event_action_id], ::String, context: "#{context}[:event_action_id]")
       end
     end
@@ -1099,10 +1101,10 @@ module AWS::SDK::DataExchange
     class UpdateEventActionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEventActionOutput, context: context)
-        Validators::Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
+        Action.validate!(input[:action], context: "#{context}[:action]") unless input[:action].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
+        Event.validate!(input[:event], context: "#{context}[:event]") unless input[:event].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::WellArchitected
@@ -80,7 +82,7 @@ module AWS::SDK::WellArchitected
     def associate_lenses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateLensesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateLensesInput,
         validate_input: @config.validate_input
@@ -180,7 +182,7 @@ module AWS::SDK::WellArchitected
     def create_lens_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLensShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLensShareInput,
         validate_input: @config.validate_input
@@ -276,7 +278,7 @@ module AWS::SDK::WellArchitected
     def create_lens_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLensVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLensVersionInput,
         validate_input: @config.validate_input
@@ -364,7 +366,7 @@ module AWS::SDK::WellArchitected
     def create_milestone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMilestoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMilestoneInput,
         validate_input: @config.validate_input
@@ -658,7 +660,7 @@ module AWS::SDK::WellArchitected
     def create_workload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkloadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkloadInput,
         validate_input: @config.validate_input
@@ -754,7 +756,7 @@ module AWS::SDK::WellArchitected
     def create_workload_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkloadShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkloadShareInput,
         validate_input: @config.validate_input
@@ -854,7 +856,7 @@ module AWS::SDK::WellArchitected
     def delete_lens(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLensInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLensInput,
         validate_input: @config.validate_input
@@ -952,7 +954,7 @@ module AWS::SDK::WellArchitected
     def delete_lens_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLensShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLensShareInput,
         validate_input: @config.validate_input
@@ -1032,7 +1034,7 @@ module AWS::SDK::WellArchitected
     def delete_workload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkloadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkloadInput,
         validate_input: @config.validate_input
@@ -1116,7 +1118,7 @@ module AWS::SDK::WellArchitected
     def delete_workload_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkloadShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkloadShareInput,
         validate_input: @config.validate_input
@@ -1195,7 +1197,7 @@ module AWS::SDK::WellArchitected
     def disassociate_lenses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateLensesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateLensesInput,
         validate_input: @config.validate_input
@@ -1283,7 +1285,7 @@ module AWS::SDK::WellArchitected
     def export_lens(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportLensInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportLensInput,
         validate_input: @config.validate_input
@@ -1397,7 +1399,7 @@ module AWS::SDK::WellArchitected
     def get_answer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnswerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnswerInput,
         validate_input: @config.validate_input
@@ -1476,7 +1478,7 @@ module AWS::SDK::WellArchitected
     def get_lens(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLensInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLensInput,
         validate_input: @config.validate_input
@@ -1572,7 +1574,7 @@ module AWS::SDK::WellArchitected
     def get_lens_review(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLensReviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLensReviewInput,
         validate_input: @config.validate_input
@@ -1655,7 +1657,7 @@ module AWS::SDK::WellArchitected
     def get_lens_review_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLensReviewReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLensReviewReportInput,
         validate_input: @config.validate_input
@@ -1747,7 +1749,7 @@ module AWS::SDK::WellArchitected
     def get_lens_version_difference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLensVersionDifferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLensVersionDifferenceInput,
         validate_input: @config.validate_input
@@ -1855,7 +1857,7 @@ module AWS::SDK::WellArchitected
     def get_milestone(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMilestoneInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMilestoneInput,
         validate_input: @config.validate_input
@@ -1953,7 +1955,7 @@ module AWS::SDK::WellArchitected
     def get_workload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetWorkloadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetWorkloadInput,
         validate_input: @config.validate_input
@@ -2064,7 +2066,7 @@ module AWS::SDK::WellArchitected
     def import_lens(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportLensInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportLensInput,
         validate_input: @config.validate_input
@@ -2184,7 +2186,7 @@ module AWS::SDK::WellArchitected
     def list_answers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnswersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnswersInput,
         validate_input: @config.validate_input
@@ -2291,7 +2293,7 @@ module AWS::SDK::WellArchitected
     def list_lens_review_improvements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLensReviewImprovementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLensReviewImprovementsInput,
         validate_input: @config.validate_input
@@ -2384,7 +2386,7 @@ module AWS::SDK::WellArchitected
     def list_lens_reviews(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLensReviewsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLensReviewsInput,
         validate_input: @config.validate_input
@@ -2470,7 +2472,7 @@ module AWS::SDK::WellArchitected
     def list_lens_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLensSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLensSharesInput,
         validate_input: @config.validate_input
@@ -2566,7 +2568,7 @@ module AWS::SDK::WellArchitected
     def list_lenses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLensesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLensesInput,
         validate_input: @config.validate_input
@@ -2659,7 +2661,7 @@ module AWS::SDK::WellArchitected
     def list_milestones(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMilestonesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMilestonesInput,
         validate_input: @config.validate_input
@@ -2746,7 +2748,7 @@ module AWS::SDK::WellArchitected
     def list_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotificationsInput,
         validate_input: @config.validate_input
@@ -2843,7 +2845,7 @@ module AWS::SDK::WellArchitected
     def list_share_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListShareInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListShareInvitationsInput,
         validate_input: @config.validate_input
@@ -2912,7 +2914,7 @@ module AWS::SDK::WellArchitected
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2999,7 +3001,7 @@ module AWS::SDK::WellArchitected
     def list_workload_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkloadSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkloadSharesInput,
         validate_input: @config.validate_input
@@ -3088,7 +3090,7 @@ module AWS::SDK::WellArchitected
     def list_workloads(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkloadsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkloadsInput,
         validate_input: @config.validate_input
@@ -3162,7 +3164,7 @@ module AWS::SDK::WellArchitected
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3241,7 +3243,7 @@ module AWS::SDK::WellArchitected
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3379,7 +3381,7 @@ module AWS::SDK::WellArchitected
     def update_answer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAnswerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAnswerInput,
         validate_input: @config.validate_input
@@ -3480,7 +3482,7 @@ module AWS::SDK::WellArchitected
     def update_lens_review(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLensReviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLensReviewInput,
         validate_input: @config.validate_input
@@ -3558,7 +3560,7 @@ module AWS::SDK::WellArchitected
     def update_share_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateShareInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateShareInvitationInput,
         validate_input: @config.validate_input
@@ -3868,7 +3870,7 @@ module AWS::SDK::WellArchitected
     def update_workload(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkloadInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkloadInput,
         validate_input: @config.validate_input
@@ -3953,7 +3955,7 @@ module AWS::SDK::WellArchitected
     def update_workload_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkloadShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkloadShareInput,
         validate_input: @config.validate_input
@@ -4044,7 +4046,7 @@ module AWS::SDK::WellArchitected
     def upgrade_lens_review(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpgradeLensReviewInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpgradeLensReviewInput,
         validate_input: @config.validate_input

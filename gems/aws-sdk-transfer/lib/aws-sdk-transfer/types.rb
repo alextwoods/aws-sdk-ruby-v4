@@ -3546,11 +3546,11 @@ module AWS::SDK::Transfer
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status_code ||= 0
       end
-
     end
 
     # <p>The request was denied due to request throttling.</p>

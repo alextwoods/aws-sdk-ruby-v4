@@ -126,22 +126,6 @@ public class StubsGenerator extends StubsGeneratorBase {
     }
 
     @Override
-    protected void renderSetStubMethod(SetShape shape) {
-        writer
-                .openBlock("def self.stub(node_name, stub)")
-                .write("xml = []")
-                .openBlock("stub.each do |element|")
-                .call(() -> {
-                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                        memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
-                                !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .write("xml")
-                .closeBlock("end");
-    }
-
-    @Override
     protected void renderMapStubMethod(MapShape shape) {
         writer
                 .openBlock("def self.stub(node_name, stub)")

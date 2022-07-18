@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EC2InstanceConnect
@@ -76,7 +78,7 @@ module AWS::SDK::EC2InstanceConnect
     def send_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendSSHPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendSSHPublicKeyInput,
         validate_input: @config.validate_input
@@ -160,7 +162,7 @@ module AWS::SDK::EC2InstanceConnect
     def send_serial_console_ssh_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendSerialConsoleSSHPublicKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendSerialConsoleSSHPublicKeyInput,
         validate_input: @config.validate_input

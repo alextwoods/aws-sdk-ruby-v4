@@ -153,11 +153,11 @@ module AWS::SDK::PersonalizeRuntime
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.num_results ||= 0
       end
-
     end
 
     # @!attribute item_list

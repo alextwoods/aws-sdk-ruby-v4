@@ -257,11 +257,11 @@ module AWS::SDK::ECRPUBLIC
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute repository
@@ -1527,12 +1527,12 @@ module AWS::SDK::ECRPUBLIC
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.primary_registry_alias ||= false
         self.default_registry_alias ||= false
       end
-
     end
 
     # Includes enum constants for RegistryAliasStatus
@@ -1886,11 +1886,11 @@ module AWS::SDK::ECRPUBLIC
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
       end
-
     end
 
     # @!attribute registry_id

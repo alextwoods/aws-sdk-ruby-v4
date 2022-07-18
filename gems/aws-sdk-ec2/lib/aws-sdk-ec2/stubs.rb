@@ -32,7 +32,7 @@ module AWS::SDK::EC2
     class AcceptTransitGatewayMulticastDomainAssociations
       def self.default(visited=[])
         {
-          associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
+          associations: TransitGatewayMulticastDomainAssociations.default(visited),
         }
       end
 
@@ -57,7 +57,7 @@ module AWS::SDK::EC2
           resource_id: 'resource_id',
           resource_type: 'resource_type',
           resource_owner_id: 'resource_owner_id',
-          subnets: Stubs::SubnetAssociationList.default(visited),
+          subnets: SubnetAssociationList.default(visited),
         }
       end
 
@@ -79,7 +79,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SubnetAssociationList')
         visited = visited + ['SubnetAssociationList']
         [
-          Stubs::SubnetAssociation.default(visited)
+          SubnetAssociation.default(visited)
         ]
       end
 
@@ -115,7 +115,7 @@ module AWS::SDK::EC2
     class AcceptTransitGatewayPeeringAttachment
       def self.default(visited=[])
         {
-          transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
+          transit_gateway_peering_attachment: TransitGatewayPeeringAttachment.default(visited),
         }
       end
 
@@ -136,12 +136,12 @@ module AWS::SDK::EC2
         visited = visited + ['TransitGatewayPeeringAttachment']
         {
           transit_gateway_attachment_id: 'transit_gateway_attachment_id',
-          requester_tgw_info: Stubs::PeeringTgwInfo.default(visited),
-          accepter_tgw_info: Stubs::PeeringTgwInfo.default(visited),
-          status: Stubs::PeeringAttachmentStatus.default(visited),
+          requester_tgw_info: PeeringTgwInfo.default(visited),
+          accepter_tgw_info: PeeringTgwInfo.default(visited),
+          status: PeeringAttachmentStatus.default(visited),
           state: 'state',
           creation_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -164,7 +164,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::EC2
     class AcceptTransitGatewayVpcAttachment
       def self.default(visited=[])
         {
-          transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
+          transit_gateway_vpc_attachment: TransitGatewayVpcAttachment.default(visited),
         }
       end
 
@@ -265,10 +265,10 @@ module AWS::SDK::EC2
           vpc_id: 'vpc_id',
           vpc_owner_id: 'vpc_owner_id',
           state: 'state',
-          subnet_ids: Stubs::ValueStringList.default(visited),
+          subnet_ids: ValueStringList.default(visited),
           creation_time: Time.now,
-          options: Stubs::TransitGatewayVpcAttachmentOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
+          options: TransitGatewayVpcAttachmentOptions.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -331,7 +331,7 @@ module AWS::SDK::EC2
     class AcceptVpcEndpointConnections
       def self.default(visited=[])
         {
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -351,7 +351,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('UnsuccessfulItemSet')
         visited = visited + ['UnsuccessfulItemSet']
         [
-          Stubs::UnsuccessfulItem.default(visited)
+          UnsuccessfulItem.default(visited)
         ]
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('UnsuccessfulItem')
         visited = visited + ['UnsuccessfulItem']
         {
-          error: Stubs::UnsuccessfulItemError.default(visited),
+          error: UnsuccessfulItemError.default(visited),
           resource_id: 'resource_id',
         }
       end
@@ -406,7 +406,7 @@ module AWS::SDK::EC2
     class AcceptVpcPeeringConnection
       def self.default(visited=[])
         {
-          vpc_peering_connection: Stubs::VpcPeeringConnection.default(visited),
+          vpc_peering_connection: VpcPeeringConnection.default(visited),
         }
       end
 
@@ -426,11 +426,11 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcPeeringConnection')
         visited = visited + ['VpcPeeringConnection']
         {
-          accepter_vpc_info: Stubs::VpcPeeringConnectionVpcInfo.default(visited),
+          accepter_vpc_info: VpcPeeringConnectionVpcInfo.default(visited),
           expiration_time: Time.now,
-          requester_vpc_info: Stubs::VpcPeeringConnectionVpcInfo.default(visited),
-          status: Stubs::VpcPeeringConnectionStateReason.default(visited),
-          tags: Stubs::TagList.default(visited),
+          requester_vpc_info: VpcPeeringConnectionVpcInfo.default(visited),
+          status: VpcPeeringConnectionStateReason.default(visited),
+          tags: TagList.default(visited),
           vpc_peering_connection_id: 'vpc_peering_connection_id',
         }
       end
@@ -473,10 +473,10 @@ module AWS::SDK::EC2
         visited = visited + ['VpcPeeringConnectionVpcInfo']
         {
           cidr_block: 'cidr_block',
-          ipv6_cidr_block_set: Stubs::Ipv6CidrBlockSet.default(visited),
-          cidr_block_set: Stubs::CidrBlockSet.default(visited),
+          ipv6_cidr_block_set: Ipv6CidrBlockSet.default(visited),
+          cidr_block_set: CidrBlockSet.default(visited),
           owner_id: 'owner_id',
-          peering_options: Stubs::VpcPeeringConnectionOptionsDescription.default(visited),
+          peering_options: VpcPeeringConnectionOptionsDescription.default(visited),
           vpc_id: 'vpc_id',
           region: 'region',
         }
@@ -522,7 +522,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CidrBlockSet')
         visited = visited + ['CidrBlockSet']
         [
-          Stubs::CidrBlock.default(visited)
+          CidrBlock.default(visited)
         ]
       end
 
@@ -558,7 +558,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6CidrBlockSet')
         visited = visited + ['Ipv6CidrBlockSet']
         [
-          Stubs::Ipv6CidrBlock.default(visited)
+          Ipv6CidrBlock.default(visited)
         ]
       end
 
@@ -592,7 +592,7 @@ module AWS::SDK::EC2
     class AdvertiseByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -665,7 +665,7 @@ module AWS::SDK::EC2
     class AllocateHosts
       def self.default(visited=[])
         {
-          host_ids: Stubs::ResponseHostIdList.default(visited),
+          host_ids: ResponseHostIdList.default(visited),
         }
       end
 
@@ -702,7 +702,7 @@ module AWS::SDK::EC2
     class AllocateIpamPoolCidr
       def self.default(visited=[])
         {
-          ipam_pool_allocation: Stubs::IpamPoolAllocation.default(visited),
+          ipam_pool_allocation: IpamPoolAllocation.default(visited),
         }
       end
 
@@ -749,7 +749,7 @@ module AWS::SDK::EC2
     class ApplySecurityGroupsToClientVpnTargetNetwork
       def self.default(visited=[])
         {
-          security_group_ids: Stubs::ClientVpnSecurityGroupIdSet.default(visited),
+          security_group_ids: ClientVpnSecurityGroupIdSet.default(visited),
         }
       end
 
@@ -786,8 +786,8 @@ module AWS::SDK::EC2
     class AssignIpv6Addresses
       def self.default(visited=[])
         {
-          assigned_ipv6_addresses: Stubs::Ipv6AddressList.default(visited),
-          assigned_ipv6_prefixes: Stubs::IpPrefixList.default(visited),
+          assigned_ipv6_addresses: Ipv6AddressList.default(visited),
+          assigned_ipv6_prefixes: IpPrefixList.default(visited),
           network_interface_id: 'network_interface_id',
         }
       end
@@ -847,8 +847,8 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           network_interface_id: 'network_interface_id',
-          assigned_private_ip_addresses: Stubs::AssignedPrivateIpAddressList.default(visited),
-          assigned_ipv4_prefixes: Stubs::Ipv4PrefixesList.default(visited),
+          assigned_private_ip_addresses: AssignedPrivateIpAddressList.default(visited),
+          assigned_ipv4_prefixes: Ipv4PrefixesList.default(visited),
         }
       end
 
@@ -870,7 +870,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv4PrefixesList')
         visited = visited + ['Ipv4PrefixesList']
         [
-          Stubs::Ipv4PrefixSpecification.default(visited)
+          Ipv4PrefixSpecification.default(visited)
         ]
       end
 
@@ -906,7 +906,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AssignedPrivateIpAddressList')
         visited = visited + ['AssignedPrivateIpAddressList']
         [
-          Stubs::AssignedPrivateIpAddress.default(visited)
+          AssignedPrivateIpAddress.default(visited)
         ]
       end
 
@@ -959,7 +959,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           association_id: 'association_id',
-          status: Stubs::AssociationStatus.default(visited),
+          status: AssociationStatus.default(visited),
         }
       end
 
@@ -1035,7 +1035,7 @@ module AWS::SDK::EC2
     class AssociateIamInstanceProfile
       def self.default(visited=[])
         {
-          iam_instance_profile_association: Stubs::IamInstanceProfileAssociation.default(visited),
+          iam_instance_profile_association: IamInstanceProfileAssociation.default(visited),
         }
       end
 
@@ -1057,7 +1057,7 @@ module AWS::SDK::EC2
         {
           association_id: 'association_id',
           instance_id: 'instance_id',
-          iam_instance_profile: Stubs::IamInstanceProfile.default(visited),
+          iam_instance_profile: IamInstanceProfile.default(visited),
           state: 'state',
           timestamp: Time.now,
         }
@@ -1097,7 +1097,7 @@ module AWS::SDK::EC2
     class AssociateInstanceEventWindow
       def self.default(visited=[])
         {
-          instance_event_window: Stubs::InstanceEventWindow.default(visited),
+          instance_event_window: InstanceEventWindow.default(visited),
         }
       end
 
@@ -1118,12 +1118,12 @@ module AWS::SDK::EC2
         visited = visited + ['InstanceEventWindow']
         {
           instance_event_window_id: 'instance_event_window_id',
-          time_ranges: Stubs::InstanceEventWindowTimeRangeList.default(visited),
+          time_ranges: InstanceEventWindowTimeRangeList.default(visited),
           name: 'name',
           cron_expression: 'cron_expression',
-          association_target: Stubs::InstanceEventWindowAssociationTarget.default(visited),
+          association_target: InstanceEventWindowAssociationTarget.default(visited),
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1146,9 +1146,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceEventWindowAssociationTarget')
         visited = visited + ['InstanceEventWindowAssociationTarget']
         {
-          instance_ids: Stubs::InstanceIdList.default(visited),
-          tags: Stubs::TagList.default(visited),
-          dedicated_host_ids: Stubs::DedicatedHostIdList.default(visited),
+          instance_ids: InstanceIdList.default(visited),
+          tags: TagList.default(visited),
+          dedicated_host_ids: DedicatedHostIdList.default(visited),
         }
       end
 
@@ -1205,7 +1205,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceEventWindowTimeRangeList')
         visited = visited + ['InstanceEventWindowTimeRangeList']
         [
-          Stubs::InstanceEventWindowTimeRange.default(visited)
+          InstanceEventWindowTimeRange.default(visited)
         ]
       end
 
@@ -1246,7 +1246,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           association_id: 'association_id',
-          association_state: Stubs::RouteTableAssociationState.default(visited),
+          association_state: RouteTableAssociationState.default(visited),
         }
       end
 
@@ -1284,7 +1284,7 @@ module AWS::SDK::EC2
     class AssociateSubnetCidrBlock
       def self.default(visited=[])
         {
-          ipv6_cidr_block_association: Stubs::SubnetIpv6CidrBlockAssociation.default(visited),
+          ipv6_cidr_block_association: SubnetIpv6CidrBlockAssociation.default(visited),
           subnet_id: 'subnet_id',
         }
       end
@@ -1308,7 +1308,7 @@ module AWS::SDK::EC2
         {
           association_id: 'association_id',
           ipv6_cidr_block: 'ipv6_cidr_block',
-          ipv6_cidr_block_state: Stubs::SubnetCidrBlockState.default(visited),
+          ipv6_cidr_block_state: SubnetCidrBlockState.default(visited),
         }
       end
 
@@ -1344,7 +1344,7 @@ module AWS::SDK::EC2
     class AssociateTransitGatewayMulticastDomain
       def self.default(visited=[])
         {
-          associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
+          associations: TransitGatewayMulticastDomainAssociations.default(visited),
         }
       end
 
@@ -1362,7 +1362,7 @@ module AWS::SDK::EC2
     class AssociateTransitGatewayRouteTable
       def self.default(visited=[])
         {
-          association: Stubs::TransitGatewayAssociation.default(visited),
+          association: TransitGatewayAssociation.default(visited),
         }
       end
 
@@ -1405,7 +1405,7 @@ module AWS::SDK::EC2
     class AssociateTrunkInterface
       def self.default(visited=[])
         {
-          interface_association: Stubs::TrunkInterfaceAssociation.default(visited),
+          interface_association: TrunkInterfaceAssociation.default(visited),
           client_token: 'client_token',
         }
       end
@@ -1433,7 +1433,7 @@ module AWS::SDK::EC2
           interface_protocol: 'interface_protocol',
           vlan_id: 1,
           gre_key: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1454,8 +1454,8 @@ module AWS::SDK::EC2
     class AssociateVpcCidrBlock
       def self.default(visited=[])
         {
-          ipv6_cidr_block_association: Stubs::VpcIpv6CidrBlockAssociation.default(visited),
-          cidr_block_association: Stubs::VpcCidrBlockAssociation.default(visited),
+          ipv6_cidr_block_association: VpcIpv6CidrBlockAssociation.default(visited),
+          cidr_block_association: VpcCidrBlockAssociation.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -1480,7 +1480,7 @@ module AWS::SDK::EC2
         {
           association_id: 'association_id',
           cidr_block: 'cidr_block',
-          cidr_block_state: Stubs::VpcCidrBlockState.default(visited),
+          cidr_block_state: VpcCidrBlockState.default(visited),
         }
       end
 
@@ -1520,7 +1520,7 @@ module AWS::SDK::EC2
         {
           association_id: 'association_id',
           ipv6_cidr_block: 'ipv6_cidr_block',
-          ipv6_cidr_block_state: Stubs::VpcCidrBlockState.default(visited),
+          ipv6_cidr_block_state: VpcCidrBlockState.default(visited),
           network_border_group: 'network_border_group',
           ipv6_pool: 'ipv6_pool',
         }
@@ -1623,7 +1623,7 @@ module AWS::SDK::EC2
     class AttachVpnGateway
       def self.default(visited=[])
         {
-          vpc_attachment: Stubs::VpcAttachment.default(visited),
+          vpc_attachment: VpcAttachment.default(visited),
         }
       end
 
@@ -1660,7 +1660,7 @@ module AWS::SDK::EC2
     class AuthorizeClientVpnIngress
       def self.default(visited=[])
         {
-          status: Stubs::ClientVpnAuthorizationRuleStatus.default(visited),
+          status: ClientVpnAuthorizationRuleStatus.default(visited),
         }
       end
 
@@ -1698,7 +1698,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           return: false,
-          security_group_rules: Stubs::SecurityGroupRuleList.default(visited),
+          security_group_rules: SecurityGroupRuleList.default(visited),
         }
       end
 
@@ -1719,7 +1719,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SecurityGroupRuleList')
         visited = visited + ['SecurityGroupRuleList']
         [
-          Stubs::SecurityGroupRule.default(visited)
+          SecurityGroupRule.default(visited)
         ]
       end
 
@@ -1748,9 +1748,9 @@ module AWS::SDK::EC2
           cidr_ipv4: 'cidr_ipv4',
           cidr_ipv6: 'cidr_ipv6',
           prefix_list_id: 'prefix_list_id',
-          referenced_group_info: Stubs::ReferencedSecurityGroup.default(visited),
+          referenced_group_info: ReferencedSecurityGroup.default(visited),
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1803,7 +1803,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           return: false,
-          security_group_rules: Stubs::SecurityGroupRuleList.default(visited),
+          security_group_rules: SecurityGroupRuleList.default(visited),
         }
       end
 
@@ -1822,7 +1822,7 @@ module AWS::SDK::EC2
     class BundleInstance
       def self.default(visited=[])
         {
-          bundle_task: Stubs::BundleTask.default(visited),
+          bundle_task: BundleTask.default(visited),
         }
       end
 
@@ -1843,12 +1843,12 @@ module AWS::SDK::EC2
         visited = visited + ['BundleTask']
         {
           bundle_id: 'bundle_id',
-          bundle_task_error: Stubs::BundleTaskError.default(visited),
+          bundle_task_error: BundleTaskError.default(visited),
           instance_id: 'instance_id',
           progress: 'progress',
           start_time: Time.now,
           state: 'state',
-          storage: Stubs::Storage.default(visited),
+          storage: Storage.default(visited),
           update_time: Time.now,
         }
       end
@@ -1873,7 +1873,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Storage')
         visited = visited + ['Storage']
         {
-          s3: Stubs::S3Storage.default(visited),
+          s3: S3Storage.default(visited),
         }
       end
 
@@ -1932,7 +1932,7 @@ module AWS::SDK::EC2
     class CancelBundleTask
       def self.default(visited=[])
         {
-          bundle_task: Stubs::BundleTask.default(visited),
+          bundle_task: BundleTask.default(visited),
         }
       end
 
@@ -1968,8 +1968,8 @@ module AWS::SDK::EC2
     class CancelCapacityReservationFleets
       def self.default(visited=[])
         {
-          successful_fleet_cancellations: Stubs::CapacityReservationFleetCancellationStateSet.default(visited),
-          failed_fleet_cancellations: Stubs::FailedCapacityReservationFleetCancellationResultSet.default(visited),
+          successful_fleet_cancellations: CapacityReservationFleetCancellationStateSet.default(visited),
+          failed_fleet_cancellations: FailedCapacityReservationFleetCancellationResultSet.default(visited),
         }
       end
 
@@ -1990,7 +1990,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FailedCapacityReservationFleetCancellationResultSet')
         visited = visited + ['FailedCapacityReservationFleetCancellationResultSet']
         [
-          Stubs::FailedCapacityReservationFleetCancellationResult.default(visited)
+          FailedCapacityReservationFleetCancellationResult.default(visited)
         ]
       end
 
@@ -2010,7 +2010,7 @@ module AWS::SDK::EC2
         visited = visited + ['FailedCapacityReservationFleetCancellationResult']
         {
           capacity_reservation_fleet_id: 'capacity_reservation_fleet_id',
-          cancel_capacity_reservation_fleet_error: Stubs::CancelCapacityReservationFleetError.default(visited),
+          cancel_capacity_reservation_fleet_error: CancelCapacityReservationFleetError.default(visited),
         }
       end
 
@@ -2047,7 +2047,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CapacityReservationFleetCancellationStateSet')
         visited = visited + ['CapacityReservationFleetCancellationStateSet']
         [
-          Stubs::CapacityReservationFleetCancellationState.default(visited)
+          CapacityReservationFleetCancellationState.default(visited)
         ]
       end
 
@@ -2139,7 +2139,7 @@ module AWS::SDK::EC2
     class CancelReservedInstancesListing
       def self.default(visited=[])
         {
-          reserved_instances_listings: Stubs::ReservedInstancesListingList.default(visited),
+          reserved_instances_listings: ReservedInstancesListingList.default(visited),
         }
       end
 
@@ -2159,7 +2159,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstancesListingList')
         visited = visited + ['ReservedInstancesListingList']
         [
-          Stubs::ReservedInstancesListing.default(visited)
+          ReservedInstancesListing.default(visited)
         ]
       end
 
@@ -2180,13 +2180,13 @@ module AWS::SDK::EC2
         {
           client_token: 'client_token',
           create_date: Time.now,
-          instance_counts: Stubs::InstanceCountList.default(visited),
-          price_schedules: Stubs::PriceScheduleList.default(visited),
+          instance_counts: InstanceCountList.default(visited),
+          price_schedules: PriceScheduleList.default(visited),
           reserved_instances_id: 'reserved_instances_id',
           reserved_instances_listing_id: 'reserved_instances_listing_id',
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           update_date: Time.now,
         }
       end
@@ -2213,7 +2213,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PriceScheduleList')
         visited = visited + ['PriceScheduleList']
         [
-          Stubs::PriceSchedule.default(visited)
+          PriceSchedule.default(visited)
         ]
       end
 
@@ -2255,7 +2255,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceCountList')
         visited = visited + ['InstanceCountList']
         [
-          Stubs::InstanceCount.default(visited)
+          InstanceCount.default(visited)
         ]
       end
 
@@ -2291,8 +2291,8 @@ module AWS::SDK::EC2
     class CancelSpotFleetRequests
       def self.default(visited=[])
         {
-          successful_fleet_requests: Stubs::CancelSpotFleetRequestsSuccessSet.default(visited),
-          unsuccessful_fleet_requests: Stubs::CancelSpotFleetRequestsErrorSet.default(visited),
+          successful_fleet_requests: CancelSpotFleetRequestsSuccessSet.default(visited),
+          unsuccessful_fleet_requests: CancelSpotFleetRequestsErrorSet.default(visited),
         }
       end
 
@@ -2313,7 +2313,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CancelSpotFleetRequestsErrorSet')
         visited = visited + ['CancelSpotFleetRequestsErrorSet']
         [
-          Stubs::CancelSpotFleetRequestsErrorItem.default(visited)
+          CancelSpotFleetRequestsErrorItem.default(visited)
         ]
       end
 
@@ -2332,7 +2332,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CancelSpotFleetRequestsErrorItem')
         visited = visited + ['CancelSpotFleetRequestsErrorItem']
         {
-          error: Stubs::CancelSpotFleetRequestsError.default(visited),
+          error: CancelSpotFleetRequestsError.default(visited),
           spot_fleet_request_id: 'spot_fleet_request_id',
         }
       end
@@ -2370,7 +2370,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CancelSpotFleetRequestsSuccessSet')
         visited = visited + ['CancelSpotFleetRequestsSuccessSet']
         [
-          Stubs::CancelSpotFleetRequestsSuccessItem.default(visited)
+          CancelSpotFleetRequestsSuccessItem.default(visited)
         ]
       end
 
@@ -2408,7 +2408,7 @@ module AWS::SDK::EC2
     class CancelSpotInstanceRequests
       def self.default(visited=[])
         {
-          cancelled_spot_instance_requests: Stubs::CancelledSpotInstanceRequestList.default(visited),
+          cancelled_spot_instance_requests: CancelledSpotInstanceRequestList.default(visited),
         }
       end
 
@@ -2428,7 +2428,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CancelledSpotInstanceRequestList')
         visited = visited + ['CancelledSpotInstanceRequestList']
         [
-          Stubs::CancelledSpotInstanceRequest.default(visited)
+          CancelledSpotInstanceRequest.default(visited)
         ]
       end
 
@@ -2521,7 +2521,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           snapshot_id: 'snapshot_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2540,7 +2540,7 @@ module AWS::SDK::EC2
     class CreateCapacityReservation
       def self.default(visited=[])
         {
-          capacity_reservation: Stubs::CapacityReservation.default(visited),
+          capacity_reservation: CapacityReservation.default(visited),
         }
       end
 
@@ -2578,7 +2578,7 @@ module AWS::SDK::EC2
           end_date_type: 'end_date_type',
           instance_match_criteria: 'instance_match_criteria',
           create_date: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           outpost_arn: 'outpost_arn',
           capacity_reservation_fleet_id: 'capacity_reservation_fleet_id',
           placement_group_arn: 'placement_group_arn',
@@ -2626,8 +2626,8 @@ module AWS::SDK::EC2
           create_time: Time.now,
           end_date: Time.now,
           tenancy: 'tenancy',
-          fleet_capacity_reservations: Stubs::FleetCapacityReservationSet.default(visited),
-          tags: Stubs::TagList.default(visited),
+          fleet_capacity_reservations: FleetCapacityReservationSet.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2657,7 +2657,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FleetCapacityReservationSet')
         visited = visited + ['FleetCapacityReservationSet']
         [
-          Stubs::FleetCapacityReservation.default(visited)
+          FleetCapacityReservation.default(visited)
         ]
       end
 
@@ -2711,7 +2711,7 @@ module AWS::SDK::EC2
     class CreateCarrierGateway
       def self.default(visited=[])
         {
-          carrier_gateway: Stubs::CarrierGateway.default(visited),
+          carrier_gateway: CarrierGateway.default(visited),
         }
       end
 
@@ -2735,7 +2735,7 @@ module AWS::SDK::EC2
           vpc_id: 'vpc_id',
           state: 'state',
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2755,7 +2755,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           client_vpn_endpoint_id: 'client_vpn_endpoint_id',
-          status: Stubs::ClientVpnEndpointStatus.default(visited),
+          status: ClientVpnEndpointStatus.default(visited),
           dns_name: 'dns_name',
         }
       end
@@ -2795,7 +2795,7 @@ module AWS::SDK::EC2
     class CreateClientVpnRoute
       def self.default(visited=[])
         {
-          status: Stubs::ClientVpnRouteStatus.default(visited),
+          status: ClientVpnRouteStatus.default(visited),
         }
       end
 
@@ -2832,7 +2832,7 @@ module AWS::SDK::EC2
     class CreateCustomerGateway
       def self.default(visited=[])
         {
-          customer_gateway: Stubs::CustomerGateway.default(visited),
+          customer_gateway: CustomerGateway.default(visited),
         }
       end
 
@@ -2859,7 +2859,7 @@ module AWS::SDK::EC2
           state: 'state',
           type: 'type',
           device_name: 'device_name',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2881,7 +2881,7 @@ module AWS::SDK::EC2
     class CreateDefaultSubnet
       def self.default(visited=[])
         {
-          subnet: Stubs::Subnet.default(visited),
+          subnet: Subnet.default(visited),
         }
       end
 
@@ -2915,13 +2915,13 @@ module AWS::SDK::EC2
           vpc_id: 'vpc_id',
           owner_id: 'owner_id',
           assign_ipv6_address_on_creation: false,
-          ipv6_cidr_block_association_set: Stubs::SubnetIpv6CidrBlockAssociationSet.default(visited),
-          tags: Stubs::TagList.default(visited),
+          ipv6_cidr_block_association_set: SubnetIpv6CidrBlockAssociationSet.default(visited),
+          tags: TagList.default(visited),
           subnet_arn: 'subnet_arn',
           outpost_arn: 'outpost_arn',
           enable_dns64: false,
           ipv6_native: false,
-          private_dns_name_options_on_launch: Stubs::PrivateDnsNameOptionsOnLaunch.default(visited),
+          private_dns_name_options_on_launch: PrivateDnsNameOptionsOnLaunch.default(visited),
         }
       end
 
@@ -2979,7 +2979,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SubnetIpv6CidrBlockAssociationSet')
         visited = visited + ['SubnetIpv6CidrBlockAssociationSet']
         [
-          Stubs::SubnetIpv6CidrBlockAssociation.default(visited)
+          SubnetIpv6CidrBlockAssociation.default(visited)
         ]
       end
 
@@ -2996,7 +2996,7 @@ module AWS::SDK::EC2
     class CreateDefaultVpc
       def self.default(visited=[])
         {
-          vpc: Stubs::Vpc.default(visited),
+          vpc: Vpc.default(visited),
         }
       end
 
@@ -3022,10 +3022,10 @@ module AWS::SDK::EC2
           vpc_id: 'vpc_id',
           owner_id: 'owner_id',
           instance_tenancy: 'instance_tenancy',
-          ipv6_cidr_block_association_set: Stubs::VpcIpv6CidrBlockAssociationSet.default(visited),
-          cidr_block_association_set: Stubs::VpcCidrBlockAssociationSet.default(visited),
+          ipv6_cidr_block_association_set: VpcIpv6CidrBlockAssociationSet.default(visited),
+          cidr_block_association_set: VpcCidrBlockAssociationSet.default(visited),
           is_default: false,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -3051,7 +3051,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcCidrBlockAssociationSet')
         visited = visited + ['VpcCidrBlockAssociationSet']
         [
-          Stubs::VpcCidrBlockAssociation.default(visited)
+          VpcCidrBlockAssociation.default(visited)
         ]
       end
 
@@ -3070,7 +3070,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcIpv6CidrBlockAssociationSet')
         visited = visited + ['VpcIpv6CidrBlockAssociationSet']
         [
-          Stubs::VpcIpv6CidrBlockAssociation.default(visited)
+          VpcIpv6CidrBlockAssociation.default(visited)
         ]
       end
 
@@ -3087,7 +3087,7 @@ module AWS::SDK::EC2
     class CreateDhcpOptions
       def self.default(visited=[])
         {
-          dhcp_options: Stubs::DhcpOptions.default(visited),
+          dhcp_options: DhcpOptions.default(visited),
         }
       end
 
@@ -3107,10 +3107,10 @@ module AWS::SDK::EC2
         return nil if visited.include?('DhcpOptions')
         visited = visited + ['DhcpOptions']
         {
-          dhcp_configurations: Stubs::DhcpConfigurationList.default(visited),
+          dhcp_configurations: DhcpConfigurationList.default(visited),
           dhcp_options_id: 'dhcp_options_id',
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -3130,7 +3130,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DhcpConfigurationList')
         visited = visited + ['DhcpConfigurationList']
         [
-          Stubs::DhcpConfiguration.default(visited)
+          DhcpConfiguration.default(visited)
         ]
       end
 
@@ -3150,7 +3150,7 @@ module AWS::SDK::EC2
         visited = visited + ['DhcpConfiguration']
         {
           key: 'key',
-          values: Stubs::DhcpConfigurationValueList.default(visited),
+          values: DhcpConfigurationValueList.default(visited),
         }
       end
 
@@ -3168,7 +3168,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DhcpConfigurationValueList')
         visited = visited + ['DhcpConfigurationValueList']
         [
-          Stubs::AttributeValue.default(visited)
+          AttributeValue.default(visited)
         ]
       end
 
@@ -3203,7 +3203,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           client_token: 'client_token',
-          egress_only_internet_gateway: Stubs::EgressOnlyInternetGateway.default(visited),
+          egress_only_internet_gateway: EgressOnlyInternetGateway.default(visited),
         }
       end
 
@@ -3224,9 +3224,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('EgressOnlyInternetGateway')
         visited = visited + ['EgressOnlyInternetGateway']
         {
-          attachments: Stubs::InternetGatewayAttachmentList.default(visited),
+          attachments: InternetGatewayAttachmentList.default(visited),
           egress_only_internet_gateway_id: 'egress_only_internet_gateway_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -3245,7 +3245,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InternetGatewayAttachmentList')
         visited = visited + ['InternetGatewayAttachmentList']
         [
-          Stubs::InternetGatewayAttachment.default(visited)
+          InternetGatewayAttachment.default(visited)
         ]
       end
 
@@ -3282,8 +3282,8 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           fleet_id: 'fleet_id',
-          errors: Stubs::CreateFleetErrorsSet.default(visited),
-          instances: Stubs::CreateFleetInstancesSet.default(visited),
+          errors: CreateFleetErrorsSet.default(visited),
+          instances: CreateFleetInstancesSet.default(visited),
         }
       end
 
@@ -3305,7 +3305,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CreateFleetInstancesSet')
         visited = visited + ['CreateFleetInstancesSet']
         [
-          Stubs::CreateFleetInstance.default(visited)
+          CreateFleetInstance.default(visited)
         ]
       end
 
@@ -3324,9 +3324,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('CreateFleetInstance')
         visited = visited + ['CreateFleetInstance']
         {
-          launch_template_and_overrides: Stubs::LaunchTemplateAndOverridesResponse.default(visited),
+          launch_template_and_overrides: LaunchTemplateAndOverridesResponse.default(visited),
           lifecycle: 'lifecycle',
-          instance_ids: Stubs::InstanceIdsSet.default(visited),
+          instance_ids: InstanceIdsSet.default(visited),
           instance_type: 'instance_type',
           platform: 'platform',
         }
@@ -3368,8 +3368,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateAndOverridesResponse')
         visited = visited + ['LaunchTemplateAndOverridesResponse']
         {
-          launch_template_specification: Stubs::FleetLaunchTemplateSpecification.default(visited),
-          overrides: Stubs::FleetLaunchTemplateOverrides.default(visited),
+          launch_template_specification: FleetLaunchTemplateSpecification.default(visited),
+          overrides: FleetLaunchTemplateOverrides.default(visited),
         }
       end
 
@@ -3393,8 +3393,8 @@ module AWS::SDK::EC2
           availability_zone: 'availability_zone',
           weighted_capacity: 1.0,
           priority: 1.0,
-          placement: Stubs::PlacementResponse.default(visited),
-          instance_requirements: Stubs::InstanceRequirements.default(visited),
+          placement: PlacementResponse.default(visited),
+          instance_requirements: InstanceRequirements.default(visited),
         }
       end
 
@@ -3418,27 +3418,27 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceRequirements')
         visited = visited + ['InstanceRequirements']
         {
-          v_cpu_count: Stubs::VCpuCountRange.default(visited),
-          memory_mi_b: Stubs::MemoryMiB.default(visited),
-          cpu_manufacturers: Stubs::CpuManufacturerSet.default(visited),
-          memory_gi_b_per_v_cpu: Stubs::MemoryGiBPerVCpu.default(visited),
-          excluded_instance_types: Stubs::ExcludedInstanceTypeSet.default(visited),
-          instance_generations: Stubs::InstanceGenerationSet.default(visited),
+          v_cpu_count: VCpuCountRange.default(visited),
+          memory_mi_b: MemoryMiB.default(visited),
+          cpu_manufacturers: CpuManufacturerSet.default(visited),
+          memory_gi_b_per_v_cpu: MemoryGiBPerVCpu.default(visited),
+          excluded_instance_types: ExcludedInstanceTypeSet.default(visited),
+          instance_generations: InstanceGenerationSet.default(visited),
           spot_max_price_percentage_over_lowest_price: 1,
           on_demand_max_price_percentage_over_lowest_price: 1,
           bare_metal: 'bare_metal',
           burstable_performance: 'burstable_performance',
           require_hibernate_support: false,
-          network_interface_count: Stubs::NetworkInterfaceCount.default(visited),
+          network_interface_count: NetworkInterfaceCount.default(visited),
           local_storage: 'local_storage',
-          local_storage_types: Stubs::LocalStorageTypeSet.default(visited),
-          total_local_storage_gb: Stubs::TotalLocalStorageGB.default(visited),
-          baseline_ebs_bandwidth_mbps: Stubs::BaselineEbsBandwidthMbps.default(visited),
-          accelerator_types: Stubs::AcceleratorTypeSet.default(visited),
-          accelerator_count: Stubs::AcceleratorCount.default(visited),
-          accelerator_manufacturers: Stubs::AcceleratorManufacturerSet.default(visited),
-          accelerator_names: Stubs::AcceleratorNameSet.default(visited),
-          accelerator_total_memory_mi_b: Stubs::AcceleratorTotalMemoryMiB.default(visited),
+          local_storage_types: LocalStorageTypeSet.default(visited),
+          total_local_storage_gb: TotalLocalStorageGB.default(visited),
+          baseline_ebs_bandwidth_mbps: BaselineEbsBandwidthMbps.default(visited),
+          accelerator_types: AcceleratorTypeSet.default(visited),
+          accelerator_count: AcceleratorCount.default(visited),
+          accelerator_manufacturers: AcceleratorManufacturerSet.default(visited),
+          accelerator_names: AcceleratorNameSet.default(visited),
+          accelerator_total_memory_mi_b: AcceleratorTotalMemoryMiB.default(visited),
         }
       end
 
@@ -3798,7 +3798,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CreateFleetErrorsSet')
         visited = visited + ['CreateFleetErrorsSet']
         [
-          Stubs::CreateFleetError.default(visited)
+          CreateFleetError.default(visited)
         ]
       end
 
@@ -3817,7 +3817,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CreateFleetError')
         visited = visited + ['CreateFleetError']
         {
-          launch_template_and_overrides: Stubs::LaunchTemplateAndOverridesResponse.default(visited),
+          launch_template_and_overrides: LaunchTemplateAndOverridesResponse.default(visited),
           lifecycle: 'lifecycle',
           error_code: 'error_code',
           error_message: 'error_message',
@@ -3839,8 +3839,8 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           client_token: 'client_token',
-          flow_log_ids: Stubs::ValueStringList.default(visited),
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          flow_log_ids: ValueStringList.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -3898,7 +3898,7 @@ module AWS::SDK::EC2
     class CreateInstanceEventWindow
       def self.default(visited=[])
         {
-          instance_event_window: Stubs::InstanceEventWindow.default(visited),
+          instance_event_window: InstanceEventWindow.default(visited),
         }
       end
 
@@ -3916,7 +3916,7 @@ module AWS::SDK::EC2
     class CreateInstanceExportTask
       def self.default(visited=[])
         {
-          export_task: Stubs::ExportTask.default(visited),
+          export_task: ExportTask.default(visited),
         }
       end
 
@@ -3938,11 +3938,11 @@ module AWS::SDK::EC2
         {
           description: 'description',
           export_task_id: 'export_task_id',
-          export_to_s3_task: Stubs::ExportToS3Task.default(visited),
-          instance_export_details: Stubs::InstanceExportDetails.default(visited),
+          export_to_s3_task: ExportToS3Task.default(visited),
+          instance_export_details: InstanceExportDetails.default(visited),
           state: 'state',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4005,7 +4005,7 @@ module AWS::SDK::EC2
     class CreateInternetGateway
       def self.default(visited=[])
         {
-          internet_gateway: Stubs::InternetGateway.default(visited),
+          internet_gateway: InternetGateway.default(visited),
         }
       end
 
@@ -4025,10 +4025,10 @@ module AWS::SDK::EC2
         return nil if visited.include?('InternetGateway')
         visited = visited + ['InternetGateway']
         {
-          attachments: Stubs::InternetGatewayAttachmentList.default(visited),
+          attachments: InternetGatewayAttachmentList.default(visited),
           internet_gateway_id: 'internet_gateway_id',
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4046,7 +4046,7 @@ module AWS::SDK::EC2
     class CreateIpam
       def self.default(visited=[])
         {
-          ipam: Stubs::Ipam.default(visited),
+          ipam: Ipam.default(visited),
         }
       end
 
@@ -4074,9 +4074,9 @@ module AWS::SDK::EC2
           private_default_scope_id: 'private_default_scope_id',
           scope_count: 1,
           description: 'description',
-          operating_regions: Stubs::IpamOperatingRegionSet.default(visited),
+          operating_regions: IpamOperatingRegionSet.default(visited),
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4103,7 +4103,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamOperatingRegionSet')
         visited = visited + ['IpamOperatingRegionSet']
         [
-          Stubs::IpamOperatingRegion.default(visited)
+          IpamOperatingRegion.default(visited)
         ]
       end
 
@@ -4137,7 +4137,7 @@ module AWS::SDK::EC2
     class CreateIpamPool
       def self.default(visited=[])
         {
-          ipam_pool: Stubs::IpamPool.default(visited),
+          ipam_pool: IpamPool.default(visited),
         }
       end
 
@@ -4176,8 +4176,8 @@ module AWS::SDK::EC2
           allocation_min_netmask_length: 1,
           allocation_max_netmask_length: 1,
           allocation_default_netmask_length: 1,
-          allocation_resource_tags: Stubs::IpamResourceTagList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          allocation_resource_tags: IpamResourceTagList.default(visited),
+          tags: TagList.default(visited),
           aws_service: 'aws_service',
         }
       end
@@ -4216,7 +4216,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamResourceTagList')
         visited = visited + ['IpamResourceTagList']
         [
-          Stubs::IpamResourceTag.default(visited)
+          IpamResourceTag.default(visited)
         ]
       end
 
@@ -4252,7 +4252,7 @@ module AWS::SDK::EC2
     class CreateIpamScope
       def self.default(visited=[])
         {
-          ipam_scope: Stubs::IpamScope.default(visited),
+          ipam_scope: IpamScope.default(visited),
         }
       end
 
@@ -4282,7 +4282,7 @@ module AWS::SDK::EC2
           description: 'description',
           pool_count: 1,
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4311,7 +4311,7 @@ module AWS::SDK::EC2
           key_material: 'key_material',
           key_name: 'key_name',
           key_pair_id: 'key_pair_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4333,8 +4333,8 @@ module AWS::SDK::EC2
     class CreateLaunchTemplate
       def self.default(visited=[])
         {
-          launch_template: Stubs::LaunchTemplate.default(visited),
-          warning: Stubs::ValidationWarning.default(visited),
+          launch_template: LaunchTemplate.default(visited),
+          warning: ValidationWarning.default(visited),
         }
       end
 
@@ -4355,7 +4355,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ValidationWarning')
         visited = visited + ['ValidationWarning']
         {
-          errors: Stubs::ErrorSet.default(visited),
+          errors: ErrorSet.default(visited),
         }
       end
 
@@ -4372,7 +4372,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ErrorSet')
         visited = visited + ['ErrorSet']
         [
-          Stubs::ValidationError.default(visited)
+          ValidationError.default(visited)
         ]
       end
 
@@ -4416,7 +4416,7 @@ module AWS::SDK::EC2
           created_by: 'created_by',
           default_version_number: 1,
           latest_version_number: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4437,8 +4437,8 @@ module AWS::SDK::EC2
     class CreateLaunchTemplateVersion
       def self.default(visited=[])
         {
-          launch_template_version: Stubs::LaunchTemplateVersion.default(visited),
-          warning: Stubs::ValidationWarning.default(visited),
+          launch_template_version: LaunchTemplateVersion.default(visited),
+          warning: ValidationWarning.default(visited),
         }
       end
 
@@ -4466,7 +4466,7 @@ module AWS::SDK::EC2
           create_time: Time.now,
           created_by: 'created_by',
           default_version: false,
-          launch_template_data: Stubs::ResponseLaunchTemplateData.default(visited),
+          launch_template_data: ResponseLaunchTemplateData.default(visited),
         }
       end
 
@@ -4492,34 +4492,34 @@ module AWS::SDK::EC2
         {
           kernel_id: 'kernel_id',
           ebs_optimized: false,
-          iam_instance_profile: Stubs::LaunchTemplateIamInstanceProfileSpecification.default(visited),
-          block_device_mappings: Stubs::LaunchTemplateBlockDeviceMappingList.default(visited),
-          network_interfaces: Stubs::LaunchTemplateInstanceNetworkInterfaceSpecificationList.default(visited),
+          iam_instance_profile: LaunchTemplateIamInstanceProfileSpecification.default(visited),
+          block_device_mappings: LaunchTemplateBlockDeviceMappingList.default(visited),
+          network_interfaces: LaunchTemplateInstanceNetworkInterfaceSpecificationList.default(visited),
           image_id: 'image_id',
           instance_type: 'instance_type',
           key_name: 'key_name',
-          monitoring: Stubs::LaunchTemplatesMonitoring.default(visited),
-          placement: Stubs::LaunchTemplatePlacement.default(visited),
+          monitoring: LaunchTemplatesMonitoring.default(visited),
+          placement: LaunchTemplatePlacement.default(visited),
           ram_disk_id: 'ram_disk_id',
           disable_api_termination: false,
           instance_initiated_shutdown_behavior: 'instance_initiated_shutdown_behavior',
           user_data: 'user_data',
-          tag_specifications: Stubs::LaunchTemplateTagSpecificationList.default(visited),
-          elastic_gpu_specifications: Stubs::ElasticGpuSpecificationResponseList.default(visited),
-          elastic_inference_accelerators: Stubs::LaunchTemplateElasticInferenceAcceleratorResponseList.default(visited),
-          security_group_ids: Stubs::ValueStringList.default(visited),
-          security_groups: Stubs::ValueStringList.default(visited),
-          instance_market_options: Stubs::LaunchTemplateInstanceMarketOptions.default(visited),
-          credit_specification: Stubs::CreditSpecification.default(visited),
-          cpu_options: Stubs::LaunchTemplateCpuOptions.default(visited),
-          capacity_reservation_specification: Stubs::LaunchTemplateCapacityReservationSpecificationResponse.default(visited),
-          license_specifications: Stubs::LaunchTemplateLicenseList.default(visited),
-          hibernation_options: Stubs::LaunchTemplateHibernationOptions.default(visited),
-          metadata_options: Stubs::LaunchTemplateInstanceMetadataOptions.default(visited),
-          enclave_options: Stubs::LaunchTemplateEnclaveOptions.default(visited),
-          instance_requirements: Stubs::InstanceRequirements.default(visited),
-          private_dns_name_options: Stubs::LaunchTemplatePrivateDnsNameOptions.default(visited),
-          maintenance_options: Stubs::LaunchTemplateInstanceMaintenanceOptions.default(visited),
+          tag_specifications: LaunchTemplateTagSpecificationList.default(visited),
+          elastic_gpu_specifications: ElasticGpuSpecificationResponseList.default(visited),
+          elastic_inference_accelerators: LaunchTemplateElasticInferenceAcceleratorResponseList.default(visited),
+          security_group_ids: ValueStringList.default(visited),
+          security_groups: ValueStringList.default(visited),
+          instance_market_options: LaunchTemplateInstanceMarketOptions.default(visited),
+          credit_specification: CreditSpecification.default(visited),
+          cpu_options: LaunchTemplateCpuOptions.default(visited),
+          capacity_reservation_specification: LaunchTemplateCapacityReservationSpecificationResponse.default(visited),
+          license_specifications: LaunchTemplateLicenseList.default(visited),
+          hibernation_options: LaunchTemplateHibernationOptions.default(visited),
+          metadata_options: LaunchTemplateInstanceMetadataOptions.default(visited),
+          enclave_options: LaunchTemplateEnclaveOptions.default(visited),
+          instance_requirements: InstanceRequirements.default(visited),
+          private_dns_name_options: LaunchTemplatePrivateDnsNameOptions.default(visited),
+          maintenance_options: LaunchTemplateInstanceMaintenanceOptions.default(visited),
           disable_api_stop: false,
         }
       end
@@ -4666,7 +4666,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateLicenseList')
         visited = visited + ['LaunchTemplateLicenseList']
         [
-          Stubs::LaunchTemplateLicenseConfiguration.default(visited)
+          LaunchTemplateLicenseConfiguration.default(visited)
         ]
       end
 
@@ -4703,7 +4703,7 @@ module AWS::SDK::EC2
         visited = visited + ['LaunchTemplateCapacityReservationSpecificationResponse']
         {
           capacity_reservation_preference: 'capacity_reservation_preference',
-          capacity_reservation_target: Stubs::CapacityReservationTargetResponse.default(visited),
+          capacity_reservation_target: CapacityReservationTargetResponse.default(visited),
         }
       end
 
@@ -4777,7 +4777,7 @@ module AWS::SDK::EC2
         visited = visited + ['LaunchTemplateInstanceMarketOptions']
         {
           market_type: 'market_type',
-          spot_options: Stubs::LaunchTemplateSpotMarketOptions.default(visited),
+          spot_options: LaunchTemplateSpotMarketOptions.default(visited),
         }
       end
 
@@ -4820,7 +4820,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateElasticInferenceAcceleratorResponseList')
         visited = visited + ['LaunchTemplateElasticInferenceAcceleratorResponseList']
         [
-          Stubs::LaunchTemplateElasticInferenceAcceleratorResponse.default(visited)
+          LaunchTemplateElasticInferenceAcceleratorResponse.default(visited)
         ]
       end
 
@@ -4858,7 +4858,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ElasticGpuSpecificationResponseList')
         visited = visited + ['ElasticGpuSpecificationResponseList']
         [
-          Stubs::ElasticGpuSpecificationResponse.default(visited)
+          ElasticGpuSpecificationResponse.default(visited)
         ]
       end
 
@@ -4894,7 +4894,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateTagSpecificationList')
         visited = visited + ['LaunchTemplateTagSpecificationList']
         [
-          Stubs::LaunchTemplateTagSpecification.default(visited)
+          LaunchTemplateTagSpecification.default(visited)
         ]
       end
 
@@ -4914,7 +4914,7 @@ module AWS::SDK::EC2
         visited = visited + ['LaunchTemplateTagSpecification']
         {
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4980,7 +4980,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateInstanceNetworkInterfaceSpecificationList')
         visited = visited + ['LaunchTemplateInstanceNetworkInterfaceSpecificationList']
         [
-          Stubs::LaunchTemplateInstanceNetworkInterfaceSpecification.default(visited)
+          LaunchTemplateInstanceNetworkInterfaceSpecification.default(visited)
         ]
       end
 
@@ -5004,19 +5004,19 @@ module AWS::SDK::EC2
           delete_on_termination: false,
           description: 'description',
           device_index: 1,
-          groups: Stubs::GroupIdStringList.default(visited),
+          groups: GroupIdStringList.default(visited),
           interface_type: 'interface_type',
           ipv6_address_count: 1,
-          ipv6_addresses: Stubs::InstanceIpv6AddressList.default(visited),
+          ipv6_addresses: InstanceIpv6AddressList.default(visited),
           network_interface_id: 'network_interface_id',
           private_ip_address: 'private_ip_address',
-          private_ip_addresses: Stubs::PrivateIpAddressSpecificationList.default(visited),
+          private_ip_addresses: PrivateIpAddressSpecificationList.default(visited),
           secondary_private_ip_address_count: 1,
           subnet_id: 'subnet_id',
           network_card_index: 1,
-          ipv4_prefixes: Stubs::Ipv4PrefixListResponse.default(visited),
+          ipv4_prefixes: Ipv4PrefixListResponse.default(visited),
           ipv4_prefix_count: 1,
-          ipv6_prefixes: Stubs::Ipv6PrefixListResponse.default(visited),
+          ipv6_prefixes: Ipv6PrefixListResponse.default(visited),
           ipv6_prefix_count: 1,
         }
       end
@@ -5052,7 +5052,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6PrefixListResponse')
         visited = visited + ['Ipv6PrefixListResponse']
         [
-          Stubs::Ipv6PrefixSpecificationResponse.default(visited)
+          Ipv6PrefixSpecificationResponse.default(visited)
         ]
       end
 
@@ -5088,7 +5088,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv4PrefixListResponse')
         visited = visited + ['Ipv4PrefixListResponse']
         [
-          Stubs::Ipv4PrefixSpecificationResponse.default(visited)
+          Ipv4PrefixSpecificationResponse.default(visited)
         ]
       end
 
@@ -5124,7 +5124,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrivateIpAddressSpecificationList')
         visited = visited + ['PrivateIpAddressSpecificationList']
         [
-          Stubs::PrivateIpAddressSpecification.default(visited)
+          PrivateIpAddressSpecification.default(visited)
         ]
       end
 
@@ -5162,7 +5162,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceIpv6AddressList')
         visited = visited + ['InstanceIpv6AddressList']
         [
-          Stubs::InstanceIpv6Address.default(visited)
+          InstanceIpv6Address.default(visited)
         ]
       end
 
@@ -5217,7 +5217,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateBlockDeviceMappingList')
         visited = visited + ['LaunchTemplateBlockDeviceMappingList']
         [
-          Stubs::LaunchTemplateBlockDeviceMapping.default(visited)
+          LaunchTemplateBlockDeviceMapping.default(visited)
         ]
       end
 
@@ -5238,7 +5238,7 @@ module AWS::SDK::EC2
         {
           device_name: 'device_name',
           virtual_name: 'virtual_name',
-          ebs: Stubs::LaunchTemplateEbsBlockDevice.default(visited),
+          ebs: LaunchTemplateEbsBlockDevice.default(visited),
           no_device: 'no_device',
         }
       end
@@ -5307,7 +5307,7 @@ module AWS::SDK::EC2
     class CreateLocalGatewayRoute
       def self.default(visited=[])
         {
-          route: Stubs::LocalGatewayRoute.default(visited),
+          route: LocalGatewayRoute.default(visited),
         }
       end
 
@@ -5354,7 +5354,7 @@ module AWS::SDK::EC2
     class CreateLocalGatewayRouteTableVpcAssociation
       def self.default(visited=[])
         {
-          local_gateway_route_table_vpc_association: Stubs::LocalGatewayRouteTableVpcAssociation.default(visited),
+          local_gateway_route_table_vpc_association: LocalGatewayRouteTableVpcAssociation.default(visited),
         }
       end
 
@@ -5381,7 +5381,7 @@ module AWS::SDK::EC2
           vpc_id: 'vpc_id',
           owner_id: 'owner_id',
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -5403,7 +5403,7 @@ module AWS::SDK::EC2
     class CreateManagedPrefixList
       def self.default(visited=[])
         {
-          prefix_list: Stubs::ManagedPrefixList.default(visited),
+          prefix_list: ManagedPrefixList.default(visited),
         }
       end
 
@@ -5431,7 +5431,7 @@ module AWS::SDK::EC2
           prefix_list_name: 'prefix_list_name',
           max_entries: 1,
           version: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           owner_id: 'owner_id',
         }
       end
@@ -5457,7 +5457,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           client_token: 'client_token',
-          nat_gateway: Stubs::NatGateway.default(visited),
+          nat_gateway: NatGateway.default(visited),
         }
       end
 
@@ -5482,13 +5482,13 @@ module AWS::SDK::EC2
           delete_time: Time.now,
           failure_code: 'failure_code',
           failure_message: 'failure_message',
-          nat_gateway_addresses: Stubs::NatGatewayAddressList.default(visited),
+          nat_gateway_addresses: NatGatewayAddressList.default(visited),
           nat_gateway_id: 'nat_gateway_id',
-          provisioned_bandwidth: Stubs::ProvisionedBandwidth.default(visited),
+          provisioned_bandwidth: ProvisionedBandwidth.default(visited),
           state: 'state',
           subnet_id: 'subnet_id',
           vpc_id: 'vpc_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           connectivity_type: 'connectivity_type',
         }
       end
@@ -5542,7 +5542,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NatGatewayAddressList')
         visited = visited + ['NatGatewayAddressList']
         [
-          Stubs::NatGatewayAddress.default(visited)
+          NatGatewayAddress.default(visited)
         ]
       end
 
@@ -5582,7 +5582,7 @@ module AWS::SDK::EC2
     class CreateNetworkAcl
       def self.default(visited=[])
         {
-          network_acl: Stubs::NetworkAcl.default(visited),
+          network_acl: NetworkAcl.default(visited),
         }
       end
 
@@ -5602,11 +5602,11 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkAcl')
         visited = visited + ['NetworkAcl']
         {
-          associations: Stubs::NetworkAclAssociationList.default(visited),
-          entries: Stubs::NetworkAclEntryList.default(visited),
+          associations: NetworkAclAssociationList.default(visited),
+          entries: NetworkAclEntryList.default(visited),
           is_default: false,
           network_acl_id: 'network_acl_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           vpc_id: 'vpc_id',
           owner_id: 'owner_id',
         }
@@ -5631,7 +5631,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkAclEntryList')
         visited = visited + ['NetworkAclEntryList']
         [
-          Stubs::NetworkAclEntry.default(visited)
+          NetworkAclEntry.default(visited)
         ]
       end
 
@@ -5652,9 +5652,9 @@ module AWS::SDK::EC2
         {
           cidr_block: 'cidr_block',
           egress: false,
-          icmp_type_code: Stubs::IcmpTypeCode.default(visited),
+          icmp_type_code: IcmpTypeCode.default(visited),
           ipv6_cidr_block: 'ipv6_cidr_block',
-          port_range: Stubs::PortRange.default(visited),
+          port_range: PortRange.default(visited),
           protocol: 'protocol',
           rule_action: 'rule_action',
           rule_number: 1,
@@ -5719,7 +5719,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkAclAssociationList')
         visited = visited + ['NetworkAclAssociationList']
         [
-          Stubs::NetworkAclAssociation.default(visited)
+          NetworkAclAssociation.default(visited)
         ]
       end
 
@@ -5773,8 +5773,8 @@ module AWS::SDK::EC2
     class CreateNetworkInsightsAccessScope
       def self.default(visited=[])
         {
-          network_insights_access_scope: Stubs::NetworkInsightsAccessScope.default(visited),
-          network_insights_access_scope_content: Stubs::NetworkInsightsAccessScopeContent.default(visited),
+          network_insights_access_scope: NetworkInsightsAccessScope.default(visited),
+          network_insights_access_scope_content: NetworkInsightsAccessScopeContent.default(visited),
         }
       end
 
@@ -5796,8 +5796,8 @@ module AWS::SDK::EC2
         visited = visited + ['NetworkInsightsAccessScopeContent']
         {
           network_insights_access_scope_id: 'network_insights_access_scope_id',
-          match_paths: Stubs::AccessScopePathList.default(visited),
-          exclude_paths: Stubs::AccessScopePathList.default(visited),
+          match_paths: AccessScopePathList.default(visited),
+          exclude_paths: AccessScopePathList.default(visited),
         }
       end
 
@@ -5816,7 +5816,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AccessScopePathList')
         visited = visited + ['AccessScopePathList']
         [
-          Stubs::AccessScopePath.default(visited)
+          AccessScopePath.default(visited)
         ]
       end
 
@@ -5835,9 +5835,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('AccessScopePath')
         visited = visited + ['AccessScopePath']
         {
-          source: Stubs::PathStatement.default(visited),
-          destination: Stubs::PathStatement.default(visited),
-          through_resources: Stubs::ThroughResourcesStatementList.default(visited),
+          source: PathStatement.default(visited),
+          destination: PathStatement.default(visited),
+          through_resources: ThroughResourcesStatementList.default(visited),
         }
       end
 
@@ -5856,7 +5856,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ThroughResourcesStatementList')
         visited = visited + ['ThroughResourcesStatementList']
         [
-          Stubs::ThroughResourcesStatement.default(visited)
+          ThroughResourcesStatement.default(visited)
         ]
       end
 
@@ -5875,7 +5875,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ThroughResourcesStatement')
         visited = visited + ['ThroughResourcesStatement']
         {
-          resource_statement: Stubs::ResourceStatement.default(visited),
+          resource_statement: ResourceStatement.default(visited),
         }
       end
 
@@ -5892,8 +5892,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('ResourceStatement')
         visited = visited + ['ResourceStatement']
         {
-          resources: Stubs::ValueStringList.default(visited),
-          resource_types: Stubs::ValueStringList.default(visited),
+          resources: ValueStringList.default(visited),
+          resource_types: ValueStringList.default(visited),
         }
       end
 
@@ -5911,8 +5911,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('PathStatement')
         visited = visited + ['PathStatement']
         {
-          packet_header_statement: Stubs::PacketHeaderStatement.default(visited),
-          resource_statement: Stubs::ResourceStatement.default(visited),
+          packet_header_statement: PacketHeaderStatement.default(visited),
+          resource_statement: ResourceStatement.default(visited),
         }
       end
 
@@ -5930,13 +5930,13 @@ module AWS::SDK::EC2
         return nil if visited.include?('PacketHeaderStatement')
         visited = visited + ['PacketHeaderStatement']
         {
-          source_addresses: Stubs::ValueStringList.default(visited),
-          destination_addresses: Stubs::ValueStringList.default(visited),
-          source_ports: Stubs::ValueStringList.default(visited),
-          destination_ports: Stubs::ValueStringList.default(visited),
-          source_prefix_lists: Stubs::ValueStringList.default(visited),
-          destination_prefix_lists: Stubs::ValueStringList.default(visited),
-          protocols: Stubs::ProtocolList.default(visited),
+          source_addresses: ValueStringList.default(visited),
+          destination_addresses: ValueStringList.default(visited),
+          source_ports: ValueStringList.default(visited),
+          destination_ports: ValueStringList.default(visited),
+          source_prefix_lists: ValueStringList.default(visited),
+          destination_prefix_lists: ValueStringList.default(visited),
+          protocols: ProtocolList.default(visited),
         }
       end
 
@@ -5982,7 +5982,7 @@ module AWS::SDK::EC2
           network_insights_access_scope_arn: 'network_insights_access_scope_arn',
           created_date: Time.now,
           updated_date: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -6001,7 +6001,7 @@ module AWS::SDK::EC2
     class CreateNetworkInsightsPath
       def self.default(visited=[])
         {
-          network_insights_path: Stubs::NetworkInsightsPath.default(visited),
+          network_insights_path: NetworkInsightsPath.default(visited),
         }
       end
 
@@ -6030,7 +6030,7 @@ module AWS::SDK::EC2
           destination_ip: 'destination_ip',
           protocol: 'protocol',
           destination_port: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -6054,7 +6054,7 @@ module AWS::SDK::EC2
     class CreateNetworkInterface
       def self.default(visited=[])
         {
-          network_interface: Stubs::NetworkInterface.default(visited),
+          network_interface: NetworkInterface.default(visited),
           client_token: 'client_token',
         }
       end
@@ -6076,28 +6076,28 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterface')
         visited = visited + ['NetworkInterface']
         {
-          association: Stubs::NetworkInterfaceAssociation.default(visited),
-          attachment: Stubs::NetworkInterfaceAttachment.default(visited),
+          association: NetworkInterfaceAssociation.default(visited),
+          attachment: NetworkInterfaceAttachment.default(visited),
           availability_zone: 'availability_zone',
           description: 'description',
-          groups: Stubs::GroupIdentifierList.default(visited),
+          groups: GroupIdentifierList.default(visited),
           interface_type: 'interface_type',
-          ipv6_addresses: Stubs::NetworkInterfaceIpv6AddressesList.default(visited),
+          ipv6_addresses: NetworkInterfaceIpv6AddressesList.default(visited),
           mac_address: 'mac_address',
           network_interface_id: 'network_interface_id',
           outpost_arn: 'outpost_arn',
           owner_id: 'owner_id',
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
-          private_ip_addresses: Stubs::NetworkInterfacePrivateIpAddressList.default(visited),
-          ipv4_prefixes: Stubs::Ipv4PrefixesList.default(visited),
-          ipv6_prefixes: Stubs::Ipv6PrefixesList.default(visited),
+          private_ip_addresses: NetworkInterfacePrivateIpAddressList.default(visited),
+          ipv4_prefixes: Ipv4PrefixesList.default(visited),
+          ipv6_prefixes: Ipv6PrefixesList.default(visited),
           requester_id: 'requester_id',
           requester_managed: false,
           source_dest_check: false,
           status: 'status',
           subnet_id: 'subnet_id',
-          tag_set: Stubs::TagList.default(visited),
+          tag_set: TagList.default(visited),
           vpc_id: 'vpc_id',
           deny_all_igw_traffic: false,
           ipv6_native: false,
@@ -6143,7 +6143,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6PrefixesList')
         visited = visited + ['Ipv6PrefixesList']
         [
-          Stubs::Ipv6PrefixSpecification.default(visited)
+          Ipv6PrefixSpecification.default(visited)
         ]
       end
 
@@ -6179,7 +6179,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfacePrivateIpAddressList')
         visited = visited + ['NetworkInterfacePrivateIpAddressList']
         [
-          Stubs::NetworkInterfacePrivateIpAddress.default(visited)
+          NetworkInterfacePrivateIpAddress.default(visited)
         ]
       end
 
@@ -6198,7 +6198,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfacePrivateIpAddress')
         visited = visited + ['NetworkInterfacePrivateIpAddress']
         {
-          association: Stubs::NetworkInterfaceAssociation.default(visited),
+          association: NetworkInterfaceAssociation.default(visited),
           primary: false,
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
@@ -6250,7 +6250,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfaceIpv6AddressesList')
         visited = visited + ['NetworkInterfaceIpv6AddressesList']
         [
-          Stubs::NetworkInterfaceIpv6Address.default(visited)
+          NetworkInterfaceIpv6Address.default(visited)
         ]
       end
 
@@ -6286,7 +6286,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('GroupIdentifierList')
         visited = visited + ['GroupIdentifierList']
         [
-          Stubs::GroupIdentifier.default(visited)
+          GroupIdentifier.default(visited)
         ]
       end
 
@@ -6353,7 +6353,7 @@ module AWS::SDK::EC2
     class CreateNetworkInterfacePermission
       def self.default(visited=[])
         {
-          interface_permission: Stubs::NetworkInterfacePermission.default(visited),
+          interface_permission: NetworkInterfacePermission.default(visited),
         }
       end
 
@@ -6378,7 +6378,7 @@ module AWS::SDK::EC2
           aws_account_id: 'aws_account_id',
           aws_service: 'aws_service',
           permission: 'permission',
-          permission_state: Stubs::NetworkInterfacePermissionState.default(visited),
+          permission_state: NetworkInterfacePermissionState.default(visited),
         }
       end
 
@@ -6417,7 +6417,7 @@ module AWS::SDK::EC2
     class CreatePlacementGroup
       def self.default(visited=[])
         {
-          placement_group: Stubs::PlacementGroup.default(visited),
+          placement_group: PlacementGroup.default(visited),
         }
       end
 
@@ -6442,7 +6442,7 @@ module AWS::SDK::EC2
           strategy: 'strategy',
           partition_count: 1,
           group_id: 'group_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           group_arn: 'group_arn',
         }
       end
@@ -6482,7 +6482,7 @@ module AWS::SDK::EC2
     class CreateReplaceRootVolumeTask
       def self.default(visited=[])
         {
-          replace_root_volume_task: Stubs::ReplaceRootVolumeTask.default(visited),
+          replace_root_volume_task: ReplaceRootVolumeTask.default(visited),
         }
       end
 
@@ -6507,7 +6507,7 @@ module AWS::SDK::EC2
           task_state: 'task_state',
           start_time: 'start_time',
           complete_time: 'complete_time',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -6527,7 +6527,7 @@ module AWS::SDK::EC2
     class CreateReservedInstancesListing
       def self.default(visited=[])
         {
-          reserved_instances_listings: Stubs::ReservedInstancesListingList.default(visited),
+          reserved_instances_listings: ReservedInstancesListingList.default(visited),
         }
       end
 
@@ -6581,7 +6581,7 @@ module AWS::SDK::EC2
     class CreateRouteTable
       def self.default(visited=[])
         {
-          route_table: Stubs::RouteTable.default(visited),
+          route_table: RouteTable.default(visited),
         }
       end
 
@@ -6601,11 +6601,11 @@ module AWS::SDK::EC2
         return nil if visited.include?('RouteTable')
         visited = visited + ['RouteTable']
         {
-          associations: Stubs::RouteTableAssociationList.default(visited),
-          propagating_vgws: Stubs::PropagatingVgwList.default(visited),
+          associations: RouteTableAssociationList.default(visited),
+          propagating_vgws: PropagatingVgwList.default(visited),
           route_table_id: 'route_table_id',
-          routes: Stubs::RouteList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          routes: RouteList.default(visited),
+          tags: TagList.default(visited),
           vpc_id: 'vpc_id',
           owner_id: 'owner_id',
         }
@@ -6630,7 +6630,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('RouteList')
         visited = visited + ['RouteList']
         [
-          Stubs::Route.default(visited)
+          Route.default(visited)
         ]
       end
 
@@ -6696,7 +6696,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PropagatingVgwList')
         visited = visited + ['PropagatingVgwList']
         [
-          Stubs::PropagatingVgw.default(visited)
+          PropagatingVgw.default(visited)
         ]
       end
 
@@ -6732,7 +6732,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('RouteTableAssociationList')
         visited = visited + ['RouteTableAssociationList']
         [
-          Stubs::RouteTableAssociation.default(visited)
+          RouteTableAssociation.default(visited)
         ]
       end
 
@@ -6756,7 +6756,7 @@ module AWS::SDK::EC2
           route_table_id: 'route_table_id',
           subnet_id: 'subnet_id',
           gateway_id: 'gateway_id',
-          association_state: Stubs::RouteTableAssociationState.default(visited),
+          association_state: RouteTableAssociationState.default(visited),
         }
       end
 
@@ -6777,7 +6777,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           group_id: 'group_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -6810,7 +6810,7 @@ module AWS::SDK::EC2
           volume_size: 1,
           owner_alias: 'owner_alias',
           outpost_arn: 'outpost_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           storage_tier: 'storage_tier',
           restore_expiry_time: Time.now,
         }
@@ -6846,7 +6846,7 @@ module AWS::SDK::EC2
     class CreateSnapshots
       def self.default(visited=[])
         {
-          snapshots: Stubs::SnapshotSet.default(visited),
+          snapshots: SnapshotSet.default(visited),
         }
       end
 
@@ -6866,7 +6866,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SnapshotSet')
         visited = visited + ['SnapshotSet']
         [
-          Stubs::SnapshotInfo.default(visited)
+          SnapshotInfo.default(visited)
         ]
       end
 
@@ -6886,7 +6886,7 @@ module AWS::SDK::EC2
         visited = visited + ['SnapshotInfo']
         {
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           encrypted: false,
           volume_id: 'volume_id',
           state: 'state',
@@ -6920,7 +6920,7 @@ module AWS::SDK::EC2
     class CreateSpotDatafeedSubscription
       def self.default(visited=[])
         {
-          spot_datafeed_subscription: Stubs::SpotDatafeedSubscription.default(visited),
+          spot_datafeed_subscription: SpotDatafeedSubscription.default(visited),
         }
       end
 
@@ -6941,7 +6941,7 @@ module AWS::SDK::EC2
         visited = visited + ['SpotDatafeedSubscription']
         {
           bucket: 'bucket',
-          fault: Stubs::SpotInstanceStateFault.default(visited),
+          fault: SpotInstanceStateFault.default(visited),
           owner_id: 'owner_id',
           prefix: 'prefix',
           state: 'state',
@@ -7000,7 +7000,7 @@ module AWS::SDK::EC2
     class CreateSubnet
       def self.default(visited=[])
         {
-          subnet: Stubs::Subnet.default(visited),
+          subnet: Subnet.default(visited),
         }
       end
 
@@ -7018,7 +7018,7 @@ module AWS::SDK::EC2
     class CreateSubnetCidrReservation
       def self.default(visited=[])
         {
-          subnet_cidr_reservation: Stubs::SubnetCidrReservation.default(visited),
+          subnet_cidr_reservation: SubnetCidrReservation.default(visited),
         }
       end
 
@@ -7044,7 +7044,7 @@ module AWS::SDK::EC2
           reservation_type: 'reservation_type',
           owner_id: 'owner_id',
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7081,7 +7081,7 @@ module AWS::SDK::EC2
     class CreateTrafficMirrorFilter
       def self.default(visited=[])
         {
-          traffic_mirror_filter: Stubs::TrafficMirrorFilter.default(visited),
+          traffic_mirror_filter: TrafficMirrorFilter.default(visited),
           client_token: 'client_token',
         }
       end
@@ -7104,11 +7104,11 @@ module AWS::SDK::EC2
         visited = visited + ['TrafficMirrorFilter']
         {
           traffic_mirror_filter_id: 'traffic_mirror_filter_id',
-          ingress_filter_rules: Stubs::TrafficMirrorFilterRuleList.default(visited),
-          egress_filter_rules: Stubs::TrafficMirrorFilterRuleList.default(visited),
-          network_services: Stubs::TrafficMirrorNetworkServiceList.default(visited),
+          ingress_filter_rules: TrafficMirrorFilterRuleList.default(visited),
+          egress_filter_rules: TrafficMirrorFilterRuleList.default(visited),
+          network_services: TrafficMirrorNetworkServiceList.default(visited),
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7149,7 +7149,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TrafficMirrorFilterRuleList')
         visited = visited + ['TrafficMirrorFilterRuleList']
         [
-          Stubs::TrafficMirrorFilterRule.default(visited)
+          TrafficMirrorFilterRule.default(visited)
         ]
       end
 
@@ -7174,8 +7174,8 @@ module AWS::SDK::EC2
           rule_number: 1,
           rule_action: 'rule_action',
           protocol: 1,
-          destination_port_range: Stubs::TrafficMirrorPortRange.default(visited),
-          source_port_range: Stubs::TrafficMirrorPortRange.default(visited),
+          destination_port_range: TrafficMirrorPortRange.default(visited),
+          source_port_range: TrafficMirrorPortRange.default(visited),
           destination_cidr_block: 'destination_cidr_block',
           source_cidr_block: 'source_cidr_block',
           description: 'description',
@@ -7222,7 +7222,7 @@ module AWS::SDK::EC2
     class CreateTrafficMirrorFilterRule
       def self.default(visited=[])
         {
-          traffic_mirror_filter_rule: Stubs::TrafficMirrorFilterRule.default(visited),
+          traffic_mirror_filter_rule: TrafficMirrorFilterRule.default(visited),
           client_token: 'client_token',
         }
       end
@@ -7242,7 +7242,7 @@ module AWS::SDK::EC2
     class CreateTrafficMirrorSession
       def self.default(visited=[])
         {
-          traffic_mirror_session: Stubs::TrafficMirrorSession.default(visited),
+          traffic_mirror_session: TrafficMirrorSession.default(visited),
           client_token: 'client_token',
         }
       end
@@ -7273,7 +7273,7 @@ module AWS::SDK::EC2
           session_number: 1,
           virtual_network_id: 1,
           description: 'description',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7297,7 +7297,7 @@ module AWS::SDK::EC2
     class CreateTrafficMirrorTarget
       def self.default(visited=[])
         {
-          traffic_mirror_target: Stubs::TrafficMirrorTarget.default(visited),
+          traffic_mirror_target: TrafficMirrorTarget.default(visited),
           client_token: 'client_token',
         }
       end
@@ -7325,7 +7325,7 @@ module AWS::SDK::EC2
           type: 'type',
           description: 'description',
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           gateway_load_balancer_endpoint_id: 'gateway_load_balancer_endpoint_id',
         }
       end
@@ -7348,7 +7348,7 @@ module AWS::SDK::EC2
     class CreateTransitGateway
       def self.default(visited=[])
         {
-          transit_gateway: Stubs::TransitGateway.default(visited),
+          transit_gateway: TransitGateway.default(visited),
         }
       end
 
@@ -7374,8 +7374,8 @@ module AWS::SDK::EC2
           owner_id: 'owner_id',
           description: 'description',
           creation_time: Time.now,
-          options: Stubs::TransitGatewayOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
+          options: TransitGatewayOptions.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7400,7 +7400,7 @@ module AWS::SDK::EC2
         visited = visited + ['TransitGatewayOptions']
         {
           amazon_side_asn: 1,
-          transit_gateway_cidr_blocks: Stubs::ValueStringList.default(visited),
+          transit_gateway_cidr_blocks: ValueStringList.default(visited),
           auto_accept_shared_attachments: 'auto_accept_shared_attachments',
           default_route_table_association: 'default_route_table_association',
           association_default_route_table_id: 'association_default_route_table_id',
@@ -7432,7 +7432,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayConnect
       def self.default(visited=[])
         {
-          transit_gateway_connect: Stubs::TransitGatewayConnect.default(visited),
+          transit_gateway_connect: TransitGatewayConnect.default(visited),
         }
       end
 
@@ -7457,8 +7457,8 @@ module AWS::SDK::EC2
           transit_gateway_id: 'transit_gateway_id',
           state: 'state',
           creation_time: Time.now,
-          options: Stubs::TransitGatewayConnectOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
+          options: TransitGatewayConnectOptions.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7496,7 +7496,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayConnectPeer
       def self.default(visited=[])
         {
-          transit_gateway_connect_peer: Stubs::TransitGatewayConnectPeer.default(visited),
+          transit_gateway_connect_peer: TransitGatewayConnectPeer.default(visited),
         }
       end
 
@@ -7520,8 +7520,8 @@ module AWS::SDK::EC2
           transit_gateway_connect_peer_id: 'transit_gateway_connect_peer_id',
           state: 'state',
           creation_time: Time.now,
-          connect_peer_configuration: Stubs::TransitGatewayConnectPeerConfiguration.default(visited),
-          tags: Stubs::TagList.default(visited),
+          connect_peer_configuration: TransitGatewayConnectPeerConfiguration.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7545,9 +7545,9 @@ module AWS::SDK::EC2
         {
           transit_gateway_address: 'transit_gateway_address',
           peer_address: 'peer_address',
-          inside_cidr_blocks: Stubs::InsideCidrBlocksStringList.default(visited),
+          inside_cidr_blocks: InsideCidrBlocksStringList.default(visited),
           protocol: 'protocol',
-          bgp_configurations: Stubs::TransitGatewayAttachmentBgpConfigurationList.default(visited),
+          bgp_configurations: TransitGatewayAttachmentBgpConfigurationList.default(visited),
         }
       end
 
@@ -7568,7 +7568,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayAttachmentBgpConfigurationList')
         visited = visited + ['TransitGatewayAttachmentBgpConfigurationList']
         [
-          Stubs::TransitGatewayAttachmentBgpConfiguration.default(visited)
+          TransitGatewayAttachmentBgpConfiguration.default(visited)
         ]
       end
 
@@ -7629,7 +7629,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayMulticastDomain
       def self.default(visited=[])
         {
-          transit_gateway_multicast_domain: Stubs::TransitGatewayMulticastDomain.default(visited),
+          transit_gateway_multicast_domain: TransitGatewayMulticastDomain.default(visited),
         }
       end
 
@@ -7653,10 +7653,10 @@ module AWS::SDK::EC2
           transit_gateway_id: 'transit_gateway_id',
           transit_gateway_multicast_domain_arn: 'transit_gateway_multicast_domain_arn',
           owner_id: 'owner_id',
-          options: Stubs::TransitGatewayMulticastDomainOptions.default(visited),
+          options: TransitGatewayMulticastDomainOptions.default(visited),
           state: 'state',
           creation_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7699,7 +7699,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayPeeringAttachment
       def self.default(visited=[])
         {
-          transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
+          transit_gateway_peering_attachment: TransitGatewayPeeringAttachment.default(visited),
         }
       end
 
@@ -7717,7 +7717,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayPrefixListReference
       def self.default(visited=[])
         {
-          transit_gateway_prefix_list_reference: Stubs::TransitGatewayPrefixListReference.default(visited),
+          transit_gateway_prefix_list_reference: TransitGatewayPrefixListReference.default(visited),
         }
       end
 
@@ -7742,7 +7742,7 @@ module AWS::SDK::EC2
           prefix_list_owner_id: 'prefix_list_owner_id',
           state: 'state',
           blackhole: false,
-          transit_gateway_attachment: Stubs::TransitGatewayPrefixListAttachment.default(visited),
+          transit_gateway_attachment: TransitGatewayPrefixListAttachment.default(visited),
         }
       end
 
@@ -7783,7 +7783,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayRoute
       def self.default(visited=[])
         {
-          route: Stubs::TransitGatewayRoute.default(visited),
+          route: TransitGatewayRoute.default(visited),
         }
       end
 
@@ -7805,7 +7805,7 @@ module AWS::SDK::EC2
         {
           destination_cidr_block: 'destination_cidr_block',
           prefix_list_id: 'prefix_list_id',
-          transit_gateway_attachments: Stubs::TransitGatewayRouteAttachmentList.default(visited),
+          transit_gateway_attachments: TransitGatewayRouteAttachmentList.default(visited),
           type: 'type',
           state: 'state',
         }
@@ -7828,7 +7828,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayRouteAttachmentList')
         visited = visited + ['TransitGatewayRouteAttachmentList']
         [
-          Stubs::TransitGatewayRouteAttachment.default(visited)
+          TransitGatewayRouteAttachment.default(visited)
         ]
       end
 
@@ -7866,7 +7866,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayRouteTable
       def self.default(visited=[])
         {
-          transit_gateway_route_table: Stubs::TransitGatewayRouteTable.default(visited),
+          transit_gateway_route_table: TransitGatewayRouteTable.default(visited),
         }
       end
 
@@ -7892,7 +7892,7 @@ module AWS::SDK::EC2
           default_association_route_table: false,
           default_propagation_route_table: false,
           creation_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -7913,7 +7913,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayVpcAttachment
       def self.default(visited=[])
         {
-          transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
+          transit_gateway_vpc_attachment: TransitGatewayVpcAttachment.default(visited),
         }
       end
 
@@ -7931,7 +7931,7 @@ module AWS::SDK::EC2
     class CreateVolume
       def self.default(visited=[])
         {
-          attachments: Stubs::VolumeAttachmentList.default(visited),
+          attachments: VolumeAttachmentList.default(visited),
           availability_zone: 'availability_zone',
           create_time: Time.now,
           encrypted: false,
@@ -7942,7 +7942,7 @@ module AWS::SDK::EC2
           state: 'state',
           volume_id: 'volume_id',
           iops: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           volume_type: 'volume_type',
           fast_restored: false,
           multi_attach_enabled: false,
@@ -7981,7 +7981,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeAttachmentList')
         visited = visited + ['VolumeAttachmentList']
         [
-          Stubs::VolumeAttachment.default(visited)
+          VolumeAttachment.default(visited)
         ]
       end
 
@@ -8025,7 +8025,7 @@ module AWS::SDK::EC2
     class CreateVpc
       def self.default(visited=[])
         {
-          vpc: Stubs::Vpc.default(visited),
+          vpc: Vpc.default(visited),
         }
       end
 
@@ -8043,7 +8043,7 @@ module AWS::SDK::EC2
     class CreateVpcEndpoint
       def self.default(visited=[])
         {
-          vpc_endpoint: Stubs::VpcEndpoint.default(visited),
+          vpc_endpoint: VpcEndpoint.default(visited),
           client_token: 'client_token',
         }
       end
@@ -8071,19 +8071,19 @@ module AWS::SDK::EC2
           service_name: 'service_name',
           state: 'state',
           policy_document: 'policy_document',
-          route_table_ids: Stubs::ValueStringList.default(visited),
-          subnet_ids: Stubs::ValueStringList.default(visited),
-          groups: Stubs::GroupIdentifierSet.default(visited),
+          route_table_ids: ValueStringList.default(visited),
+          subnet_ids: ValueStringList.default(visited),
+          groups: GroupIdentifierSet.default(visited),
           ip_address_type: 'ip_address_type',
-          dns_options: Stubs::DnsOptions.default(visited),
+          dns_options: DnsOptions.default(visited),
           private_dns_enabled: false,
           requester_managed: false,
-          network_interface_ids: Stubs::ValueStringList.default(visited),
-          dns_entries: Stubs::DnsEntrySet.default(visited),
+          network_interface_ids: ValueStringList.default(visited),
+          dns_entries: DnsEntrySet.default(visited),
           creation_timestamp: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           owner_id: 'owner_id',
-          last_error: Stubs::LastError.default(visited),
+          last_error: LastError.default(visited),
         }
       end
 
@@ -8137,7 +8137,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DnsEntrySet')
         visited = visited + ['DnsEntrySet']
         [
-          Stubs::DnsEntry.default(visited)
+          DnsEntry.default(visited)
         ]
       end
 
@@ -8192,7 +8192,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('GroupIdentifierSet')
         visited = visited + ['GroupIdentifierSet']
         [
-          Stubs::SecurityGroupIdentifier.default(visited)
+          SecurityGroupIdentifier.default(visited)
         ]
       end
 
@@ -8228,7 +8228,7 @@ module AWS::SDK::EC2
     class CreateVpcEndpointConnectionNotification
       def self.default(visited=[])
         {
-          connection_notification: Stubs::ConnectionNotification.default(visited),
+          connection_notification: ConnectionNotification.default(visited),
           client_token: 'client_token',
         }
       end
@@ -8255,7 +8255,7 @@ module AWS::SDK::EC2
           vpc_endpoint_id: 'vpc_endpoint_id',
           connection_notification_type: 'connection_notification_type',
           connection_notification_arn: 'connection_notification_arn',
-          connection_events: Stubs::ValueStringList.default(visited),
+          connection_events: ValueStringList.default(visited),
           connection_notification_state: 'connection_notification_state',
         }
       end
@@ -8277,7 +8277,7 @@ module AWS::SDK::EC2
     class CreateVpcEndpointServiceConfiguration
       def self.default(visited=[])
         {
-          service_configuration: Stubs::ServiceConfiguration.default(visited),
+          service_configuration: ServiceConfiguration.default(visited),
           client_token: 'client_token',
         }
       end
@@ -8299,21 +8299,21 @@ module AWS::SDK::EC2
         return nil if visited.include?('ServiceConfiguration')
         visited = visited + ['ServiceConfiguration']
         {
-          service_type: Stubs::ServiceTypeDetailSet.default(visited),
+          service_type: ServiceTypeDetailSet.default(visited),
           service_id: 'service_id',
           service_name: 'service_name',
           service_state: 'service_state',
-          availability_zones: Stubs::ValueStringList.default(visited),
+          availability_zones: ValueStringList.default(visited),
           acceptance_required: false,
           manages_vpc_endpoints: false,
-          network_load_balancer_arns: Stubs::ValueStringList.default(visited),
-          gateway_load_balancer_arns: Stubs::ValueStringList.default(visited),
-          supported_ip_address_types: Stubs::SupportedIpAddressTypes.default(visited),
-          base_endpoint_dns_names: Stubs::ValueStringList.default(visited),
+          network_load_balancer_arns: ValueStringList.default(visited),
+          gateway_load_balancer_arns: ValueStringList.default(visited),
+          supported_ip_address_types: SupportedIpAddressTypes.default(visited),
+          base_endpoint_dns_names: ValueStringList.default(visited),
           private_dns_name: 'private_dns_name',
-          private_dns_name_configuration: Stubs::PrivateDnsNameConfiguration.default(visited),
+          private_dns_name_configuration: PrivateDnsNameConfiguration.default(visited),
           payer_responsibility: 'payer_responsibility',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -8386,7 +8386,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ServiceTypeDetailSet')
         visited = visited + ['ServiceTypeDetailSet']
         [
-          Stubs::ServiceTypeDetail.default(visited)
+          ServiceTypeDetail.default(visited)
         ]
       end
 
@@ -8420,7 +8420,7 @@ module AWS::SDK::EC2
     class CreateVpcPeeringConnection
       def self.default(visited=[])
         {
-          vpc_peering_connection: Stubs::VpcPeeringConnection.default(visited),
+          vpc_peering_connection: VpcPeeringConnection.default(visited),
         }
       end
 
@@ -8438,7 +8438,7 @@ module AWS::SDK::EC2
     class CreateVpnConnection
       def self.default(visited=[])
         {
-          vpn_connection: Stubs::VpnConnection.default(visited),
+          vpn_connection: VpnConnection.default(visited),
         }
       end
 
@@ -8469,10 +8469,10 @@ module AWS::SDK::EC2
           core_network_arn: 'core_network_arn',
           core_network_attachment_arn: 'core_network_attachment_arn',
           gateway_association_state: 'gateway_association_state',
-          options: Stubs::VpnConnectionOptions.default(visited),
-          routes: Stubs::VpnStaticRouteList.default(visited),
-          tags: Stubs::TagList.default(visited),
-          vgw_telemetry: Stubs::VgwTelemetryList.default(visited),
+          options: VpnConnectionOptions.default(visited),
+          routes: VpnStaticRouteList.default(visited),
+          tags: TagList.default(visited),
+          vgw_telemetry: VgwTelemetryList.default(visited),
         }
       end
 
@@ -8503,7 +8503,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VgwTelemetryList')
         visited = visited + ['VgwTelemetryList']
         [
-          Stubs::VgwTelemetry.default(visited)
+          VgwTelemetry.default(visited)
         ]
       end
 
@@ -8549,7 +8549,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpnStaticRouteList')
         visited = visited + ['VpnStaticRouteList']
         [
-          Stubs::VpnStaticRoute.default(visited)
+          VpnStaticRoute.default(visited)
         ]
       end
 
@@ -8596,7 +8596,7 @@ module AWS::SDK::EC2
           local_ipv6_network_cidr: 'local_ipv6_network_cidr',
           remote_ipv6_network_cidr: 'remote_ipv6_network_cidr',
           tunnel_inside_ip_version: 'tunnel_inside_ip_version',
-          tunnel_options: Stubs::TunnelOptionsList.default(visited),
+          tunnel_options: TunnelOptionsList.default(visited),
         }
       end
 
@@ -8620,7 +8620,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TunnelOptionsList')
         visited = visited + ['TunnelOptionsList']
         [
-          Stubs::TunnelOption.default(visited)
+          TunnelOption.default(visited)
         ]
       end
 
@@ -8650,13 +8650,13 @@ module AWS::SDK::EC2
           replay_window_size: 1,
           dpd_timeout_seconds: 1,
           dpd_timeout_action: 'dpd_timeout_action',
-          phase1_encryption_algorithms: Stubs::Phase1EncryptionAlgorithmsList.default(visited),
-          phase2_encryption_algorithms: Stubs::Phase2EncryptionAlgorithmsList.default(visited),
-          phase1_integrity_algorithms: Stubs::Phase1IntegrityAlgorithmsList.default(visited),
-          phase2_integrity_algorithms: Stubs::Phase2IntegrityAlgorithmsList.default(visited),
-          phase1_dh_group_numbers: Stubs::Phase1DHGroupNumbersList.default(visited),
-          phase2_dh_group_numbers: Stubs::Phase2DHGroupNumbersList.default(visited),
-          ike_versions: Stubs::IKEVersionsList.default(visited),
+          phase1_encryption_algorithms: Phase1EncryptionAlgorithmsList.default(visited),
+          phase2_encryption_algorithms: Phase2EncryptionAlgorithmsList.default(visited),
+          phase1_integrity_algorithms: Phase1IntegrityAlgorithmsList.default(visited),
+          phase2_integrity_algorithms: Phase2IntegrityAlgorithmsList.default(visited),
+          phase1_dh_group_numbers: Phase1DHGroupNumbersList.default(visited),
+          phase2_dh_group_numbers: Phase2DHGroupNumbersList.default(visited),
+          ike_versions: IKEVersionsList.default(visited),
           startup_action: 'startup_action',
         }
       end
@@ -8692,7 +8692,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IKEVersionsList')
         visited = visited + ['IKEVersionsList']
         [
-          Stubs::IKEVersionsListValue.default(visited)
+          IKEVersionsListValue.default(visited)
         ]
       end
 
@@ -8728,7 +8728,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Phase2DHGroupNumbersList')
         visited = visited + ['Phase2DHGroupNumbersList']
         [
-          Stubs::Phase2DHGroupNumbersListValue.default(visited)
+          Phase2DHGroupNumbersListValue.default(visited)
         ]
       end
 
@@ -8764,7 +8764,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Phase1DHGroupNumbersList')
         visited = visited + ['Phase1DHGroupNumbersList']
         [
-          Stubs::Phase1DHGroupNumbersListValue.default(visited)
+          Phase1DHGroupNumbersListValue.default(visited)
         ]
       end
 
@@ -8800,7 +8800,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Phase2IntegrityAlgorithmsList')
         visited = visited + ['Phase2IntegrityAlgorithmsList']
         [
-          Stubs::Phase2IntegrityAlgorithmsListValue.default(visited)
+          Phase2IntegrityAlgorithmsListValue.default(visited)
         ]
       end
 
@@ -8836,7 +8836,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Phase1IntegrityAlgorithmsList')
         visited = visited + ['Phase1IntegrityAlgorithmsList']
         [
-          Stubs::Phase1IntegrityAlgorithmsListValue.default(visited)
+          Phase1IntegrityAlgorithmsListValue.default(visited)
         ]
       end
 
@@ -8872,7 +8872,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Phase2EncryptionAlgorithmsList')
         visited = visited + ['Phase2EncryptionAlgorithmsList']
         [
-          Stubs::Phase2EncryptionAlgorithmsListValue.default(visited)
+          Phase2EncryptionAlgorithmsListValue.default(visited)
         ]
       end
 
@@ -8908,7 +8908,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Phase1EncryptionAlgorithmsList')
         visited = visited + ['Phase1EncryptionAlgorithmsList']
         [
-          Stubs::Phase1EncryptionAlgorithmsListValue.default(visited)
+          Phase1EncryptionAlgorithmsListValue.default(visited)
         ]
       end
 
@@ -8958,7 +8958,7 @@ module AWS::SDK::EC2
     class CreateVpnGateway
       def self.default(visited=[])
         {
-          vpn_gateway: Stubs::VpnGateway.default(visited),
+          vpn_gateway: VpnGateway.default(visited),
         }
       end
 
@@ -8981,10 +8981,10 @@ module AWS::SDK::EC2
           availability_zone: 'availability_zone',
           state: 'state',
           type: 'type',
-          vpc_attachments: Stubs::VpcAttachmentList.default(visited),
+          vpc_attachments: VpcAttachmentList.default(visited),
           vpn_gateway_id: 'vpn_gateway_id',
           amazon_side_asn: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -9007,7 +9007,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcAttachmentList')
         visited = visited + ['VpcAttachmentList']
         [
-          Stubs::VpcAttachment.default(visited)
+          VpcAttachment.default(visited)
         ]
       end
 
@@ -9024,7 +9024,7 @@ module AWS::SDK::EC2
     class DeleteCarrierGateway
       def self.default(visited=[])
         {
-          carrier_gateway: Stubs::CarrierGateway.default(visited),
+          carrier_gateway: CarrierGateway.default(visited),
         }
       end
 
@@ -9042,7 +9042,7 @@ module AWS::SDK::EC2
     class DeleteClientVpnEndpoint
       def self.default(visited=[])
         {
-          status: Stubs::ClientVpnEndpointStatus.default(visited),
+          status: ClientVpnEndpointStatus.default(visited),
         }
       end
 
@@ -9060,7 +9060,7 @@ module AWS::SDK::EC2
     class DeleteClientVpnRoute
       def self.default(visited=[])
         {
-          status: Stubs::ClientVpnRouteStatus.default(visited),
+          status: ClientVpnRouteStatus.default(visited),
         }
       end
 
@@ -9128,8 +9128,8 @@ module AWS::SDK::EC2
     class DeleteFleets
       def self.default(visited=[])
         {
-          successful_fleet_deletions: Stubs::DeleteFleetSuccessSet.default(visited),
-          unsuccessful_fleet_deletions: Stubs::DeleteFleetErrorSet.default(visited),
+          successful_fleet_deletions: DeleteFleetSuccessSet.default(visited),
+          unsuccessful_fleet_deletions: DeleteFleetErrorSet.default(visited),
         }
       end
 
@@ -9150,7 +9150,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DeleteFleetErrorSet')
         visited = visited + ['DeleteFleetErrorSet']
         [
-          Stubs::DeleteFleetErrorItem.default(visited)
+          DeleteFleetErrorItem.default(visited)
         ]
       end
 
@@ -9169,7 +9169,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DeleteFleetErrorItem')
         visited = visited + ['DeleteFleetErrorItem']
         {
-          error: Stubs::DeleteFleetError.default(visited),
+          error: DeleteFleetError.default(visited),
           fleet_id: 'fleet_id',
         }
       end
@@ -9207,7 +9207,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DeleteFleetSuccessSet')
         visited = visited + ['DeleteFleetSuccessSet']
         [
-          Stubs::DeleteFleetSuccessItem.default(visited)
+          DeleteFleetSuccessItem.default(visited)
         ]
       end
 
@@ -9245,7 +9245,7 @@ module AWS::SDK::EC2
     class DeleteFlowLogs
       def self.default(visited=[])
         {
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -9281,7 +9281,7 @@ module AWS::SDK::EC2
     class DeleteInstanceEventWindow
       def self.default(visited=[])
         {
-          instance_event_window_state: Stubs::InstanceEventWindowStateChange.default(visited),
+          instance_event_window_state: InstanceEventWindowStateChange.default(visited),
         }
       end
 
@@ -9334,7 +9334,7 @@ module AWS::SDK::EC2
     class DeleteIpam
       def self.default(visited=[])
         {
-          ipam: Stubs::Ipam.default(visited),
+          ipam: Ipam.default(visited),
         }
       end
 
@@ -9352,7 +9352,7 @@ module AWS::SDK::EC2
     class DeleteIpamPool
       def self.default(visited=[])
         {
-          ipam_pool: Stubs::IpamPool.default(visited),
+          ipam_pool: IpamPool.default(visited),
         }
       end
 
@@ -9370,7 +9370,7 @@ module AWS::SDK::EC2
     class DeleteIpamScope
       def self.default(visited=[])
         {
-          ipam_scope: Stubs::IpamScope.default(visited),
+          ipam_scope: IpamScope.default(visited),
         }
       end
 
@@ -9404,7 +9404,7 @@ module AWS::SDK::EC2
     class DeleteLaunchTemplate
       def self.default(visited=[])
         {
-          launch_template: Stubs::LaunchTemplate.default(visited),
+          launch_template: LaunchTemplate.default(visited),
         }
       end
 
@@ -9422,8 +9422,8 @@ module AWS::SDK::EC2
     class DeleteLaunchTemplateVersions
       def self.default(visited=[])
         {
-          successfully_deleted_launch_template_versions: Stubs::DeleteLaunchTemplateVersionsResponseSuccessSet.default(visited),
-          unsuccessfully_deleted_launch_template_versions: Stubs::DeleteLaunchTemplateVersionsResponseErrorSet.default(visited),
+          successfully_deleted_launch_template_versions: DeleteLaunchTemplateVersionsResponseSuccessSet.default(visited),
+          unsuccessfully_deleted_launch_template_versions: DeleteLaunchTemplateVersionsResponseErrorSet.default(visited),
         }
       end
 
@@ -9444,7 +9444,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DeleteLaunchTemplateVersionsResponseErrorSet')
         visited = visited + ['DeleteLaunchTemplateVersionsResponseErrorSet']
         [
-          Stubs::DeleteLaunchTemplateVersionsResponseErrorItem.default(visited)
+          DeleteLaunchTemplateVersionsResponseErrorItem.default(visited)
         ]
       end
 
@@ -9466,7 +9466,7 @@ module AWS::SDK::EC2
           launch_template_id: 'launch_template_id',
           launch_template_name: 'launch_template_name',
           version_number: 1,
-          response_error: Stubs::ResponseError.default(visited),
+          response_error: ResponseError.default(visited),
         }
       end
 
@@ -9505,7 +9505,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DeleteLaunchTemplateVersionsResponseSuccessSet')
         visited = visited + ['DeleteLaunchTemplateVersionsResponseSuccessSet']
         [
-          Stubs::DeleteLaunchTemplateVersionsResponseSuccessItem.default(visited)
+          DeleteLaunchTemplateVersionsResponseSuccessItem.default(visited)
         ]
       end
 
@@ -9543,7 +9543,7 @@ module AWS::SDK::EC2
     class DeleteLocalGatewayRoute
       def self.default(visited=[])
         {
-          route: Stubs::LocalGatewayRoute.default(visited),
+          route: LocalGatewayRoute.default(visited),
         }
       end
 
@@ -9561,7 +9561,7 @@ module AWS::SDK::EC2
     class DeleteLocalGatewayRouteTableVpcAssociation
       def self.default(visited=[])
         {
-          local_gateway_route_table_vpc_association: Stubs::LocalGatewayRouteTableVpcAssociation.default(visited),
+          local_gateway_route_table_vpc_association: LocalGatewayRouteTableVpcAssociation.default(visited),
         }
       end
 
@@ -9579,7 +9579,7 @@ module AWS::SDK::EC2
     class DeleteManagedPrefixList
       def self.default(visited=[])
         {
-          prefix_list: Stubs::ManagedPrefixList.default(visited),
+          prefix_list: ManagedPrefixList.default(visited),
         }
       end
 
@@ -9787,8 +9787,8 @@ module AWS::SDK::EC2
     class DeleteQueuedReservedInstances
       def self.default(visited=[])
         {
-          successful_queued_purchase_deletions: Stubs::SuccessfulQueuedPurchaseDeletionSet.default(visited),
-          failed_queued_purchase_deletions: Stubs::FailedQueuedPurchaseDeletionSet.default(visited),
+          successful_queued_purchase_deletions: SuccessfulQueuedPurchaseDeletionSet.default(visited),
+          failed_queued_purchase_deletions: FailedQueuedPurchaseDeletionSet.default(visited),
         }
       end
 
@@ -9809,7 +9809,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FailedQueuedPurchaseDeletionSet')
         visited = visited + ['FailedQueuedPurchaseDeletionSet']
         [
-          Stubs::FailedQueuedPurchaseDeletion.default(visited)
+          FailedQueuedPurchaseDeletion.default(visited)
         ]
       end
 
@@ -9828,7 +9828,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FailedQueuedPurchaseDeletion')
         visited = visited + ['FailedQueuedPurchaseDeletion']
         {
-          error: Stubs::DeleteQueuedReservedInstancesError.default(visited),
+          error: DeleteQueuedReservedInstancesError.default(visited),
           reserved_instances_id: 'reserved_instances_id',
         }
       end
@@ -9866,7 +9866,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SuccessfulQueuedPurchaseDeletionSet')
         visited = visited + ['SuccessfulQueuedPurchaseDeletionSet']
         [
-          Stubs::SuccessfulQueuedPurchaseDeletion.default(visited)
+          SuccessfulQueuedPurchaseDeletion.default(visited)
         ]
       end
 
@@ -9996,7 +9996,7 @@ module AWS::SDK::EC2
     class DeleteSubnetCidrReservation
       def self.default(visited=[])
         {
-          deleted_subnet_cidr_reservation: Stubs::SubnetCidrReservation.default(visited),
+          deleted_subnet_cidr_reservation: SubnetCidrReservation.default(visited),
         }
       end
 
@@ -10102,7 +10102,7 @@ module AWS::SDK::EC2
     class DeleteTransitGateway
       def self.default(visited=[])
         {
-          transit_gateway: Stubs::TransitGateway.default(visited),
+          transit_gateway: TransitGateway.default(visited),
         }
       end
 
@@ -10120,7 +10120,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayConnect
       def self.default(visited=[])
         {
-          transit_gateway_connect: Stubs::TransitGatewayConnect.default(visited),
+          transit_gateway_connect: TransitGatewayConnect.default(visited),
         }
       end
 
@@ -10138,7 +10138,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayConnectPeer
       def self.default(visited=[])
         {
-          transit_gateway_connect_peer: Stubs::TransitGatewayConnectPeer.default(visited),
+          transit_gateway_connect_peer: TransitGatewayConnectPeer.default(visited),
         }
       end
 
@@ -10156,7 +10156,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayMulticastDomain
       def self.default(visited=[])
         {
-          transit_gateway_multicast_domain: Stubs::TransitGatewayMulticastDomain.default(visited),
+          transit_gateway_multicast_domain: TransitGatewayMulticastDomain.default(visited),
         }
       end
 
@@ -10174,7 +10174,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayPeeringAttachment
       def self.default(visited=[])
         {
-          transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
+          transit_gateway_peering_attachment: TransitGatewayPeeringAttachment.default(visited),
         }
       end
 
@@ -10192,7 +10192,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayPrefixListReference
       def self.default(visited=[])
         {
-          transit_gateway_prefix_list_reference: Stubs::TransitGatewayPrefixListReference.default(visited),
+          transit_gateway_prefix_list_reference: TransitGatewayPrefixListReference.default(visited),
         }
       end
 
@@ -10210,7 +10210,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayRoute
       def self.default(visited=[])
         {
-          route: Stubs::TransitGatewayRoute.default(visited),
+          route: TransitGatewayRoute.default(visited),
         }
       end
 
@@ -10228,7 +10228,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayRouteTable
       def self.default(visited=[])
         {
-          transit_gateway_route_table: Stubs::TransitGatewayRouteTable.default(visited),
+          transit_gateway_route_table: TransitGatewayRouteTable.default(visited),
         }
       end
 
@@ -10246,7 +10246,7 @@ module AWS::SDK::EC2
     class DeleteTransitGatewayVpcAttachment
       def self.default(visited=[])
         {
-          transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
+          transit_gateway_vpc_attachment: TransitGatewayVpcAttachment.default(visited),
         }
       end
 
@@ -10296,7 +10296,7 @@ module AWS::SDK::EC2
     class DeleteVpcEndpointConnectionNotifications
       def self.default(visited=[])
         {
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -10314,7 +10314,7 @@ module AWS::SDK::EC2
     class DeleteVpcEndpointServiceConfigurations
       def self.default(visited=[])
         {
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -10332,7 +10332,7 @@ module AWS::SDK::EC2
     class DeleteVpcEndpoints
       def self.default(visited=[])
         {
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -10416,7 +10416,7 @@ module AWS::SDK::EC2
     class DeprovisionByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -10434,7 +10434,7 @@ module AWS::SDK::EC2
     class DeprovisionIpamPoolCidr
       def self.default(visited=[])
         {
-          ipam_pool_cidr: Stubs::IpamPoolCidr.default(visited),
+          ipam_pool_cidr: IpamPoolCidr.default(visited),
         }
       end
 
@@ -10456,7 +10456,7 @@ module AWS::SDK::EC2
         {
           cidr: 'cidr',
           state: 'state',
-          failure_reason: Stubs::IpamPoolCidrFailureReason.default(visited),
+          failure_reason: IpamPoolCidrFailureReason.default(visited),
         }
       end
 
@@ -10493,7 +10493,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           pool_id: 'pool_id',
-          deprovisioned_addresses: Stubs::DeprovisionedAddressSet.default(visited),
+          deprovisioned_addresses: DeprovisionedAddressSet.default(visited),
         }
       end
 
@@ -10547,7 +10547,7 @@ module AWS::SDK::EC2
     class DeregisterInstanceEventNotificationAttributes
       def self.default(visited=[])
         {
-          instance_tag_attribute: Stubs::InstanceTagNotificationAttribute.default(visited),
+          instance_tag_attribute: InstanceTagNotificationAttribute.default(visited),
         }
       end
 
@@ -10567,7 +10567,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceTagNotificationAttribute')
         visited = visited + ['InstanceTagNotificationAttribute']
         {
-          instance_tag_keys: Stubs::InstanceTagKeySet.default(visited),
+          instance_tag_keys: InstanceTagKeySet.default(visited),
           include_all_tags_of_instance: false,
         }
       end
@@ -10603,7 +10603,7 @@ module AWS::SDK::EC2
     class DeregisterTransitGatewayMulticastGroupMembers
       def self.default(visited=[])
         {
-          deregistered_multicast_group_members: Stubs::TransitGatewayMulticastDeregisteredGroupMembers.default(visited),
+          deregistered_multicast_group_members: TransitGatewayMulticastDeregisteredGroupMembers.default(visited),
         }
       end
 
@@ -10624,7 +10624,7 @@ module AWS::SDK::EC2
         visited = visited + ['TransitGatewayMulticastDeregisteredGroupMembers']
         {
           transit_gateway_multicast_domain_id: 'transit_gateway_multicast_domain_id',
-          deregistered_network_interface_ids: Stubs::ValueStringList.default(visited),
+          deregistered_network_interface_ids: ValueStringList.default(visited),
           group_ip_address: 'group_ip_address',
         }
       end
@@ -10642,7 +10642,7 @@ module AWS::SDK::EC2
     class DeregisterTransitGatewayMulticastGroupSources
       def self.default(visited=[])
         {
-          deregistered_multicast_group_sources: Stubs::TransitGatewayMulticastDeregisteredGroupSources.default(visited),
+          deregistered_multicast_group_sources: TransitGatewayMulticastDeregisteredGroupSources.default(visited),
         }
       end
 
@@ -10663,7 +10663,7 @@ module AWS::SDK::EC2
         visited = visited + ['TransitGatewayMulticastDeregisteredGroupSources']
         {
           transit_gateway_multicast_domain_id: 'transit_gateway_multicast_domain_id',
-          deregistered_network_interface_ids: Stubs::ValueStringList.default(visited),
+          deregistered_network_interface_ids: ValueStringList.default(visited),
           group_ip_address: 'group_ip_address',
         }
       end
@@ -10681,7 +10681,7 @@ module AWS::SDK::EC2
     class DescribeAccountAttributes
       def self.default(visited=[])
         {
-          account_attributes: Stubs::AccountAttributeList.default(visited),
+          account_attributes: AccountAttributeList.default(visited),
         }
       end
 
@@ -10701,7 +10701,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AccountAttributeList')
         visited = visited + ['AccountAttributeList']
         [
-          Stubs::AccountAttribute.default(visited)
+          AccountAttribute.default(visited)
         ]
       end
 
@@ -10721,7 +10721,7 @@ module AWS::SDK::EC2
         visited = visited + ['AccountAttribute']
         {
           attribute_name: 'attribute_name',
-          attribute_values: Stubs::AccountAttributeValueList.default(visited),
+          attribute_values: AccountAttributeValueList.default(visited),
         }
       end
 
@@ -10739,7 +10739,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AccountAttributeValueList')
         visited = visited + ['AccountAttributeValueList']
         [
-          Stubs::AccountAttributeValue.default(visited)
+          AccountAttributeValue.default(visited)
         ]
       end
 
@@ -10773,7 +10773,7 @@ module AWS::SDK::EC2
     class DescribeAddresses
       def self.default(visited=[])
         {
-          addresses: Stubs::AddressList.default(visited),
+          addresses: AddressList.default(visited),
         }
       end
 
@@ -10793,7 +10793,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AddressList')
         visited = visited + ['AddressList']
         [
-          Stubs::Address.default(visited)
+          Address.default(visited)
         ]
       end
 
@@ -10820,7 +10820,7 @@ module AWS::SDK::EC2
           network_interface_id: 'network_interface_id',
           network_interface_owner_id: 'network_interface_owner_id',
           private_ip_address: 'private_ip_address',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           public_ipv4_pool: 'public_ipv4_pool',
           network_border_group: 'network_border_group',
           customer_owned_ip: 'customer_owned_ip',
@@ -10853,7 +10853,7 @@ module AWS::SDK::EC2
     class DescribeAddressesAttribute
       def self.default(visited=[])
         {
-          addresses: Stubs::AddressSet.default(visited),
+          addresses: AddressSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -10875,7 +10875,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AddressSet')
         visited = visited + ['AddressSet']
         [
-          Stubs::AddressAttribute.default(visited)
+          AddressAttribute.default(visited)
         ]
       end
 
@@ -10897,7 +10897,7 @@ module AWS::SDK::EC2
           public_ip: 'public_ip',
           allocation_id: 'allocation_id',
           ptr_record: 'ptr_record',
-          ptr_record_update: Stubs::PtrUpdateStatus.default(visited),
+          ptr_record_update: PtrUpdateStatus.default(visited),
         }
       end
 
@@ -10937,7 +10937,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           use_long_ids_aggregated: false,
-          statuses: Stubs::IdFormatList.default(visited),
+          statuses: IdFormatList.default(visited),
         }
       end
 
@@ -10958,7 +10958,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IdFormatList')
         visited = visited + ['IdFormatList']
         [
-          Stubs::IdFormat.default(visited)
+          IdFormat.default(visited)
         ]
       end
 
@@ -10996,7 +10996,7 @@ module AWS::SDK::EC2
     class DescribeAvailabilityZones
       def self.default(visited=[])
         {
-          availability_zones: Stubs::AvailabilityZoneList.default(visited),
+          availability_zones: AvailabilityZoneList.default(visited),
         }
       end
 
@@ -11016,7 +11016,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AvailabilityZoneList')
         visited = visited + ['AvailabilityZoneList']
         [
-          Stubs::AvailabilityZone.default(visited)
+          AvailabilityZone.default(visited)
         ]
       end
 
@@ -11037,7 +11037,7 @@ module AWS::SDK::EC2
         {
           state: 'state',
           opt_in_status: 'opt_in_status',
-          messages: Stubs::AvailabilityZoneMessageList.default(visited),
+          messages: AvailabilityZoneMessageList.default(visited),
           region_name: 'region_name',
           zone_name: 'zone_name',
           zone_id: 'zone_id',
@@ -11072,7 +11072,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AvailabilityZoneMessageList')
         visited = visited + ['AvailabilityZoneMessageList']
         [
-          Stubs::AvailabilityZoneMessage.default(visited)
+          AvailabilityZoneMessage.default(visited)
         ]
       end
 
@@ -11106,7 +11106,7 @@ module AWS::SDK::EC2
     class DescribeBundleTasks
       def self.default(visited=[])
         {
-          bundle_tasks: Stubs::BundleTaskList.default(visited),
+          bundle_tasks: BundleTaskList.default(visited),
         }
       end
 
@@ -11126,7 +11126,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('BundleTaskList')
         visited = visited + ['BundleTaskList']
         [
-          Stubs::BundleTask.default(visited)
+          BundleTask.default(visited)
         ]
       end
 
@@ -11143,7 +11143,7 @@ module AWS::SDK::EC2
     class DescribeByoipCidrs
       def self.default(visited=[])
         {
-          byoip_cidrs: Stubs::ByoipCidrSet.default(visited),
+          byoip_cidrs: ByoipCidrSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11165,7 +11165,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ByoipCidrSet')
         visited = visited + ['ByoipCidrSet']
         [
-          Stubs::ByoipCidr.default(visited)
+          ByoipCidr.default(visited)
         ]
       end
 
@@ -11182,7 +11182,7 @@ module AWS::SDK::EC2
     class DescribeCapacityReservationFleets
       def self.default(visited=[])
         {
-          capacity_reservation_fleets: Stubs::CapacityReservationFleetSet.default(visited),
+          capacity_reservation_fleets: CapacityReservationFleetSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11204,7 +11204,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CapacityReservationFleetSet')
         visited = visited + ['CapacityReservationFleetSet']
         [
-          Stubs::CapacityReservationFleet.default(visited)
+          CapacityReservationFleet.default(visited)
         ]
       end
 
@@ -11233,8 +11233,8 @@ module AWS::SDK::EC2
           create_time: Time.now,
           instance_match_criteria: 'instance_match_criteria',
           allocation_strategy: 'allocation_strategy',
-          instance_type_specifications: Stubs::FleetCapacityReservationSet.default(visited),
-          tags: Stubs::TagList.default(visited),
+          instance_type_specifications: FleetCapacityReservationSet.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -11261,7 +11261,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          capacity_reservations: Stubs::CapacityReservationSet.default(visited),
+          capacity_reservations: CapacityReservationSet.default(visited),
         }
       end
 
@@ -11282,7 +11282,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CapacityReservationSet')
         visited = visited + ['CapacityReservationSet']
         [
-          Stubs::CapacityReservation.default(visited)
+          CapacityReservation.default(visited)
         ]
       end
 
@@ -11299,7 +11299,7 @@ module AWS::SDK::EC2
     class DescribeCarrierGateways
       def self.default(visited=[])
         {
-          carrier_gateways: Stubs::CarrierGatewaySet.default(visited),
+          carrier_gateways: CarrierGatewaySet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11321,7 +11321,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CarrierGatewaySet')
         visited = visited + ['CarrierGatewaySet']
         [
-          Stubs::CarrierGateway.default(visited)
+          CarrierGateway.default(visited)
         ]
       end
 
@@ -11338,7 +11338,7 @@ module AWS::SDK::EC2
     class DescribeClassicLinkInstances
       def self.default(visited=[])
         {
-          instances: Stubs::ClassicLinkInstanceList.default(visited),
+          instances: ClassicLinkInstanceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11360,7 +11360,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClassicLinkInstanceList')
         visited = visited + ['ClassicLinkInstanceList']
         [
-          Stubs::ClassicLinkInstance.default(visited)
+          ClassicLinkInstance.default(visited)
         ]
       end
 
@@ -11379,9 +11379,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClassicLinkInstance')
         visited = visited + ['ClassicLinkInstance']
         {
-          groups: Stubs::GroupIdentifierList.default(visited),
+          groups: GroupIdentifierList.default(visited),
           instance_id: 'instance_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -11400,7 +11400,7 @@ module AWS::SDK::EC2
     class DescribeClientVpnAuthorizationRules
       def self.default(visited=[])
         {
-          authorization_rules: Stubs::AuthorizationRuleSet.default(visited),
+          authorization_rules: AuthorizationRuleSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11422,7 +11422,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AuthorizationRuleSet')
         visited = visited + ['AuthorizationRuleSet']
         [
-          Stubs::AuthorizationRule.default(visited)
+          AuthorizationRule.default(visited)
         ]
       end
 
@@ -11446,7 +11446,7 @@ module AWS::SDK::EC2
           group_id: 'group_id',
           access_all: false,
           destination_cidr: 'destination_cidr',
-          status: Stubs::ClientVpnAuthorizationRuleStatus.default(visited),
+          status: ClientVpnAuthorizationRuleStatus.default(visited),
         }
       end
 
@@ -11466,7 +11466,7 @@ module AWS::SDK::EC2
     class DescribeClientVpnConnections
       def self.default(visited=[])
         {
-          connections: Stubs::ClientVpnConnectionSet.default(visited),
+          connections: ClientVpnConnectionSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11488,7 +11488,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClientVpnConnectionSet')
         visited = visited + ['ClientVpnConnectionSet']
         [
-          Stubs::ClientVpnConnection.default(visited)
+          ClientVpnConnection.default(visited)
         ]
       end
 
@@ -11518,9 +11518,9 @@ module AWS::SDK::EC2
           egress_packets: 'egress_packets',
           client_ip: 'client_ip',
           common_name: 'common_name',
-          status: Stubs::ClientVpnConnectionStatus.default(visited),
+          status: ClientVpnConnectionStatus.default(visited),
           connection_end_time: 'connection_end_time',
-          posture_compliance_statuses: Stubs::ValueStringList.default(visited),
+          posture_compliance_statuses: ValueStringList.default(visited),
         }
       end
 
@@ -11567,7 +11567,7 @@ module AWS::SDK::EC2
     class DescribeClientVpnEndpoints
       def self.default(visited=[])
         {
-          client_vpn_endpoints: Stubs::EndpointSet.default(visited),
+          client_vpn_endpoints: EndpointSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11589,7 +11589,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('EndpointSet')
         visited = visited + ['EndpointSet']
         [
-          Stubs::ClientVpnEndpoint.default(visited)
+          ClientVpnEndpoint.default(visited)
         ]
       end
 
@@ -11610,27 +11610,27 @@ module AWS::SDK::EC2
         {
           client_vpn_endpoint_id: 'client_vpn_endpoint_id',
           description: 'description',
-          status: Stubs::ClientVpnEndpointStatus.default(visited),
+          status: ClientVpnEndpointStatus.default(visited),
           creation_time: 'creation_time',
           deletion_time: 'deletion_time',
           dns_name: 'dns_name',
           client_cidr_block: 'client_cidr_block',
-          dns_servers: Stubs::ValueStringList.default(visited),
+          dns_servers: ValueStringList.default(visited),
           split_tunnel: false,
           vpn_protocol: 'vpn_protocol',
           transport_protocol: 'transport_protocol',
           vpn_port: 1,
-          associated_target_networks: Stubs::AssociatedTargetNetworkSet.default(visited),
+          associated_target_networks: AssociatedTargetNetworkSet.default(visited),
           server_certificate_arn: 'server_certificate_arn',
-          authentication_options: Stubs::ClientVpnAuthenticationList.default(visited),
-          connection_log_options: Stubs::ConnectionLogResponseOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
-          security_group_ids: Stubs::ClientVpnSecurityGroupIdSet.default(visited),
+          authentication_options: ClientVpnAuthenticationList.default(visited),
+          connection_log_options: ConnectionLogResponseOptions.default(visited),
+          tags: TagList.default(visited),
+          security_group_ids: ClientVpnSecurityGroupIdSet.default(visited),
           vpc_id: 'vpc_id',
           self_service_portal_url: 'self_service_portal_url',
-          client_connect_options: Stubs::ClientConnectResponseOptions.default(visited),
+          client_connect_options: ClientConnectResponseOptions.default(visited),
           session_timeout_hours: 1,
-          client_login_banner_options: Stubs::ClientLoginBannerResponseOptions.default(visited),
+          client_login_banner_options: ClientLoginBannerResponseOptions.default(visited),
         }
       end
 
@@ -11690,7 +11690,7 @@ module AWS::SDK::EC2
         {
           enabled: false,
           lambda_function_arn: 'lambda_function_arn',
-          status: Stubs::ClientVpnEndpointAttributeStatus.default(visited),
+          status: ClientVpnEndpointAttributeStatus.default(visited),
         }
       end
 
@@ -11749,7 +11749,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClientVpnAuthenticationList')
         visited = visited + ['ClientVpnAuthenticationList']
         [
-          Stubs::ClientVpnAuthentication.default(visited)
+          ClientVpnAuthentication.default(visited)
         ]
       end
 
@@ -11769,9 +11769,9 @@ module AWS::SDK::EC2
         visited = visited + ['ClientVpnAuthentication']
         {
           type: 'type',
-          active_directory: Stubs::DirectoryServiceAuthentication.default(visited),
-          mutual_authentication: Stubs::CertificateAuthentication.default(visited),
-          federated_authentication: Stubs::FederatedAuthentication.default(visited),
+          active_directory: DirectoryServiceAuthentication.default(visited),
+          mutual_authentication: CertificateAuthentication.default(visited),
+          federated_authentication: FederatedAuthentication.default(visited),
         }
       end
 
@@ -11844,7 +11844,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AssociatedTargetNetworkSet')
         visited = visited + ['AssociatedTargetNetworkSet']
         [
-          Stubs::AssociatedTargetNetwork.default(visited)
+          AssociatedTargetNetwork.default(visited)
         ]
       end
 
@@ -11880,7 +11880,7 @@ module AWS::SDK::EC2
     class DescribeClientVpnRoutes
       def self.default(visited=[])
         {
-          routes: Stubs::ClientVpnRouteSet.default(visited),
+          routes: ClientVpnRouteSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11902,7 +11902,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClientVpnRouteSet')
         visited = visited + ['ClientVpnRouteSet']
         [
-          Stubs::ClientVpnRoute.default(visited)
+          ClientVpnRoute.default(visited)
         ]
       end
 
@@ -11926,7 +11926,7 @@ module AWS::SDK::EC2
           target_subnet: 'target_subnet',
           type: 'type',
           origin: 'origin',
-          status: Stubs::ClientVpnRouteStatus.default(visited),
+          status: ClientVpnRouteStatus.default(visited),
           description: 'description',
         }
       end
@@ -11948,7 +11948,7 @@ module AWS::SDK::EC2
     class DescribeClientVpnTargetNetworks
       def self.default(visited=[])
         {
-          client_vpn_target_networks: Stubs::TargetNetworkSet.default(visited),
+          client_vpn_target_networks: TargetNetworkSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -11970,7 +11970,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TargetNetworkSet')
         visited = visited + ['TargetNetworkSet']
         [
-          Stubs::TargetNetwork.default(visited)
+          TargetNetwork.default(visited)
         ]
       end
 
@@ -11993,8 +11993,8 @@ module AWS::SDK::EC2
           vpc_id: 'vpc_id',
           target_network_id: 'target_network_id',
           client_vpn_endpoint_id: 'client_vpn_endpoint_id',
-          status: Stubs::AssociationStatus.default(visited),
-          security_groups: Stubs::ValueStringList.default(visited),
+          status: AssociationStatus.default(visited),
+          security_groups: ValueStringList.default(visited),
         }
       end
 
@@ -12014,7 +12014,7 @@ module AWS::SDK::EC2
     class DescribeCoipPools
       def self.default(visited=[])
         {
-          coip_pools: Stubs::CoipPoolSet.default(visited),
+          coip_pools: CoipPoolSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12036,7 +12036,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CoipPoolSet')
         visited = visited + ['CoipPoolSet']
         [
-          Stubs::CoipPool.default(visited)
+          CoipPool.default(visited)
         ]
       end
 
@@ -12056,9 +12056,9 @@ module AWS::SDK::EC2
         visited = visited + ['CoipPool']
         {
           pool_id: 'pool_id',
-          pool_cidrs: Stubs::ValueStringList.default(visited),
+          pool_cidrs: ValueStringList.default(visited),
           local_gateway_route_table_id: 'local_gateway_route_table_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           pool_arn: 'pool_arn',
         }
       end
@@ -12078,7 +12078,7 @@ module AWS::SDK::EC2
     class DescribeConversionTasks
       def self.default(visited=[])
         {
-          conversion_tasks: Stubs::DescribeConversionTaskList.default(visited),
+          conversion_tasks: DescribeConversionTaskList.default(visited),
         }
       end
 
@@ -12098,7 +12098,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeConversionTaskList')
         visited = visited + ['DescribeConversionTaskList']
         [
-          Stubs::ConversionTask.default(visited)
+          ConversionTask.default(visited)
         ]
       end
 
@@ -12119,11 +12119,11 @@ module AWS::SDK::EC2
         {
           conversion_task_id: 'conversion_task_id',
           expiration_time: 'expiration_time',
-          import_instance: Stubs::ImportInstanceTaskDetails.default(visited),
-          import_volume: Stubs::ImportVolumeTaskDetails.default(visited),
+          import_instance: ImportInstanceTaskDetails.default(visited),
+          import_volume: ImportVolumeTaskDetails.default(visited),
           state: 'state',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -12149,8 +12149,8 @@ module AWS::SDK::EC2
           availability_zone: 'availability_zone',
           bytes_converted: 1,
           description: 'description',
-          image: Stubs::DiskImageDescription.default(visited),
-          volume: Stubs::DiskImageVolumeDescription.default(visited),
+          image: DiskImageDescription.default(visited),
+          volume: DiskImageVolumeDescription.default(visited),
         }
       end
 
@@ -12216,7 +12216,7 @@ module AWS::SDK::EC2
           description: 'description',
           instance_id: 'instance_id',
           platform: 'platform',
-          volumes: Stubs::ImportInstanceVolumeDetailSet.default(visited),
+          volumes: ImportInstanceVolumeDetailSet.default(visited),
         }
       end
 
@@ -12236,7 +12236,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ImportInstanceVolumeDetailSet')
         visited = visited + ['ImportInstanceVolumeDetailSet']
         [
-          Stubs::ImportInstanceVolumeDetailItem.default(visited)
+          ImportInstanceVolumeDetailItem.default(visited)
         ]
       end
 
@@ -12258,10 +12258,10 @@ module AWS::SDK::EC2
           availability_zone: 'availability_zone',
           bytes_converted: 1,
           description: 'description',
-          image: Stubs::DiskImageDescription.default(visited),
+          image: DiskImageDescription.default(visited),
           status: 'status',
           status_message: 'status_message',
-          volume: Stubs::DiskImageVolumeDescription.default(visited),
+          volume: DiskImageVolumeDescription.default(visited),
         }
       end
 
@@ -12282,7 +12282,7 @@ module AWS::SDK::EC2
     class DescribeCustomerGateways
       def self.default(visited=[])
         {
-          customer_gateways: Stubs::CustomerGatewayList.default(visited),
+          customer_gateways: CustomerGatewayList.default(visited),
         }
       end
 
@@ -12302,7 +12302,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CustomerGatewayList')
         visited = visited + ['CustomerGatewayList']
         [
-          Stubs::CustomerGateway.default(visited)
+          CustomerGateway.default(visited)
         ]
       end
 
@@ -12319,7 +12319,7 @@ module AWS::SDK::EC2
     class DescribeDhcpOptions
       def self.default(visited=[])
         {
-          dhcp_options: Stubs::DhcpOptionsList.default(visited),
+          dhcp_options: DhcpOptionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12341,7 +12341,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DhcpOptionsList')
         visited = visited + ['DhcpOptionsList']
         [
-          Stubs::DhcpOptions.default(visited)
+          DhcpOptions.default(visited)
         ]
       end
 
@@ -12358,7 +12358,7 @@ module AWS::SDK::EC2
     class DescribeEgressOnlyInternetGateways
       def self.default(visited=[])
         {
-          egress_only_internet_gateways: Stubs::EgressOnlyInternetGatewayList.default(visited),
+          egress_only_internet_gateways: EgressOnlyInternetGatewayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12380,7 +12380,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('EgressOnlyInternetGatewayList')
         visited = visited + ['EgressOnlyInternetGatewayList']
         [
-          Stubs::EgressOnlyInternetGateway.default(visited)
+          EgressOnlyInternetGateway.default(visited)
         ]
       end
 
@@ -12397,7 +12397,7 @@ module AWS::SDK::EC2
     class DescribeElasticGpus
       def self.default(visited=[])
         {
-          elastic_gpu_set: Stubs::ElasticGpuSet.default(visited),
+          elastic_gpu_set: ElasticGpuSet.default(visited),
           max_results: 1,
           next_token: 'next_token',
         }
@@ -12421,7 +12421,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ElasticGpuSet')
         visited = visited + ['ElasticGpuSet']
         [
-          Stubs::ElasticGpus.default(visited)
+          ElasticGpus.default(visited)
         ]
       end
 
@@ -12443,10 +12443,10 @@ module AWS::SDK::EC2
           elastic_gpu_id: 'elastic_gpu_id',
           availability_zone: 'availability_zone',
           elastic_gpu_type: 'elastic_gpu_type',
-          elastic_gpu_health: Stubs::ElasticGpuHealth.default(visited),
+          elastic_gpu_health: ElasticGpuHealth.default(visited),
           elastic_gpu_state: 'elastic_gpu_state',
           instance_id: 'instance_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -12484,7 +12484,7 @@ module AWS::SDK::EC2
     class DescribeExportImageTasks
       def self.default(visited=[])
         {
-          export_image_tasks: Stubs::ExportImageTaskList.default(visited),
+          export_image_tasks: ExportImageTaskList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12506,7 +12506,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ExportImageTaskList')
         visited = visited + ['ExportImageTaskList']
         [
-          Stubs::ExportImageTask.default(visited)
+          ExportImageTask.default(visited)
         ]
       end
 
@@ -12529,10 +12529,10 @@ module AWS::SDK::EC2
           export_image_task_id: 'export_image_task_id',
           image_id: 'image_id',
           progress: 'progress',
-          s3_export_location: Stubs::ExportTaskS3Location.default(visited),
+          s3_export_location: ExportTaskS3Location.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -12573,7 +12573,7 @@ module AWS::SDK::EC2
     class DescribeExportTasks
       def self.default(visited=[])
         {
-          export_tasks: Stubs::ExportTaskList.default(visited),
+          export_tasks: ExportTaskList.default(visited),
         }
       end
 
@@ -12593,7 +12593,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ExportTaskList')
         visited = visited + ['ExportTaskList']
         [
-          Stubs::ExportTask.default(visited)
+          ExportTask.default(visited)
         ]
       end
 
@@ -12610,7 +12610,7 @@ module AWS::SDK::EC2
     class DescribeFastLaunchImages
       def self.default(visited=[])
         {
-          fast_launch_images: Stubs::DescribeFastLaunchImagesSuccessSet.default(visited),
+          fast_launch_images: DescribeFastLaunchImagesSuccessSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12632,7 +12632,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeFastLaunchImagesSuccessSet')
         visited = visited + ['DescribeFastLaunchImagesSuccessSet']
         [
-          Stubs::DescribeFastLaunchImagesSuccessItem.default(visited)
+          DescribeFastLaunchImagesSuccessItem.default(visited)
         ]
       end
 
@@ -12653,8 +12653,8 @@ module AWS::SDK::EC2
         {
           image_id: 'image_id',
           resource_type: 'resource_type',
-          snapshot_configuration: Stubs::FastLaunchSnapshotConfigurationResponse.default(visited),
-          launch_template: Stubs::FastLaunchLaunchTemplateSpecificationResponse.default(visited),
+          snapshot_configuration: FastLaunchSnapshotConfigurationResponse.default(visited),
+          launch_template: FastLaunchLaunchTemplateSpecificationResponse.default(visited),
           max_parallel_launches: 1,
           owner_id: 'owner_id',
           state: 'state',
@@ -12720,7 +12720,7 @@ module AWS::SDK::EC2
     class DescribeFastSnapshotRestores
       def self.default(visited=[])
         {
-          fast_snapshot_restores: Stubs::DescribeFastSnapshotRestoreSuccessSet.default(visited),
+          fast_snapshot_restores: DescribeFastSnapshotRestoreSuccessSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -12742,7 +12742,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeFastSnapshotRestoreSuccessSet')
         visited = visited + ['DescribeFastSnapshotRestoreSuccessSet']
         [
-          Stubs::DescribeFastSnapshotRestoreSuccessItem.default(visited)
+          DescribeFastSnapshotRestoreSuccessItem.default(visited)
         ]
       end
 
@@ -12796,7 +12796,7 @@ module AWS::SDK::EC2
     class DescribeFleetHistory
       def self.default(visited=[])
         {
-          history_records: Stubs::HistoryRecordSet.default(visited),
+          history_records: HistoryRecordSet.default(visited),
           last_evaluated_time: Time.now,
           next_token: 'next_token',
           fleet_id: 'fleet_id',
@@ -12824,7 +12824,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HistoryRecordSet')
         visited = visited + ['HistoryRecordSet']
         [
-          Stubs::HistoryRecordEntry.default(visited)
+          HistoryRecordEntry.default(visited)
         ]
       end
 
@@ -12843,7 +12843,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HistoryRecordEntry')
         visited = visited + ['HistoryRecordEntry']
         {
-          event_information: Stubs::EventInformation.default(visited),
+          event_information: EventInformation.default(visited),
           event_type: 'event_type',
           timestamp: Time.now,
         }
@@ -12883,7 +12883,7 @@ module AWS::SDK::EC2
     class DescribeFleetInstances
       def self.default(visited=[])
         {
-          active_instances: Stubs::ActiveInstanceSet.default(visited),
+          active_instances: ActiveInstanceSet.default(visited),
           next_token: 'next_token',
           fleet_id: 'fleet_id',
         }
@@ -12907,7 +12907,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ActiveInstanceSet')
         visited = visited + ['ActiveInstanceSet']
         [
-          Stubs::ActiveInstance.default(visited)
+          ActiveInstance.default(visited)
         ]
       end
 
@@ -12948,7 +12948,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          fleets: Stubs::FleetSet.default(visited),
+          fleets: FleetSet.default(visited),
         }
       end
 
@@ -12969,7 +12969,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FleetSet')
         visited = visited + ['FleetSet']
         [
-          Stubs::FleetData.default(visited)
+          FleetData.default(visited)
         ]
       end
 
@@ -12996,18 +12996,18 @@ module AWS::SDK::EC2
           excess_capacity_termination_policy: 'excess_capacity_termination_policy',
           fulfilled_capacity: 1.0,
           fulfilled_on_demand_capacity: 1.0,
-          launch_template_configs: Stubs::FleetLaunchTemplateConfigList.default(visited),
-          target_capacity_specification: Stubs::TargetCapacitySpecification.default(visited),
+          launch_template_configs: FleetLaunchTemplateConfigList.default(visited),
+          target_capacity_specification: TargetCapacitySpecification.default(visited),
           terminate_instances_with_expiration: false,
           type: 'type',
           valid_from: Time.now,
           valid_until: Time.now,
           replace_unhealthy_instances: false,
-          spot_options: Stubs::SpotOptions.default(visited),
-          on_demand_options: Stubs::OnDemandOptions.default(visited),
-          tags: Stubs::TagList.default(visited),
-          errors: Stubs::DescribeFleetsErrorSet.default(visited),
-          instances: Stubs::DescribeFleetsInstancesSet.default(visited),
+          spot_options: SpotOptions.default(visited),
+          on_demand_options: OnDemandOptions.default(visited),
+          tags: TagList.default(visited),
+          errors: DescribeFleetsErrorSet.default(visited),
+          instances: DescribeFleetsInstancesSet.default(visited),
           context: 'context',
         }
       end
@@ -13045,7 +13045,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeFleetsInstancesSet')
         visited = visited + ['DescribeFleetsInstancesSet']
         [
-          Stubs::DescribeFleetsInstances.default(visited)
+          DescribeFleetsInstances.default(visited)
         ]
       end
 
@@ -13064,9 +13064,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeFleetsInstances')
         visited = visited + ['DescribeFleetsInstances']
         {
-          launch_template_and_overrides: Stubs::LaunchTemplateAndOverridesResponse.default(visited),
+          launch_template_and_overrides: LaunchTemplateAndOverridesResponse.default(visited),
           lifecycle: 'lifecycle',
-          instance_ids: Stubs::InstanceIdsSet.default(visited),
+          instance_ids: InstanceIdsSet.default(visited),
           instance_type: 'instance_type',
           platform: 'platform',
         }
@@ -13089,7 +13089,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeFleetsErrorSet')
         visited = visited + ['DescribeFleetsErrorSet']
         [
-          Stubs::DescribeFleetError.default(visited)
+          DescribeFleetError.default(visited)
         ]
       end
 
@@ -13108,7 +13108,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DescribeFleetError')
         visited = visited + ['DescribeFleetError']
         {
-          launch_template_and_overrides: Stubs::LaunchTemplateAndOverridesResponse.default(visited),
+          launch_template_and_overrides: LaunchTemplateAndOverridesResponse.default(visited),
           lifecycle: 'lifecycle',
           error_code: 'error_code',
           error_message: 'error_message',
@@ -13132,7 +13132,7 @@ module AWS::SDK::EC2
         visited = visited + ['OnDemandOptions']
         {
           allocation_strategy: 'allocation_strategy',
-          capacity_reservation_options: Stubs::CapacityReservationOptions.default(visited),
+          capacity_reservation_options: CapacityReservationOptions.default(visited),
           single_instance_type: false,
           single_availability_zone: false,
           min_target_capacity: 1,
@@ -13176,7 +13176,7 @@ module AWS::SDK::EC2
         visited = visited + ['SpotOptions']
         {
           allocation_strategy: 'allocation_strategy',
-          maintenance_strategies: Stubs::FleetSpotMaintenanceStrategies.default(visited),
+          maintenance_strategies: FleetSpotMaintenanceStrategies.default(visited),
           instance_interruption_behavior: 'instance_interruption_behavior',
           instance_pools_to_use_count: 1,
           single_instance_type: false,
@@ -13206,7 +13206,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FleetSpotMaintenanceStrategies')
         visited = visited + ['FleetSpotMaintenanceStrategies']
         {
-          capacity_rebalance: Stubs::FleetSpotCapacityRebalance.default(visited),
+          capacity_rebalance: FleetSpotCapacityRebalance.default(visited),
         }
       end
 
@@ -13267,7 +13267,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FleetLaunchTemplateConfigList')
         visited = visited + ['FleetLaunchTemplateConfigList']
         [
-          Stubs::FleetLaunchTemplateConfig.default(visited)
+          FleetLaunchTemplateConfig.default(visited)
         ]
       end
 
@@ -13286,8 +13286,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('FleetLaunchTemplateConfig')
         visited = visited + ['FleetLaunchTemplateConfig']
         {
-          launch_template_specification: Stubs::FleetLaunchTemplateSpecification.default(visited),
-          overrides: Stubs::FleetLaunchTemplateOverridesList.default(visited),
+          launch_template_specification: FleetLaunchTemplateSpecification.default(visited),
+          overrides: FleetLaunchTemplateOverridesList.default(visited),
         }
       end
 
@@ -13305,7 +13305,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FleetLaunchTemplateOverridesList')
         visited = visited + ['FleetLaunchTemplateOverridesList']
         [
-          Stubs::FleetLaunchTemplateOverrides.default(visited)
+          FleetLaunchTemplateOverrides.default(visited)
         ]
       end
 
@@ -13322,7 +13322,7 @@ module AWS::SDK::EC2
     class DescribeFlowLogs
       def self.default(visited=[])
         {
-          flow_logs: Stubs::FlowLogSet.default(visited),
+          flow_logs: FlowLogSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13344,7 +13344,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FlowLogSet')
         visited = visited + ['FlowLogSet']
         [
-          Stubs::FlowLog.default(visited)
+          FlowLog.default(visited)
         ]
       end
 
@@ -13375,9 +13375,9 @@ module AWS::SDK::EC2
           log_destination_type: 'log_destination_type',
           log_destination: 'log_destination',
           log_format: 'log_format',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           max_aggregation_interval: 1,
-          destination_options: Stubs::DestinationOptionsResponse.default(visited),
+          destination_options: DestinationOptionsResponse.default(visited),
         }
       end
 
@@ -13427,7 +13427,7 @@ module AWS::SDK::EC2
     class DescribeFpgaImageAttribute
       def self.default(visited=[])
         {
-          fpga_image_attribute: Stubs::FpgaImageAttribute.default(visited),
+          fpga_image_attribute: FpgaImageAttribute.default(visited),
         }
       end
 
@@ -13450,8 +13450,8 @@ module AWS::SDK::EC2
           fpga_image_id: 'fpga_image_id',
           name: 'name',
           description: 'description',
-          load_permissions: Stubs::LoadPermissionList.default(visited),
-          product_codes: Stubs::ProductCodeList.default(visited),
+          load_permissions: LoadPermissionList.default(visited),
+          product_codes: ProductCodeList.default(visited),
         }
       end
 
@@ -13472,7 +13472,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ProductCodeList')
         visited = visited + ['ProductCodeList']
         [
-          Stubs::ProductCode.default(visited)
+          ProductCode.default(visited)
         ]
       end
 
@@ -13510,7 +13510,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LoadPermissionList')
         visited = visited + ['LoadPermissionList']
         [
-          Stubs::LoadPermission.default(visited)
+          LoadPermission.default(visited)
         ]
       end
 
@@ -13546,7 +13546,7 @@ module AWS::SDK::EC2
     class DescribeFpgaImages
       def self.default(visited=[])
         {
-          fpga_images: Stubs::FpgaImageList.default(visited),
+          fpga_images: FpgaImageList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13568,7 +13568,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FpgaImageList')
         visited = visited + ['FpgaImageList']
         [
-          Stubs::FpgaImage.default(visited)
+          FpgaImage.default(visited)
         ]
       end
 
@@ -13592,14 +13592,14 @@ module AWS::SDK::EC2
           name: 'name',
           description: 'description',
           shell_version: 'shell_version',
-          pci_id: Stubs::PciId.default(visited),
-          state: Stubs::FpgaImageState.default(visited),
+          pci_id: PciId.default(visited),
+          state: FpgaImageState.default(visited),
           create_time: Time.now,
           update_time: Time.now,
           owner_id: 'owner_id',
           owner_alias: 'owner_alias',
-          product_codes: Stubs::ProductCodeList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          product_codes: ProductCodeList.default(visited),
+          tags: TagList.default(visited),
           public: false,
           data_retention_support: false,
         }
@@ -13673,7 +13673,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          offering_set: Stubs::HostOfferingSet.default(visited),
+          offering_set: HostOfferingSet.default(visited),
         }
       end
 
@@ -13694,7 +13694,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HostOfferingSet')
         visited = visited + ['HostOfferingSet']
         [
-          Stubs::HostOffering.default(visited)
+          HostOffering.default(visited)
         ]
       end
 
@@ -13740,7 +13740,7 @@ module AWS::SDK::EC2
     class DescribeHostReservations
       def self.default(visited=[])
         {
-          host_reservation_set: Stubs::HostReservationSet.default(visited),
+          host_reservation_set: HostReservationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13762,7 +13762,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HostReservationSet')
         visited = visited + ['HostReservationSet']
         [
-          Stubs::HostReservation.default(visited)
+          HostReservation.default(visited)
         ]
       end
 
@@ -13785,7 +13785,7 @@ module AWS::SDK::EC2
           currency_code: 'currency_code',
           duration: 1,
           end: Time.now,
-          host_id_set: Stubs::ResponseHostIdSet.default(visited),
+          host_id_set: ResponseHostIdSet.default(visited),
           host_reservation_id: 'host_reservation_id',
           hourly_price: 'hourly_price',
           instance_family: 'instance_family',
@@ -13794,7 +13794,7 @@ module AWS::SDK::EC2
           start: Time.now,
           state: 'state',
           upfront_price: 'upfront_price',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -13841,7 +13841,7 @@ module AWS::SDK::EC2
     class DescribeHosts
       def self.default(visited=[])
         {
-          hosts: Stubs::HostList.default(visited),
+          hosts: HostList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -13863,7 +13863,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HostList')
         visited = visited + ['HostList']
         [
-          Stubs::Host.default(visited)
+          Host.default(visited)
         ]
       end
 
@@ -13884,16 +13884,16 @@ module AWS::SDK::EC2
         {
           auto_placement: 'auto_placement',
           availability_zone: 'availability_zone',
-          available_capacity: Stubs::AvailableCapacity.default(visited),
+          available_capacity: AvailableCapacity.default(visited),
           client_token: 'client_token',
           host_id: 'host_id',
-          host_properties: Stubs::HostProperties.default(visited),
+          host_properties: HostProperties.default(visited),
           host_reservation_id: 'host_reservation_id',
-          instances: Stubs::HostInstanceList.default(visited),
+          instances: HostInstanceList.default(visited),
           state: 'state',
           allocation_time: Time.now,
           release_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           host_recovery: 'host_recovery',
           allows_multiple_instance_types: 'allows_multiple_instance_types',
           owner_id: 'owner_id',
@@ -13933,7 +13933,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HostInstanceList')
         visited = visited + ['HostInstanceList']
         [
-          Stubs::HostInstance.default(visited)
+          HostInstance.default(visited)
         ]
       end
 
@@ -13998,7 +13998,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AvailableCapacity')
         visited = visited + ['AvailableCapacity']
         {
-          available_instance_capacity: Stubs::AvailableInstanceCapacityList.default(visited),
+          available_instance_capacity: AvailableInstanceCapacityList.default(visited),
           available_v_cpus: 1,
         }
       end
@@ -14017,7 +14017,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AvailableInstanceCapacityList')
         visited = visited + ['AvailableInstanceCapacityList']
         [
-          Stubs::InstanceCapacity.default(visited)
+          InstanceCapacity.default(visited)
         ]
       end
 
@@ -14055,7 +14055,7 @@ module AWS::SDK::EC2
     class DescribeIamInstanceProfileAssociations
       def self.default(visited=[])
         {
-          iam_instance_profile_associations: Stubs::IamInstanceProfileAssociationSet.default(visited),
+          iam_instance_profile_associations: IamInstanceProfileAssociationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14077,7 +14077,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IamInstanceProfileAssociationSet')
         visited = visited + ['IamInstanceProfileAssociationSet']
         [
-          Stubs::IamInstanceProfileAssociation.default(visited)
+          IamInstanceProfileAssociation.default(visited)
         ]
       end
 
@@ -14094,7 +14094,7 @@ module AWS::SDK::EC2
     class DescribeIdFormat
       def self.default(visited=[])
         {
-          statuses: Stubs::IdFormatList.default(visited),
+          statuses: IdFormatList.default(visited),
         }
       end
 
@@ -14112,7 +14112,7 @@ module AWS::SDK::EC2
     class DescribeIdentityIdFormat
       def self.default(visited=[])
         {
-          statuses: Stubs::IdFormatList.default(visited),
+          statuses: IdFormatList.default(visited),
         }
       end
 
@@ -14130,18 +14130,18 @@ module AWS::SDK::EC2
     class DescribeImageAttribute
       def self.default(visited=[])
         {
-          block_device_mappings: Stubs::BlockDeviceMappingList.default(visited),
+          block_device_mappings: BlockDeviceMappingList.default(visited),
           image_id: 'image_id',
-          launch_permissions: Stubs::LaunchPermissionList.default(visited),
-          product_codes: Stubs::ProductCodeList.default(visited),
-          description: Stubs::AttributeValue.default(visited),
-          kernel_id: Stubs::AttributeValue.default(visited),
-          ramdisk_id: Stubs::AttributeValue.default(visited),
-          sriov_net_support: Stubs::AttributeValue.default(visited),
-          boot_mode: Stubs::AttributeValue.default(visited),
-          tpm_support: Stubs::AttributeValue.default(visited),
-          uefi_data: Stubs::AttributeValue.default(visited),
-          last_launched_time: Stubs::AttributeValue.default(visited),
+          launch_permissions: LaunchPermissionList.default(visited),
+          product_codes: ProductCodeList.default(visited),
+          description: AttributeValue.default(visited),
+          kernel_id: AttributeValue.default(visited),
+          ramdisk_id: AttributeValue.default(visited),
+          sriov_net_support: AttributeValue.default(visited),
+          boot_mode: AttributeValue.default(visited),
+          tpm_support: AttributeValue.default(visited),
+          uefi_data: AttributeValue.default(visited),
+          last_launched_time: AttributeValue.default(visited),
         }
       end
 
@@ -14172,7 +14172,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchPermissionList')
         visited = visited + ['LaunchPermissionList']
         [
-          Stubs::LaunchPermission.default(visited)
+          LaunchPermission.default(visited)
         ]
       end
 
@@ -14214,7 +14214,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('BlockDeviceMappingList')
         visited = visited + ['BlockDeviceMappingList']
         [
-          Stubs::BlockDeviceMapping.default(visited)
+          BlockDeviceMapping.default(visited)
         ]
       end
 
@@ -14235,7 +14235,7 @@ module AWS::SDK::EC2
         {
           device_name: 'device_name',
           virtual_name: 'virtual_name',
-          ebs: Stubs::EbsBlockDevice.default(visited),
+          ebs: EbsBlockDevice.default(visited),
           no_device: 'no_device',
         }
       end
@@ -14287,7 +14287,7 @@ module AWS::SDK::EC2
     class DescribeImages
       def self.default(visited=[])
         {
-          images: Stubs::ImageList.default(visited),
+          images: ImageList.default(visited),
         }
       end
 
@@ -14307,7 +14307,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ImageList')
         visited = visited + ['ImageList']
         [
-          Stubs::Image.default(visited)
+          Image.default(visited)
         ]
       end
 
@@ -14337,10 +14337,10 @@ module AWS::SDK::EC2
           platform: 'platform',
           platform_details: 'platform_details',
           usage_operation: 'usage_operation',
-          product_codes: Stubs::ProductCodeList.default(visited),
+          product_codes: ProductCodeList.default(visited),
           ramdisk_id: 'ramdisk_id',
           state: 'state',
-          block_device_mappings: Stubs::BlockDeviceMappingList.default(visited),
+          block_device_mappings: BlockDeviceMappingList.default(visited),
           description: 'description',
           ena_support: false,
           hypervisor: 'hypervisor',
@@ -14349,8 +14349,8 @@ module AWS::SDK::EC2
           root_device_name: 'root_device_name',
           root_device_type: 'root_device_type',
           sriov_net_support: 'sriov_net_support',
-          state_reason: Stubs::StateReason.default(visited),
-          tags: Stubs::TagList.default(visited),
+          state_reason: StateReason.default(visited),
+          tags: TagList.default(visited),
           virtualization_type: 'virtualization_type',
           boot_mode: 'boot_mode',
           tpm_support: 'tpm_support',
@@ -14416,7 +14416,7 @@ module AWS::SDK::EC2
     class DescribeImportImageTasks
       def self.default(visited=[])
         {
-          import_image_tasks: Stubs::ImportImageTaskList.default(visited),
+          import_image_tasks: ImportImageTaskList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14438,7 +14438,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ImportImageTaskList')
         visited = visited + ['ImportImageTaskList']
         [
-          Stubs::ImportImageTask.default(visited)
+          ImportImageTask.default(visited)
         ]
       end
 
@@ -14467,11 +14467,11 @@ module AWS::SDK::EC2
           license_type: 'license_type',
           platform: 'platform',
           progress: 'progress',
-          snapshot_details: Stubs::SnapshotDetailList.default(visited),
+          snapshot_details: SnapshotDetailList.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
-          license_specifications: Stubs::ImportImageLicenseSpecificationListResponse.default(visited),
+          tags: TagList.default(visited),
+          license_specifications: ImportImageLicenseSpecificationListResponse.default(visited),
           usage_operation: 'usage_operation',
           boot_mode: 'boot_mode',
         }
@@ -14506,7 +14506,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ImportImageLicenseSpecificationListResponse')
         visited = visited + ['ImportImageLicenseSpecificationListResponse']
         [
-          Stubs::ImportImageLicenseConfigurationResponse.default(visited)
+          ImportImageLicenseConfigurationResponse.default(visited)
         ]
       end
 
@@ -14542,7 +14542,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SnapshotDetailList')
         visited = visited + ['SnapshotDetailList']
         [
-          Stubs::SnapshotDetail.default(visited)
+          SnapshotDetail.default(visited)
         ]
       end
 
@@ -14570,7 +14570,7 @@ module AWS::SDK::EC2
           status: 'status',
           status_message: 'status_message',
           url: 'url',
-          user_bucket: Stubs::UserBucketDetails.default(visited),
+          user_bucket: UserBucketDetails.default(visited),
         }
       end
 
@@ -14613,7 +14613,7 @@ module AWS::SDK::EC2
     class DescribeImportSnapshotTasks
       def self.default(visited=[])
         {
-          import_snapshot_tasks: Stubs::ImportSnapshotTaskList.default(visited),
+          import_snapshot_tasks: ImportSnapshotTaskList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14635,7 +14635,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ImportSnapshotTaskList')
         visited = visited + ['ImportSnapshotTaskList']
         [
-          Stubs::ImportSnapshotTask.default(visited)
+          ImportSnapshotTask.default(visited)
         ]
       end
 
@@ -14656,8 +14656,8 @@ module AWS::SDK::EC2
         {
           description: 'description',
           import_task_id: 'import_task_id',
-          snapshot_task_detail: Stubs::SnapshotTaskDetail.default(visited),
-          tags: Stubs::TagList.default(visited),
+          snapshot_task_detail: SnapshotTaskDetail.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -14687,7 +14687,7 @@ module AWS::SDK::EC2
           status: 'status',
           status_message: 'status_message',
           url: 'url',
-          user_bucket: Stubs::UserBucketDetails.default(visited),
+          user_bucket: UserBucketDetails.default(visited),
         }
       end
 
@@ -14712,23 +14712,23 @@ module AWS::SDK::EC2
     class DescribeInstanceAttribute
       def self.default(visited=[])
         {
-          groups: Stubs::GroupIdentifierList.default(visited),
-          block_device_mappings: Stubs::InstanceBlockDeviceMappingList.default(visited),
-          disable_api_termination: Stubs::AttributeBooleanValue.default(visited),
-          ena_support: Stubs::AttributeBooleanValue.default(visited),
-          enclave_options: Stubs::EnclaveOptions.default(visited),
-          ebs_optimized: Stubs::AttributeBooleanValue.default(visited),
+          groups: GroupIdentifierList.default(visited),
+          block_device_mappings: InstanceBlockDeviceMappingList.default(visited),
+          disable_api_termination: AttributeBooleanValue.default(visited),
+          ena_support: AttributeBooleanValue.default(visited),
+          enclave_options: EnclaveOptions.default(visited),
+          ebs_optimized: AttributeBooleanValue.default(visited),
           instance_id: 'instance_id',
-          instance_initiated_shutdown_behavior: Stubs::AttributeValue.default(visited),
-          instance_type: Stubs::AttributeValue.default(visited),
-          kernel_id: Stubs::AttributeValue.default(visited),
-          product_codes: Stubs::ProductCodeList.default(visited),
-          ramdisk_id: Stubs::AttributeValue.default(visited),
-          root_device_name: Stubs::AttributeValue.default(visited),
-          source_dest_check: Stubs::AttributeBooleanValue.default(visited),
-          sriov_net_support: Stubs::AttributeValue.default(visited),
-          user_data: Stubs::AttributeValue.default(visited),
-          disable_api_stop: Stubs::AttributeBooleanValue.default(visited),
+          instance_initiated_shutdown_behavior: AttributeValue.default(visited),
+          instance_type: AttributeValue.default(visited),
+          kernel_id: AttributeValue.default(visited),
+          product_codes: ProductCodeList.default(visited),
+          ramdisk_id: AttributeValue.default(visited),
+          root_device_name: AttributeValue.default(visited),
+          source_dest_check: AttributeBooleanValue.default(visited),
+          sriov_net_support: AttributeValue.default(visited),
+          user_data: AttributeValue.default(visited),
+          disable_api_stop: AttributeBooleanValue.default(visited),
         }
       end
 
@@ -14798,7 +14798,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceBlockDeviceMappingList')
         visited = visited + ['InstanceBlockDeviceMappingList']
         [
-          Stubs::InstanceBlockDeviceMapping.default(visited)
+          InstanceBlockDeviceMapping.default(visited)
         ]
       end
 
@@ -14818,7 +14818,7 @@ module AWS::SDK::EC2
         visited = visited + ['InstanceBlockDeviceMapping']
         {
           device_name: 'device_name',
-          ebs: Stubs::EbsInstanceBlockDevice.default(visited),
+          ebs: EbsInstanceBlockDevice.default(visited),
         }
       end
 
@@ -14857,7 +14857,7 @@ module AWS::SDK::EC2
     class DescribeInstanceCreditSpecifications
       def self.default(visited=[])
         {
-          instance_credit_specifications: Stubs::InstanceCreditSpecificationList.default(visited),
+          instance_credit_specifications: InstanceCreditSpecificationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14879,7 +14879,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceCreditSpecificationList')
         visited = visited + ['InstanceCreditSpecificationList']
         [
-          Stubs::InstanceCreditSpecification.default(visited)
+          InstanceCreditSpecification.default(visited)
         ]
       end
 
@@ -14915,7 +14915,7 @@ module AWS::SDK::EC2
     class DescribeInstanceEventNotificationAttributes
       def self.default(visited=[])
         {
-          instance_tag_attribute: Stubs::InstanceTagNotificationAttribute.default(visited),
+          instance_tag_attribute: InstanceTagNotificationAttribute.default(visited),
         }
       end
 
@@ -14933,7 +14933,7 @@ module AWS::SDK::EC2
     class DescribeInstanceEventWindows
       def self.default(visited=[])
         {
-          instance_event_windows: Stubs::InstanceEventWindowSet.default(visited),
+          instance_event_windows: InstanceEventWindowSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14955,7 +14955,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceEventWindowSet')
         visited = visited + ['InstanceEventWindowSet']
         [
-          Stubs::InstanceEventWindow.default(visited)
+          InstanceEventWindow.default(visited)
         ]
       end
 
@@ -14972,7 +14972,7 @@ module AWS::SDK::EC2
     class DescribeInstanceStatus
       def self.default(visited=[])
         {
-          instance_statuses: Stubs::InstanceStatusList.default(visited),
+          instance_statuses: InstanceStatusList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -14994,7 +14994,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceStatusList')
         visited = visited + ['InstanceStatusList']
         [
-          Stubs::InstanceStatus.default(visited)
+          InstanceStatus.default(visited)
         ]
       end
 
@@ -15015,11 +15015,11 @@ module AWS::SDK::EC2
         {
           availability_zone: 'availability_zone',
           outpost_arn: 'outpost_arn',
-          events: Stubs::InstanceStatusEventList.default(visited),
+          events: InstanceStatusEventList.default(visited),
           instance_id: 'instance_id',
-          instance_state: Stubs::InstanceState.default(visited),
-          instance_status: Stubs::InstanceStatusSummary.default(visited),
-          system_status: Stubs::InstanceStatusSummary.default(visited),
+          instance_state: InstanceState.default(visited),
+          instance_status: InstanceStatusSummary.default(visited),
+          system_status: InstanceStatusSummary.default(visited),
         }
       end
 
@@ -15042,7 +15042,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceStatusSummary')
         visited = visited + ['InstanceStatusSummary']
         {
-          details: Stubs::InstanceStatusDetailsList.default(visited),
+          details: InstanceStatusDetailsList.default(visited),
           status: 'status',
         }
       end
@@ -15061,7 +15061,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceStatusDetailsList')
         visited = visited + ['InstanceStatusDetailsList']
         [
-          Stubs::InstanceStatusDetails.default(visited)
+          InstanceStatusDetails.default(visited)
         ]
       end
 
@@ -15120,7 +15120,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceStatusEventList')
         visited = visited + ['InstanceStatusEventList']
         [
-          Stubs::InstanceStatusEvent.default(visited)
+          InstanceStatusEvent.default(visited)
         ]
       end
 
@@ -15164,7 +15164,7 @@ module AWS::SDK::EC2
     class DescribeInstanceTypeOfferings
       def self.default(visited=[])
         {
-          instance_type_offerings: Stubs::InstanceTypeOfferingsList.default(visited),
+          instance_type_offerings: InstanceTypeOfferingsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15186,7 +15186,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceTypeOfferingsList')
         visited = visited + ['InstanceTypeOfferingsList']
         [
-          Stubs::InstanceTypeOffering.default(visited)
+          InstanceTypeOffering.default(visited)
         ]
       end
 
@@ -15224,7 +15224,7 @@ module AWS::SDK::EC2
     class DescribeInstanceTypes
       def self.default(visited=[])
         {
-          instance_types: Stubs::InstanceTypeInfoList.default(visited),
+          instance_types: InstanceTypeInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -15246,7 +15246,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceTypeInfoList')
         visited = visited + ['InstanceTypeInfoList']
         [
-          Stubs::InstanceTypeInfo.default(visited)
+          InstanceTypeInfo.default(visited)
         ]
       end
 
@@ -15268,27 +15268,27 @@ module AWS::SDK::EC2
           instance_type: 'instance_type',
           current_generation: false,
           free_tier_eligible: false,
-          supported_usage_classes: Stubs::UsageClassTypeList.default(visited),
-          supported_root_device_types: Stubs::RootDeviceTypeList.default(visited),
-          supported_virtualization_types: Stubs::VirtualizationTypeList.default(visited),
+          supported_usage_classes: UsageClassTypeList.default(visited),
+          supported_root_device_types: RootDeviceTypeList.default(visited),
+          supported_virtualization_types: VirtualizationTypeList.default(visited),
           bare_metal: false,
           hypervisor: 'hypervisor',
-          processor_info: Stubs::ProcessorInfo.default(visited),
-          v_cpu_info: Stubs::VCpuInfo.default(visited),
-          memory_info: Stubs::MemoryInfo.default(visited),
+          processor_info: ProcessorInfo.default(visited),
+          v_cpu_info: VCpuInfo.default(visited),
+          memory_info: MemoryInfo.default(visited),
           instance_storage_supported: false,
-          instance_storage_info: Stubs::InstanceStorageInfo.default(visited),
-          ebs_info: Stubs::EbsInfo.default(visited),
-          network_info: Stubs::NetworkInfo.default(visited),
-          gpu_info: Stubs::GpuInfo.default(visited),
-          fpga_info: Stubs::FpgaInfo.default(visited),
-          placement_group_info: Stubs::PlacementGroupInfo.default(visited),
-          inference_accelerator_info: Stubs::InferenceAcceleratorInfo.default(visited),
+          instance_storage_info: InstanceStorageInfo.default(visited),
+          ebs_info: EbsInfo.default(visited),
+          network_info: NetworkInfo.default(visited),
+          gpu_info: GpuInfo.default(visited),
+          fpga_info: FpgaInfo.default(visited),
+          placement_group_info: PlacementGroupInfo.default(visited),
+          inference_accelerator_info: InferenceAcceleratorInfo.default(visited),
           hibernation_supported: false,
           burstable_performance_supported: false,
           dedicated_hosts_supported: false,
           auto_recovery_supported: false,
-          supported_boot_modes: Stubs::BootModeTypeList.default(visited),
+          supported_boot_modes: BootModeTypeList.default(visited),
         }
       end
 
@@ -15347,7 +15347,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InferenceAcceleratorInfo')
         visited = visited + ['InferenceAcceleratorInfo']
         {
-          accelerators: Stubs::InferenceDeviceInfoList.default(visited),
+          accelerators: InferenceDeviceInfoList.default(visited),
         }
       end
 
@@ -15364,7 +15364,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InferenceDeviceInfoList')
         visited = visited + ['InferenceDeviceInfoList']
         [
-          Stubs::InferenceDeviceInfo.default(visited)
+          InferenceDeviceInfo.default(visited)
         ]
       end
 
@@ -15404,7 +15404,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PlacementGroupInfo')
         visited = visited + ['PlacementGroupInfo']
         {
-          supported_strategies: Stubs::PlacementGroupStrategyList.default(visited),
+          supported_strategies: PlacementGroupStrategyList.default(visited),
         }
       end
 
@@ -15440,7 +15440,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FpgaInfo')
         visited = visited + ['FpgaInfo']
         {
-          fpgas: Stubs::FpgaDeviceInfoList.default(visited),
+          fpgas: FpgaDeviceInfoList.default(visited),
           total_fpga_memory_in_mi_b: 1,
         }
       end
@@ -15459,7 +15459,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('FpgaDeviceInfoList')
         visited = visited + ['FpgaDeviceInfoList']
         [
-          Stubs::FpgaDeviceInfo.default(visited)
+          FpgaDeviceInfo.default(visited)
         ]
       end
 
@@ -15481,7 +15481,7 @@ module AWS::SDK::EC2
           name: 'name',
           manufacturer: 'manufacturer',
           count: 1,
-          memory_info: Stubs::FpgaDeviceMemoryInfo.default(visited),
+          memory_info: FpgaDeviceMemoryInfo.default(visited),
         }
       end
 
@@ -15518,7 +15518,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('GpuInfo')
         visited = visited + ['GpuInfo']
         {
-          gpus: Stubs::GpuDeviceInfoList.default(visited),
+          gpus: GpuDeviceInfoList.default(visited),
           total_gpu_memory_in_mi_b: 1,
         }
       end
@@ -15537,7 +15537,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('GpuDeviceInfoList')
         visited = visited + ['GpuDeviceInfoList']
         [
-          Stubs::GpuDeviceInfo.default(visited)
+          GpuDeviceInfo.default(visited)
         ]
       end
 
@@ -15559,7 +15559,7 @@ module AWS::SDK::EC2
           name: 'name',
           manufacturer: 'manufacturer',
           count: 1,
-          memory_info: Stubs::GpuDeviceMemoryInfo.default(visited),
+          memory_info: GpuDeviceMemoryInfo.default(visited),
         }
       end
 
@@ -15600,13 +15600,13 @@ module AWS::SDK::EC2
           maximum_network_interfaces: 1,
           maximum_network_cards: 1,
           default_network_card_index: 1,
-          network_cards: Stubs::NetworkCardInfoList.default(visited),
+          network_cards: NetworkCardInfoList.default(visited),
           ipv4_addresses_per_interface: 1,
           ipv6_addresses_per_interface: 1,
           ipv6_supported: false,
           ena_support: 'ena_support',
           efa_supported: false,
-          efa_info: Stubs::EfaInfo.default(visited),
+          efa_info: EfaInfo.default(visited),
           encryption_in_transit_supported: false,
         }
       end
@@ -15652,7 +15652,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkCardInfoList')
         visited = visited + ['NetworkCardInfoList']
         [
-          Stubs::NetworkCardInfo.default(visited)
+          NetworkCardInfo.default(visited)
         ]
       end
 
@@ -15694,7 +15694,7 @@ module AWS::SDK::EC2
         {
           ebs_optimized_support: 'ebs_optimized_support',
           encryption_support: 'encryption_support',
-          ebs_optimized_info: Stubs::EbsOptimizedInfo.default(visited),
+          ebs_optimized_info: EbsOptimizedInfo.default(visited),
           nvme_support: 'nvme_support',
         }
       end
@@ -15743,7 +15743,7 @@ module AWS::SDK::EC2
         visited = visited + ['InstanceStorageInfo']
         {
           total_size_in_gb: 1,
-          disks: Stubs::DiskInfoList.default(visited),
+          disks: DiskInfoList.default(visited),
           nvme_support: 'nvme_support',
           encryption_support: 'encryption_support',
         }
@@ -15765,7 +15765,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DiskInfoList')
         visited = visited + ['DiskInfoList']
         [
-          Stubs::DiskInfo.default(visited)
+          DiskInfo.default(visited)
         ]
       end
 
@@ -15825,8 +15825,8 @@ module AWS::SDK::EC2
           default_v_cpus: 1,
           default_cores: 1,
           default_threads_per_core: 1,
-          valid_cores: Stubs::CoreCountList.default(visited),
-          valid_threads_per_core: Stubs::ThreadsPerCoreList.default(visited),
+          valid_cores: CoreCountList.default(visited),
+          valid_threads_per_core: ThreadsPerCoreList.default(visited),
         }
       end
 
@@ -15885,7 +15885,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ProcessorInfo')
         visited = visited + ['ProcessorInfo']
         {
-          supported_architectures: Stubs::ArchitectureTypeList.default(visited),
+          supported_architectures: ArchitectureTypeList.default(visited),
           sustained_clock_speed_in_ghz: 1.0,
         }
       end
@@ -15978,7 +15978,7 @@ module AWS::SDK::EC2
     class DescribeInstances
       def self.default(visited=[])
         {
-          reservations: Stubs::ReservationList.default(visited),
+          reservations: ReservationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -16000,7 +16000,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservationList')
         visited = visited + ['ReservationList']
         [
-          Stubs::Reservation.default(visited)
+          Reservation.default(visited)
         ]
       end
 
@@ -16019,8 +16019,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('Reservation')
         visited = visited + ['Reservation']
         {
-          groups: Stubs::GroupIdentifierList.default(visited),
-          instances: Stubs::InstanceList.default(visited),
+          groups: GroupIdentifierList.default(visited),
+          instances: InstanceList.default(visited),
           owner_id: 'owner_id',
           requester_id: 'requester_id',
           reservation_id: 'reservation_id',
@@ -16044,7 +16044,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceList')
         visited = visited + ['InstanceList']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -16070,55 +16070,55 @@ module AWS::SDK::EC2
           kernel_id: 'kernel_id',
           key_name: 'key_name',
           launch_time: Time.now,
-          monitoring: Stubs::Monitoring.default(visited),
-          placement: Stubs::Placement.default(visited),
+          monitoring: Monitoring.default(visited),
+          placement: Placement.default(visited),
           platform: 'platform',
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
-          product_codes: Stubs::ProductCodeList.default(visited),
+          product_codes: ProductCodeList.default(visited),
           public_dns_name: 'public_dns_name',
           public_ip_address: 'public_ip_address',
           ramdisk_id: 'ramdisk_id',
-          state: Stubs::InstanceState.default(visited),
+          state: InstanceState.default(visited),
           state_transition_reason: 'state_transition_reason',
           subnet_id: 'subnet_id',
           vpc_id: 'vpc_id',
           architecture: 'architecture',
-          block_device_mappings: Stubs::InstanceBlockDeviceMappingList.default(visited),
+          block_device_mappings: InstanceBlockDeviceMappingList.default(visited),
           client_token: 'client_token',
           ebs_optimized: false,
           ena_support: false,
           hypervisor: 'hypervisor',
-          iam_instance_profile: Stubs::IamInstanceProfile.default(visited),
+          iam_instance_profile: IamInstanceProfile.default(visited),
           instance_lifecycle: 'instance_lifecycle',
-          elastic_gpu_associations: Stubs::ElasticGpuAssociationList.default(visited),
-          elastic_inference_accelerator_associations: Stubs::ElasticInferenceAcceleratorAssociationList.default(visited),
-          network_interfaces: Stubs::InstanceNetworkInterfaceList.default(visited),
+          elastic_gpu_associations: ElasticGpuAssociationList.default(visited),
+          elastic_inference_accelerator_associations: ElasticInferenceAcceleratorAssociationList.default(visited),
+          network_interfaces: InstanceNetworkInterfaceList.default(visited),
           outpost_arn: 'outpost_arn',
           root_device_name: 'root_device_name',
           root_device_type: 'root_device_type',
-          security_groups: Stubs::GroupIdentifierList.default(visited),
+          security_groups: GroupIdentifierList.default(visited),
           source_dest_check: false,
           spot_instance_request_id: 'spot_instance_request_id',
           sriov_net_support: 'sriov_net_support',
-          state_reason: Stubs::StateReason.default(visited),
-          tags: Stubs::TagList.default(visited),
+          state_reason: StateReason.default(visited),
+          tags: TagList.default(visited),
           virtualization_type: 'virtualization_type',
-          cpu_options: Stubs::CpuOptions.default(visited),
+          cpu_options: CpuOptions.default(visited),
           capacity_reservation_id: 'capacity_reservation_id',
-          capacity_reservation_specification: Stubs::CapacityReservationSpecificationResponse.default(visited),
-          hibernation_options: Stubs::HibernationOptions.default(visited),
-          licenses: Stubs::LicenseList.default(visited),
-          metadata_options: Stubs::InstanceMetadataOptionsResponse.default(visited),
-          enclave_options: Stubs::EnclaveOptions.default(visited),
+          capacity_reservation_specification: CapacityReservationSpecificationResponse.default(visited),
+          hibernation_options: HibernationOptions.default(visited),
+          licenses: LicenseList.default(visited),
+          metadata_options: InstanceMetadataOptionsResponse.default(visited),
+          enclave_options: EnclaveOptions.default(visited),
           boot_mode: 'boot_mode',
           platform_details: 'platform_details',
           usage_operation: 'usage_operation',
           usage_operation_update_time: Time.now,
-          private_dns_name_options: Stubs::PrivateDnsNameOptionsResponse.default(visited),
+          private_dns_name_options: PrivateDnsNameOptionsResponse.default(visited),
           ipv6_address: 'ipv6_address',
           tpm_support: 'tpm_support',
-          maintenance_options: Stubs::InstanceMaintenanceOptions.default(visited),
+          maintenance_options: InstanceMaintenanceOptions.default(visited),
         }
       end
 
@@ -16255,7 +16255,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LicenseList')
         visited = visited + ['LicenseList']
         [
-          Stubs::LicenseConfiguration.default(visited)
+          LicenseConfiguration.default(visited)
         ]
       end
 
@@ -16309,7 +16309,7 @@ module AWS::SDK::EC2
         visited = visited + ['CapacityReservationSpecificationResponse']
         {
           capacity_reservation_preference: 'capacity_reservation_preference',
-          capacity_reservation_target: Stubs::CapacityReservationTargetResponse.default(visited),
+          capacity_reservation_target: CapacityReservationTargetResponse.default(visited),
         }
       end
 
@@ -16346,7 +16346,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceNetworkInterfaceList')
         visited = visited + ['InstanceNetworkInterfaceList']
         [
-          Stubs::InstanceNetworkInterface.default(visited)
+          InstanceNetworkInterface.default(visited)
         ]
       end
 
@@ -16365,24 +16365,24 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceNetworkInterface')
         visited = visited + ['InstanceNetworkInterface']
         {
-          association: Stubs::InstanceNetworkInterfaceAssociation.default(visited),
-          attachment: Stubs::InstanceNetworkInterfaceAttachment.default(visited),
+          association: InstanceNetworkInterfaceAssociation.default(visited),
+          attachment: InstanceNetworkInterfaceAttachment.default(visited),
           description: 'description',
-          groups: Stubs::GroupIdentifierList.default(visited),
-          ipv6_addresses: Stubs::InstanceIpv6AddressList.default(visited),
+          groups: GroupIdentifierList.default(visited),
+          ipv6_addresses: InstanceIpv6AddressList.default(visited),
           mac_address: 'mac_address',
           network_interface_id: 'network_interface_id',
           owner_id: 'owner_id',
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
-          private_ip_addresses: Stubs::InstancePrivateIpAddressList.default(visited),
+          private_ip_addresses: InstancePrivateIpAddressList.default(visited),
           source_dest_check: false,
           status: 'status',
           subnet_id: 'subnet_id',
           vpc_id: 'vpc_id',
           interface_type: 'interface_type',
-          ipv4_prefixes: Stubs::InstanceIpv4PrefixList.default(visited),
-          ipv6_prefixes: Stubs::InstanceIpv6PrefixList.default(visited),
+          ipv4_prefixes: InstanceIpv4PrefixList.default(visited),
+          ipv6_prefixes: InstanceIpv6PrefixList.default(visited),
         }
       end
 
@@ -16416,7 +16416,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceIpv6PrefixList')
         visited = visited + ['InstanceIpv6PrefixList']
         [
-          Stubs::InstanceIpv6Prefix.default(visited)
+          InstanceIpv6Prefix.default(visited)
         ]
       end
 
@@ -16452,7 +16452,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceIpv4PrefixList')
         visited = visited + ['InstanceIpv4PrefixList']
         [
-          Stubs::InstanceIpv4Prefix.default(visited)
+          InstanceIpv4Prefix.default(visited)
         ]
       end
 
@@ -16488,7 +16488,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstancePrivateIpAddressList')
         visited = visited + ['InstancePrivateIpAddressList']
         [
-          Stubs::InstancePrivateIpAddress.default(visited)
+          InstancePrivateIpAddress.default(visited)
         ]
       end
 
@@ -16507,7 +16507,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstancePrivateIpAddress')
         visited = visited + ['InstancePrivateIpAddress']
         {
-          association: Stubs::InstanceNetworkInterfaceAssociation.default(visited),
+          association: InstanceNetworkInterfaceAssociation.default(visited),
           primary: false,
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
@@ -16582,7 +16582,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ElasticInferenceAcceleratorAssociationList')
         visited = visited + ['ElasticInferenceAcceleratorAssociationList']
         [
-          Stubs::ElasticInferenceAcceleratorAssociation.default(visited)
+          ElasticInferenceAcceleratorAssociation.default(visited)
         ]
       end
 
@@ -16624,7 +16624,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ElasticGpuAssociationList')
         visited = visited + ['ElasticGpuAssociationList']
         [
-          Stubs::ElasticGpuAssociation.default(visited)
+          ElasticGpuAssociation.default(visited)
         ]
       end
 
@@ -16712,7 +16712,7 @@ module AWS::SDK::EC2
     class DescribeInternetGateways
       def self.default(visited=[])
         {
-          internet_gateways: Stubs::InternetGatewayList.default(visited),
+          internet_gateways: InternetGatewayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -16734,7 +16734,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InternetGatewayList')
         visited = visited + ['InternetGatewayList']
         [
-          Stubs::InternetGateway.default(visited)
+          InternetGateway.default(visited)
         ]
       end
 
@@ -16752,7 +16752,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          ipam_pools: Stubs::IpamPoolSet.default(visited),
+          ipam_pools: IpamPoolSet.default(visited),
         }
       end
 
@@ -16773,7 +16773,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamPoolSet')
         visited = visited + ['IpamPoolSet']
         [
-          Stubs::IpamPool.default(visited)
+          IpamPool.default(visited)
         ]
       end
 
@@ -16791,7 +16791,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          ipam_scopes: Stubs::IpamScopeSet.default(visited),
+          ipam_scopes: IpamScopeSet.default(visited),
         }
       end
 
@@ -16812,7 +16812,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamScopeSet')
         visited = visited + ['IpamScopeSet']
         [
-          Stubs::IpamScope.default(visited)
+          IpamScope.default(visited)
         ]
       end
 
@@ -16830,7 +16830,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          ipams: Stubs::IpamSet.default(visited),
+          ipams: IpamSet.default(visited),
         }
       end
 
@@ -16851,7 +16851,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamSet')
         visited = visited + ['IpamSet']
         [
-          Stubs::Ipam.default(visited)
+          Ipam.default(visited)
         ]
       end
 
@@ -16868,7 +16868,7 @@ module AWS::SDK::EC2
     class DescribeIpv6Pools
       def self.default(visited=[])
         {
-          ipv6_pools: Stubs::Ipv6PoolSet.default(visited),
+          ipv6_pools: Ipv6PoolSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -16890,7 +16890,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6PoolSet')
         visited = visited + ['Ipv6PoolSet']
         [
-          Stubs::Ipv6Pool.default(visited)
+          Ipv6Pool.default(visited)
         ]
       end
 
@@ -16911,8 +16911,8 @@ module AWS::SDK::EC2
         {
           pool_id: 'pool_id',
           description: 'description',
-          pool_cidr_blocks: Stubs::PoolCidrBlocksSet.default(visited),
-          tags: Stubs::TagList.default(visited),
+          pool_cidr_blocks: PoolCidrBlocksSet.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -16932,7 +16932,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PoolCidrBlocksSet')
         visited = visited + ['PoolCidrBlocksSet']
         [
-          Stubs::PoolCidrBlock.default(visited)
+          PoolCidrBlock.default(visited)
         ]
       end
 
@@ -16966,7 +16966,7 @@ module AWS::SDK::EC2
     class DescribeKeyPairs
       def self.default(visited=[])
         {
-          key_pairs: Stubs::KeyPairList.default(visited),
+          key_pairs: KeyPairList.default(visited),
         }
       end
 
@@ -16986,7 +16986,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('KeyPairList')
         visited = visited + ['KeyPairList']
         [
-          Stubs::KeyPairInfo.default(visited)
+          KeyPairInfo.default(visited)
         ]
       end
 
@@ -17009,7 +17009,7 @@ module AWS::SDK::EC2
           key_fingerprint: 'key_fingerprint',
           key_name: 'key_name',
           key_type: 'key_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           public_key: 'public_key',
           create_time: Time.now,
         }
@@ -17032,7 +17032,7 @@ module AWS::SDK::EC2
     class DescribeLaunchTemplateVersions
       def self.default(visited=[])
         {
-          launch_template_versions: Stubs::LaunchTemplateVersionSet.default(visited),
+          launch_template_versions: LaunchTemplateVersionSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17054,7 +17054,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateVersionSet')
         visited = visited + ['LaunchTemplateVersionSet']
         [
-          Stubs::LaunchTemplateVersion.default(visited)
+          LaunchTemplateVersion.default(visited)
         ]
       end
 
@@ -17071,7 +17071,7 @@ module AWS::SDK::EC2
     class DescribeLaunchTemplates
       def self.default(visited=[])
         {
-          launch_templates: Stubs::LaunchTemplateSet.default(visited),
+          launch_templates: LaunchTemplateSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17093,7 +17093,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateSet')
         visited = visited + ['LaunchTemplateSet']
         [
-          Stubs::LaunchTemplate.default(visited)
+          LaunchTemplate.default(visited)
         ]
       end
 
@@ -17110,7 +17110,7 @@ module AWS::SDK::EC2
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
       def self.default(visited=[])
         {
-          local_gateway_route_table_virtual_interface_group_associations: Stubs::LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.default(visited),
+          local_gateway_route_table_virtual_interface_group_associations: LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17132,7 +17132,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet')
         visited = visited + ['LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet']
         [
-          Stubs::LocalGatewayRouteTableVirtualInterfaceGroupAssociation.default(visited)
+          LocalGatewayRouteTableVirtualInterfaceGroupAssociation.default(visited)
         ]
       end
 
@@ -17158,7 +17158,7 @@ module AWS::SDK::EC2
           local_gateway_route_table_arn: 'local_gateway_route_table_arn',
           owner_id: 'owner_id',
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17180,7 +17180,7 @@ module AWS::SDK::EC2
     class DescribeLocalGatewayRouteTableVpcAssociations
       def self.default(visited=[])
         {
-          local_gateway_route_table_vpc_associations: Stubs::LocalGatewayRouteTableVpcAssociationSet.default(visited),
+          local_gateway_route_table_vpc_associations: LocalGatewayRouteTableVpcAssociationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17202,7 +17202,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewayRouteTableVpcAssociationSet')
         visited = visited + ['LocalGatewayRouteTableVpcAssociationSet']
         [
-          Stubs::LocalGatewayRouteTableVpcAssociation.default(visited)
+          LocalGatewayRouteTableVpcAssociation.default(visited)
         ]
       end
 
@@ -17219,7 +17219,7 @@ module AWS::SDK::EC2
     class DescribeLocalGatewayRouteTables
       def self.default(visited=[])
         {
-          local_gateway_route_tables: Stubs::LocalGatewayRouteTableSet.default(visited),
+          local_gateway_route_tables: LocalGatewayRouteTableSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17241,7 +17241,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewayRouteTableSet')
         visited = visited + ['LocalGatewayRouteTableSet']
         [
-          Stubs::LocalGatewayRouteTable.default(visited)
+          LocalGatewayRouteTable.default(visited)
         ]
       end
 
@@ -17266,7 +17266,7 @@ module AWS::SDK::EC2
           outpost_arn: 'outpost_arn',
           owner_id: 'owner_id',
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17287,7 +17287,7 @@ module AWS::SDK::EC2
     class DescribeLocalGatewayVirtualInterfaceGroups
       def self.default(visited=[])
         {
-          local_gateway_virtual_interface_groups: Stubs::LocalGatewayVirtualInterfaceGroupSet.default(visited),
+          local_gateway_virtual_interface_groups: LocalGatewayVirtualInterfaceGroupSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17309,7 +17309,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewayVirtualInterfaceGroupSet')
         visited = visited + ['LocalGatewayVirtualInterfaceGroupSet']
         [
-          Stubs::LocalGatewayVirtualInterfaceGroup.default(visited)
+          LocalGatewayVirtualInterfaceGroup.default(visited)
         ]
       end
 
@@ -17329,10 +17329,10 @@ module AWS::SDK::EC2
         visited = visited + ['LocalGatewayVirtualInterfaceGroup']
         {
           local_gateway_virtual_interface_group_id: 'local_gateway_virtual_interface_group_id',
-          local_gateway_virtual_interface_ids: Stubs::LocalGatewayVirtualInterfaceIdSet.default(visited),
+          local_gateway_virtual_interface_ids: LocalGatewayVirtualInterfaceIdSet.default(visited),
           local_gateway_id: 'local_gateway_id',
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17370,7 +17370,7 @@ module AWS::SDK::EC2
     class DescribeLocalGatewayVirtualInterfaces
       def self.default(visited=[])
         {
-          local_gateway_virtual_interfaces: Stubs::LocalGatewayVirtualInterfaceSet.default(visited),
+          local_gateway_virtual_interfaces: LocalGatewayVirtualInterfaceSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17392,7 +17392,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewayVirtualInterfaceSet')
         visited = visited + ['LocalGatewayVirtualInterfaceSet']
         [
-          Stubs::LocalGatewayVirtualInterface.default(visited)
+          LocalGatewayVirtualInterface.default(visited)
         ]
       end
 
@@ -17419,7 +17419,7 @@ module AWS::SDK::EC2
           local_bgp_asn: 1,
           peer_bgp_asn: 1,
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17442,7 +17442,7 @@ module AWS::SDK::EC2
     class DescribeLocalGateways
       def self.default(visited=[])
         {
-          local_gateways: Stubs::LocalGatewaySet.default(visited),
+          local_gateways: LocalGatewaySet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17464,7 +17464,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewaySet')
         visited = visited + ['LocalGatewaySet']
         [
-          Stubs::LocalGateway.default(visited)
+          LocalGateway.default(visited)
         ]
       end
 
@@ -17487,7 +17487,7 @@ module AWS::SDK::EC2
           outpost_arn: 'outpost_arn',
           owner_id: 'owner_id',
           state: 'state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17507,7 +17507,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          prefix_lists: Stubs::ManagedPrefixListSet.default(visited),
+          prefix_lists: ManagedPrefixListSet.default(visited),
         }
       end
 
@@ -17528,7 +17528,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ManagedPrefixListSet')
         visited = visited + ['ManagedPrefixListSet']
         [
-          Stubs::ManagedPrefixList.default(visited)
+          ManagedPrefixList.default(visited)
         ]
       end
 
@@ -17545,7 +17545,7 @@ module AWS::SDK::EC2
     class DescribeMovingAddresses
       def self.default(visited=[])
         {
-          moving_address_statuses: Stubs::MovingAddressStatusSet.default(visited),
+          moving_address_statuses: MovingAddressStatusSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17567,7 +17567,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('MovingAddressStatusSet')
         visited = visited + ['MovingAddressStatusSet']
         [
-          Stubs::MovingAddressStatus.default(visited)
+          MovingAddressStatus.default(visited)
         ]
       end
 
@@ -17603,7 +17603,7 @@ module AWS::SDK::EC2
     class DescribeNatGateways
       def self.default(visited=[])
         {
-          nat_gateways: Stubs::NatGatewayList.default(visited),
+          nat_gateways: NatGatewayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17625,7 +17625,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NatGatewayList')
         visited = visited + ['NatGatewayList']
         [
-          Stubs::NatGateway.default(visited)
+          NatGateway.default(visited)
         ]
       end
 
@@ -17642,7 +17642,7 @@ module AWS::SDK::EC2
     class DescribeNetworkAcls
       def self.default(visited=[])
         {
-          network_acls: Stubs::NetworkAclList.default(visited),
+          network_acls: NetworkAclList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17664,7 +17664,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkAclList')
         visited = visited + ['NetworkAclList']
         [
-          Stubs::NetworkAcl.default(visited)
+          NetworkAcl.default(visited)
         ]
       end
 
@@ -17681,7 +17681,7 @@ module AWS::SDK::EC2
     class DescribeNetworkInsightsAccessScopeAnalyses
       def self.default(visited=[])
         {
-          network_insights_access_scope_analyses: Stubs::NetworkInsightsAccessScopeAnalysisList.default(visited),
+          network_insights_access_scope_analyses: NetworkInsightsAccessScopeAnalysisList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17703,7 +17703,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInsightsAccessScopeAnalysisList')
         visited = visited + ['NetworkInsightsAccessScopeAnalysisList']
         [
-          Stubs::NetworkInsightsAccessScopeAnalysis.default(visited)
+          NetworkInsightsAccessScopeAnalysis.default(visited)
         ]
       end
 
@@ -17732,7 +17732,7 @@ module AWS::SDK::EC2
           end_date: Time.now,
           findings_found: 'findings_found',
           analyzed_eni_count: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17757,7 +17757,7 @@ module AWS::SDK::EC2
     class DescribeNetworkInsightsAccessScopes
       def self.default(visited=[])
         {
-          network_insights_access_scopes: Stubs::NetworkInsightsAccessScopeList.default(visited),
+          network_insights_access_scopes: NetworkInsightsAccessScopeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17779,7 +17779,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInsightsAccessScopeList')
         visited = visited + ['NetworkInsightsAccessScopeList']
         [
-          Stubs::NetworkInsightsAccessScope.default(visited)
+          NetworkInsightsAccessScope.default(visited)
         ]
       end
 
@@ -17796,7 +17796,7 @@ module AWS::SDK::EC2
     class DescribeNetworkInsightsAnalyses
       def self.default(visited=[])
         {
-          network_insights_analyses: Stubs::NetworkInsightsAnalysisList.default(visited),
+          network_insights_analyses: NetworkInsightsAnalysisList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -17818,7 +17818,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInsightsAnalysisList')
         visited = visited + ['NetworkInsightsAnalysisList']
         [
-          Stubs::NetworkInsightsAnalysis.default(visited)
+          NetworkInsightsAnalysis.default(visited)
         ]
       end
 
@@ -17840,17 +17840,17 @@ module AWS::SDK::EC2
           network_insights_analysis_id: 'network_insights_analysis_id',
           network_insights_analysis_arn: 'network_insights_analysis_arn',
           network_insights_path_id: 'network_insights_path_id',
-          filter_in_arns: Stubs::ArnList.default(visited),
+          filter_in_arns: ArnList.default(visited),
           start_date: Time.now,
           status: 'status',
           status_message: 'status_message',
           warning_message: 'warning_message',
           network_path_found: false,
-          forward_path_components: Stubs::PathComponentList.default(visited),
-          return_path_components: Stubs::PathComponentList.default(visited),
-          explanations: Stubs::ExplanationList.default(visited),
-          alternate_path_hints: Stubs::AlternatePathHintList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          forward_path_components: PathComponentList.default(visited),
+          return_path_components: PathComponentList.default(visited),
+          explanations: ExplanationList.default(visited),
+          alternate_path_hints: AlternatePathHintList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -17880,7 +17880,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AlternatePathHintList')
         visited = visited + ['AlternatePathHintList']
         [
-          Stubs::AlternatePathHint.default(visited)
+          AlternatePathHint.default(visited)
         ]
       end
 
@@ -17918,7 +17918,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ExplanationList')
         visited = visited + ['ExplanationList']
         [
-          Stubs::Explanation.default(visited)
+          Explanation.default(visited)
         ]
       end
 
@@ -17937,55 +17937,55 @@ module AWS::SDK::EC2
         return nil if visited.include?('Explanation')
         visited = visited + ['Explanation']
         {
-          acl: Stubs::AnalysisComponent.default(visited),
-          acl_rule: Stubs::AnalysisAclRule.default(visited),
+          acl: AnalysisComponent.default(visited),
+          acl_rule: AnalysisAclRule.default(visited),
           address: 'address',
-          addresses: Stubs::IpAddressList.default(visited),
-          attached_to: Stubs::AnalysisComponent.default(visited),
-          availability_zones: Stubs::ValueStringList.default(visited),
-          cidrs: Stubs::ValueStringList.default(visited),
-          component: Stubs::AnalysisComponent.default(visited),
-          customer_gateway: Stubs::AnalysisComponent.default(visited),
-          destination: Stubs::AnalysisComponent.default(visited),
-          destination_vpc: Stubs::AnalysisComponent.default(visited),
+          addresses: IpAddressList.default(visited),
+          attached_to: AnalysisComponent.default(visited),
+          availability_zones: ValueStringList.default(visited),
+          cidrs: ValueStringList.default(visited),
+          component: AnalysisComponent.default(visited),
+          customer_gateway: AnalysisComponent.default(visited),
+          destination: AnalysisComponent.default(visited),
+          destination_vpc: AnalysisComponent.default(visited),
           direction: 'direction',
           explanation_code: 'explanation_code',
-          ingress_route_table: Stubs::AnalysisComponent.default(visited),
-          internet_gateway: Stubs::AnalysisComponent.default(visited),
+          ingress_route_table: AnalysisComponent.default(visited),
+          internet_gateway: AnalysisComponent.default(visited),
           load_balancer_arn: 'load_balancer_arn',
-          classic_load_balancer_listener: Stubs::AnalysisLoadBalancerListener.default(visited),
+          classic_load_balancer_listener: AnalysisLoadBalancerListener.default(visited),
           load_balancer_listener_port: 1,
-          load_balancer_target: Stubs::AnalysisLoadBalancerTarget.default(visited),
-          load_balancer_target_group: Stubs::AnalysisComponent.default(visited),
-          load_balancer_target_groups: Stubs::AnalysisComponentList.default(visited),
+          load_balancer_target: AnalysisLoadBalancerTarget.default(visited),
+          load_balancer_target_group: AnalysisComponent.default(visited),
+          load_balancer_target_groups: AnalysisComponentList.default(visited),
           load_balancer_target_port: 1,
-          elastic_load_balancer_listener: Stubs::AnalysisComponent.default(visited),
+          elastic_load_balancer_listener: AnalysisComponent.default(visited),
           missing_component: 'missing_component',
-          nat_gateway: Stubs::AnalysisComponent.default(visited),
-          network_interface: Stubs::AnalysisComponent.default(visited),
+          nat_gateway: AnalysisComponent.default(visited),
+          network_interface: AnalysisComponent.default(visited),
           packet_field: 'packet_field',
-          vpc_peering_connection: Stubs::AnalysisComponent.default(visited),
+          vpc_peering_connection: AnalysisComponent.default(visited),
           port: 1,
-          port_ranges: Stubs::PortRangeList.default(visited),
-          prefix_list: Stubs::AnalysisComponent.default(visited),
-          protocols: Stubs::StringList.default(visited),
-          route_table_route: Stubs::AnalysisRouteTableRoute.default(visited),
-          route_table: Stubs::AnalysisComponent.default(visited),
-          security_group: Stubs::AnalysisComponent.default(visited),
-          security_group_rule: Stubs::AnalysisSecurityGroupRule.default(visited),
-          security_groups: Stubs::AnalysisComponentList.default(visited),
-          source_vpc: Stubs::AnalysisComponent.default(visited),
+          port_ranges: PortRangeList.default(visited),
+          prefix_list: AnalysisComponent.default(visited),
+          protocols: StringList.default(visited),
+          route_table_route: AnalysisRouteTableRoute.default(visited),
+          route_table: AnalysisComponent.default(visited),
+          security_group: AnalysisComponent.default(visited),
+          security_group_rule: AnalysisSecurityGroupRule.default(visited),
+          security_groups: AnalysisComponentList.default(visited),
+          source_vpc: AnalysisComponent.default(visited),
           state: 'state',
-          subnet: Stubs::AnalysisComponent.default(visited),
-          subnet_route_table: Stubs::AnalysisComponent.default(visited),
-          vpc: Stubs::AnalysisComponent.default(visited),
-          vpc_endpoint: Stubs::AnalysisComponent.default(visited),
-          vpn_connection: Stubs::AnalysisComponent.default(visited),
-          vpn_gateway: Stubs::AnalysisComponent.default(visited),
-          transit_gateway: Stubs::AnalysisComponent.default(visited),
-          transit_gateway_route_table: Stubs::AnalysisComponent.default(visited),
-          transit_gateway_route_table_route: Stubs::TransitGatewayRouteTableRoute.default(visited),
-          transit_gateway_attachment: Stubs::AnalysisComponent.default(visited),
+          subnet: AnalysisComponent.default(visited),
+          subnet_route_table: AnalysisComponent.default(visited),
+          vpc: AnalysisComponent.default(visited),
+          vpc_endpoint: AnalysisComponent.default(visited),
+          vpn_connection: AnalysisComponent.default(visited),
+          vpn_gateway: AnalysisComponent.default(visited),
+          transit_gateway: AnalysisComponent.default(visited),
+          transit_gateway_route_table: AnalysisComponent.default(visited),
+          transit_gateway_route_table_route: TransitGatewayRouteTableRoute.default(visited),
+          transit_gateway_attachment: AnalysisComponent.default(visited),
         }
       end
 
@@ -18100,7 +18100,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AnalysisComponentList')
         visited = visited + ['AnalysisComponentList']
         [
-          Stubs::AnalysisComponent.default(visited)
+          AnalysisComponent.default(visited)
         ]
       end
 
@@ -18122,7 +18122,7 @@ module AWS::SDK::EC2
           cidr: 'cidr',
           direction: 'direction',
           security_group_id: 'security_group_id',
-          port_range: Stubs::PortRange.default(visited),
+          port_range: PortRange.default(visited),
           prefix_list_id: 'prefix_list_id',
           protocol: 'protocol',
         }
@@ -18200,7 +18200,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PortRangeList')
         visited = visited + ['PortRangeList']
         [
-          Stubs::PortRange.default(visited)
+          PortRange.default(visited)
         ]
       end
 
@@ -18221,7 +18221,7 @@ module AWS::SDK::EC2
         {
           address: 'address',
           availability_zone: 'availability_zone',
-          instance: Stubs::AnalysisComponent.default(visited),
+          instance: AnalysisComponent.default(visited),
           port: 1,
         }
       end
@@ -18282,7 +18282,7 @@ module AWS::SDK::EC2
         {
           cidr: 'cidr',
           egress: false,
-          port_range: Stubs::PortRange.default(visited),
+          port_range: PortRange.default(visited),
           protocol: 'protocol',
           rule_action: 'rule_action',
           rule_number: 1,
@@ -18307,7 +18307,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PathComponentList')
         visited = visited + ['PathComponentList']
         [
-          Stubs::PathComponent.default(visited)
+          PathComponent.default(visited)
         ]
       end
 
@@ -18327,20 +18327,20 @@ module AWS::SDK::EC2
         visited = visited + ['PathComponent']
         {
           sequence_number: 1,
-          acl_rule: Stubs::AnalysisAclRule.default(visited),
-          attached_to: Stubs::AnalysisComponent.default(visited),
-          component: Stubs::AnalysisComponent.default(visited),
-          destination_vpc: Stubs::AnalysisComponent.default(visited),
-          outbound_header: Stubs::AnalysisPacketHeader.default(visited),
-          inbound_header: Stubs::AnalysisPacketHeader.default(visited),
-          route_table_route: Stubs::AnalysisRouteTableRoute.default(visited),
-          security_group_rule: Stubs::AnalysisSecurityGroupRule.default(visited),
-          source_vpc: Stubs::AnalysisComponent.default(visited),
-          subnet: Stubs::AnalysisComponent.default(visited),
-          vpc: Stubs::AnalysisComponent.default(visited),
-          additional_details: Stubs::AdditionalDetailList.default(visited),
-          transit_gateway: Stubs::AnalysisComponent.default(visited),
-          transit_gateway_route_table_route: Stubs::TransitGatewayRouteTableRoute.default(visited),
+          acl_rule: AnalysisAclRule.default(visited),
+          attached_to: AnalysisComponent.default(visited),
+          component: AnalysisComponent.default(visited),
+          destination_vpc: AnalysisComponent.default(visited),
+          outbound_header: AnalysisPacketHeader.default(visited),
+          inbound_header: AnalysisPacketHeader.default(visited),
+          route_table_route: AnalysisRouteTableRoute.default(visited),
+          security_group_rule: AnalysisSecurityGroupRule.default(visited),
+          source_vpc: AnalysisComponent.default(visited),
+          subnet: AnalysisComponent.default(visited),
+          vpc: AnalysisComponent.default(visited),
+          additional_details: AdditionalDetailList.default(visited),
+          transit_gateway: AnalysisComponent.default(visited),
+          transit_gateway_route_table_route: TransitGatewayRouteTableRoute.default(visited),
         }
       end
 
@@ -18371,7 +18371,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AdditionalDetailList')
         visited = visited + ['AdditionalDetailList']
         [
-          Stubs::AdditionalDetail.default(visited)
+          AdditionalDetail.default(visited)
         ]
       end
 
@@ -18391,7 +18391,7 @@ module AWS::SDK::EC2
         visited = visited + ['AdditionalDetail']
         {
           additional_detail_type: 'additional_detail_type',
-          component: Stubs::AnalysisComponent.default(visited),
+          component: AnalysisComponent.default(visited),
         }
       end
 
@@ -18409,11 +18409,11 @@ module AWS::SDK::EC2
         return nil if visited.include?('AnalysisPacketHeader')
         visited = visited + ['AnalysisPacketHeader']
         {
-          destination_addresses: Stubs::IpAddressList.default(visited),
-          destination_port_ranges: Stubs::PortRangeList.default(visited),
+          destination_addresses: IpAddressList.default(visited),
+          destination_port_ranges: PortRangeList.default(visited),
           protocol: 'protocol',
-          source_addresses: Stubs::IpAddressList.default(visited),
-          source_port_ranges: Stubs::PortRangeList.default(visited),
+          source_addresses: IpAddressList.default(visited),
+          source_port_ranges: PortRangeList.default(visited),
         }
       end
 
@@ -18451,7 +18451,7 @@ module AWS::SDK::EC2
     class DescribeNetworkInsightsPaths
       def self.default(visited=[])
         {
-          network_insights_paths: Stubs::NetworkInsightsPathList.default(visited),
+          network_insights_paths: NetworkInsightsPathList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18473,7 +18473,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInsightsPathList')
         visited = visited + ['NetworkInsightsPathList']
         [
-          Stubs::NetworkInsightsPath.default(visited)
+          NetworkInsightsPath.default(visited)
         ]
       end
 
@@ -18490,11 +18490,11 @@ module AWS::SDK::EC2
     class DescribeNetworkInterfaceAttribute
       def self.default(visited=[])
         {
-          attachment: Stubs::NetworkInterfaceAttachment.default(visited),
-          description: Stubs::AttributeValue.default(visited),
-          groups: Stubs::GroupIdentifierList.default(visited),
+          attachment: NetworkInterfaceAttachment.default(visited),
+          description: AttributeValue.default(visited),
+          groups: GroupIdentifierList.default(visited),
           network_interface_id: 'network_interface_id',
-          source_dest_check: Stubs::AttributeBooleanValue.default(visited),
+          source_dest_check: AttributeBooleanValue.default(visited),
         }
       end
 
@@ -18516,7 +18516,7 @@ module AWS::SDK::EC2
     class DescribeNetworkInterfacePermissions
       def self.default(visited=[])
         {
-          network_interface_permissions: Stubs::NetworkInterfacePermissionList.default(visited),
+          network_interface_permissions: NetworkInterfacePermissionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18538,7 +18538,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfacePermissionList')
         visited = visited + ['NetworkInterfacePermissionList']
         [
-          Stubs::NetworkInterfacePermission.default(visited)
+          NetworkInterfacePermission.default(visited)
         ]
       end
 
@@ -18555,7 +18555,7 @@ module AWS::SDK::EC2
     class DescribeNetworkInterfaces
       def self.default(visited=[])
         {
-          network_interfaces: Stubs::NetworkInterfaceList.default(visited),
+          network_interfaces: NetworkInterfaceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18577,7 +18577,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('NetworkInterfaceList')
         visited = visited + ['NetworkInterfaceList']
         [
-          Stubs::NetworkInterface.default(visited)
+          NetworkInterface.default(visited)
         ]
       end
 
@@ -18594,7 +18594,7 @@ module AWS::SDK::EC2
     class DescribePlacementGroups
       def self.default(visited=[])
         {
-          placement_groups: Stubs::PlacementGroupList.default(visited),
+          placement_groups: PlacementGroupList.default(visited),
         }
       end
 
@@ -18614,7 +18614,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PlacementGroupList')
         visited = visited + ['PlacementGroupList']
         [
-          Stubs::PlacementGroup.default(visited)
+          PlacementGroup.default(visited)
         ]
       end
 
@@ -18632,7 +18632,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          prefix_lists: Stubs::PrefixListSet.default(visited),
+          prefix_lists: PrefixListSet.default(visited),
         }
       end
 
@@ -18653,7 +18653,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrefixListSet')
         visited = visited + ['PrefixListSet']
         [
-          Stubs::PrefixList.default(visited)
+          PrefixList.default(visited)
         ]
       end
 
@@ -18672,7 +18672,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrefixList')
         visited = visited + ['PrefixList']
         {
-          cidrs: Stubs::ValueStringList.default(visited),
+          cidrs: ValueStringList.default(visited),
           prefix_list_id: 'prefix_list_id',
           prefix_list_name: 'prefix_list_name',
         }
@@ -18691,7 +18691,7 @@ module AWS::SDK::EC2
     class DescribePrincipalIdFormat
       def self.default(visited=[])
         {
-          principals: Stubs::PrincipalIdFormatList.default(visited),
+          principals: PrincipalIdFormatList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18713,7 +18713,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrincipalIdFormatList')
         visited = visited + ['PrincipalIdFormatList']
         [
-          Stubs::PrincipalIdFormat.default(visited)
+          PrincipalIdFormat.default(visited)
         ]
       end
 
@@ -18733,7 +18733,7 @@ module AWS::SDK::EC2
         visited = visited + ['PrincipalIdFormat']
         {
           arn: 'arn',
-          statuses: Stubs::IdFormatList.default(visited),
+          statuses: IdFormatList.default(visited),
         }
       end
 
@@ -18749,7 +18749,7 @@ module AWS::SDK::EC2
     class DescribePublicIpv4Pools
       def self.default(visited=[])
         {
-          public_ipv4_pools: Stubs::PublicIpv4PoolSet.default(visited),
+          public_ipv4_pools: PublicIpv4PoolSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18771,7 +18771,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PublicIpv4PoolSet')
         visited = visited + ['PublicIpv4PoolSet']
         [
-          Stubs::PublicIpv4Pool.default(visited)
+          PublicIpv4Pool.default(visited)
         ]
       end
 
@@ -18792,11 +18792,11 @@ module AWS::SDK::EC2
         {
           pool_id: 'pool_id',
           description: 'description',
-          pool_address_ranges: Stubs::PublicIpv4PoolRangeSet.default(visited),
+          pool_address_ranges: PublicIpv4PoolRangeSet.default(visited),
           total_address_count: 1,
           total_available_address_count: 1,
           network_border_group: 'network_border_group',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -18819,7 +18819,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PublicIpv4PoolRangeSet')
         visited = visited + ['PublicIpv4PoolRangeSet']
         [
-          Stubs::PublicIpv4PoolRange.default(visited)
+          PublicIpv4PoolRange.default(visited)
         ]
       end
 
@@ -18859,7 +18859,7 @@ module AWS::SDK::EC2
     class DescribeRegions
       def self.default(visited=[])
         {
-          regions: Stubs::RegionList.default(visited),
+          regions: RegionList.default(visited),
         }
       end
 
@@ -18879,7 +18879,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('RegionList')
         visited = visited + ['RegionList']
         [
-          Stubs::Region.default(visited)
+          Region.default(visited)
         ]
       end
 
@@ -18917,7 +18917,7 @@ module AWS::SDK::EC2
     class DescribeReplaceRootVolumeTasks
       def self.default(visited=[])
         {
-          replace_root_volume_tasks: Stubs::ReplaceRootVolumeTasks.default(visited),
+          replace_root_volume_tasks: ReplaceRootVolumeTasks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -18939,7 +18939,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReplaceRootVolumeTasks')
         visited = visited + ['ReplaceRootVolumeTasks']
         [
-          Stubs::ReplaceRootVolumeTask.default(visited)
+          ReplaceRootVolumeTask.default(visited)
         ]
       end
 
@@ -18956,7 +18956,7 @@ module AWS::SDK::EC2
     class DescribeReservedInstances
       def self.default(visited=[])
         {
-          reserved_instances: Stubs::ReservedInstancesList.default(visited),
+          reserved_instances: ReservedInstancesList.default(visited),
         }
       end
 
@@ -18976,7 +18976,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstancesList')
         visited = visited + ['ReservedInstancesList']
         [
-          Stubs::ReservedInstances.default(visited)
+          ReservedInstances.default(visited)
         ]
       end
 
@@ -19010,9 +19010,9 @@ module AWS::SDK::EC2
           instance_tenancy: 'instance_tenancy',
           offering_class: 'offering_class',
           offering_type: 'offering_type',
-          recurring_charges: Stubs::RecurringChargesList.default(visited),
+          recurring_charges: RecurringChargesList.default(visited),
           scope: 'scope',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -19046,7 +19046,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('RecurringChargesList')
         visited = visited + ['RecurringChargesList']
         [
-          Stubs::RecurringCharge.default(visited)
+          RecurringCharge.default(visited)
         ]
       end
 
@@ -19082,7 +19082,7 @@ module AWS::SDK::EC2
     class DescribeReservedInstancesListings
       def self.default(visited=[])
         {
-          reserved_instances_listings: Stubs::ReservedInstancesListingList.default(visited),
+          reserved_instances_listings: ReservedInstancesListingList.default(visited),
         }
       end
 
@@ -19101,7 +19101,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reserved_instances_modifications: Stubs::ReservedInstancesModificationList.default(visited),
+          reserved_instances_modifications: ReservedInstancesModificationList.default(visited),
         }
       end
 
@@ -19122,7 +19122,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstancesModificationList')
         visited = visited + ['ReservedInstancesModificationList']
         [
-          Stubs::ReservedInstancesModification.default(visited)
+          ReservedInstancesModification.default(visited)
         ]
       end
 
@@ -19144,8 +19144,8 @@ module AWS::SDK::EC2
           client_token: 'client_token',
           create_date: Time.now,
           effective_date: Time.now,
-          modification_results: Stubs::ReservedInstancesModificationResultList.default(visited),
-          reserved_instances_ids: Stubs::ReservedIntancesIds.default(visited),
+          modification_results: ReservedInstancesModificationResultList.default(visited),
+          reserved_instances_ids: ReservedIntancesIds.default(visited),
           reserved_instances_modification_id: 'reserved_instances_modification_id',
           status: 'status',
           status_message: 'status_message',
@@ -19174,7 +19174,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedIntancesIds')
         visited = visited + ['ReservedIntancesIds']
         [
-          Stubs::ReservedInstancesId.default(visited)
+          ReservedInstancesId.default(visited)
         ]
       end
 
@@ -19210,7 +19210,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstancesModificationResultList')
         visited = visited + ['ReservedInstancesModificationResultList']
         [
-          Stubs::ReservedInstancesModificationResult.default(visited)
+          ReservedInstancesModificationResult.default(visited)
         ]
       end
 
@@ -19230,7 +19230,7 @@ module AWS::SDK::EC2
         visited = visited + ['ReservedInstancesModificationResult']
         {
           reserved_instances_id: 'reserved_instances_id',
-          target_configuration: Stubs::ReservedInstancesConfiguration.default(visited),
+          target_configuration: ReservedInstancesConfiguration.default(visited),
         }
       end
 
@@ -19271,7 +19271,7 @@ module AWS::SDK::EC2
     class DescribeReservedInstancesOfferings
       def self.default(visited=[])
         {
-          reserved_instances_offerings: Stubs::ReservedInstancesOfferingList.default(visited),
+          reserved_instances_offerings: ReservedInstancesOfferingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -19293,7 +19293,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstancesOfferingList')
         visited = visited + ['ReservedInstancesOfferingList']
         [
-          Stubs::ReservedInstancesOffering.default(visited)
+          ReservedInstancesOffering.default(visited)
         ]
       end
 
@@ -19324,8 +19324,8 @@ module AWS::SDK::EC2
           marketplace: false,
           offering_class: 'offering_class',
           offering_type: 'offering_type',
-          pricing_details: Stubs::PricingDetailsList.default(visited),
-          recurring_charges: Stubs::RecurringChargesList.default(visited),
+          pricing_details: PricingDetailsList.default(visited),
+          recurring_charges: RecurringChargesList.default(visited),
           scope: 'scope',
         }
       end
@@ -19357,7 +19357,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PricingDetailsList')
         visited = visited + ['PricingDetailsList']
         [
-          Stubs::PricingDetail.default(visited)
+          PricingDetail.default(visited)
         ]
       end
 
@@ -19393,7 +19393,7 @@ module AWS::SDK::EC2
     class DescribeRouteTables
       def self.default(visited=[])
         {
-          route_tables: Stubs::RouteTableList.default(visited),
+          route_tables: RouteTableList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -19415,7 +19415,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('RouteTableList')
         visited = visited + ['RouteTableList']
         [
-          Stubs::RouteTable.default(visited)
+          RouteTable.default(visited)
         ]
       end
 
@@ -19433,7 +19433,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          scheduled_instance_availability_set: Stubs::ScheduledInstanceAvailabilitySet.default(visited),
+          scheduled_instance_availability_set: ScheduledInstanceAvailabilitySet.default(visited),
         }
       end
 
@@ -19454,7 +19454,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ScheduledInstanceAvailabilitySet')
         visited = visited + ['ScheduledInstanceAvailabilitySet']
         [
-          Stubs::ScheduledInstanceAvailability.default(visited)
+          ScheduledInstanceAvailability.default(visited)
         ]
       end
 
@@ -19483,7 +19483,7 @@ module AWS::SDK::EC2
           network_platform: 'network_platform',
           platform: 'platform',
           purchase_token: 'purchase_token',
-          recurrence: Stubs::ScheduledInstanceRecurrence.default(visited),
+          recurrence: ScheduledInstanceRecurrence.default(visited),
           slot_duration_in_hours: 1,
           total_scheduled_instance_hours: 1,
         }
@@ -19516,7 +19516,7 @@ module AWS::SDK::EC2
         {
           frequency: 'frequency',
           interval: 1,
-          occurrence_day_set: Stubs::OccurrenceDaySet.default(visited),
+          occurrence_day_set: OccurrenceDaySet.default(visited),
           occurrence_relative_to_end: false,
           occurrence_unit: 'occurrence_unit',
         }
@@ -19557,7 +19557,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          scheduled_instance_set: Stubs::ScheduledInstanceSet.default(visited),
+          scheduled_instance_set: ScheduledInstanceSet.default(visited),
         }
       end
 
@@ -19578,7 +19578,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ScheduledInstanceSet')
         visited = visited + ['ScheduledInstanceSet']
         [
-          Stubs::ScheduledInstance.default(visited)
+          ScheduledInstance.default(visited)
         ]
       end
 
@@ -19606,7 +19606,7 @@ module AWS::SDK::EC2
           next_slot_start_time: Time.now,
           platform: 'platform',
           previous_slot_end_time: Time.now,
-          recurrence: Stubs::ScheduledInstanceRecurrence.default(visited),
+          recurrence: ScheduledInstanceRecurrence.default(visited),
           scheduled_instance_id: 'scheduled_instance_id',
           slot_duration_in_hours: 1,
           term_end_date: Time.now,
@@ -19640,7 +19640,7 @@ module AWS::SDK::EC2
     class DescribeSecurityGroupReferences
       def self.default(visited=[])
         {
-          security_group_reference_set: Stubs::SecurityGroupReferences.default(visited),
+          security_group_reference_set: SecurityGroupReferences.default(visited),
         }
       end
 
@@ -19660,7 +19660,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SecurityGroupReferences')
         visited = visited + ['SecurityGroupReferences']
         [
-          Stubs::SecurityGroupReference.default(visited)
+          SecurityGroupReference.default(visited)
         ]
       end
 
@@ -19698,7 +19698,7 @@ module AWS::SDK::EC2
     class DescribeSecurityGroupRules
       def self.default(visited=[])
         {
-          security_group_rules: Stubs::SecurityGroupRuleList.default(visited),
+          security_group_rules: SecurityGroupRuleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -19718,7 +19718,7 @@ module AWS::SDK::EC2
     class DescribeSecurityGroups
       def self.default(visited=[])
         {
-          security_groups: Stubs::SecurityGroupList.default(visited),
+          security_groups: SecurityGroupList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -19740,7 +19740,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SecurityGroupList')
         visited = visited + ['SecurityGroupList']
         [
-          Stubs::SecurityGroup.default(visited)
+          SecurityGroup.default(visited)
         ]
       end
 
@@ -19761,11 +19761,11 @@ module AWS::SDK::EC2
         {
           description: 'description',
           group_name: 'group_name',
-          ip_permissions: Stubs::IpPermissionList.default(visited),
+          ip_permissions: IpPermissionList.default(visited),
           owner_id: 'owner_id',
           group_id: 'group_id',
-          ip_permissions_egress: Stubs::IpPermissionList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          ip_permissions_egress: IpPermissionList.default(visited),
+          tags: TagList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -19790,7 +19790,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpPermissionList')
         visited = visited + ['IpPermissionList']
         [
-          Stubs::IpPermission.default(visited)
+          IpPermission.default(visited)
         ]
       end
 
@@ -19811,11 +19811,11 @@ module AWS::SDK::EC2
         {
           from_port: 1,
           ip_protocol: 'ip_protocol',
-          ip_ranges: Stubs::IpRangeList.default(visited),
-          ipv6_ranges: Stubs::Ipv6RangeList.default(visited),
-          prefix_list_ids: Stubs::PrefixListIdList.default(visited),
+          ip_ranges: IpRangeList.default(visited),
+          ipv6_ranges: Ipv6RangeList.default(visited),
+          prefix_list_ids: PrefixListIdList.default(visited),
           to_port: 1,
-          user_id_group_pairs: Stubs::UserIdGroupPairList.default(visited),
+          user_id_group_pairs: UserIdGroupPairList.default(visited),
         }
       end
 
@@ -19838,7 +19838,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('UserIdGroupPairList')
         visited = visited + ['UserIdGroupPairList']
         [
-          Stubs::UserIdGroupPair.default(visited)
+          UserIdGroupPair.default(visited)
         ]
       end
 
@@ -19886,7 +19886,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrefixListIdList')
         visited = visited + ['PrefixListIdList']
         [
-          Stubs::PrefixListId.default(visited)
+          PrefixListId.default(visited)
         ]
       end
 
@@ -19924,7 +19924,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6RangeList')
         visited = visited + ['Ipv6RangeList']
         [
-          Stubs::Ipv6Range.default(visited)
+          Ipv6Range.default(visited)
         ]
       end
 
@@ -19962,7 +19962,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpRangeList')
         visited = visited + ['IpRangeList']
         [
-          Stubs::IpRange.default(visited)
+          IpRange.default(visited)
         ]
       end
 
@@ -19998,8 +19998,8 @@ module AWS::SDK::EC2
     class DescribeSnapshotAttribute
       def self.default(visited=[])
         {
-          create_volume_permissions: Stubs::CreateVolumePermissionList.default(visited),
-          product_codes: Stubs::ProductCodeList.default(visited),
+          create_volume_permissions: CreateVolumePermissionList.default(visited),
+          product_codes: ProductCodeList.default(visited),
           snapshot_id: 'snapshot_id',
         }
       end
@@ -20022,7 +20022,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CreateVolumePermissionList')
         visited = visited + ['CreateVolumePermissionList']
         [
-          Stubs::CreateVolumePermission.default(visited)
+          CreateVolumePermission.default(visited)
         ]
       end
 
@@ -20058,7 +20058,7 @@ module AWS::SDK::EC2
     class DescribeSnapshotTierStatus
       def self.default(visited=[])
         {
-          snapshot_tier_statuses: Stubs::SnapshotTierStatusSet.default(visited),
+          snapshot_tier_statuses: SnapshotTierStatusSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -20080,7 +20080,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SnapshotTierStatusSet')
         visited = visited + ['SnapshotTierStatusSet']
         [
-          Stubs::SnapshotTierStatus.default(visited)
+          SnapshotTierStatus.default(visited)
         ]
       end
 
@@ -20103,7 +20103,7 @@ module AWS::SDK::EC2
           volume_id: 'volume_id',
           status: 'status',
           owner_id: 'owner_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           storage_tier: 'storage_tier',
           last_tiering_start_time: Time.now,
           last_tiering_progress: 1,
@@ -20136,7 +20136,7 @@ module AWS::SDK::EC2
     class DescribeSnapshots
       def self.default(visited=[])
         {
-          snapshots: Stubs::SnapshotList.default(visited),
+          snapshots: SnapshotList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -20158,7 +20158,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SnapshotList')
         visited = visited + ['SnapshotList']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -20191,7 +20191,7 @@ module AWS::SDK::EC2
           volume_size: 1,
           owner_alias: 'owner_alias',
           outpost_arn: 'outpost_arn',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           storage_tier: 'storage_tier',
           restore_expiry_time: Time.now,
         }
@@ -20224,7 +20224,7 @@ module AWS::SDK::EC2
     class DescribeSpotDatafeedSubscription
       def self.default(visited=[])
         {
-          spot_datafeed_subscription: Stubs::SpotDatafeedSubscription.default(visited),
+          spot_datafeed_subscription: SpotDatafeedSubscription.default(visited),
         }
       end
 
@@ -20242,7 +20242,7 @@ module AWS::SDK::EC2
     class DescribeSpotFleetInstances
       def self.default(visited=[])
         {
-          active_instances: Stubs::ActiveInstanceSet.default(visited),
+          active_instances: ActiveInstanceSet.default(visited),
           next_token: 'next_token',
           spot_fleet_request_id: 'spot_fleet_request_id',
         }
@@ -20264,7 +20264,7 @@ module AWS::SDK::EC2
     class DescribeSpotFleetRequestHistory
       def self.default(visited=[])
         {
-          history_records: Stubs::HistoryRecords.default(visited),
+          history_records: HistoryRecords.default(visited),
           last_evaluated_time: Time.now,
           next_token: 'next_token',
           spot_fleet_request_id: 'spot_fleet_request_id',
@@ -20292,7 +20292,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HistoryRecords')
         visited = visited + ['HistoryRecords']
         [
-          Stubs::HistoryRecord.default(visited)
+          HistoryRecord.default(visited)
         ]
       end
 
@@ -20311,7 +20311,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('HistoryRecord')
         visited = visited + ['HistoryRecord']
         {
-          event_information: Stubs::EventInformation.default(visited),
+          event_information: EventInformation.default(visited),
           event_type: 'event_type',
           timestamp: Time.now,
         }
@@ -20331,7 +20331,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          spot_fleet_request_configs: Stubs::SpotFleetRequestConfigSet.default(visited),
+          spot_fleet_request_configs: SpotFleetRequestConfigSet.default(visited),
         }
       end
 
@@ -20352,7 +20352,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotFleetRequestConfigSet')
         visited = visited + ['SpotFleetRequestConfigSet']
         [
-          Stubs::SpotFleetRequestConfig.default(visited)
+          SpotFleetRequestConfig.default(visited)
         ]
       end
 
@@ -20373,10 +20373,10 @@ module AWS::SDK::EC2
         {
           activity_status: 'activity_status',
           create_time: Time.now,
-          spot_fleet_request_config: Stubs::SpotFleetRequestConfigData.default(visited),
+          spot_fleet_request_config: SpotFleetRequestConfigData.default(visited),
           spot_fleet_request_id: 'spot_fleet_request_id',
           spot_fleet_request_state: 'spot_fleet_request_state',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -20400,14 +20400,14 @@ module AWS::SDK::EC2
         {
           allocation_strategy: 'allocation_strategy',
           on_demand_allocation_strategy: 'on_demand_allocation_strategy',
-          spot_maintenance_strategies: Stubs::SpotMaintenanceStrategies.default(visited),
+          spot_maintenance_strategies: SpotMaintenanceStrategies.default(visited),
           client_token: 'client_token',
           excess_capacity_termination_policy: 'excess_capacity_termination_policy',
           fulfilled_capacity: 1.0,
           on_demand_fulfilled_capacity: 1.0,
           iam_fleet_role: 'iam_fleet_role',
-          launch_specifications: Stubs::LaunchSpecsList.default(visited),
-          launch_template_configs: Stubs::LaunchTemplateConfigList.default(visited),
+          launch_specifications: LaunchSpecsList.default(visited),
+          launch_template_configs: LaunchTemplateConfigList.default(visited),
           spot_price: 'spot_price',
           target_capacity: 1,
           on_demand_target_capacity: 1,
@@ -20419,11 +20419,11 @@ module AWS::SDK::EC2
           valid_until: Time.now,
           replace_unhealthy_instances: false,
           instance_interruption_behavior: 'instance_interruption_behavior',
-          load_balancers_config: Stubs::LoadBalancersConfig.default(visited),
+          load_balancers_config: LoadBalancersConfig.default(visited),
           instance_pools_to_use_count: 1,
           context: 'context',
           target_capacity_unit_type: 'target_capacity_unit_type',
-          tag_specifications: Stubs::TagSpecificationList.default(visited),
+          tag_specifications: TagSpecificationList.default(visited),
         }
       end
 
@@ -20465,7 +20465,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TagSpecificationList')
         visited = visited + ['TagSpecificationList']
         [
-          Stubs::TagSpecification.default(visited)
+          TagSpecification.default(visited)
         ]
       end
 
@@ -20485,7 +20485,7 @@ module AWS::SDK::EC2
         visited = visited + ['TagSpecification']
         {
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -20503,8 +20503,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('LoadBalancersConfig')
         visited = visited + ['LoadBalancersConfig']
         {
-          classic_load_balancers_config: Stubs::ClassicLoadBalancersConfig.default(visited),
-          target_groups_config: Stubs::TargetGroupsConfig.default(visited),
+          classic_load_balancers_config: ClassicLoadBalancersConfig.default(visited),
+          target_groups_config: TargetGroupsConfig.default(visited),
         }
       end
 
@@ -20522,7 +20522,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TargetGroupsConfig')
         visited = visited + ['TargetGroupsConfig']
         {
-          target_groups: Stubs::TargetGroups.default(visited),
+          target_groups: TargetGroups.default(visited),
         }
       end
 
@@ -20539,7 +20539,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TargetGroups')
         visited = visited + ['TargetGroups']
         [
-          Stubs::TargetGroup.default(visited)
+          TargetGroup.default(visited)
         ]
       end
 
@@ -20575,7 +20575,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClassicLoadBalancersConfig')
         visited = visited + ['ClassicLoadBalancersConfig']
         {
-          classic_load_balancers: Stubs::ClassicLoadBalancers.default(visited),
+          classic_load_balancers: ClassicLoadBalancers.default(visited),
         }
       end
 
@@ -20592,7 +20592,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClassicLoadBalancers')
         visited = visited + ['ClassicLoadBalancers']
         [
-          Stubs::ClassicLoadBalancer.default(visited)
+          ClassicLoadBalancer.default(visited)
         ]
       end
 
@@ -20628,7 +20628,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateConfigList')
         visited = visited + ['LaunchTemplateConfigList']
         [
-          Stubs::LaunchTemplateConfig.default(visited)
+          LaunchTemplateConfig.default(visited)
         ]
       end
 
@@ -20647,8 +20647,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateConfig')
         visited = visited + ['LaunchTemplateConfig']
         {
-          launch_template_specification: Stubs::FleetLaunchTemplateSpecification.default(visited),
-          overrides: Stubs::LaunchTemplateOverridesList.default(visited),
+          launch_template_specification: FleetLaunchTemplateSpecification.default(visited),
+          overrides: LaunchTemplateOverridesList.default(visited),
         }
       end
 
@@ -20666,7 +20666,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchTemplateOverridesList')
         visited = visited + ['LaunchTemplateOverridesList']
         [
-          Stubs::LaunchTemplateOverrides.default(visited)
+          LaunchTemplateOverrides.default(visited)
         ]
       end
 
@@ -20691,7 +20691,7 @@ module AWS::SDK::EC2
           availability_zone: 'availability_zone',
           weighted_capacity: 1.0,
           priority: 1.0,
-          instance_requirements: Stubs::InstanceRequirements.default(visited),
+          instance_requirements: InstanceRequirements.default(visited),
         }
       end
 
@@ -20714,7 +20714,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LaunchSpecsList')
         visited = visited + ['LaunchSpecsList']
         [
-          Stubs::SpotFleetLaunchSpecification.default(visited)
+          SpotFleetLaunchSpecification.default(visited)
         ]
       end
 
@@ -20733,25 +20733,25 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotFleetLaunchSpecification')
         visited = visited + ['SpotFleetLaunchSpecification']
         {
-          security_groups: Stubs::GroupIdentifierList.default(visited),
+          security_groups: GroupIdentifierList.default(visited),
           addressing_type: 'addressing_type',
-          block_device_mappings: Stubs::BlockDeviceMappingList.default(visited),
+          block_device_mappings: BlockDeviceMappingList.default(visited),
           ebs_optimized: false,
-          iam_instance_profile: Stubs::IamInstanceProfileSpecification.default(visited),
+          iam_instance_profile: IamInstanceProfileSpecification.default(visited),
           image_id: 'image_id',
           instance_type: 'instance_type',
           kernel_id: 'kernel_id',
           key_name: 'key_name',
-          monitoring: Stubs::SpotFleetMonitoring.default(visited),
-          network_interfaces: Stubs::InstanceNetworkInterfaceSpecificationList.default(visited),
-          placement: Stubs::SpotPlacement.default(visited),
+          monitoring: SpotFleetMonitoring.default(visited),
+          network_interfaces: InstanceNetworkInterfaceSpecificationList.default(visited),
+          placement: SpotPlacement.default(visited),
           ramdisk_id: 'ramdisk_id',
           spot_price: 'spot_price',
           subnet_id: 'subnet_id',
           user_data: 'user_data',
           weighted_capacity: 1.0,
-          tag_specifications: Stubs::SpotFleetTagSpecificationList.default(visited),
-          instance_requirements: Stubs::InstanceRequirements.default(visited),
+          tag_specifications: SpotFleetTagSpecificationList.default(visited),
+          instance_requirements: InstanceRequirements.default(visited),
         }
       end
 
@@ -20786,7 +20786,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotFleetTagSpecificationList')
         visited = visited + ['SpotFleetTagSpecificationList']
         [
-          Stubs::SpotFleetTagSpecification.default(visited)
+          SpotFleetTagSpecification.default(visited)
         ]
       end
 
@@ -20806,7 +20806,7 @@ module AWS::SDK::EC2
         visited = visited + ['SpotFleetTagSpecification']
         {
           resource_type: 'resource_type',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -20845,7 +20845,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceNetworkInterfaceSpecificationList')
         visited = visited + ['InstanceNetworkInterfaceSpecificationList']
         [
-          Stubs::InstanceNetworkInterfaceSpecification.default(visited)
+          InstanceNetworkInterfaceSpecification.default(visited)
         ]
       end
 
@@ -20868,20 +20868,20 @@ module AWS::SDK::EC2
           delete_on_termination: false,
           description: 'description',
           device_index: 1,
-          groups: Stubs::SecurityGroupIdStringList.default(visited),
+          groups: SecurityGroupIdStringList.default(visited),
           ipv6_address_count: 1,
-          ipv6_addresses: Stubs::InstanceIpv6AddressList.default(visited),
+          ipv6_addresses: InstanceIpv6AddressList.default(visited),
           network_interface_id: 'network_interface_id',
           private_ip_address: 'private_ip_address',
-          private_ip_addresses: Stubs::PrivateIpAddressSpecificationList.default(visited),
+          private_ip_addresses: PrivateIpAddressSpecificationList.default(visited),
           secondary_private_ip_address_count: 1,
           subnet_id: 'subnet_id',
           associate_carrier_ip_address: false,
           interface_type: 'interface_type',
           network_card_index: 1,
-          ipv4_prefixes: Stubs::Ipv4PrefixList.default(visited),
+          ipv4_prefixes: Ipv4PrefixList.default(visited),
           ipv4_prefix_count: 1,
-          ipv6_prefixes: Stubs::Ipv6PrefixList.default(visited),
+          ipv6_prefixes: Ipv6PrefixList.default(visited),
           ipv6_prefix_count: 1,
         }
       end
@@ -20917,7 +20917,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6PrefixList')
         visited = visited + ['Ipv6PrefixList']
         [
-          Stubs::Ipv6PrefixSpecificationRequest.default(visited)
+          Ipv6PrefixSpecificationRequest.default(visited)
         ]
       end
 
@@ -20953,7 +20953,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv4PrefixList')
         visited = visited + ['Ipv4PrefixList']
         [
-          Stubs::Ipv4PrefixSpecificationRequest.default(visited)
+          Ipv4PrefixSpecificationRequest.default(visited)
         ]
       end
 
@@ -21044,7 +21044,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotMaintenanceStrategies')
         visited = visited + ['SpotMaintenanceStrategies']
         {
-          capacity_rebalance: Stubs::SpotCapacityRebalance.default(visited),
+          capacity_rebalance: SpotCapacityRebalance.default(visited),
         }
       end
 
@@ -21078,7 +21078,7 @@ module AWS::SDK::EC2
     class DescribeSpotInstanceRequests
       def self.default(visited=[])
         {
-          spot_instance_requests: Stubs::SpotInstanceRequestList.default(visited),
+          spot_instance_requests: SpotInstanceRequestList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21100,7 +21100,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotInstanceRequestList')
         visited = visited + ['SpotInstanceRequestList']
         [
-          Stubs::SpotInstanceRequest.default(visited)
+          SpotInstanceRequest.default(visited)
         ]
       end
 
@@ -21123,17 +21123,17 @@ module AWS::SDK::EC2
           availability_zone_group: 'availability_zone_group',
           block_duration_minutes: 1,
           create_time: Time.now,
-          fault: Stubs::SpotInstanceStateFault.default(visited),
+          fault: SpotInstanceStateFault.default(visited),
           instance_id: 'instance_id',
           launch_group: 'launch_group',
-          launch_specification: Stubs::LaunchSpecification.default(visited),
+          launch_specification: LaunchSpecification.default(visited),
           launched_availability_zone: 'launched_availability_zone',
           product_description: 'product_description',
           spot_instance_request_id: 'spot_instance_request_id',
           spot_price: 'spot_price',
           state: 'state',
-          status: Stubs::SpotInstanceStatus.default(visited),
-          tags: Stubs::TagList.default(visited),
+          status: SpotInstanceStatus.default(visited),
+          tags: TagList.default(visited),
           type: 'type',
           valid_from: Time.now,
           valid_until: Time.now,
@@ -21194,20 +21194,20 @@ module AWS::SDK::EC2
         visited = visited + ['LaunchSpecification']
         {
           user_data: 'user_data',
-          security_groups: Stubs::GroupIdentifierList.default(visited),
+          security_groups: GroupIdentifierList.default(visited),
           addressing_type: 'addressing_type',
-          block_device_mappings: Stubs::BlockDeviceMappingList.default(visited),
+          block_device_mappings: BlockDeviceMappingList.default(visited),
           ebs_optimized: false,
-          iam_instance_profile: Stubs::IamInstanceProfileSpecification.default(visited),
+          iam_instance_profile: IamInstanceProfileSpecification.default(visited),
           image_id: 'image_id',
           instance_type: 'instance_type',
           kernel_id: 'kernel_id',
           key_name: 'key_name',
-          network_interfaces: Stubs::InstanceNetworkInterfaceSpecificationList.default(visited),
-          placement: Stubs::SpotPlacement.default(visited),
+          network_interfaces: InstanceNetworkInterfaceSpecificationList.default(visited),
+          placement: SpotPlacement.default(visited),
           ramdisk_id: 'ramdisk_id',
           subnet_id: 'subnet_id',
-          monitoring: Stubs::RunInstancesMonitoringEnabled.default(visited),
+          monitoring: RunInstancesMonitoringEnabled.default(visited),
         }
       end
 
@@ -21254,7 +21254,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          spot_price_history: Stubs::SpotPriceHistoryList.default(visited),
+          spot_price_history: SpotPriceHistoryList.default(visited),
         }
       end
 
@@ -21275,7 +21275,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotPriceHistoryList')
         visited = visited + ['SpotPriceHistoryList']
         [
-          Stubs::SpotPrice.default(visited)
+          SpotPrice.default(visited)
         ]
       end
 
@@ -21318,7 +21318,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          stale_security_group_set: Stubs::StaleSecurityGroupSet.default(visited),
+          stale_security_group_set: StaleSecurityGroupSet.default(visited),
         }
       end
 
@@ -21339,7 +21339,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('StaleSecurityGroupSet')
         visited = visited + ['StaleSecurityGroupSet']
         [
-          Stubs::StaleSecurityGroup.default(visited)
+          StaleSecurityGroup.default(visited)
         ]
       end
 
@@ -21361,8 +21361,8 @@ module AWS::SDK::EC2
           description: 'description',
           group_id: 'group_id',
           group_name: 'group_name',
-          stale_ip_permissions: Stubs::StaleIpPermissionSet.default(visited),
-          stale_ip_permissions_egress: Stubs::StaleIpPermissionSet.default(visited),
+          stale_ip_permissions: StaleIpPermissionSet.default(visited),
+          stale_ip_permissions_egress: StaleIpPermissionSet.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -21385,7 +21385,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('StaleIpPermissionSet')
         visited = visited + ['StaleIpPermissionSet']
         [
-          Stubs::StaleIpPermission.default(visited)
+          StaleIpPermission.default(visited)
         ]
       end
 
@@ -21406,10 +21406,10 @@ module AWS::SDK::EC2
         {
           from_port: 1,
           ip_protocol: 'ip_protocol',
-          ip_ranges: Stubs::IpRanges.default(visited),
-          prefix_list_ids: Stubs::PrefixListIdSet.default(visited),
+          ip_ranges: IpRanges.default(visited),
+          prefix_list_ids: PrefixListIdSet.default(visited),
           to_port: 1,
-          user_id_group_pairs: Stubs::UserIdGroupPairSet.default(visited),
+          user_id_group_pairs: UserIdGroupPairSet.default(visited),
         }
       end
 
@@ -21431,7 +21431,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('UserIdGroupPairSet')
         visited = visited + ['UserIdGroupPairSet']
         [
-          Stubs::UserIdGroupPair.default(visited)
+          UserIdGroupPair.default(visited)
         ]
       end
 
@@ -21486,7 +21486,7 @@ module AWS::SDK::EC2
     class DescribeStoreImageTasks
       def self.default(visited=[])
         {
-          store_image_task_results: Stubs::StoreImageTaskResultSet.default(visited),
+          store_image_task_results: StoreImageTaskResultSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21508,7 +21508,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('StoreImageTaskResultSet')
         visited = visited + ['StoreImageTaskResultSet']
         [
-          Stubs::StoreImageTaskResult.default(visited)
+          StoreImageTaskResult.default(visited)
         ]
       end
 
@@ -21554,7 +21554,7 @@ module AWS::SDK::EC2
     class DescribeSubnets
       def self.default(visited=[])
         {
-          subnets: Stubs::SubnetList.default(visited),
+          subnets: SubnetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21576,7 +21576,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SubnetList')
         visited = visited + ['SubnetList']
         [
-          Stubs::Subnet.default(visited)
+          Subnet.default(visited)
         ]
       end
 
@@ -21594,7 +21594,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tags: Stubs::TagDescriptionList.default(visited),
+          tags: TagDescriptionList.default(visited),
         }
       end
 
@@ -21615,7 +21615,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TagDescriptionList')
         visited = visited + ['TagDescriptionList']
         [
-          Stubs::TagDescription.default(visited)
+          TagDescription.default(visited)
         ]
       end
 
@@ -21655,7 +21655,7 @@ module AWS::SDK::EC2
     class DescribeTrafficMirrorFilters
       def self.default(visited=[])
         {
-          traffic_mirror_filters: Stubs::TrafficMirrorFilterSet.default(visited),
+          traffic_mirror_filters: TrafficMirrorFilterSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21677,7 +21677,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TrafficMirrorFilterSet')
         visited = visited + ['TrafficMirrorFilterSet']
         [
-          Stubs::TrafficMirrorFilter.default(visited)
+          TrafficMirrorFilter.default(visited)
         ]
       end
 
@@ -21694,7 +21694,7 @@ module AWS::SDK::EC2
     class DescribeTrafficMirrorSessions
       def self.default(visited=[])
         {
-          traffic_mirror_sessions: Stubs::TrafficMirrorSessionSet.default(visited),
+          traffic_mirror_sessions: TrafficMirrorSessionSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21716,7 +21716,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TrafficMirrorSessionSet')
         visited = visited + ['TrafficMirrorSessionSet']
         [
-          Stubs::TrafficMirrorSession.default(visited)
+          TrafficMirrorSession.default(visited)
         ]
       end
 
@@ -21733,7 +21733,7 @@ module AWS::SDK::EC2
     class DescribeTrafficMirrorTargets
       def self.default(visited=[])
         {
-          traffic_mirror_targets: Stubs::TrafficMirrorTargetSet.default(visited),
+          traffic_mirror_targets: TrafficMirrorTargetSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21755,7 +21755,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TrafficMirrorTargetSet')
         visited = visited + ['TrafficMirrorTargetSet']
         [
-          Stubs::TrafficMirrorTarget.default(visited)
+          TrafficMirrorTarget.default(visited)
         ]
       end
 
@@ -21772,7 +21772,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayAttachments
       def self.default(visited=[])
         {
-          transit_gateway_attachments: Stubs::TransitGatewayAttachmentList.default(visited),
+          transit_gateway_attachments: TransitGatewayAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21794,7 +21794,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayAttachmentList')
         visited = visited + ['TransitGatewayAttachmentList']
         [
-          Stubs::TransitGatewayAttachment.default(visited)
+          TransitGatewayAttachment.default(visited)
         ]
       end
 
@@ -21820,9 +21820,9 @@ module AWS::SDK::EC2
           resource_type: 'resource_type',
           resource_id: 'resource_id',
           state: 'state',
-          association: Stubs::TransitGatewayAttachmentAssociation.default(visited),
+          association: TransitGatewayAttachmentAssociation.default(visited),
           creation_time: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -21865,7 +21865,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayConnectPeers
       def self.default(visited=[])
         {
-          transit_gateway_connect_peers: Stubs::TransitGatewayConnectPeerList.default(visited),
+          transit_gateway_connect_peers: TransitGatewayConnectPeerList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21887,7 +21887,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayConnectPeerList')
         visited = visited + ['TransitGatewayConnectPeerList']
         [
-          Stubs::TransitGatewayConnectPeer.default(visited)
+          TransitGatewayConnectPeer.default(visited)
         ]
       end
 
@@ -21904,7 +21904,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayConnects
       def self.default(visited=[])
         {
-          transit_gateway_connects: Stubs::TransitGatewayConnectList.default(visited),
+          transit_gateway_connects: TransitGatewayConnectList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21926,7 +21926,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayConnectList')
         visited = visited + ['TransitGatewayConnectList']
         [
-          Stubs::TransitGatewayConnect.default(visited)
+          TransitGatewayConnect.default(visited)
         ]
       end
 
@@ -21943,7 +21943,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayMulticastDomains
       def self.default(visited=[])
         {
-          transit_gateway_multicast_domains: Stubs::TransitGatewayMulticastDomainList.default(visited),
+          transit_gateway_multicast_domains: TransitGatewayMulticastDomainList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -21965,7 +21965,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayMulticastDomainList')
         visited = visited + ['TransitGatewayMulticastDomainList']
         [
-          Stubs::TransitGatewayMulticastDomain.default(visited)
+          TransitGatewayMulticastDomain.default(visited)
         ]
       end
 
@@ -21982,7 +21982,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayPeeringAttachments
       def self.default(visited=[])
         {
-          transit_gateway_peering_attachments: Stubs::TransitGatewayPeeringAttachmentList.default(visited),
+          transit_gateway_peering_attachments: TransitGatewayPeeringAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22004,7 +22004,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayPeeringAttachmentList')
         visited = visited + ['TransitGatewayPeeringAttachmentList']
         [
-          Stubs::TransitGatewayPeeringAttachment.default(visited)
+          TransitGatewayPeeringAttachment.default(visited)
         ]
       end
 
@@ -22021,7 +22021,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayRouteTables
       def self.default(visited=[])
         {
-          transit_gateway_route_tables: Stubs::TransitGatewayRouteTableList.default(visited),
+          transit_gateway_route_tables: TransitGatewayRouteTableList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22043,7 +22043,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayRouteTableList')
         visited = visited + ['TransitGatewayRouteTableList']
         [
-          Stubs::TransitGatewayRouteTable.default(visited)
+          TransitGatewayRouteTable.default(visited)
         ]
       end
 
@@ -22060,7 +22060,7 @@ module AWS::SDK::EC2
     class DescribeTransitGatewayVpcAttachments
       def self.default(visited=[])
         {
-          transit_gateway_vpc_attachments: Stubs::TransitGatewayVpcAttachmentList.default(visited),
+          transit_gateway_vpc_attachments: TransitGatewayVpcAttachmentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22082,7 +22082,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayVpcAttachmentList')
         visited = visited + ['TransitGatewayVpcAttachmentList']
         [
-          Stubs::TransitGatewayVpcAttachment.default(visited)
+          TransitGatewayVpcAttachment.default(visited)
         ]
       end
 
@@ -22099,7 +22099,7 @@ module AWS::SDK::EC2
     class DescribeTransitGateways
       def self.default(visited=[])
         {
-          transit_gateways: Stubs::TransitGatewayList.default(visited),
+          transit_gateways: TransitGatewayList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22121,7 +22121,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayList')
         visited = visited + ['TransitGatewayList']
         [
-          Stubs::TransitGateway.default(visited)
+          TransitGateway.default(visited)
         ]
       end
 
@@ -22138,7 +22138,7 @@ module AWS::SDK::EC2
     class DescribeTrunkInterfaceAssociations
       def self.default(visited=[])
         {
-          interface_associations: Stubs::TrunkInterfaceAssociationList.default(visited),
+          interface_associations: TrunkInterfaceAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22160,7 +22160,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TrunkInterfaceAssociationList')
         visited = visited + ['TrunkInterfaceAssociationList']
         [
-          Stubs::TrunkInterfaceAssociation.default(visited)
+          TrunkInterfaceAssociation.default(visited)
         ]
       end
 
@@ -22177,8 +22177,8 @@ module AWS::SDK::EC2
     class DescribeVolumeAttribute
       def self.default(visited=[])
         {
-          auto_enable_io: Stubs::AttributeBooleanValue.default(visited),
-          product_codes: Stubs::ProductCodeList.default(visited),
+          auto_enable_io: AttributeBooleanValue.default(visited),
+          product_codes: ProductCodeList.default(visited),
           volume_id: 'volume_id',
         }
       end
@@ -22200,7 +22200,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          volume_statuses: Stubs::VolumeStatusList.default(visited),
+          volume_statuses: VolumeStatusList.default(visited),
         }
       end
 
@@ -22221,7 +22221,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusList')
         visited = visited + ['VolumeStatusList']
         [
-          Stubs::VolumeStatusItem.default(visited)
+          VolumeStatusItem.default(visited)
         ]
       end
 
@@ -22240,13 +22240,13 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusItem')
         visited = visited + ['VolumeStatusItem']
         {
-          actions: Stubs::VolumeStatusActionsList.default(visited),
+          actions: VolumeStatusActionsList.default(visited),
           availability_zone: 'availability_zone',
           outpost_arn: 'outpost_arn',
-          events: Stubs::VolumeStatusEventsList.default(visited),
+          events: VolumeStatusEventsList.default(visited),
           volume_id: 'volume_id',
-          volume_status: Stubs::VolumeStatusInfo.default(visited),
-          attachment_statuses: Stubs::VolumeStatusAttachmentStatusList.default(visited),
+          volume_status: VolumeStatusInfo.default(visited),
+          attachment_statuses: VolumeStatusAttachmentStatusList.default(visited),
         }
       end
 
@@ -22269,7 +22269,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusAttachmentStatusList')
         visited = visited + ['VolumeStatusAttachmentStatusList']
         [
-          Stubs::VolumeStatusAttachmentStatus.default(visited)
+          VolumeStatusAttachmentStatus.default(visited)
         ]
       end
 
@@ -22307,7 +22307,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusInfo')
         visited = visited + ['VolumeStatusInfo']
         {
-          details: Stubs::VolumeStatusDetailsList.default(visited),
+          details: VolumeStatusDetailsList.default(visited),
           status: 'status',
         }
       end
@@ -22326,7 +22326,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusDetailsList')
         visited = visited + ['VolumeStatusDetailsList']
         [
-          Stubs::VolumeStatusDetails.default(visited)
+          VolumeStatusDetails.default(visited)
         ]
       end
 
@@ -22364,7 +22364,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusEventsList')
         visited = visited + ['VolumeStatusEventsList']
         [
-          Stubs::VolumeStatusEvent.default(visited)
+          VolumeStatusEvent.default(visited)
         ]
       end
 
@@ -22410,7 +22410,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeStatusActionsList')
         visited = visited + ['VolumeStatusActionsList']
         [
-          Stubs::VolumeStatusAction.default(visited)
+          VolumeStatusAction.default(visited)
         ]
       end
 
@@ -22450,7 +22450,7 @@ module AWS::SDK::EC2
     class DescribeVolumes
       def self.default(visited=[])
         {
-          volumes: Stubs::VolumeList.default(visited),
+          volumes: VolumeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22472,7 +22472,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeList')
         visited = visited + ['VolumeList']
         [
-          Stubs::Volume.default(visited)
+          Volume.default(visited)
         ]
       end
 
@@ -22491,7 +22491,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Volume')
         visited = visited + ['Volume']
         {
-          attachments: Stubs::VolumeAttachmentList.default(visited),
+          attachments: VolumeAttachmentList.default(visited),
           availability_zone: 'availability_zone',
           create_time: Time.now,
           encrypted: false,
@@ -22502,7 +22502,7 @@ module AWS::SDK::EC2
           state: 'state',
           volume_id: 'volume_id',
           iops: 1,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           volume_type: 'volume_type',
           fast_restored: false,
           multi_attach_enabled: false,
@@ -22536,7 +22536,7 @@ module AWS::SDK::EC2
     class DescribeVolumesModifications
       def self.default(visited=[])
         {
-          volumes_modifications: Stubs::VolumeModificationList.default(visited),
+          volumes_modifications: VolumeModificationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22558,7 +22558,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VolumeModificationList')
         visited = visited + ['VolumeModificationList']
         [
-          Stubs::VolumeModification.default(visited)
+          VolumeModification.default(visited)
         ]
       end
 
@@ -22623,8 +22623,8 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           vpc_id: 'vpc_id',
-          enable_dns_hostnames: Stubs::AttributeBooleanValue.default(visited),
-          enable_dns_support: Stubs::AttributeBooleanValue.default(visited),
+          enable_dns_hostnames: AttributeBooleanValue.default(visited),
+          enable_dns_support: AttributeBooleanValue.default(visited),
         }
       end
 
@@ -22644,7 +22644,7 @@ module AWS::SDK::EC2
     class DescribeVpcClassicLink
       def self.default(visited=[])
         {
-          vpcs: Stubs::VpcClassicLinkList.default(visited),
+          vpcs: VpcClassicLinkList.default(visited),
         }
       end
 
@@ -22664,7 +22664,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcClassicLinkList')
         visited = visited + ['VpcClassicLinkList']
         [
-          Stubs::VpcClassicLink.default(visited)
+          VpcClassicLink.default(visited)
         ]
       end
 
@@ -22684,7 +22684,7 @@ module AWS::SDK::EC2
         visited = visited + ['VpcClassicLink']
         {
           classic_link_enabled: false,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -22703,7 +22703,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          vpcs: Stubs::ClassicLinkDnsSupportList.default(visited),
+          vpcs: ClassicLinkDnsSupportList.default(visited),
         }
       end
 
@@ -22724,7 +22724,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ClassicLinkDnsSupportList')
         visited = visited + ['ClassicLinkDnsSupportList']
         [
-          Stubs::ClassicLinkDnsSupport.default(visited)
+          ClassicLinkDnsSupport.default(visited)
         ]
       end
 
@@ -22760,7 +22760,7 @@ module AWS::SDK::EC2
     class DescribeVpcEndpointConnectionNotifications
       def self.default(visited=[])
         {
-          connection_notification_set: Stubs::ConnectionNotificationSet.default(visited),
+          connection_notification_set: ConnectionNotificationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22782,7 +22782,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ConnectionNotificationSet')
         visited = visited + ['ConnectionNotificationSet']
         [
-          Stubs::ConnectionNotification.default(visited)
+          ConnectionNotification.default(visited)
         ]
       end
 
@@ -22799,7 +22799,7 @@ module AWS::SDK::EC2
     class DescribeVpcEndpointConnections
       def self.default(visited=[])
         {
-          vpc_endpoint_connections: Stubs::VpcEndpointConnectionSet.default(visited),
+          vpc_endpoint_connections: VpcEndpointConnectionSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22821,7 +22821,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcEndpointConnectionSet')
         visited = visited + ['VpcEndpointConnectionSet']
         [
-          Stubs::VpcEndpointConnection.default(visited)
+          VpcEndpointConnection.default(visited)
         ]
       end
 
@@ -22845,9 +22845,9 @@ module AWS::SDK::EC2
           vpc_endpoint_owner: 'vpc_endpoint_owner',
           vpc_endpoint_state: 'vpc_endpoint_state',
           creation_timestamp: Time.now,
-          dns_entries: Stubs::DnsEntrySet.default(visited),
-          network_load_balancer_arns: Stubs::ValueStringList.default(visited),
-          gateway_load_balancer_arns: Stubs::ValueStringList.default(visited),
+          dns_entries: DnsEntrySet.default(visited),
+          network_load_balancer_arns: ValueStringList.default(visited),
+          gateway_load_balancer_arns: ValueStringList.default(visited),
           ip_address_type: 'ip_address_type',
         }
       end
@@ -22871,7 +22871,7 @@ module AWS::SDK::EC2
     class DescribeVpcEndpointServiceConfigurations
       def self.default(visited=[])
         {
-          service_configurations: Stubs::ServiceConfigurationSet.default(visited),
+          service_configurations: ServiceConfigurationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22893,7 +22893,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ServiceConfigurationSet')
         visited = visited + ['ServiceConfigurationSet']
         [
-          Stubs::ServiceConfiguration.default(visited)
+          ServiceConfiguration.default(visited)
         ]
       end
 
@@ -22910,7 +22910,7 @@ module AWS::SDK::EC2
     class DescribeVpcEndpointServicePermissions
       def self.default(visited=[])
         {
-          allowed_principals: Stubs::AllowedPrincipalSet.default(visited),
+          allowed_principals: AllowedPrincipalSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22932,7 +22932,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AllowedPrincipalSet')
         visited = visited + ['AllowedPrincipalSet']
         [
-          Stubs::AllowedPrincipal.default(visited)
+          AllowedPrincipal.default(visited)
         ]
       end
 
@@ -22968,8 +22968,8 @@ module AWS::SDK::EC2
     class DescribeVpcEndpointServices
       def self.default(visited=[])
         {
-          service_names: Stubs::ValueStringList.default(visited),
-          service_details: Stubs::ServiceDetailSet.default(visited),
+          service_names: ValueStringList.default(visited),
+          service_details: ServiceDetailSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -22992,7 +22992,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ServiceDetailSet')
         visited = visited + ['ServiceDetailSet']
         [
-          Stubs::ServiceDetail.default(visited)
+          ServiceDetail.default(visited)
         ]
       end
 
@@ -23013,19 +23013,19 @@ module AWS::SDK::EC2
         {
           service_name: 'service_name',
           service_id: 'service_id',
-          service_type: Stubs::ServiceTypeDetailSet.default(visited),
-          availability_zones: Stubs::ValueStringList.default(visited),
+          service_type: ServiceTypeDetailSet.default(visited),
+          availability_zones: ValueStringList.default(visited),
           owner: 'owner',
-          base_endpoint_dns_names: Stubs::ValueStringList.default(visited),
+          base_endpoint_dns_names: ValueStringList.default(visited),
           private_dns_name: 'private_dns_name',
-          private_dns_names: Stubs::PrivateDnsDetailsSet.default(visited),
+          private_dns_names: PrivateDnsDetailsSet.default(visited),
           vpc_endpoint_policy_supported: false,
           acceptance_required: false,
           manages_vpc_endpoints: false,
           payer_responsibility: 'payer_responsibility',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           private_dns_name_verification_state: 'private_dns_name_verification_state',
-          supported_ip_address_types: Stubs::SupportedIpAddressTypes.default(visited),
+          supported_ip_address_types: SupportedIpAddressTypes.default(visited),
         }
       end
 
@@ -23056,7 +23056,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrivateDnsDetailsSet')
         visited = visited + ['PrivateDnsDetailsSet']
         [
-          Stubs::PrivateDnsDetails.default(visited)
+          PrivateDnsDetails.default(visited)
         ]
       end
 
@@ -23090,7 +23090,7 @@ module AWS::SDK::EC2
     class DescribeVpcEndpoints
       def self.default(visited=[])
         {
-          vpc_endpoints: Stubs::VpcEndpointSet.default(visited),
+          vpc_endpoints: VpcEndpointSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -23112,7 +23112,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcEndpointSet')
         visited = visited + ['VpcEndpointSet']
         [
-          Stubs::VpcEndpoint.default(visited)
+          VpcEndpoint.default(visited)
         ]
       end
 
@@ -23129,7 +23129,7 @@ module AWS::SDK::EC2
     class DescribeVpcPeeringConnections
       def self.default(visited=[])
         {
-          vpc_peering_connections: Stubs::VpcPeeringConnectionList.default(visited),
+          vpc_peering_connections: VpcPeeringConnectionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -23151,7 +23151,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcPeeringConnectionList')
         visited = visited + ['VpcPeeringConnectionList']
         [
-          Stubs::VpcPeeringConnection.default(visited)
+          VpcPeeringConnection.default(visited)
         ]
       end
 
@@ -23168,7 +23168,7 @@ module AWS::SDK::EC2
     class DescribeVpcs
       def self.default(visited=[])
         {
-          vpcs: Stubs::VpcList.default(visited),
+          vpcs: VpcList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -23190,7 +23190,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpcList')
         visited = visited + ['VpcList']
         [
-          Stubs::Vpc.default(visited)
+          Vpc.default(visited)
         ]
       end
 
@@ -23207,7 +23207,7 @@ module AWS::SDK::EC2
     class DescribeVpnConnections
       def self.default(visited=[])
         {
-          vpn_connections: Stubs::VpnConnectionList.default(visited),
+          vpn_connections: VpnConnectionList.default(visited),
         }
       end
 
@@ -23227,7 +23227,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpnConnectionList')
         visited = visited + ['VpnConnectionList']
         [
-          Stubs::VpnConnection.default(visited)
+          VpnConnection.default(visited)
         ]
       end
 
@@ -23244,7 +23244,7 @@ module AWS::SDK::EC2
     class DescribeVpnGateways
       def self.default(visited=[])
         {
-          vpn_gateways: Stubs::VpnGatewayList.default(visited),
+          vpn_gateways: VpnGatewayList.default(visited),
         }
       end
 
@@ -23264,7 +23264,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpnGatewayList')
         visited = visited + ['VpnGatewayList']
         [
-          Stubs::VpnGateway.default(visited)
+          VpnGateway.default(visited)
         ]
       end
 
@@ -23395,8 +23395,8 @@ module AWS::SDK::EC2
         {
           image_id: 'image_id',
           resource_type: 'resource_type',
-          snapshot_configuration: Stubs::FastLaunchSnapshotConfigurationResponse.default(visited),
-          launch_template: Stubs::FastLaunchLaunchTemplateSpecificationResponse.default(visited),
+          snapshot_configuration: FastLaunchSnapshotConfigurationResponse.default(visited),
+          launch_template: FastLaunchLaunchTemplateSpecificationResponse.default(visited),
           max_parallel_launches: 1,
           owner_id: 'owner_id',
           state: 'state',
@@ -23427,8 +23427,8 @@ module AWS::SDK::EC2
     class DisableFastSnapshotRestores
       def self.default(visited=[])
         {
-          successful: Stubs::DisableFastSnapshotRestoreSuccessSet.default(visited),
-          unsuccessful: Stubs::DisableFastSnapshotRestoreErrorSet.default(visited),
+          successful: DisableFastSnapshotRestoreSuccessSet.default(visited),
+          unsuccessful: DisableFastSnapshotRestoreErrorSet.default(visited),
         }
       end
 
@@ -23449,7 +23449,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DisableFastSnapshotRestoreErrorSet')
         visited = visited + ['DisableFastSnapshotRestoreErrorSet']
         [
-          Stubs::DisableFastSnapshotRestoreErrorItem.default(visited)
+          DisableFastSnapshotRestoreErrorItem.default(visited)
         ]
       end
 
@@ -23469,7 +23469,7 @@ module AWS::SDK::EC2
         visited = visited + ['DisableFastSnapshotRestoreErrorItem']
         {
           snapshot_id: 'snapshot_id',
-          fast_snapshot_restore_state_errors: Stubs::DisableFastSnapshotRestoreStateErrorSet.default(visited),
+          fast_snapshot_restore_state_errors: DisableFastSnapshotRestoreStateErrorSet.default(visited),
         }
       end
 
@@ -23487,7 +23487,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DisableFastSnapshotRestoreStateErrorSet')
         visited = visited + ['DisableFastSnapshotRestoreStateErrorSet']
         [
-          Stubs::DisableFastSnapshotRestoreStateErrorItem.default(visited)
+          DisableFastSnapshotRestoreStateErrorItem.default(visited)
         ]
       end
 
@@ -23507,7 +23507,7 @@ module AWS::SDK::EC2
         visited = visited + ['DisableFastSnapshotRestoreStateErrorItem']
         {
           availability_zone: 'availability_zone',
-          error: Stubs::DisableFastSnapshotRestoreStateError.default(visited),
+          error: DisableFastSnapshotRestoreStateError.default(visited),
         }
       end
 
@@ -23544,7 +23544,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('DisableFastSnapshotRestoreSuccessSet')
         visited = visited + ['DisableFastSnapshotRestoreSuccessSet']
         [
-          Stubs::DisableFastSnapshotRestoreSuccessItem.default(visited)
+          DisableFastSnapshotRestoreSuccessItem.default(visited)
         ]
       end
 
@@ -23652,7 +23652,7 @@ module AWS::SDK::EC2
     class DisableTransitGatewayRouteTablePropagation
       def self.default(visited=[])
         {
-          propagation: Stubs::TransitGatewayPropagation.default(visited),
+          propagation: TransitGatewayPropagation.default(visited),
         }
       end
 
@@ -23764,7 +23764,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           association_id: 'association_id',
-          status: Stubs::AssociationStatus.default(visited),
+          status: AssociationStatus.default(visited),
         }
       end
 
@@ -23801,7 +23801,7 @@ module AWS::SDK::EC2
     class DisassociateIamInstanceProfile
       def self.default(visited=[])
         {
-          iam_instance_profile_association: Stubs::IamInstanceProfileAssociation.default(visited),
+          iam_instance_profile_association: IamInstanceProfileAssociation.default(visited),
         }
       end
 
@@ -23819,7 +23819,7 @@ module AWS::SDK::EC2
     class DisassociateInstanceEventWindow
       def self.default(visited=[])
         {
-          instance_event_window: Stubs::InstanceEventWindow.default(visited),
+          instance_event_window: InstanceEventWindow.default(visited),
         }
       end
 
@@ -23853,7 +23853,7 @@ module AWS::SDK::EC2
     class DisassociateSubnetCidrBlock
       def self.default(visited=[])
         {
-          ipv6_cidr_block_association: Stubs::SubnetIpv6CidrBlockAssociation.default(visited),
+          ipv6_cidr_block_association: SubnetIpv6CidrBlockAssociation.default(visited),
           subnet_id: 'subnet_id',
         }
       end
@@ -23873,7 +23873,7 @@ module AWS::SDK::EC2
     class DisassociateTransitGatewayMulticastDomain
       def self.default(visited=[])
         {
-          associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
+          associations: TransitGatewayMulticastDomainAssociations.default(visited),
         }
       end
 
@@ -23891,7 +23891,7 @@ module AWS::SDK::EC2
     class DisassociateTransitGatewayRouteTable
       def self.default(visited=[])
         {
-          association: Stubs::TransitGatewayAssociation.default(visited),
+          association: TransitGatewayAssociation.default(visited),
         }
       end
 
@@ -23929,8 +23929,8 @@ module AWS::SDK::EC2
     class DisassociateVpcCidrBlock
       def self.default(visited=[])
         {
-          ipv6_cidr_block_association: Stubs::VpcIpv6CidrBlockAssociation.default(visited),
-          cidr_block_association: Stubs::VpcCidrBlockAssociation.default(visited),
+          ipv6_cidr_block_association: VpcIpv6CidrBlockAssociation.default(visited),
+          cidr_block_association: VpcCidrBlockAssociation.default(visited),
           vpc_id: 'vpc_id',
         }
       end
@@ -23971,8 +23971,8 @@ module AWS::SDK::EC2
         {
           image_id: 'image_id',
           resource_type: 'resource_type',
-          snapshot_configuration: Stubs::FastLaunchSnapshotConfigurationResponse.default(visited),
-          launch_template: Stubs::FastLaunchLaunchTemplateSpecificationResponse.default(visited),
+          snapshot_configuration: FastLaunchSnapshotConfigurationResponse.default(visited),
+          launch_template: FastLaunchLaunchTemplateSpecificationResponse.default(visited),
           max_parallel_launches: 1,
           owner_id: 'owner_id',
           state: 'state',
@@ -24003,8 +24003,8 @@ module AWS::SDK::EC2
     class EnableFastSnapshotRestores
       def self.default(visited=[])
         {
-          successful: Stubs::EnableFastSnapshotRestoreSuccessSet.default(visited),
-          unsuccessful: Stubs::EnableFastSnapshotRestoreErrorSet.default(visited),
+          successful: EnableFastSnapshotRestoreSuccessSet.default(visited),
+          unsuccessful: EnableFastSnapshotRestoreErrorSet.default(visited),
         }
       end
 
@@ -24025,7 +24025,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('EnableFastSnapshotRestoreErrorSet')
         visited = visited + ['EnableFastSnapshotRestoreErrorSet']
         [
-          Stubs::EnableFastSnapshotRestoreErrorItem.default(visited)
+          EnableFastSnapshotRestoreErrorItem.default(visited)
         ]
       end
 
@@ -24045,7 +24045,7 @@ module AWS::SDK::EC2
         visited = visited + ['EnableFastSnapshotRestoreErrorItem']
         {
           snapshot_id: 'snapshot_id',
-          fast_snapshot_restore_state_errors: Stubs::EnableFastSnapshotRestoreStateErrorSet.default(visited),
+          fast_snapshot_restore_state_errors: EnableFastSnapshotRestoreStateErrorSet.default(visited),
         }
       end
 
@@ -24063,7 +24063,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('EnableFastSnapshotRestoreStateErrorSet')
         visited = visited + ['EnableFastSnapshotRestoreStateErrorSet']
         [
-          Stubs::EnableFastSnapshotRestoreStateErrorItem.default(visited)
+          EnableFastSnapshotRestoreStateErrorItem.default(visited)
         ]
       end
 
@@ -24083,7 +24083,7 @@ module AWS::SDK::EC2
         visited = visited + ['EnableFastSnapshotRestoreStateErrorItem']
         {
           availability_zone: 'availability_zone',
-          error: Stubs::EnableFastSnapshotRestoreStateError.default(visited),
+          error: EnableFastSnapshotRestoreStateError.default(visited),
         }
       end
 
@@ -24120,7 +24120,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('EnableFastSnapshotRestoreSuccessSet')
         visited = visited + ['EnableFastSnapshotRestoreSuccessSet']
         [
-          Stubs::EnableFastSnapshotRestoreSuccessItem.default(visited)
+          EnableFastSnapshotRestoreSuccessItem.default(visited)
         ]
       end
 
@@ -24228,7 +24228,7 @@ module AWS::SDK::EC2
     class EnableTransitGatewayRouteTablePropagation
       def self.default(visited=[])
         {
-          propagation: Stubs::TransitGatewayPropagation.default(visited),
+          propagation: TransitGatewayPropagation.default(visited),
         }
       end
 
@@ -24315,7 +24315,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           certificate_revocation_list: 'certificate_revocation_list',
-          status: Stubs::ClientCertificateRevocationListStatus.default(visited),
+          status: ClientCertificateRevocationListStatus.default(visited),
         }
       end
 
@@ -24377,10 +24377,10 @@ module AWS::SDK::EC2
           image_id: 'image_id',
           role_name: 'role_name',
           progress: 'progress',
-          s3_export_location: Stubs::ExportTaskS3Location.default(visited),
+          s3_export_location: ExportTaskS3Location.default(visited),
           status: 'status',
           status_message: 'status_message',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -24425,7 +24425,7 @@ module AWS::SDK::EC2
     class GetAssociatedEnclaveCertificateIamRoles
       def self.default(visited=[])
         {
-          associated_roles: Stubs::AssociatedRolesList.default(visited),
+          associated_roles: AssociatedRolesList.default(visited),
         }
       end
 
@@ -24445,7 +24445,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AssociatedRolesList')
         visited = visited + ['AssociatedRolesList']
         [
-          Stubs::AssociatedRole.default(visited)
+          AssociatedRole.default(visited)
         ]
       end
 
@@ -24485,7 +24485,7 @@ module AWS::SDK::EC2
     class GetAssociatedIpv6PoolCidrs
       def self.default(visited=[])
         {
-          ipv6_cidr_associations: Stubs::Ipv6CidrAssociationSet.default(visited),
+          ipv6_cidr_associations: Ipv6CidrAssociationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -24507,7 +24507,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('Ipv6CidrAssociationSet')
         visited = visited + ['Ipv6CidrAssociationSet']
         [
-          Stubs::Ipv6CidrAssociation.default(visited)
+          Ipv6CidrAssociation.default(visited)
         ]
       end
 
@@ -24549,7 +24549,7 @@ module AWS::SDK::EC2
           total_instance_count: 1,
           available_instance_count: 1,
           state: 'state',
-          instance_usages: Stubs::InstanceUsageSet.default(visited),
+          instance_usages: InstanceUsageSet.default(visited),
         }
       end
 
@@ -24575,7 +24575,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceUsageSet')
         visited = visited + ['InstanceUsageSet']
         [
-          Stubs::InstanceUsage.default(visited)
+          InstanceUsage.default(visited)
         ]
       end
 
@@ -24612,7 +24612,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           coip_pool_id: 'coip_pool_id',
-          coip_address_usages: Stubs::CoipAddressUsageSet.default(visited),
+          coip_address_usages: CoipAddressUsageSet.default(visited),
           local_gateway_route_table_id: 'local_gateway_route_table_id',
         }
       end
@@ -24635,7 +24635,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CoipAddressUsageSet')
         visited = visited + ['CoipAddressUsageSet']
         [
-          Stubs::CoipAddressUsage.default(visited)
+          CoipAddressUsage.default(visited)
         ]
       end
 
@@ -24717,7 +24717,7 @@ module AWS::SDK::EC2
     class GetDefaultCreditSpecification
       def self.default(visited=[])
         {
-          instance_family_credit_specification: Stubs::InstanceFamilyCreditSpecification.default(visited),
+          instance_family_credit_specification: InstanceFamilyCreditSpecification.default(visited),
         }
       end
 
@@ -24809,7 +24809,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          capacity_reservation_groups: Stubs::CapacityReservationGroupSet.default(visited),
+          capacity_reservation_groups: CapacityReservationGroupSet.default(visited),
         }
       end
 
@@ -24830,7 +24830,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('CapacityReservationGroupSet')
         visited = visited + ['CapacityReservationGroupSet']
         [
-          Stubs::CapacityReservationGroup.default(visited)
+          CapacityReservationGroup.default(visited)
         ]
       end
 
@@ -24867,7 +24867,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           currency_code: 'currency_code',
-          purchase: Stubs::PurchaseSet.default(visited),
+          purchase: PurchaseSet.default(visited),
           total_hourly_price: 'total_hourly_price',
           total_upfront_price: 'total_upfront_price',
         }
@@ -24892,7 +24892,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PurchaseSet')
         visited = visited + ['PurchaseSet']
         [
-          Stubs::Purchase.default(visited)
+          Purchase.default(visited)
         ]
       end
 
@@ -24913,7 +24913,7 @@ module AWS::SDK::EC2
         {
           currency_code: 'currency_code',
           duration: 1,
-          host_id_set: Stubs::ResponseHostIdSet.default(visited),
+          host_id_set: ResponseHostIdSet.default(visited),
           host_reservation_id: 'host_reservation_id',
           hourly_price: 'hourly_price',
           instance_family: 'instance_family',
@@ -24940,7 +24940,7 @@ module AWS::SDK::EC2
     class GetInstanceTypesFromInstanceRequirements
       def self.default(visited=[])
         {
-          instance_types: Stubs::InstanceTypeInfoFromInstanceRequirementsSet.default(visited),
+          instance_types: InstanceTypeInfoFromInstanceRequirementsSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -24962,7 +24962,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceTypeInfoFromInstanceRequirementsSet')
         visited = visited + ['InstanceTypeInfoFromInstanceRequirementsSet']
         [
-          Stubs::InstanceTypeInfoFromInstanceRequirements.default(visited)
+          InstanceTypeInfoFromInstanceRequirements.default(visited)
         ]
       end
 
@@ -25016,7 +25016,7 @@ module AWS::SDK::EC2
     class GetIpamAddressHistory
       def self.default(visited=[])
         {
-          history_records: Stubs::IpamAddressHistoryRecordSet.default(visited),
+          history_records: IpamAddressHistoryRecordSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25038,7 +25038,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamAddressHistoryRecordSet')
         visited = visited + ['IpamAddressHistoryRecordSet']
         [
-          Stubs::IpamAddressHistoryRecord.default(visited)
+          IpamAddressHistoryRecord.default(visited)
         ]
       end
 
@@ -25092,7 +25092,7 @@ module AWS::SDK::EC2
     class GetIpamPoolAllocations
       def self.default(visited=[])
         {
-          ipam_pool_allocations: Stubs::IpamPoolAllocationSet.default(visited),
+          ipam_pool_allocations: IpamPoolAllocationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25114,7 +25114,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamPoolAllocationSet')
         visited = visited + ['IpamPoolAllocationSet']
         [
-          Stubs::IpamPoolAllocation.default(visited)
+          IpamPoolAllocation.default(visited)
         ]
       end
 
@@ -25131,7 +25131,7 @@ module AWS::SDK::EC2
     class GetIpamPoolCidrs
       def self.default(visited=[])
         {
-          ipam_pool_cidrs: Stubs::IpamPoolCidrSet.default(visited),
+          ipam_pool_cidrs: IpamPoolCidrSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25153,7 +25153,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamPoolCidrSet')
         visited = visited + ['IpamPoolCidrSet']
         [
-          Stubs::IpamPoolCidr.default(visited)
+          IpamPoolCidr.default(visited)
         ]
       end
 
@@ -25171,7 +25171,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          ipam_resource_cidrs: Stubs::IpamResourceCidrSet.default(visited),
+          ipam_resource_cidrs: IpamResourceCidrSet.default(visited),
         }
       end
 
@@ -25192,7 +25192,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('IpamResourceCidrSet')
         visited = visited + ['IpamResourceCidrSet']
         [
-          Stubs::IpamResourceCidr.default(visited)
+          IpamResourceCidr.default(visited)
         ]
       end
 
@@ -25220,7 +25220,7 @@ module AWS::SDK::EC2
           resource_name: 'resource_name',
           resource_cidr: 'resource_cidr',
           resource_type: 'resource_type',
-          resource_tags: Stubs::IpamResourceTagList.default(visited),
+          resource_tags: IpamResourceTagList.default(visited),
           ip_usage: 1.0,
           compliance_status: 'compliance_status',
           management_state: 'management_state',
@@ -25254,7 +25254,7 @@ module AWS::SDK::EC2
     class GetLaunchTemplateData
       def self.default(visited=[])
         {
-          launch_template_data: Stubs::ResponseLaunchTemplateData.default(visited),
+          launch_template_data: ResponseLaunchTemplateData.default(visited),
         }
       end
 
@@ -25272,7 +25272,7 @@ module AWS::SDK::EC2
     class GetManagedPrefixListAssociations
       def self.default(visited=[])
         {
-          prefix_list_associations: Stubs::PrefixListAssociationSet.default(visited),
+          prefix_list_associations: PrefixListAssociationSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25294,7 +25294,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrefixListAssociationSet')
         visited = visited + ['PrefixListAssociationSet']
         [
-          Stubs::PrefixListAssociation.default(visited)
+          PrefixListAssociation.default(visited)
         ]
       end
 
@@ -25330,7 +25330,7 @@ module AWS::SDK::EC2
     class GetManagedPrefixListEntries
       def self.default(visited=[])
         {
-          entries: Stubs::PrefixListEntrySet.default(visited),
+          entries: PrefixListEntrySet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25352,7 +25352,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PrefixListEntrySet')
         visited = visited + ['PrefixListEntrySet']
         [
-          Stubs::PrefixListEntry.default(visited)
+          PrefixListEntry.default(visited)
         ]
       end
 
@@ -25390,7 +25390,7 @@ module AWS::SDK::EC2
         {
           network_insights_access_scope_analysis_id: 'network_insights_access_scope_analysis_id',
           analysis_status: 'analysis_status',
-          analysis_findings: Stubs::AccessScopeAnalysisFindingList.default(visited),
+          analysis_findings: AccessScopeAnalysisFindingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25414,7 +25414,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('AccessScopeAnalysisFindingList')
         visited = visited + ['AccessScopeAnalysisFindingList']
         [
-          Stubs::AccessScopeAnalysisFinding.default(visited)
+          AccessScopeAnalysisFinding.default(visited)
         ]
       end
 
@@ -25436,7 +25436,7 @@ module AWS::SDK::EC2
           network_insights_access_scope_analysis_id: 'network_insights_access_scope_analysis_id',
           network_insights_access_scope_id: 'network_insights_access_scope_id',
           finding_id: 'finding_id',
-          finding_components: Stubs::PathComponentList.default(visited),
+          finding_components: PathComponentList.default(visited),
         }
       end
 
@@ -25454,7 +25454,7 @@ module AWS::SDK::EC2
     class GetNetworkInsightsAccessScopeContent
       def self.default(visited=[])
         {
-          network_insights_access_scope_content: Stubs::NetworkInsightsAccessScopeContent.default(visited),
+          network_insights_access_scope_content: NetworkInsightsAccessScopeContent.default(visited),
         }
       end
 
@@ -25498,10 +25498,10 @@ module AWS::SDK::EC2
           is_valid_exchange: false,
           output_reserved_instances_will_expire_at: Time.now,
           payment_due: 'payment_due',
-          reserved_instance_value_rollup: Stubs::ReservationValue.default(visited),
-          reserved_instance_value_set: Stubs::ReservedInstanceReservationValueSet.default(visited),
-          target_configuration_value_rollup: Stubs::ReservationValue.default(visited),
-          target_configuration_value_set: Stubs::TargetReservationValueSet.default(visited),
+          reserved_instance_value_rollup: ReservationValue.default(visited),
+          reserved_instance_value_set: ReservedInstanceReservationValueSet.default(visited),
+          target_configuration_value_rollup: ReservationValue.default(visited),
+          target_configuration_value_set: TargetReservationValueSet.default(visited),
           validation_failure_reason: 'validation_failure_reason',
         }
       end
@@ -25530,7 +25530,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TargetReservationValueSet')
         visited = visited + ['TargetReservationValueSet']
         [
-          Stubs::TargetReservationValue.default(visited)
+          TargetReservationValue.default(visited)
         ]
       end
 
@@ -25549,8 +25549,8 @@ module AWS::SDK::EC2
         return nil if visited.include?('TargetReservationValue')
         visited = visited + ['TargetReservationValue']
         {
-          reservation_value: Stubs::ReservationValue.default(visited),
-          target_configuration: Stubs::TargetConfiguration.default(visited),
+          reservation_value: ReservationValue.default(visited),
+          target_configuration: TargetConfiguration.default(visited),
         }
       end
 
@@ -25608,7 +25608,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstanceReservationValueSet')
         visited = visited + ['ReservedInstanceReservationValueSet']
         [
-          Stubs::ReservedInstanceReservationValue.default(visited)
+          ReservedInstanceReservationValue.default(visited)
         ]
       end
 
@@ -25627,7 +25627,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ReservedInstanceReservationValue')
         visited = visited + ['ReservedInstanceReservationValue']
         {
-          reservation_value: Stubs::ReservationValue.default(visited),
+          reservation_value: ReservationValue.default(visited),
           reserved_instance_id: 'reserved_instance_id',
         }
       end
@@ -25662,7 +25662,7 @@ module AWS::SDK::EC2
     class GetSpotPlacementScores
       def self.default(visited=[])
         {
-          spot_placement_scores: Stubs::SpotPlacementScores.default(visited),
+          spot_placement_scores: SpotPlacementScores.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25684,7 +25684,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SpotPlacementScores')
         visited = visited + ['SpotPlacementScores']
         [
-          Stubs::SpotPlacementScore.default(visited)
+          SpotPlacementScore.default(visited)
         ]
       end
 
@@ -25722,8 +25722,8 @@ module AWS::SDK::EC2
     class GetSubnetCidrReservations
       def self.default(visited=[])
         {
-          subnet_ipv4_cidr_reservations: Stubs::SubnetCidrReservationList.default(visited),
-          subnet_ipv6_cidr_reservations: Stubs::SubnetCidrReservationList.default(visited),
+          subnet_ipv4_cidr_reservations: SubnetCidrReservationList.default(visited),
+          subnet_ipv6_cidr_reservations: SubnetCidrReservationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25746,7 +25746,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SubnetCidrReservationList')
         visited = visited + ['SubnetCidrReservationList']
         [
-          Stubs::SubnetCidrReservation.default(visited)
+          SubnetCidrReservation.default(visited)
         ]
       end
 
@@ -25763,7 +25763,7 @@ module AWS::SDK::EC2
     class GetTransitGatewayAttachmentPropagations
       def self.default(visited=[])
         {
-          transit_gateway_attachment_propagations: Stubs::TransitGatewayAttachmentPropagationList.default(visited),
+          transit_gateway_attachment_propagations: TransitGatewayAttachmentPropagationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25785,7 +25785,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayAttachmentPropagationList')
         visited = visited + ['TransitGatewayAttachmentPropagationList']
         [
-          Stubs::TransitGatewayAttachmentPropagation.default(visited)
+          TransitGatewayAttachmentPropagation.default(visited)
         ]
       end
 
@@ -25821,7 +25821,7 @@ module AWS::SDK::EC2
     class GetTransitGatewayMulticastDomainAssociations
       def self.default(visited=[])
         {
-          multicast_domain_associations: Stubs::TransitGatewayMulticastDomainAssociationList.default(visited),
+          multicast_domain_associations: TransitGatewayMulticastDomainAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25843,7 +25843,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayMulticastDomainAssociationList')
         visited = visited + ['TransitGatewayMulticastDomainAssociationList']
         [
-          Stubs::TransitGatewayMulticastDomainAssociation.default(visited)
+          TransitGatewayMulticastDomainAssociation.default(visited)
         ]
       end
 
@@ -25866,7 +25866,7 @@ module AWS::SDK::EC2
           resource_id: 'resource_id',
           resource_type: 'resource_type',
           resource_owner_id: 'resource_owner_id',
-          subnet: Stubs::SubnetAssociation.default(visited),
+          subnet: SubnetAssociation.default(visited),
         }
       end
 
@@ -25885,7 +25885,7 @@ module AWS::SDK::EC2
     class GetTransitGatewayPrefixListReferences
       def self.default(visited=[])
         {
-          transit_gateway_prefix_list_references: Stubs::TransitGatewayPrefixListReferenceSet.default(visited),
+          transit_gateway_prefix_list_references: TransitGatewayPrefixListReferenceSet.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25907,7 +25907,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayPrefixListReferenceSet')
         visited = visited + ['TransitGatewayPrefixListReferenceSet']
         [
-          Stubs::TransitGatewayPrefixListReference.default(visited)
+          TransitGatewayPrefixListReference.default(visited)
         ]
       end
 
@@ -25924,7 +25924,7 @@ module AWS::SDK::EC2
     class GetTransitGatewayRouteTableAssociations
       def self.default(visited=[])
         {
-          associations: Stubs::TransitGatewayRouteTableAssociationList.default(visited),
+          associations: TransitGatewayRouteTableAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -25946,7 +25946,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayRouteTableAssociationList')
         visited = visited + ['TransitGatewayRouteTableAssociationList']
         [
-          Stubs::TransitGatewayRouteTableAssociation.default(visited)
+          TransitGatewayRouteTableAssociation.default(visited)
         ]
       end
 
@@ -25986,7 +25986,7 @@ module AWS::SDK::EC2
     class GetTransitGatewayRouteTablePropagations
       def self.default(visited=[])
         {
-          transit_gateway_route_table_propagations: Stubs::TransitGatewayRouteTablePropagationList.default(visited),
+          transit_gateway_route_table_propagations: TransitGatewayRouteTablePropagationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -26008,7 +26008,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayRouteTablePropagationList')
         visited = visited + ['TransitGatewayRouteTablePropagationList']
         [
-          Stubs::TransitGatewayRouteTablePropagation.default(visited)
+          TransitGatewayRouteTablePropagation.default(visited)
         ]
       end
 
@@ -26066,7 +26066,7 @@ module AWS::SDK::EC2
     class GetVpnConnectionDeviceTypes
       def self.default(visited=[])
         {
-          vpn_connection_device_types: Stubs::VpnConnectionDeviceTypeList.default(visited),
+          vpn_connection_device_types: VpnConnectionDeviceTypeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -26088,7 +26088,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('VpnConnectionDeviceTypeList')
         visited = visited + ['VpnConnectionDeviceTypeList']
         [
-          Stubs::VpnConnectionDeviceType.default(visited)
+          VpnConnectionDeviceType.default(visited)
         ]
       end
 
@@ -26156,11 +26156,11 @@ module AWS::SDK::EC2
           license_type: 'license_type',
           platform: 'platform',
           progress: 'progress',
-          snapshot_details: Stubs::SnapshotDetailList.default(visited),
+          snapshot_details: SnapshotDetailList.default(visited),
           status: 'status',
           status_message: 'status_message',
-          license_specifications: Stubs::ImportImageLicenseSpecificationListResponse.default(visited),
-          tags: Stubs::TagList.default(visited),
+          license_specifications: ImportImageLicenseSpecificationListResponse.default(visited),
+          tags: TagList.default(visited),
           usage_operation: 'usage_operation',
         }
       end
@@ -26194,7 +26194,7 @@ module AWS::SDK::EC2
     class ImportInstance
       def self.default(visited=[])
         {
-          conversion_task: Stubs::ConversionTask.default(visited),
+          conversion_task: ConversionTask.default(visited),
         }
       end
 
@@ -26215,7 +26215,7 @@ module AWS::SDK::EC2
           key_fingerprint: 'key_fingerprint',
           key_name: 'key_name',
           key_pair_id: 'key_pair_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -26238,8 +26238,8 @@ module AWS::SDK::EC2
         {
           description: 'description',
           import_task_id: 'import_task_id',
-          snapshot_task_detail: Stubs::SnapshotTaskDetail.default(visited),
-          tags: Stubs::TagList.default(visited),
+          snapshot_task_detail: SnapshotTaskDetail.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -26260,7 +26260,7 @@ module AWS::SDK::EC2
     class ImportVolume
       def self.default(visited=[])
         {
-          conversion_task: Stubs::ConversionTask.default(visited),
+          conversion_task: ConversionTask.default(visited),
         }
       end
 
@@ -26278,7 +26278,7 @@ module AWS::SDK::EC2
     class ListImagesInRecycleBin
       def self.default(visited=[])
         {
-          images: Stubs::ImageRecycleBinInfoList.default(visited),
+          images: ImageRecycleBinInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -26300,7 +26300,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('ImageRecycleBinInfoList')
         visited = visited + ['ImageRecycleBinInfoList']
         [
-          Stubs::ImageRecycleBinInfo.default(visited)
+          ImageRecycleBinInfo.default(visited)
         ]
       end
 
@@ -26342,7 +26342,7 @@ module AWS::SDK::EC2
     class ListSnapshotsInRecycleBin
       def self.default(visited=[])
         {
-          snapshots: Stubs::SnapshotRecycleBinInfoList.default(visited),
+          snapshots: SnapshotRecycleBinInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -26364,7 +26364,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SnapshotRecycleBinInfoList')
         visited = visited + ['SnapshotRecycleBinInfoList']
         [
-          Stubs::SnapshotRecycleBinInfo.default(visited)
+          SnapshotRecycleBinInfo.default(visited)
         ]
       end
 
@@ -26406,7 +26406,7 @@ module AWS::SDK::EC2
     class ModifyAddressAttribute
       def self.default(visited=[])
         {
-          address: Stubs::AddressAttribute.default(visited),
+          address: AddressAttribute.default(visited),
         }
       end
 
@@ -26496,7 +26496,7 @@ module AWS::SDK::EC2
     class ModifyDefaultCreditSpecification
       def self.default(visited=[])
         {
-          instance_family_credit_specification: Stubs::InstanceFamilyCreditSpecification.default(visited),
+          instance_family_credit_specification: InstanceFamilyCreditSpecification.default(visited),
         }
       end
 
@@ -26550,7 +26550,7 @@ module AWS::SDK::EC2
     class ModifyFpgaImageAttribute
       def self.default(visited=[])
         {
-          fpga_image_attribute: Stubs::FpgaImageAttribute.default(visited),
+          fpga_image_attribute: FpgaImageAttribute.default(visited),
         }
       end
 
@@ -26568,8 +26568,8 @@ module AWS::SDK::EC2
     class ModifyHosts
       def self.default(visited=[])
         {
-          successful: Stubs::ResponseHostIdList.default(visited),
-          unsuccessful: Stubs::UnsuccessfulItemList.default(visited),
+          successful: ResponseHostIdList.default(visited),
+          unsuccessful: UnsuccessfulItemList.default(visited),
         }
       end
 
@@ -26590,7 +26590,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('UnsuccessfulItemList')
         visited = visited + ['UnsuccessfulItemList']
         [
-          Stubs::UnsuccessfulItem.default(visited)
+          UnsuccessfulItem.default(visited)
         ]
       end
 
@@ -26689,8 +26689,8 @@ module AWS::SDK::EC2
     class ModifyInstanceCreditSpecification
       def self.default(visited=[])
         {
-          successful_instance_credit_specifications: Stubs::SuccessfulInstanceCreditSpecificationSet.default(visited),
-          unsuccessful_instance_credit_specifications: Stubs::UnsuccessfulInstanceCreditSpecificationSet.default(visited),
+          successful_instance_credit_specifications: SuccessfulInstanceCreditSpecificationSet.default(visited),
+          unsuccessful_instance_credit_specifications: UnsuccessfulInstanceCreditSpecificationSet.default(visited),
         }
       end
 
@@ -26711,7 +26711,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('UnsuccessfulInstanceCreditSpecificationSet')
         visited = visited + ['UnsuccessfulInstanceCreditSpecificationSet']
         [
-          Stubs::UnsuccessfulInstanceCreditSpecificationItem.default(visited)
+          UnsuccessfulInstanceCreditSpecificationItem.default(visited)
         ]
       end
 
@@ -26731,7 +26731,7 @@ module AWS::SDK::EC2
         visited = visited + ['UnsuccessfulInstanceCreditSpecificationItem']
         {
           instance_id: 'instance_id',
-          error: Stubs::UnsuccessfulInstanceCreditSpecificationItemError.default(visited),
+          error: UnsuccessfulInstanceCreditSpecificationItemError.default(visited),
         }
       end
 
@@ -26768,7 +26768,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('SuccessfulInstanceCreditSpecificationSet')
         visited = visited + ['SuccessfulInstanceCreditSpecificationSet']
         [
-          Stubs::SuccessfulInstanceCreditSpecificationItem.default(visited)
+          SuccessfulInstanceCreditSpecificationItem.default(visited)
         ]
       end
 
@@ -26802,7 +26802,7 @@ module AWS::SDK::EC2
     class ModifyInstanceEventStartTime
       def self.default(visited=[])
         {
-          event: Stubs::InstanceStatusEvent.default(visited),
+          event: InstanceStatusEvent.default(visited),
         }
       end
 
@@ -26820,7 +26820,7 @@ module AWS::SDK::EC2
     class ModifyInstanceEventWindow
       def self.default(visited=[])
         {
-          instance_event_window: Stubs::InstanceEventWindow.default(visited),
+          instance_event_window: InstanceEventWindow.default(visited),
         }
       end
 
@@ -26859,7 +26859,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           instance_id: 'instance_id',
-          instance_metadata_options: Stubs::InstanceMetadataOptionsResponse.default(visited),
+          instance_metadata_options: InstanceMetadataOptionsResponse.default(visited),
         }
       end
 
@@ -26896,7 +26896,7 @@ module AWS::SDK::EC2
     class ModifyIpam
       def self.default(visited=[])
         {
-          ipam: Stubs::Ipam.default(visited),
+          ipam: Ipam.default(visited),
         }
       end
 
@@ -26914,7 +26914,7 @@ module AWS::SDK::EC2
     class ModifyIpamPool
       def self.default(visited=[])
         {
-          ipam_pool: Stubs::IpamPool.default(visited),
+          ipam_pool: IpamPool.default(visited),
         }
       end
 
@@ -26932,7 +26932,7 @@ module AWS::SDK::EC2
     class ModifyIpamResourceCidr
       def self.default(visited=[])
         {
-          ipam_resource_cidr: Stubs::IpamResourceCidr.default(visited),
+          ipam_resource_cidr: IpamResourceCidr.default(visited),
         }
       end
 
@@ -26950,7 +26950,7 @@ module AWS::SDK::EC2
     class ModifyIpamScope
       def self.default(visited=[])
         {
-          ipam_scope: Stubs::IpamScope.default(visited),
+          ipam_scope: IpamScope.default(visited),
         }
       end
 
@@ -26968,7 +26968,7 @@ module AWS::SDK::EC2
     class ModifyLaunchTemplate
       def self.default(visited=[])
         {
-          launch_template: Stubs::LaunchTemplate.default(visited),
+          launch_template: LaunchTemplate.default(visited),
         }
       end
 
@@ -26986,7 +26986,7 @@ module AWS::SDK::EC2
     class ModifyManagedPrefixList
       def self.default(visited=[])
         {
-          prefix_list: Stubs::ManagedPrefixList.default(visited),
+          prefix_list: ManagedPrefixList.default(visited),
         }
       end
 
@@ -27144,7 +27144,7 @@ module AWS::SDK::EC2
     class ModifyTrafficMirrorFilterNetworkServices
       def self.default(visited=[])
         {
-          traffic_mirror_filter: Stubs::TrafficMirrorFilter.default(visited),
+          traffic_mirror_filter: TrafficMirrorFilter.default(visited),
         }
       end
 
@@ -27162,7 +27162,7 @@ module AWS::SDK::EC2
     class ModifyTrafficMirrorFilterRule
       def self.default(visited=[])
         {
-          traffic_mirror_filter_rule: Stubs::TrafficMirrorFilterRule.default(visited),
+          traffic_mirror_filter_rule: TrafficMirrorFilterRule.default(visited),
         }
       end
 
@@ -27180,7 +27180,7 @@ module AWS::SDK::EC2
     class ModifyTrafficMirrorSession
       def self.default(visited=[])
         {
-          traffic_mirror_session: Stubs::TrafficMirrorSession.default(visited),
+          traffic_mirror_session: TrafficMirrorSession.default(visited),
         }
       end
 
@@ -27198,7 +27198,7 @@ module AWS::SDK::EC2
     class ModifyTransitGateway
       def self.default(visited=[])
         {
-          transit_gateway: Stubs::TransitGateway.default(visited),
+          transit_gateway: TransitGateway.default(visited),
         }
       end
 
@@ -27216,7 +27216,7 @@ module AWS::SDK::EC2
     class ModifyTransitGatewayPrefixListReference
       def self.default(visited=[])
         {
-          transit_gateway_prefix_list_reference: Stubs::TransitGatewayPrefixListReference.default(visited),
+          transit_gateway_prefix_list_reference: TransitGatewayPrefixListReference.default(visited),
         }
       end
 
@@ -27234,7 +27234,7 @@ module AWS::SDK::EC2
     class ModifyTransitGatewayVpcAttachment
       def self.default(visited=[])
         {
-          transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
+          transit_gateway_vpc_attachment: TransitGatewayVpcAttachment.default(visited),
         }
       end
 
@@ -27252,7 +27252,7 @@ module AWS::SDK::EC2
     class ModifyVolume
       def self.default(visited=[])
         {
-          volume_modification: Stubs::VolumeModification.default(visited),
+          volume_modification: VolumeModification.default(visited),
         }
       end
 
@@ -27392,8 +27392,8 @@ module AWS::SDK::EC2
     class ModifyVpcPeeringConnectionOptions
       def self.default(visited=[])
         {
-          accepter_peering_connection_options: Stubs::PeeringConnectionOptions.default(visited),
-          requester_peering_connection_options: Stubs::PeeringConnectionOptions.default(visited),
+          accepter_peering_connection_options: PeeringConnectionOptions.default(visited),
+          requester_peering_connection_options: PeeringConnectionOptions.default(visited),
         }
       end
 
@@ -27451,7 +27451,7 @@ module AWS::SDK::EC2
     class ModifyVpnConnection
       def self.default(visited=[])
         {
-          vpn_connection: Stubs::VpnConnection.default(visited),
+          vpn_connection: VpnConnection.default(visited),
         }
       end
 
@@ -27469,7 +27469,7 @@ module AWS::SDK::EC2
     class ModifyVpnConnectionOptions
       def self.default(visited=[])
         {
-          vpn_connection: Stubs::VpnConnection.default(visited),
+          vpn_connection: VpnConnection.default(visited),
         }
       end
 
@@ -27487,7 +27487,7 @@ module AWS::SDK::EC2
     class ModifyVpnTunnelCertificate
       def self.default(visited=[])
         {
-          vpn_connection: Stubs::VpnConnection.default(visited),
+          vpn_connection: VpnConnection.default(visited),
         }
       end
 
@@ -27505,7 +27505,7 @@ module AWS::SDK::EC2
     class ModifyVpnTunnelOptions
       def self.default(visited=[])
         {
-          vpn_connection: Stubs::VpnConnection.default(visited),
+          vpn_connection: VpnConnection.default(visited),
         }
       end
 
@@ -27523,7 +27523,7 @@ module AWS::SDK::EC2
     class MonitorInstances
       def self.default(visited=[])
         {
-          instance_monitorings: Stubs::InstanceMonitoringList.default(visited),
+          instance_monitorings: InstanceMonitoringList.default(visited),
         }
       end
 
@@ -27543,7 +27543,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceMonitoringList')
         visited = visited + ['InstanceMonitoringList']
         [
-          Stubs::InstanceMonitoring.default(visited)
+          InstanceMonitoring.default(visited)
         ]
       end
 
@@ -27563,7 +27563,7 @@ module AWS::SDK::EC2
         visited = visited + ['InstanceMonitoring']
         {
           instance_id: 'instance_id',
-          monitoring: Stubs::Monitoring.default(visited),
+          monitoring: Monitoring.default(visited),
         }
       end
 
@@ -27599,7 +27599,7 @@ module AWS::SDK::EC2
     class MoveByoipCidrToIpam
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -27617,7 +27617,7 @@ module AWS::SDK::EC2
     class ProvisionByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -27635,7 +27635,7 @@ module AWS::SDK::EC2
     class ProvisionIpamPoolCidr
       def self.default(visited=[])
         {
-          ipam_pool_cidr: Stubs::IpamPoolCidr.default(visited),
+          ipam_pool_cidr: IpamPoolCidr.default(visited),
         }
       end
 
@@ -27654,7 +27654,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           pool_id: 'pool_id',
-          pool_address_range: Stubs::PublicIpv4PoolRange.default(visited),
+          pool_address_range: PublicIpv4PoolRange.default(visited),
         }
       end
 
@@ -27675,7 +27675,7 @@ module AWS::SDK::EC2
         {
           client_token: 'client_token',
           currency_code: 'currency_code',
-          purchase: Stubs::PurchaseSet.default(visited),
+          purchase: PurchaseSet.default(visited),
           total_hourly_price: 'total_hourly_price',
           total_upfront_price: 'total_upfront_price',
         }
@@ -27717,7 +27717,7 @@ module AWS::SDK::EC2
     class PurchaseScheduledInstances
       def self.default(visited=[])
         {
-          scheduled_instance_set: Stubs::PurchasedScheduledInstanceSet.default(visited),
+          scheduled_instance_set: PurchasedScheduledInstanceSet.default(visited),
         }
       end
 
@@ -27737,7 +27737,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('PurchasedScheduledInstanceSet')
         visited = visited + ['PurchasedScheduledInstanceSet']
         [
-          Stubs::ScheduledInstance.default(visited)
+          ScheduledInstance.default(visited)
         ]
       end
 
@@ -27788,7 +27788,7 @@ module AWS::SDK::EC2
     class RegisterInstanceEventNotificationAttributes
       def self.default(visited=[])
         {
-          instance_tag_attribute: Stubs::InstanceTagNotificationAttribute.default(visited),
+          instance_tag_attribute: InstanceTagNotificationAttribute.default(visited),
         }
       end
 
@@ -27806,7 +27806,7 @@ module AWS::SDK::EC2
     class RegisterTransitGatewayMulticastGroupMembers
       def self.default(visited=[])
         {
-          registered_multicast_group_members: Stubs::TransitGatewayMulticastRegisteredGroupMembers.default(visited),
+          registered_multicast_group_members: TransitGatewayMulticastRegisteredGroupMembers.default(visited),
         }
       end
 
@@ -27827,7 +27827,7 @@ module AWS::SDK::EC2
         visited = visited + ['TransitGatewayMulticastRegisteredGroupMembers']
         {
           transit_gateway_multicast_domain_id: 'transit_gateway_multicast_domain_id',
-          registered_network_interface_ids: Stubs::ValueStringList.default(visited),
+          registered_network_interface_ids: ValueStringList.default(visited),
           group_ip_address: 'group_ip_address',
         }
       end
@@ -27845,7 +27845,7 @@ module AWS::SDK::EC2
     class RegisterTransitGatewayMulticastGroupSources
       def self.default(visited=[])
         {
-          registered_multicast_group_sources: Stubs::TransitGatewayMulticastRegisteredGroupSources.default(visited),
+          registered_multicast_group_sources: TransitGatewayMulticastRegisteredGroupSources.default(visited),
         }
       end
 
@@ -27866,7 +27866,7 @@ module AWS::SDK::EC2
         visited = visited + ['TransitGatewayMulticastRegisteredGroupSources']
         {
           transit_gateway_multicast_domain_id: 'transit_gateway_multicast_domain_id',
-          registered_network_interface_ids: Stubs::ValueStringList.default(visited),
+          registered_network_interface_ids: ValueStringList.default(visited),
           group_ip_address: 'group_ip_address',
         }
       end
@@ -27884,7 +27884,7 @@ module AWS::SDK::EC2
     class RejectTransitGatewayMulticastDomainAssociations
       def self.default(visited=[])
         {
-          associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
+          associations: TransitGatewayMulticastDomainAssociations.default(visited),
         }
       end
 
@@ -27902,7 +27902,7 @@ module AWS::SDK::EC2
     class RejectTransitGatewayPeeringAttachment
       def self.default(visited=[])
         {
-          transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
+          transit_gateway_peering_attachment: TransitGatewayPeeringAttachment.default(visited),
         }
       end
 
@@ -27920,7 +27920,7 @@ module AWS::SDK::EC2
     class RejectTransitGatewayVpcAttachment
       def self.default(visited=[])
         {
-          transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
+          transit_gateway_vpc_attachment: TransitGatewayVpcAttachment.default(visited),
         }
       end
 
@@ -27938,7 +27938,7 @@ module AWS::SDK::EC2
     class RejectVpcEndpointConnections
       def self.default(visited=[])
         {
-          unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
+          unsuccessful: UnsuccessfulItemSet.default(visited),
         }
       end
 
@@ -27990,8 +27990,8 @@ module AWS::SDK::EC2
     class ReleaseHosts
       def self.default(visited=[])
         {
-          successful: Stubs::ResponseHostIdList.default(visited),
-          unsuccessful: Stubs::UnsuccessfulItemList.default(visited),
+          successful: ResponseHostIdList.default(visited),
+          unsuccessful: UnsuccessfulItemList.default(visited),
         }
       end
 
@@ -28028,7 +28028,7 @@ module AWS::SDK::EC2
     class ReplaceIamInstanceProfileAssociation
       def self.default(visited=[])
         {
-          iam_instance_profile_association: Stubs::IamInstanceProfileAssociation.default(visited),
+          iam_instance_profile_association: IamInstanceProfileAssociation.default(visited),
         }
       end
 
@@ -28097,7 +28097,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           new_association_id: 'new_association_id',
-          association_state: Stubs::RouteTableAssociationState.default(visited),
+          association_state: RouteTableAssociationState.default(visited),
         }
       end
 
@@ -28116,7 +28116,7 @@ module AWS::SDK::EC2
     class ReplaceTransitGatewayRoute
       def self.default(visited=[])
         {
-          route: Stubs::TransitGatewayRoute.default(visited),
+          route: TransitGatewayRoute.default(visited),
         }
       end
 
@@ -28168,7 +28168,7 @@ module AWS::SDK::EC2
     class RequestSpotInstances
       def self.default(visited=[])
         {
-          spot_instance_requests: Stubs::SpotInstanceRequestList.default(visited),
+          spot_instance_requests: SpotInstanceRequestList.default(visited),
         }
       end
 
@@ -28186,7 +28186,7 @@ module AWS::SDK::EC2
     class ResetAddressAttribute
       def self.default(visited=[])
         {
-          address: Stubs::AddressAttribute.default(visited),
+          address: AddressAttribute.default(visited),
         }
       end
 
@@ -28342,7 +28342,7 @@ module AWS::SDK::EC2
     class RestoreManagedPrefixListVersion
       def self.default(visited=[])
         {
-          prefix_list: Stubs::ManagedPrefixList.default(visited),
+          prefix_list: ManagedPrefixList.default(visited),
         }
       end
 
@@ -28420,7 +28420,7 @@ module AWS::SDK::EC2
     class RevokeClientVpnIngress
       def self.default(visited=[])
         {
-          status: Stubs::ClientVpnAuthorizationRuleStatus.default(visited),
+          status: ClientVpnAuthorizationRuleStatus.default(visited),
         }
       end
 
@@ -28439,7 +28439,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           return: false,
-          unknown_ip_permissions: Stubs::IpPermissionList.default(visited),
+          unknown_ip_permissions: IpPermissionList.default(visited),
         }
       end
 
@@ -28459,7 +28459,7 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           return: false,
-          unknown_ip_permissions: Stubs::IpPermissionList.default(visited),
+          unknown_ip_permissions: IpPermissionList.default(visited),
         }
       end
 
@@ -28478,8 +28478,8 @@ module AWS::SDK::EC2
     class RunInstances
       def self.default(visited=[])
         {
-          groups: Stubs::GroupIdentifierList.default(visited),
-          instances: Stubs::InstanceList.default(visited),
+          groups: GroupIdentifierList.default(visited),
+          instances: InstanceList.default(visited),
           owner_id: 'owner_id',
           requester_id: 'requester_id',
           reservation_id: 'reservation_id',
@@ -28504,7 +28504,7 @@ module AWS::SDK::EC2
     class RunScheduledInstances
       def self.default(visited=[])
         {
-          instance_id_set: Stubs::InstanceIdSet.default(visited),
+          instance_id_set: InstanceIdSet.default(visited),
         }
       end
 
@@ -28541,7 +28541,7 @@ module AWS::SDK::EC2
     class SearchLocalGatewayRoutes
       def self.default(visited=[])
         {
-          routes: Stubs::LocalGatewayRouteList.default(visited),
+          routes: LocalGatewayRouteList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -28563,7 +28563,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('LocalGatewayRouteList')
         visited = visited + ['LocalGatewayRouteList']
         [
-          Stubs::LocalGatewayRoute.default(visited)
+          LocalGatewayRoute.default(visited)
         ]
       end
 
@@ -28580,7 +28580,7 @@ module AWS::SDK::EC2
     class SearchTransitGatewayMulticastGroups
       def self.default(visited=[])
         {
-          multicast_groups: Stubs::TransitGatewayMulticastGroupList.default(visited),
+          multicast_groups: TransitGatewayMulticastGroupList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -28602,7 +28602,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayMulticastGroupList')
         visited = visited + ['TransitGatewayMulticastGroupList']
         [
-          Stubs::TransitGatewayMulticastGroup.default(visited)
+          TransitGatewayMulticastGroup.default(visited)
         ]
       end
 
@@ -28656,7 +28656,7 @@ module AWS::SDK::EC2
     class SearchTransitGatewayRoutes
       def self.default(visited=[])
         {
-          routes: Stubs::TransitGatewayRouteList.default(visited),
+          routes: TransitGatewayRouteList.default(visited),
           additional_routes_available: false,
         }
       end
@@ -28678,7 +28678,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TransitGatewayRouteList')
         visited = visited + ['TransitGatewayRouteList']
         [
-          Stubs::TransitGatewayRoute.default(visited)
+          TransitGatewayRoute.default(visited)
         ]
       end
 
@@ -28711,7 +28711,7 @@ module AWS::SDK::EC2
     class StartInstances
       def self.default(visited=[])
         {
-          starting_instances: Stubs::InstanceStateChangeList.default(visited),
+          starting_instances: InstanceStateChangeList.default(visited),
         }
       end
 
@@ -28731,7 +28731,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceStateChangeList')
         visited = visited + ['InstanceStateChangeList']
         [
-          Stubs::InstanceStateChange.default(visited)
+          InstanceStateChange.default(visited)
         ]
       end
 
@@ -28750,9 +28750,9 @@ module AWS::SDK::EC2
         return nil if visited.include?('InstanceStateChange')
         visited = visited + ['InstanceStateChange']
         {
-          current_state: Stubs::InstanceState.default(visited),
+          current_state: InstanceState.default(visited),
           instance_id: 'instance_id',
-          previous_state: Stubs::InstanceState.default(visited),
+          previous_state: InstanceState.default(visited),
         }
       end
 
@@ -28769,7 +28769,7 @@ module AWS::SDK::EC2
     class StartNetworkInsightsAccessScopeAnalysis
       def self.default(visited=[])
         {
-          network_insights_access_scope_analysis: Stubs::NetworkInsightsAccessScopeAnalysis.default(visited),
+          network_insights_access_scope_analysis: NetworkInsightsAccessScopeAnalysis.default(visited),
         }
       end
 
@@ -28787,7 +28787,7 @@ module AWS::SDK::EC2
     class StartNetworkInsightsAnalysis
       def self.default(visited=[])
         {
-          network_insights_analysis: Stubs::NetworkInsightsAnalysis.default(visited),
+          network_insights_analysis: NetworkInsightsAnalysis.default(visited),
         }
       end
 
@@ -28823,7 +28823,7 @@ module AWS::SDK::EC2
     class StopInstances
       def self.default(visited=[])
         {
-          stopping_instances: Stubs::InstanceStateChangeList.default(visited),
+          stopping_instances: InstanceStateChangeList.default(visited),
         }
       end
 
@@ -28843,7 +28843,7 @@ module AWS::SDK::EC2
         {
           client_vpn_endpoint_id: 'client_vpn_endpoint_id',
           username: 'username',
-          connection_statuses: Stubs::TerminateConnectionStatusSet.default(visited),
+          connection_statuses: TerminateConnectionStatusSet.default(visited),
         }
       end
 
@@ -28865,7 +28865,7 @@ module AWS::SDK::EC2
         return nil if visited.include?('TerminateConnectionStatusSet')
         visited = visited + ['TerminateConnectionStatusSet']
         [
-          Stubs::TerminateConnectionStatus.default(visited)
+          TerminateConnectionStatus.default(visited)
         ]
       end
 
@@ -28885,8 +28885,8 @@ module AWS::SDK::EC2
         visited = visited + ['TerminateConnectionStatus']
         {
           connection_id: 'connection_id',
-          previous_status: Stubs::ClientVpnConnectionStatus.default(visited),
-          current_status: Stubs::ClientVpnConnectionStatus.default(visited),
+          previous_status: ClientVpnConnectionStatus.default(visited),
+          current_status: ClientVpnConnectionStatus.default(visited),
         }
       end
 
@@ -28903,7 +28903,7 @@ module AWS::SDK::EC2
     class TerminateInstances
       def self.default(visited=[])
         {
-          terminating_instances: Stubs::InstanceStateChangeList.default(visited),
+          terminating_instances: InstanceStateChangeList.default(visited),
         }
       end
 
@@ -28922,8 +28922,8 @@ module AWS::SDK::EC2
       def self.default(visited=[])
         {
           network_interface_id: 'network_interface_id',
-          unassigned_ipv6_addresses: Stubs::Ipv6AddressList.default(visited),
-          unassigned_ipv6_prefixes: Stubs::IpPrefixList.default(visited),
+          unassigned_ipv6_addresses: Ipv6AddressList.default(visited),
+          unassigned_ipv6_prefixes: IpPrefixList.default(visited),
         }
       end
 
@@ -28959,7 +28959,7 @@ module AWS::SDK::EC2
     class UnmonitorInstances
       def self.default(visited=[])
         {
-          instance_monitorings: Stubs::InstanceMonitoringList.default(visited),
+          instance_monitorings: InstanceMonitoringList.default(visited),
         }
       end
 
@@ -29013,7 +29013,7 @@ module AWS::SDK::EC2
     class WithdrawByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 

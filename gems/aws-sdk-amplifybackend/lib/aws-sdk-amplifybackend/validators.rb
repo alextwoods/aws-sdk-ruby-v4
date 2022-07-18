@@ -28,7 +28,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackendAPIAuthType, context: context)
         Hearth::Validator.validate!(input[:mode], ::String, context: "#{context}[:mode]")
-        Validators::BackendAPIAppSyncAuthSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        BackendAPIAppSyncAuthSettings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -42,10 +42,10 @@ module AWS::SDK::AmplifyBackend
     class BackendAPIResourceConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackendAPIResourceConfig, context: context)
-        Validators::ListOfBackendAPIAuthType.validate!(input[:additional_auth_types], context: "#{context}[:additional_auth_types]") unless input[:additional_auth_types].nil?
+        ListOfBackendAPIAuthType.validate!(input[:additional_auth_types], context: "#{context}[:additional_auth_types]") unless input[:additional_auth_types].nil?
         Hearth::Validator.validate!(input[:api_name], ::String, context: "#{context}[:api_name]")
-        Validators::BackendAPIConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
-        Validators::BackendAPIAuthType.validate!(input[:default_auth_type], context: "#{context}[:default_auth_type]") unless input[:default_auth_type].nil?
+        BackendAPIConflictResolution.validate!(input[:conflict_resolution], context: "#{context}[:conflict_resolution]") unless input[:conflict_resolution].nil?
+        BackendAPIAuthType.validate!(input[:default_auth_type], context: "#{context}[:default_auth_type]") unless input[:default_auth_type].nil?
         Hearth::Validator.validate!(input[:service], ::String, context: "#{context}[:service]")
         Hearth::Validator.validate!(input[:transform_schema], ::String, context: "#{context}[:transform_schema]")
       end
@@ -86,8 +86,8 @@ module AWS::SDK::AmplifyBackend
     class BackendStoragePermissions
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BackendStoragePermissions, context: context)
-        Validators::ListOfAuthenticatedElement.validate!(input[:authenticated], context: "#{context}[:authenticated]") unless input[:authenticated].nil?
-        Validators::ListOfUnAuthenticatedElement.validate!(input[:un_authenticated], context: "#{context}[:un_authenticated]") unless input[:un_authenticated].nil?
+        ListOfAuthenticatedElement.validate!(input[:authenticated], context: "#{context}[:authenticated]") unless input[:authenticated].nil?
+        ListOfUnAuthenticatedElement.validate!(input[:un_authenticated], context: "#{context}[:un_authenticated]") unless input[:un_authenticated].nil?
       end
     end
 
@@ -124,7 +124,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::CreateBackendAPIInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -145,8 +145,8 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendAuthForgotPasswordConfig, context: context)
         Hearth::Validator.validate!(input[:delivery_method], ::String, context: "#{context}[:delivery_method]")
-        Validators::EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
-        Validators::SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
+        EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
+        SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
       end
     end
 
@@ -163,7 +163,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::CreateBackendAuthInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::CreateBackendAuthResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        CreateBackendAuthResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendAuthMFAConfig, context: context)
         Hearth::Validator.validate!(input[:mfa_mode], ::String, context: "#{context}[:mfa_mode]")
-        Validators::Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -181,10 +181,10 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::CreateBackendAuthOAuthConfig, context: context)
         Hearth::Validator.validate!(input[:domain_prefix], ::String, context: "#{context}[:domain_prefix]")
         Hearth::Validator.validate!(input[:o_auth_grant_type], ::String, context: "#{context}[:o_auth_grant_type]")
-        Validators::ListOfOAuthScopesElement.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
-        Validators::ListOf__string.validate!(input[:redirect_sign_in_ur_is], context: "#{context}[:redirect_sign_in_ur_is]") unless input[:redirect_sign_in_ur_is].nil?
-        Validators::ListOf__string.validate!(input[:redirect_sign_out_ur_is], context: "#{context}[:redirect_sign_out_ur_is]") unless input[:redirect_sign_out_ur_is].nil?
-        Validators::SocialProviderSettings.validate!(input[:social_provider_settings], context: "#{context}[:social_provider_settings]") unless input[:social_provider_settings].nil?
+        ListOfOAuthScopesElement.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        ListOf__string.validate!(input[:redirect_sign_in_ur_is], context: "#{context}[:redirect_sign_in_ur_is]") unless input[:redirect_sign_in_ur_is].nil?
+        ListOf__string.validate!(input[:redirect_sign_out_ur_is], context: "#{context}[:redirect_sign_out_ur_is]") unless input[:redirect_sign_out_ur_is].nil?
+        SocialProviderSettings.validate!(input[:social_provider_settings], context: "#{context}[:social_provider_settings]") unless input[:social_provider_settings].nil?
       end
     end
 
@@ -203,7 +203,7 @@ module AWS::SDK::AmplifyBackend
     class CreateBackendAuthPasswordPolicyConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendAuthPasswordPolicyConfig, context: context)
-        Validators::ListOfAdditionalConstraintsElement.validate!(input[:additional_constraints], context: "#{context}[:additional_constraints]") unless input[:additional_constraints].nil?
+        ListOfAdditionalConstraintsElement.validate!(input[:additional_constraints], context: "#{context}[:additional_constraints]") unless input[:additional_constraints].nil?
         Hearth::Validator.validate!(input[:minimum_length], ::Float, context: "#{context}[:minimum_length]")
       end
     end
@@ -212,23 +212,23 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendAuthResourceConfig, context: context)
         Hearth::Validator.validate!(input[:auth_resources], ::String, context: "#{context}[:auth_resources]")
-        Validators::CreateBackendAuthIdentityPoolConfig.validate!(input[:identity_pool_configs], context: "#{context}[:identity_pool_configs]") unless input[:identity_pool_configs].nil?
+        CreateBackendAuthIdentityPoolConfig.validate!(input[:identity_pool_configs], context: "#{context}[:identity_pool_configs]") unless input[:identity_pool_configs].nil?
         Hearth::Validator.validate!(input[:service], ::String, context: "#{context}[:service]")
-        Validators::CreateBackendAuthUserPoolConfig.validate!(input[:user_pool_configs], context: "#{context}[:user_pool_configs]") unless input[:user_pool_configs].nil?
+        CreateBackendAuthUserPoolConfig.validate!(input[:user_pool_configs], context: "#{context}[:user_pool_configs]") unless input[:user_pool_configs].nil?
       end
     end
 
     class CreateBackendAuthUserPoolConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendAuthUserPoolConfig, context: context)
-        Validators::CreateBackendAuthForgotPasswordConfig.validate!(input[:forgot_password], context: "#{context}[:forgot_password]") unless input[:forgot_password].nil?
-        Validators::CreateBackendAuthMFAConfig.validate!(input[:mfa], context: "#{context}[:mfa]") unless input[:mfa].nil?
-        Validators::CreateBackendAuthOAuthConfig.validate!(input[:o_auth], context: "#{context}[:o_auth]") unless input[:o_auth].nil?
-        Validators::CreateBackendAuthPasswordPolicyConfig.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
-        Validators::ListOfRequiredSignUpAttributesElement.validate!(input[:required_sign_up_attributes], context: "#{context}[:required_sign_up_attributes]") unless input[:required_sign_up_attributes].nil?
+        CreateBackendAuthForgotPasswordConfig.validate!(input[:forgot_password], context: "#{context}[:forgot_password]") unless input[:forgot_password].nil?
+        CreateBackendAuthMFAConfig.validate!(input[:mfa], context: "#{context}[:mfa]") unless input[:mfa].nil?
+        CreateBackendAuthOAuthConfig.validate!(input[:o_auth], context: "#{context}[:o_auth]") unless input[:o_auth].nil?
+        CreateBackendAuthPasswordPolicyConfig.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
+        ListOfRequiredSignUpAttributesElement.validate!(input[:required_sign_up_attributes], context: "#{context}[:required_sign_up_attributes]") unless input[:required_sign_up_attributes].nil?
         Hearth::Validator.validate!(input[:sign_in_method], ::String, context: "#{context}[:sign_in_method]")
         Hearth::Validator.validate!(input[:user_pool_name], ::String, context: "#{context}[:user_pool_name]")
-        Validators::CreateBackendAuthVerificationMessageConfig.validate!(input[:verification_message], context: "#{context}[:verification_message]") unless input[:verification_message].nil?
+        CreateBackendAuthVerificationMessageConfig.validate!(input[:verification_message], context: "#{context}[:verification_message]") unless input[:verification_message].nil?
       end
     end
 
@@ -236,8 +236,8 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendAuthVerificationMessageConfig, context: context)
         Hearth::Validator.validate!(input[:delivery_method], ::String, context: "#{context}[:delivery_method]")
-        Validators::EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
-        Validators::SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
+        EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
+        SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
       end
     end
 
@@ -265,7 +265,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:app_name], ::String, context: "#{context}[:app_name]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::ResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        ResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -287,7 +287,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::CreateBackendStorageInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::CreateBackendStorageResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        CreateBackendStorageResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBackendStorageResourceConfig, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
-        Validators::BackendStoragePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        BackendStoragePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
       end
     end
@@ -333,7 +333,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::DeleteBackendAPIInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::GetBackendAPIInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
-        Validators::BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -515,7 +515,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
-        Validators::CreateBackendAuthResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        CreateBackendAuthResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -558,7 +558,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input[:amplify_meta_config], ::String, context: "#{context}[:amplify_meta_config]")
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:app_name], ::String, context: "#{context}[:app_name]")
-        Validators::ListOf__string.validate!(input[:backend_environment_list], context: "#{context}[:backend_environment_list]") unless input[:backend_environment_list].nil?
+        ListOf__string.validate!(input[:backend_environment_list], context: "#{context}[:backend_environment_list]") unless input[:backend_environment_list].nil?
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
       end
@@ -578,7 +578,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::GetBackendStorageOutput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::GetBackendStorageResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        GetBackendStorageResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -588,7 +588,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::GetBackendStorageResourceConfig, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:imported], ::TrueClass, ::FalseClass, context: "#{context}[:imported]")
-        Validators::BackendStoragePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        BackendStoragePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::AmplifyBackend
     class ListBackendJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBackendJobsOutput, context: context)
-        Validators::ListOfBackendJobRespObj.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        ListOfBackendJobRespObj.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackendAPIAuthType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackendAPIAuthType.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BackendJobRespObj.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BackendJobRespObj.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -743,7 +743,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3BucketInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3BucketInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -776,7 +776,7 @@ module AWS::SDK::AmplifyBackend
     class ListS3BucketsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListS3BucketsOutput, context: context)
-        Validators::ListOfS3BucketInfo.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
+        ListOfS3BucketInfo.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -849,7 +849,7 @@ module AWS::SDK::AmplifyBackend
     class Settings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Settings, context: context)
-        Validators::ListOfMfaTypesElement.validate!(input[:mfa_types], context: "#{context}[:mfa_types]") unless input[:mfa_types].nil?
+        ListOfMfaTypesElement.validate!(input[:mfa_types], context: "#{context}[:mfa_types]") unless input[:mfa_types].nil?
         Hearth::Validator.validate!(input[:sms_message], ::String, context: "#{context}[:sms_message]")
       end
     end
@@ -864,10 +864,10 @@ module AWS::SDK::AmplifyBackend
     class SocialProviderSettings
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SocialProviderSettings, context: context)
-        Validators::BackendAuthSocialProviderConfig.validate!(input[:facebook], context: "#{context}[:facebook]") unless input[:facebook].nil?
-        Validators::BackendAuthSocialProviderConfig.validate!(input[:google], context: "#{context}[:google]") unless input[:google].nil?
-        Validators::BackendAuthSocialProviderConfig.validate!(input[:login_with_amazon], context: "#{context}[:login_with_amazon]") unless input[:login_with_amazon].nil?
-        Validators::BackendAuthAppleProviderConfig.validate!(input[:sign_in_with_apple], context: "#{context}[:sign_in_with_apple]") unless input[:sign_in_with_apple].nil?
+        BackendAuthSocialProviderConfig.validate!(input[:facebook], context: "#{context}[:facebook]") unless input[:facebook].nil?
+        BackendAuthSocialProviderConfig.validate!(input[:google], context: "#{context}[:google]") unless input[:google].nil?
+        BackendAuthSocialProviderConfig.validate!(input[:login_with_amazon], context: "#{context}[:login_with_amazon]") unless input[:login_with_amazon].nil?
+        BackendAuthAppleProviderConfig.validate!(input[:sign_in_with_apple], context: "#{context}[:sign_in_with_apple]") unless input[:sign_in_with_apple].nil?
       end
     end
 
@@ -884,7 +884,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::UpdateBackendAPIInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        BackendAPIResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -905,8 +905,8 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthForgotPasswordConfig, context: context)
         Hearth::Validator.validate!(input[:delivery_method], ::String, context: "#{context}[:delivery_method]")
-        Validators::EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
-        Validators::SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
+        EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
+        SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
       end
     end
 
@@ -922,7 +922,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::UpdateBackendAuthResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        UpdateBackendAuthResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -931,7 +931,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthMFAConfig, context: context)
         Hearth::Validator.validate!(input[:mfa_mode], ::String, context: "#{context}[:mfa_mode]")
-        Validators::Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
+        Settings.validate!(input[:settings], context: "#{context}[:settings]") unless input[:settings].nil?
       end
     end
 
@@ -940,10 +940,10 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthOAuthConfig, context: context)
         Hearth::Validator.validate!(input[:domain_prefix], ::String, context: "#{context}[:domain_prefix]")
         Hearth::Validator.validate!(input[:o_auth_grant_type], ::String, context: "#{context}[:o_auth_grant_type]")
-        Validators::ListOfOAuthScopesElement.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
-        Validators::ListOf__string.validate!(input[:redirect_sign_in_ur_is], context: "#{context}[:redirect_sign_in_ur_is]") unless input[:redirect_sign_in_ur_is].nil?
-        Validators::ListOf__string.validate!(input[:redirect_sign_out_ur_is], context: "#{context}[:redirect_sign_out_ur_is]") unless input[:redirect_sign_out_ur_is].nil?
-        Validators::SocialProviderSettings.validate!(input[:social_provider_settings], context: "#{context}[:social_provider_settings]") unless input[:social_provider_settings].nil?
+        ListOfOAuthScopesElement.validate!(input[:o_auth_scopes], context: "#{context}[:o_auth_scopes]") unless input[:o_auth_scopes].nil?
+        ListOf__string.validate!(input[:redirect_sign_in_ur_is], context: "#{context}[:redirect_sign_in_ur_is]") unless input[:redirect_sign_in_ur_is].nil?
+        ListOf__string.validate!(input[:redirect_sign_out_ur_is], context: "#{context}[:redirect_sign_out_ur_is]") unless input[:redirect_sign_out_ur_is].nil?
+        SocialProviderSettings.validate!(input[:social_provider_settings], context: "#{context}[:social_provider_settings]") unless input[:social_provider_settings].nil?
       end
     end
 
@@ -962,7 +962,7 @@ module AWS::SDK::AmplifyBackend
     class UpdateBackendAuthPasswordPolicyConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthPasswordPolicyConfig, context: context)
-        Validators::ListOfAdditionalConstraintsElement.validate!(input[:additional_constraints], context: "#{context}[:additional_constraints]") unless input[:additional_constraints].nil?
+        ListOfAdditionalConstraintsElement.validate!(input[:additional_constraints], context: "#{context}[:additional_constraints]") unless input[:additional_constraints].nil?
         Hearth::Validator.validate!(input[:minimum_length], ::Float, context: "#{context}[:minimum_length]")
       end
     end
@@ -971,20 +971,20 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthResourceConfig, context: context)
         Hearth::Validator.validate!(input[:auth_resources], ::String, context: "#{context}[:auth_resources]")
-        Validators::UpdateBackendAuthIdentityPoolConfig.validate!(input[:identity_pool_configs], context: "#{context}[:identity_pool_configs]") unless input[:identity_pool_configs].nil?
+        UpdateBackendAuthIdentityPoolConfig.validate!(input[:identity_pool_configs], context: "#{context}[:identity_pool_configs]") unless input[:identity_pool_configs].nil?
         Hearth::Validator.validate!(input[:service], ::String, context: "#{context}[:service]")
-        Validators::UpdateBackendAuthUserPoolConfig.validate!(input[:user_pool_configs], context: "#{context}[:user_pool_configs]") unless input[:user_pool_configs].nil?
+        UpdateBackendAuthUserPoolConfig.validate!(input[:user_pool_configs], context: "#{context}[:user_pool_configs]") unless input[:user_pool_configs].nil?
       end
     end
 
     class UpdateBackendAuthUserPoolConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthUserPoolConfig, context: context)
-        Validators::UpdateBackendAuthForgotPasswordConfig.validate!(input[:forgot_password], context: "#{context}[:forgot_password]") unless input[:forgot_password].nil?
-        Validators::UpdateBackendAuthMFAConfig.validate!(input[:mfa], context: "#{context}[:mfa]") unless input[:mfa].nil?
-        Validators::UpdateBackendAuthOAuthConfig.validate!(input[:o_auth], context: "#{context}[:o_auth]") unless input[:o_auth].nil?
-        Validators::UpdateBackendAuthPasswordPolicyConfig.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
-        Validators::UpdateBackendAuthVerificationMessageConfig.validate!(input[:verification_message], context: "#{context}[:verification_message]") unless input[:verification_message].nil?
+        UpdateBackendAuthForgotPasswordConfig.validate!(input[:forgot_password], context: "#{context}[:forgot_password]") unless input[:forgot_password].nil?
+        UpdateBackendAuthMFAConfig.validate!(input[:mfa], context: "#{context}[:mfa]") unless input[:mfa].nil?
+        UpdateBackendAuthOAuthConfig.validate!(input[:o_auth], context: "#{context}[:o_auth]") unless input[:o_auth].nil?
+        UpdateBackendAuthPasswordPolicyConfig.validate!(input[:password_policy], context: "#{context}[:password_policy]") unless input[:password_policy].nil?
+        UpdateBackendAuthVerificationMessageConfig.validate!(input[:verification_message], context: "#{context}[:verification_message]") unless input[:verification_message].nil?
       end
     end
 
@@ -992,8 +992,8 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendAuthVerificationMessageConfig, context: context)
         Hearth::Validator.validate!(input[:delivery_method], ::String, context: "#{context}[:delivery_method]")
-        Validators::EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
-        Validators::SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
+        EmailSettings.validate!(input[:email_settings], context: "#{context}[:email_settings]") unless input[:email_settings].nil?
+        SmsSettings.validate!(input[:sms_settings], context: "#{context}[:sms_settings]") unless input[:sms_settings].nil?
       end
     end
 
@@ -1001,7 +1001,7 @@ module AWS::SDK::AmplifyBackend
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendConfigInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
-        Validators::LoginAuthConfigReqObj.validate!(input[:login_auth_config], context: "#{context}[:login_auth_config]") unless input[:login_auth_config].nil?
+        LoginAuthConfigReqObj.validate!(input[:login_auth_config], context: "#{context}[:login_auth_config]") unless input[:login_auth_config].nil?
       end
     end
 
@@ -1011,7 +1011,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_manager_app_id], ::String, context: "#{context}[:backend_manager_app_id]")
         Hearth::Validator.validate!(input[:error], ::String, context: "#{context}[:error]")
-        Validators::LoginAuthConfigReqObj.validate!(input[:login_auth_config], context: "#{context}[:login_auth_config]") unless input[:login_auth_config].nil?
+        LoginAuthConfigReqObj.validate!(input[:login_auth_config], context: "#{context}[:login_auth_config]") unless input[:login_auth_config].nil?
       end
     end
 
@@ -1045,7 +1045,7 @@ module AWS::SDK::AmplifyBackend
         Hearth::Validator.validate!(input, Types::UpdateBackendStorageInput, context: context)
         Hearth::Validator.validate!(input[:app_id], ::String, context: "#{context}[:app_id]")
         Hearth::Validator.validate!(input[:backend_environment_name], ::String, context: "#{context}[:backend_environment_name]")
-        Validators::UpdateBackendStorageResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
+        UpdateBackendStorageResourceConfig.validate!(input[:resource_config], context: "#{context}[:resource_config]") unless input[:resource_config].nil?
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
       end
     end
@@ -1063,7 +1063,7 @@ module AWS::SDK::AmplifyBackend
     class UpdateBackendStorageResourceConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBackendStorageResourceConfig, context: context)
-        Validators::BackendStoragePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
+        BackendStoragePermissions.validate!(input[:permissions], context: "#{context}[:permissions]") unless input[:permissions].nil?
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
       end
     end

@@ -41,7 +41,7 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           aws_account_id: 'aws_account_id',
           namespace: 'namespace',
-          account_customization: Stubs::AccountCustomization.default(visited),
+          account_customization: AccountCustomization.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -219,7 +219,7 @@ module AWS::SDK::QuickSight
       def self.default(visited=[])
         {
           status: 1,
-          folder_member: Stubs::FolderMember.default(visited),
+          folder_member: FolderMember.default(visited),
           request_id: 'request_id',
         }
       end
@@ -259,7 +259,7 @@ module AWS::SDK::QuickSight
     class CreateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -305,7 +305,7 @@ module AWS::SDK::QuickSight
     class CreateGroupMembership
       def self.default(visited=[])
         {
-          group_member: Stubs::GroupMember.default(visited),
+          group_member: GroupMember.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -351,7 +351,7 @@ module AWS::SDK::QuickSight
           assignment_id: 'assignment_id',
           assignment_status: 'assignment_status',
           policy_arn: 'policy_arn',
-          identities: Stubs::IdentityMap.default(visited),
+          identities: IdentityMap.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -379,7 +379,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('IdentityMap')
         visited = visited + ['IdentityMap']
         {
-          test_key: Stubs::IdentityNameList.default(visited)
+          test_key: IdentityNameList.default(visited)
         }
       end
 
@@ -501,7 +501,7 @@ module AWS::SDK::QuickSight
     class CreateTemplateAlias
       def self.default(visited=[])
         {
-          template_alias: Stubs::TemplateAlias.default(visited),
+          template_alias: TemplateAlias.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -573,7 +573,7 @@ module AWS::SDK::QuickSight
     class CreateThemeAlias
       def self.default(visited=[])
         {
-          theme_alias: Stubs::ThemeAlias.default(visited),
+          theme_alias: ThemeAlias.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -1003,7 +1003,7 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           aws_account_id: 'aws_account_id',
           namespace: 'namespace',
-          account_customization: Stubs::AccountCustomization.default(visited),
+          account_customization: AccountCustomization.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -1028,7 +1028,7 @@ module AWS::SDK::QuickSight
     class DescribeAccountSettings
       def self.default(visited=[])
         {
-          account_settings: Stubs::AccountSettings.default(visited),
+          account_settings: AccountSettings.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -1076,7 +1076,7 @@ module AWS::SDK::QuickSight
     class DescribeAnalysis
       def self.default(visited=[])
         {
-          analysis: Stubs::Analysis.default(visited),
+          analysis: Analysis.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -1104,12 +1104,12 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           name: 'name',
           status: 'status',
-          errors: Stubs::AnalysisErrorList.default(visited),
-          data_set_arns: Stubs::DataSetArnsList.default(visited),
+          errors: AnalysisErrorList.default(visited),
+          data_set_arns: DataSetArnsList.default(visited),
           theme_arn: 'theme_arn',
           created_time: Time.now,
           last_updated_time: Time.now,
-          sheets: Stubs::SheetList.default(visited),
+          sheets: SheetList.default(visited),
         }
       end
 
@@ -1136,7 +1136,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('SheetList')
         visited = visited + ['SheetList']
         [
-          Stubs::Sheet.default(visited)
+          Sheet.default(visited)
         ]
       end
 
@@ -1196,7 +1196,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('AnalysisErrorList')
         visited = visited + ['AnalysisErrorList']
         [
-          Stubs::AnalysisError.default(visited)
+          AnalysisError.default(visited)
         ]
       end
 
@@ -1236,7 +1236,7 @@ module AWS::SDK::QuickSight
         {
           analysis_id: 'analysis_id',
           analysis_arn: 'analysis_arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -1262,7 +1262,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ResourcePermissionList')
         visited = visited + ['ResourcePermissionList']
         [
-          Stubs::ResourcePermission.default(visited)
+          ResourcePermission.default(visited)
         ]
       end
 
@@ -1283,7 +1283,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['ResourcePermission']
         {
           principal: 'principal',
-          actions: Stubs::ActionList.default(visited),
+          actions: ActionList.default(visited),
         }
       end
 
@@ -1320,7 +1320,7 @@ module AWS::SDK::QuickSight
     class DescribeDashboard
       def self.default(visited=[])
         {
-          dashboard: Stubs::Dashboard.default(visited),
+          dashboard: Dashboard.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -1347,7 +1347,7 @@ module AWS::SDK::QuickSight
           dashboard_id: 'dashboard_id',
           arn: 'arn',
           name: 'name',
-          version: Stubs::DashboardVersion.default(visited),
+          version: DashboardVersion.default(visited),
           created_time: Time.now,
           last_published_time: Time.now,
           last_updated_time: Time.now,
@@ -1375,15 +1375,15 @@ module AWS::SDK::QuickSight
         visited = visited + ['DashboardVersion']
         {
           created_time: Time.now,
-          errors: Stubs::DashboardErrorList.default(visited),
+          errors: DashboardErrorList.default(visited),
           version_number: 1,
           status: 'status',
           arn: 'arn',
           source_entity_arn: 'source_entity_arn',
-          data_set_arns: Stubs::DataSetArnsList.default(visited),
+          data_set_arns: DataSetArnsList.default(visited),
           description: 'description',
           theme_arn: 'theme_arn',
-          sheets: Stubs::SheetList.default(visited),
+          sheets: SheetList.default(visited),
         }
       end
 
@@ -1410,7 +1410,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DashboardErrorList')
         visited = visited + ['DashboardErrorList']
         [
-          Stubs::DashboardError.default(visited)
+          DashboardError.default(visited)
         ]
       end
 
@@ -1450,10 +1450,10 @@ module AWS::SDK::QuickSight
         {
           dashboard_id: 'dashboard_id',
           dashboard_arn: 'dashboard_arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           status: 1,
           request_id: 'request_id',
-          link_sharing_configuration: Stubs::LinkSharingConfiguration.default(visited),
+          link_sharing_configuration: LinkSharingConfiguration.default(visited),
         }
       end
 
@@ -1478,7 +1478,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('LinkSharingConfiguration')
         visited = visited + ['LinkSharingConfiguration']
         {
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
         }
       end
 
@@ -1494,7 +1494,7 @@ module AWS::SDK::QuickSight
     class DescribeDataSet
       def self.default(visited=[])
         {
-          data_set: Stubs::DataSet.default(visited),
+          data_set: DataSet.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -1523,17 +1523,17 @@ module AWS::SDK::QuickSight
           name: 'name',
           created_time: Time.now,
           last_updated_time: Time.now,
-          physical_table_map: Stubs::PhysicalTableMap.default(visited),
-          logical_table_map: Stubs::LogicalTableMap.default(visited),
-          output_columns: Stubs::OutputColumnList.default(visited),
+          physical_table_map: PhysicalTableMap.default(visited),
+          logical_table_map: LogicalTableMap.default(visited),
+          output_columns: OutputColumnList.default(visited),
           import_mode: 'import_mode',
           consumed_spice_capacity_in_bytes: 1,
-          column_groups: Stubs::ColumnGroupList.default(visited),
-          field_folders: Stubs::FieldFolderMap.default(visited),
-          row_level_permission_data_set: Stubs::RowLevelPermissionDataSet.default(visited),
-          row_level_permission_tag_configuration: Stubs::RowLevelPermissionTagConfiguration.default(visited),
-          column_level_permission_rules: Stubs::ColumnLevelPermissionRuleList.default(visited),
-          data_set_usage_configuration: Stubs::DataSetUsageConfiguration.default(visited),
+          column_groups: ColumnGroupList.default(visited),
+          field_folders: FieldFolderMap.default(visited),
+          row_level_permission_data_set: RowLevelPermissionDataSet.default(visited),
+          row_level_permission_tag_configuration: RowLevelPermissionTagConfiguration.default(visited),
+          column_level_permission_rules: ColumnLevelPermissionRuleList.default(visited),
+          data_set_usage_configuration: DataSetUsageConfiguration.default(visited),
         }
       end
 
@@ -1586,7 +1586,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnLevelPermissionRuleList')
         visited = visited + ['ColumnLevelPermissionRuleList']
         [
-          Stubs::ColumnLevelPermissionRule.default(visited)
+          ColumnLevelPermissionRule.default(visited)
         ]
       end
 
@@ -1606,8 +1606,8 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnLevelPermissionRule')
         visited = visited + ['ColumnLevelPermissionRule']
         {
-          principals: Stubs::PrincipalList.default(visited),
-          column_names: Stubs::ColumnNameList.default(visited),
+          principals: PrincipalList.default(visited),
+          column_names: ColumnNameList.default(visited),
         }
       end
 
@@ -1667,7 +1667,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['RowLevelPermissionTagConfiguration']
         {
           status: 'status',
-          tag_rules: Stubs::RowLevelPermissionTagRuleList.default(visited),
+          tag_rules: RowLevelPermissionTagRuleList.default(visited),
         }
       end
 
@@ -1686,7 +1686,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('RowLevelPermissionTagRuleList')
         visited = visited + ['RowLevelPermissionTagRuleList']
         [
-          Stubs::RowLevelPermissionTagRule.default(visited)
+          RowLevelPermissionTagRule.default(visited)
         ]
       end
 
@@ -1756,7 +1756,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('FieldFolderMap')
         visited = visited + ['FieldFolderMap']
         {
-          test_key: Stubs::FieldFolder.default(visited)
+          test_key: FieldFolder.default(visited)
         }
       end
 
@@ -1777,7 +1777,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['FieldFolder']
         {
           description: 'description',
-          columns: Stubs::FolderColumnList.default(visited),
+          columns: FolderColumnList.default(visited),
         }
       end
 
@@ -1816,7 +1816,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnGroupList')
         visited = visited + ['ColumnGroupList']
         [
-          Stubs::ColumnGroup.default(visited)
+          ColumnGroup.default(visited)
         ]
       end
 
@@ -1836,7 +1836,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnGroup')
         visited = visited + ['ColumnGroup']
         {
-          geo_spatial_column_group: Stubs::GeoSpatialColumnGroup.default(visited),
+          geo_spatial_column_group: GeoSpatialColumnGroup.default(visited),
         }
       end
 
@@ -1856,7 +1856,7 @@ module AWS::SDK::QuickSight
         {
           name: 'name',
           country_code: 'country_code',
-          columns: Stubs::ColumnList.default(visited),
+          columns: ColumnList.default(visited),
         }
       end
 
@@ -1896,7 +1896,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('OutputColumnList')
         visited = visited + ['OutputColumnList']
         [
-          Stubs::OutputColumn.default(visited)
+          OutputColumn.default(visited)
         ]
       end
 
@@ -1938,7 +1938,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('LogicalTableMap')
         visited = visited + ['LogicalTableMap']
         {
-          test_key: Stubs::LogicalTable.default(visited)
+          test_key: LogicalTable.default(visited)
         }
       end
 
@@ -1959,8 +1959,8 @@ module AWS::SDK::QuickSight
         visited = visited + ['LogicalTable']
         {
           alias: 'alias',
-          data_transforms: Stubs::TransformOperationList.default(visited),
-          source: Stubs::LogicalTableSource.default(visited),
+          data_transforms: TransformOperationList.default(visited),
+          source: LogicalTableSource.default(visited),
         }
       end
 
@@ -1980,7 +1980,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('LogicalTableSource')
         visited = visited + ['LogicalTableSource']
         {
-          join_instruction: Stubs::JoinInstruction.default(visited),
+          join_instruction: JoinInstruction.default(visited),
           physical_table_id: 'physical_table_id',
           data_set_arn: 'data_set_arn',
         }
@@ -2004,8 +2004,8 @@ module AWS::SDK::QuickSight
         {
           left_operand: 'left_operand',
           right_operand: 'right_operand',
-          left_join_key_properties: Stubs::JoinKeyProperties.default(visited),
-          right_join_key_properties: Stubs::JoinKeyProperties.default(visited),
+          left_join_key_properties: JoinKeyProperties.default(visited),
+          right_join_key_properties: JoinKeyProperties.default(visited),
           type: 'type',
           on_clause: 'on_clause',
         }
@@ -2048,7 +2048,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TransformOperationList')
         visited = visited + ['TransformOperationList']
         [
-          Stubs::TransformOperation.default(visited)
+          TransformOperation.default(visited)
         ]
       end
 
@@ -2068,7 +2068,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TransformOperation')
         visited = visited + ['TransformOperation']
         {
-          project_operation: Stubs::ProjectOperation.default(visited),
+          project_operation: ProjectOperation.default(visited),
         }
       end
 
@@ -2105,7 +2105,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['UntagColumnOperation']
         {
           column_name: 'column_name',
-          tag_names: Stubs::ColumnTagNames.default(visited),
+          tag_names: ColumnTagNames.default(visited),
         }
       end
 
@@ -2145,7 +2145,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['TagColumnOperation']
         {
           column_name: 'column_name',
-          tags: Stubs::ColumnTagList.default(visited),
+          tags: ColumnTagList.default(visited),
         }
       end
 
@@ -2164,7 +2164,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnTagList')
         visited = visited + ['ColumnTagList']
         [
-          Stubs::ColumnTag.default(visited)
+          ColumnTag.default(visited)
         ]
       end
 
@@ -2185,7 +2185,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['ColumnTag']
         {
           column_geographic_role: 'column_geographic_role',
-          column_description: Stubs::ColumnDescription.default(visited),
+          column_description: ColumnDescription.default(visited),
         }
       end
 
@@ -2264,7 +2264,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('CreateColumnsOperation')
         visited = visited + ['CreateColumnsOperation']
         {
-          columns: Stubs::CalculatedColumnList.default(visited),
+          columns: CalculatedColumnList.default(visited),
         }
       end
 
@@ -2282,7 +2282,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('CalculatedColumnList')
         visited = visited + ['CalculatedColumnList']
         [
-          Stubs::CalculatedColumn.default(visited)
+          CalculatedColumn.default(visited)
         ]
       end
 
@@ -2342,7 +2342,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ProjectOperation')
         visited = visited + ['ProjectOperation']
         {
-          projected_columns: Stubs::ProjectedColumnList.default(visited),
+          projected_columns: ProjectedColumnList.default(visited),
         }
       end
 
@@ -2380,7 +2380,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('PhysicalTableMap')
         visited = visited + ['PhysicalTableMap']
         {
-          test_key: Stubs::PhysicalTable.default(visited)
+          test_key: PhysicalTable.default(visited)
         }
       end
 
@@ -2400,7 +2400,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('PhysicalTable')
         visited = visited + ['PhysicalTable']
         {
-          relational_table: Stubs::RelationalTable.default(visited),
+          relational_table: RelationalTable.default(visited),
         }
       end
 
@@ -2429,8 +2429,8 @@ module AWS::SDK::QuickSight
         visited = visited + ['S3Source']
         {
           data_source_arn: 'data_source_arn',
-          upload_settings: Stubs::UploadSettings.default(visited),
-          input_columns: Stubs::InputColumnList.default(visited),
+          upload_settings: UploadSettings.default(visited),
+          input_columns: InputColumnList.default(visited),
         }
       end
 
@@ -2450,7 +2450,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('InputColumnList')
         visited = visited + ['InputColumnList']
         [
-          Stubs::InputColumn.default(visited)
+          InputColumn.default(visited)
         ]
       end
 
@@ -2519,7 +2519,7 @@ module AWS::SDK::QuickSight
           data_source_arn: 'data_source_arn',
           name: 'name',
           sql_query: 'sql_query',
-          columns: Stubs::InputColumnList.default(visited),
+          columns: InputColumnList.default(visited),
         }
       end
 
@@ -2544,7 +2544,7 @@ module AWS::SDK::QuickSight
           catalog: 'catalog',
           schema: 'schema',
           name: 'name',
-          input_columns: Stubs::InputColumnList.default(visited),
+          input_columns: InputColumnList.default(visited),
         }
       end
 
@@ -2566,7 +2566,7 @@ module AWS::SDK::QuickSight
         {
           data_set_arn: 'data_set_arn',
           data_set_id: 'data_set_id',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -2590,7 +2590,7 @@ module AWS::SDK::QuickSight
     class DescribeDataSource
       def self.default(visited=[])
         {
-          data_source: Stubs::DataSource.default(visited),
+          data_source: DataSource.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -2621,11 +2621,11 @@ module AWS::SDK::QuickSight
           status: 'status',
           created_time: Time.now,
           last_updated_time: Time.now,
-          data_source_parameters: Stubs::DataSourceParameters.default(visited),
-          alternate_data_source_parameters: Stubs::DataSourceParametersList.default(visited),
-          vpc_connection_properties: Stubs::VpcConnectionProperties.default(visited),
-          ssl_properties: Stubs::SslProperties.default(visited),
-          error_info: Stubs::DataSourceErrorInfo.default(visited),
+          data_source_parameters: DataSourceParameters.default(visited),
+          alternate_data_source_parameters: DataSourceParametersList.default(visited),
+          vpc_connection_properties: VpcConnectionProperties.default(visited),
+          ssl_properties: SslProperties.default(visited),
+          error_info: DataSourceErrorInfo.default(visited),
         }
       end
 
@@ -2710,7 +2710,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataSourceParametersList')
         visited = visited + ['DataSourceParametersList']
         [
-          Stubs::DataSourceParameters.default(visited)
+          DataSourceParameters.default(visited)
         ]
       end
 
@@ -2730,7 +2730,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataSourceParameters')
         visited = visited + ['DataSourceParameters']
         {
-          amazon_elasticsearch_parameters: Stubs::AmazonElasticsearchParameters.default(visited),
+          amazon_elasticsearch_parameters: AmazonElasticsearchParameters.default(visited),
         }
       end
 
@@ -2958,7 +2958,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('S3Parameters')
         visited = visited + ['S3Parameters']
         {
-          manifest_file_location: Stubs::ManifestFileLocation.default(visited),
+          manifest_file_location: ManifestFileLocation.default(visited),
         }
       end
 
@@ -3266,7 +3266,7 @@ module AWS::SDK::QuickSight
         {
           data_source_arn: 'data_source_arn',
           data_source_id: 'data_source_id',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -3291,7 +3291,7 @@ module AWS::SDK::QuickSight
       def self.default(visited=[])
         {
           status: 1,
-          folder: Stubs::Folder.default(visited),
+          folder: Folder.default(visited),
           request_id: 'request_id',
         }
       end
@@ -3318,7 +3318,7 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           name: 'name',
           folder_type: 'folder_type',
-          folder_path: Stubs::Path.default(visited),
+          folder_path: Path.default(visited),
           created_time: Time.now,
           last_updated_time: Time.now,
         }
@@ -3365,7 +3365,7 @@ module AWS::SDK::QuickSight
           status: 1,
           folder_id: 'folder_id',
           arn: 'arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
         }
       end
@@ -3391,7 +3391,7 @@ module AWS::SDK::QuickSight
           status: 1,
           folder_id: 'folder_id',
           arn: 'arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
         }
       end
@@ -3414,7 +3414,7 @@ module AWS::SDK::QuickSight
     class DescribeGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -3436,7 +3436,7 @@ module AWS::SDK::QuickSight
     class DescribeGroupMembership
       def self.default(visited=[])
         {
-          group_member: Stubs::GroupMember.default(visited),
+          group_member: GroupMember.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -3458,7 +3458,7 @@ module AWS::SDK::QuickSight
     class DescribeIAMPolicyAssignment
       def self.default(visited=[])
         {
-          iam_policy_assignment: Stubs::IAMPolicyAssignment.default(visited),
+          iam_policy_assignment: IAMPolicyAssignment.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -3486,7 +3486,7 @@ module AWS::SDK::QuickSight
           assignment_id: 'assignment_id',
           assignment_name: 'assignment_name',
           policy_arn: 'policy_arn',
-          identities: Stubs::IdentityMap.default(visited),
+          identities: IdentityMap.default(visited),
           assignment_status: 'assignment_status',
         }
       end
@@ -3508,7 +3508,7 @@ module AWS::SDK::QuickSight
     class DescribeIngestion
       def self.default(visited=[])
         {
-          ingestion: Stubs::Ingestion.default(visited),
+          ingestion: Ingestion.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -3535,9 +3535,9 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           ingestion_id: 'ingestion_id',
           ingestion_status: 'ingestion_status',
-          error_info: Stubs::ErrorInfo.default(visited),
-          row_info: Stubs::RowInfo.default(visited),
-          queue_info: Stubs::QueueInfo.default(visited),
+          error_info: ErrorInfo.default(visited),
+          row_info: RowInfo.default(visited),
+          queue_info: QueueInfo.default(visited),
           created_time: Time.now,
           ingestion_time_in_seconds: 1,
           ingestion_size_in_bytes: 1,
@@ -3631,7 +3631,7 @@ module AWS::SDK::QuickSight
       def self.default(visited=[])
         {
           aws_account_id: 'aws_account_id',
-          ip_restriction_rule_map: Stubs::IpRestrictionRuleMap.default(visited),
+          ip_restriction_rule_map: IpRestrictionRuleMap.default(visited),
           enabled: false,
           request_id: 'request_id',
           status: 1,
@@ -3676,7 +3676,7 @@ module AWS::SDK::QuickSight
     class DescribeNamespace
       def self.default(visited=[])
         {
-          namespace: Stubs::NamespaceInfoV2.default(visited),
+          namespace: NamespaceInfoV2.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -3705,7 +3705,7 @@ module AWS::SDK::QuickSight
           capacity_region: 'capacity_region',
           creation_status: 'creation_status',
           identity_store: 'identity_store',
-          namespace_error: Stubs::NamespaceError.default(visited),
+          namespace_error: NamespaceError.default(visited),
         }
       end
 
@@ -3746,7 +3746,7 @@ module AWS::SDK::QuickSight
     class DescribeTemplate
       def self.default(visited=[])
         {
-          template: Stubs::Template.default(visited),
+          template: Template.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -3772,7 +3772,7 @@ module AWS::SDK::QuickSight
         {
           arn: 'arn',
           name: 'name',
-          version: Stubs::TemplateVersion.default(visited),
+          version: TemplateVersion.default(visited),
           template_id: 'template_id',
           last_updated_time: Time.now,
           created_time: Time.now,
@@ -3799,14 +3799,14 @@ module AWS::SDK::QuickSight
         visited = visited + ['TemplateVersion']
         {
           created_time: Time.now,
-          errors: Stubs::TemplateErrorList.default(visited),
+          errors: TemplateErrorList.default(visited),
           version_number: 1,
           status: 'status',
-          data_set_configurations: Stubs::DataSetConfigurationList.default(visited),
+          data_set_configurations: DataSetConfigurationList.default(visited),
           description: 'description',
           source_entity_arn: 'source_entity_arn',
           theme_arn: 'theme_arn',
-          sheets: Stubs::SheetList.default(visited),
+          sheets: SheetList.default(visited),
         }
       end
 
@@ -3832,7 +3832,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataSetConfigurationList')
         visited = visited + ['DataSetConfigurationList']
         [
-          Stubs::DataSetConfiguration.default(visited)
+          DataSetConfiguration.default(visited)
         ]
       end
 
@@ -3853,8 +3853,8 @@ module AWS::SDK::QuickSight
         visited = visited + ['DataSetConfiguration']
         {
           placeholder: 'placeholder',
-          data_set_schema: Stubs::DataSetSchema.default(visited),
-          column_group_schema_list: Stubs::ColumnGroupSchemaList.default(visited),
+          data_set_schema: DataSetSchema.default(visited),
+          column_group_schema_list: ColumnGroupSchemaList.default(visited),
         }
       end
 
@@ -3874,7 +3874,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnGroupSchemaList')
         visited = visited + ['ColumnGroupSchemaList']
         [
-          Stubs::ColumnGroupSchema.default(visited)
+          ColumnGroupSchema.default(visited)
         ]
       end
 
@@ -3895,7 +3895,7 @@ module AWS::SDK::QuickSight
         visited = visited + ['ColumnGroupSchema']
         {
           name: 'name',
-          column_group_column_schema_list: Stubs::ColumnGroupColumnSchemaList.default(visited),
+          column_group_column_schema_list: ColumnGroupColumnSchemaList.default(visited),
         }
       end
 
@@ -3914,7 +3914,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnGroupColumnSchemaList')
         visited = visited + ['ColumnGroupColumnSchemaList']
         [
-          Stubs::ColumnGroupColumnSchema.default(visited)
+          ColumnGroupColumnSchema.default(visited)
         ]
       end
 
@@ -3952,7 +3952,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataSetSchema')
         visited = visited + ['DataSetSchema']
         {
-          column_schema_list: Stubs::ColumnSchemaList.default(visited),
+          column_schema_list: ColumnSchemaList.default(visited),
         }
       end
 
@@ -3970,7 +3970,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ColumnSchemaList')
         visited = visited + ['ColumnSchemaList']
         [
-          Stubs::ColumnSchema.default(visited)
+          ColumnSchema.default(visited)
         ]
       end
 
@@ -4012,7 +4012,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TemplateErrorList')
         visited = visited + ['TemplateErrorList']
         [
-          Stubs::TemplateError.default(visited)
+          TemplateError.default(visited)
         ]
       end
 
@@ -4050,7 +4050,7 @@ module AWS::SDK::QuickSight
     class DescribeTemplateAlias
       def self.default(visited=[])
         {
-          template_alias: Stubs::TemplateAlias.default(visited),
+          template_alias: TemplateAlias.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -4074,7 +4074,7 @@ module AWS::SDK::QuickSight
         {
           template_id: 'template_id',
           template_arn: 'template_arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -4098,7 +4098,7 @@ module AWS::SDK::QuickSight
     class DescribeTheme
       def self.default(visited=[])
         {
-          theme: Stubs::Theme.default(visited),
+          theme: Theme.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -4125,7 +4125,7 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           name: 'name',
           theme_id: 'theme_id',
-          version: Stubs::ThemeVersion.default(visited),
+          version: ThemeVersion.default(visited),
           created_time: Time.now,
           last_updated_time: Time.now,
           type: 'type',
@@ -4157,8 +4157,8 @@ module AWS::SDK::QuickSight
           description: 'description',
           base_theme_id: 'base_theme_id',
           created_time: Time.now,
-          configuration: Stubs::ThemeConfiguration.default(visited),
-          errors: Stubs::ThemeErrorList.default(visited),
+          configuration: ThemeConfiguration.default(visited),
+          errors: ThemeErrorList.default(visited),
           status: 'status',
         }
       end
@@ -4184,7 +4184,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ThemeErrorList')
         visited = visited + ['ThemeErrorList']
         [
-          Stubs::ThemeError.default(visited)
+          ThemeError.default(visited)
         ]
       end
 
@@ -4224,9 +4224,9 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ThemeConfiguration')
         visited = visited + ['ThemeConfiguration']
         {
-          data_color_palette: Stubs::DataColorPalette.default(visited),
-          ui_color_palette: Stubs::UIColorPalette.default(visited),
-          sheet: Stubs::SheetStyle.default(visited),
+          data_color_palette: DataColorPalette.default(visited),
+          ui_color_palette: UIColorPalette.default(visited),
+          sheet: SheetStyle.default(visited),
         }
       end
 
@@ -4246,8 +4246,8 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('SheetStyle')
         visited = visited + ['SheetStyle']
         {
-          tile: Stubs::TileStyle.default(visited),
-          tile_layout: Stubs::TileLayoutStyle.default(visited),
+          tile: TileStyle.default(visited),
+          tile_layout: TileLayoutStyle.default(visited),
         }
       end
 
@@ -4266,8 +4266,8 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TileLayoutStyle')
         visited = visited + ['TileLayoutStyle']
         {
-          gutter: Stubs::GutterStyle.default(visited),
-          margin: Stubs::MarginStyle.default(visited),
+          gutter: GutterStyle.default(visited),
+          margin: MarginStyle.default(visited),
         }
       end
 
@@ -4322,7 +4322,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TileStyle')
         visited = visited + ['TileStyle']
         {
-          border: Stubs::BorderStyle.default(visited),
+          border: BorderStyle.default(visited),
         }
       end
 
@@ -4406,8 +4406,8 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataColorPalette')
         visited = visited + ['DataColorPalette']
         {
-          colors: Stubs::ColorList.default(visited),
-          min_max_gradient: Stubs::ColorList.default(visited),
+          colors: ColorList.default(visited),
+          min_max_gradient: ColorList.default(visited),
           empty_fill_color: 'empty_fill_color',
         }
       end
@@ -4446,7 +4446,7 @@ module AWS::SDK::QuickSight
     class DescribeThemeAlias
       def self.default(visited=[])
         {
-          theme_alias: Stubs::ThemeAlias.default(visited),
+          theme_alias: ThemeAlias.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -4470,7 +4470,7 @@ module AWS::SDK::QuickSight
         {
           theme_id: 'theme_id',
           theme_arn: 'theme_arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -4494,7 +4494,7 @@ module AWS::SDK::QuickSight
     class DescribeUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -4642,7 +4642,7 @@ module AWS::SDK::QuickSight
     class ListAnalyses
       def self.default(visited=[])
         {
-          analysis_summary_list: Stubs::AnalysisSummaryList.default(visited),
+          analysis_summary_list: AnalysisSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -4668,7 +4668,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('AnalysisSummaryList')
         visited = visited + ['AnalysisSummaryList']
         [
-          Stubs::AnalysisSummary.default(visited)
+          AnalysisSummary.default(visited)
         ]
       end
 
@@ -4714,7 +4714,7 @@ module AWS::SDK::QuickSight
     class ListDashboardVersions
       def self.default(visited=[])
         {
-          dashboard_version_summary_list: Stubs::DashboardVersionSummaryList.default(visited),
+          dashboard_version_summary_list: DashboardVersionSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -4740,7 +4740,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DashboardVersionSummaryList')
         visited = visited + ['DashboardVersionSummaryList']
         [
-          Stubs::DashboardVersionSummary.default(visited)
+          DashboardVersionSummary.default(visited)
         ]
       end
 
@@ -4786,7 +4786,7 @@ module AWS::SDK::QuickSight
     class ListDashboards
       def self.default(visited=[])
         {
-          dashboard_summary_list: Stubs::DashboardSummaryList.default(visited),
+          dashboard_summary_list: DashboardSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -4812,7 +4812,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DashboardSummaryList')
         visited = visited + ['DashboardSummaryList']
         [
-          Stubs::DashboardSummary.default(visited)
+          DashboardSummary.default(visited)
         ]
       end
 
@@ -4860,7 +4860,7 @@ module AWS::SDK::QuickSight
     class ListDataSets
       def self.default(visited=[])
         {
-          data_set_summaries: Stubs::DataSetSummaryList.default(visited),
+          data_set_summaries: DataSetSummaryList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -4886,7 +4886,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataSetSummaryList')
         visited = visited + ['DataSetSummaryList']
         [
-          Stubs::DataSetSummary.default(visited)
+          DataSetSummary.default(visited)
         ]
       end
 
@@ -4912,7 +4912,7 @@ module AWS::SDK::QuickSight
           created_time: Time.now,
           last_updated_time: Time.now,
           import_mode: 'import_mode',
-          row_level_permission_data_set: Stubs::RowLevelPermissionDataSet.default(visited),
+          row_level_permission_data_set: RowLevelPermissionDataSet.default(visited),
           row_level_permission_tag_configuration_applied: false,
           column_level_permission_rules_applied: false,
         }
@@ -4938,7 +4938,7 @@ module AWS::SDK::QuickSight
     class ListDataSources
       def self.default(visited=[])
         {
-          data_sources: Stubs::DataSourceList.default(visited),
+          data_sources: DataSourceList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -4964,7 +4964,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('DataSourceList')
         visited = visited + ['DataSourceList']
         [
-          Stubs::DataSource.default(visited)
+          DataSource.default(visited)
         ]
       end
 
@@ -4983,7 +4983,7 @@ module AWS::SDK::QuickSight
       def self.default(visited=[])
         {
           status: 1,
-          folder_member_list: Stubs::FolderMemberList.default(visited),
+          folder_member_list: FolderMemberList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
         }
@@ -5008,7 +5008,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('FolderMemberList')
         visited = visited + ['FolderMemberList']
         [
-          Stubs::MemberIdArnPair.default(visited)
+          MemberIdArnPair.default(visited)
         ]
       end
 
@@ -5047,7 +5047,7 @@ module AWS::SDK::QuickSight
       def self.default(visited=[])
         {
           status: 1,
-          folder_summary_list: Stubs::FolderSummaryList.default(visited),
+          folder_summary_list: FolderSummaryList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
         }
@@ -5072,7 +5072,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('FolderSummaryList')
         visited = visited + ['FolderSummaryList']
         [
-          Stubs::FolderSummary.default(visited)
+          FolderSummary.default(visited)
         ]
       end
 
@@ -5118,7 +5118,7 @@ module AWS::SDK::QuickSight
     class ListGroupMemberships
       def self.default(visited=[])
         {
-          group_member_list: Stubs::GroupMemberList.default(visited),
+          group_member_list: GroupMemberList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5144,7 +5144,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('GroupMemberList')
         visited = visited + ['GroupMemberList']
         [
-          Stubs::GroupMember.default(visited)
+          GroupMember.default(visited)
         ]
       end
 
@@ -5162,7 +5162,7 @@ module AWS::SDK::QuickSight
     class ListGroups
       def self.default(visited=[])
         {
-          group_list: Stubs::GroupList.default(visited),
+          group_list: GroupList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5188,7 +5188,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('GroupList')
         visited = visited + ['GroupList']
         [
-          Stubs::Group.default(visited)
+          Group.default(visited)
         ]
       end
 
@@ -5206,7 +5206,7 @@ module AWS::SDK::QuickSight
     class ListIAMPolicyAssignments
       def self.default(visited=[])
         {
-          iam_policy_assignments: Stubs::IAMPolicyAssignmentSummaryList.default(visited),
+          iam_policy_assignments: IAMPolicyAssignmentSummaryList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5232,7 +5232,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('IAMPolicyAssignmentSummaryList')
         visited = visited + ['IAMPolicyAssignmentSummaryList']
         [
-          Stubs::IAMPolicyAssignmentSummary.default(visited)
+          IAMPolicyAssignmentSummary.default(visited)
         ]
       end
 
@@ -5270,7 +5270,7 @@ module AWS::SDK::QuickSight
     class ListIAMPolicyAssignmentsForUser
       def self.default(visited=[])
         {
-          active_assignments: Stubs::ActiveIAMPolicyAssignmentList.default(visited),
+          active_assignments: ActiveIAMPolicyAssignmentList.default(visited),
           request_id: 'request_id',
           next_token: 'next_token',
           status: 1,
@@ -5296,7 +5296,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ActiveIAMPolicyAssignmentList')
         visited = visited + ['ActiveIAMPolicyAssignmentList']
         [
-          Stubs::ActiveIAMPolicyAssignment.default(visited)
+          ActiveIAMPolicyAssignment.default(visited)
         ]
       end
 
@@ -5334,7 +5334,7 @@ module AWS::SDK::QuickSight
     class ListIngestions
       def self.default(visited=[])
         {
-          ingestions: Stubs::Ingestions.default(visited),
+          ingestions: Ingestions.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5360,7 +5360,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('Ingestions')
         visited = visited + ['Ingestions']
         [
-          Stubs::Ingestion.default(visited)
+          Ingestion.default(visited)
         ]
       end
 
@@ -5378,7 +5378,7 @@ module AWS::SDK::QuickSight
     class ListNamespaces
       def self.default(visited=[])
         {
-          namespaces: Stubs::Namespaces.default(visited),
+          namespaces: Namespaces.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5404,7 +5404,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('Namespaces')
         visited = visited + ['Namespaces']
         [
-          Stubs::NamespaceInfoV2.default(visited)
+          NamespaceInfoV2.default(visited)
         ]
       end
 
@@ -5422,7 +5422,7 @@ module AWS::SDK::QuickSight
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -5446,7 +5446,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -5484,7 +5484,7 @@ module AWS::SDK::QuickSight
     class ListTemplateAliases
       def self.default(visited=[])
         {
-          template_alias_list: Stubs::TemplateAliasList.default(visited),
+          template_alias_list: TemplateAliasList.default(visited),
           status: 1,
           request_id: 'request_id',
           next_token: 'next_token',
@@ -5510,7 +5510,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TemplateAliasList')
         visited = visited + ['TemplateAliasList']
         [
-          Stubs::TemplateAlias.default(visited)
+          TemplateAlias.default(visited)
         ]
       end
 
@@ -5528,7 +5528,7 @@ module AWS::SDK::QuickSight
     class ListTemplateVersions
       def self.default(visited=[])
         {
-          template_version_summary_list: Stubs::TemplateVersionSummaryList.default(visited),
+          template_version_summary_list: TemplateVersionSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -5554,7 +5554,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TemplateVersionSummaryList')
         visited = visited + ['TemplateVersionSummaryList']
         [
-          Stubs::TemplateVersionSummary.default(visited)
+          TemplateVersionSummary.default(visited)
         ]
       end
 
@@ -5598,7 +5598,7 @@ module AWS::SDK::QuickSight
     class ListTemplates
       def self.default(visited=[])
         {
-          template_summary_list: Stubs::TemplateSummaryList.default(visited),
+          template_summary_list: TemplateSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -5624,7 +5624,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('TemplateSummaryList')
         visited = visited + ['TemplateSummaryList']
         [
-          Stubs::TemplateSummary.default(visited)
+          TemplateSummary.default(visited)
         ]
       end
 
@@ -5670,7 +5670,7 @@ module AWS::SDK::QuickSight
     class ListThemeAliases
       def self.default(visited=[])
         {
-          theme_alias_list: Stubs::ThemeAliasList.default(visited),
+          theme_alias_list: ThemeAliasList.default(visited),
           status: 1,
           request_id: 'request_id',
           next_token: 'next_token',
@@ -5696,7 +5696,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ThemeAliasList')
         visited = visited + ['ThemeAliasList']
         [
-          Stubs::ThemeAlias.default(visited)
+          ThemeAlias.default(visited)
         ]
       end
 
@@ -5714,7 +5714,7 @@ module AWS::SDK::QuickSight
     class ListThemeVersions
       def self.default(visited=[])
         {
-          theme_version_summary_list: Stubs::ThemeVersionSummaryList.default(visited),
+          theme_version_summary_list: ThemeVersionSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -5740,7 +5740,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ThemeVersionSummaryList')
         visited = visited + ['ThemeVersionSummaryList']
         [
-          Stubs::ThemeVersionSummary.default(visited)
+          ThemeVersionSummary.default(visited)
         ]
       end
 
@@ -5784,7 +5784,7 @@ module AWS::SDK::QuickSight
     class ListThemes
       def self.default(visited=[])
         {
-          theme_summary_list: Stubs::ThemeSummaryList.default(visited),
+          theme_summary_list: ThemeSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -5810,7 +5810,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('ThemeSummaryList')
         visited = visited + ['ThemeSummaryList']
         [
-          Stubs::ThemeSummary.default(visited)
+          ThemeSummary.default(visited)
         ]
       end
 
@@ -5856,7 +5856,7 @@ module AWS::SDK::QuickSight
     class ListUserGroups
       def self.default(visited=[])
         {
-          group_list: Stubs::GroupList.default(visited),
+          group_list: GroupList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5880,7 +5880,7 @@ module AWS::SDK::QuickSight
     class ListUsers
       def self.default(visited=[])
         {
-          user_list: Stubs::UserList.default(visited),
+          user_list: UserList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -5906,7 +5906,7 @@ module AWS::SDK::QuickSight
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -5924,7 +5924,7 @@ module AWS::SDK::QuickSight
     class RegisterUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
           user_invitation_url: 'user_invitation_url',
           request_id: 'request_id',
           status: 1,
@@ -5972,7 +5972,7 @@ module AWS::SDK::QuickSight
     class SearchAnalyses
       def self.default(visited=[])
         {
-          analysis_summary_list: Stubs::AnalysisSummaryList.default(visited),
+          analysis_summary_list: AnalysisSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -5996,7 +5996,7 @@ module AWS::SDK::QuickSight
     class SearchDashboards
       def self.default(visited=[])
         {
-          dashboard_summary_list: Stubs::DashboardSummaryList.default(visited),
+          dashboard_summary_list: DashboardSummaryList.default(visited),
           next_token: 'next_token',
           status: 1,
           request_id: 'request_id',
@@ -6021,7 +6021,7 @@ module AWS::SDK::QuickSight
       def self.default(visited=[])
         {
           status: 1,
-          folder_summary_list: Stubs::FolderSummaryList.default(visited),
+          folder_summary_list: FolderSummaryList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
         }
@@ -6044,7 +6044,7 @@ module AWS::SDK::QuickSight
     class SearchGroups
       def self.default(visited=[])
         {
-          group_list: Stubs::GroupList.default(visited),
+          group_list: GroupList.default(visited),
           next_token: 'next_token',
           request_id: 'request_id',
           status: 1,
@@ -6111,7 +6111,7 @@ module AWS::SDK::QuickSight
           arn: 'arn',
           aws_account_id: 'aws_account_id',
           namespace: 'namespace',
-          account_customization: Stubs::AccountCustomization.default(visited),
+          account_customization: AccountCustomization.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -6184,7 +6184,7 @@ module AWS::SDK::QuickSight
         {
           analysis_arn: 'analysis_arn',
           analysis_id: 'analysis_id',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -6237,10 +6237,10 @@ module AWS::SDK::QuickSight
         {
           dashboard_arn: 'dashboard_arn',
           dashboard_id: 'dashboard_id',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
-          link_sharing_configuration: Stubs::LinkSharingConfiguration.default(visited),
+          link_sharing_configuration: LinkSharingConfiguration.default(visited),
         }
       end
 
@@ -6416,7 +6416,7 @@ module AWS::SDK::QuickSight
           status: 1,
           arn: 'arn',
           folder_id: 'folder_id',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
         }
       end
@@ -6438,7 +6438,7 @@ module AWS::SDK::QuickSight
     class UpdateGroup
       def self.default(visited=[])
         {
-          group: Stubs::Group.default(visited),
+          group: Group.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -6463,7 +6463,7 @@ module AWS::SDK::QuickSight
           assignment_name: 'assignment_name',
           assignment_id: 'assignment_id',
           policy_arn: 'policy_arn',
-          identities: Stubs::IdentityMap.default(visited),
+          identities: IdentityMap.default(visited),
           assignment_status: 'assignment_status',
           request_id: 'request_id',
           status: 1,
@@ -6560,7 +6560,7 @@ module AWS::SDK::QuickSight
     class UpdateTemplateAlias
       def self.default(visited=[])
         {
-          template_alias: Stubs::TemplateAlias.default(visited),
+          template_alias: TemplateAlias.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -6584,7 +6584,7 @@ module AWS::SDK::QuickSight
         {
           template_id: 'template_id',
           template_arn: 'template_arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -6636,7 +6636,7 @@ module AWS::SDK::QuickSight
     class UpdateThemeAlias
       def self.default(visited=[])
         {
-          theme_alias: Stubs::ThemeAlias.default(visited),
+          theme_alias: ThemeAlias.default(visited),
           status: 1,
           request_id: 'request_id',
         }
@@ -6660,7 +6660,7 @@ module AWS::SDK::QuickSight
         {
           theme_id: 'theme_id',
           theme_arn: 'theme_arn',
-          permissions: Stubs::ResourcePermissionList.default(visited),
+          permissions: ResourcePermissionList.default(visited),
           request_id: 'request_id',
           status: 1,
         }
@@ -6684,7 +6684,7 @@ module AWS::SDK::QuickSight
     class UpdateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
           request_id: 'request_id',
           status: 1,
         }

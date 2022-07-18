@@ -1834,7 +1834,7 @@ module AWS::SDK::SageMaker
         Hearth::Validator.validate!(params, ::Hash, Types::CreateImageVersionInput, context: context)
         type = Types::CreateImageVersionInput.new
         type.base_image = params[:base_image]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.image_name = params[:image_name]
         type
       end
@@ -2015,7 +2015,7 @@ module AWS::SDK::SageMaker
         type.model_approval_status = params[:model_approval_status]
         type.metadata_properties = MetadataProperties.build(params[:metadata_properties], context: "#{context}[:metadata_properties]") unless params[:metadata_properties].nil?
         type.model_metrics = ModelMetrics.build(params[:model_metrics], context: "#{context}[:model_metrics]") unless params[:model_metrics].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.customer_metadata_properties = CustomerMetadataMap.build(params[:customer_metadata_properties], context: "#{context}[:customer_metadata_properties]") unless params[:customer_metadata_properties].nil?
         type.drift_check_baselines = DriftCheckBaselines.build(params[:drift_check_baselines], context: "#{context}[:drift_check_baselines]") unless params[:drift_check_baselines].nil?
         type.domain = params[:domain]
@@ -2144,7 +2144,7 @@ module AWS::SDK::SageMaker
         type.pipeline_definition = params[:pipeline_definition]
         type.pipeline_definition_s3_location = PipelineDefinitionS3Location.build(params[:pipeline_definition_s3_location], context: "#{context}[:pipeline_definition_s3_location]") unless params[:pipeline_definition_s3_location].nil?
         type.pipeline_description = params[:pipeline_description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.role_arn = params[:role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.parallelism_configuration = ParallelismConfiguration.build(params[:parallelism_configuration], context: "#{context}[:parallelism_configuration]") unless params[:parallelism_configuration].nil?
@@ -3192,7 +3192,7 @@ module AWS::SDK::SageMaker
         Hearth::Validator.validate!(params, ::Hash, Types::DeletePipelineInput, context: context)
         type = Types::DeletePipelineInput.new
         type.pipeline_name = params[:pipeline_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -10610,7 +10610,7 @@ module AWS::SDK::SageMaker
         Hearth::Validator.validate!(params, ::Hash, Types::RetryPipelineExecutionInput, context: context)
         type = Types::RetryPipelineExecutionInput.new
         type.pipeline_execution_arn = params[:pipeline_execution_arn]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.parallelism_configuration = ParallelismConfiguration.build(params[:parallelism_configuration], context: "#{context}[:parallelism_configuration]") unless params[:parallelism_configuration].nil?
         type
       end
@@ -10794,7 +10794,7 @@ module AWS::SDK::SageMaker
         type = Types::SendPipelineExecutionStepFailureInput.new
         type.callback_token = params[:callback_token]
         type.failure_reason = params[:failure_reason]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -10814,7 +10814,7 @@ module AWS::SDK::SageMaker
         type = Types::SendPipelineExecutionStepSuccessInput.new
         type.callback_token = params[:callback_token]
         type.output_parameters = OutputParameterList.build(params[:output_parameters], context: "#{context}[:output_parameters]") unless params[:output_parameters].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -10961,7 +10961,7 @@ module AWS::SDK::SageMaker
         type.pipeline_execution_display_name = params[:pipeline_execution_display_name]
         type.pipeline_parameters = ParameterList.build(params[:pipeline_parameters], context: "#{context}[:pipeline_parameters]") unless params[:pipeline_parameters].nil?
         type.pipeline_execution_description = params[:pipeline_execution_description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.parallelism_configuration = ParallelismConfiguration.build(params[:parallelism_configuration], context: "#{context}[:parallelism_configuration]") unless params[:parallelism_configuration].nil?
         type
       end
@@ -11117,7 +11117,7 @@ module AWS::SDK::SageMaker
         Hearth::Validator.validate!(params, ::Hash, Types::StopPipelineExecutionInput, context: context)
         type = Types::StopPipelineExecutionInput.new
         type.pipeline_execution_arn = params[:pipeline_execution_arn]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end

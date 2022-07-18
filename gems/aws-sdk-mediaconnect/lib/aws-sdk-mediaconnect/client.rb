@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaConnect
@@ -102,7 +104,7 @@ module AWS::SDK::MediaConnect
     def add_flow_media_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddFlowMediaStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddFlowMediaStreamsInput,
         validate_input: @config.validate_input
@@ -275,7 +277,7 @@ module AWS::SDK::MediaConnect
     def add_flow_outputs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddFlowOutputsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddFlowOutputsInput,
         validate_input: @config.validate_input
@@ -436,7 +438,7 @@ module AWS::SDK::MediaConnect
     def add_flow_sources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddFlowSourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddFlowSourcesInput,
         validate_input: @config.validate_input
@@ -528,7 +530,7 @@ module AWS::SDK::MediaConnect
     def add_flow_vpc_interfaces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddFlowVpcInterfacesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddFlowVpcInterfacesInput,
         validate_input: @config.validate_input
@@ -877,7 +879,7 @@ module AWS::SDK::MediaConnect
     def create_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFlowInput,
         validate_input: @config.validate_input
@@ -947,7 +949,7 @@ module AWS::SDK::MediaConnect
     def delete_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFlowInput,
         validate_input: @config.validate_input
@@ -1144,7 +1146,7 @@ module AWS::SDK::MediaConnect
     def describe_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFlowInput,
         validate_input: @config.validate_input
@@ -1222,7 +1224,7 @@ module AWS::SDK::MediaConnect
     def describe_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOfferingInput,
         validate_input: @config.validate_input
@@ -1305,7 +1307,7 @@ module AWS::SDK::MediaConnect
     def describe_reservation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservationInput,
         validate_input: @config.validate_input
@@ -1417,7 +1419,7 @@ module AWS::SDK::MediaConnect
     def grant_flow_entitlements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GrantFlowEntitlementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GrantFlowEntitlementsInput,
         validate_input: @config.validate_input
@@ -1495,7 +1497,7 @@ module AWS::SDK::MediaConnect
     def list_entitlements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitlementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitlementsInput,
         validate_input: @config.validate_input
@@ -1580,7 +1582,7 @@ module AWS::SDK::MediaConnect
     def list_flows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFlowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFlowsInput,
         validate_input: @config.validate_input
@@ -1664,7 +1666,7 @@ module AWS::SDK::MediaConnect
     def list_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOfferingsInput,
         validate_input: @config.validate_input
@@ -1753,7 +1755,7 @@ module AWS::SDK::MediaConnect
     def list_reservations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReservationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReservationsInput,
         validate_input: @config.validate_input
@@ -1822,7 +1824,7 @@ module AWS::SDK::MediaConnect
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1913,7 +1915,7 @@ module AWS::SDK::MediaConnect
     def purchase_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseOfferingInput,
         validate_input: @config.validate_input
@@ -1987,7 +1989,7 @@ module AWS::SDK::MediaConnect
     def remove_flow_media_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveFlowMediaStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveFlowMediaStreamInput,
         validate_input: @config.validate_input
@@ -2060,7 +2062,7 @@ module AWS::SDK::MediaConnect
     def remove_flow_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveFlowOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveFlowOutputInput,
         validate_input: @config.validate_input
@@ -2133,7 +2135,7 @@ module AWS::SDK::MediaConnect
     def remove_flow_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveFlowSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveFlowSourceInput,
         validate_input: @config.validate_input
@@ -2208,7 +2210,7 @@ module AWS::SDK::MediaConnect
     def remove_flow_vpc_interface(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveFlowVpcInterfaceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveFlowVpcInterfaceInput,
         validate_input: @config.validate_input
@@ -2281,7 +2283,7 @@ module AWS::SDK::MediaConnect
     def revoke_flow_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeFlowEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeFlowEntitlementInput,
         validate_input: @config.validate_input
@@ -2350,7 +2352,7 @@ module AWS::SDK::MediaConnect
     def start_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFlowInput,
         validate_input: @config.validate_input
@@ -2419,7 +2421,7 @@ module AWS::SDK::MediaConnect
     def stop_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopFlowInput,
         validate_input: @config.validate_input
@@ -2492,7 +2494,7 @@ module AWS::SDK::MediaConnect
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2566,7 +2568,7 @@ module AWS::SDK::MediaConnect
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2780,7 +2782,7 @@ module AWS::SDK::MediaConnect
     def update_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowInput,
         validate_input: @config.validate_input
@@ -2899,7 +2901,7 @@ module AWS::SDK::MediaConnect
     def update_flow_entitlement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowEntitlementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowEntitlementInput,
         validate_input: @config.validate_input
@@ -3021,7 +3023,7 @@ module AWS::SDK::MediaConnect
     def update_flow_media_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowMediaStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowMediaStreamInput,
         validate_input: @config.validate_input
@@ -3235,7 +3237,7 @@ module AWS::SDK::MediaConnect
     def update_flow_output(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowOutputInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowOutputInput,
         validate_input: @config.validate_input
@@ -3436,7 +3438,7 @@ module AWS::SDK::MediaConnect
     def update_flow_source(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowSourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowSourceInput,
         validate_input: @config.validate_input

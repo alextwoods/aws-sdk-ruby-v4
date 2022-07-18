@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DirectoryService
@@ -81,7 +83,7 @@ module AWS::SDK::DirectoryService
     def accept_shared_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptSharedDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptSharedDirectoryInput,
         validate_input: @config.validate_input
@@ -238,7 +240,7 @@ module AWS::SDK::DirectoryService
     def add_ip_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddIpRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddIpRoutesInput,
         validate_input: @config.validate_input
@@ -320,7 +322,7 @@ module AWS::SDK::DirectoryService
     def add_region(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddRegionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddRegionInput,
         validate_input: @config.validate_input
@@ -399,7 +401,7 @@ module AWS::SDK::DirectoryService
     def add_tags_to_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsToResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsToResourceInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::DirectoryService
     def cancel_schema_extension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelSchemaExtensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelSchemaExtensionInput,
         validate_input: @config.validate_input
@@ -588,7 +590,7 @@ module AWS::SDK::DirectoryService
     def connect_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConnectDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConnectDirectoryInput,
         validate_input: @config.validate_input
@@ -669,7 +671,7 @@ module AWS::SDK::DirectoryService
     def create_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: @config.validate_input
@@ -766,7 +768,7 @@ module AWS::SDK::DirectoryService
     def create_computer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateComputerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateComputerInput,
         validate_input: @config.validate_input
@@ -848,7 +850,7 @@ module AWS::SDK::DirectoryService
     def create_conditional_forwarder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConditionalForwarderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConditionalForwarderInput,
         validate_input: @config.validate_input
@@ -985,7 +987,7 @@ module AWS::SDK::DirectoryService
     def create_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDirectoryInput,
         validate_input: @config.validate_input
@@ -1060,7 +1062,7 @@ module AWS::SDK::DirectoryService
     def create_log_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLogSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLogSubscriptionInput,
         validate_input: @config.validate_input
@@ -1173,7 +1175,7 @@ module AWS::SDK::DirectoryService
     def create_microsoft_ad(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMicrosoftADInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMicrosoftADInput,
         validate_input: @config.validate_input
@@ -1249,7 +1251,7 @@ module AWS::SDK::DirectoryService
     def create_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotInput,
         validate_input: @config.validate_input
@@ -1353,7 +1355,7 @@ module AWS::SDK::DirectoryService
     def create_trust(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrustInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrustInput,
         validate_input: @config.validate_input
@@ -1427,7 +1429,7 @@ module AWS::SDK::DirectoryService
     def delete_conditional_forwarder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConditionalForwarderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConditionalForwarderInput,
         validate_input: @config.validate_input
@@ -1500,7 +1502,7 @@ module AWS::SDK::DirectoryService
     def delete_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDirectoryInput,
         validate_input: @config.validate_input
@@ -1568,7 +1570,7 @@ module AWS::SDK::DirectoryService
     def delete_log_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLogSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLogSubscriptionInput,
         validate_input: @config.validate_input
@@ -1637,7 +1639,7 @@ module AWS::SDK::DirectoryService
     def delete_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotInput,
         validate_input: @config.validate_input
@@ -1711,7 +1713,7 @@ module AWS::SDK::DirectoryService
     def delete_trust(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrustInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrustInput,
         validate_input: @config.validate_input
@@ -1783,7 +1785,7 @@ module AWS::SDK::DirectoryService
     def deregister_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterCertificateInput,
         validate_input: @config.validate_input
@@ -1857,7 +1859,7 @@ module AWS::SDK::DirectoryService
     def deregister_event_topic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterEventTopicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterEventTopicInput,
         validate_input: @config.validate_input
@@ -1939,7 +1941,7 @@ module AWS::SDK::DirectoryService
     def describe_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCertificateInput,
         validate_input: @config.validate_input
@@ -2026,7 +2028,7 @@ module AWS::SDK::DirectoryService
     def describe_client_authentication_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClientAuthenticationSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClientAuthenticationSettingsInput,
         validate_input: @config.validate_input
@@ -2111,7 +2113,7 @@ module AWS::SDK::DirectoryService
     def describe_conditional_forwarders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConditionalForwardersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConditionalForwardersInput,
         validate_input: @config.validate_input
@@ -2262,7 +2264,7 @@ module AWS::SDK::DirectoryService
     def describe_directories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDirectoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDirectoriesInput,
         validate_input: @config.validate_input
@@ -2361,7 +2363,7 @@ module AWS::SDK::DirectoryService
     def describe_domain_controllers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainControllersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainControllersInput,
         validate_input: @config.validate_input
@@ -2449,7 +2451,7 @@ module AWS::SDK::DirectoryService
     def describe_event_topics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventTopicsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventTopicsInput,
         validate_input: @config.validate_input
@@ -2536,7 +2538,7 @@ module AWS::SDK::DirectoryService
     def describe_ldaps_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLDAPSSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLDAPSSettingsInput,
         validate_input: @config.validate_input
@@ -2628,7 +2630,7 @@ module AWS::SDK::DirectoryService
     def describe_regions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRegionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRegionsInput,
         validate_input: @config.validate_input
@@ -2723,7 +2725,7 @@ module AWS::SDK::DirectoryService
     def describe_shared_directories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSharedDirectoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSharedDirectoriesInput,
         validate_input: @config.validate_input
@@ -2823,7 +2825,7 @@ module AWS::SDK::DirectoryService
     def describe_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotsInput,
         validate_input: @config.validate_input
@@ -2926,7 +2928,7 @@ module AWS::SDK::DirectoryService
     def describe_trusts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrustsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrustsInput,
         validate_input: @config.validate_input
@@ -2998,7 +3000,7 @@ module AWS::SDK::DirectoryService
     def disable_client_authentication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableClientAuthenticationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableClientAuthenticationInput,
         validate_input: @config.validate_input
@@ -3071,7 +3073,7 @@ module AWS::SDK::DirectoryService
     def disable_ldaps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableLDAPSInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableLDAPSInput,
         validate_input: @config.validate_input
@@ -3140,7 +3142,7 @@ module AWS::SDK::DirectoryService
     def disable_radius(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableRadiusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableRadiusInput,
         validate_input: @config.validate_input
@@ -3225,7 +3227,7 @@ module AWS::SDK::DirectoryService
     def disable_sso(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableSsoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableSsoInput,
         validate_input: @config.validate_input
@@ -3300,7 +3302,7 @@ module AWS::SDK::DirectoryService
     def enable_client_authentication(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableClientAuthenticationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableClientAuthenticationInput,
         validate_input: @config.validate_input
@@ -3373,7 +3375,7 @@ module AWS::SDK::DirectoryService
     def enable_ldaps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableLDAPSInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableLDAPSInput,
         validate_input: @config.validate_input
@@ -3458,7 +3460,7 @@ module AWS::SDK::DirectoryService
     def enable_radius(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableRadiusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableRadiusInput,
         validate_input: @config.validate_input
@@ -3545,7 +3547,7 @@ module AWS::SDK::DirectoryService
     def enable_sso(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableSsoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableSsoInput,
         validate_input: @config.validate_input
@@ -3618,7 +3620,7 @@ module AWS::SDK::DirectoryService
     def get_directory_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDirectoryLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDirectoryLimitsInput,
         validate_input: @config.validate_input
@@ -3690,7 +3692,7 @@ module AWS::SDK::DirectoryService
     def get_snapshot_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSnapshotLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSnapshotLimitsInput,
         validate_input: @config.validate_input
@@ -3777,7 +3779,7 @@ module AWS::SDK::DirectoryService
     def list_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCertificatesInput,
         validate_input: @config.validate_input
@@ -3864,7 +3866,7 @@ module AWS::SDK::DirectoryService
     def list_ip_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIpRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIpRoutesInput,
         validate_input: @config.validate_input
@@ -3949,7 +3951,7 @@ module AWS::SDK::DirectoryService
     def list_log_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLogSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLogSubscriptionsInput,
         validate_input: @config.validate_input
@@ -4037,7 +4039,7 @@ module AWS::SDK::DirectoryService
     def list_schema_extensions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSchemaExtensionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSchemaExtensionsInput,
         validate_input: @config.validate_input
@@ -4118,7 +4120,7 @@ module AWS::SDK::DirectoryService
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4201,7 +4203,7 @@ module AWS::SDK::DirectoryService
     def register_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterCertificateInput,
         validate_input: @config.validate_input
@@ -4278,7 +4280,7 @@ module AWS::SDK::DirectoryService
     def register_event_topic(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterEventTopicInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterEventTopicInput,
         validate_input: @config.validate_input
@@ -4348,7 +4350,7 @@ module AWS::SDK::DirectoryService
     def reject_shared_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectSharedDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectSharedDirectoryInput,
         validate_input: @config.validate_input
@@ -4423,7 +4425,7 @@ module AWS::SDK::DirectoryService
     def remove_ip_routes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveIpRoutesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveIpRoutesInput,
         validate_input: @config.validate_input
@@ -4493,7 +4495,7 @@ module AWS::SDK::DirectoryService
     def remove_region(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveRegionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveRegionInput,
         validate_input: @config.validate_input
@@ -4567,7 +4569,7 @@ module AWS::SDK::DirectoryService
     def remove_tags_from_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveTagsFromResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveTagsFromResourceInput,
         validate_input: @config.validate_input
@@ -4661,7 +4663,7 @@ module AWS::SDK::DirectoryService
     def reset_user_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetUserPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetUserPasswordInput,
         validate_input: @config.validate_input
@@ -4734,7 +4736,7 @@ module AWS::SDK::DirectoryService
     def restore_from_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreFromSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreFromSnapshotInput,
         validate_input: @config.validate_input
@@ -4835,7 +4837,7 @@ module AWS::SDK::DirectoryService
     def share_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ShareDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ShareDirectoryInput,
         validate_input: @config.validate_input
@@ -4920,7 +4922,7 @@ module AWS::SDK::DirectoryService
     def start_schema_extension(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartSchemaExtensionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartSchemaExtensionInput,
         validate_input: @config.validate_input
@@ -4998,7 +5000,7 @@ module AWS::SDK::DirectoryService
     def unshare_directory(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnshareDirectoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnshareDirectoryInput,
         validate_input: @config.validate_input
@@ -5080,7 +5082,7 @@ module AWS::SDK::DirectoryService
     def update_conditional_forwarder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConditionalForwarderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConditionalForwarderInput,
         validate_input: @config.validate_input
@@ -5157,7 +5159,7 @@ module AWS::SDK::DirectoryService
     def update_number_of_domain_controllers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNumberOfDomainControllersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNumberOfDomainControllersInput,
         validate_input: @config.validate_input
@@ -5243,7 +5245,7 @@ module AWS::SDK::DirectoryService
     def update_radius(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRadiusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRadiusInput,
         validate_input: @config.validate_input
@@ -5318,7 +5320,7 @@ module AWS::SDK::DirectoryService
     def update_trust(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrustInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrustInput,
         validate_input: @config.validate_input
@@ -5390,7 +5392,7 @@ module AWS::SDK::DirectoryService
     def verify_trust(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyTrustInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyTrustInput,
         validate_input: @config.validate_input

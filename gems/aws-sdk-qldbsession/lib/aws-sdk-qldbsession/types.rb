@@ -262,12 +262,12 @@ module AWS::SDK::QLDBSession
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.read_i_os ||= 0
         self.write_i_os ||= 0
       end
-
     end
 
     # <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
@@ -536,11 +536,11 @@ module AWS::SDK::QLDBSession
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.processing_time_milliseconds ||= 0
       end
-
     end
 
     # <p>A structure that can contain a value in multiple encoding formats.</p>

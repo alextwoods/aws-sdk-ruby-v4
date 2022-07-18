@@ -124,11 +124,11 @@ module AWS::SDK::EC2InstanceConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -156,11 +156,11 @@ module AWS::SDK::EC2InstanceConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.serial_port ||= 0
       end
-
     end
 
     # @!attribute request_id
@@ -179,11 +179,11 @@ module AWS::SDK::EC2InstanceConnect
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # <p>Your account is not authorized to use the EC2 Serial Console. To authorize your

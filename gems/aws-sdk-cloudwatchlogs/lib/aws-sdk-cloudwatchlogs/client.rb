@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudWatchLogs
@@ -107,7 +109,7 @@ module AWS::SDK::CloudWatchLogs
     def associate_kms_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateKmsKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateKmsKeyInput,
         validate_input: @config.validate_input
@@ -176,7 +178,7 @@ module AWS::SDK::CloudWatchLogs
     def cancel_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelExportTaskInput,
         validate_input: @config.validate_input
@@ -297,7 +299,7 @@ module AWS::SDK::CloudWatchLogs
     def create_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExportTaskInput,
         validate_input: @config.validate_input
@@ -407,7 +409,7 @@ module AWS::SDK::CloudWatchLogs
     def create_log_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLogGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLogGroupInput,
         validate_input: @config.validate_input
@@ -495,7 +497,7 @@ module AWS::SDK::CloudWatchLogs
     def create_log_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLogStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLogStreamInput,
         validate_input: @config.validate_input
@@ -565,7 +567,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDestinationInput,
         validate_input: @config.validate_input
@@ -634,7 +636,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_log_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLogGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLogGroupInput,
         validate_input: @config.validate_input
@@ -707,7 +709,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_log_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLogStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLogStreamInput,
         validate_input: @config.validate_input
@@ -779,7 +781,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_metric_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMetricFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMetricFilterInput,
         validate_input: @config.validate_input
@@ -853,7 +855,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_query_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteQueryDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueryDefinitionInput,
         validate_input: @config.validate_input
@@ -922,7 +924,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -991,7 +993,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_retention_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRetentionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRetentionPolicyInput,
         validate_input: @config.validate_input
@@ -1063,7 +1065,7 @@ module AWS::SDK::CloudWatchLogs
     def delete_subscription_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubscriptionFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubscriptionFilterInput,
         validate_input: @config.validate_input
@@ -1148,7 +1150,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_destinations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDestinationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDestinationsInput,
         validate_input: @config.validate_input
@@ -1245,7 +1247,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_export_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportTasksInput,
         validate_input: @config.validate_input
@@ -1339,7 +1341,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_log_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLogGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLogGroupsInput,
         validate_input: @config.validate_input
@@ -1454,7 +1456,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_log_streams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLogStreamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLogStreamsInput,
         validate_input: @config.validate_input
@@ -1563,7 +1565,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_metric_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMetricFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMetricFiltersInput,
         validate_input: @config.validate_input
@@ -1654,7 +1656,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_queries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQueriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQueriesInput,
         validate_input: @config.validate_input
@@ -1741,7 +1743,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_query_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeQueryDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeQueryDefinitionsInput,
         validate_input: @config.validate_input
@@ -1819,7 +1821,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_resource_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourcePoliciesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourcePoliciesInput,
         validate_input: @config.validate_input
@@ -1910,7 +1912,7 @@ module AWS::SDK::CloudWatchLogs
     def describe_subscription_filters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubscriptionFiltersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubscriptionFiltersInput,
         validate_input: @config.validate_input
@@ -1981,7 +1983,7 @@ module AWS::SDK::CloudWatchLogs
     def disassociate_kms_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateKmsKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateKmsKeyInput,
         validate_input: @config.validate_input
@@ -2118,7 +2120,7 @@ module AWS::SDK::CloudWatchLogs
     def filter_log_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FilterLogEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FilterLogEventsInput,
         validate_input: @config.validate_input
@@ -2231,7 +2233,7 @@ module AWS::SDK::CloudWatchLogs
     def get_log_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLogEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLogEventsInput,
         validate_input: @config.validate_input
@@ -2318,7 +2320,7 @@ module AWS::SDK::CloudWatchLogs
     def get_log_group_fields(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLogGroupFieldsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLogGroupFieldsInput,
         validate_input: @config.validate_input
@@ -2394,7 +2396,7 @@ module AWS::SDK::CloudWatchLogs
     def get_log_record(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLogRecordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLogRecordInput,
         validate_input: @config.validate_input
@@ -2482,7 +2484,7 @@ module AWS::SDK::CloudWatchLogs
     def get_query_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetQueryResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueryResultsInput,
         validate_input: @config.validate_input
@@ -2552,7 +2554,7 @@ module AWS::SDK::CloudWatchLogs
     def list_tags_log_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsLogGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsLogGroupInput,
         validate_input: @config.validate_input
@@ -2645,7 +2647,7 @@ module AWS::SDK::CloudWatchLogs
     def put_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDestinationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDestinationInput,
         validate_input: @config.validate_input
@@ -2737,7 +2739,7 @@ module AWS::SDK::CloudWatchLogs
     def put_destination_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDestinationPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDestinationPolicyInput,
         validate_input: @config.validate_input
@@ -2868,7 +2870,7 @@ module AWS::SDK::CloudWatchLogs
     def put_log_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLogEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLogEventsInput,
         validate_input: @config.validate_input
@@ -2981,7 +2983,7 @@ module AWS::SDK::CloudWatchLogs
     def put_metric_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutMetricFilterInput,
         validate_input: @config.validate_input
@@ -3085,7 +3087,7 @@ module AWS::SDK::CloudWatchLogs
     def put_query_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutQueryDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutQueryDefinitionInput,
         validate_input: @config.validate_input
@@ -3201,7 +3203,7 @@ module AWS::SDK::CloudWatchLogs
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -3279,7 +3281,7 @@ module AWS::SDK::CloudWatchLogs
     def put_retention_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRetentionPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRetentionPolicyInput,
         validate_input: @config.validate_input
@@ -3423,7 +3425,7 @@ module AWS::SDK::CloudWatchLogs
     def put_subscription_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutSubscriptionFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutSubscriptionFilterInput,
         validate_input: @config.validate_input
@@ -3529,7 +3531,7 @@ module AWS::SDK::CloudWatchLogs
     def start_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartQueryInput,
         validate_input: @config.validate_input
@@ -3600,7 +3602,7 @@ module AWS::SDK::CloudWatchLogs
     def stop_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopQueryInput,
         validate_input: @config.validate_input
@@ -3683,7 +3685,7 @@ module AWS::SDK::CloudWatchLogs
     def tag_log_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagLogGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagLogGroupInput,
         validate_input: @config.validate_input
@@ -3766,7 +3768,7 @@ module AWS::SDK::CloudWatchLogs
     def test_metric_filter(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestMetricFilterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestMetricFilterInput,
         validate_input: @config.validate_input
@@ -3846,7 +3848,7 @@ module AWS::SDK::CloudWatchLogs
     def untag_log_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagLogGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagLogGroupInput,
         validate_input: @config.validate_input

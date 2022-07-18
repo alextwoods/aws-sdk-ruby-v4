@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SSOAdmin
   module Validators
 
@@ -14,7 +16,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccessControlAttribute, context: context)
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
-        Validators::AccessControlAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AccessControlAttributeValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -22,7 +24,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessControlAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessControlAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -30,7 +32,7 @@ module AWS::SDK::SSOAdmin
     class AccessControlAttributeValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AccessControlAttributeValue, context: context)
-        Validators::AccessControlAttributeValueSourceList.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
+        AccessControlAttributeValueSourceList.validate!(input[:source], context: "#{context}[:source]") unless input[:source].nil?
       end
     end
 
@@ -64,7 +66,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountAssignment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountAssignment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccountAssignmentOperationStatusMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccountAssignmentOperationStatusMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -138,7 +140,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttachedManagedPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttachedManagedPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -165,7 +167,7 @@ module AWS::SDK::SSOAdmin
     class CreateAccountAssignmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAccountAssignmentOutput, context: context)
-        Validators::AccountAssignmentOperationStatus.validate!(input[:account_assignment_creation_status], context: "#{context}[:account_assignment_creation_status]") unless input[:account_assignment_creation_status].nil?
+        AccountAssignmentOperationStatus.validate!(input[:account_assignment_creation_status], context: "#{context}[:account_assignment_creation_status]") unless input[:account_assignment_creation_status].nil?
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstanceAccessControlAttributeConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
-        Validators::InstanceAccessControlAttributeConfiguration.validate!(input[:instance_access_control_attribute_configuration], context: "#{context}[:instance_access_control_attribute_configuration]") unless input[:instance_access_control_attribute_configuration].nil?
+        InstanceAccessControlAttributeConfiguration.validate!(input[:instance_access_control_attribute_configuration], context: "#{context}[:instance_access_control_attribute_configuration]") unless input[:instance_access_control_attribute_configuration].nil?
       end
     end
 
@@ -191,14 +193,14 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:session_duration], ::String, context: "#{context}[:session_duration]")
         Hearth::Validator.validate!(input[:relay_state], ::String, context: "#{context}[:relay_state]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreatePermissionSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreatePermissionSetOutput, context: context)
-        Validators::PermissionSet.validate!(input[:permission_set], context: "#{context}[:permission_set]") unless input[:permission_set].nil?
+        PermissionSet.validate!(input[:permission_set], context: "#{context}[:permission_set]") unless input[:permission_set].nil?
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::SSOAdmin
     class DeleteAccountAssignmentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAccountAssignmentOutput, context: context)
-        Validators::AccountAssignmentOperationStatus.validate!(input[:account_assignment_deletion_status], context: "#{context}[:account_assignment_deletion_status]") unless input[:account_assignment_deletion_status].nil?
+        AccountAssignmentOperationStatus.validate!(input[:account_assignment_deletion_status], context: "#{context}[:account_assignment_deletion_status]") unless input[:account_assignment_deletion_status].nil?
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::SSOAdmin
     class DescribeAccountAssignmentCreationStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAssignmentCreationStatusOutput, context: context)
-        Validators::AccountAssignmentOperationStatus.validate!(input[:account_assignment_creation_status], context: "#{context}[:account_assignment_creation_status]") unless input[:account_assignment_creation_status].nil?
+        AccountAssignmentOperationStatus.validate!(input[:account_assignment_creation_status], context: "#{context}[:account_assignment_creation_status]") unless input[:account_assignment_creation_status].nil?
       end
     end
 
@@ -288,7 +290,7 @@ module AWS::SDK::SSOAdmin
     class DescribeAccountAssignmentDeletionStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAssignmentDeletionStatusOutput, context: context)
-        Validators::AccountAssignmentOperationStatus.validate!(input[:account_assignment_deletion_status], context: "#{context}[:account_assignment_deletion_status]") unless input[:account_assignment_deletion_status].nil?
+        AccountAssignmentOperationStatus.validate!(input[:account_assignment_deletion_status], context: "#{context}[:account_assignment_deletion_status]") unless input[:account_assignment_deletion_status].nil?
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input, Types::DescribeInstanceAccessControlAttributeConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::InstanceAccessControlAttributeConfiguration.validate!(input[:instance_access_control_attribute_configuration], context: "#{context}[:instance_access_control_attribute_configuration]") unless input[:instance_access_control_attribute_configuration].nil?
+        InstanceAccessControlAttributeConfiguration.validate!(input[:instance_access_control_attribute_configuration], context: "#{context}[:instance_access_control_attribute_configuration]") unless input[:instance_access_control_attribute_configuration].nil?
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::SSOAdmin
     class DescribePermissionSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePermissionSetOutput, context: context)
-        Validators::PermissionSet.validate!(input[:permission_set], context: "#{context}[:permission_set]") unless input[:permission_set].nil?
+        PermissionSet.validate!(input[:permission_set], context: "#{context}[:permission_set]") unless input[:permission_set].nil?
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::SSOAdmin
     class DescribePermissionSetProvisioningStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePermissionSetProvisioningStatusOutput, context: context)
-        Validators::PermissionSetProvisioningStatus.validate!(input[:permission_set_provisioning_status], context: "#{context}[:permission_set_provisioning_status]") unless input[:permission_set_provisioning_status].nil?
+        PermissionSetProvisioningStatus.validate!(input[:permission_set_provisioning_status], context: "#{context}[:permission_set_provisioning_status]") unless input[:permission_set_provisioning_status].nil?
       end
     end
 
@@ -371,7 +373,7 @@ module AWS::SDK::SSOAdmin
     class InstanceAccessControlAttributeConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceAccessControlAttributeConfiguration, context: context)
-        Validators::AccessControlAttributeList.validate!(input[:access_control_attributes], context: "#{context}[:access_control_attributes]") unless input[:access_control_attributes].nil?
+        AccessControlAttributeList.validate!(input[:access_control_attributes], context: "#{context}[:access_control_attributes]") unless input[:access_control_attributes].nil?
       end
     end
 
@@ -379,7 +381,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -405,14 +407,14 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OperationStatusFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        OperationStatusFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
     class ListAccountAssignmentCreationStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountAssignmentCreationStatusOutput, context: context)
-        Validators::AccountAssignmentOperationStatusList.validate!(input[:account_assignments_creation_status], context: "#{context}[:account_assignments_creation_status]") unless input[:account_assignments_creation_status].nil?
+        AccountAssignmentOperationStatusList.validate!(input[:account_assignments_creation_status], context: "#{context}[:account_assignments_creation_status]") unless input[:account_assignments_creation_status].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -423,14 +425,14 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OperationStatusFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        OperationStatusFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
     class ListAccountAssignmentDeletionStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountAssignmentDeletionStatusOutput, context: context)
-        Validators::AccountAssignmentOperationStatusList.validate!(input[:account_assignments_deletion_status], context: "#{context}[:account_assignments_deletion_status]") unless input[:account_assignments_deletion_status].nil?
+        AccountAssignmentOperationStatusList.validate!(input[:account_assignments_deletion_status], context: "#{context}[:account_assignments_deletion_status]") unless input[:account_assignments_deletion_status].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -449,7 +451,7 @@ module AWS::SDK::SSOAdmin
     class ListAccountAssignmentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountAssignmentsOutput, context: context)
-        Validators::AccountAssignmentList.validate!(input[:account_assignments], context: "#{context}[:account_assignments]") unless input[:account_assignments].nil?
+        AccountAssignmentList.validate!(input[:account_assignments], context: "#{context}[:account_assignments]") unless input[:account_assignments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -468,7 +470,7 @@ module AWS::SDK::SSOAdmin
     class ListAccountsForProvisionedPermissionSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAccountsForProvisionedPermissionSetOutput, context: context)
-        Validators::AccountList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
+        AccountList.validate!(input[:account_ids], context: "#{context}[:account_ids]") unless input[:account_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -484,7 +486,7 @@ module AWS::SDK::SSOAdmin
     class ListInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListInstancesOutput, context: context)
-        Validators::InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -502,7 +504,7 @@ module AWS::SDK::SSOAdmin
     class ListManagedPoliciesInPermissionSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListManagedPoliciesInPermissionSetOutput, context: context)
-        Validators::AttachedManagedPolicyList.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
+        AttachedManagedPolicyList.validate!(input[:attached_managed_policies], context: "#{context}[:attached_managed_policies]") unless input[:attached_managed_policies].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -513,14 +515,14 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::OperationStatusFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        OperationStatusFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
       end
     end
 
     class ListPermissionSetProvisioningStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPermissionSetProvisioningStatusOutput, context: context)
-        Validators::PermissionSetProvisioningStatusList.validate!(input[:permission_sets_provisioning_status], context: "#{context}[:permission_sets_provisioning_status]") unless input[:permission_sets_provisioning_status].nil?
+        PermissionSetProvisioningStatusList.validate!(input[:permission_sets_provisioning_status], context: "#{context}[:permission_sets_provisioning_status]") unless input[:permission_sets_provisioning_status].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -537,7 +539,7 @@ module AWS::SDK::SSOAdmin
     class ListPermissionSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPermissionSetsOutput, context: context)
-        Validators::PermissionSetList.validate!(input[:permission_sets], context: "#{context}[:permission_sets]") unless input[:permission_sets].nil?
+        PermissionSetList.validate!(input[:permission_sets], context: "#{context}[:permission_sets]") unless input[:permission_sets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -557,7 +559,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPermissionSetsProvisionedToAccountOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::PermissionSetList.validate!(input[:permission_sets], context: "#{context}[:permission_sets]") unless input[:permission_sets].nil?
+        PermissionSetList.validate!(input[:permission_sets], context: "#{context}[:permission_sets]") unless input[:permission_sets].nil?
       end
     end
 
@@ -573,7 +575,7 @@ module AWS::SDK::SSOAdmin
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -622,7 +624,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PermissionSetProvisioningStatusMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PermissionSetProvisioningStatusMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -649,7 +651,7 @@ module AWS::SDK::SSOAdmin
     class ProvisionPermissionSetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ProvisionPermissionSetOutput, context: context)
-        Validators::PermissionSetProvisioningStatus.validate!(input[:permission_set_provisioning_status], context: "#{context}[:permission_set_provisioning_status]") unless input[:permission_set_provisioning_status].nil?
+        PermissionSetProvisioningStatus.validate!(input[:permission_set_provisioning_status], context: "#{context}[:permission_set_provisioning_status]") unless input[:permission_set_provisioning_status].nil?
       end
     end
 
@@ -703,7 +705,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -713,7 +715,7 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -735,7 +737,7 @@ module AWS::SDK::SSOAdmin
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -749,7 +751,7 @@ module AWS::SDK::SSOAdmin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateInstanceAccessControlAttributeConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:instance_arn], ::String, context: "#{context}[:instance_arn]")
-        Validators::InstanceAccessControlAttributeConfiguration.validate!(input[:instance_access_control_attribute_configuration], context: "#{context}[:instance_access_control_attribute_configuration]") unless input[:instance_access_control_attribute_configuration].nil?
+        InstanceAccessControlAttributeConfiguration.validate!(input[:instance_access_control_attribute_configuration], context: "#{context}[:instance_access_control_attribute_configuration]") unless input[:instance_access_control_attribute_configuration].nil?
       end
     end
 

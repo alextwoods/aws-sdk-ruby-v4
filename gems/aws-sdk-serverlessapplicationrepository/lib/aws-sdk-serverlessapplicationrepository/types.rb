@@ -362,11 +362,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_verified_author ||= false
       end
-
     end
 
     # @!attribute application_id
@@ -494,11 +494,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resources_supported ||= false
       end
-
     end
 
     # @!attribute application_id
@@ -863,11 +863,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_verified_author ||= false
       end
-
     end
 
     # @!attribute application_id
@@ -1015,11 +1015,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_items ||= 0
       end
-
     end
 
     # @!attribute dependencies
@@ -1062,11 +1062,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_items ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1103,11 +1103,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_items ||= 0
       end
-
     end
 
     # @!attribute applications
@@ -1249,6 +1249,7 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_length ||= 0
@@ -1257,7 +1258,6 @@ module AWS::SDK::ServerlessApplicationRepository
         self.min_value ||= 0
         self.no_echo ||= false
       end
-
     end
 
     # <p>Parameter value of the application.</p>
@@ -1332,11 +1332,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.monitoring_time_in_minutes ||= 0
       end
-
     end
 
     # <p>This property corresponds to the <i>AWS CloudFormation <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackTrigger">RollbackTrigger</a>
@@ -1578,11 +1578,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_verified_author ||= false
       end
-
     end
 
     # <p>Application version details.</p>
@@ -1670,11 +1670,11 @@ module AWS::SDK::ServerlessApplicationRepository
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resources_supported ||= false
       end
-
     end
 
     # <p>An application version summary.</p>

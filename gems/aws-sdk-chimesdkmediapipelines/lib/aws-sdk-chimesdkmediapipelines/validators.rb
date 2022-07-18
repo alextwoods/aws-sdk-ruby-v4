@@ -7,15 +7,17 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ChimeSDKMediaPipelines
   module Validators
 
     class ArtifactsConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ArtifactsConfiguration, context: context)
-        Validators::AudioArtifactsConfiguration.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
-        Validators::VideoArtifactsConfiguration.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
-        Validators::ContentArtifactsConfiguration.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
+        AudioArtifactsConfiguration.validate!(input[:audio], context: "#{context}[:audio]") unless input[:audio].nil?
+        VideoArtifactsConfiguration.validate!(input[:video], context: "#{context}[:video]") unless input[:video].nil?
+        ContentArtifactsConfiguration.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
       end
     end
 
@@ -47,8 +49,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ChimeSdkMeetingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChimeSdkMeetingConfiguration, context: context)
-        Validators::SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
-        Validators::ArtifactsConfiguration.validate!(input[:artifacts_configuration], context: "#{context}[:artifacts_configuration]") unless input[:artifacts_configuration].nil?
+        SourceConfiguration.validate!(input[:source_configuration], context: "#{context}[:source_configuration]") unless input[:source_configuration].nil?
+        ArtifactsConfiguration.validate!(input[:artifacts_configuration], context: "#{context}[:artifacts_configuration]") unless input[:artifacts_configuration].nil?
       end
     end
 
@@ -68,15 +70,15 @@ module AWS::SDK::ChimeSDKMediaPipelines
         Hearth::Validator.validate!(input[:sink_type], ::String, context: "#{context}[:sink_type]")
         Hearth::Validator.validate!(input[:sink_arn], ::String, context: "#{context}[:sink_arn]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateMediaCapturePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateMediaCapturePipelineOutput, context: context)
-        Validators::MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
+        MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class GetMediaCapturePipelineOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMediaCapturePipelineOutput, context: context)
-        Validators::MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
+        MediaCapturePipeline.validate!(input[:media_capture_pipeline], context: "#{context}[:media_capture_pipeline]") unless input[:media_capture_pipeline].nil?
       end
     end
 
@@ -136,7 +138,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ListMediaCapturePipelinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMediaCapturePipelinesOutput, context: context)
-        Validators::MediaCapturePipelineSummaryList.validate!(input[:media_capture_pipelines], context: "#{context}[:media_capture_pipelines]") unless input[:media_capture_pipelines].nil?
+        MediaCapturePipelineSummaryList.validate!(input[:media_capture_pipelines], context: "#{context}[:media_capture_pipelines]") unless input[:media_capture_pipelines].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -167,7 +169,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         Hearth::Validator.validate!(input[:sink_arn], ::String, context: "#{context}[:sink_arn]")
         Hearth::Validator.validate!(input[:created_timestamp], ::Time, context: "#{context}[:created_timestamp]")
         Hearth::Validator.validate!(input[:updated_timestamp], ::Time, context: "#{context}[:updated_timestamp]")
-        Validators::ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
+        ChimeSdkMeetingConfiguration.validate!(input[:chime_sdk_meeting_configuration], context: "#{context}[:chime_sdk_meeting_configuration]") unless input[:chime_sdk_meeting_configuration].nil?
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MediaCapturePipelineSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MediaCapturePipelineSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -209,8 +211,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class SelectedVideoStreams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SelectedVideoStreams, context: context)
-        Validators::AttendeeIdList.validate!(input[:attendee_ids], context: "#{context}[:attendee_ids]") unless input[:attendee_ids].nil?
-        Validators::ExternalUserIdList.validate!(input[:external_user_ids], context: "#{context}[:external_user_ids]") unless input[:external_user_ids].nil?
+        AttendeeIdList.validate!(input[:attendee_ids], context: "#{context}[:attendee_ids]") unless input[:attendee_ids].nil?
+        ExternalUserIdList.validate!(input[:external_user_ids], context: "#{context}[:external_user_ids]") unless input[:external_user_ids].nil?
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class SourceConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SourceConfiguration, context: context)
-        Validators::SelectedVideoStreams.validate!(input[:selected_video_streams], context: "#{context}[:selected_video_streams]") unless input[:selected_video_streams].nil?
+        SelectedVideoStreams.validate!(input[:selected_video_streams], context: "#{context}[:selected_video_streams]") unless input[:selected_video_streams].nil?
       end
     end
 
@@ -260,7 +262,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -269,7 +271,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -301,7 +303,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

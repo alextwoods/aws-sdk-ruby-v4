@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::AppMesh
   module Builders
 
@@ -1118,10 +1116,10 @@ module AWS::SDK::AppMesh
       end
     end
 
-    # Set Builder for PortSet
+    # List Builder for PortSet
     class PortSet
       def self.build(input)
-        data = Set.new
+        data = []
         input.each do |element|
           data << element unless element.nil?
         end

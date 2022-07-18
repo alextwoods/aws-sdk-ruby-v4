@@ -60,7 +60,7 @@ module AWS::SDK::Amp
         type = Types::CreateAlertManagerDefinitionInput.new
         type.workspace_id = params[:workspace_id]
         type.data = params[:data]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -81,7 +81,7 @@ module AWS::SDK::Amp
         type.workspace_id = params[:workspace_id]
         type.name = params[:name]
         type.data = params[:data]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -104,7 +104,7 @@ module AWS::SDK::Amp
         Hearth::Validator.validate!(params, ::Hash, Types::CreateWorkspaceInput, context: context)
         type = Types::CreateWorkspaceInput.new
         type.alias = params[:alias]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -127,7 +127,7 @@ module AWS::SDK::Amp
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAlertManagerDefinitionInput, context: context)
         type = Types::DeleteAlertManagerDefinitionInput.new
         type.workspace_id = params[:workspace_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::Amp
         type = Types::DeleteRuleGroupsNamespaceInput.new
         type.workspace_id = params[:workspace_id]
         type.name = params[:name]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -164,7 +164,7 @@ module AWS::SDK::Amp
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteWorkspaceInput, context: context)
         type = Types::DeleteWorkspaceInput.new
         type.workspace_id = params[:workspace_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::Amp
         type = Types::PutAlertManagerDefinitionInput.new
         type.workspace_id = params[:workspace_id]
         type.data = params[:data]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Amp
         type.workspace_id = params[:workspace_id]
         type.name = params[:name]
         type.data = params[:data]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::Amp
         type = Types::UpdateWorkspaceAliasInput.new
         type.workspace_id = params[:workspace_id]
         type.alias = params[:alias]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

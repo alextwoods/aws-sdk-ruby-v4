@@ -53,7 +53,7 @@ module AWS::SDK::IoTFleetHub
         type = Types::CreateApplicationInput.new
         type.application_name = params[:application_name]
         type.application_description = params[:application_description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.role_arn = params[:role_arn]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -75,7 +75,7 @@ module AWS::SDK::IoTFleetHub
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteApplicationInput, context: context)
         type = Types::DeleteApplicationInput.new
         type.application_id = params[:application_id]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -264,7 +264,7 @@ module AWS::SDK::IoTFleetHub
         type.application_id = params[:application_id]
         type.application_name = params[:application_name]
         type.application_description = params[:application_description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

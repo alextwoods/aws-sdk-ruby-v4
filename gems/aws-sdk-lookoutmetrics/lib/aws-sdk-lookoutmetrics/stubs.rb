@@ -130,7 +130,7 @@ module AWS::SDK::LookoutMetrics
     class DescribeAlert
       def self.default(visited=[])
         {
-          alert: Stubs::Alert.default(visited),
+          alert: Alert.default(visited),
         }
       end
 
@@ -149,7 +149,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('Alert')
         visited = visited + ['Alert']
         {
-          action: Stubs::Action.default(visited),
+          action: Action.default(visited),
           alert_description: 'alert_description',
           alert_arn: 'alert_arn',
           anomaly_detector_arn: 'anomaly_detector_arn',
@@ -185,8 +185,8 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('Action')
         visited = visited + ['Action']
         {
-          sns_configuration: Stubs::SNSConfiguration.default(visited),
-          lambda_configuration: Stubs::LambdaConfiguration.default(visited),
+          sns_configuration: SNSConfiguration.default(visited),
+          lambda_configuration: LambdaConfiguration.default(visited),
         }
       end
 
@@ -245,7 +245,7 @@ module AWS::SDK::LookoutMetrics
     class DescribeAnomalyDetectionExecutions
       def self.default(visited=[])
         {
-          execution_list: Stubs::ExecutionList.default(visited),
+          execution_list: ExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -266,7 +266,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('ExecutionList')
         visited = visited + ['ExecutionList']
         [
-          Stubs::ExecutionStatus.default(visited)
+          ExecutionStatus.default(visited)
         ]
       end
 
@@ -309,7 +309,7 @@ module AWS::SDK::LookoutMetrics
           anomaly_detector_arn: 'anomaly_detector_arn',
           anomaly_detector_name: 'anomaly_detector_name',
           anomaly_detector_description: 'anomaly_detector_description',
-          anomaly_detector_config: Stubs::AnomalyDetectorConfigSummary.default(visited),
+          anomaly_detector_config: AnomalyDetectorConfigSummary.default(visited),
           creation_time: Time.now,
           last_modification_time: Time.now,
           status: 'status',
@@ -366,12 +366,12 @@ module AWS::SDK::LookoutMetrics
           creation_time: Time.now,
           last_modification_time: Time.now,
           offset: 1,
-          metric_list: Stubs::MetricList.default(visited),
-          timestamp_column: Stubs::TimestampColumn.default(visited),
-          dimension_list: Stubs::DimensionList.default(visited),
+          metric_list: MetricList.default(visited),
+          timestamp_column: TimestampColumn.default(visited),
+          dimension_list: DimensionList.default(visited),
           metric_set_frequency: 'metric_set_frequency',
           timezone: 'timezone',
-          metric_source: Stubs::MetricSource.default(visited),
+          metric_source: MetricSource.default(visited),
         }
       end
 
@@ -402,12 +402,12 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('MetricSource')
         visited = visited + ['MetricSource']
         {
-          s3_source_config: Stubs::S3SourceConfig.default(visited),
-          app_flow_config: Stubs::AppFlowConfig.default(visited),
-          cloud_watch_config: Stubs::CloudWatchConfig.default(visited),
-          rds_source_config: Stubs::RDSSourceConfig.default(visited),
-          redshift_source_config: Stubs::RedshiftSourceConfig.default(visited),
-          athena_source_config: Stubs::AthenaSourceConfig.default(visited),
+          s3_source_config: S3SourceConfig.default(visited),
+          app_flow_config: AppFlowConfig.default(visited),
+          cloud_watch_config: CloudWatchConfig.default(visited),
+          rds_source_config: RDSSourceConfig.default(visited),
+          redshift_source_config: RedshiftSourceConfig.default(visited),
+          athena_source_config: AthenaSourceConfig.default(visited),
         }
       end
 
@@ -436,7 +436,7 @@ module AWS::SDK::LookoutMetrics
           table_name: 'table_name',
           work_group_name: 'work_group_name',
           s3_results_path: 's3_results_path',
-          back_test_configuration: Stubs::BackTestConfiguration.default(visited),
+          back_test_configuration: BackTestConfiguration.default(visited),
         }
       end
 
@@ -485,7 +485,7 @@ module AWS::SDK::LookoutMetrics
           database_name: 'database_name',
           table_name: 'table_name',
           role_arn: 'role_arn',
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
         }
       end
 
@@ -510,8 +510,8 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('VpcConfiguration')
         visited = visited + ['VpcConfiguration']
         {
-          subnet_id_list: Stubs::SubnetIdList.default(visited),
-          security_group_id_list: Stubs::SecurityGroupIdList.default(visited),
+          subnet_id_list: SubnetIdList.default(visited),
+          security_group_id_list: SecurityGroupIdList.default(visited),
         }
       end
 
@@ -577,7 +577,7 @@ module AWS::SDK::LookoutMetrics
           database_name: 'database_name',
           table_name: 'table_name',
           role_arn: 'role_arn',
-          vpc_configuration: Stubs::VpcConfiguration.default(visited),
+          vpc_configuration: VpcConfiguration.default(visited),
         }
       end
 
@@ -603,7 +603,7 @@ module AWS::SDK::LookoutMetrics
         visited = visited + ['CloudWatchConfig']
         {
           role_arn: 'role_arn',
-          back_test_configuration: Stubs::BackTestConfiguration.default(visited),
+          back_test_configuration: BackTestConfiguration.default(visited),
         }
       end
 
@@ -643,9 +643,9 @@ module AWS::SDK::LookoutMetrics
         visited = visited + ['S3SourceConfig']
         {
           role_arn: 'role_arn',
-          templated_path_list: Stubs::TemplatedPathList.default(visited),
-          historical_data_path_list: Stubs::HistoricalDataPathList.default(visited),
-          file_format_descriptor: Stubs::FileFormatDescriptor.default(visited),
+          templated_path_list: TemplatedPathList.default(visited),
+          historical_data_path_list: HistoricalDataPathList.default(visited),
+          file_format_descriptor: FileFormatDescriptor.default(visited),
         }
       end
 
@@ -666,8 +666,8 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('FileFormatDescriptor')
         visited = visited + ['FileFormatDescriptor']
         {
-          csv_format_descriptor: Stubs::CsvFormatDescriptor.default(visited),
-          json_format_descriptor: Stubs::JsonFormatDescriptor.default(visited),
+          csv_format_descriptor: CsvFormatDescriptor.default(visited),
+          json_format_descriptor: JsonFormatDescriptor.default(visited),
         }
       end
 
@@ -710,7 +710,7 @@ module AWS::SDK::LookoutMetrics
           charset: 'charset',
           contains_header: false,
           delimiter: 'delimiter',
-          header_list: Stubs::HeaderList.default(visited),
+          header_list: HeaderList.default(visited),
           quote_symbol: 'quote_symbol',
         }
       end
@@ -834,7 +834,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('MetricList')
         visited = visited + ['MetricList']
         [
-          Stubs::Metric.default(visited)
+          Metric.default(visited)
         ]
       end
 
@@ -874,7 +874,7 @@ module AWS::SDK::LookoutMetrics
     class DetectMetricSetConfig
       def self.default(visited=[])
         {
-          detected_metric_set_config: Stubs::DetectedMetricSetConfig.default(visited),
+          detected_metric_set_config: DetectedMetricSetConfig.default(visited),
         }
       end
 
@@ -893,9 +893,9 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedMetricSetConfig')
         visited = visited + ['DetectedMetricSetConfig']
         {
-          offset: Stubs::DetectedField.default(visited),
-          metric_set_frequency: Stubs::DetectedField.default(visited),
-          metric_source: Stubs::DetectedMetricSource.default(visited),
+          offset: DetectedField.default(visited),
+          metric_set_frequency: DetectedField.default(visited),
+          metric_source: DetectedMetricSource.default(visited),
         }
       end
 
@@ -915,7 +915,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedMetricSource')
         visited = visited + ['DetectedMetricSource']
         {
-          s3_source_config: Stubs::DetectedS3SourceConfig.default(visited),
+          s3_source_config: DetectedS3SourceConfig.default(visited),
         }
       end
 
@@ -933,7 +933,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedS3SourceConfig')
         visited = visited + ['DetectedS3SourceConfig']
         {
-          file_format_descriptor: Stubs::DetectedFileFormatDescriptor.default(visited),
+          file_format_descriptor: DetectedFileFormatDescriptor.default(visited),
         }
       end
 
@@ -951,8 +951,8 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedFileFormatDescriptor')
         visited = visited + ['DetectedFileFormatDescriptor']
         {
-          csv_format_descriptor: Stubs::DetectedCsvFormatDescriptor.default(visited),
-          json_format_descriptor: Stubs::DetectedJsonFormatDescriptor.default(visited),
+          csv_format_descriptor: DetectedCsvFormatDescriptor.default(visited),
+          json_format_descriptor: DetectedJsonFormatDescriptor.default(visited),
         }
       end
 
@@ -971,8 +971,8 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedJsonFormatDescriptor')
         visited = visited + ['DetectedJsonFormatDescriptor']
         {
-          file_compression: Stubs::DetectedField.default(visited),
-          charset: Stubs::DetectedField.default(visited),
+          file_compression: DetectedField.default(visited),
+          charset: DetectedField.default(visited),
         }
       end
 
@@ -991,7 +991,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedField')
         visited = visited + ['DetectedField']
         {
-          value: Stubs::AttributeValue.default(visited),
+          value: AttributeValue.default(visited),
           confidence: 'confidence',
           message: 'message',
         }
@@ -1016,9 +1016,9 @@ module AWS::SDK::LookoutMetrics
           s: 's',
           n: 'n',
           b: 'b',
-          ss: Stubs::StringListAttributeValue.default(visited),
-          ns: Stubs::NumberListAttributeValue.default(visited),
-          bs: Stubs::BinaryListAttributeValue.default(visited),
+          ss: StringListAttributeValue.default(visited),
+          ns: NumberListAttributeValue.default(visited),
+          bs: BinaryListAttributeValue.default(visited),
         }
       end
 
@@ -1101,12 +1101,12 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DetectedCsvFormatDescriptor')
         visited = visited + ['DetectedCsvFormatDescriptor']
         {
-          file_compression: Stubs::DetectedField.default(visited),
-          charset: Stubs::DetectedField.default(visited),
-          contains_header: Stubs::DetectedField.default(visited),
-          delimiter: Stubs::DetectedField.default(visited),
-          header_list: Stubs::DetectedField.default(visited),
-          quote_symbol: Stubs::DetectedField.default(visited),
+          file_compression: DetectedField.default(visited),
+          charset: DetectedField.default(visited),
+          contains_header: DetectedField.default(visited),
+          delimiter: DetectedField.default(visited),
+          header_list: DetectedField.default(visited),
+          quote_symbol: DetectedField.default(visited),
         }
       end
 
@@ -1127,7 +1127,7 @@ module AWS::SDK::LookoutMetrics
     class GetAnomalyGroup
       def self.default(visited=[])
         {
-          anomaly_group: Stubs::AnomalyGroup.default(visited),
+          anomaly_group: AnomalyGroup.default(visited),
         }
       end
 
@@ -1151,7 +1151,7 @@ module AWS::SDK::LookoutMetrics
           anomaly_group_id: 'anomaly_group_id',
           anomaly_group_score: 1.0,
           primary_metric_name: 'primary_metric_name',
-          metric_level_impact_list: Stubs::MetricLevelImpactList.default(visited),
+          metric_level_impact_list: MetricLevelImpactList.default(visited),
         }
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('MetricLevelImpactList')
         visited = visited + ['MetricLevelImpactList']
         [
-          Stubs::MetricLevelImpact.default(visited)
+          MetricLevelImpact.default(visited)
         ]
       end
 
@@ -1196,7 +1196,7 @@ module AWS::SDK::LookoutMetrics
         {
           metric_name: 'metric_name',
           num_time_series: 1,
-          contribution_matrix: Stubs::ContributionMatrix.default(visited),
+          contribution_matrix: ContributionMatrix.default(visited),
         }
       end
 
@@ -1216,7 +1216,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('ContributionMatrix')
         visited = visited + ['ContributionMatrix']
         {
-          dimension_contribution_list: Stubs::DimensionContributionList.default(visited),
+          dimension_contribution_list: DimensionContributionList.default(visited),
         }
       end
 
@@ -1234,7 +1234,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DimensionContributionList')
         visited = visited + ['DimensionContributionList']
         [
-          Stubs::DimensionContribution.default(visited)
+          DimensionContribution.default(visited)
         ]
       end
 
@@ -1255,7 +1255,7 @@ module AWS::SDK::LookoutMetrics
         visited = visited + ['DimensionContribution']
         {
           dimension_name: 'dimension_name',
-          dimension_value_contribution_list: Stubs::DimensionValueContributionList.default(visited),
+          dimension_value_contribution_list: DimensionValueContributionList.default(visited),
         }
       end
 
@@ -1274,7 +1274,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DimensionValueContributionList')
         visited = visited + ['DimensionValueContributionList']
         [
-          Stubs::DimensionValueContribution.default(visited)
+          DimensionValueContribution.default(visited)
         ]
       end
 
@@ -1312,7 +1312,7 @@ module AWS::SDK::LookoutMetrics
     class GetFeedback
       def self.default(visited=[])
         {
-          anomaly_group_time_series_feedback: Stubs::TimeSeriesFeedbackList.default(visited),
+          anomaly_group_time_series_feedback: TimeSeriesFeedbackList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1333,7 +1333,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('TimeSeriesFeedbackList')
         visited = visited + ['TimeSeriesFeedbackList']
         [
-          Stubs::TimeSeriesFeedback.default(visited)
+          TimeSeriesFeedback.default(visited)
         ]
       end
 
@@ -1371,8 +1371,8 @@ module AWS::SDK::LookoutMetrics
     class GetSampleData
       def self.default(visited=[])
         {
-          header_values: Stubs::HeaderValueList.default(visited),
-          sample_rows: Stubs::SampleRows.default(visited),
+          header_values: HeaderValueList.default(visited),
+          sample_rows: SampleRows.default(visited),
         }
       end
 
@@ -1392,7 +1392,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('SampleRows')
         visited = visited + ['SampleRows']
         [
-          Stubs::SampleRow.default(visited)
+          SampleRow.default(visited)
         ]
       end
 
@@ -1450,7 +1450,7 @@ module AWS::SDK::LookoutMetrics
     class ListAlerts
       def self.default(visited=[])
         {
-          alert_summary_list: Stubs::AlertSummaryList.default(visited),
+          alert_summary_list: AlertSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1471,7 +1471,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('AlertSummaryList')
         visited = visited + ['AlertSummaryList']
         [
-          Stubs::AlertSummary.default(visited)
+          AlertSummary.default(visited)
         ]
       end
 
@@ -1499,7 +1499,7 @@ module AWS::SDK::LookoutMetrics
           alert_status: 'alert_status',
           last_modification_time: Time.now,
           creation_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1543,7 +1543,7 @@ module AWS::SDK::LookoutMetrics
     class ListAnomalyDetectors
       def self.default(visited=[])
         {
-          anomaly_detector_summary_list: Stubs::AnomalyDetectorSummaryList.default(visited),
+          anomaly_detector_summary_list: AnomalyDetectorSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1564,7 +1564,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('AnomalyDetectorSummaryList')
         visited = visited + ['AnomalyDetectorSummaryList']
         [
-          Stubs::AnomalyDetectorSummary.default(visited)
+          AnomalyDetectorSummary.default(visited)
         ]
       end
 
@@ -1590,7 +1590,7 @@ module AWS::SDK::LookoutMetrics
           creation_time: Time.now,
           last_modification_time: Time.now,
           status: 'status',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1612,7 +1612,7 @@ module AWS::SDK::LookoutMetrics
     class ListAnomalyGroupRelatedMetrics
       def self.default(visited=[])
         {
-          inter_metric_impact_list: Stubs::InterMetricImpactList.default(visited),
+          inter_metric_impact_list: InterMetricImpactList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1633,7 +1633,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('InterMetricImpactList')
         visited = visited + ['InterMetricImpactList']
         [
-          Stubs::InterMetricImpactDetails.default(visited)
+          InterMetricImpactDetails.default(visited)
         ]
       end
 
@@ -1675,8 +1675,8 @@ module AWS::SDK::LookoutMetrics
     class ListAnomalyGroupSummaries
       def self.default(visited=[])
         {
-          anomaly_group_summary_list: Stubs::AnomalyGroupSummaryList.default(visited),
-          anomaly_group_statistics: Stubs::AnomalyGroupStatistics.default(visited),
+          anomaly_group_summary_list: AnomalyGroupSummaryList.default(visited),
+          anomaly_group_statistics: AnomalyGroupStatistics.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1700,7 +1700,7 @@ module AWS::SDK::LookoutMetrics
         {
           evaluation_start_date: 'evaluation_start_date',
           total_count: 1,
-          itemized_metric_stats_list: Stubs::ItemizedMetricStatsList.default(visited),
+          itemized_metric_stats_list: ItemizedMetricStatsList.default(visited),
         }
       end
 
@@ -1720,7 +1720,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('ItemizedMetricStatsList')
         visited = visited + ['ItemizedMetricStatsList']
         [
-          Stubs::ItemizedMetricStats.default(visited)
+          ItemizedMetricStats.default(visited)
         ]
       end
 
@@ -1760,7 +1760,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('AnomalyGroupSummaryList')
         visited = visited + ['AnomalyGroupSummaryList']
         [
-          Stubs::AnomalyGroupSummary.default(visited)
+          AnomalyGroupSummary.default(visited)
         ]
       end
 
@@ -1806,9 +1806,9 @@ module AWS::SDK::LookoutMetrics
         {
           anomaly_group_id: 'anomaly_group_id',
           metric_name: 'metric_name',
-          timestamp_list: Stubs::TimestampList.default(visited),
+          timestamp_list: TimestampList.default(visited),
           next_token: 'next_token',
-          time_series_list: Stubs::TimeSeriesList.default(visited),
+          time_series_list: TimeSeriesList.default(visited),
         }
       end
 
@@ -1831,7 +1831,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('TimeSeriesList')
         visited = visited + ['TimeSeriesList']
         [
-          Stubs::TimeSeries.default(visited)
+          TimeSeries.default(visited)
         ]
       end
 
@@ -1852,8 +1852,8 @@ module AWS::SDK::LookoutMetrics
         visited = visited + ['TimeSeries']
         {
           time_series_id: 'time_series_id',
-          dimension_list: Stubs::DimensionNameValueList.default(visited),
-          metric_value_list: Stubs::MetricValueList.default(visited),
+          dimension_list: DimensionNameValueList.default(visited),
+          metric_value_list: MetricValueList.default(visited),
         }
       end
 
@@ -1893,7 +1893,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('DimensionNameValueList')
         visited = visited + ['DimensionNameValueList']
         [
-          Stubs::DimensionNameValue.default(visited)
+          DimensionNameValue.default(visited)
         ]
       end
 
@@ -1951,7 +1951,7 @@ module AWS::SDK::LookoutMetrics
     class ListMetricSets
       def self.default(visited=[])
         {
-          metric_set_summary_list: Stubs::MetricSetSummaryList.default(visited),
+          metric_set_summary_list: MetricSetSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1972,7 +1972,7 @@ module AWS::SDK::LookoutMetrics
         return nil if visited.include?('MetricSetSummaryList')
         visited = visited + ['MetricSetSummaryList']
         [
-          Stubs::MetricSetSummary.default(visited)
+          MetricSetSummary.default(visited)
         ]
       end
 
@@ -1998,7 +1998,7 @@ module AWS::SDK::LookoutMetrics
           metric_set_name: 'metric_set_name',
           creation_time: Time.now,
           last_modification_time: Time.now,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -2020,7 +2020,7 @@ module AWS::SDK::LookoutMetrics
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 

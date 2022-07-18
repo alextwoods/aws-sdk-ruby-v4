@@ -93,11 +93,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public_sharing_enabled ||= false
       end
-
     end
 
     # <p>The active Identity and Access Management (IAM) policy assignment.</p>
@@ -506,11 +506,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
@@ -537,11 +537,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>The parameters for IoT Analytics.</p>
@@ -652,11 +652,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>A transform operation that casts a column to a different type.</p>
@@ -978,11 +978,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -1086,11 +1086,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>A transform operation that creates calculated columns. Columns created in one such
@@ -1263,11 +1263,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -1406,11 +1406,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -1535,11 +1535,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -1649,11 +1649,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute status
@@ -1684,11 +1684,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>The request object for this operation. </p>
@@ -1777,11 +1777,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>The response object for this operation.</p>
@@ -1808,11 +1808,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -1941,11 +1941,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute data_set_id
@@ -2016,11 +2016,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -2112,11 +2112,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -2173,11 +2173,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -2284,11 +2284,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -2345,11 +2345,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -2457,11 +2457,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>The combination of user name and password that are used as credentials.</p>
@@ -3078,11 +3078,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.consumed_spice_capacity_in_bytes ||= 0
       end
-
     end
 
     # <p>Dataset configuration.</p>
@@ -3219,12 +3219,12 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.row_level_permission_tag_configuration_applied ||= false
         self.column_level_permission_rules_applied ||= false
       end
-
     end
 
     # <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
@@ -3245,12 +3245,12 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_use_as_direct_query_source ||= false
         self.disable_use_as_imported_source ||= false
       end
-
     end
 
     # <p>The structure of a data source.</p>
@@ -3904,11 +3904,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -3943,11 +3943,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete_without_recovery ||= false
       end
-
     end
 
     # @!attribute status
@@ -3984,11 +3984,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4045,11 +4045,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4098,11 +4098,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4151,11 +4151,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4225,11 +4225,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute status
@@ -4260,11 +4260,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute group_name
@@ -4339,11 +4339,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute request_id
@@ -4362,11 +4362,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4415,11 +4415,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4456,11 +4456,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4524,11 +4524,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4585,11 +4585,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4650,11 +4650,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4712,11 +4712,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p></p>
@@ -4762,11 +4762,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute user_name
@@ -4810,11 +4810,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4845,11 +4845,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.resolved ||= false
       end
-
     end
 
     # @!attribute arn
@@ -4892,11 +4892,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4938,11 +4938,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -4988,11 +4988,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5051,11 +5051,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5112,11 +5112,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5181,11 +5181,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5228,11 +5228,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5287,11 +5287,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5334,11 +5334,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5393,11 +5393,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5440,11 +5440,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5499,11 +5499,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5558,11 +5558,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute group_name
@@ -5644,11 +5644,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute group
@@ -5673,11 +5673,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5726,11 +5726,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5779,11 +5779,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5832,11 +5832,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5882,11 +5882,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -5939,11 +5939,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -6002,11 +6002,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -6061,11 +6061,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -6115,11 +6115,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -6178,11 +6178,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -6237,11 +6237,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute user_name
@@ -6291,11 +6291,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
@@ -6386,11 +6386,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # Includes enum constants for ExceptionResourceType
@@ -6752,6 +6752,7 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
@@ -6817,6 +6818,7 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
@@ -6995,13 +6997,13 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.undo_redo_disabled ||= false
         self.reset_disabled ||= false
         self.state_persistence_enabled ||= false
       end
-
     end
 
     # <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
@@ -7031,6 +7033,7 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
@@ -7149,6 +7152,7 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
@@ -8040,11 +8044,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8106,11 +8110,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8167,11 +8171,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8226,11 +8230,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8285,11 +8289,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8350,11 +8354,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8409,11 +8413,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute group_name
@@ -8481,11 +8485,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8547,11 +8551,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8618,11 +8622,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8691,11 +8695,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute data_set_id
@@ -8756,11 +8760,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8817,11 +8821,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -8859,11 +8863,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8924,11 +8928,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -8989,11 +8993,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -9048,11 +9052,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -9113,11 +9117,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -9178,11 +9182,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -9259,11 +9263,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute user_name
@@ -9331,11 +9335,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -9397,11 +9401,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>A <i>logical table</i> is a unit that joins and that data
@@ -9518,11 +9522,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>An object that consists of a member Amazon Resource Name (ARN) and a member ID.</p>
@@ -9585,11 +9589,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Errors that occur during namespace creation.</p>
@@ -9722,11 +9726,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Output column.</p>
@@ -9867,11 +9871,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>One or more preconditions aren't met.</p>
@@ -9917,11 +9921,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>A transform operation that projects columns. Operations that come after a projection
@@ -10034,11 +10038,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # @!attribute identity_type
@@ -10240,11 +10244,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>Information about the dashboard you want to embed.</p>
@@ -10640,11 +10644,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>Information about rows for a data set SPICE ingestion.</p>
@@ -10914,11 +10918,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -10984,11 +10988,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -11049,11 +11053,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -11121,11 +11125,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>The parameters for ServiceNow.</p>
@@ -11293,11 +11297,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>The parameters for SQL Server.</p>
@@ -11324,11 +11328,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
@@ -11344,11 +11348,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_ssl ||= false
       end
-
     end
 
     # Includes enum constants for Status
@@ -11461,11 +11465,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
@@ -11817,11 +11821,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # Includes enum constants for TextQualifier
@@ -12306,11 +12310,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_rows ||= 0
       end
-
     end
 
     # <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
@@ -12534,11 +12538,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -12607,11 +12611,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -12659,11 +12663,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -12750,11 +12754,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -12826,11 +12830,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -12970,11 +12974,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13060,11 +13064,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13120,11 +13124,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13252,11 +13256,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13319,11 +13323,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13424,11 +13428,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13489,11 +13493,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13548,11 +13552,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13619,11 +13623,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute group_name
@@ -13679,11 +13683,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13812,11 +13816,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13865,11 +13869,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13888,11 +13892,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public_sharing_enabled ||= false
       end
-
     end
 
     # @!attribute request_id
@@ -13911,11 +13915,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -13973,11 +13977,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -14070,11 +14074,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -14141,11 +14145,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -14200,11 +14204,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -14294,11 +14298,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute aws_account_id
@@ -14365,11 +14369,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # @!attribute user_name
@@ -14505,11 +14509,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.unapply_custom_permissions ||= false
       end
-
     end
 
     # @!attribute user
@@ -14534,11 +14538,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.status ||= 0
       end
-
     end
 
     # <p>Information about the format for a source file or files.</p>
@@ -14701,11 +14705,11 @@ module AWS::SDK::QuickSight
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.active ||= false
       end
-
     end
 
     # Includes enum constants for UserRole

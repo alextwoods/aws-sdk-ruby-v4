@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DAX
@@ -260,7 +262,7 @@ module AWS::SDK::DAX
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -337,7 +339,7 @@ module AWS::SDK::DAX
     def create_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateParameterGroupInput,
         validate_input: @config.validate_input
@@ -423,7 +425,7 @@ module AWS::SDK::DAX
     def create_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSubnetGroupInput,
         validate_input: @config.validate_input
@@ -549,7 +551,7 @@ module AWS::SDK::DAX
     def decrease_replication_factor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecreaseReplicationFactorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecreaseReplicationFactorInput,
         validate_input: @config.validate_input
@@ -660,7 +662,7 @@ module AWS::SDK::DAX
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -730,7 +732,7 @@ module AWS::SDK::DAX
     def delete_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteParameterGroupInput,
         validate_input: @config.validate_input
@@ -803,7 +805,7 @@ module AWS::SDK::DAX
     def delete_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSubnetGroupInput,
         validate_input: @config.validate_input
@@ -940,7 +942,7 @@ module AWS::SDK::DAX
     def describe_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClustersInput,
         validate_input: @config.validate_input
@@ -1035,7 +1037,7 @@ module AWS::SDK::DAX
     def describe_default_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDefaultParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDefaultParametersInput,
         validate_input: @config.validate_input
@@ -1148,7 +1150,7 @@ module AWS::SDK::DAX
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -1238,7 +1240,7 @@ module AWS::SDK::DAX
     def describe_parameter_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeParameterGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeParameterGroupsInput,
         validate_input: @config.validate_input
@@ -1341,7 +1343,7 @@ module AWS::SDK::DAX
     def describe_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeParametersInput,
         validate_input: @config.validate_input
@@ -1436,7 +1438,7 @@ module AWS::SDK::DAX
     def describe_subnet_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubnetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubnetGroupsInput,
         validate_input: @config.validate_input
@@ -1555,7 +1557,7 @@ module AWS::SDK::DAX
     def increase_replication_factor(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::IncreaseReplicationFactorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::IncreaseReplicationFactorInput,
         validate_input: @config.validate_input
@@ -1635,7 +1637,7 @@ module AWS::SDK::DAX
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -1752,7 +1754,7 @@ module AWS::SDK::DAX
     def reboot_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootNodeInput,
         validate_input: @config.validate_input
@@ -1834,7 +1836,7 @@ module AWS::SDK::DAX
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1913,7 +1915,7 @@ module AWS::SDK::DAX
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2053,7 +2055,7 @@ module AWS::SDK::DAX
     def update_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateClusterInput,
         validate_input: @config.validate_input
@@ -2140,7 +2142,7 @@ module AWS::SDK::DAX
     def update_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateParameterGroupInput,
         validate_input: @config.validate_input
@@ -2226,7 +2228,7 @@ module AWS::SDK::DAX
     def update_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSubnetGroupInput,
         validate_input: @config.validate_input

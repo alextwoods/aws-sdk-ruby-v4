@@ -14,7 +14,7 @@ module AWS::SDK::CloudControl
     class CancelResourceRequest
       def self.default(visited=[])
         {
-          progress_event: Stubs::ProgressEvent.default(visited),
+          progress_event: ProgressEvent.default(visited),
         }
       end
 
@@ -66,7 +66,7 @@ module AWS::SDK::CloudControl
     class CreateResource
       def self.default(visited=[])
         {
-          progress_event: Stubs::ProgressEvent.default(visited),
+          progress_event: ProgressEvent.default(visited),
         }
       end
 
@@ -82,7 +82,7 @@ module AWS::SDK::CloudControl
     class DeleteResource
       def self.default(visited=[])
         {
-          progress_event: Stubs::ProgressEvent.default(visited),
+          progress_event: ProgressEvent.default(visited),
         }
       end
 
@@ -99,7 +99,7 @@ module AWS::SDK::CloudControl
       def self.default(visited=[])
         {
           type_name: 'type_name',
-          resource_description: Stubs::ResourceDescription.default(visited),
+          resource_description: ResourceDescription.default(visited),
         }
       end
 
@@ -136,7 +136,7 @@ module AWS::SDK::CloudControl
     class GetResourceRequestStatus
       def self.default(visited=[])
         {
-          progress_event: Stubs::ProgressEvent.default(visited),
+          progress_event: ProgressEvent.default(visited),
         }
       end
 
@@ -152,7 +152,7 @@ module AWS::SDK::CloudControl
     class ListResourceRequests
       def self.default(visited=[])
         {
-          resource_request_status_summaries: Stubs::ResourceRequestStatusSummaries.default(visited),
+          resource_request_status_summaries: ResourceRequestStatusSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -172,7 +172,7 @@ module AWS::SDK::CloudControl
         return nil if visited.include?('ResourceRequestStatusSummaries')
         visited = visited + ['ResourceRequestStatusSummaries']
         [
-          Stubs::ProgressEvent.default(visited)
+          ProgressEvent.default(visited)
         ]
       end
 
@@ -191,7 +191,7 @@ module AWS::SDK::CloudControl
       def self.default(visited=[])
         {
           type_name: 'type_name',
-          resource_descriptions: Stubs::ResourceDescriptions.default(visited),
+          resource_descriptions: ResourceDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -212,7 +212,7 @@ module AWS::SDK::CloudControl
         return nil if visited.include?('ResourceDescriptions')
         visited = visited + ['ResourceDescriptions']
         [
-          Stubs::ResourceDescription.default(visited)
+          ResourceDescription.default(visited)
         ]
       end
 
@@ -230,7 +230,7 @@ module AWS::SDK::CloudControl
     class UpdateResource
       def self.default(visited=[])
         {
-          progress_event: Stubs::ProgressEvent.default(visited),
+          progress_event: ProgressEvent.default(visited),
         }
       end
 

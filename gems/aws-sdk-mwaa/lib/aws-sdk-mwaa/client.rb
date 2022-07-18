@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MWAA
@@ -14,7 +16,6 @@ module AWS::SDK::MWAA
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon Managed Workflows for Apache Airflow</fullname>
   #         <p>This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What Is Amazon MWAA?</a>.</p>
-  #
   #         <p>
   #             <b>Endpoints</b>
   #          </p>
@@ -93,7 +94,6 @@ module AWS::SDK::MWAA
   #                </ul>
   #             </li>
   #          </ul>
-  #
   #         <p>
   #             <b>Regions</b>
   #          </p>
@@ -144,7 +144,7 @@ module AWS::SDK::MWAA
     def create_cli_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCliTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCliTokenInput,
         validate_input: @config.validate_input
@@ -237,7 +237,9 @@ module AWS::SDK::MWAA
     #   <p>The Amazon Web Services Key Management Service (KMS) key to encrypt the data in your environment. You can use an Amazon Web Services owned CMK, or a Customer managed CMK (advanced). To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create an Amazon MWAA environment</a>.</p>
     #
     # @option params [String] :airflow_version
-    #   <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
+    #   <p>The Apache Airflow version for your environment. If no value is specified, it defaults to the latest version. Valid values:
+    #               <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.
+    #               To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/airflow-versions.html">Apache Airflow versions on Amazon Managed Workflows for Apache Airflow (MWAA)</a>.</p>
     #
     # @option params [LoggingConfigurationInput] :logging_configuration
     #   <p>Defines the Apache Airflow logs to send to CloudWatch Logs.</p>
@@ -258,10 +260,10 @@ module AWS::SDK::MWAA
     #   <p>The number of Apache Airflow schedulers to run in your environment. Valid values:</p>
     #           <ul>
     #               <li>
-    #                   <p>v2.0.2 - Accepts between 2 to 5. Defaults to 2.</p>
+    #                   <p>v2 - Accepts between 2 to 5. Defaults to 2.</p>
     #               </li>
     #               <li>
-    #                   <p>v1.10.12 - Accepts 1.</p>
+    #                   <p>v1 - Accepts 1.</p>
     #               </li>
     #            </ul>
     #
@@ -316,7 +318,7 @@ module AWS::SDK::MWAA
     def create_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentInput,
         validate_input: @config.validate_input
@@ -390,7 +392,7 @@ module AWS::SDK::MWAA
     def create_web_login_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWebLoginTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWebLoginTokenInput,
         validate_input: @config.validate_input
@@ -461,7 +463,7 @@ module AWS::SDK::MWAA
     def delete_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentInput,
         validate_input: @config.validate_input
@@ -579,7 +581,7 @@ module AWS::SDK::MWAA
     def get_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnvironmentInput,
         validate_input: @config.validate_input
@@ -657,7 +659,7 @@ module AWS::SDK::MWAA
     def list_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEnvironmentsInput,
         validate_input: @config.validate_input
@@ -730,7 +732,7 @@ module AWS::SDK::MWAA
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -827,7 +829,7 @@ module AWS::SDK::MWAA
     def publish_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishMetricsInput,
         validate_input: @config.validate_input
@@ -905,7 +907,7 @@ module AWS::SDK::MWAA
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -983,7 +985,7 @@ module AWS::SDK::MWAA
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1043,7 +1045,8 @@ module AWS::SDK::MWAA
     #   <p>The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access Amazon Web Services resources in your environment. For example, <code>arn:aws:iam::123456789:role/my-execution-role</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon MWAA Execution role</a>.</p>
     #
     # @option params [String] :airflow_version
-    #   <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version. Valid values: <code>1.10.12</code>, <code>2.0.2</code>.</p>
+    #   <p>The Apache Airflow version for your environment. If no value is specified, defaults to the latest version.
+    #               Valid values: <code>1.10.12</code>, <code>2.0.2</code>, and <code>2.2.2</code>.</p>
     #
     # @option params [String] :source_bucket_arn
     #   <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting files are stored. For example, <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create an Amazon S3 bucket for Amazon MWAA</a>.</p>
@@ -1134,7 +1137,7 @@ module AWS::SDK::MWAA
     def update_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentInput,
         validate_input: @config.validate_input

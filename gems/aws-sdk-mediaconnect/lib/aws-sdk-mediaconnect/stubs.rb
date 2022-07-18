@@ -15,7 +15,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          media_streams: Stubs::List____listOfMediaStream.default(visited),
+          media_streams: List____listOfMediaStream.default(visited),
         }
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfMediaStream')
         visited = visited + ['List____listOfMediaStream']
         [
-          Stubs::MediaStream.default(visited)
+          MediaStream.default(visited)
         ]
       end
 
@@ -55,7 +55,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('MediaStream')
         visited = visited + ['MediaStream']
         {
-          attributes: Stubs::MediaStreamAttributes.default(visited),
+          attributes: MediaStreamAttributes.default(visited),
           clock_rate: 1,
           description: 'description',
           fmt: 1,
@@ -87,7 +87,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('MediaStreamAttributes')
         visited = visited + ['MediaStreamAttributes']
         {
-          fmtp: Stubs::Fmtp.default(visited),
+          fmtp: Fmtp.default(visited),
           lang: 'lang',
         }
       end
@@ -136,7 +136,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          outputs: Stubs::List____listOfOutput.default(visited),
+          outputs: List____listOfOutput.default(visited),
         }
       end
 
@@ -156,7 +156,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfOutput')
         visited = visited + ['List____listOfOutput']
         [
-          Stubs::Output.default(visited)
+          Output.default(visited)
         ]
       end
 
@@ -179,16 +179,16 @@ module AWS::SDK::MediaConnect
           data_transfer_subscriber_fee_percent: 1,
           description: 'description',
           destination: 'destination',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
           entitlement_arn: 'entitlement_arn',
           listener_address: 'listener_address',
           media_live_input_arn: 'media_live_input_arn',
-          media_stream_output_configurations: Stubs::List____listOfMediaStreamOutputConfiguration.default(visited),
+          media_stream_output_configurations: List____listOfMediaStreamOutputConfiguration.default(visited),
           name: 'name',
           output_arn: 'output_arn',
           port: 1,
-          transport: Stubs::Transport.default(visited),
-          vpc_interface_attachment: Stubs::VpcInterfaceAttachment.default(visited),
+          transport: Transport.default(visited),
+          vpc_interface_attachment: VpcInterfaceAttachment.default(visited),
         }
       end
 
@@ -236,7 +236,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('Transport')
         visited = visited + ['Transport']
         {
-          cidr_allow_list: Stubs::List____listOf__string.default(visited),
+          cidr_allow_list: List____listOf__string.default(visited),
           max_bitrate: 1,
           max_latency: 1,
           max_sync_buffer: 1,
@@ -294,7 +294,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfMediaStreamOutputConfiguration')
         visited = visited + ['List____listOfMediaStreamOutputConfiguration']
         [
-          Stubs::MediaStreamOutputConfiguration.default(visited)
+          MediaStreamOutputConfiguration.default(visited)
         ]
       end
 
@@ -314,9 +314,9 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('MediaStreamOutputConfiguration')
         visited = visited + ['MediaStreamOutputConfiguration']
         {
-          destination_configurations: Stubs::List____listOfDestinationConfiguration.default(visited),
+          destination_configurations: List____listOfDestinationConfiguration.default(visited),
           encoding_name: 'encoding_name',
-          encoding_parameters: Stubs::EncodingParameters.default(visited),
+          encoding_parameters: EncodingParameters.default(visited),
           media_stream_name: 'media_stream_name',
         }
       end
@@ -358,7 +358,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfDestinationConfiguration')
         visited = visited + ['List____listOfDestinationConfiguration']
         [
-          Stubs::DestinationConfiguration.default(visited)
+          DestinationConfiguration.default(visited)
         ]
       end
 
@@ -380,7 +380,7 @@ module AWS::SDK::MediaConnect
         {
           destination_ip: 'destination_ip',
           destination_port: 1,
-          interface: Stubs::Interface.default(visited),
+          interface: Interface.default(visited),
           outbound_ip: 'outbound_ip',
         }
       end
@@ -453,7 +453,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          sources: Stubs::List____listOfSource.default(visited),
+          sources: List____listOfSource.default(visited),
         }
       end
 
@@ -473,7 +473,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfSource')
         visited = visited + ['List____listOfSource']
         [
-          Stubs::Source.default(visited)
+          Source.default(visited)
         ]
       end
 
@@ -494,17 +494,17 @@ module AWS::SDK::MediaConnect
         visited = visited + ['Source']
         {
           data_transfer_subscriber_fee_percent: 1,
-          decryption: Stubs::Encryption.default(visited),
+          decryption: Encryption.default(visited),
           description: 'description',
           entitlement_arn: 'entitlement_arn',
           ingest_ip: 'ingest_ip',
           ingest_port: 1,
-          media_stream_source_configurations: Stubs::List____listOfMediaStreamSourceConfiguration.default(visited),
+          media_stream_source_configurations: List____listOfMediaStreamSourceConfiguration.default(visited),
           name: 'name',
           sender_control_port: 1,
           sender_ip_address: 'sender_ip_address',
           source_arn: 'source_arn',
-          transport: Stubs::Transport.default(visited),
+          transport: Transport.default(visited),
           vpc_interface_name: 'vpc_interface_name',
           whitelist_cidr: 'whitelist_cidr',
         }
@@ -537,7 +537,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfMediaStreamSourceConfiguration')
         visited = visited + ['List____listOfMediaStreamSourceConfiguration']
         [
-          Stubs::MediaStreamSourceConfiguration.default(visited)
+          MediaStreamSourceConfiguration.default(visited)
         ]
       end
 
@@ -558,7 +558,7 @@ module AWS::SDK::MediaConnect
         visited = visited + ['MediaStreamSourceConfiguration']
         {
           encoding_name: 'encoding_name',
-          input_configurations: Stubs::List____listOfInputConfiguration.default(visited),
+          input_configurations: List____listOfInputConfiguration.default(visited),
           media_stream_name: 'media_stream_name',
         }
       end
@@ -579,7 +579,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfInputConfiguration')
         visited = visited + ['List____listOfInputConfiguration']
         [
-          Stubs::InputConfiguration.default(visited)
+          InputConfiguration.default(visited)
         ]
       end
 
@@ -601,7 +601,7 @@ module AWS::SDK::MediaConnect
         {
           input_ip: 'input_ip',
           input_port: 1,
-          interface: Stubs::Interface.default(visited),
+          interface: Interface.default(visited),
         }
       end
 
@@ -620,7 +620,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          vpc_interfaces: Stubs::List____listOfVpcInterface.default(visited),
+          vpc_interfaces: List____listOfVpcInterface.default(visited),
         }
       end
 
@@ -640,7 +640,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfVpcInterface')
         visited = visited + ['List____listOfVpcInterface']
         [
-          Stubs::VpcInterface.default(visited)
+          VpcInterface.default(visited)
         ]
       end
 
@@ -661,10 +661,10 @@ module AWS::SDK::MediaConnect
         visited = visited + ['VpcInterface']
         {
           name: 'name',
-          network_interface_ids: Stubs::List____listOf__string.default(visited),
+          network_interface_ids: List____listOf__string.default(visited),
           network_interface_type: 'network_interface_type',
           role_arn: 'role_arn',
-          security_group_ids: Stubs::List____listOf__string.default(visited),
+          security_group_ids: List____listOf__string.default(visited),
           subnet_id: 'subnet_id',
         }
       end
@@ -686,7 +686,7 @@ module AWS::SDK::MediaConnect
     class CreateFlow
       def self.default(visited=[])
         {
-          flow: Stubs::Flow.default(visited),
+          flow: Flow.default(visited),
         }
       end
 
@@ -708,17 +708,17 @@ module AWS::SDK::MediaConnect
           availability_zone: 'availability_zone',
           description: 'description',
           egress_ip: 'egress_ip',
-          entitlements: Stubs::List____listOfEntitlement.default(visited),
+          entitlements: List____listOfEntitlement.default(visited),
           flow_arn: 'flow_arn',
-          media_streams: Stubs::List____listOfMediaStream.default(visited),
+          media_streams: List____listOfMediaStream.default(visited),
           name: 'name',
-          outputs: Stubs::List____listOfOutput.default(visited),
-          source: Stubs::Source.default(visited),
-          source_failover_config: Stubs::FailoverConfig.default(visited),
-          sources: Stubs::List____listOfSource.default(visited),
+          outputs: List____listOfOutput.default(visited),
+          source: Source.default(visited),
+          source_failover_config: FailoverConfig.default(visited),
+          sources: List____listOfSource.default(visited),
           status: 'status',
-          vpc_interfaces: Stubs::List____listOfVpcInterface.default(visited),
-          maintenance: Stubs::Maintenance.default(visited),
+          vpc_interfaces: List____listOfVpcInterface.default(visited),
+          maintenance: Maintenance.default(visited),
         }
       end
 
@@ -775,7 +775,7 @@ module AWS::SDK::MediaConnect
         {
           failover_mode: 'failover_mode',
           recovery_window: 1,
-          source_priority: Stubs::SourcePriority.default(visited),
+          source_priority: SourcePriority.default(visited),
           state: 'state',
         }
       end
@@ -815,7 +815,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfEntitlement')
         visited = visited + ['List____listOfEntitlement']
         [
-          Stubs::Entitlement.default(visited)
+          Entitlement.default(visited)
         ]
       end
 
@@ -837,11 +837,11 @@ module AWS::SDK::MediaConnect
         {
           data_transfer_subscriber_fee_percent: 1,
           description: 'description',
-          encryption: Stubs::Encryption.default(visited),
+          encryption: Encryption.default(visited),
           entitlement_arn: 'entitlement_arn',
           entitlement_status: 'entitlement_status',
           name: 'name',
-          subscribers: Stubs::List____listOf__string.default(visited),
+          subscribers: List____listOf__string.default(visited),
         }
       end
 
@@ -882,8 +882,8 @@ module AWS::SDK::MediaConnect
     class DescribeFlow
       def self.default(visited=[])
         {
-          flow: Stubs::Flow.default(visited),
-          messages: Stubs::Messages.default(visited),
+          flow: Flow.default(visited),
+          messages: Messages.default(visited),
         }
       end
 
@@ -903,7 +903,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('Messages')
         visited = visited + ['Messages']
         {
-          errors: Stubs::List____listOf__string.default(visited),
+          errors: List____listOf__string.default(visited),
         }
       end
 
@@ -919,7 +919,7 @@ module AWS::SDK::MediaConnect
     class DescribeOffering
       def self.default(visited=[])
         {
-          offering: Stubs::Offering.default(visited),
+          offering: Offering.default(visited),
         }
       end
 
@@ -945,7 +945,7 @@ module AWS::SDK::MediaConnect
           offering_description: 'offering_description',
           price_per_unit: 'price_per_unit',
           price_units: 'price_units',
-          resource_specification: Stubs::ResourceSpecification.default(visited),
+          resource_specification: ResourceSpecification.default(visited),
         }
       end
 
@@ -988,7 +988,7 @@ module AWS::SDK::MediaConnect
     class DescribeReservation
       def self.default(visited=[])
         {
-          reservation: Stubs::Reservation.default(visited),
+          reservation: Reservation.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::MediaConnect
           reservation_arn: 'reservation_arn',
           reservation_name: 'reservation_name',
           reservation_state: 'reservation_state',
-          resource_specification: Stubs::ResourceSpecification.default(visited),
+          resource_specification: ResourceSpecification.default(visited),
           start: 'start',
         }
       end
@@ -1047,7 +1047,7 @@ module AWS::SDK::MediaConnect
     class GrantFlowEntitlements
       def self.default(visited=[])
         {
-          entitlements: Stubs::List____listOfEntitlement.default(visited),
+          entitlements: List____listOfEntitlement.default(visited),
           flow_arn: 'flow_arn',
         }
       end
@@ -1066,7 +1066,7 @@ module AWS::SDK::MediaConnect
     class ListEntitlements
       def self.default(visited=[])
         {
-          entitlements: Stubs::List____listOfListedEntitlement.default(visited),
+          entitlements: List____listOfListedEntitlement.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1087,7 +1087,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfListedEntitlement')
         visited = visited + ['List____listOfListedEntitlement']
         [
-          Stubs::ListedEntitlement.default(visited)
+          ListedEntitlement.default(visited)
         ]
       end
 
@@ -1127,7 +1127,7 @@ module AWS::SDK::MediaConnect
     class ListFlows
       def self.default(visited=[])
         {
-          flows: Stubs::List____listOfListedFlow.default(visited),
+          flows: List____listOfListedFlow.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1148,7 +1148,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfListedFlow')
         visited = visited + ['List____listOfListedFlow']
         [
-          Stubs::ListedFlow.default(visited)
+          ListedFlow.default(visited)
         ]
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::MediaConnect
           name: 'name',
           source_type: 'source_type',
           status: 'status',
-          maintenance: Stubs::Maintenance.default(visited),
+          maintenance: Maintenance.default(visited),
         }
       end
 
@@ -1197,7 +1197,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          offerings: Stubs::List____listOfOffering.default(visited),
+          offerings: List____listOfOffering.default(visited),
         }
       end
 
@@ -1217,7 +1217,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfOffering')
         visited = visited + ['List____listOfOffering']
         [
-          Stubs::Offering.default(visited)
+          Offering.default(visited)
         ]
       end
 
@@ -1236,7 +1236,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          reservations: Stubs::List____listOfReservation.default(visited),
+          reservations: List____listOfReservation.default(visited),
         }
       end
 
@@ -1256,7 +1256,7 @@ module AWS::SDK::MediaConnect
         return nil if visited.include?('List____listOfReservation')
         visited = visited + ['List____listOfReservation']
         [
-          Stubs::Reservation.default(visited)
+          Reservation.default(visited)
         ]
       end
 
@@ -1274,7 +1274,7 @@ module AWS::SDK::MediaConnect
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Map____mapOf__string.default(visited),
+          tags: Map____mapOf__string.default(visited),
         }
       end
 
@@ -1311,7 +1311,7 @@ module AWS::SDK::MediaConnect
     class PurchaseOffering
       def self.default(visited=[])
         {
-          reservation: Stubs::Reservation.default(visited),
+          reservation: Reservation.default(visited),
         }
       end
 
@@ -1386,7 +1386,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          non_deleted_network_interface_ids: Stubs::List____listOf__string.default(visited),
+          non_deleted_network_interface_ids: List____listOf__string.default(visited),
           vpc_interface_name: 'vpc_interface_name',
         }
       end
@@ -1489,7 +1489,7 @@ module AWS::SDK::MediaConnect
     class UpdateFlow
       def self.default(visited=[])
         {
-          flow: Stubs::Flow.default(visited),
+          flow: Flow.default(visited),
         }
       end
 
@@ -1506,7 +1506,7 @@ module AWS::SDK::MediaConnect
     class UpdateFlowEntitlement
       def self.default(visited=[])
         {
-          entitlement: Stubs::Entitlement.default(visited),
+          entitlement: Entitlement.default(visited),
           flow_arn: 'flow_arn',
         }
       end
@@ -1526,7 +1526,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          media_stream: Stubs::MediaStream.default(visited),
+          media_stream: MediaStream.default(visited),
         }
       end
 
@@ -1545,7 +1545,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          output: Stubs::Output.default(visited),
+          output: Output.default(visited),
         }
       end
 
@@ -1564,7 +1564,7 @@ module AWS::SDK::MediaConnect
       def self.default(visited=[])
         {
           flow_arn: 'flow_arn',
-          source: Stubs::Source.default(visited),
+          source: Source.default(visited),
         }
       end
 

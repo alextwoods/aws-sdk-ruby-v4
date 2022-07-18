@@ -14,7 +14,7 @@ module AWS::SDK::DirectoryService
     class AcceptSharedDirectory
       def self.default(visited=[])
         {
-          shared_directory: Stubs::SharedDirectory.default(visited),
+          shared_directory: SharedDirectory.default(visited),
         }
       end
 
@@ -154,7 +154,7 @@ module AWS::SDK::DirectoryService
     class CreateComputer
       def self.default(visited=[])
         {
-          computer: Stubs::Computer.default(visited),
+          computer: Computer.default(visited),
         }
       end
 
@@ -174,7 +174,7 @@ module AWS::SDK::DirectoryService
         {
           computer_id: 'computer_id',
           computer_name: 'computer_name',
-          computer_attributes: Stubs::Attributes.default(visited),
+          computer_attributes: Attributes.default(visited),
         }
       end
 
@@ -194,7 +194,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('Attributes')
         visited = visited + ['Attributes']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::DirectoryService
     class DescribeCertificate
       def self.default(visited=[])
         {
-          certificate: Stubs::Certificate.default(visited),
+          certificate: Certificate.default(visited),
         }
       end
 
@@ -453,7 +453,7 @@ module AWS::SDK::DirectoryService
           registered_date_time: Time.now,
           expiry_date_time: Time.now,
           type: 'type',
-          client_cert_auth_settings: Stubs::ClientCertAuthSettings.default(visited),
+          client_cert_auth_settings: ClientCertAuthSettings.default(visited),
         }
       end
 
@@ -494,7 +494,7 @@ module AWS::SDK::DirectoryService
     class DescribeClientAuthenticationSettings
       def self.default(visited=[])
         {
-          client_authentication_settings_info: Stubs::ClientAuthenticationSettingsInfo.default(visited),
+          client_authentication_settings_info: ClientAuthenticationSettingsInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -514,7 +514,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('ClientAuthenticationSettingsInfo')
         visited = visited + ['ClientAuthenticationSettingsInfo']
         [
-          Stubs::ClientAuthenticationSettingInfo.default(visited)
+          ClientAuthenticationSettingInfo.default(visited)
         ]
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::DirectoryService
     class DescribeConditionalForwarders
       def self.default(visited=[])
         {
-          conditional_forwarders: Stubs::ConditionalForwarders.default(visited),
+          conditional_forwarders: ConditionalForwarders.default(visited),
         }
       end
 
@@ -572,7 +572,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('ConditionalForwarders')
         visited = visited + ['ConditionalForwarders']
         [
-          Stubs::ConditionalForwarder.default(visited)
+          ConditionalForwarder.default(visited)
         ]
       end
 
@@ -593,7 +593,7 @@ module AWS::SDK::DirectoryService
         visited = visited + ['ConditionalForwarder']
         {
           remote_domain_name: 'remote_domain_name',
-          dns_ip_addrs: Stubs::DnsIpAddrs.default(visited),
+          dns_ip_addrs: DnsIpAddrs.default(visited),
           replication_scope: 'replication_scope',
         }
       end
@@ -632,7 +632,7 @@ module AWS::SDK::DirectoryService
     class DescribeDirectories
       def self.default(visited=[])
         {
-          directory_descriptions: Stubs::DirectoryDescriptions.default(visited),
+          directory_descriptions: DirectoryDescriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -652,7 +652,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('DirectoryDescriptions')
         visited = visited + ['DirectoryDescriptions']
         [
-          Stubs::DirectoryDescription.default(visited)
+          DirectoryDescription.default(visited)
         ]
       end
 
@@ -680,7 +680,7 @@ module AWS::SDK::DirectoryService
           alias: 'alias',
           access_url: 'access_url',
           description: 'description',
-          dns_ip_addrs: Stubs::DnsIpAddrs.default(visited),
+          dns_ip_addrs: DnsIpAddrs.default(visited),
           stage: 'stage',
           share_status: 'share_status',
           share_method: 'share_method',
@@ -688,15 +688,15 @@ module AWS::SDK::DirectoryService
           launch_time: Time.now,
           stage_last_updated_date_time: Time.now,
           type: 'type',
-          vpc_settings: Stubs::DirectoryVpcSettingsDescription.default(visited),
-          connect_settings: Stubs::DirectoryConnectSettingsDescription.default(visited),
-          radius_settings: Stubs::RadiusSettings.default(visited),
+          vpc_settings: DirectoryVpcSettingsDescription.default(visited),
+          connect_settings: DirectoryConnectSettingsDescription.default(visited),
+          radius_settings: RadiusSettings.default(visited),
           radius_status: 'radius_status',
           stage_reason: 'stage_reason',
           sso_enabled: false,
           desired_number_of_domain_controllers: 1,
-          owner_directory_description: Stubs::OwnerDirectoryDescription.default(visited),
-          regions_info: Stubs::RegionsInfo.default(visited),
+          owner_directory_description: OwnerDirectoryDescription.default(visited),
+          regions_info: RegionsInfo.default(visited),
         }
       end
 
@@ -739,7 +739,7 @@ module AWS::SDK::DirectoryService
         visited = visited + ['RegionsInfo']
         {
           primary_region: 'primary_region',
-          additional_regions: Stubs::AdditionalRegions.default(visited),
+          additional_regions: AdditionalRegions.default(visited),
         }
       end
 
@@ -780,9 +780,9 @@ module AWS::SDK::DirectoryService
         {
           directory_id: 'directory_id',
           account_id: 'account_id',
-          dns_ip_addrs: Stubs::DnsIpAddrs.default(visited),
-          vpc_settings: Stubs::DirectoryVpcSettingsDescription.default(visited),
-          radius_settings: Stubs::RadiusSettings.default(visited),
+          dns_ip_addrs: DnsIpAddrs.default(visited),
+          vpc_settings: DirectoryVpcSettingsDescription.default(visited),
+          radius_settings: RadiusSettings.default(visited),
           radius_status: 'radius_status',
         }
       end
@@ -806,7 +806,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('RadiusSettings')
         visited = visited + ['RadiusSettings']
         {
-          radius_servers: Stubs::Servers.default(visited),
+          radius_servers: Servers.default(visited),
           radius_port: 1,
           radius_timeout: 1,
           radius_retries: 1,
@@ -859,9 +859,9 @@ module AWS::SDK::DirectoryService
         visited = visited + ['DirectoryVpcSettingsDescription']
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
           security_group_id: 'security_group_id',
-          availability_zones: Stubs::AvailabilityZones.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
         }
       end
 
@@ -923,11 +923,11 @@ module AWS::SDK::DirectoryService
         visited = visited + ['DirectoryConnectSettingsDescription']
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
           customer_user_name: 'customer_user_name',
           security_group_id: 'security_group_id',
-          availability_zones: Stubs::AvailabilityZones.default(visited),
-          connect_ips: Stubs::IpAddrs.default(visited),
+          availability_zones: AvailabilityZones.default(visited),
+          connect_ips: IpAddrs.default(visited),
         }
       end
 
@@ -968,7 +968,7 @@ module AWS::SDK::DirectoryService
     class DescribeDomainControllers
       def self.default(visited=[])
         {
-          domain_controllers: Stubs::DomainControllers.default(visited),
+          domain_controllers: DomainControllers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -988,7 +988,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('DomainControllers')
         visited = visited + ['DomainControllers']
         [
-          Stubs::DomainController.default(visited)
+          DomainController.default(visited)
         ]
       end
 
@@ -1042,7 +1042,7 @@ module AWS::SDK::DirectoryService
     class DescribeEventTopics
       def self.default(visited=[])
         {
-          event_topics: Stubs::EventTopics.default(visited),
+          event_topics: EventTopics.default(visited),
         }
       end
 
@@ -1060,7 +1060,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('EventTopics')
         visited = visited + ['EventTopics']
         [
-          Stubs::EventTopic.default(visited)
+          EventTopic.default(visited)
         ]
       end
 
@@ -1104,7 +1104,7 @@ module AWS::SDK::DirectoryService
     class DescribeLDAPSSettings
       def self.default(visited=[])
         {
-          ldaps_settings_info: Stubs::LDAPSSettingsInfo.default(visited),
+          ldaps_settings_info: LDAPSSettingsInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1124,7 +1124,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('LDAPSSettingsInfo')
         visited = visited + ['LDAPSSettingsInfo']
         [
-          Stubs::LDAPSSettingInfo.default(visited)
+          LDAPSSettingInfo.default(visited)
         ]
       end
 
@@ -1164,7 +1164,7 @@ module AWS::SDK::DirectoryService
     class DescribeRegions
       def self.default(visited=[])
         {
-          regions_description: Stubs::RegionsDescription.default(visited),
+          regions_description: RegionsDescription.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1184,7 +1184,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('RegionsDescription')
         visited = visited + ['RegionsDescription']
         [
-          Stubs::RegionDescription.default(visited)
+          RegionDescription.default(visited)
         ]
       end
 
@@ -1208,7 +1208,7 @@ module AWS::SDK::DirectoryService
           region_name: 'region_name',
           region_type: 'region_type',
           status: 'status',
-          vpc_settings: Stubs::DirectoryVpcSettings.default(visited),
+          vpc_settings: DirectoryVpcSettings.default(visited),
           desired_number_of_domain_controllers: 1,
           launch_time: Time.now,
           status_last_updated_date_time: Time.now,
@@ -1239,7 +1239,7 @@ module AWS::SDK::DirectoryService
         visited = visited + ['DirectoryVpcSettings']
         {
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
         }
       end
 
@@ -1256,7 +1256,7 @@ module AWS::SDK::DirectoryService
     class DescribeSharedDirectories
       def self.default(visited=[])
         {
-          shared_directories: Stubs::SharedDirectories.default(visited),
+          shared_directories: SharedDirectories.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1276,7 +1276,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('SharedDirectories')
         visited = visited + ['SharedDirectories']
         [
-          Stubs::SharedDirectory.default(visited)
+          SharedDirectory.default(visited)
         ]
       end
 
@@ -1294,7 +1294,7 @@ module AWS::SDK::DirectoryService
     class DescribeSnapshots
       def self.default(visited=[])
         {
-          snapshots: Stubs::Snapshots.default(visited),
+          snapshots: Snapshots.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1314,7 +1314,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('Snapshots')
         visited = visited + ['Snapshots']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::DirectoryService
     class DescribeTrusts
       def self.default(visited=[])
         {
-          trusts: Stubs::Trusts.default(visited),
+          trusts: Trusts.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1380,7 +1380,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('Trusts')
         visited = visited + ['Trusts']
         [
-          Stubs::Trust.default(visited)
+          Trust.default(visited)
         ]
       end
 
@@ -1548,7 +1548,7 @@ module AWS::SDK::DirectoryService
     class GetDirectoryLimits
       def self.default(visited=[])
         {
-          directory_limits: Stubs::DirectoryLimits.default(visited),
+          directory_limits: DirectoryLimits.default(visited),
         }
       end
 
@@ -1598,7 +1598,7 @@ module AWS::SDK::DirectoryService
     class GetSnapshotLimits
       def self.default(visited=[])
         {
-          snapshot_limits: Stubs::SnapshotLimits.default(visited),
+          snapshot_limits: SnapshotLimits.default(visited),
         }
       end
 
@@ -1637,7 +1637,7 @@ module AWS::SDK::DirectoryService
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          certificates_info: Stubs::CertificatesInfo.default(visited),
+          certificates_info: CertificatesInfo.default(visited),
         }
       end
 
@@ -1656,7 +1656,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('CertificatesInfo')
         visited = visited + ['CertificatesInfo']
         [
-          Stubs::CertificateInfo.default(visited)
+          CertificateInfo.default(visited)
         ]
       end
 
@@ -1700,7 +1700,7 @@ module AWS::SDK::DirectoryService
     class ListIpRoutes
       def self.default(visited=[])
         {
-          ip_routes_info: Stubs::IpRoutesInfo.default(visited),
+          ip_routes_info: IpRoutesInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1720,7 +1720,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('IpRoutesInfo')
         visited = visited + ['IpRoutesInfo']
         [
-          Stubs::IpRouteInfo.default(visited)
+          IpRouteInfo.default(visited)
         ]
       end
 
@@ -1766,7 +1766,7 @@ module AWS::SDK::DirectoryService
     class ListLogSubscriptions
       def self.default(visited=[])
         {
-          log_subscriptions: Stubs::LogSubscriptions.default(visited),
+          log_subscriptions: LogSubscriptions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1786,7 +1786,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('LogSubscriptions')
         visited = visited + ['LogSubscriptions']
         [
-          Stubs::LogSubscription.default(visited)
+          LogSubscription.default(visited)
         ]
       end
 
@@ -1826,7 +1826,7 @@ module AWS::SDK::DirectoryService
     class ListSchemaExtensions
       def self.default(visited=[])
         {
-          schema_extensions_info: Stubs::SchemaExtensionsInfo.default(visited),
+          schema_extensions_info: SchemaExtensionsInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1846,7 +1846,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('SchemaExtensionsInfo')
         visited = visited + ['SchemaExtensionsInfo']
         [
-          Stubs::SchemaExtensionInfo.default(visited)
+          SchemaExtensionInfo.default(visited)
         ]
       end
 
@@ -1894,7 +1894,7 @@ module AWS::SDK::DirectoryService
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1914,7 +1914,7 @@ module AWS::SDK::DirectoryService
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

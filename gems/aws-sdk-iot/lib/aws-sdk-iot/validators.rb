@@ -7,13 +7,15 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::IoT
   module Validators
 
     class AbortConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AbortConfig, context: context)
-        Validators::AbortCriteriaList.validate!(input[:criteria_list], context: "#{context}[:criteria_list]") unless input[:criteria_list].nil?
+        AbortCriteriaList.validate!(input[:criteria_list], context: "#{context}[:criteria_list]") unless input[:criteria_list].nil?
       end
     end
 
@@ -31,7 +33,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AbortCriteria.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AbortCriteria.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -53,28 +55,28 @@ module AWS::SDK::IoT
     class Action
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Action, context: context)
-        Validators::DynamoDBAction.validate!(input[:dynamo_db], context: "#{context}[:dynamo_db]") unless input[:dynamo_db].nil?
-        Validators::DynamoDBv2Action.validate!(input[:dynamo_d_bv2], context: "#{context}[:dynamo_d_bv2]") unless input[:dynamo_d_bv2].nil?
-        Validators::LambdaAction.validate!(input[:lambda], context: "#{context}[:lambda]") unless input[:lambda].nil?
-        Validators::SnsAction.validate!(input[:sns], context: "#{context}[:sns]") unless input[:sns].nil?
-        Validators::SqsAction.validate!(input[:sqs], context: "#{context}[:sqs]") unless input[:sqs].nil?
-        Validators::KinesisAction.validate!(input[:kinesis], context: "#{context}[:kinesis]") unless input[:kinesis].nil?
-        Validators::RepublishAction.validate!(input[:republish], context: "#{context}[:republish]") unless input[:republish].nil?
-        Validators::S3Action.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
-        Validators::FirehoseAction.validate!(input[:firehose], context: "#{context}[:firehose]") unless input[:firehose].nil?
-        Validators::CloudwatchMetricAction.validate!(input[:cloudwatch_metric], context: "#{context}[:cloudwatch_metric]") unless input[:cloudwatch_metric].nil?
-        Validators::CloudwatchAlarmAction.validate!(input[:cloudwatch_alarm], context: "#{context}[:cloudwatch_alarm]") unless input[:cloudwatch_alarm].nil?
-        Validators::CloudwatchLogsAction.validate!(input[:cloudwatch_logs], context: "#{context}[:cloudwatch_logs]") unless input[:cloudwatch_logs].nil?
-        Validators::ElasticsearchAction.validate!(input[:elasticsearch], context: "#{context}[:elasticsearch]") unless input[:elasticsearch].nil?
-        Validators::SalesforceAction.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
-        Validators::IotAnalyticsAction.validate!(input[:iot_analytics], context: "#{context}[:iot_analytics]") unless input[:iot_analytics].nil?
-        Validators::IotEventsAction.validate!(input[:iot_events], context: "#{context}[:iot_events]") unless input[:iot_events].nil?
-        Validators::IotSiteWiseAction.validate!(input[:iot_site_wise], context: "#{context}[:iot_site_wise]") unless input[:iot_site_wise].nil?
-        Validators::StepFunctionsAction.validate!(input[:step_functions], context: "#{context}[:step_functions]") unless input[:step_functions].nil?
-        Validators::TimestreamAction.validate!(input[:timestream], context: "#{context}[:timestream]") unless input[:timestream].nil?
-        Validators::HttpAction.validate!(input[:http], context: "#{context}[:http]") unless input[:http].nil?
-        Validators::KafkaAction.validate!(input[:kafka], context: "#{context}[:kafka]") unless input[:kafka].nil?
-        Validators::OpenSearchAction.validate!(input[:open_search], context: "#{context}[:open_search]") unless input[:open_search].nil?
+        DynamoDBAction.validate!(input[:dynamo_db], context: "#{context}[:dynamo_db]") unless input[:dynamo_db].nil?
+        DynamoDBv2Action.validate!(input[:dynamo_d_bv2], context: "#{context}[:dynamo_d_bv2]") unless input[:dynamo_d_bv2].nil?
+        LambdaAction.validate!(input[:lambda], context: "#{context}[:lambda]") unless input[:lambda].nil?
+        SnsAction.validate!(input[:sns], context: "#{context}[:sns]") unless input[:sns].nil?
+        SqsAction.validate!(input[:sqs], context: "#{context}[:sqs]") unless input[:sqs].nil?
+        KinesisAction.validate!(input[:kinesis], context: "#{context}[:kinesis]") unless input[:kinesis].nil?
+        RepublishAction.validate!(input[:republish], context: "#{context}[:republish]") unless input[:republish].nil?
+        S3Action.validate!(input[:s3], context: "#{context}[:s3]") unless input[:s3].nil?
+        FirehoseAction.validate!(input[:firehose], context: "#{context}[:firehose]") unless input[:firehose].nil?
+        CloudwatchMetricAction.validate!(input[:cloudwatch_metric], context: "#{context}[:cloudwatch_metric]") unless input[:cloudwatch_metric].nil?
+        CloudwatchAlarmAction.validate!(input[:cloudwatch_alarm], context: "#{context}[:cloudwatch_alarm]") unless input[:cloudwatch_alarm].nil?
+        CloudwatchLogsAction.validate!(input[:cloudwatch_logs], context: "#{context}[:cloudwatch_logs]") unless input[:cloudwatch_logs].nil?
+        ElasticsearchAction.validate!(input[:elasticsearch], context: "#{context}[:elasticsearch]") unless input[:elasticsearch].nil?
+        SalesforceAction.validate!(input[:salesforce], context: "#{context}[:salesforce]") unless input[:salesforce].nil?
+        IotAnalyticsAction.validate!(input[:iot_analytics], context: "#{context}[:iot_analytics]") unless input[:iot_analytics].nil?
+        IotEventsAction.validate!(input[:iot_events], context: "#{context}[:iot_events]") unless input[:iot_events].nil?
+        IotSiteWiseAction.validate!(input[:iot_site_wise], context: "#{context}[:iot_site_wise]") unless input[:iot_site_wise].nil?
+        StepFunctionsAction.validate!(input[:step_functions], context: "#{context}[:step_functions]") unless input[:step_functions].nil?
+        TimestreamAction.validate!(input[:timestream], context: "#{context}[:timestream]") unless input[:timestream].nil?
+        HttpAction.validate!(input[:http], context: "#{context}[:http]") unless input[:http].nil?
+        KafkaAction.validate!(input[:kafka], context: "#{context}[:kafka]") unless input[:kafka].nil?
+        OpenSearchAction.validate!(input[:open_search], context: "#{context}[:open_search]") unless input[:open_search].nil?
       end
     end
 
@@ -82,7 +84,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Action.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -93,9 +95,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:violation_id], ::String, context: "#{context}[:violation_id]")
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
-        Validators::Behavior.validate!(input[:behavior], context: "#{context}[:behavior]") unless input[:behavior].nil?
-        Validators::MetricValue.validate!(input[:last_violation_value], context: "#{context}[:last_violation_value]") unless input[:last_violation_value].nil?
-        Validators::ViolationEventAdditionalInfo.validate!(input[:violation_event_additional_info], context: "#{context}[:violation_event_additional_info]") unless input[:violation_event_additional_info].nil?
+        Behavior.validate!(input[:behavior], context: "#{context}[:behavior]") unless input[:behavior].nil?
+        MetricValue.validate!(input[:last_violation_value], context: "#{context}[:last_violation_value]") unless input[:last_violation_value].nil?
+        ViolationEventAdditionalInfo.validate!(input[:violation_event_additional_info], context: "#{context}[:violation_event_additional_info]") unless input[:violation_event_additional_info].nil?
         Hearth::Validator.validate!(input[:verification_state], ::String, context: "#{context}[:verification_state]")
         Hearth::Validator.validate!(input[:verification_state_description], ::String, context: "#{context}[:verification_state_description]")
         Hearth::Validator.validate!(input[:last_violation_time], ::Time, context: "#{context}[:last_violation_time]")
@@ -107,7 +109,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ActiveViolation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ActiveViolation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -148,7 +150,7 @@ module AWS::SDK::IoT
     class AddThingsToThingGroupParams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddThingsToThingGroupParams, context: context)
-        Validators::ThingGroupNames.validate!(input[:thing_group_names], context: "#{context}[:thing_group_names]") unless input[:thing_group_names].nil?
+        ThingGroupNames.validate!(input[:thing_group_names], context: "#{context}[:thing_group_names]") unless input[:thing_group_names].nil?
         Hearth::Validator.validate!(input[:override_dynamic_groups], ::TrueClass, ::FalseClass, context: "#{context}[:override_dynamic_groups]")
       end
     end
@@ -166,7 +168,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricToRetain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricToRetain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AggregationType, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AggregationTypeValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        AggregationTypeValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -211,7 +213,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AlertTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AlertTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::IoT
     class Allowed
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Allowed, context: context)
-        Validators::Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
       end
     end
 
@@ -234,8 +236,8 @@ module AWS::SDK::IoT
     class AssetPropertyValue
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssetPropertyValue, context: context)
-        Validators::AssetPropertyVariant.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
-        Validators::AssetPropertyTimestamp.validate!(input[:timestamp], context: "#{context}[:timestamp]") unless input[:timestamp].nil?
+        AssetPropertyVariant.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        AssetPropertyTimestamp.validate!(input[:timestamp], context: "#{context}[:timestamp]") unless input[:timestamp].nil?
         Hearth::Validator.validate!(input[:quality], ::String, context: "#{context}[:quality]")
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AssetPropertyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AssetPropertyValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -295,7 +297,7 @@ module AWS::SDK::IoT
     class AssociateTargetsWithJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AssociateTargetsWithJobInput, context: context)
-        Validators::JobTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        JobTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
@@ -370,7 +372,7 @@ module AWS::SDK::IoT
     class AttributePayload
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttributePayload, context: context)
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:merge], ::TrueClass, ::FalseClass, context: "#{context}[:merge]")
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AuditCheckConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AuditCheckConfiguration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::MitigationActionNameList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          MitigationActionNameList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -440,7 +442,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ReasonForNonComplianceCodes.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ReasonForNonComplianceCodes.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -450,7 +452,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AuditCheckDetails.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AuditCheckDetails.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -464,8 +466,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:task_start_time], ::Time, context: "#{context}[:task_start_time]")
         Hearth::Validator.validate!(input[:finding_time], ::Time, context: "#{context}[:finding_time]")
         Hearth::Validator.validate!(input[:severity], ::String, context: "#{context}[:severity]")
-        Validators::NonCompliantResource.validate!(input[:non_compliant_resource], context: "#{context}[:non_compliant_resource]") unless input[:non_compliant_resource].nil?
-        Validators::RelatedResources.validate!(input[:related_resources], context: "#{context}[:related_resources]") unless input[:related_resources].nil?
+        NonCompliantResource.validate!(input[:non_compliant_resource], context: "#{context}[:non_compliant_resource]") unless input[:non_compliant_resource].nil?
+        RelatedResources.validate!(input[:related_resources], context: "#{context}[:related_resources]") unless input[:related_resources].nil?
         Hearth::Validator.validate!(input[:reason_for_non_compliance], ::String, context: "#{context}[:reason_for_non_compliance]")
         Hearth::Validator.validate!(input[:reason_for_non_compliance_code], ::String, context: "#{context}[:reason_for_non_compliance_code]")
         Hearth::Validator.validate!(input[:is_suppressed], ::TrueClass, ::FalseClass, context: "#{context}[:is_suppressed]")
@@ -476,7 +478,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuditFinding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuditFinding.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -500,7 +502,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuditMitigationActionExecutionMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuditMitigationActionExecutionMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -518,7 +520,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuditMitigationActionsTaskMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuditMitigationActionsTaskMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -528,7 +530,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::TaskStatisticsForAuditCheck.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          TaskStatisticsForAuditCheck.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -537,8 +539,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuditMitigationActionsTaskTarget, context: context)
         Hearth::Validator.validate!(input[:audit_task_id], ::String, context: "#{context}[:audit_task_id]")
-        Validators::FindingIds.validate!(input[:finding_ids], context: "#{context}[:finding_ids]") unless input[:finding_ids].nil?
-        Validators::AuditCheckToReasonCodeFilter.validate!(input[:audit_check_to_reason_code_filter], context: "#{context}[:audit_check_to_reason_code_filter]") unless input[:audit_check_to_reason_code_filter].nil?
+        FindingIds.validate!(input[:finding_ids], context: "#{context}[:finding_ids]") unless input[:finding_ids].nil?
+        AuditCheckToReasonCodeFilter.validate!(input[:audit_check_to_reason_code_filter], context: "#{context}[:audit_check_to_reason_code_filter]") unless input[:audit_check_to_reason_code_filter].nil?
       end
     end
 
@@ -556,7 +558,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::AuditNotificationTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          AuditNotificationTarget.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -565,7 +567,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuditSuppression, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
         Hearth::Validator.validate!(input[:suppress_indefinitely], ::TrueClass, ::FalseClass, context: "#{context}[:suppress_indefinitely]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -576,7 +578,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuditSuppression.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuditSuppression.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -594,7 +596,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuditTaskMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuditTaskMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -603,7 +605,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthInfo, context: context)
         Hearth::Validator.validate!(input[:action_type], ::String, context: "#{context}[:action_type]")
-        Validators::Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
       end
     end
 
@@ -611,7 +613,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuthInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuthInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -619,11 +621,11 @@ module AWS::SDK::IoT
     class AuthResult
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AuthResult, context: context)
-        Validators::AuthInfo.validate!(input[:auth_info], context: "#{context}[:auth_info]") unless input[:auth_info].nil?
-        Validators::Allowed.validate!(input[:allowed], context: "#{context}[:allowed]") unless input[:allowed].nil?
-        Validators::Denied.validate!(input[:denied], context: "#{context}[:denied]") unless input[:denied].nil?
+        AuthInfo.validate!(input[:auth_info], context: "#{context}[:auth_info]") unless input[:auth_info].nil?
+        Allowed.validate!(input[:allowed], context: "#{context}[:allowed]") unless input[:allowed].nil?
+        Denied.validate!(input[:denied], context: "#{context}[:denied]") unless input[:denied].nil?
         Hearth::Validator.validate!(input[:auth_decision], ::String, context: "#{context}[:auth_decision]")
-        Validators::MissingContextValues.validate!(input[:missing_context_values], context: "#{context}[:missing_context_values]") unless input[:missing_context_values].nil?
+        MissingContextValues.validate!(input[:missing_context_values], context: "#{context}[:missing_context_values]") unless input[:missing_context_values].nil?
       end
     end
 
@@ -631,7 +633,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuthResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuthResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -651,7 +653,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:authorizer_arn], ::String, context: "#{context}[:authorizer_arn]")
         Hearth::Validator.validate!(input[:authorizer_function_arn], ::String, context: "#{context}[:authorizer_function_arn]")
         Hearth::Validator.validate!(input[:token_key_name], ::String, context: "#{context}[:token_key_name]")
-        Validators::PublicKeyMap.validate!(input[:token_signing_public_keys], context: "#{context}[:token_signing_public_keys]") unless input[:token_signing_public_keys].nil?
+        PublicKeyMap.validate!(input[:token_signing_public_keys], context: "#{context}[:token_signing_public_keys]") unless input[:token_signing_public_keys].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
@@ -672,7 +674,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AuthorizerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AuthorizerSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -680,7 +682,7 @@ module AWS::SDK::IoT
     class AwsJobAbortConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsJobAbortConfig, context: context)
-        Validators::AwsJobAbortCriteriaList.validate!(input[:abort_criteria_list], context: "#{context}[:abort_criteria_list]") unless input[:abort_criteria_list].nil?
+        AwsJobAbortCriteriaList.validate!(input[:abort_criteria_list], context: "#{context}[:abort_criteria_list]") unless input[:abort_criteria_list].nil?
       end
     end
 
@@ -698,7 +700,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AwsJobAbortCriteria.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AwsJobAbortCriteria.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -707,7 +709,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AwsJobExecutionsRolloutConfig, context: context)
         Hearth::Validator.validate!(input[:maximum_per_minute], ::Integer, context: "#{context}[:maximum_per_minute]")
-        Validators::AwsJobExponentialRolloutRate.validate!(input[:exponential_rate], context: "#{context}[:exponential_rate]") unless input[:exponential_rate].nil?
+        AwsJobExponentialRolloutRate.validate!(input[:exponential_rate], context: "#{context}[:exponential_rate]") unless input[:exponential_rate].nil?
       end
     end
 
@@ -716,7 +718,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::AwsJobExponentialRolloutRate, context: context)
         Hearth::Validator.validate!(input[:base_rate_per_minute], ::Integer, context: "#{context}[:base_rate_per_minute]")
         Hearth::Validator.validate!(input[:increment_factor], ::Float, context: "#{context}[:increment_factor]")
-        Validators::AwsJobRateIncreaseCriteria.validate!(input[:rate_increase_criteria], context: "#{context}[:rate_increase_criteria]") unless input[:rate_increase_criteria].nil?
+        AwsJobRateIncreaseCriteria.validate!(input[:rate_increase_criteria], context: "#{context}[:rate_increase_criteria]") unless input[:rate_increase_criteria].nil?
       end
     end
 
@@ -747,8 +749,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::Behavior, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:metric], ::String, context: "#{context}[:metric]")
-        Validators::MetricDimension.validate!(input[:metric_dimension], context: "#{context}[:metric_dimension]") unless input[:metric_dimension].nil?
-        Validators::BehaviorCriteria.validate!(input[:criteria], context: "#{context}[:criteria]") unless input[:criteria].nil?
+        MetricDimension.validate!(input[:metric_dimension], context: "#{context}[:metric_dimension]") unless input[:metric_dimension].nil?
+        BehaviorCriteria.validate!(input[:criteria], context: "#{context}[:criteria]") unless input[:criteria].nil?
         Hearth::Validator.validate!(input[:suppress_alerts], ::TrueClass, ::FalseClass, context: "#{context}[:suppress_alerts]")
       end
     end
@@ -757,12 +759,12 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BehaviorCriteria, context: context)
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
-        Validators::MetricValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        MetricValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")
         Hearth::Validator.validate!(input[:consecutive_datapoints_to_alarm], ::Integer, context: "#{context}[:consecutive_datapoints_to_alarm]")
         Hearth::Validator.validate!(input[:consecutive_datapoints_to_clear], ::Integer, context: "#{context}[:consecutive_datapoints_to_clear]")
-        Validators::StatisticalThreshold.validate!(input[:statistical_threshold], context: "#{context}[:statistical_threshold]") unless input[:statistical_threshold].nil?
-        Validators::MachineLearningDetectionConfig.validate!(input[:ml_detection_config], context: "#{context}[:ml_detection_config]") unless input[:ml_detection_config].nil?
+        StatisticalThreshold.validate!(input[:statistical_threshold], context: "#{context}[:statistical_threshold]") unless input[:statistical_threshold].nil?
+        MachineLearningDetectionConfig.validate!(input[:ml_detection_config], context: "#{context}[:ml_detection_config]") unless input[:ml_detection_config].nil?
       end
     end
 
@@ -770,7 +772,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BehaviorModelTrainingSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BehaviorModelTrainingSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -791,7 +793,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Behavior.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Behavior.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -807,7 +809,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupNameAndArn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupNameAndArn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Bucket.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Bucket.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -839,7 +841,7 @@ module AWS::SDK::IoT
     class BucketsAggregationType
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BucketsAggregationType, context: context)
-        Validators::TermsAggregation.validate!(input[:terms_aggregation], context: "#{context}[:terms_aggregation]") unless input[:terms_aggregation].nil?
+        TermsAggregation.validate!(input[:terms_aggregation], context: "#{context}[:terms_aggregation]") unless input[:terms_aggregation].nil?
       end
     end
 
@@ -866,7 +868,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:customer_version], ::Integer, context: "#{context}[:customer_version]")
         Hearth::Validator.validate!(input[:generation_id], ::String, context: "#{context}[:generation_id]")
-        Validators::CertificateValidity.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
+        CertificateValidity.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
       end
     end
 
@@ -874,7 +876,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CACertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CACertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:force], ::TrueClass, ::FalseClass, context: "#{context}[:force]")
         Hearth::Validator.validate!(input[:expected_version], ::Integer, context: "#{context}[:expected_version]")
-        Validators::DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
+        DetailsMap.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
       end
     end
 
@@ -998,9 +1000,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:customer_version], ::Integer, context: "#{context}[:customer_version]")
-        Validators::TransferData.validate!(input[:transfer_data], context: "#{context}[:transfer_data]") unless input[:transfer_data].nil?
+        TransferData.validate!(input[:transfer_data], context: "#{context}[:transfer_data]") unless input[:transfer_data].nil?
         Hearth::Validator.validate!(input[:generation_id], ::String, context: "#{context}[:generation_id]")
-        Validators::CertificateValidity.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
+        CertificateValidity.validate!(input[:validity], context: "#{context}[:validity]") unless input[:validity].nil?
         Hearth::Validator.validate!(input[:certificate_mode], ::String, context: "#{context}[:certificate_mode]")
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Certificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Certificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1101,8 +1103,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CodeSigning, context: context)
         Hearth::Validator.validate!(input[:aws_signer_job_id], ::String, context: "#{context}[:aws_signer_job_id]")
-        Validators::StartSigningJobParameter.validate!(input[:start_signing_job_parameter], context: "#{context}[:start_signing_job_parameter]") unless input[:start_signing_job_parameter].nil?
-        Validators::CustomCodeSigning.validate!(input[:custom_code_signing], context: "#{context}[:custom_code_signing]") unless input[:custom_code_signing].nil?
+        StartSigningJobParameter.validate!(input[:start_signing_job_parameter], context: "#{context}[:start_signing_job_parameter]") unless input[:start_signing_job_parameter].nil?
+        CustomCodeSigning.validate!(input[:custom_code_signing], context: "#{context}[:custom_code_signing]") unless input[:custom_code_signing].nil?
       end
     end
 
@@ -1159,7 +1161,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAuditSuppressionInput, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
         Hearth::Validator.validate!(input[:suppress_indefinitely], ::TrueClass, ::FalseClass, context: "#{context}[:suppress_indefinitely]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -1179,9 +1181,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:authorizer_name], ::String, context: "#{context}[:authorizer_name]")
         Hearth::Validator.validate!(input[:authorizer_function_arn], ::String, context: "#{context}[:authorizer_function_arn]")
         Hearth::Validator.validate!(input[:token_key_name], ::String, context: "#{context}[:token_key_name]")
-        Validators::PublicKeyMap.validate!(input[:token_signing_public_keys], context: "#{context}[:token_signing_public_keys]") unless input[:token_signing_public_keys].nil?
+        PublicKeyMap.validate!(input[:token_signing_public_keys], context: "#{context}[:token_signing_public_keys]") unless input[:token_signing_public_keys].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:signing_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:signing_disabled]")
         Hearth::Validator.validate!(input[:enable_caching_for_http], ::TrueClass, ::FalseClass, context: "#{context}[:enable_caching_for_http]")
       end
@@ -1199,8 +1201,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBillingGroupInput, context: context)
         Hearth::Validator.validate!(input[:billing_group_name], ::String, context: "#{context}[:billing_group_name]")
-        Validators::BillingGroupProperties.validate!(input[:billing_group_properties], context: "#{context}[:billing_group_properties]") unless input[:billing_group_properties].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        BillingGroupProperties.validate!(input[:billing_group_properties], context: "#{context}[:billing_group_properties]") unless input[:billing_group_properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1236,7 +1238,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:metric_type], ::String, context: "#{context}[:metric_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -1254,8 +1256,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateDimensionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -1273,11 +1275,11 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateDomainConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:domain_configuration_name], ::String, context: "#{context}[:domain_configuration_name]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ServerCertificateArns.validate!(input[:server_certificate_arns], context: "#{context}[:server_certificate_arns]") unless input[:server_certificate_arns].nil?
+        ServerCertificateArns.validate!(input[:server_certificate_arns], context: "#{context}[:server_certificate_arns]") unless input[:server_certificate_arns].nil?
         Hearth::Validator.validate!(input[:validation_certificate_arn], ::String, context: "#{context}[:validation_certificate_arn]")
-        Validators::AuthorizerConfig.validate!(input[:authorizer_config], context: "#{context}[:authorizer_config]") unless input[:authorizer_config].nil?
+        AuthorizerConfig.validate!(input[:authorizer_config], context: "#{context}[:authorizer_config]") unless input[:authorizer_config].nil?
         Hearth::Validator.validate!(input[:service_type], ::String, context: "#{context}[:service_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1293,11 +1295,11 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDynamicThingGroupInput, context: context)
         Hearth::Validator.validate!(input[:thing_group_name], ::String, context: "#{context}[:thing_group_name]")
-        Validators::ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
+        ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:query_version], ::String, context: "#{context}[:query_version]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1318,14 +1320,14 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateFleetMetricInput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::AggregationType.validate!(input[:aggregation_type], context: "#{context}[:aggregation_type]") unless input[:aggregation_type].nil?
+        AggregationType.validate!(input[:aggregation_type], context: "#{context}[:aggregation_type]") unless input[:aggregation_type].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:aggregation_field], ::String, context: "#{context}[:aggregation_field]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:query_version], ::String, context: "#{context}[:query_version]")
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1341,20 +1343,20 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateJobInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::JobTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        JobTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:document_source], ::String, context: "#{context}[:document_source]")
         Hearth::Validator.validate!(input[:document], ::String, context: "#{context}[:document]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
+        PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
         Hearth::Validator.validate!(input[:target_selection], ::String, context: "#{context}[:target_selection]")
-        Validators::JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
-        Validators::AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
+        AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
         Hearth::Validator.validate!(input[:job_template_arn], ::String, context: "#{context}[:job_template_arn]")
-        Validators::JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
-        Validators::ParameterMap.validate!(input[:document_parameters], context: "#{context}[:document_parameters]") unless input[:document_parameters].nil?
+        JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
+        ParameterMap.validate!(input[:document_parameters], context: "#{context}[:document_parameters]") unless input[:document_parameters].nil?
       end
     end
 
@@ -1375,12 +1377,12 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:document_source], ::String, context: "#{context}[:document_source]")
         Hearth::Validator.validate!(input[:document], ::String, context: "#{context}[:document]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
-        Validators::JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
-        Validators::AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
+        PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
+        JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
+        AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
       end
     end
 
@@ -1405,7 +1407,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
         Hearth::Validator.validate!(input[:certificate_id], ::String, context: "#{context}[:certificate_id]")
         Hearth::Validator.validate!(input[:certificate_pem], ::String, context: "#{context}[:certificate_pem]")
-        Validators::KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
+        KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
       end
     end
 
@@ -1414,8 +1416,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateMitigationActionInput, context: context)
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1432,17 +1434,17 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateOTAUpdateInput, context: context)
         Hearth::Validator.validate!(input[:ota_update_id], ::String, context: "#{context}[:ota_update_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
         Hearth::Validator.validate!(input[:target_selection], ::String, context: "#{context}[:target_selection]")
-        Validators::AwsJobExecutionsRolloutConfig.validate!(input[:aws_job_executions_rollout_config], context: "#{context}[:aws_job_executions_rollout_config]") unless input[:aws_job_executions_rollout_config].nil?
-        Validators::AwsJobPresignedUrlConfig.validate!(input[:aws_job_presigned_url_config], context: "#{context}[:aws_job_presigned_url_config]") unless input[:aws_job_presigned_url_config].nil?
-        Validators::AwsJobAbortConfig.validate!(input[:aws_job_abort_config], context: "#{context}[:aws_job_abort_config]") unless input[:aws_job_abort_config].nil?
-        Validators::AwsJobTimeoutConfig.validate!(input[:aws_job_timeout_config], context: "#{context}[:aws_job_timeout_config]") unless input[:aws_job_timeout_config].nil?
-        Validators::OTAUpdateFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
+        AwsJobExecutionsRolloutConfig.validate!(input[:aws_job_executions_rollout_config], context: "#{context}[:aws_job_executions_rollout_config]") unless input[:aws_job_executions_rollout_config].nil?
+        AwsJobPresignedUrlConfig.validate!(input[:aws_job_presigned_url_config], context: "#{context}[:aws_job_presigned_url_config]") unless input[:aws_job_presigned_url_config].nil?
+        AwsJobAbortConfig.validate!(input[:aws_job_abort_config], context: "#{context}[:aws_job_abort_config]") unless input[:aws_job_abort_config].nil?
+        AwsJobTimeoutConfig.validate!(input[:aws_job_timeout_config], context: "#{context}[:aws_job_timeout_config]") unless input[:aws_job_timeout_config].nil?
+        OTAUpdateFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::AdditionalParameterMap.validate!(input[:additional_parameters], context: "#{context}[:additional_parameters]") unless input[:additional_parameters].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AdditionalParameterMap.validate!(input[:additional_parameters], context: "#{context}[:additional_parameters]") unless input[:additional_parameters].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1462,7 +1464,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreatePolicyInput, context: context)
         Hearth::Validator.validate!(input[:policy_name], ::String, context: "#{context}[:policy_name]")
         Hearth::Validator.validate!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1507,7 +1509,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateProvisioningClaimOutput, context: context)
         Hearth::Validator.validate!(input[:certificate_id], ::String, context: "#{context}[:certificate_id]")
         Hearth::Validator.validate!(input[:certificate_pem], ::String, context: "#{context}[:certificate_pem]")
-        Validators::KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
+        KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
         Hearth::Validator.validate!(input[:expiration], ::Time, context: "#{context}[:expiration]")
       end
     end
@@ -1520,8 +1522,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:template_body], ::String, context: "#{context}[:template_body]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:provisioning_role_arn], ::String, context: "#{context}[:provisioning_role_arn]")
-        Validators::ProvisioningHook.validate!(input[:pre_provisioning_hook], context: "#{context}[:pre_provisioning_hook]") unless input[:pre_provisioning_hook].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ProvisioningHook.validate!(input[:pre_provisioning_hook], context: "#{context}[:pre_provisioning_hook]") unless input[:pre_provisioning_hook].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1559,7 +1561,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:role_alias], ::String, context: "#{context}[:role_alias]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:credential_duration_seconds], ::Integer, context: "#{context}[:credential_duration_seconds]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1577,9 +1579,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:frequency], ::String, context: "#{context}[:frequency]")
         Hearth::Validator.validate!(input[:day_of_month], ::String, context: "#{context}[:day_of_month]")
         Hearth::Validator.validate!(input[:day_of_week], ::String, context: "#{context}[:day_of_week]")
-        Validators::TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
+        TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
         Hearth::Validator.validate!(input[:scheduled_audit_name], ::String, context: "#{context}[:scheduled_audit_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1595,11 +1597,11 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateSecurityProfileInput, context: context)
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
         Hearth::Validator.validate!(input[:security_profile_description], ::String, context: "#{context}[:security_profile_description]")
-        Validators::Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
-        Validators::AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
-        Validators::AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
-        Validators::AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
+        AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
+        AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
+        AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1616,9 +1618,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_id], ::String, context: "#{context}[:stream_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StreamFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
+        StreamFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1637,8 +1639,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateThingGroupInput, context: context)
         Hearth::Validator.validate!(input[:thing_group_name], ::String, context: "#{context}[:thing_group_name]")
         Hearth::Validator.validate!(input[:parent_group_name], ::String, context: "#{context}[:parent_group_name]")
-        Validators::ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1656,7 +1658,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::CreateThingInput, context: context)
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
-        Validators::AttributePayload.validate!(input[:attribute_payload], context: "#{context}[:attribute_payload]") unless input[:attribute_payload].nil?
+        AttributePayload.validate!(input[:attribute_payload], context: "#{context}[:attribute_payload]") unless input[:attribute_payload].nil?
         Hearth::Validator.validate!(input[:billing_group_name], ::String, context: "#{context}[:billing_group_name]")
       end
     end
@@ -1674,8 +1676,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateThingTypeInput, context: context)
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
-        Validators::ThingTypeProperties.validate!(input[:thing_type_properties], context: "#{context}[:thing_type_properties]") unless input[:thing_type_properties].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ThingTypeProperties.validate!(input[:thing_type_properties], context: "#{context}[:thing_type_properties]") unless input[:thing_type_properties].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1691,14 +1693,14 @@ module AWS::SDK::IoT
     class CreateTopicRuleDestinationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTopicRuleDestinationInput, context: context)
-        Validators::TopicRuleDestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
+        TopicRuleDestinationConfiguration.validate!(input[:destination_configuration], context: "#{context}[:destination_configuration]") unless input[:destination_configuration].nil?
       end
     end
 
     class CreateTopicRuleDestinationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTopicRuleDestinationOutput, context: context)
-        Validators::TopicRuleDestination.validate!(input[:topic_rule_destination], context: "#{context}[:topic_rule_destination]") unless input[:topic_rule_destination].nil?
+        TopicRuleDestination.validate!(input[:topic_rule_destination], context: "#{context}[:topic_rule_destination]") unless input[:topic_rule_destination].nil?
       end
     end
 
@@ -1706,7 +1708,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTopicRuleInput, context: context)
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
-        Validators::TopicRulePayload.validate!(input[:topic_rule_payload], context: "#{context}[:topic_rule_payload]") unless input[:topic_rule_payload].nil?
+        TopicRulePayload.validate!(input[:topic_rule_payload], context: "#{context}[:topic_rule_payload]") unless input[:topic_rule_payload].nil?
         Hearth::Validator.validate!(input[:tags], ::String, context: "#{context}[:tags]")
       end
     end
@@ -1720,8 +1722,8 @@ module AWS::SDK::IoT
     class CustomCodeSigning
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CustomCodeSigning, context: context)
-        Validators::CodeSigningSignature.validate!(input[:signature], context: "#{context}[:signature]") unless input[:signature].nil?
-        Validators::CodeSigningCertificateChain.validate!(input[:certificate_chain], context: "#{context}[:certificate_chain]") unless input[:certificate_chain].nil?
+        CodeSigningSignature.validate!(input[:signature], context: "#{context}[:signature]") unless input[:signature].nil?
+        CodeSigningCertificateChain.validate!(input[:certificate_chain], context: "#{context}[:certificate_chain]") unless input[:certificate_chain].nil?
         Hearth::Validator.validate!(input[:hash_algorithm], ::String, context: "#{context}[:hash_algorithm]")
         Hearth::Validator.validate!(input[:signature_algorithm], ::String, context: "#{context}[:signature_algorithm]")
       end
@@ -1744,7 +1746,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAuditSuppressionInput, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
       end
     end
 
@@ -2158,8 +2160,8 @@ module AWS::SDK::IoT
     class Denied
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Denied, context: context)
-        Validators::ImplicitDeny.validate!(input[:implicit_deny], context: "#{context}[:implicit_deny]") unless input[:implicit_deny].nil?
-        Validators::ExplicitDeny.validate!(input[:explicit_deny], context: "#{context}[:explicit_deny]") unless input[:explicit_deny].nil?
+        ImplicitDeny.validate!(input[:implicit_deny], context: "#{context}[:implicit_deny]") unless input[:implicit_deny].nil?
+        ExplicitDeny.validate!(input[:explicit_deny], context: "#{context}[:explicit_deny]") unless input[:explicit_deny].nil?
       end
     end
 
@@ -2187,8 +2189,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAccountAuditConfigurationOutput, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::AuditNotificationTargetConfigurations.validate!(input[:audit_notification_target_configurations], context: "#{context}[:audit_notification_target_configurations]") unless input[:audit_notification_target_configurations].nil?
-        Validators::AuditCheckConfigurations.validate!(input[:audit_check_configurations], context: "#{context}[:audit_check_configurations]") unless input[:audit_check_configurations].nil?
+        AuditNotificationTargetConfigurations.validate!(input[:audit_notification_target_configurations], context: "#{context}[:audit_notification_target_configurations]") unless input[:audit_notification_target_configurations].nil?
+        AuditCheckConfigurations.validate!(input[:audit_check_configurations], context: "#{context}[:audit_check_configurations]") unless input[:audit_check_configurations].nil?
       end
     end
 
@@ -2202,7 +2204,7 @@ module AWS::SDK::IoT
     class DescribeAuditFindingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAuditFindingOutput, context: context)
-        Validators::AuditFinding.validate!(input[:finding], context: "#{context}[:finding]") unless input[:finding].nil?
+        AuditFinding.validate!(input[:finding], context: "#{context}[:finding]") unless input[:finding].nil?
       end
     end
 
@@ -2219,10 +2221,10 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:task_status], ::String, context: "#{context}[:task_status]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
-        Validators::AuditMitigationActionsTaskStatistics.validate!(input[:task_statistics], context: "#{context}[:task_statistics]") unless input[:task_statistics].nil?
-        Validators::AuditMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::AuditCheckToActionsMapping.validate!(input[:audit_check_to_actions_mapping], context: "#{context}[:audit_check_to_actions_mapping]") unless input[:audit_check_to_actions_mapping].nil?
-        Validators::MitigationActionList.validate!(input[:actions_definition], context: "#{context}[:actions_definition]") unless input[:actions_definition].nil?
+        AuditMitigationActionsTaskStatistics.validate!(input[:task_statistics], context: "#{context}[:task_statistics]") unless input[:task_statistics].nil?
+        AuditMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        AuditCheckToActionsMapping.validate!(input[:audit_check_to_actions_mapping], context: "#{context}[:audit_check_to_actions_mapping]") unless input[:audit_check_to_actions_mapping].nil?
+        MitigationActionList.validate!(input[:actions_definition], context: "#{context}[:actions_definition]") unless input[:actions_definition].nil?
       end
     end
 
@@ -2230,7 +2232,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAuditSuppressionInput, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
       end
     end
 
@@ -2238,7 +2240,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAuditSuppressionOutput, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
         Hearth::Validator.validate!(input[:suppress_indefinitely], ::TrueClass, ::FalseClass, context: "#{context}[:suppress_indefinitely]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -2258,9 +2260,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:task_status], ::String, context: "#{context}[:task_status]")
         Hearth::Validator.validate!(input[:task_type], ::String, context: "#{context}[:task_type]")
         Hearth::Validator.validate!(input[:task_start_time], ::Time, context: "#{context}[:task_start_time]")
-        Validators::TaskStatistics.validate!(input[:task_statistics], context: "#{context}[:task_statistics]") unless input[:task_statistics].nil?
+        TaskStatistics.validate!(input[:task_statistics], context: "#{context}[:task_statistics]") unless input[:task_statistics].nil?
         Hearth::Validator.validate!(input[:scheduled_audit_name], ::String, context: "#{context}[:scheduled_audit_name]")
-        Validators::AuditDetails.validate!(input[:audit_details], context: "#{context}[:audit_details]") unless input[:audit_details].nil?
+        AuditDetails.validate!(input[:audit_details], context: "#{context}[:audit_details]") unless input[:audit_details].nil?
       end
     end
 
@@ -2274,7 +2276,7 @@ module AWS::SDK::IoT
     class DescribeAuthorizerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeAuthorizerOutput, context: context)
-        Validators::AuthorizerDescription.validate!(input[:authorizer_description], context: "#{context}[:authorizer_description]") unless input[:authorizer_description].nil?
+        AuthorizerDescription.validate!(input[:authorizer_description], context: "#{context}[:authorizer_description]") unless input[:authorizer_description].nil?
       end
     end
 
@@ -2292,8 +2294,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:billing_group_id], ::String, context: "#{context}[:billing_group_id]")
         Hearth::Validator.validate!(input[:billing_group_arn], ::String, context: "#{context}[:billing_group_arn]")
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
-        Validators::BillingGroupProperties.validate!(input[:billing_group_properties], context: "#{context}[:billing_group_properties]") unless input[:billing_group_properties].nil?
-        Validators::BillingGroupMetadata.validate!(input[:billing_group_metadata], context: "#{context}[:billing_group_metadata]") unless input[:billing_group_metadata].nil?
+        BillingGroupProperties.validate!(input[:billing_group_properties], context: "#{context}[:billing_group_properties]") unless input[:billing_group_properties].nil?
+        BillingGroupMetadata.validate!(input[:billing_group_metadata], context: "#{context}[:billing_group_metadata]") unless input[:billing_group_metadata].nil?
       end
     end
 
@@ -2307,8 +2309,8 @@ module AWS::SDK::IoT
     class DescribeCACertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCACertificateOutput, context: context)
-        Validators::CACertificateDescription.validate!(input[:certificate_description], context: "#{context}[:certificate_description]") unless input[:certificate_description].nil?
-        Validators::RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
+        CACertificateDescription.validate!(input[:certificate_description], context: "#{context}[:certificate_description]") unless input[:certificate_description].nil?
+        RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
       end
     end
 
@@ -2322,7 +2324,7 @@ module AWS::SDK::IoT
     class DescribeCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCertificateOutput, context: context)
-        Validators::CertificateDescription.validate!(input[:certificate_description], context: "#{context}[:certificate_description]") unless input[:certificate_description].nil?
+        CertificateDescription.validate!(input[:certificate_description], context: "#{context}[:certificate_description]") unless input[:certificate_description].nil?
       end
     end
 
@@ -2354,7 +2356,7 @@ module AWS::SDK::IoT
     class DescribeDefaultAuthorizerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDefaultAuthorizerOutput, context: context)
-        Validators::AuthorizerDescription.validate!(input[:authorizer_description], context: "#{context}[:authorizer_description]") unless input[:authorizer_description].nil?
+        AuthorizerDescription.validate!(input[:authorizer_description], context: "#{context}[:authorizer_description]") unless input[:authorizer_description].nil?
       end
     end
 
@@ -2368,7 +2370,7 @@ module AWS::SDK::IoT
     class DescribeDetectMitigationActionsTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDetectMitigationActionsTaskOutput, context: context)
-        Validators::DetectMitigationActionsTaskSummary.validate!(input[:task_summary], context: "#{context}[:task_summary]") unless input[:task_summary].nil?
+        DetectMitigationActionsTaskSummary.validate!(input[:task_summary], context: "#{context}[:task_summary]") unless input[:task_summary].nil?
       end
     end
 
@@ -2385,7 +2387,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
+        DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
       end
@@ -2404,8 +2406,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:domain_configuration_name], ::String, context: "#{context}[:domain_configuration_name]")
         Hearth::Validator.validate!(input[:domain_configuration_arn], ::String, context: "#{context}[:domain_configuration_arn]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ServerCertificates.validate!(input[:server_certificates], context: "#{context}[:server_certificates]") unless input[:server_certificates].nil?
-        Validators::AuthorizerConfig.validate!(input[:authorizer_config], context: "#{context}[:authorizer_config]") unless input[:authorizer_config].nil?
+        ServerCertificates.validate!(input[:server_certificates], context: "#{context}[:server_certificates]") unless input[:server_certificates].nil?
+        AuthorizerConfig.validate!(input[:authorizer_config], context: "#{context}[:authorizer_config]") unless input[:authorizer_config].nil?
         Hearth::Validator.validate!(input[:domain_configuration_status], ::String, context: "#{context}[:domain_configuration_status]")
         Hearth::Validator.validate!(input[:service_type], ::String, context: "#{context}[:service_type]")
         Hearth::Validator.validate!(input[:domain_type], ::String, context: "#{context}[:domain_type]")
@@ -2436,7 +2438,7 @@ module AWS::SDK::IoT
     class DescribeEventConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEventConfigurationsOutput, context: context)
-        Validators::EventConfigurations.validate!(input[:event_configurations], context: "#{context}[:event_configurations]") unless input[:event_configurations].nil?
+        EventConfigurations.validate!(input[:event_configurations], context: "#{context}[:event_configurations]") unless input[:event_configurations].nil?
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
       end
@@ -2454,7 +2456,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::DescribeFleetMetricOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::AggregationType.validate!(input[:aggregation_type], context: "#{context}[:aggregation_type]") unless input[:aggregation_type].nil?
+        AggregationType.validate!(input[:aggregation_type], context: "#{context}[:aggregation_type]") unless input[:aggregation_type].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:aggregation_field], ::String, context: "#{context}[:aggregation_field]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -2496,7 +2498,7 @@ module AWS::SDK::IoT
     class DescribeJobExecutionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobExecutionOutput, context: context)
-        Validators::JobExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
+        JobExecution.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
       end
     end
 
@@ -2511,7 +2513,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeJobOutput, context: context)
         Hearth::Validator.validate!(input[:document_source], ::String, context: "#{context}[:document_source]")
-        Validators::Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
+        Job.validate!(input[:job], context: "#{context}[:job]") unless input[:job].nil?
       end
     end
 
@@ -2531,11 +2533,11 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:document_source], ::String, context: "#{context}[:document_source]")
         Hearth::Validator.validate!(input[:document], ::String, context: "#{context}[:document]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
-        Validators::JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
-        Validators::AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
-        Validators::JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
+        PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
+        JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
+        AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
       end
     end
 
@@ -2554,8 +2556,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:template_arn], ::String, context: "#{context}[:template_arn]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:template_version], ::String, context: "#{context}[:template_version]")
-        Validators::Environments.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
-        Validators::DocumentParameters.validate!(input[:document_parameters], context: "#{context}[:document_parameters]") unless input[:document_parameters].nil?
+        Environments.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        DocumentParameters.validate!(input[:document_parameters], context: "#{context}[:document_parameters]") unless input[:document_parameters].nil?
         Hearth::Validator.validate!(input[:document], ::String, context: "#{context}[:document]")
       end
     end
@@ -2575,7 +2577,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:action_arn], ::String, context: "#{context}[:action_arn]")
         Hearth::Validator.validate!(input[:action_id], ::String, context: "#{context}[:action_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
+        MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
       end
@@ -2600,7 +2602,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:template_body], ::String, context: "#{context}[:template_body]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:provisioning_role_arn], ::String, context: "#{context}[:provisioning_role_arn]")
-        Validators::ProvisioningHook.validate!(input[:pre_provisioning_hook], context: "#{context}[:pre_provisioning_hook]") unless input[:pre_provisioning_hook].nil?
+        ProvisioningHook.validate!(input[:pre_provisioning_hook], context: "#{context}[:pre_provisioning_hook]") unless input[:pre_provisioning_hook].nil?
       end
     end
 
@@ -2632,7 +2634,7 @@ module AWS::SDK::IoT
     class DescribeRoleAliasOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRoleAliasOutput, context: context)
-        Validators::RoleAliasDescription.validate!(input[:role_alias_description], context: "#{context}[:role_alias_description]") unless input[:role_alias_description].nil?
+        RoleAliasDescription.validate!(input[:role_alias_description], context: "#{context}[:role_alias_description]") unless input[:role_alias_description].nil?
       end
     end
 
@@ -2649,7 +2651,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:frequency], ::String, context: "#{context}[:frequency]")
         Hearth::Validator.validate!(input[:day_of_month], ::String, context: "#{context}[:day_of_month]")
         Hearth::Validator.validate!(input[:day_of_week], ::String, context: "#{context}[:day_of_week]")
-        Validators::TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
+        TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
         Hearth::Validator.validate!(input[:scheduled_audit_name], ::String, context: "#{context}[:scheduled_audit_name]")
         Hearth::Validator.validate!(input[:scheduled_audit_arn], ::String, context: "#{context}[:scheduled_audit_arn]")
       end
@@ -2668,10 +2670,10 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
         Hearth::Validator.validate!(input[:security_profile_arn], ::String, context: "#{context}[:security_profile_arn]")
         Hearth::Validator.validate!(input[:security_profile_description], ::String, context: "#{context}[:security_profile_description]")
-        Validators::Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
-        Validators::AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
-        Validators::AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
-        Validators::AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
+        Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
+        AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
+        AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
+        AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
@@ -2688,7 +2690,7 @@ module AWS::SDK::IoT
     class DescribeStreamOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeStreamOutput, context: context)
-        Validators::StreamInfo.validate!(input[:stream_info], context: "#{context}[:stream_info]") unless input[:stream_info].nil?
+        StreamInfo.validate!(input[:stream_info], context: "#{context}[:stream_info]") unless input[:stream_info].nil?
       end
     end
 
@@ -2706,8 +2708,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_group_id], ::String, context: "#{context}[:thing_group_id]")
         Hearth::Validator.validate!(input[:thing_group_arn], ::String, context: "#{context}[:thing_group_arn]")
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
-        Validators::ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
-        Validators::ThingGroupMetadata.validate!(input[:thing_group_metadata], context: "#{context}[:thing_group_metadata]") unless input[:thing_group_metadata].nil?
+        ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
+        ThingGroupMetadata.validate!(input[:thing_group_metadata], context: "#{context}[:thing_group_metadata]") unless input[:thing_group_metadata].nil?
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:query_version], ::String, context: "#{context}[:query_version]")
@@ -2730,7 +2732,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_id], ::String, context: "#{context}[:thing_id]")
         Hearth::Validator.validate!(input[:thing_arn], ::String, context: "#{context}[:thing_arn]")
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:billing_group_name], ::String, context: "#{context}[:billing_group_name]")
       end
@@ -2774,15 +2776,15 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
         Hearth::Validator.validate!(input[:thing_type_id], ::String, context: "#{context}[:thing_type_id]")
         Hearth::Validator.validate!(input[:thing_type_arn], ::String, context: "#{context}[:thing_type_arn]")
-        Validators::ThingTypeProperties.validate!(input[:thing_type_properties], context: "#{context}[:thing_type_properties]") unless input[:thing_type_properties].nil?
-        Validators::ThingTypeMetadata.validate!(input[:thing_type_metadata], context: "#{context}[:thing_type_metadata]") unless input[:thing_type_metadata].nil?
+        ThingTypeProperties.validate!(input[:thing_type_properties], context: "#{context}[:thing_type_properties]") unless input[:thing_type_properties].nil?
+        ThingTypeMetadata.validate!(input[:thing_type_metadata], context: "#{context}[:thing_type_metadata]") unless input[:thing_type_metadata].nil?
       end
     end
 
     class Destination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Destination, context: context)
-        Validators::S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
+        S3Destination.validate!(input[:s3_destination], context: "#{context}[:s3_destination]") unless input[:s3_destination].nil?
       end
     end
 
@@ -2871,7 +2873,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DetectMitigationActionExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DetectMitigationActionExecution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2892,12 +2894,12 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:task_status], ::String, context: "#{context}[:task_status]")
         Hearth::Validator.validate!(input[:task_start_time], ::Time, context: "#{context}[:task_start_time]")
         Hearth::Validator.validate!(input[:task_end_time], ::Time, context: "#{context}[:task_end_time]")
-        Validators::DetectMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::ViolationEventOccurrenceRange.validate!(input[:violation_event_occurrence_range], context: "#{context}[:violation_event_occurrence_range]") unless input[:violation_event_occurrence_range].nil?
+        DetectMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        ViolationEventOccurrenceRange.validate!(input[:violation_event_occurrence_range], context: "#{context}[:violation_event_occurrence_range]") unless input[:violation_event_occurrence_range].nil?
         Hearth::Validator.validate!(input[:only_active_violations_included], ::TrueClass, ::FalseClass, context: "#{context}[:only_active_violations_included]")
         Hearth::Validator.validate!(input[:suppressed_alerts_included], ::TrueClass, ::FalseClass, context: "#{context}[:suppressed_alerts_included]")
-        Validators::MitigationActionList.validate!(input[:actions_definition], context: "#{context}[:actions_definition]") unless input[:actions_definition].nil?
-        Validators::DetectMitigationActionsTaskStatistics.validate!(input[:task_statistics], context: "#{context}[:task_statistics]") unless input[:task_statistics].nil?
+        MitigationActionList.validate!(input[:actions_definition], context: "#{context}[:actions_definition]") unless input[:actions_definition].nil?
+        DetectMitigationActionsTaskStatistics.validate!(input[:task_statistics], context: "#{context}[:task_statistics]") unless input[:task_statistics].nil?
       end
     end
 
@@ -2905,7 +2907,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DetectMitigationActionsTaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DetectMitigationActionsTaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2913,7 +2915,7 @@ module AWS::SDK::IoT
     class DetectMitigationActionsTaskTarget
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectMitigationActionsTaskTarget, context: context)
-        Validators::TargetViolationIdsForDetectMitigationActions.validate!(input[:violation_ids], context: "#{context}[:violation_ids]") unless input[:violation_ids].nil?
+        TargetViolationIdsForDetectMitigationActions.validate!(input[:violation_ids], context: "#{context}[:violation_ids]") unless input[:violation_ids].nil?
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
         Hearth::Validator.validate!(input[:behavior_name], ::String, context: "#{context}[:behavior_name]")
       end
@@ -2974,7 +2976,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DocumentParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DocumentParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2992,7 +2994,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainConfigurationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3017,7 +3019,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DynamoDBv2Action, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::PutItemInput.validate!(input[:put_item], context: "#{context}[:put_item]") unless input[:put_item].nil?
+        PutItemInput.validate!(input[:put_item], context: "#{context}[:put_item]") unless input[:put_item].nil?
       end
     end
 
@@ -3025,7 +3027,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EffectivePolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EffectivePolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3093,7 +3095,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Configuration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Configuration.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -3101,7 +3103,7 @@ module AWS::SDK::IoT
     class ExplicitDeny
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExplicitDeny, context: context)
-        Validators::Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
       end
     end
 
@@ -3110,7 +3112,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::ExponentialRolloutRate, context: context)
         Hearth::Validator.validate!(input[:base_rate_per_minute], ::Integer, context: "#{context}[:base_rate_per_minute]")
         Hearth::Validator.validate!(input[:increment_factor], ::Float, context: "#{context}[:increment_factor]")
-        Validators::RateIncreaseCriteria.validate!(input[:rate_increase_criteria], context: "#{context}[:rate_increase_criteria]") unless input[:rate_increase_criteria].nil?
+        RateIncreaseCriteria.validate!(input[:rate_increase_criteria], context: "#{context}[:rate_increase_criteria]") unless input[:rate_increase_criteria].nil?
       end
     end
 
@@ -3126,7 +3128,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Field.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Field.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3134,8 +3136,8 @@ module AWS::SDK::IoT
     class FileLocation
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FileLocation, context: context)
-        Validators::Stream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        Stream.validate!(input[:stream], context: "#{context}[:stream]") unless input[:stream].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -3170,7 +3172,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FleetMetricNameAndArn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FleetMetricNameAndArn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3187,7 +3189,7 @@ module AWS::SDK::IoT
     class GetBehaviorModelTrainingSummariesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBehaviorModelTrainingSummariesOutput, context: context)
-        Validators::BehaviorModelTrainingSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
+        BehaviorModelTrainingSummaries.validate!(input[:summaries], context: "#{context}[:summaries]") unless input[:summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3199,7 +3201,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:aggregation_field], ::String, context: "#{context}[:aggregation_field]")
         Hearth::Validator.validate!(input[:query_version], ::String, context: "#{context}[:query_version]")
-        Validators::BucketsAggregationType.validate!(input[:buckets_aggregation_type], context: "#{context}[:buckets_aggregation_type]") unless input[:buckets_aggregation_type].nil?
+        BucketsAggregationType.validate!(input[:buckets_aggregation_type], context: "#{context}[:buckets_aggregation_type]") unless input[:buckets_aggregation_type].nil?
       end
     end
 
@@ -3207,7 +3209,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBucketsAggregationOutput, context: context)
         Hearth::Validator.validate!(input[:total_count], ::Integer, context: "#{context}[:total_count]")
-        Validators::Buckets.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
+        Buckets.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
       end
     end
 
@@ -3240,7 +3242,7 @@ module AWS::SDK::IoT
     class GetEffectivePoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetEffectivePoliciesOutput, context: context)
-        Validators::EffectivePolicies.validate!(input[:effective_policies], context: "#{context}[:effective_policies]") unless input[:effective_policies].nil?
+        EffectivePolicies.validate!(input[:effective_policies], context: "#{context}[:effective_policies]") unless input[:effective_policies].nil?
       end
     end
 
@@ -3253,8 +3255,8 @@ module AWS::SDK::IoT
     class GetIndexingConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIndexingConfigurationOutput, context: context)
-        Validators::ThingIndexingConfiguration.validate!(input[:thing_indexing_configuration], context: "#{context}[:thing_indexing_configuration]") unless input[:thing_indexing_configuration].nil?
-        Validators::ThingGroupIndexingConfiguration.validate!(input[:thing_group_indexing_configuration], context: "#{context}[:thing_group_indexing_configuration]") unless input[:thing_group_indexing_configuration].nil?
+        ThingIndexingConfiguration.validate!(input[:thing_indexing_configuration], context: "#{context}[:thing_indexing_configuration]") unless input[:thing_indexing_configuration].nil?
+        ThingGroupIndexingConfiguration.validate!(input[:thing_group_indexing_configuration], context: "#{context}[:thing_group_indexing_configuration]") unless input[:thing_group_indexing_configuration].nil?
       end
     end
 
@@ -3296,7 +3298,7 @@ module AWS::SDK::IoT
     class GetOTAUpdateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOTAUpdateOutput, context: context)
-        Validators::OTAUpdateInfo.validate!(input[:ota_update_info], context: "#{context}[:ota_update_info]") unless input[:ota_update_info].nil?
+        OTAUpdateInfo.validate!(input[:ota_update_info], context: "#{context}[:ota_update_info]") unless input[:ota_update_info].nil?
       end
     end
 
@@ -3307,14 +3309,14 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
         Hearth::Validator.validate!(input[:aggregation_field], ::String, context: "#{context}[:aggregation_field]")
         Hearth::Validator.validate!(input[:query_version], ::String, context: "#{context}[:query_version]")
-        Validators::PercentList.validate!(input[:percents], context: "#{context}[:percents]") unless input[:percents].nil?
+        PercentList.validate!(input[:percents], context: "#{context}[:percents]") unless input[:percents].nil?
       end
     end
 
     class GetPercentilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetPercentilesOutput, context: context)
-        Validators::Percentiles.validate!(input[:percentiles], context: "#{context}[:percentiles]") unless input[:percentiles].nil?
+        Percentiles.validate!(input[:percentiles], context: "#{context}[:percentiles]") unless input[:percentiles].nil?
       end
     end
 
@@ -3386,7 +3388,7 @@ module AWS::SDK::IoT
     class GetStatisticsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStatisticsOutput, context: context)
-        Validators::Statistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        Statistics.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -3400,7 +3402,7 @@ module AWS::SDK::IoT
     class GetTopicRuleDestinationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTopicRuleDestinationOutput, context: context)
-        Validators::TopicRuleDestination.validate!(input[:topic_rule_destination], context: "#{context}[:topic_rule_destination]") unless input[:topic_rule_destination].nil?
+        TopicRuleDestination.validate!(input[:topic_rule_destination], context: "#{context}[:topic_rule_destination]") unless input[:topic_rule_destination].nil?
       end
     end
 
@@ -3415,7 +3417,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetTopicRuleOutput, context: context)
         Hearth::Validator.validate!(input[:rule_arn], ::String, context: "#{context}[:rule_arn]")
-        Validators::TopicRule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
+        TopicRule.validate!(input[:rule], context: "#{context}[:rule]") unless input[:rule].nil?
       end
     end
 
@@ -3446,7 +3448,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HttpActionHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HttpActionHeader.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3456,8 +3458,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::HttpAction, context: context)
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
         Hearth::Validator.validate!(input[:confirmation_url], ::String, context: "#{context}[:confirmation_url]")
-        Validators::HeaderList.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
-        Validators::HttpAuthorization.validate!(input[:auth], context: "#{context}[:auth]") unless input[:auth].nil?
+        HeaderList.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        HttpAuthorization.validate!(input[:auth], context: "#{context}[:auth]") unless input[:auth].nil?
       end
     end
 
@@ -3472,14 +3474,14 @@ module AWS::SDK::IoT
     class HttpAuthorization
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpAuthorization, context: context)
-        Validators::SigV4Authorization.validate!(input[:sigv4], context: "#{context}[:sigv4]") unless input[:sigv4].nil?
+        SigV4Authorization.validate!(input[:sigv4], context: "#{context}[:sigv4]") unless input[:sigv4].nil?
       end
     end
 
     class HttpContext
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HttpContext, context: context)
-        Validators::HttpHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
+        HttpHeaders.validate!(input[:headers], context: "#{context}[:headers]") unless input[:headers].nil?
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
       end
     end
@@ -3518,7 +3520,7 @@ module AWS::SDK::IoT
     class ImplicitDeny
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImplicitDeny, context: context)
-        Validators::Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
       end
     end
 
@@ -3617,7 +3619,7 @@ module AWS::SDK::IoT
     class IotSiteWiseAction
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IotSiteWiseAction, context: context)
-        Validators::PutAssetPropertyValueEntryList.validate!(input[:put_asset_property_value_entries], context: "#{context}[:put_asset_property_value_entries]") unless input[:put_asset_property_value_entries].nil?
+        PutAssetPropertyValueEntryList.validate!(input[:put_asset_property_value_entries], context: "#{context}[:put_asset_property_value_entries]") unless input[:put_asset_property_value_entries].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -3632,20 +3634,20 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:force_canceled], ::TrueClass, ::FalseClass, context: "#{context}[:force_canceled]")
         Hearth::Validator.validate!(input[:reason_code], ::String, context: "#{context}[:reason_code]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Validators::JobTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        JobTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
-        Validators::JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
-        Validators::AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
+        PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
+        JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
+        AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:completed_at], ::Time, context: "#{context}[:completed_at]")
-        Validators::JobProcessDetails.validate!(input[:job_process_details], context: "#{context}[:job_process_details]") unless input[:job_process_details].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        JobProcessDetails.validate!(input[:job_process_details], context: "#{context}[:job_process_details]") unless input[:job_process_details].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
         Hearth::Validator.validate!(input[:job_template_arn], ::String, context: "#{context}[:job_template_arn]")
-        Validators::JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
-        Validators::ParameterMap.validate!(input[:document_parameters], context: "#{context}[:document_parameters]") unless input[:document_parameters].nil?
+        JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
+        ParameterMap.validate!(input[:document_parameters], context: "#{context}[:document_parameters]") unless input[:document_parameters].nil?
         Hearth::Validator.validate!(input[:is_concurrent], ::TrueClass, ::FalseClass, context: "#{context}[:is_concurrent]")
       end
     end
@@ -3656,7 +3658,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:force_canceled], ::TrueClass, ::FalseClass, context: "#{context}[:force_canceled]")
-        Validators::JobExecutionStatusDetails.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
+        JobExecutionStatusDetails.validate!(input[:status_details], context: "#{context}[:status_details]") unless input[:status_details].nil?
         Hearth::Validator.validate!(input[:thing_arn], ::String, context: "#{context}[:thing_arn]")
         Hearth::Validator.validate!(input[:queued_at], ::Time, context: "#{context}[:queued_at]")
         Hearth::Validator.validate!(input[:started_at], ::Time, context: "#{context}[:started_at]")
@@ -3670,7 +3672,7 @@ module AWS::SDK::IoT
     class JobExecutionStatusDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobExecutionStatusDetails, context: context)
-        Validators::DetailsMap.validate!(input[:details_map], context: "#{context}[:details_map]") unless input[:details_map].nil?
+        DetailsMap.validate!(input[:details_map], context: "#{context}[:details_map]") unless input[:details_map].nil?
       end
     end
 
@@ -3690,7 +3692,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobExecutionSummaryForJob, context: context)
         Hearth::Validator.validate!(input[:thing_arn], ::String, context: "#{context}[:thing_arn]")
-        Validators::JobExecutionSummary.validate!(input[:job_execution_summary], context: "#{context}[:job_execution_summary]") unless input[:job_execution_summary].nil?
+        JobExecutionSummary.validate!(input[:job_execution_summary], context: "#{context}[:job_execution_summary]") unless input[:job_execution_summary].nil?
       end
     end
 
@@ -3698,7 +3700,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobExecutionSummaryForJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobExecutionSummaryForJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3707,7 +3709,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobExecutionSummaryForThing, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
-        Validators::JobExecutionSummary.validate!(input[:job_execution_summary], context: "#{context}[:job_execution_summary]") unless input[:job_execution_summary].nil?
+        JobExecutionSummary.validate!(input[:job_execution_summary], context: "#{context}[:job_execution_summary]") unless input[:job_execution_summary].nil?
       end
     end
 
@@ -3715,7 +3717,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobExecutionSummaryForThing.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobExecutionSummaryForThing.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3723,7 +3725,7 @@ module AWS::SDK::IoT
     class JobExecutionsRetryConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobExecutionsRetryConfig, context: context)
-        Validators::RetryCriteriaList.validate!(input[:criteria_list], context: "#{context}[:criteria_list]") unless input[:criteria_list].nil?
+        RetryCriteriaList.validate!(input[:criteria_list], context: "#{context}[:criteria_list]") unless input[:criteria_list].nil?
       end
     end
 
@@ -3731,14 +3733,14 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobExecutionsRolloutConfig, context: context)
         Hearth::Validator.validate!(input[:maximum_per_minute], ::Integer, context: "#{context}[:maximum_per_minute]")
-        Validators::ExponentialRolloutRate.validate!(input[:exponential_rate], context: "#{context}[:exponential_rate]") unless input[:exponential_rate].nil?
+        ExponentialRolloutRate.validate!(input[:exponential_rate], context: "#{context}[:exponential_rate]") unless input[:exponential_rate].nil?
       end
     end
 
     class JobProcessDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::JobProcessDetails, context: context)
-        Validators::ProcessingTargetNameList.validate!(input[:processing_targets], context: "#{context}[:processing_targets]") unless input[:processing_targets].nil?
+        ProcessingTargetNameList.validate!(input[:processing_targets], context: "#{context}[:processing_targets]") unless input[:processing_targets].nil?
         Hearth::Validator.validate!(input[:number_of_canceled_things], ::Integer, context: "#{context}[:number_of_canceled_things]")
         Hearth::Validator.validate!(input[:number_of_succeeded_things], ::Integer, context: "#{context}[:number_of_succeeded_things]")
         Hearth::Validator.validate!(input[:number_of_failed_things], ::Integer, context: "#{context}[:number_of_failed_things]")
@@ -3769,7 +3771,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3797,7 +3799,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::JobTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          JobTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3809,7 +3811,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:topic], ::String, context: "#{context}[:topic]")
         Hearth::Validator.validate!(input[:key], ::String, context: "#{context}[:key]")
         Hearth::Validator.validate!(input[:partition], ::String, context: "#{context}[:partition]")
-        Validators::ClientProperties.validate!(input[:client_properties], context: "#{context}[:client_properties]") unless input[:client_properties].nil?
+        ClientProperties.validate!(input[:client_properties], context: "#{context}[:client_properties]") unless input[:client_properties].nil?
       end
     end
 
@@ -3860,7 +3862,7 @@ module AWS::SDK::IoT
     class ListActiveViolationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListActiveViolationsOutput, context: context)
-        Validators::ActiveViolations.validate!(input[:active_violations], context: "#{context}[:active_violations]") unless input[:active_violations].nil?
+        ActiveViolations.validate!(input[:active_violations], context: "#{context}[:active_violations]") unless input[:active_violations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3878,7 +3880,7 @@ module AWS::SDK::IoT
     class ListAttachedPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttachedPoliciesOutput, context: context)
-        Validators::Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -3888,7 +3890,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::ListAuditFindingsInput, context: context)
         Hearth::Validator.validate!(input[:task_id], ::String, context: "#{context}[:task_id]")
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
@@ -3900,7 +3902,7 @@ module AWS::SDK::IoT
     class ListAuditFindingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuditFindingsOutput, context: context)
-        Validators::AuditFindings.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
+        AuditFindings.validate!(input[:findings], context: "#{context}[:findings]") unless input[:findings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3919,7 +3921,7 @@ module AWS::SDK::IoT
     class ListAuditMitigationActionsExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuditMitigationActionsExecutionsOutput, context: context)
-        Validators::AuditMitigationActionExecutionMetadataList.validate!(input[:actions_executions], context: "#{context}[:actions_executions]") unless input[:actions_executions].nil?
+        AuditMitigationActionExecutionMetadataList.validate!(input[:actions_executions], context: "#{context}[:actions_executions]") unless input[:actions_executions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3940,7 +3942,7 @@ module AWS::SDK::IoT
     class ListAuditMitigationActionsTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuditMitigationActionsTasksOutput, context: context)
-        Validators::AuditMitigationActionsTaskMetadataList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        AuditMitigationActionsTaskMetadataList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3949,7 +3951,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuditSuppressionsInput, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
         Hearth::Validator.validate!(input[:ascending_order], ::TrueClass, ::FalseClass, context: "#{context}[:ascending_order]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
@@ -3959,7 +3961,7 @@ module AWS::SDK::IoT
     class ListAuditSuppressionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuditSuppressionsOutput, context: context)
-        Validators::AuditSuppressionList.validate!(input[:suppressions], context: "#{context}[:suppressions]") unless input[:suppressions].nil?
+        AuditSuppressionList.validate!(input[:suppressions], context: "#{context}[:suppressions]") unless input[:suppressions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3979,7 +3981,7 @@ module AWS::SDK::IoT
     class ListAuditTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuditTasksOutput, context: context)
-        Validators::AuditTaskMetadataList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        AuditTaskMetadataList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -3997,7 +3999,7 @@ module AWS::SDK::IoT
     class ListAuthorizersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAuthorizersOutput, context: context)
-        Validators::Authorizers.validate!(input[:authorizers], context: "#{context}[:authorizers]") unless input[:authorizers].nil?
+        Authorizers.validate!(input[:authorizers], context: "#{context}[:authorizers]") unless input[:authorizers].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4014,7 +4016,7 @@ module AWS::SDK::IoT
     class ListBillingGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBillingGroupsOutput, context: context)
-        Validators::BillingGroupNameAndArnList.validate!(input[:billing_groups], context: "#{context}[:billing_groups]") unless input[:billing_groups].nil?
+        BillingGroupNameAndArnList.validate!(input[:billing_groups], context: "#{context}[:billing_groups]") unless input[:billing_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4031,7 +4033,7 @@ module AWS::SDK::IoT
     class ListCACertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCACertificatesOutput, context: context)
-        Validators::CACertificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CACertificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4049,7 +4051,7 @@ module AWS::SDK::IoT
     class ListCertificatesByCAOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCertificatesByCAOutput, context: context)
-        Validators::Certificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        Certificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4066,7 +4068,7 @@ module AWS::SDK::IoT
     class ListCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCertificatesOutput, context: context)
-        Validators::Certificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        Certificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4082,7 +4084,7 @@ module AWS::SDK::IoT
     class ListCustomMetricsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCustomMetricsOutput, context: context)
-        Validators::MetricNames.validate!(input[:metric_names], context: "#{context}[:metric_names]") unless input[:metric_names].nil?
+        MetricNames.validate!(input[:metric_names], context: "#{context}[:metric_names]") unless input[:metric_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4103,7 +4105,7 @@ module AWS::SDK::IoT
     class ListDetectMitigationActionsExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDetectMitigationActionsExecutionsOutput, context: context)
-        Validators::DetectMitigationActionExecutionList.validate!(input[:actions_executions], context: "#{context}[:actions_executions]") unless input[:actions_executions].nil?
+        DetectMitigationActionExecutionList.validate!(input[:actions_executions], context: "#{context}[:actions_executions]") unless input[:actions_executions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4121,7 +4123,7 @@ module AWS::SDK::IoT
     class ListDetectMitigationActionsTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDetectMitigationActionsTasksOutput, context: context)
-        Validators::DetectMitigationActionsTaskSummaryList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        DetectMitigationActionsTaskSummaryList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4137,7 +4139,7 @@ module AWS::SDK::IoT
     class ListDimensionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDimensionsOutput, context: context)
-        Validators::DimensionNames.validate!(input[:dimension_names], context: "#{context}[:dimension_names]") unless input[:dimension_names].nil?
+        DimensionNames.validate!(input[:dimension_names], context: "#{context}[:dimension_names]") unless input[:dimension_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4154,7 +4156,7 @@ module AWS::SDK::IoT
     class ListDomainConfigurationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDomainConfigurationsOutput, context: context)
-        Validators::DomainConfigurations.validate!(input[:domain_configurations], context: "#{context}[:domain_configurations]") unless input[:domain_configurations].nil?
+        DomainConfigurations.validate!(input[:domain_configurations], context: "#{context}[:domain_configurations]") unless input[:domain_configurations].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4170,7 +4172,7 @@ module AWS::SDK::IoT
     class ListFleetMetricsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFleetMetricsOutput, context: context)
-        Validators::FleetMetricNameAndArnList.validate!(input[:fleet_metrics], context: "#{context}[:fleet_metrics]") unless input[:fleet_metrics].nil?
+        FleetMetricNameAndArnList.validate!(input[:fleet_metrics], context: "#{context}[:fleet_metrics]") unless input[:fleet_metrics].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4186,7 +4188,7 @@ module AWS::SDK::IoT
     class ListIndicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListIndicesOutput, context: context)
-        Validators::IndexNamesList.validate!(input[:index_names], context: "#{context}[:index_names]") unless input[:index_names].nil?
+        IndexNamesList.validate!(input[:index_names], context: "#{context}[:index_names]") unless input[:index_names].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4204,7 +4206,7 @@ module AWS::SDK::IoT
     class ListJobExecutionsForJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobExecutionsForJobOutput, context: context)
-        Validators::JobExecutionSummaryForJobList.validate!(input[:execution_summaries], context: "#{context}[:execution_summaries]") unless input[:execution_summaries].nil?
+        JobExecutionSummaryForJobList.validate!(input[:execution_summaries], context: "#{context}[:execution_summaries]") unless input[:execution_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4224,7 +4226,7 @@ module AWS::SDK::IoT
     class ListJobExecutionsForThingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobExecutionsForThingOutput, context: context)
-        Validators::JobExecutionSummaryForThingList.validate!(input[:execution_summaries], context: "#{context}[:execution_summaries]") unless input[:execution_summaries].nil?
+        JobExecutionSummaryForThingList.validate!(input[:execution_summaries], context: "#{context}[:execution_summaries]") unless input[:execution_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4240,7 +4242,7 @@ module AWS::SDK::IoT
     class ListJobTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobTemplatesOutput, context: context)
-        Validators::JobTemplateSummaryList.validate!(input[:job_templates], context: "#{context}[:job_templates]") unless input[:job_templates].nil?
+        JobTemplateSummaryList.validate!(input[:job_templates], context: "#{context}[:job_templates]") unless input[:job_templates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4261,7 +4263,7 @@ module AWS::SDK::IoT
     class ListJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListJobsOutput, context: context)
-        Validators::JobSummaryList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        JobSummaryList.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4278,7 +4280,7 @@ module AWS::SDK::IoT
     class ListManagedJobTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListManagedJobTemplatesOutput, context: context)
-        Validators::ManagedJobTemplatesSummaryList.validate!(input[:managed_job_templates], context: "#{context}[:managed_job_templates]") unless input[:managed_job_templates].nil?
+        ManagedJobTemplatesSummaryList.validate!(input[:managed_job_templates], context: "#{context}[:managed_job_templates]") unless input[:managed_job_templates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4300,7 +4302,7 @@ module AWS::SDK::IoT
     class ListMetricValuesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMetricValuesOutput, context: context)
-        Validators::MetricDatumList.validate!(input[:metric_datum_list], context: "#{context}[:metric_datum_list]") unless input[:metric_datum_list].nil?
+        MetricDatumList.validate!(input[:metric_datum_list], context: "#{context}[:metric_datum_list]") unless input[:metric_datum_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4317,7 +4319,7 @@ module AWS::SDK::IoT
     class ListMitigationActionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListMitigationActionsOutput, context: context)
-        Validators::MitigationActionIdentifierList.validate!(input[:action_identifiers], context: "#{context}[:action_identifiers]") unless input[:action_identifiers].nil?
+        MitigationActionIdentifierList.validate!(input[:action_identifiers], context: "#{context}[:action_identifiers]") unless input[:action_identifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4334,7 +4336,7 @@ module AWS::SDK::IoT
     class ListOTAUpdatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOTAUpdatesOutput, context: context)
-        Validators::OTAUpdatesSummary.validate!(input[:ota_updates], context: "#{context}[:ota_updates]") unless input[:ota_updates].nil?
+        OTAUpdatesSummary.validate!(input[:ota_updates], context: "#{context}[:ota_updates]") unless input[:ota_updates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4351,7 +4353,7 @@ module AWS::SDK::IoT
     class ListOutgoingCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListOutgoingCertificatesOutput, context: context)
-        Validators::OutgoingCertificates.validate!(input[:outgoing_certificates], context: "#{context}[:outgoing_certificates]") unless input[:outgoing_certificates].nil?
+        OutgoingCertificates.validate!(input[:outgoing_certificates], context: "#{context}[:outgoing_certificates]") unless input[:outgoing_certificates].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4368,7 +4370,7 @@ module AWS::SDK::IoT
     class ListPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPoliciesOutput, context: context)
-        Validators::Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4386,7 +4388,7 @@ module AWS::SDK::IoT
     class ListPolicyPrincipalsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyPrincipalsOutput, context: context)
-        Validators::Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4401,7 +4403,7 @@ module AWS::SDK::IoT
     class ListPolicyVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPolicyVersionsOutput, context: context)
-        Validators::PolicyVersions.validate!(input[:policy_versions], context: "#{context}[:policy_versions]") unless input[:policy_versions].nil?
+        PolicyVersions.validate!(input[:policy_versions], context: "#{context}[:policy_versions]") unless input[:policy_versions].nil?
       end
     end
 
@@ -4418,7 +4420,7 @@ module AWS::SDK::IoT
     class ListPrincipalPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPrincipalPoliciesOutput, context: context)
-        Validators::Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
+        Policies.validate!(input[:policies], context: "#{context}[:policies]") unless input[:policies].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4435,7 +4437,7 @@ module AWS::SDK::IoT
     class ListPrincipalThingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPrincipalThingsOutput, context: context)
-        Validators::ThingNameList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
+        ThingNameList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4452,7 +4454,7 @@ module AWS::SDK::IoT
     class ListProvisioningTemplateVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProvisioningTemplateVersionsOutput, context: context)
-        Validators::ProvisioningTemplateVersionListing.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        ProvisioningTemplateVersionListing.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4468,7 +4470,7 @@ module AWS::SDK::IoT
     class ListProvisioningTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListProvisioningTemplatesOutput, context: context)
-        Validators::ProvisioningTemplateListing.validate!(input[:templates], context: "#{context}[:templates]") unless input[:templates].nil?
+        ProvisioningTemplateListing.validate!(input[:templates], context: "#{context}[:templates]") unless input[:templates].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4485,7 +4487,7 @@ module AWS::SDK::IoT
     class ListRoleAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRoleAliasesOutput, context: context)
-        Validators::RoleAliases.validate!(input[:role_aliases], context: "#{context}[:role_aliases]") unless input[:role_aliases].nil?
+        RoleAliases.validate!(input[:role_aliases], context: "#{context}[:role_aliases]") unless input[:role_aliases].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4501,7 +4503,7 @@ module AWS::SDK::IoT
     class ListScheduledAuditsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListScheduledAuditsOutput, context: context)
-        Validators::ScheduledAuditMetadataList.validate!(input[:scheduled_audits], context: "#{context}[:scheduled_audits]") unless input[:scheduled_audits].nil?
+        ScheduledAuditMetadataList.validate!(input[:scheduled_audits], context: "#{context}[:scheduled_audits]") unless input[:scheduled_audits].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4519,7 +4521,7 @@ module AWS::SDK::IoT
     class ListSecurityProfilesForTargetOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSecurityProfilesForTargetOutput, context: context)
-        Validators::SecurityProfileTargetMappings.validate!(input[:security_profile_target_mappings], context: "#{context}[:security_profile_target_mappings]") unless input[:security_profile_target_mappings].nil?
+        SecurityProfileTargetMappings.validate!(input[:security_profile_target_mappings], context: "#{context}[:security_profile_target_mappings]") unless input[:security_profile_target_mappings].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4537,7 +4539,7 @@ module AWS::SDK::IoT
     class ListSecurityProfilesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSecurityProfilesOutput, context: context)
-        Validators::SecurityProfileIdentifiers.validate!(input[:security_profile_identifiers], context: "#{context}[:security_profile_identifiers]") unless input[:security_profile_identifiers].nil?
+        SecurityProfileIdentifiers.validate!(input[:security_profile_identifiers], context: "#{context}[:security_profile_identifiers]") unless input[:security_profile_identifiers].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4554,7 +4556,7 @@ module AWS::SDK::IoT
     class ListStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListStreamsOutput, context: context)
-        Validators::StreamsSummary.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
+        StreamsSummary.validate!(input[:streams], context: "#{context}[:streams]") unless input[:streams].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4570,7 +4572,7 @@ module AWS::SDK::IoT
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4587,7 +4589,7 @@ module AWS::SDK::IoT
     class ListTargetsForPolicyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTargetsForPolicyOutput, context: context)
-        Validators::PolicyTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        PolicyTargets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
       end
     end
@@ -4604,7 +4606,7 @@ module AWS::SDK::IoT
     class ListTargetsForSecurityProfileOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTargetsForSecurityProfileOutput, context: context)
-        Validators::SecurityProfileTargets.validate!(input[:security_profile_targets], context: "#{context}[:security_profile_targets]") unless input[:security_profile_targets].nil?
+        SecurityProfileTargets.validate!(input[:security_profile_targets], context: "#{context}[:security_profile_targets]") unless input[:security_profile_targets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4621,7 +4623,7 @@ module AWS::SDK::IoT
     class ListThingGroupsForThingOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingGroupsForThingOutput, context: context)
-        Validators::ThingGroupNameAndArnList.validate!(input[:thing_groups], context: "#{context}[:thing_groups]") unless input[:thing_groups].nil?
+        ThingGroupNameAndArnList.validate!(input[:thing_groups], context: "#{context}[:thing_groups]") unless input[:thing_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4640,7 +4642,7 @@ module AWS::SDK::IoT
     class ListThingGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingGroupsOutput, context: context)
-        Validators::ThingGroupNameAndArnList.validate!(input[:thing_groups], context: "#{context}[:thing_groups]") unless input[:thing_groups].nil?
+        ThingGroupNameAndArnList.validate!(input[:thing_groups], context: "#{context}[:thing_groups]") unless input[:thing_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4657,7 +4659,7 @@ module AWS::SDK::IoT
     class ListThingPrincipalsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingPrincipalsOutput, context: context)
-        Validators::Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
+        Principals.validate!(input[:principals], context: "#{context}[:principals]") unless input[:principals].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4675,7 +4677,7 @@ module AWS::SDK::IoT
     class ListThingRegistrationTaskReportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingRegistrationTaskReportsOutput, context: context)
-        Validators::S3FileUrlList.validate!(input[:resource_links], context: "#{context}[:resource_links]") unless input[:resource_links].nil?
+        S3FileUrlList.validate!(input[:resource_links], context: "#{context}[:resource_links]") unless input[:resource_links].nil?
         Hearth::Validator.validate!(input[:report_type], ::String, context: "#{context}[:report_type]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -4693,7 +4695,7 @@ module AWS::SDK::IoT
     class ListThingRegistrationTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingRegistrationTasksOutput, context: context)
-        Validators::TaskIdList.validate!(input[:task_ids], context: "#{context}[:task_ids]") unless input[:task_ids].nil?
+        TaskIdList.validate!(input[:task_ids], context: "#{context}[:task_ids]") unless input[:task_ids].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4710,7 +4712,7 @@ module AWS::SDK::IoT
     class ListThingTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingTypesOutput, context: context)
-        Validators::ThingTypeList.validate!(input[:thing_types], context: "#{context}[:thing_types]") unless input[:thing_types].nil?
+        ThingTypeList.validate!(input[:thing_types], context: "#{context}[:thing_types]") unless input[:thing_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4727,7 +4729,7 @@ module AWS::SDK::IoT
     class ListThingsInBillingGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingsInBillingGroupOutput, context: context)
-        Validators::ThingNameList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
+        ThingNameList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4745,7 +4747,7 @@ module AWS::SDK::IoT
     class ListThingsInThingGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingsInThingGroupOutput, context: context)
-        Validators::ThingNameList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
+        ThingNameList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4765,7 +4767,7 @@ module AWS::SDK::IoT
     class ListThingsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListThingsOutput, context: context)
-        Validators::ThingAttributeList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
+        ThingAttributeList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4781,7 +4783,7 @@ module AWS::SDK::IoT
     class ListTopicRuleDestinationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTopicRuleDestinationsOutput, context: context)
-        Validators::TopicRuleDestinationSummaries.validate!(input[:destination_summaries], context: "#{context}[:destination_summaries]") unless input[:destination_summaries].nil?
+        TopicRuleDestinationSummaries.validate!(input[:destination_summaries], context: "#{context}[:destination_summaries]") unless input[:destination_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4799,7 +4801,7 @@ module AWS::SDK::IoT
     class ListTopicRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTopicRulesOutput, context: context)
-        Validators::TopicRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        TopicRuleList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4816,7 +4818,7 @@ module AWS::SDK::IoT
     class ListV2LoggingLevelsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListV2LoggingLevelsOutput, context: context)
-        Validators::LogTargetConfigurations.validate!(input[:log_target_configurations], context: "#{context}[:log_target_configurations]") unless input[:log_target_configurations].nil?
+        LogTargetConfigurations.validate!(input[:log_target_configurations], context: "#{context}[:log_target_configurations]") unless input[:log_target_configurations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4839,7 +4841,7 @@ module AWS::SDK::IoT
     class ListViolationEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListViolationEventsOutput, context: context)
-        Validators::ViolationEvents.validate!(input[:violation_events], context: "#{context}[:violation_events]") unless input[:violation_events].nil?
+        ViolationEvents.validate!(input[:violation_events], context: "#{context}[:violation_events]") unless input[:violation_events].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -4855,7 +4857,7 @@ module AWS::SDK::IoT
     class LogTargetConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LogTargetConfiguration, context: context)
-        Validators::LogTarget.validate!(input[:log_target], context: "#{context}[:log_target]") unless input[:log_target].nil?
+        LogTarget.validate!(input[:log_target], context: "#{context}[:log_target]") unless input[:log_target].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
       end
     end
@@ -4864,7 +4866,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogTargetConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogTargetConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4897,7 +4899,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:template_arn], ::String, context: "#{context}[:template_arn]")
         Hearth::Validator.validate!(input[:template_name], ::String, context: "#{context}[:template_name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Environments.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
+        Environments.validate!(input[:environments], context: "#{context}[:environments]") unless input[:environments].nil?
         Hearth::Validator.validate!(input[:template_version], ::String, context: "#{context}[:template_version]")
       end
     end
@@ -4906,7 +4908,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ManagedJobTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ManagedJobTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4915,7 +4917,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricDatum, context: context)
         Hearth::Validator.validate!(input[:timestamp], ::Time, context: "#{context}[:timestamp]")
-        Validators::MetricValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
+        MetricValue.validate!(input[:value], context: "#{context}[:value]") unless input[:value].nil?
       end
     end
 
@@ -4923,7 +4925,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDatum.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4949,7 +4951,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricToRetain, context: context)
         Hearth::Validator.validate!(input[:metric], ::String, context: "#{context}[:metric]")
-        Validators::MetricDimension.validate!(input[:metric_dimension], context: "#{context}[:metric_dimension]") unless input[:metric_dimension].nil?
+        MetricDimension.validate!(input[:metric_dimension], context: "#{context}[:metric_dimension]") unless input[:metric_dimension].nil?
       end
     end
 
@@ -4957,11 +4959,11 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MetricValue, context: context)
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
-        Validators::Cidrs.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
-        Validators::Ports.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
+        Cidrs.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
+        Ports.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
         Hearth::Validator.validate!(input[:number], ::Float, context: "#{context}[:number]")
-        Validators::NumberList.validate!(input[:numbers], context: "#{context}[:numbers]") unless input[:numbers].nil?
-        Validators::StringList.validate!(input[:strings], context: "#{context}[:strings]") unless input[:strings].nil?
+        NumberList.validate!(input[:numbers], context: "#{context}[:numbers]") unless input[:numbers].nil?
+        StringList.validate!(input[:strings], context: "#{context}[:strings]") unless input[:strings].nil?
       end
     end
 
@@ -4980,7 +4982,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
+        MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
       end
     end
 
@@ -4997,7 +4999,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MitigationActionIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MitigationActionIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5006,7 +5008,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MitigationAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MitigationAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5023,12 +5025,12 @@ module AWS::SDK::IoT
     class MitigationActionParams
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::MitigationActionParams, context: context)
-        Validators::UpdateDeviceCertificateParams.validate!(input[:update_device_certificate_params], context: "#{context}[:update_device_certificate_params]") unless input[:update_device_certificate_params].nil?
-        Validators::UpdateCACertificateParams.validate!(input[:update_ca_certificate_params], context: "#{context}[:update_ca_certificate_params]") unless input[:update_ca_certificate_params].nil?
-        Validators::AddThingsToThingGroupParams.validate!(input[:add_things_to_thing_group_params], context: "#{context}[:add_things_to_thing_group_params]") unless input[:add_things_to_thing_group_params].nil?
-        Validators::ReplaceDefaultPolicyVersionParams.validate!(input[:replace_default_policy_version_params], context: "#{context}[:replace_default_policy_version_params]") unless input[:replace_default_policy_version_params].nil?
-        Validators::EnableIoTLoggingParams.validate!(input[:enable_io_t_logging_params], context: "#{context}[:enable_io_t_logging_params]") unless input[:enable_io_t_logging_params].nil?
-        Validators::PublishFindingToSnsParams.validate!(input[:publish_finding_to_sns_params], context: "#{context}[:publish_finding_to_sns_params]") unless input[:publish_finding_to_sns_params].nil?
+        UpdateDeviceCertificateParams.validate!(input[:update_device_certificate_params], context: "#{context}[:update_device_certificate_params]") unless input[:update_device_certificate_params].nil?
+        UpdateCACertificateParams.validate!(input[:update_ca_certificate_params], context: "#{context}[:update_ca_certificate_params]") unless input[:update_ca_certificate_params].nil?
+        AddThingsToThingGroupParams.validate!(input[:add_things_to_thing_group_params], context: "#{context}[:add_things_to_thing_group_params]") unless input[:add_things_to_thing_group_params].nil?
+        ReplaceDefaultPolicyVersionParams.validate!(input[:replace_default_policy_version_params], context: "#{context}[:replace_default_policy_version_params]") unless input[:replace_default_policy_version_params].nil?
+        EnableIoTLoggingParams.validate!(input[:enable_io_t_logging_params], context: "#{context}[:enable_io_t_logging_params]") unless input[:enable_io_t_logging_params].nil?
+        PublishFindingToSnsParams.validate!(input[:publish_finding_to_sns_params], context: "#{context}[:publish_finding_to_sns_params]") unless input[:publish_finding_to_sns_params].nil?
       end
     end
 
@@ -5045,8 +5047,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::NonCompliantResource, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
-        Validators::StringMap.validate!(input[:additional_info], context: "#{context}[:additional_info]") unless input[:additional_info].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        StringMap.validate!(input[:additional_info], context: "#{context}[:additional_info]") unless input[:additional_info].nil?
       end
     end
 
@@ -5072,9 +5074,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:file_name], ::String, context: "#{context}[:file_name]")
         Hearth::Validator.validate!(input[:file_type], ::Integer, context: "#{context}[:file_type]")
         Hearth::Validator.validate!(input[:file_version], ::String, context: "#{context}[:file_version]")
-        Validators::FileLocation.validate!(input[:file_location], context: "#{context}[:file_location]") unless input[:file_location].nil?
-        Validators::CodeSigning.validate!(input[:code_signing], context: "#{context}[:code_signing]") unless input[:code_signing].nil?
-        Validators::AttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        FileLocation.validate!(input[:file_location], context: "#{context}[:file_location]") unless input[:file_location].nil?
+        CodeSigning.validate!(input[:code_signing], context: "#{context}[:code_signing]") unless input[:code_signing].nil?
+        AttributesMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -5082,7 +5084,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OTAUpdateFile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OTAUpdateFile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5095,17 +5097,17 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
-        Validators::AwsJobExecutionsRolloutConfig.validate!(input[:aws_job_executions_rollout_config], context: "#{context}[:aws_job_executions_rollout_config]") unless input[:aws_job_executions_rollout_config].nil?
-        Validators::AwsJobPresignedUrlConfig.validate!(input[:aws_job_presigned_url_config], context: "#{context}[:aws_job_presigned_url_config]") unless input[:aws_job_presigned_url_config].nil?
+        Targets.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        Protocols.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        AwsJobExecutionsRolloutConfig.validate!(input[:aws_job_executions_rollout_config], context: "#{context}[:aws_job_executions_rollout_config]") unless input[:aws_job_executions_rollout_config].nil?
+        AwsJobPresignedUrlConfig.validate!(input[:aws_job_presigned_url_config], context: "#{context}[:aws_job_presigned_url_config]") unless input[:aws_job_presigned_url_config].nil?
         Hearth::Validator.validate!(input[:target_selection], ::String, context: "#{context}[:target_selection]")
-        Validators::OTAUpdateFiles.validate!(input[:ota_update_files], context: "#{context}[:ota_update_files]") unless input[:ota_update_files].nil?
+        OTAUpdateFiles.validate!(input[:ota_update_files], context: "#{context}[:ota_update_files]") unless input[:ota_update_files].nil?
         Hearth::Validator.validate!(input[:ota_update_status], ::String, context: "#{context}[:ota_update_status]")
         Hearth::Validator.validate!(input[:aws_iot_job_id], ::String, context: "#{context}[:aws_iot_job_id]")
         Hearth::Validator.validate!(input[:aws_iot_job_arn], ::String, context: "#{context}[:aws_iot_job_arn]")
-        Validators::ErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
-        Validators::AdditionalParameterMap.validate!(input[:additional_parameters], context: "#{context}[:additional_parameters]") unless input[:additional_parameters].nil?
+        ErrorInfo.validate!(input[:error_info], context: "#{context}[:error_info]") unless input[:error_info].nil?
+        AdditionalParameterMap.validate!(input[:additional_parameters], context: "#{context}[:additional_parameters]") unless input[:additional_parameters].nil?
       end
     end
 
@@ -5122,7 +5124,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OTAUpdateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OTAUpdateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5154,7 +5156,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutgoingCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutgoingCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5200,7 +5202,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PercentPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PercentPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5209,7 +5211,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Policy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Policy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5270,7 +5272,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PolicyVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PolicyVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5331,7 +5333,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningTemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5352,7 +5354,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ProvisioningTemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ProvisioningTemplateVersionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5390,7 +5392,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:asset_id], ::String, context: "#{context}[:asset_id]")
         Hearth::Validator.validate!(input[:property_id], ::String, context: "#{context}[:property_id]")
         Hearth::Validator.validate!(input[:property_alias], ::String, context: "#{context}[:property_alias]")
-        Validators::AssetPropertyValueList.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
+        AssetPropertyValueList.validate!(input[:property_values], context: "#{context}[:property_values]") unless input[:property_values].nil?
       end
     end
 
@@ -5398,7 +5400,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PutAssetPropertyValueEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PutAssetPropertyValueEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5449,8 +5451,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:verification_certificate], ::String, context: "#{context}[:verification_certificate]")
         Hearth::Validator.validate!(input[:set_as_active], ::TrueClass, ::FalseClass, context: "#{context}[:set_as_active]")
         Hearth::Validator.validate!(input[:allow_auto_registration], ::TrueClass, ::FalseClass, context: "#{context}[:allow_auto_registration]")
-        Validators::RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -5500,7 +5502,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterThingInput, context: context)
         Hearth::Validator.validate!(input[:template_body], ::String, context: "#{context}[:template_body]")
-        Validators::Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        Parameters.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
@@ -5508,7 +5510,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterThingOutput, context: context)
         Hearth::Validator.validate!(input[:certificate_pem], ::String, context: "#{context}[:certificate_pem]")
-        Validators::ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
+        ResourceArns.validate!(input[:resource_arns], context: "#{context}[:resource_arns]") unless input[:resource_arns].nil?
       end
     end
 
@@ -5545,8 +5547,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RelatedResource, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
-        Validators::StringMap.validate!(input[:additional_info], context: "#{context}[:additional_info]") unless input[:additional_info].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        StringMap.validate!(input[:additional_info], context: "#{context}[:additional_info]") unless input[:additional_info].nil?
       end
     end
 
@@ -5554,7 +5556,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelatedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelatedResource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5602,7 +5604,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReplaceTopicRuleInput, context: context)
         Hearth::Validator.validate!(input[:rule_name], ::String, context: "#{context}[:rule_name]")
-        Validators::TopicRulePayload.validate!(input[:topic_rule_payload], context: "#{context}[:topic_rule_payload]") unless input[:topic_rule_payload].nil?
+        TopicRulePayload.validate!(input[:topic_rule_payload], context: "#{context}[:topic_rule_payload]") unless input[:topic_rule_payload].nil?
       end
     end
 
@@ -5647,7 +5649,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:ca_certificate_id], ::String, context: "#{context}[:ca_certificate_id]")
         Hearth::Validator.validate!(input[:cognito_identity_pool_id], ::String, context: "#{context}[:cognito_identity_pool_id]")
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
-        Validators::PolicyVersionIdentifier.validate!(input[:policy_version_identifier], context: "#{context}[:policy_version_identifier]") unless input[:policy_version_identifier].nil?
+        PolicyVersionIdentifier.validate!(input[:policy_version_identifier], context: "#{context}[:policy_version_identifier]") unless input[:policy_version_identifier].nil?
         Hearth::Validator.validate!(input[:account], ::String, context: "#{context}[:account]")
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
         Hearth::Validator.validate!(input[:role_alias_arn], ::String, context: "#{context}[:role_alias_arn]")
@@ -5689,7 +5691,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RetryCriteria.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RetryCriteria.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5775,7 +5777,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ScheduledAuditMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ScheduledAuditMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5795,8 +5797,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SearchIndexOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::ThingDocumentList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
-        Validators::ThingGroupDocumentList.validate!(input[:thing_groups], context: "#{context}[:thing_groups]") unless input[:thing_groups].nil?
+        ThingDocumentList.validate!(input[:things], context: "#{context}[:things]") unless input[:things].nil?
+        ThingGroupDocumentList.validate!(input[:thing_groups], context: "#{context}[:thing_groups]") unless input[:thing_groups].nil?
       end
     end
 
@@ -5830,7 +5832,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityProfileIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityProfileIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5845,8 +5847,8 @@ module AWS::SDK::IoT
     class SecurityProfileTargetMapping
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SecurityProfileTargetMapping, context: context)
-        Validators::SecurityProfileIdentifier.validate!(input[:security_profile_identifier], context: "#{context}[:security_profile_identifier]") unless input[:security_profile_identifier].nil?
-        Validators::SecurityProfileTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        SecurityProfileIdentifier.validate!(input[:security_profile_identifier], context: "#{context}[:security_profile_identifier]") unless input[:security_profile_identifier].nil?
+        SecurityProfileTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
       end
     end
 
@@ -5854,7 +5856,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityProfileTargetMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityProfileTargetMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5863,7 +5865,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityProfileTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityProfileTarget.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5890,7 +5892,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ServerCertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ServerCertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -5934,7 +5936,7 @@ module AWS::SDK::IoT
     class SetLoggingOptionsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetLoggingOptionsInput, context: context)
-        Validators::LoggingOptionsPayload.validate!(input[:logging_options_payload], context: "#{context}[:logging_options_payload]") unless input[:logging_options_payload].nil?
+        LoggingOptionsPayload.validate!(input[:logging_options_payload], context: "#{context}[:logging_options_payload]") unless input[:logging_options_payload].nil?
       end
     end
 
@@ -5947,7 +5949,7 @@ module AWS::SDK::IoT
     class SetV2LoggingLevelInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetV2LoggingLevelInput, context: context)
-        Validators::LogTarget.validate!(input[:log_target], context: "#{context}[:log_target]") unless input[:log_target].nil?
+        LogTarget.validate!(input[:log_target], context: "#{context}[:log_target]") unless input[:log_target].nil?
         Hearth::Validator.validate!(input[:log_level], ::String, context: "#{context}[:log_level]")
       end
     end
@@ -6020,8 +6022,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartAuditMitigationActionsTaskInput, context: context)
         Hearth::Validator.validate!(input[:task_id], ::String, context: "#{context}[:task_id]")
-        Validators::AuditMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::AuditCheckToActionsMapping.validate!(input[:audit_check_to_actions_mapping], context: "#{context}[:audit_check_to_actions_mapping]") unless input[:audit_check_to_actions_mapping].nil?
+        AuditMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        AuditCheckToActionsMapping.validate!(input[:audit_check_to_actions_mapping], context: "#{context}[:audit_check_to_actions_mapping]") unless input[:audit_check_to_actions_mapping].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end
     end
@@ -6037,9 +6039,9 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartDetectMitigationActionsTaskInput, context: context)
         Hearth::Validator.validate!(input[:task_id], ::String, context: "#{context}[:task_id]")
-        Validators::DetectMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
-        Validators::DetectMitigationActionsToExecuteList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
-        Validators::ViolationEventOccurrenceRange.validate!(input[:violation_event_occurrence_range], context: "#{context}[:violation_event_occurrence_range]") unless input[:violation_event_occurrence_range].nil?
+        DetectMitigationActionsTaskTarget.validate!(input[:target], context: "#{context}[:target]") unless input[:target].nil?
+        DetectMitigationActionsToExecuteList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ViolationEventOccurrenceRange.validate!(input[:violation_event_occurrence_range], context: "#{context}[:violation_event_occurrence_range]") unless input[:violation_event_occurrence_range].nil?
         Hearth::Validator.validate!(input[:include_only_active_violations], ::TrueClass, ::FalseClass, context: "#{context}[:include_only_active_violations]")
         Hearth::Validator.validate!(input[:include_suppressed_alerts], ::TrueClass, ::FalseClass, context: "#{context}[:include_suppressed_alerts]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -6056,7 +6058,7 @@ module AWS::SDK::IoT
     class StartOnDemandAuditTaskInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartOnDemandAuditTaskInput, context: context)
-        Validators::TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
+        TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
       end
     end
 
@@ -6070,9 +6072,9 @@ module AWS::SDK::IoT
     class StartSigningJobParameter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartSigningJobParameter, context: context)
-        Validators::SigningProfileParameter.validate!(input[:signing_profile_parameter], context: "#{context}[:signing_profile_parameter]") unless input[:signing_profile_parameter].nil?
+        SigningProfileParameter.validate!(input[:signing_profile_parameter], context: "#{context}[:signing_profile_parameter]") unless input[:signing_profile_parameter].nil?
         Hearth::Validator.validate!(input[:signing_profile_name], ::String, context: "#{context}[:signing_profile_name]")
-        Validators::Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
+        Destination.validate!(input[:destination], context: "#{context}[:destination]") unless input[:destination].nil?
       end
     end
 
@@ -6148,7 +6150,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StreamFile, context: context)
         Hearth::Validator.validate!(input[:file_id], ::Integer, context: "#{context}[:file_id]")
-        Validators::S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
+        S3Location.validate!(input[:s3_location], context: "#{context}[:s3_location]") unless input[:s3_location].nil?
       end
     end
 
@@ -6156,7 +6158,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamFile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamFile.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6168,7 +6170,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate!(input[:stream_version], ::Integer, context: "#{context}[:stream_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StreamFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
+        StreamFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
@@ -6189,7 +6191,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StreamSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StreamSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6243,7 +6245,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6252,7 +6254,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -6341,17 +6343,17 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::TestAuthorizationInput, context: context)
         Hearth::Validator.validate!(input[:principal], ::String, context: "#{context}[:principal]")
         Hearth::Validator.validate!(input[:cognito_identity_pool_id], ::String, context: "#{context}[:cognito_identity_pool_id]")
-        Validators::AuthInfos.validate!(input[:auth_infos], context: "#{context}[:auth_infos]") unless input[:auth_infos].nil?
+        AuthInfos.validate!(input[:auth_infos], context: "#{context}[:auth_infos]") unless input[:auth_infos].nil?
         Hearth::Validator.validate!(input[:client_id], ::String, context: "#{context}[:client_id]")
-        Validators::PolicyNames.validate!(input[:policy_names_to_add], context: "#{context}[:policy_names_to_add]") unless input[:policy_names_to_add].nil?
-        Validators::PolicyNames.validate!(input[:policy_names_to_skip], context: "#{context}[:policy_names_to_skip]") unless input[:policy_names_to_skip].nil?
+        PolicyNames.validate!(input[:policy_names_to_add], context: "#{context}[:policy_names_to_add]") unless input[:policy_names_to_add].nil?
+        PolicyNames.validate!(input[:policy_names_to_skip], context: "#{context}[:policy_names_to_skip]") unless input[:policy_names_to_skip].nil?
       end
     end
 
     class TestAuthorizationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestAuthorizationOutput, context: context)
-        Validators::AuthResults.validate!(input[:auth_results], context: "#{context}[:auth_results]") unless input[:auth_results].nil?
+        AuthResults.validate!(input[:auth_results], context: "#{context}[:auth_results]") unless input[:auth_results].nil?
       end
     end
 
@@ -6361,9 +6363,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:authorizer_name], ::String, context: "#{context}[:authorizer_name]")
         Hearth::Validator.validate!(input[:token], ::String, context: "#{context}[:token]")
         Hearth::Validator.validate!(input[:token_signature], ::String, context: "#{context}[:token_signature]")
-        Validators::HttpContext.validate!(input[:http_context], context: "#{context}[:http_context]") unless input[:http_context].nil?
-        Validators::MqttContext.validate!(input[:mqtt_context], context: "#{context}[:mqtt_context]") unless input[:mqtt_context].nil?
-        Validators::TlsContext.validate!(input[:tls_context], context: "#{context}[:tls_context]") unless input[:tls_context].nil?
+        HttpContext.validate!(input[:http_context], context: "#{context}[:http_context]") unless input[:http_context].nil?
+        MqttContext.validate!(input[:mqtt_context], context: "#{context}[:mqtt_context]") unless input[:mqtt_context].nil?
+        TlsContext.validate!(input[:tls_context], context: "#{context}[:tls_context]") unless input[:tls_context].nil?
       end
     end
 
@@ -6372,7 +6374,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::TestInvokeAuthorizerOutput, context: context)
         Hearth::Validator.validate!(input[:is_authenticated], ::TrueClass, ::FalseClass, context: "#{context}[:is_authenticated]")
         Hearth::Validator.validate!(input[:principal_id], ::String, context: "#{context}[:principal_id]")
-        Validators::PolicyDocuments.validate!(input[:policy_documents], context: "#{context}[:policy_documents]") unless input[:policy_documents].nil?
+        PolicyDocuments.validate!(input[:policy_documents], context: "#{context}[:policy_documents]") unless input[:policy_documents].nil?
         Hearth::Validator.validate!(input[:refresh_after_in_seconds], ::Integer, context: "#{context}[:refresh_after_in_seconds]")
         Hearth::Validator.validate!(input[:disconnect_after_in_seconds], ::Integer, context: "#{context}[:disconnect_after_in_seconds]")
       end
@@ -6384,7 +6386,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
         Hearth::Validator.validate!(input[:thing_arn], ::String, context: "#{context}[:thing_arn]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
       end
     end
@@ -6393,7 +6395,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThingAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThingAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6413,11 +6415,11 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:thing_id], ::String, context: "#{context}[:thing_id]")
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
-        Validators::ThingGroupNameList.validate!(input[:thing_group_names], context: "#{context}[:thing_group_names]") unless input[:thing_group_names].nil?
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ThingGroupNameList.validate!(input[:thing_group_names], context: "#{context}[:thing_group_names]") unless input[:thing_group_names].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         Hearth::Validator.validate!(input[:shadow], ::String, context: "#{context}[:shadow]")
         Hearth::Validator.validate!(input[:device_defender], ::String, context: "#{context}[:device_defender]")
-        Validators::ThingConnectivity.validate!(input[:connectivity], context: "#{context}[:connectivity]") unless input[:connectivity].nil?
+        ThingConnectivity.validate!(input[:connectivity], context: "#{context}[:connectivity]") unless input[:connectivity].nil?
       end
     end
 
@@ -6425,7 +6427,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThingDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThingDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6436,8 +6438,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_group_name], ::String, context: "#{context}[:thing_group_name]")
         Hearth::Validator.validate!(input[:thing_group_id], ::String, context: "#{context}[:thing_group_id]")
         Hearth::Validator.validate!(input[:thing_group_description], ::String, context: "#{context}[:thing_group_description]")
-        Validators::Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::ThingGroupNameList.validate!(input[:parent_group_names], context: "#{context}[:parent_group_names]") unless input[:parent_group_names].nil?
+        Attributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ThingGroupNameList.validate!(input[:parent_group_names], context: "#{context}[:parent_group_names]") unless input[:parent_group_names].nil?
       end
     end
 
@@ -6445,7 +6447,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThingGroupDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThingGroupDocument.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6454,8 +6456,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThingGroupIndexingConfiguration, context: context)
         Hearth::Validator.validate!(input[:thing_group_indexing_mode], ::String, context: "#{context}[:thing_group_indexing_mode]")
-        Validators::Fields.validate!(input[:managed_fields], context: "#{context}[:managed_fields]") unless input[:managed_fields].nil?
-        Validators::Fields.validate!(input[:custom_fields], context: "#{context}[:custom_fields]") unless input[:custom_fields].nil?
+        Fields.validate!(input[:managed_fields], context: "#{context}[:managed_fields]") unless input[:managed_fields].nil?
+        Fields.validate!(input[:custom_fields], context: "#{context}[:custom_fields]") unless input[:custom_fields].nil?
       end
     end
 
@@ -6472,7 +6474,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThingGroupMetadata, context: context)
         Hearth::Validator.validate!(input[:parent_group_name], ::String, context: "#{context}[:parent_group_name]")
-        Validators::ThingGroupNameAndArnList.validate!(input[:root_to_parent_thing_groups], context: "#{context}[:root_to_parent_thing_groups]") unless input[:root_to_parent_thing_groups].nil?
+        ThingGroupNameAndArnList.validate!(input[:root_to_parent_thing_groups], context: "#{context}[:root_to_parent_thing_groups]") unless input[:root_to_parent_thing_groups].nil?
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
       end
     end
@@ -6481,7 +6483,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupNameAndArn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupNameAndArn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6508,7 +6510,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThingGroupProperties, context: context)
         Hearth::Validator.validate!(input[:thing_group_description], ::String, context: "#{context}[:thing_group_description]")
-        Validators::AttributePayload.validate!(input[:attribute_payload], context: "#{context}[:attribute_payload]") unless input[:attribute_payload].nil?
+        AttributePayload.validate!(input[:attribute_payload], context: "#{context}[:attribute_payload]") unless input[:attribute_payload].nil?
       end
     end
 
@@ -6519,8 +6521,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:thing_connectivity_indexing_mode], ::String, context: "#{context}[:thing_connectivity_indexing_mode]")
         Hearth::Validator.validate!(input[:device_defender_indexing_mode], ::String, context: "#{context}[:device_defender_indexing_mode]")
         Hearth::Validator.validate!(input[:named_shadow_indexing_mode], ::String, context: "#{context}[:named_shadow_indexing_mode]")
-        Validators::Fields.validate!(input[:managed_fields], context: "#{context}[:managed_fields]") unless input[:managed_fields].nil?
-        Validators::Fields.validate!(input[:custom_fields], context: "#{context}[:custom_fields]") unless input[:custom_fields].nil?
+        Fields.validate!(input[:managed_fields], context: "#{context}[:managed_fields]") unless input[:managed_fields].nil?
+        Fields.validate!(input[:custom_fields], context: "#{context}[:custom_fields]") unless input[:custom_fields].nil?
       end
     end
 
@@ -6538,8 +6540,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::ThingTypeDefinition, context: context)
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
         Hearth::Validator.validate!(input[:thing_type_arn], ::String, context: "#{context}[:thing_type_arn]")
-        Validators::ThingTypeProperties.validate!(input[:thing_type_properties], context: "#{context}[:thing_type_properties]") unless input[:thing_type_properties].nil?
-        Validators::ThingTypeMetadata.validate!(input[:thing_type_metadata], context: "#{context}[:thing_type_metadata]") unless input[:thing_type_metadata].nil?
+        ThingTypeProperties.validate!(input[:thing_type_properties], context: "#{context}[:thing_type_properties]") unless input[:thing_type_properties].nil?
+        ThingTypeMetadata.validate!(input[:thing_type_metadata], context: "#{context}[:thing_type_metadata]") unless input[:thing_type_metadata].nil?
       end
     end
 
@@ -6547,7 +6549,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ThingTypeDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ThingTypeDefinition.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6565,7 +6567,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ThingTypeProperties, context: context)
         Hearth::Validator.validate!(input[:thing_type_description], ::String, context: "#{context}[:thing_type_description]")
-        Validators::SearchableAttributes.validate!(input[:searchable_attributes], context: "#{context}[:searchable_attributes]") unless input[:searchable_attributes].nil?
+        SearchableAttributes.validate!(input[:searchable_attributes], context: "#{context}[:searchable_attributes]") unless input[:searchable_attributes].nil?
       end
     end
 
@@ -6589,8 +6591,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:database_name], ::String, context: "#{context}[:database_name]")
         Hearth::Validator.validate!(input[:table_name], ::String, context: "#{context}[:table_name]")
-        Validators::TimestreamDimensionList.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
-        Validators::TimestreamTimestamp.validate!(input[:timestamp], context: "#{context}[:timestamp]") unless input[:timestamp].nil?
+        TimestreamDimensionList.validate!(input[:dimensions], context: "#{context}[:dimensions]") unless input[:dimensions].nil?
+        TimestreamTimestamp.validate!(input[:timestamp], context: "#{context}[:timestamp]") unless input[:timestamp].nil?
       end
     end
 
@@ -6606,7 +6608,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TimestreamDimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TimestreamDimension.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6633,10 +6635,10 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:sql], ::String, context: "#{context}[:sql]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:rule_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:rule_disabled]")
         Hearth::Validator.validate!(input[:aws_iot_sql_version], ::String, context: "#{context}[:aws_iot_sql_version]")
-        Validators::Action.validate!(input[:error_action], context: "#{context}[:error_action]") unless input[:error_action].nil?
+        Action.validate!(input[:error_action], context: "#{context}[:error_action]") unless input[:error_action].nil?
       end
     end
 
@@ -6648,16 +6650,16 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::HttpUrlDestinationProperties.validate!(input[:http_url_properties], context: "#{context}[:http_url_properties]") unless input[:http_url_properties].nil?
-        Validators::VpcDestinationProperties.validate!(input[:vpc_properties], context: "#{context}[:vpc_properties]") unless input[:vpc_properties].nil?
+        HttpUrlDestinationProperties.validate!(input[:http_url_properties], context: "#{context}[:http_url_properties]") unless input[:http_url_properties].nil?
+        VpcDestinationProperties.validate!(input[:vpc_properties], context: "#{context}[:vpc_properties]") unless input[:vpc_properties].nil?
       end
     end
 
     class TopicRuleDestinationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TopicRuleDestinationConfiguration, context: context)
-        Validators::HttpUrlDestinationConfiguration.validate!(input[:http_url_configuration], context: "#{context}[:http_url_configuration]") unless input[:http_url_configuration].nil?
-        Validators::VpcDestinationConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
+        HttpUrlDestinationConfiguration.validate!(input[:http_url_configuration], context: "#{context}[:http_url_configuration]") unless input[:http_url_configuration].nil?
+        VpcDestinationConfiguration.validate!(input[:vpc_configuration], context: "#{context}[:vpc_configuration]") unless input[:vpc_configuration].nil?
       end
     end
 
@@ -6665,7 +6667,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TopicRuleDestinationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TopicRuleDestinationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6678,8 +6680,8 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
-        Validators::HttpUrlDestinationSummary.validate!(input[:http_url_summary], context: "#{context}[:http_url_summary]") unless input[:http_url_summary].nil?
-        Validators::VpcDestinationSummary.validate!(input[:vpc_destination_summary], context: "#{context}[:vpc_destination_summary]") unless input[:vpc_destination_summary].nil?
+        HttpUrlDestinationSummary.validate!(input[:http_url_summary], context: "#{context}[:http_url_summary]") unless input[:http_url_summary].nil?
+        VpcDestinationSummary.validate!(input[:vpc_destination_summary], context: "#{context}[:vpc_destination_summary]") unless input[:vpc_destination_summary].nil?
       end
     end
 
@@ -6687,7 +6689,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TopicRuleListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TopicRuleListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -6708,10 +6710,10 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::TopicRulePayload, context: context)
         Hearth::Validator.validate!(input[:sql], ::String, context: "#{context}[:sql]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
+        ActionList.validate!(input[:actions], context: "#{context}[:actions]") unless input[:actions].nil?
         Hearth::Validator.validate!(input[:rule_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:rule_disabled]")
         Hearth::Validator.validate!(input[:aws_iot_sql_version], ::String, context: "#{context}[:aws_iot_sql_version]")
-        Validators::Action.validate!(input[:error_action], context: "#{context}[:error_action]") unless input[:error_action].nil?
+        Action.validate!(input[:error_action], context: "#{context}[:error_action]") unless input[:error_action].nil?
       end
     end
 
@@ -6767,7 +6769,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -6781,8 +6783,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAccountAuditConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::AuditNotificationTargetConfigurations.validate!(input[:audit_notification_target_configurations], context: "#{context}[:audit_notification_target_configurations]") unless input[:audit_notification_target_configurations].nil?
-        Validators::AuditCheckConfigurations.validate!(input[:audit_check_configurations], context: "#{context}[:audit_check_configurations]") unless input[:audit_check_configurations].nil?
+        AuditNotificationTargetConfigurations.validate!(input[:audit_notification_target_configurations], context: "#{context}[:audit_notification_target_configurations]") unless input[:audit_notification_target_configurations].nil?
+        AuditCheckConfigurations.validate!(input[:audit_check_configurations], context: "#{context}[:audit_check_configurations]") unless input[:audit_check_configurations].nil?
       end
     end
 
@@ -6796,7 +6798,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAuditSuppressionInput, context: context)
         Hearth::Validator.validate!(input[:check_name], ::String, context: "#{context}[:check_name]")
-        Validators::ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
+        ResourceIdentifier.validate!(input[:resource_identifier], context: "#{context}[:resource_identifier]") unless input[:resource_identifier].nil?
         Hearth::Validator.validate!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
         Hearth::Validator.validate!(input[:suppress_indefinitely], ::TrueClass, ::FalseClass, context: "#{context}[:suppress_indefinitely]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -6815,7 +6817,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:authorizer_name], ::String, context: "#{context}[:authorizer_name]")
         Hearth::Validator.validate!(input[:authorizer_function_arn], ::String, context: "#{context}[:authorizer_function_arn]")
         Hearth::Validator.validate!(input[:token_key_name], ::String, context: "#{context}[:token_key_name]")
-        Validators::PublicKeyMap.validate!(input[:token_signing_public_keys], context: "#{context}[:token_signing_public_keys]") unless input[:token_signing_public_keys].nil?
+        PublicKeyMap.validate!(input[:token_signing_public_keys], context: "#{context}[:token_signing_public_keys]") unless input[:token_signing_public_keys].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:enable_caching_for_http], ::TrueClass, ::FalseClass, context: "#{context}[:enable_caching_for_http]")
       end
@@ -6833,7 +6835,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBillingGroupInput, context: context)
         Hearth::Validator.validate!(input[:billing_group_name], ::String, context: "#{context}[:billing_group_name]")
-        Validators::BillingGroupProperties.validate!(input[:billing_group_properties], context: "#{context}[:billing_group_properties]") unless input[:billing_group_properties].nil?
+        BillingGroupProperties.validate!(input[:billing_group_properties], context: "#{context}[:billing_group_properties]") unless input[:billing_group_properties].nil?
         Hearth::Validator.validate!(input[:expected_version], ::Integer, context: "#{context}[:expected_version]")
       end
     end
@@ -6851,7 +6853,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:certificate_id], ::String, context: "#{context}[:certificate_id]")
         Hearth::Validator.validate!(input[:new_status], ::String, context: "#{context}[:new_status]")
         Hearth::Validator.validate!(input[:new_auto_registration_status], ::String, context: "#{context}[:new_auto_registration_status]")
-        Validators::RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
+        RegistrationConfig.validate!(input[:registration_config], context: "#{context}[:registration_config]") unless input[:registration_config].nil?
         Hearth::Validator.validate!(input[:remove_auto_registration], ::TrueClass, ::FalseClass, context: "#{context}[:remove_auto_registration]")
       end
     end
@@ -6914,7 +6916,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDimensionInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
+        DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
       end
     end
 
@@ -6924,7 +6926,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
+        DimensionStringValues.validate!(input[:string_values], context: "#{context}[:string_values]") unless input[:string_values].nil?
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
       end
@@ -6934,7 +6936,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainConfigurationInput, context: context)
         Hearth::Validator.validate!(input[:domain_configuration_name], ::String, context: "#{context}[:domain_configuration_name]")
-        Validators::AuthorizerConfig.validate!(input[:authorizer_config], context: "#{context}[:authorizer_config]") unless input[:authorizer_config].nil?
+        AuthorizerConfig.validate!(input[:authorizer_config], context: "#{context}[:authorizer_config]") unless input[:authorizer_config].nil?
         Hearth::Validator.validate!(input[:domain_configuration_status], ::String, context: "#{context}[:domain_configuration_status]")
         Hearth::Validator.validate!(input[:remove_authorizer_config], ::TrueClass, ::FalseClass, context: "#{context}[:remove_authorizer_config]")
       end
@@ -6952,7 +6954,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDynamicThingGroupInput, context: context)
         Hearth::Validator.validate!(input[:thing_group_name], ::String, context: "#{context}[:thing_group_name]")
-        Validators::ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
+        ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
         Hearth::Validator.validate!(input[:expected_version], ::Integer, context: "#{context}[:expected_version]")
         Hearth::Validator.validate!(input[:index_name], ::String, context: "#{context}[:index_name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
@@ -6970,7 +6972,7 @@ module AWS::SDK::IoT
     class UpdateEventConfigurationsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateEventConfigurationsInput, context: context)
-        Validators::EventConfigurations.validate!(input[:event_configurations], context: "#{context}[:event_configurations]") unless input[:event_configurations].nil?
+        EventConfigurations.validate!(input[:event_configurations], context: "#{context}[:event_configurations]") unless input[:event_configurations].nil?
       end
     end
 
@@ -6985,7 +6987,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::UpdateFleetMetricInput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:query_string], ::String, context: "#{context}[:query_string]")
-        Validators::AggregationType.validate!(input[:aggregation_type], context: "#{context}[:aggregation_type]") unless input[:aggregation_type].nil?
+        AggregationType.validate!(input[:aggregation_type], context: "#{context}[:aggregation_type]") unless input[:aggregation_type].nil?
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:aggregation_field], ::String, context: "#{context}[:aggregation_field]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
@@ -7005,8 +7007,8 @@ module AWS::SDK::IoT
     class UpdateIndexingConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateIndexingConfigurationInput, context: context)
-        Validators::ThingIndexingConfiguration.validate!(input[:thing_indexing_configuration], context: "#{context}[:thing_indexing_configuration]") unless input[:thing_indexing_configuration].nil?
-        Validators::ThingGroupIndexingConfiguration.validate!(input[:thing_group_indexing_configuration], context: "#{context}[:thing_group_indexing_configuration]") unless input[:thing_group_indexing_configuration].nil?
+        ThingIndexingConfiguration.validate!(input[:thing_indexing_configuration], context: "#{context}[:thing_indexing_configuration]") unless input[:thing_indexing_configuration].nil?
+        ThingGroupIndexingConfiguration.validate!(input[:thing_group_indexing_configuration], context: "#{context}[:thing_group_indexing_configuration]") unless input[:thing_group_indexing_configuration].nil?
       end
     end
 
@@ -7021,12 +7023,12 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::UpdateJobInput, context: context)
         Hearth::Validator.validate!(input[:job_id], ::String, context: "#{context}[:job_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
-        Validators::JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
-        Validators::AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
-        Validators::TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
+        PresignedUrlConfig.validate!(input[:presigned_url_config], context: "#{context}[:presigned_url_config]") unless input[:presigned_url_config].nil?
+        JobExecutionsRolloutConfig.validate!(input[:job_executions_rollout_config], context: "#{context}[:job_executions_rollout_config]") unless input[:job_executions_rollout_config].nil?
+        AbortConfig.validate!(input[:abort_config], context: "#{context}[:abort_config]") unless input[:abort_config].nil?
+        TimeoutConfig.validate!(input[:timeout_config], context: "#{context}[:timeout_config]") unless input[:timeout_config].nil?
         Hearth::Validator.validate!(input[:namespace_id], ::String, context: "#{context}[:namespace_id]")
-        Validators::JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
+        JobExecutionsRetryConfig.validate!(input[:job_executions_retry_config], context: "#{context}[:job_executions_retry_config]") unless input[:job_executions_retry_config].nil?
       end
     end
 
@@ -7041,7 +7043,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::UpdateMitigationActionInput, context: context)
         Hearth::Validator.validate!(input[:action_name], ::String, context: "#{context}[:action_name]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
+        MitigationActionParams.validate!(input[:action_params], context: "#{context}[:action_params]") unless input[:action_params].nil?
       end
     end
 
@@ -7061,7 +7063,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:default_version_id], ::Integer, context: "#{context}[:default_version_id]")
         Hearth::Validator.validate!(input[:provisioning_role_arn], ::String, context: "#{context}[:provisioning_role_arn]")
-        Validators::ProvisioningHook.validate!(input[:pre_provisioning_hook], context: "#{context}[:pre_provisioning_hook]") unless input[:pre_provisioning_hook].nil?
+        ProvisioningHook.validate!(input[:pre_provisioning_hook], context: "#{context}[:pre_provisioning_hook]") unless input[:pre_provisioning_hook].nil?
         Hearth::Validator.validate!(input[:remove_pre_provisioning_hook], ::TrueClass, ::FalseClass, context: "#{context}[:remove_pre_provisioning_hook]")
       end
     end
@@ -7095,7 +7097,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:frequency], ::String, context: "#{context}[:frequency]")
         Hearth::Validator.validate!(input[:day_of_month], ::String, context: "#{context}[:day_of_month]")
         Hearth::Validator.validate!(input[:day_of_week], ::String, context: "#{context}[:day_of_week]")
-        Validators::TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
+        TargetAuditCheckNames.validate!(input[:target_check_names], context: "#{context}[:target_check_names]") unless input[:target_check_names].nil?
         Hearth::Validator.validate!(input[:scheduled_audit_name], ::String, context: "#{context}[:scheduled_audit_name]")
       end
     end
@@ -7112,10 +7114,10 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::UpdateSecurityProfileInput, context: context)
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
         Hearth::Validator.validate!(input[:security_profile_description], ::String, context: "#{context}[:security_profile_description]")
-        Validators::Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
-        Validators::AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
-        Validators::AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
-        Validators::AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
+        Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
+        AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
+        AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
+        AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
         Hearth::Validator.validate!(input[:delete_behaviors], ::TrueClass, ::FalseClass, context: "#{context}[:delete_behaviors]")
         Hearth::Validator.validate!(input[:delete_alert_targets], ::TrueClass, ::FalseClass, context: "#{context}[:delete_alert_targets]")
         Hearth::Validator.validate!(input[:delete_additional_metrics_to_retain], ::TrueClass, ::FalseClass, context: "#{context}[:delete_additional_metrics_to_retain]")
@@ -7129,10 +7131,10 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
         Hearth::Validator.validate!(input[:security_profile_arn], ::String, context: "#{context}[:security_profile_arn]")
         Hearth::Validator.validate!(input[:security_profile_description], ::String, context: "#{context}[:security_profile_description]")
-        Validators::Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
-        Validators::AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
-        Validators::AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
-        Validators::AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
+        Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
+        AlertTargets.validate!(input[:alert_targets], context: "#{context}[:alert_targets]") unless input[:alert_targets].nil?
+        AdditionalMetricsToRetainList.validate!(input[:additional_metrics_to_retain], context: "#{context}[:additional_metrics_to_retain]") unless input[:additional_metrics_to_retain].nil?
+        AdditionalMetricsToRetainV2List.validate!(input[:additional_metrics_to_retain_v2], context: "#{context}[:additional_metrics_to_retain_v2]") unless input[:additional_metrics_to_retain_v2].nil?
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:creation_date], ::Time, context: "#{context}[:creation_date]")
         Hearth::Validator.validate!(input[:last_modified_date], ::Time, context: "#{context}[:last_modified_date]")
@@ -7144,7 +7146,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::UpdateStreamInput, context: context)
         Hearth::Validator.validate!(input[:stream_id], ::String, context: "#{context}[:stream_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StreamFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
+        StreamFiles.validate!(input[:files], context: "#{context}[:files]") unless input[:files].nil?
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
     end
@@ -7163,7 +7165,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateThingGroupInput, context: context)
         Hearth::Validator.validate!(input[:thing_group_name], ::String, context: "#{context}[:thing_group_name]")
-        Validators::ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
+        ThingGroupProperties.validate!(input[:thing_group_properties], context: "#{context}[:thing_group_properties]") unless input[:thing_group_properties].nil?
         Hearth::Validator.validate!(input[:expected_version], ::Integer, context: "#{context}[:expected_version]")
       end
     end
@@ -7179,8 +7181,8 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateThingGroupsForThingInput, context: context)
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
-        Validators::ThingGroupList.validate!(input[:thing_groups_to_add], context: "#{context}[:thing_groups_to_add]") unless input[:thing_groups_to_add].nil?
-        Validators::ThingGroupList.validate!(input[:thing_groups_to_remove], context: "#{context}[:thing_groups_to_remove]") unless input[:thing_groups_to_remove].nil?
+        ThingGroupList.validate!(input[:thing_groups_to_add], context: "#{context}[:thing_groups_to_add]") unless input[:thing_groups_to_add].nil?
+        ThingGroupList.validate!(input[:thing_groups_to_remove], context: "#{context}[:thing_groups_to_remove]") unless input[:thing_groups_to_remove].nil?
         Hearth::Validator.validate!(input[:override_dynamic_groups], ::TrueClass, ::FalseClass, context: "#{context}[:override_dynamic_groups]")
       end
     end
@@ -7196,7 +7198,7 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input, Types::UpdateThingInput, context: context)
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:thing_type_name], ::String, context: "#{context}[:thing_type_name]")
-        Validators::AttributePayload.validate!(input[:attribute_payload], context: "#{context}[:attribute_payload]") unless input[:attribute_payload].nil?
+        AttributePayload.validate!(input[:attribute_payload], context: "#{context}[:attribute_payload]") unless input[:attribute_payload].nil?
         Hearth::Validator.validate!(input[:expected_version], ::Integer, context: "#{context}[:expected_version]")
         Hearth::Validator.validate!(input[:remove_thing_type], ::TrueClass, ::FalseClass, context: "#{context}[:remove_thing_type]")
       end
@@ -7225,7 +7227,7 @@ module AWS::SDK::IoT
     class ValidateSecurityProfileBehaviorsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ValidateSecurityProfileBehaviorsInput, context: context)
-        Validators::Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
+        Behaviors.validate!(input[:behaviors], context: "#{context}[:behaviors]") unless input[:behaviors].nil?
       end
     end
 
@@ -7233,7 +7235,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ValidateSecurityProfileBehaviorsOutput, context: context)
         Hearth::Validator.validate!(input[:valid], ::TrueClass, ::FalseClass, context: "#{context}[:valid]")
-        Validators::ValidationErrors.validate!(input[:validation_errors], context: "#{context}[:validation_errors]") unless input[:validation_errors].nil?
+        ValidationErrors.validate!(input[:validation_errors], context: "#{context}[:validation_errors]") unless input[:validation_errors].nil?
       end
     end
 
@@ -7248,7 +7250,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ValidationError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ValidationError.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -7273,9 +7275,9 @@ module AWS::SDK::IoT
         Hearth::Validator.validate!(input[:violation_id], ::String, context: "#{context}[:violation_id]")
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
         Hearth::Validator.validate!(input[:security_profile_name], ::String, context: "#{context}[:security_profile_name]")
-        Validators::Behavior.validate!(input[:behavior], context: "#{context}[:behavior]") unless input[:behavior].nil?
-        Validators::MetricValue.validate!(input[:metric_value], context: "#{context}[:metric_value]") unless input[:metric_value].nil?
-        Validators::ViolationEventAdditionalInfo.validate!(input[:violation_event_additional_info], context: "#{context}[:violation_event_additional_info]") unless input[:violation_event_additional_info].nil?
+        Behavior.validate!(input[:behavior], context: "#{context}[:behavior]") unless input[:behavior].nil?
+        MetricValue.validate!(input[:metric_value], context: "#{context}[:metric_value]") unless input[:metric_value].nil?
+        ViolationEventAdditionalInfo.validate!(input[:violation_event_additional_info], context: "#{context}[:violation_event_additional_info]") unless input[:violation_event_additional_info].nil?
         Hearth::Validator.validate!(input[:violation_event_type], ::String, context: "#{context}[:violation_event_type]")
         Hearth::Validator.validate!(input[:verification_state], ::String, context: "#{context}[:verification_state]")
         Hearth::Validator.validate!(input[:verification_state_description], ::String, context: "#{context}[:verification_state_description]")
@@ -7302,7 +7304,7 @@ module AWS::SDK::IoT
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ViolationEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ViolationEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -7310,8 +7312,8 @@ module AWS::SDK::IoT
     class VpcDestinationConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcDestinationConfiguration, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
@@ -7320,8 +7322,8 @@ module AWS::SDK::IoT
     class VpcDestinationProperties
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcDestinationProperties, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end
@@ -7330,8 +7332,8 @@ module AWS::SDK::IoT
     class VpcDestinationSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VpcDestinationSummary, context: context)
-        Validators::SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::SecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        SubnetIdList.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        SecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
       end

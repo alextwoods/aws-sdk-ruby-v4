@@ -14,9 +14,9 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     class BatchGetRecord
       def self.default(visited=[])
         {
-          records: Stubs::BatchGetRecordResultDetails.default(visited),
-          errors: Stubs::BatchGetRecordErrors.default(visited),
-          unprocessed_identifiers: Stubs::UnprocessedIdentifiers.default(visited),
+          records: BatchGetRecordResultDetails.default(visited),
+          errors: BatchGetRecordErrors.default(visited),
+          unprocessed_identifiers: UnprocessedIdentifiers.default(visited),
         }
       end
 
@@ -37,7 +37,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         return nil if visited.include?('UnprocessedIdentifiers')
         visited = visited + ['UnprocessedIdentifiers']
         [
-          Stubs::BatchGetRecordIdentifier.default(visited)
+          BatchGetRecordIdentifier.default(visited)
         ]
       end
 
@@ -58,8 +58,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         visited = visited + ['BatchGetRecordIdentifier']
         {
           feature_group_name: 'feature_group_name',
-          record_identifiers_value_as_string: Stubs::RecordIdentifiers.default(visited),
-          feature_names: Stubs::FeatureNames.default(visited),
+          record_identifiers_value_as_string: RecordIdentifiers.default(visited),
+          feature_names: FeatureNames.default(visited),
         }
       end
 
@@ -119,7 +119,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         return nil if visited.include?('BatchGetRecordErrors')
         visited = visited + ['BatchGetRecordErrors']
         [
-          Stubs::BatchGetRecordError.default(visited)
+          BatchGetRecordError.default(visited)
         ]
       end
 
@@ -163,7 +163,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         return nil if visited.include?('BatchGetRecordResultDetails')
         visited = visited + ['BatchGetRecordResultDetails']
         [
-          Stubs::BatchGetRecordResultDetail.default(visited)
+          BatchGetRecordResultDetail.default(visited)
         ]
       end
 
@@ -185,7 +185,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         {
           feature_group_name: 'feature_group_name',
           record_identifier_value_as_string: 'record_identifier_value_as_string',
-          record: Stubs::Record.default(visited),
+          record: Record.default(visited),
         }
       end
 
@@ -205,7 +205,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         return nil if visited.include?('Record')
         visited = visited + ['Record']
         [
-          Stubs::FeatureValue.default(visited)
+          FeatureValue.default(visited)
         ]
       end
 
@@ -256,7 +256,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
     class GetRecord
       def self.default(visited=[])
         {
-          record: Stubs::Record.default(visited),
+          record: Record.default(visited),
         }
       end
 

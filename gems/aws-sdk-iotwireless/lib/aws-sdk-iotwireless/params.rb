@@ -48,7 +48,7 @@ module AWS::SDK::IoTWireless
         Hearth::Validator.validate!(params, ::Hash, Types::AssociateAwsAccountWithPartnerAccountInput, context: context)
         type = Types::AssociateAwsAccountWithPartnerAccountInput.new
         type.sidewalk = SidewalkAccountInfo.build(params[:sidewalk], context: "#{context}[:sidewalk]") unless params[:sidewalk].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -240,7 +240,7 @@ module AWS::SDK::IoTWireless
         type.description = params[:description]
         type.role_arn = params[:role_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -262,7 +262,7 @@ module AWS::SDK::IoTWireless
         type.name = params[:name]
         type.lo_ra_wan = LoRaWANDeviceProfile.build(params[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless params[:lo_ra_wan].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -283,7 +283,7 @@ module AWS::SDK::IoTWireless
         type = Types::CreateFuotaTaskInput.new
         type.name = params[:name]
         type.description = params[:description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.lo_ra_wan = LoRaWANFuotaTask.build(params[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless params[:lo_ra_wan].nil?
         type.firmware_update_image = params[:firmware_update_image]
         type.firmware_update_role = params[:firmware_update_role]
@@ -308,7 +308,7 @@ module AWS::SDK::IoTWireless
         type = Types::CreateMulticastGroupInput.new
         type.name = params[:name]
         type.description = params[:description]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.lo_ra_wan = LoRaWANMulticast.build(params[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless params[:lo_ra_wan].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -335,7 +335,7 @@ module AWS::SDK::IoTWireless
         type.wireless_gateways = WirelessGatewayList.build(params[:wireless_gateways], context: "#{context}[:wireless_gateways]") unless params[:wireless_gateways].nil?
         type.description = params[:description]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -357,7 +357,7 @@ module AWS::SDK::IoTWireless
         type.name = params[:name]
         type.lo_ra_wan = LoRaWANServiceProfile.build(params[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless params[:lo_ra_wan].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::IoTWireless
         type.name = params[:name]
         type.description = params[:description]
         type.destination_name = params[:destination_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.lo_ra_wan = LoRaWANDevice.build(params[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless params[:lo_ra_wan].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -405,7 +405,7 @@ module AWS::SDK::IoTWireless
         type.description = params[:description]
         type.lo_ra_wan = LoRaWANGateway.build(params[:lo_ra_wan], context: "#{context}[:lo_ra_wan]") unless params[:lo_ra_wan].nil?
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -427,7 +427,7 @@ module AWS::SDK::IoTWireless
         type.auto_create_tasks = params[:auto_create_tasks]
         type.name = params[:name]
         type.update = UpdateWirelessGatewayTaskCreate.build(params[:update], context: "#{context}[:update]") unless params[:update].nil?
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

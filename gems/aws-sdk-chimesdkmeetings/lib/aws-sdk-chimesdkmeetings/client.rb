@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ChimeSDKMeetings
@@ -86,7 +88,7 @@ module AWS::SDK::ChimeSDKMeetings
     def batch_create_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchCreateAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchCreateAttendeeInput,
         validate_input: @config.validate_input
@@ -170,7 +172,7 @@ module AWS::SDK::ChimeSDKMeetings
     def batch_update_attendee_capabilities_except(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateAttendeeCapabilitiesExceptInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateAttendeeCapabilitiesExceptInput,
         validate_input: @config.validate_input
@@ -264,7 +266,7 @@ module AWS::SDK::ChimeSDKMeetings
     def create_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAttendeeInput,
         validate_input: @config.validate_input
@@ -411,7 +413,7 @@ module AWS::SDK::ChimeSDKMeetings
     def create_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMeetingInput,
         validate_input: @config.validate_input
@@ -585,7 +587,7 @@ module AWS::SDK::ChimeSDKMeetings
     def create_meeting_with_attendees(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMeetingWithAttendeesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMeetingWithAttendeesInput,
         validate_input: @config.validate_input
@@ -660,7 +662,7 @@ module AWS::SDK::ChimeSDKMeetings
     def delete_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAttendeeInput,
         validate_input: @config.validate_input
@@ -730,7 +732,7 @@ module AWS::SDK::ChimeSDKMeetings
     def delete_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMeetingInput,
         validate_input: @config.validate_input
@@ -813,7 +815,7 @@ module AWS::SDK::ChimeSDKMeetings
     def get_attendee(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAttendeeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAttendeeInput,
         validate_input: @config.validate_input
@@ -900,7 +902,7 @@ module AWS::SDK::ChimeSDKMeetings
     def get_meeting(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMeetingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMeetingInput,
         validate_input: @config.validate_input
@@ -989,7 +991,7 @@ module AWS::SDK::ChimeSDKMeetings
     def list_attendees(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAttendeesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAttendeesInput,
         validate_input: @config.validate_input
@@ -1086,7 +1088,7 @@ module AWS::SDK::ChimeSDKMeetings
     def start_meeting_transcription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMeetingTranscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMeetingTranscriptionInput,
         validate_input: @config.validate_input
@@ -1154,7 +1156,7 @@ module AWS::SDK::ChimeSDKMeetings
     def stop_meeting_transcription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMeetingTranscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMeetingTranscriptionInput,
         validate_input: @config.validate_input
@@ -1241,7 +1243,7 @@ module AWS::SDK::ChimeSDKMeetings
     def update_attendee_capabilities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAttendeeCapabilitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAttendeeCapabilitiesInput,
         validate_input: @config.validate_input

@@ -437,11 +437,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_all_policy_resources ||= false
       end
-
     end
 
     DeletePolicyOutput = ::Struct.new(
@@ -594,11 +594,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.number_of_rule_groups_already_associated ||= 0
       end
-
     end
 
     # <p>A rule group that Firewall Manager
@@ -640,11 +640,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.conflicting_priority ||= 0
       end
-
     end
 
     # <p>The action of associating an EC2 resource, such as a subnet or internet gateway, with a route table.</p>
@@ -915,12 +915,12 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.violator_count ||= 0
         self.evaluation_limit_exceeded ||= false
       end
-
     end
 
     # <p>Information about the expected route in the route table.</p>
@@ -1117,11 +1117,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_list ||= false
       end
-
     end
 
     # @!attribute apps_list
@@ -1355,11 +1355,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_list ||= false
       end
-
     end
 
     # @!attribute protocols_list
@@ -1601,11 +1601,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_lists ||= false
       end
-
     end
 
     # @!attribute apps_lists
@@ -1808,11 +1808,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_lists ||= false
       end
-
     end
 
     # @!attribute protocols_lists
@@ -2056,11 +2056,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_route_table_used_in_different_az ||= false
       end
-
     end
 
     # <p>Violation detail for the improperly configured subnet route. It's possible there is a missing route table route,
@@ -2166,11 +2166,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_route_table_used_in_different_az ||= false
       end
-
     end
 
     # <p>Violation detail for Network Firewall for a subnet that's not associated to the expected
@@ -2618,13 +2618,13 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.exclude_resource_tags ||= false
         self.remediation_enabled ||= false
         self.delete_unused_fm_managed_resources ||= false
       end
-
     end
 
     # <p>Describes
@@ -2681,11 +2681,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.evaluation_limit_exceeded ||= false
       end
-
     end
 
     # <p>Indicates whether the account is compliant with the specified policy. An account is
@@ -2840,12 +2840,12 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.remediation_enabled ||= false
         self.delete_unused_fm_managed_resources ||= false
       end
-
     end
 
     # <p>A list of remediation actions.</p>
@@ -2872,11 +2872,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_action ||= false
       end
-
     end
 
     # <p>A list of possible remediation action lists. Each individual possible remediation action is a list of individual remediation actions.</p>
@@ -3210,11 +3210,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.order ||= 0
       end
-
     end
 
     # <p>The specified resource was not found.</p>
@@ -3558,11 +3558,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default_action ||= false
       end
-
     end
 
     # <p>Describes a set of permissions for a security group rule.</p>
@@ -3965,11 +3965,11 @@ module AWS::SDK::FMS
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # <p>A collection of key:value pairs associated with an Amazon Web Services resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each Amazon Web Services resource.  </p>

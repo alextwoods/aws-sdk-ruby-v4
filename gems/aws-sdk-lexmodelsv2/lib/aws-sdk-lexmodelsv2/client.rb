@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LexModelsV2
@@ -77,7 +79,7 @@ module AWS::SDK::LexModelsV2
     def build_bot_locale(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BuildBotLocaleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BuildBotLocaleInput,
         validate_input: @config.validate_input
@@ -199,7 +201,7 @@ module AWS::SDK::LexModelsV2
     def create_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBotInput,
         validate_input: @config.validate_input
@@ -383,7 +385,7 @@ module AWS::SDK::LexModelsV2
     def create_bot_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBotAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBotAliasInput,
         validate_input: @config.validate_input
@@ -518,7 +520,7 @@ module AWS::SDK::LexModelsV2
     def create_bot_locale(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBotLocaleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBotLocaleInput,
         validate_input: @config.validate_input
@@ -615,7 +617,7 @@ module AWS::SDK::LexModelsV2
     def create_bot_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBotVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBotVersionInput,
         validate_input: @config.validate_input
@@ -734,7 +736,7 @@ module AWS::SDK::LexModelsV2
     def create_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExportInput,
         validate_input: @config.validate_input
@@ -1088,7 +1090,7 @@ module AWS::SDK::LexModelsV2
     def create_intent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIntentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIntentInput,
         validate_input: @config.validate_input
@@ -1170,7 +1172,7 @@ module AWS::SDK::LexModelsV2
     def create_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1297,7 +1299,7 @@ module AWS::SDK::LexModelsV2
     def create_resource_policy_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourcePolicyStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourcePolicyStatementInput,
         validate_input: @config.validate_input
@@ -1536,7 +1538,7 @@ module AWS::SDK::LexModelsV2
     def create_slot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSlotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSlotInput,
         validate_input: @config.validate_input
@@ -1716,7 +1718,7 @@ module AWS::SDK::LexModelsV2
     def create_slot_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSlotTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSlotTypeInput,
         validate_input: @config.validate_input
@@ -1782,7 +1784,7 @@ module AWS::SDK::LexModelsV2
     def create_upload_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUploadUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUploadUrlInput,
         validate_input: @config.validate_input
@@ -1866,7 +1868,7 @@ module AWS::SDK::LexModelsV2
     def delete_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBotInput,
         validate_input: @config.validate_input
@@ -1946,7 +1948,7 @@ module AWS::SDK::LexModelsV2
     def delete_bot_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBotAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBotAliasInput,
         validate_input: @config.validate_input
@@ -2029,7 +2031,7 @@ module AWS::SDK::LexModelsV2
     def delete_bot_locale(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBotLocaleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBotLocaleInput,
         validate_input: @config.validate_input
@@ -2113,7 +2115,7 @@ module AWS::SDK::LexModelsV2
     def delete_bot_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBotVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBotVersionInput,
         validate_input: @config.validate_input
@@ -2196,7 +2198,7 @@ module AWS::SDK::LexModelsV2
     def delete_custom_vocabulary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomVocabularyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomVocabularyInput,
         validate_input: @config.validate_input
@@ -2266,7 +2268,7 @@ module AWS::SDK::LexModelsV2
     def delete_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExportInput,
         validate_input: @config.validate_input
@@ -2336,7 +2338,7 @@ module AWS::SDK::LexModelsV2
     def delete_import(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImportInput,
         validate_input: @config.validate_input
@@ -2419,7 +2421,7 @@ module AWS::SDK::LexModelsV2
     def delete_intent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIntentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIntentInput,
         validate_input: @config.validate_input
@@ -2497,7 +2499,7 @@ module AWS::SDK::LexModelsV2
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -2583,7 +2585,7 @@ module AWS::SDK::LexModelsV2
     def delete_resource_policy_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyStatementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyStatementInput,
         validate_input: @config.validate_input
@@ -2668,7 +2670,7 @@ module AWS::SDK::LexModelsV2
     def delete_slot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSlotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSlotInput,
         validate_input: @config.validate_input
@@ -2761,7 +2763,7 @@ module AWS::SDK::LexModelsV2
     def delete_slot_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSlotTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSlotTypeInput,
         validate_input: @config.validate_input
@@ -2852,7 +2854,7 @@ module AWS::SDK::LexModelsV2
     def delete_utterances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUtterancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUtterancesInput,
         validate_input: @config.validate_input
@@ -2929,7 +2931,7 @@ module AWS::SDK::LexModelsV2
     def describe_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBotInput,
         validate_input: @config.validate_input
@@ -3039,7 +3041,7 @@ module AWS::SDK::LexModelsV2
     def describe_bot_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBotAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBotAliasInput,
         validate_input: @config.validate_input
@@ -3139,7 +3141,7 @@ module AWS::SDK::LexModelsV2
     def describe_bot_locale(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBotLocaleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBotLocaleInput,
         validate_input: @config.validate_input
@@ -3260,7 +3262,7 @@ module AWS::SDK::LexModelsV2
     def describe_bot_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBotRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBotRecommendationInput,
         validate_input: @config.validate_input
@@ -3344,7 +3346,7 @@ module AWS::SDK::LexModelsV2
     def describe_bot_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBotVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBotVersionInput,
         validate_input: @config.validate_input
@@ -3426,7 +3428,7 @@ module AWS::SDK::LexModelsV2
     def describe_custom_vocabulary_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomVocabularyMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomVocabularyMetadataInput,
         validate_input: @config.validate_input
@@ -3513,7 +3515,7 @@ module AWS::SDK::LexModelsV2
     def describe_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportInput,
         validate_input: @config.validate_input
@@ -3611,7 +3613,7 @@ module AWS::SDK::LexModelsV2
     def describe_import(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImportInput,
         validate_input: @config.validate_input
@@ -3768,7 +3770,7 @@ module AWS::SDK::LexModelsV2
     def describe_intent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIntentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIntentInput,
         validate_input: @config.validate_input
@@ -3840,7 +3842,7 @@ module AWS::SDK::LexModelsV2
     def describe_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourcePolicyInput,
         validate_input: @config.validate_input
@@ -3980,7 +3982,7 @@ module AWS::SDK::LexModelsV2
     def describe_slot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSlotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSlotInput,
         validate_input: @config.validate_input
@@ -4087,7 +4089,7 @@ module AWS::SDK::LexModelsV2
     def describe_slot_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSlotTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSlotTypeInput,
         validate_input: @config.validate_input
@@ -4264,7 +4266,7 @@ module AWS::SDK::LexModelsV2
     def list_aggregated_utterances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAggregatedUtterancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAggregatedUtterancesInput,
         validate_input: @config.validate_input
@@ -4357,7 +4359,7 @@ module AWS::SDK::LexModelsV2
     def list_bot_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotAliasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotAliasesInput,
         validate_input: @config.validate_input
@@ -4476,7 +4478,7 @@ module AWS::SDK::LexModelsV2
     def list_bot_locales(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotLocalesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotLocalesInput,
         validate_input: @config.validate_input
@@ -4579,7 +4581,7 @@ module AWS::SDK::LexModelsV2
     def list_bot_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotRecommendationsInput,
         validate_input: @config.validate_input
@@ -4686,7 +4688,7 @@ module AWS::SDK::LexModelsV2
     def list_bot_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotVersionsInput,
         validate_input: @config.validate_input
@@ -4799,7 +4801,7 @@ module AWS::SDK::LexModelsV2
     def list_bots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBotsInput,
         validate_input: @config.validate_input
@@ -4903,7 +4905,7 @@ module AWS::SDK::LexModelsV2
     def list_built_in_intents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuiltInIntentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuiltInIntentsInput,
         validate_input: @config.validate_input
@@ -5004,7 +5006,7 @@ module AWS::SDK::LexModelsV2
     def list_built_in_slot_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuiltInSlotTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuiltInSlotTypesInput,
         validate_input: @config.validate_input
@@ -5146,7 +5148,7 @@ module AWS::SDK::LexModelsV2
     def list_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
         validate_input: @config.validate_input
@@ -5279,7 +5281,7 @@ module AWS::SDK::LexModelsV2
     def list_imports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImportsInput,
         validate_input: @config.validate_input
@@ -5417,7 +5419,7 @@ module AWS::SDK::LexModelsV2
     def list_intents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIntentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIntentsInput,
         validate_input: @config.validate_input
@@ -5524,7 +5526,7 @@ module AWS::SDK::LexModelsV2
     def list_recommended_intents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecommendedIntentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecommendedIntentsInput,
         validate_input: @config.validate_input
@@ -5653,7 +5655,7 @@ module AWS::SDK::LexModelsV2
     def list_slot_types(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSlotTypesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSlotTypesInput,
         validate_input: @config.validate_input
@@ -5807,7 +5809,7 @@ module AWS::SDK::LexModelsV2
     def list_slots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSlotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSlotsInput,
         validate_input: @config.validate_input
@@ -5879,7 +5881,7 @@ module AWS::SDK::LexModelsV2
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6003,7 +6005,7 @@ module AWS::SDK::LexModelsV2
     def search_associated_transcripts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchAssociatedTranscriptsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchAssociatedTranscriptsInput,
         validate_input: @config.validate_input
@@ -6141,7 +6143,7 @@ module AWS::SDK::LexModelsV2
     def start_bot_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBotRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBotRecommendationInput,
         validate_input: @config.validate_input
@@ -6282,7 +6284,7 @@ module AWS::SDK::LexModelsV2
     def start_import(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImportInput,
         validate_input: @config.validate_input
@@ -6360,7 +6362,7 @@ module AWS::SDK::LexModelsV2
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -6436,7 +6438,7 @@ module AWS::SDK::LexModelsV2
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -6545,7 +6547,7 @@ module AWS::SDK::LexModelsV2
     def update_bot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBotInput,
         validate_input: @config.validate_input
@@ -6713,7 +6715,7 @@ module AWS::SDK::LexModelsV2
     def update_bot_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBotAliasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBotAliasInput,
         validate_input: @config.validate_input
@@ -6826,7 +6828,7 @@ module AWS::SDK::LexModelsV2
     def update_bot_locale(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBotLocaleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBotLocaleInput,
         validate_input: @config.validate_input
@@ -6946,7 +6948,7 @@ module AWS::SDK::LexModelsV2
     def update_bot_recommendation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateBotRecommendationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateBotRecommendationInput,
         validate_input: @config.validate_input
@@ -7039,7 +7041,7 @@ module AWS::SDK::LexModelsV2
     def update_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateExportInput,
         validate_input: @config.validate_input
@@ -7332,7 +7334,7 @@ module AWS::SDK::LexModelsV2
     def update_intent(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIntentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIntentInput,
         validate_input: @config.validate_input
@@ -7423,7 +7425,7 @@ module AWS::SDK::LexModelsV2
     def update_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourcePolicyInput,
         validate_input: @config.validate_input
@@ -7656,7 +7658,7 @@ module AWS::SDK::LexModelsV2
     def update_slot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSlotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSlotInput,
         validate_input: @config.validate_input
@@ -7815,7 +7817,7 @@ module AWS::SDK::LexModelsV2
     def update_slot_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateSlotTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateSlotTypeInput,
         validate_input: @config.validate_input

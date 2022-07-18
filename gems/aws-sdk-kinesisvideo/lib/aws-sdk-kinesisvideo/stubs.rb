@@ -74,7 +74,7 @@ module AWS::SDK::KinesisVideo
     class DescribeImageGenerationConfiguration
       def self.default(visited=[])
         {
-          image_generation_configuration: Stubs::ImageGenerationConfiguration.default(visited),
+          image_generation_configuration: ImageGenerationConfiguration.default(visited),
         }
       end
 
@@ -95,10 +95,10 @@ module AWS::SDK::KinesisVideo
         {
           status: 'status',
           image_selector_type: 'image_selector_type',
-          destination_config: Stubs::ImageGenerationDestinationConfig.default(visited),
+          destination_config: ImageGenerationDestinationConfig.default(visited),
           sampling_interval: 1,
           format: 'format',
-          format_config: Stubs::FormatConfig.default(visited),
+          format_config: FormatConfig.default(visited),
           width_pixels: 1,
           height_pixels: 1,
         }
@@ -163,7 +163,7 @@ module AWS::SDK::KinesisVideo
     class DescribeNotificationConfiguration
       def self.default(visited=[])
         {
-          notification_configuration: Stubs::NotificationConfiguration.default(visited),
+          notification_configuration: NotificationConfiguration.default(visited),
         }
       end
 
@@ -183,7 +183,7 @@ module AWS::SDK::KinesisVideo
         visited = visited + ['NotificationConfiguration']
         {
           status: 'status',
-          destination_config: Stubs::NotificationDestinationConfig.default(visited),
+          destination_config: NotificationDestinationConfig.default(visited),
         }
       end
 
@@ -218,7 +218,7 @@ module AWS::SDK::KinesisVideo
     class DescribeSignalingChannel
       def self.default(visited=[])
         {
-          channel_info: Stubs::ChannelInfo.default(visited),
+          channel_info: ChannelInfo.default(visited),
         }
       end
 
@@ -242,7 +242,7 @@ module AWS::SDK::KinesisVideo
           channel_type: 'channel_type',
           channel_status: 'channel_status',
           creation_time: Time.now,
-          single_master_configuration: Stubs::SingleMasterConfiguration.default(visited),
+          single_master_configuration: SingleMasterConfiguration.default(visited),
           version: 'version',
         }
       end
@@ -283,7 +283,7 @@ module AWS::SDK::KinesisVideo
     class DescribeStream
       def self.default(visited=[])
         {
-          stream_info: Stubs::StreamInfo.default(visited),
+          stream_info: StreamInfo.default(visited),
         }
       end
 
@@ -351,7 +351,7 @@ module AWS::SDK::KinesisVideo
     class GetSignalingChannelEndpoint
       def self.default(visited=[])
         {
-          resource_endpoint_list: Stubs::ResourceEndpointList.default(visited),
+          resource_endpoint_list: ResourceEndpointList.default(visited),
         }
       end
 
@@ -370,7 +370,7 @@ module AWS::SDK::KinesisVideo
         return nil if visited.include?('ResourceEndpointList')
         visited = visited + ['ResourceEndpointList']
         [
-          Stubs::ResourceEndpointListItem.default(visited)
+          ResourceEndpointListItem.default(visited)
         ]
       end
 
@@ -408,7 +408,7 @@ module AWS::SDK::KinesisVideo
     class ListSignalingChannels
       def self.default(visited=[])
         {
-          channel_info_list: Stubs::ChannelInfoList.default(visited),
+          channel_info_list: ChannelInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -429,7 +429,7 @@ module AWS::SDK::KinesisVideo
         return nil if visited.include?('ChannelInfoList')
         visited = visited + ['ChannelInfoList']
         [
-          Stubs::ChannelInfo.default(visited)
+          ChannelInfo.default(visited)
         ]
       end
 
@@ -447,7 +447,7 @@ module AWS::SDK::KinesisVideo
     class ListStreams
       def self.default(visited=[])
         {
-          stream_info_list: Stubs::StreamInfoList.default(visited),
+          stream_info_list: StreamInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -468,7 +468,7 @@ module AWS::SDK::KinesisVideo
         return nil if visited.include?('StreamInfoList')
         visited = visited + ['StreamInfoList']
         [
-          Stubs::StreamInfo.default(visited)
+          StreamInfo.default(visited)
         ]
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::KinesisVideo
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tags: Stubs::ResourceTags.default(visited),
+          tags: ResourceTags.default(visited),
         }
       end
 
@@ -526,7 +526,7 @@ module AWS::SDK::KinesisVideo
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tags: Stubs::ResourceTags.default(visited),
+          tags: ResourceTags.default(visited),
         }
       end
 

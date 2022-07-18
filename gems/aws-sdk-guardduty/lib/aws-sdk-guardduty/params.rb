@@ -296,7 +296,7 @@ module AWS::SDK::GuardDuty
         Hearth::Validator.validate!(params, ::Hash, Types::CreateDetectorInput, context: context)
         type = Types::CreateDetectorInput.new
         type.enable = params[:enable]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.finding_publishing_frequency = params[:finding_publishing_frequency]
         type.data_sources = DataSourceConfigurations.build(params[:data_sources], context: "#{context}[:data_sources]") unless params[:data_sources].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -323,7 +323,7 @@ module AWS::SDK::GuardDuty
         type.action = params[:action]
         type.rank = params[:rank]
         type.finding_criteria = FindingCriteria.build(params[:finding_criteria], context: "#{context}[:finding_criteria]") unless params[:finding_criteria].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -347,7 +347,7 @@ module AWS::SDK::GuardDuty
         type.format = params[:format]
         type.location = params[:location]
         type.activate = params[:activate]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -388,7 +388,7 @@ module AWS::SDK::GuardDuty
         type.detector_id = params[:detector_id]
         type.destination_type = params[:destination_type]
         type.destination_properties = DestinationProperties.build(params[:destination_properties], context: "#{context}[:destination_properties]") unless params[:destination_properties].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -429,7 +429,7 @@ module AWS::SDK::GuardDuty
         type.format = params[:format]
         type.location = params[:location]
         type.activate = params[:activate]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

@@ -201,11 +201,11 @@ module AWS::SDK::ElasticInference
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute accelerator_set
@@ -367,11 +367,11 @@ module AWS::SDK::ElasticInference
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -434,11 +434,11 @@ module AWS::SDK::ElasticInference
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size_in_mi_b ||= 0
       end
-
     end
 
     # <p>

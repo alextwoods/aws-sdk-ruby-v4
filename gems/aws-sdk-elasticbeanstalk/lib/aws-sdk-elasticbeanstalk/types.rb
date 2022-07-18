@@ -182,11 +182,11 @@ module AWS::SDK::ElasticBeanstalk
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.request_count ||= 0
       end
-
     end
 
     # <p>The resource lifecycle configuration for an application. Defines lifecycle settings for
@@ -3956,11 +3956,11 @@ module AWS::SDK::ElasticBeanstalk
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Describes a LoadBalancer.</p>
@@ -4290,11 +4290,11 @@ module AWS::SDK::ElasticBeanstalk
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.branch_order ||= 0
       end
-
     end
 
     # <p>Detailed information about a platform version.</p>

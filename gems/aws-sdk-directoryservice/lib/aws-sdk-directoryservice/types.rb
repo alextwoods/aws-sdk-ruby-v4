@@ -146,11 +146,11 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.update_security_group_for_directory_controllers ||= false
       end
-
     end
 
     AddIpRoutesOutput = ::Struct.new(
@@ -1336,11 +1336,11 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_associated_conditional_forwarder ||= false
       end
-
     end
 
     # <p>The result of a DeleteTrust request.</p>
@@ -2269,6 +2269,7 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sso_enabled ||= false
@@ -2419,13 +2420,13 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cloud_only_directories_limit_reached ||= false
         self.cloud_only_microsoft_ad_limit_reached ||= false
         self.connected_directories_limit_reached ||= false
       end
-
     end
 
     # <p>The specified directory has not been shared with this Amazon Web Services account.</p>
@@ -3887,6 +3888,7 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.radius_port ||= 0
@@ -3989,11 +3991,11 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_number_of_domain_controllers ||= 0
       end
-
     end
 
     # <p>You have reached the limit for maximum number of simultaneous Region replications per
@@ -4749,11 +4751,11 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.manual_snapshots_limit_reached ||= false
       end
-
     end
 
     # Includes enum constants for SnapshotStatus
@@ -4816,11 +4818,11 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.create_snapshot_before_schema_extension ||= false
       end
-
     end
 
     # @!attribute schema_extension_id
@@ -5199,11 +5201,11 @@ module AWS::SDK::DirectoryService
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.desired_number ||= 0
       end
-
     end
 
     UpdateNumberOfDomainControllersOutput = ::Struct.new(

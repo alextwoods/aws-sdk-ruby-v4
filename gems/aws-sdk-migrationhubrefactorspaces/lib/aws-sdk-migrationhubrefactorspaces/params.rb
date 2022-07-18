@@ -137,7 +137,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         type.proxy_type = params[:proxy_type]
         type.api_gateway_proxy = ApiGatewayProxyInput.build(params[:api_gateway_proxy], context: "#{context}[:api_gateway_proxy]") unless params[:api_gateway_proxy].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         type.description = params[:description]
         type.network_fabric_type = params[:network_fabric_type]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -204,7 +204,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         type.route_type = params[:route_type]
         type.uri_path_route = UriPathRouteInput.build(params[:uri_path_route], context: "#{context}[:uri_path_route]") unless params[:uri_path_route].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -242,7 +242,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         type.url_endpoint = UrlEndpointInput.build(params[:url_endpoint], context: "#{context}[:url_endpoint]") unless params[:url_endpoint].nil?
         type.lambda_endpoint = LambdaEndpointInput.build(params[:lambda_endpoint], context: "#{context}[:lambda_endpoint]") unless params[:lambda_endpoint].nil?
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

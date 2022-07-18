@@ -547,11 +547,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_delete ||= false
       end
-
     end
 
     DeletePackageOutput = ::Struct.new(
@@ -1434,11 +1434,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_latest_patch ||= false
       end
-
     end
 
     # <p>A device.</p>
@@ -1684,11 +1684,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>A job for a device.</p>
@@ -1771,11 +1771,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute package_objects
@@ -1818,11 +1818,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute node_instances
@@ -1873,11 +1873,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute application_instances
@@ -1914,11 +1914,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute device_id
@@ -1943,11 +1943,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute device_jobs
@@ -2002,11 +2002,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute node_from_template_jobs
@@ -2075,11 +2075,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute nodes
@@ -2116,11 +2116,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute package_import_jobs
@@ -2157,11 +2157,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute packages
@@ -2537,11 +2537,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_connections ||= 0
       end
-
     end
 
     # <p>A node instance.</p>
@@ -2975,11 +2975,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mark_latest ||= false
       end
-
     end
 
     # Includes enum constants for PackageVersionStatus
@@ -3128,11 +3128,11 @@ module AWS::SDK::Panorama
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.mark_latest ||= false
       end
-
     end
 
     RegisterPackageVersionOutput = ::Struct.new(

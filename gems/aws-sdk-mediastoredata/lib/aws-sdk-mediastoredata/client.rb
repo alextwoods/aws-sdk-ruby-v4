@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaStoreData
@@ -60,7 +62,7 @@ module AWS::SDK::MediaStoreData
     def delete_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObjectInput,
         validate_input: @config.validate_input
@@ -133,7 +135,7 @@ module AWS::SDK::MediaStoreData
     def describe_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeObjectInput,
         validate_input: @config.validate_input
@@ -328,7 +330,7 @@ module AWS::SDK::MediaStoreData
     def list_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListItemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListItemsInput,
         validate_input: @config.validate_input
@@ -442,7 +444,7 @@ module AWS::SDK::MediaStoreData
     def put_object(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectInput,
         validate_input: @config.validate_input
@@ -499,7 +501,7 @@ module AWS::SDK::MediaStoreData
       return options[:output_stream] if options[:output_stream]
       return Hearth::BlockIO.new(block) if block
 
-      StringIO.new
+      ::StringIO.new
     end
   end
 end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Nimble
@@ -81,7 +83,7 @@ module AWS::SDK::Nimble
     def accept_eulas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptEulasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptEulasInput,
         validate_input: @config.validate_input
@@ -254,7 +256,7 @@ module AWS::SDK::Nimble
     def create_launch_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLaunchProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLaunchProfileInput,
         validate_input: @config.validate_input
@@ -365,7 +367,7 @@ module AWS::SDK::Nimble
     def create_streaming_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingImageInput,
         validate_input: @config.validate_input
@@ -488,7 +490,7 @@ module AWS::SDK::Nimble
     def create_streaming_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingSessionInput,
         validate_input: @config.validate_input
@@ -581,7 +583,7 @@ module AWS::SDK::Nimble
     def create_streaming_session_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingSessionStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingSessionStreamInput,
         validate_input: @config.validate_input
@@ -723,7 +725,7 @@ module AWS::SDK::Nimble
     def create_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStudioInput,
         validate_input: @config.validate_input
@@ -809,6 +811,12 @@ module AWS::SDK::Nimble
     # @option params [String] :type
     #   <p>The type of the studio component.</p>
     #
+    # @option params [String] :secure_initialization_role_arn
+    #   <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+    #
+    # @option params [String] :runtime_role_arn
+    #   <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+    #
     # @return [Types::CreateStudioComponentOutput]
     #
     # @example Request syntax with placeholder values
@@ -866,7 +874,9 @@ module AWS::SDK::Nimble
     #     tags: {
     #       'key' => 'value'
     #     },
-    #     type: 'ACTIVE_DIRECTORY' # required - accepts ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
+    #     type: 'ACTIVE_DIRECTORY', # required - accepts ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
+    #     secure_initialization_role_arn: 'secureInitializationRoleArn',
+    #     runtime_role_arn: 'runtimeRoleArn'
     #   )
     #
     # @example Response structure
@@ -874,7 +884,25 @@ module AWS::SDK::Nimble
     #   resp.data #=> Types::CreateStudioComponentOutput
     #   resp.data.studio_component #=> Types::StudioComponent
     #   resp.data.studio_component.arn #=> String
-    #   resp.data.studio_component.configuration #=> StudioComponentConfiguration
+    #   resp.data.studio_component.configuration #=> Types::StudioComponentConfiguration, one of [ActiveDirectoryConfiguration, ComputeFarmConfiguration, LicenseServiceConfiguration, SharedFileSystemConfiguration]
+    #   resp.data.studio_component.configuration.active_directory_configuration #=> Types::ActiveDirectoryConfiguration
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes #=> Array<ActiveDirectoryComputerAttribute>
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0] #=> Types::ActiveDirectoryComputerAttribute
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].name #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].value #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.directory_id #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.organizational_unit_distinguished_name #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration #=> Types::ComputeFarmConfiguration
+    #   resp.data.studio_component.configuration.compute_farm_configuration.active_directory_user #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.license_service_configuration #=> Types::LicenseServiceConfiguration
+    #   resp.data.studio_component.configuration.license_service_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration #=> Types::SharedFileSystemConfiguration
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.file_system_id #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.linux_mount_point #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.share_name #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.windows_mount_drive #=> String
     #   resp.data.studio_component.created_at #=> Time
     #   resp.data.studio_component.created_by #=> String
     #   resp.data.studio_component.description #=> String
@@ -901,11 +929,13 @@ module AWS::SDK::Nimble
     #   resp.data.studio_component.type #=> String, one of ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
     #   resp.data.studio_component.updated_at #=> Time
     #   resp.data.studio_component.updated_by #=> String
+    #   resp.data.studio_component.secure_initialization_role_arn #=> String
+    #   resp.data.studio_component.runtime_role_arn #=> String
     #
     def create_studio_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStudioComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStudioComponentInput,
         validate_input: @config.validate_input
@@ -1023,7 +1053,7 @@ module AWS::SDK::Nimble
     def delete_launch_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLaunchProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLaunchProfileInput,
         validate_input: @config.validate_input
@@ -1104,7 +1134,7 @@ module AWS::SDK::Nimble
     def delete_launch_profile_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLaunchProfileMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLaunchProfileMemberInput,
         validate_input: @config.validate_input
@@ -1199,7 +1229,7 @@ module AWS::SDK::Nimble
     def delete_streaming_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamingImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamingImageInput,
         validate_input: @config.validate_input
@@ -1302,7 +1332,7 @@ module AWS::SDK::Nimble
     def delete_streaming_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamingSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamingSessionInput,
         validate_input: @config.validate_input
@@ -1395,7 +1425,7 @@ module AWS::SDK::Nimble
     def delete_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStudioInput,
         validate_input: @config.validate_input
@@ -1470,7 +1500,25 @@ module AWS::SDK::Nimble
     #   resp.data #=> Types::DeleteStudioComponentOutput
     #   resp.data.studio_component #=> Types::StudioComponent
     #   resp.data.studio_component.arn #=> String
-    #   resp.data.studio_component.configuration #=> StudioComponentConfiguration
+    #   resp.data.studio_component.configuration #=> Types::StudioComponentConfiguration, one of [ActiveDirectoryConfiguration, ComputeFarmConfiguration, LicenseServiceConfiguration, SharedFileSystemConfiguration]
+    #   resp.data.studio_component.configuration.active_directory_configuration #=> Types::ActiveDirectoryConfiguration
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes #=> Array<ActiveDirectoryComputerAttribute>
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0] #=> Types::ActiveDirectoryComputerAttribute
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].name #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].value #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.directory_id #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.organizational_unit_distinguished_name #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration #=> Types::ComputeFarmConfiguration
+    #   resp.data.studio_component.configuration.compute_farm_configuration.active_directory_user #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.license_service_configuration #=> Types::LicenseServiceConfiguration
+    #   resp.data.studio_component.configuration.license_service_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration #=> Types::SharedFileSystemConfiguration
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.file_system_id #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.linux_mount_point #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.share_name #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.windows_mount_drive #=> String
     #   resp.data.studio_component.created_at #=> Time
     #   resp.data.studio_component.created_by #=> String
     #   resp.data.studio_component.description #=> String
@@ -1497,11 +1545,13 @@ module AWS::SDK::Nimble
     #   resp.data.studio_component.type #=> String, one of ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
     #   resp.data.studio_component.updated_at #=> Time
     #   resp.data.studio_component.updated_by #=> String
+    #   resp.data.studio_component.secure_initialization_role_arn #=> String
+    #   resp.data.studio_component.runtime_role_arn #=> String
     #
     def delete_studio_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStudioComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStudioComponentInput,
         validate_input: @config.validate_input
@@ -1578,7 +1628,7 @@ module AWS::SDK::Nimble
     def delete_studio_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStudioMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStudioMemberInput,
         validate_input: @config.validate_input
@@ -1651,7 +1701,7 @@ module AWS::SDK::Nimble
     def get_eula(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEulaInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEulaInput,
         validate_input: @config.validate_input
@@ -1762,7 +1812,7 @@ module AWS::SDK::Nimble
     def get_launch_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchProfileInput,
         validate_input: @config.validate_input
@@ -1905,7 +1955,7 @@ module AWS::SDK::Nimble
     def get_launch_profile_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchProfileDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchProfileDetailsInput,
         validate_input: @config.validate_input
@@ -2011,12 +2061,14 @@ module AWS::SDK::Nimble
     #   resp.data.launch_profile_initialization.system_initialization_scripts[0].script #=> String
     #   resp.data.launch_profile_initialization.system_initialization_scripts[0].studio_component_id #=> String
     #   resp.data.launch_profile_initialization.system_initialization_scripts[0].studio_component_name #=> String
+    #   resp.data.launch_profile_initialization.system_initialization_scripts[0].secure_initialization_role_arn #=> String
+    #   resp.data.launch_profile_initialization.system_initialization_scripts[0].runtime_role_arn #=> String
     #   resp.data.launch_profile_initialization.user_initialization_scripts #=> Array<LaunchProfileInitializationScript>
     #
     def get_launch_profile_initialization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchProfileInitializationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchProfileInitializationInput,
         validate_input: @config.validate_input
@@ -2096,7 +2148,7 @@ module AWS::SDK::Nimble
     def get_launch_profile_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLaunchProfileMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLaunchProfileMemberInput,
         validate_input: @config.validate_input
@@ -2185,7 +2237,7 @@ module AWS::SDK::Nimble
     def get_streaming_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingImageInput,
         validate_input: @config.validate_input
@@ -2280,7 +2332,7 @@ module AWS::SDK::Nimble
     def get_streaming_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingSessionInput,
         validate_input: @config.validate_input
@@ -2368,7 +2420,7 @@ module AWS::SDK::Nimble
     def get_streaming_session_stream(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingSessionStreamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingSessionStreamInput,
         validate_input: @config.validate_input
@@ -2455,7 +2507,7 @@ module AWS::SDK::Nimble
     def get_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStudioInput,
         validate_input: @config.validate_input
@@ -2524,7 +2576,25 @@ module AWS::SDK::Nimble
     #   resp.data #=> Types::GetStudioComponentOutput
     #   resp.data.studio_component #=> Types::StudioComponent
     #   resp.data.studio_component.arn #=> String
-    #   resp.data.studio_component.configuration #=> StudioComponentConfiguration
+    #   resp.data.studio_component.configuration #=> Types::StudioComponentConfiguration, one of [ActiveDirectoryConfiguration, ComputeFarmConfiguration, LicenseServiceConfiguration, SharedFileSystemConfiguration]
+    #   resp.data.studio_component.configuration.active_directory_configuration #=> Types::ActiveDirectoryConfiguration
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes #=> Array<ActiveDirectoryComputerAttribute>
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0] #=> Types::ActiveDirectoryComputerAttribute
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].name #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].value #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.directory_id #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.organizational_unit_distinguished_name #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration #=> Types::ComputeFarmConfiguration
+    #   resp.data.studio_component.configuration.compute_farm_configuration.active_directory_user #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.license_service_configuration #=> Types::LicenseServiceConfiguration
+    #   resp.data.studio_component.configuration.license_service_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration #=> Types::SharedFileSystemConfiguration
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.file_system_id #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.linux_mount_point #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.share_name #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.windows_mount_drive #=> String
     #   resp.data.studio_component.created_at #=> Time
     #   resp.data.studio_component.created_by #=> String
     #   resp.data.studio_component.description #=> String
@@ -2551,11 +2621,13 @@ module AWS::SDK::Nimble
     #   resp.data.studio_component.type #=> String, one of ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
     #   resp.data.studio_component.updated_at #=> Time
     #   resp.data.studio_component.updated_by #=> String
+    #   resp.data.studio_component.secure_initialization_role_arn #=> String
+    #   resp.data.studio_component.runtime_role_arn #=> String
     #
     def get_studio_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStudioComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStudioComponentInput,
         validate_input: @config.validate_input
@@ -2631,7 +2703,7 @@ module AWS::SDK::Nimble
     def get_studio_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStudioMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStudioMemberInput,
         validate_input: @config.validate_input
@@ -2716,7 +2788,7 @@ module AWS::SDK::Nimble
     def list_eula_acceptances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEulaAcceptancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEulaAcceptancesInput,
         validate_input: @config.validate_input
@@ -2797,7 +2869,7 @@ module AWS::SDK::Nimble
     def list_eulas(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEulasInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEulasInput,
         validate_input: @config.validate_input
@@ -2883,7 +2955,7 @@ module AWS::SDK::Nimble
     def list_launch_profile_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLaunchProfileMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLaunchProfileMembersInput,
         validate_input: @config.validate_input
@@ -3010,7 +3082,7 @@ module AWS::SDK::Nimble
     def list_launch_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLaunchProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLaunchProfilesInput,
         validate_input: @config.validate_input
@@ -3107,7 +3179,7 @@ module AWS::SDK::Nimble
     def list_streaming_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamingImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamingImagesInput,
         validate_input: @config.validate_input
@@ -3151,7 +3223,7 @@ module AWS::SDK::Nimble
       resp
     end
 
-    # <p>Lists the streaming image resources in a studio.</p>
+    # <p>Lists the streaming sessions in a studio.</p>
     #
     # @param [Hash] params
     #   See {Types::ListStreamingSessionsInput}.
@@ -3214,7 +3286,7 @@ module AWS::SDK::Nimble
     def list_streaming_sessions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamingSessionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamingSessionsInput,
         validate_input: @config.validate_input
@@ -3301,7 +3373,25 @@ module AWS::SDK::Nimble
     #   resp.data.studio_components #=> Array<StudioComponent>
     #   resp.data.studio_components[0] #=> Types::StudioComponent
     #   resp.data.studio_components[0].arn #=> String
-    #   resp.data.studio_components[0].configuration #=> StudioComponentConfiguration
+    #   resp.data.studio_components[0].configuration #=> Types::StudioComponentConfiguration, one of [ActiveDirectoryConfiguration, ComputeFarmConfiguration, LicenseServiceConfiguration, SharedFileSystemConfiguration]
+    #   resp.data.studio_components[0].configuration.active_directory_configuration #=> Types::ActiveDirectoryConfiguration
+    #   resp.data.studio_components[0].configuration.active_directory_configuration.computer_attributes #=> Array<ActiveDirectoryComputerAttribute>
+    #   resp.data.studio_components[0].configuration.active_directory_configuration.computer_attributes[0] #=> Types::ActiveDirectoryComputerAttribute
+    #   resp.data.studio_components[0].configuration.active_directory_configuration.computer_attributes[0].name #=> String
+    #   resp.data.studio_components[0].configuration.active_directory_configuration.computer_attributes[0].value #=> String
+    #   resp.data.studio_components[0].configuration.active_directory_configuration.directory_id #=> String
+    #   resp.data.studio_components[0].configuration.active_directory_configuration.organizational_unit_distinguished_name #=> String
+    #   resp.data.studio_components[0].configuration.compute_farm_configuration #=> Types::ComputeFarmConfiguration
+    #   resp.data.studio_components[0].configuration.compute_farm_configuration.active_directory_user #=> String
+    #   resp.data.studio_components[0].configuration.compute_farm_configuration.endpoint #=> String
+    #   resp.data.studio_components[0].configuration.license_service_configuration #=> Types::LicenseServiceConfiguration
+    #   resp.data.studio_components[0].configuration.license_service_configuration.endpoint #=> String
+    #   resp.data.studio_components[0].configuration.shared_file_system_configuration #=> Types::SharedFileSystemConfiguration
+    #   resp.data.studio_components[0].configuration.shared_file_system_configuration.endpoint #=> String
+    #   resp.data.studio_components[0].configuration.shared_file_system_configuration.file_system_id #=> String
+    #   resp.data.studio_components[0].configuration.shared_file_system_configuration.linux_mount_point #=> String
+    #   resp.data.studio_components[0].configuration.shared_file_system_configuration.share_name #=> String
+    #   resp.data.studio_components[0].configuration.shared_file_system_configuration.windows_mount_drive #=> String
     #   resp.data.studio_components[0].created_at #=> Time
     #   resp.data.studio_components[0].created_by #=> String
     #   resp.data.studio_components[0].description #=> String
@@ -3328,11 +3418,13 @@ module AWS::SDK::Nimble
     #   resp.data.studio_components[0].type #=> String, one of ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
     #   resp.data.studio_components[0].updated_at #=> Time
     #   resp.data.studio_components[0].updated_by #=> String
+    #   resp.data.studio_components[0].secure_initialization_role_arn #=> String
+    #   resp.data.studio_components[0].runtime_role_arn #=> String
     #
     def list_studio_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStudioComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStudioComponentsInput,
         validate_input: @config.validate_input
@@ -3418,7 +3510,7 @@ module AWS::SDK::Nimble
     def list_studio_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStudioMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStudioMembersInput,
         validate_input: @config.validate_input
@@ -3508,7 +3600,7 @@ module AWS::SDK::Nimble
     def list_studios(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStudiosInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStudiosInput,
         validate_input: @config.validate_input
@@ -3581,7 +3673,7 @@ module AWS::SDK::Nimble
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3671,7 +3763,7 @@ module AWS::SDK::Nimble
     def put_launch_profile_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLaunchProfileMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLaunchProfileMembersInput,
         validate_input: @config.validate_input
@@ -3758,7 +3850,7 @@ module AWS::SDK::Nimble
     def put_studio_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutStudioMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutStudioMembersInput,
         validate_input: @config.validate_input
@@ -3862,7 +3954,7 @@ module AWS::SDK::Nimble
     def start_streaming_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartStreamingSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartStreamingSessionInput,
         validate_input: @config.validate_input
@@ -3961,7 +4053,7 @@ module AWS::SDK::Nimble
     def start_studio_sso_configuration_repair(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartStudioSSOConfigurationRepairInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartStudioSSOConfigurationRepairInput,
         validate_input: @config.validate_input
@@ -4063,7 +4155,7 @@ module AWS::SDK::Nimble
     def stop_streaming_session(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopStreamingSessionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopStreamingSessionInput,
         validate_input: @config.validate_input
@@ -4137,7 +4229,7 @@ module AWS::SDK::Nimble
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -4211,7 +4303,7 @@ module AWS::SDK::Nimble
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -4373,7 +4465,7 @@ module AWS::SDK::Nimble
     def update_launch_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLaunchProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLaunchProfileInput,
         validate_input: @config.validate_input
@@ -4464,7 +4556,7 @@ module AWS::SDK::Nimble
     def update_launch_profile_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateLaunchProfileMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateLaunchProfileMemberInput,
         validate_input: @config.validate_input
@@ -4568,7 +4660,7 @@ module AWS::SDK::Nimble
     def update_streaming_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamingImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamingImageInput,
         validate_input: @config.validate_input
@@ -4678,7 +4770,7 @@ module AWS::SDK::Nimble
     def update_studio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStudioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStudioInput,
         validate_input: @config.validate_input
@@ -4763,6 +4855,12 @@ module AWS::SDK::Nimble
     # @option params [String] :type
     #   <p>The type of the studio component.</p>
     #
+    # @option params [String] :secure_initialization_role_arn
+    #   <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+    #
+    # @option params [String] :runtime_role_arn
+    #   <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+    #
     # @return [Types::UpdateStudioComponentOutput]
     #
     # @example Request syntax with placeholder values
@@ -4818,7 +4916,9 @@ module AWS::SDK::Nimble
     #     studio_component_id: 'studioComponentId', # required
     #     studio_id: 'studioId', # required
     #     subtype: 'AWS_MANAGED_MICROSOFT_AD', # accepts ["AWS_MANAGED_MICROSOFT_AD", "AMAZON_FSX_FOR_WINDOWS", "AMAZON_FSX_FOR_LUSTRE", "CUSTOM"]
-    #     type: 'ACTIVE_DIRECTORY' # accepts ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
+    #     type: 'ACTIVE_DIRECTORY', # accepts ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
+    #     secure_initialization_role_arn: 'secureInitializationRoleArn',
+    #     runtime_role_arn: 'runtimeRoleArn'
     #   )
     #
     # @example Response structure
@@ -4826,7 +4926,25 @@ module AWS::SDK::Nimble
     #   resp.data #=> Types::UpdateStudioComponentOutput
     #   resp.data.studio_component #=> Types::StudioComponent
     #   resp.data.studio_component.arn #=> String
-    #   resp.data.studio_component.configuration #=> StudioComponentConfiguration
+    #   resp.data.studio_component.configuration #=> Types::StudioComponentConfiguration, one of [ActiveDirectoryConfiguration, ComputeFarmConfiguration, LicenseServiceConfiguration, SharedFileSystemConfiguration]
+    #   resp.data.studio_component.configuration.active_directory_configuration #=> Types::ActiveDirectoryConfiguration
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes #=> Array<ActiveDirectoryComputerAttribute>
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0] #=> Types::ActiveDirectoryComputerAttribute
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].name #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.computer_attributes[0].value #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.directory_id #=> String
+    #   resp.data.studio_component.configuration.active_directory_configuration.organizational_unit_distinguished_name #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration #=> Types::ComputeFarmConfiguration
+    #   resp.data.studio_component.configuration.compute_farm_configuration.active_directory_user #=> String
+    #   resp.data.studio_component.configuration.compute_farm_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.license_service_configuration #=> Types::LicenseServiceConfiguration
+    #   resp.data.studio_component.configuration.license_service_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration #=> Types::SharedFileSystemConfiguration
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.endpoint #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.file_system_id #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.linux_mount_point #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.share_name #=> String
+    #   resp.data.studio_component.configuration.shared_file_system_configuration.windows_mount_drive #=> String
     #   resp.data.studio_component.created_at #=> Time
     #   resp.data.studio_component.created_by #=> String
     #   resp.data.studio_component.description #=> String
@@ -4853,11 +4971,13 @@ module AWS::SDK::Nimble
     #   resp.data.studio_component.type #=> String, one of ["ACTIVE_DIRECTORY", "SHARED_FILE_SYSTEM", "COMPUTE_FARM", "LICENSE_SERVICE", "CUSTOM"]
     #   resp.data.studio_component.updated_at #=> Time
     #   resp.data.studio_component.updated_by #=> String
+    #   resp.data.studio_component.secure_initialization_role_arn #=> String
+    #   resp.data.studio_component.runtime_role_arn #=> String
     #
     def update_studio_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStudioComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStudioComponentInput,
         validate_input: @config.validate_input

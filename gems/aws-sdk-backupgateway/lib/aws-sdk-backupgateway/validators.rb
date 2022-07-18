@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::BackupGateway
   module Validators
 
@@ -47,7 +49,7 @@ module AWS::SDK::BackupGateway
         Hearth::Validator.validate!(input[:activation_key], ::String, context: "#{context}[:activation_key]")
         Hearth::Validator.validate!(input[:gateway_display_name], ::String, context: "#{context}[:gateway_display_name]")
         Hearth::Validator.validate!(input[:gateway_type], ::String, context: "#{context}[:gateway_type]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -128,7 +130,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Gateway.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Gateway.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -143,7 +145,7 @@ module AWS::SDK::BackupGateway
     class GetGatewayOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetGatewayOutput, context: context)
-        Validators::GatewayDetails.validate!(input[:gateway], context: "#{context}[:gateway]") unless input[:gateway].nil?
+        GatewayDetails.validate!(input[:gateway], context: "#{context}[:gateway]") unless input[:gateway].nil?
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Hypervisor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Hypervisor.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::BackupGateway
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::BackupGateway
     class ListGatewaysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGatewaysOutput, context: context)
-        Validators::Gateways.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
+        Gateways.validate!(input[:gateways], context: "#{context}[:gateways]") unless input[:gateways].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::BackupGateway
     class ListHypervisorsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListHypervisorsOutput, context: context)
-        Validators::Hypervisors.validate!(input[:hypervisors], context: "#{context}[:hypervisors]") unless input[:hypervisors].nil?
+        Hypervisors.validate!(input[:hypervisors], context: "#{context}[:hypervisors]") unless input[:hypervisors].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -237,7 +239,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -252,7 +254,7 @@ module AWS::SDK::BackupGateway
     class ListVirtualMachinesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListVirtualMachinesOutput, context: context)
-        Validators::VirtualMachines.validate!(input[:virtual_machines], context: "#{context}[:virtual_machines]") unless input[:virtual_machines].nil?
+        VirtualMachines.validate!(input[:virtual_machines], context: "#{context}[:virtual_machines]") unless input[:virtual_machines].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -344,7 +346,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::BackupGateway
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VirtualMachine.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VirtualMachine.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

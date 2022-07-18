@@ -1270,12 +1270,12 @@ module AWS::SDK::Codeartifact
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.repository_count ||= 0
         self.asset_size_bytes ||= 0
       end
-
     end
 
     # Includes enum constants for DomainStatus

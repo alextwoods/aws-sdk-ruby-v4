@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Route53RecoveryReadiness
@@ -76,7 +78,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def create_cell(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCellInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCellInput,
         validate_input: @config.validate_input
@@ -145,7 +147,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def create_cross_account_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCrossAccountAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCrossAccountAuthorizationInput,
         validate_input: @config.validate_input
@@ -228,7 +230,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def create_readiness_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReadinessCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReadinessCheckInput,
         validate_input: @config.validate_input
@@ -314,7 +316,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def create_recovery_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRecoveryGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRecoveryGroupInput,
         validate_input: @config.validate_input
@@ -441,7 +443,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def create_resource_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceSetInput,
         validate_input: @config.validate_input
@@ -509,7 +511,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def delete_cell(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCellInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCellInput,
         validate_input: @config.validate_input
@@ -576,7 +578,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def delete_cross_account_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCrossAccountAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCrossAccountAuthorizationInput,
         validate_input: @config.validate_input
@@ -643,7 +645,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def delete_readiness_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReadinessCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReadinessCheckInput,
         validate_input: @config.validate_input
@@ -710,7 +712,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def delete_recovery_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecoveryGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecoveryGroupInput,
         validate_input: @config.validate_input
@@ -777,7 +779,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def delete_resource_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceSetInput,
         validate_input: @config.validate_input
@@ -857,7 +859,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_architecture_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetArchitectureRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetArchitectureRecommendationsInput,
         validate_input: @config.validate_input
@@ -931,7 +933,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_cell(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCellInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCellInput,
         validate_input: @config.validate_input
@@ -1012,7 +1014,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_cell_readiness_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCellReadinessSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCellReadinessSummaryInput,
         validate_input: @config.validate_input
@@ -1084,7 +1086,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_readiness_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReadinessCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReadinessCheckInput,
         validate_input: @config.validate_input
@@ -1173,7 +1175,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_readiness_check_resource_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReadinessCheckResourceStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReadinessCheckResourceStatusInput,
         validate_input: @config.validate_input
@@ -1259,7 +1261,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_readiness_check_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReadinessCheckStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReadinessCheckStatusInput,
         validate_input: @config.validate_input
@@ -1332,7 +1334,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_recovery_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecoveryGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecoveryGroupInput,
         validate_input: @config.validate_input
@@ -1413,7 +1415,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_recovery_group_readiness_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecoveryGroupReadinessSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecoveryGroupReadinessSummaryInput,
         validate_input: @config.validate_input
@@ -1502,7 +1504,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def get_resource_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceSetInput,
         validate_input: @config.validate_input
@@ -1583,7 +1585,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_cells(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCellsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCellsInput,
         validate_input: @config.validate_input
@@ -1657,7 +1659,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_cross_account_authorizations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCrossAccountAuthorizationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCrossAccountAuthorizationsInput,
         validate_input: @config.validate_input
@@ -1736,7 +1738,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_readiness_checks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReadinessChecksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReadinessChecksInput,
         validate_input: @config.validate_input
@@ -1816,7 +1818,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_recovery_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRecoveryGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRecoveryGroupsInput,
         validate_input: @config.validate_input
@@ -1912,7 +1914,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_resource_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceSetsInput,
         validate_input: @config.validate_input
@@ -1993,7 +1995,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRulesInput,
         validate_input: @config.validate_input
@@ -2062,7 +2064,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def list_tags_for_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourcesInput,
         validate_input: @config.validate_input
@@ -2135,7 +2137,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2209,7 +2211,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2289,7 +2291,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def update_cell(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCellInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCellInput,
         validate_input: @config.validate_input
@@ -2366,7 +2368,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def update_readiness_check(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReadinessCheckInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReadinessCheckInput,
         validate_input: @config.validate_input
@@ -2446,7 +2448,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def update_recovery_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRecoveryGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRecoveryGroupInput,
         validate_input: @config.validate_input
@@ -2567,7 +2569,7 @@ module AWS::SDK::Route53RecoveryReadiness
     def update_resource_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceSetInput,
         validate_input: @config.validate_input

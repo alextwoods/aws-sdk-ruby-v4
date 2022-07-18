@@ -508,11 +508,11 @@ module AWS::SDK::ElasticLoadBalancingV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.priority ||= 0
       end
-
     end
 
     # @!attribute load_balancer_arn
@@ -2977,11 +2977,11 @@ module AWS::SDK::ElasticLoadBalancingV2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>Information about a condition for a rule.</p>

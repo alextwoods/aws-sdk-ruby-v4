@@ -75,7 +75,7 @@ module AWS::SDK::S3
     class CopyObject
       def self.default(visited=[])
         {
-          copy_object_result: Stubs::CopyObjectResult.default(visited),
+          copy_object_result: CopyObjectResult.default(visited),
           expiration: 'expiration',
           copy_source_version_id: 'copy_source_version_id',
           version_id: 'version_id',
@@ -402,9 +402,9 @@ module AWS::SDK::S3
     class DeleteObjects
       def self.default(visited=[])
         {
-          deleted: Stubs::DeletedObjects.default(visited),
+          deleted: DeletedObjects.default(visited),
           request_charged: 'request_charged',
-          errors: Stubs::Errors.default(visited),
+          errors: Errors.default(visited),
         }
       end
 
@@ -428,7 +428,7 @@ module AWS::SDK::S3
         return nil if visited.include?('Errors')
         visited = visited + ['Errors']
         [
-          Stubs::Error.default(visited)
+          Error.default(visited)
         ]
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::S3
         return nil if visited.include?('DeletedObjects')
         visited = visited + ['DeletedObjects']
         [
-          Stubs::DeletedObject.default(visited)
+          DeletedObject.default(visited)
         ]
       end
 
@@ -547,8 +547,8 @@ module AWS::SDK::S3
     class GetBucketAcl
       def self.default(visited=[])
         {
-          owner: Stubs::Owner.default(visited),
-          grants: Stubs::Grants.default(visited),
+          owner: Owner.default(visited),
+          grants: Grants.default(visited),
         }
       end
 
@@ -571,7 +571,7 @@ module AWS::SDK::S3
         return nil if visited.include?('Grants')
         visited = visited + ['Grants']
         [
-          Stubs::Grant.default(visited)
+          Grant.default(visited)
         ]
       end
 
@@ -591,7 +591,7 @@ module AWS::SDK::S3
         return nil if visited.include?('Grant')
         visited = visited + ['Grant']
         {
-          grantee: Stubs::Grantee.default(visited),
+          grantee: Grantee.default(visited),
           permission: 'permission',
         }
       end
@@ -659,7 +659,7 @@ module AWS::SDK::S3
     class GetBucketAnalyticsConfiguration
       def self.default(visited=[])
         {
-          analytics_configuration: Stubs::AnalyticsConfiguration.default(visited),
+          analytics_configuration: AnalyticsConfiguration.default(visited),
         }
       end
 
@@ -679,8 +679,8 @@ module AWS::SDK::S3
         visited = visited + ['AnalyticsConfiguration']
         {
           id: 'id',
-          filter: Stubs::AnalyticsFilter.default(visited),
-          storage_class_analysis: Stubs::StorageClassAnalysis.default(visited),
+          filter: AnalyticsFilter.default(visited),
+          storage_class_analysis: StorageClassAnalysis.default(visited),
         }
       end
 
@@ -700,7 +700,7 @@ module AWS::SDK::S3
         return nil if visited.include?('StorageClassAnalysis')
         visited = visited + ['StorageClassAnalysis']
         {
-          data_export: Stubs::StorageClassAnalysisDataExport.default(visited),
+          data_export: StorageClassAnalysisDataExport.default(visited),
         }
       end
 
@@ -719,7 +719,7 @@ module AWS::SDK::S3
         visited = visited + ['StorageClassAnalysisDataExport']
         {
           output_schema_version: 'output_schema_version',
-          destination: Stubs::AnalyticsExportDestination.default(visited),
+          destination: AnalyticsExportDestination.default(visited),
         }
       end
 
@@ -738,7 +738,7 @@ module AWS::SDK::S3
         return nil if visited.include?('AnalyticsExportDestination')
         visited = visited + ['AnalyticsExportDestination']
         {
-          s3_bucket_destination: Stubs::AnalyticsS3BucketDestination.default(visited),
+          s3_bucket_destination: AnalyticsS3BucketDestination.default(visited),
         }
       end
 
@@ -809,7 +809,7 @@ module AWS::SDK::S3
         visited = visited + ['AnalyticsAndOperator']
         {
           prefix: 'prefix',
-          tags: Stubs::TagSet.default(visited),
+          tags: TagSet.default(visited),
         }
       end
 
@@ -828,7 +828,7 @@ module AWS::SDK::S3
         return nil if visited.include?('TagSet')
         visited = visited + ['TagSet']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -866,7 +866,7 @@ module AWS::SDK::S3
     class GetBucketCors
       def self.default(visited=[])
         {
-          cors_rules: Stubs::CORSRules.default(visited),
+          cors_rules: CORSRules.default(visited),
         }
       end
 
@@ -888,7 +888,7 @@ module AWS::SDK::S3
         return nil if visited.include?('CORSRules')
         visited = visited + ['CORSRules']
         [
-          Stubs::CORSRule.default(visited)
+          CORSRule.default(visited)
         ]
       end
 
@@ -909,10 +909,10 @@ module AWS::SDK::S3
         visited = visited + ['CORSRule']
         {
           id: 'id',
-          allowed_headers: Stubs::AllowedHeaders.default(visited),
-          allowed_methods: Stubs::AllowedMethods.default(visited),
-          allowed_origins: Stubs::AllowedOrigins.default(visited),
-          expose_headers: Stubs::ExposeHeaders.default(visited),
+          allowed_headers: AllowedHeaders.default(visited),
+          allowed_methods: AllowedMethods.default(visited),
+          allowed_origins: AllowedOrigins.default(visited),
+          expose_headers: ExposeHeaders.default(visited),
           max_age_seconds: 1,
         }
       end
@@ -1014,7 +1014,7 @@ module AWS::SDK::S3
     class GetBucketEncryption
       def self.default(visited=[])
         {
-          server_side_encryption_configuration: Stubs::ServerSideEncryptionConfiguration.default(visited),
+          server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
         }
       end
 
@@ -1033,7 +1033,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ServerSideEncryptionConfiguration')
         visited = visited + ['ServerSideEncryptionConfiguration']
         {
-          rules: Stubs::ServerSideEncryptionRules.default(visited),
+          rules: ServerSideEncryptionRules.default(visited),
         }
       end
 
@@ -1051,7 +1051,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ServerSideEncryptionRules')
         visited = visited + ['ServerSideEncryptionRules']
         [
-          Stubs::ServerSideEncryptionRule.default(visited)
+          ServerSideEncryptionRule.default(visited)
         ]
       end
 
@@ -1071,7 +1071,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ServerSideEncryptionRule')
         visited = visited + ['ServerSideEncryptionRule']
         {
-          apply_server_side_encryption_by_default: Stubs::ServerSideEncryptionByDefault.default(visited),
+          apply_server_side_encryption_by_default: ServerSideEncryptionByDefault.default(visited),
           bucket_key_enabled: false,
         }
       end
@@ -1109,7 +1109,7 @@ module AWS::SDK::S3
     class GetBucketIntelligentTieringConfiguration
       def self.default(visited=[])
         {
-          intelligent_tiering_configuration: Stubs::IntelligentTieringConfiguration.default(visited),
+          intelligent_tiering_configuration: IntelligentTieringConfiguration.default(visited),
         }
       end
 
@@ -1129,9 +1129,9 @@ module AWS::SDK::S3
         visited = visited + ['IntelligentTieringConfiguration']
         {
           id: 'id',
-          filter: Stubs::IntelligentTieringFilter.default(visited),
+          filter: IntelligentTieringFilter.default(visited),
           status: 'status',
-          tierings: Stubs::TieringList.default(visited),
+          tierings: TieringList.default(visited),
         }
       end
 
@@ -1152,7 +1152,7 @@ module AWS::SDK::S3
         return nil if visited.include?('TieringList')
         visited = visited + ['TieringList']
         [
-          Stubs::Tiering.default(visited)
+          Tiering.default(visited)
         ]
       end
 
@@ -1193,8 +1193,8 @@ module AWS::SDK::S3
         visited = visited + ['IntelligentTieringFilter']
         {
           prefix: 'prefix',
-          tag: Stubs::Tag.default(visited),
-          and: Stubs::IntelligentTieringAndOperator.default(visited),
+          tag: Tag.default(visited),
+          and: IntelligentTieringAndOperator.default(visited),
         }
       end
 
@@ -1215,7 +1215,7 @@ module AWS::SDK::S3
         visited = visited + ['IntelligentTieringAndOperator']
         {
           prefix: 'prefix',
-          tags: Stubs::TagSet.default(visited),
+          tags: TagSet.default(visited),
         }
       end
 
@@ -1232,7 +1232,7 @@ module AWS::SDK::S3
     class GetBucketInventoryConfiguration
       def self.default(visited=[])
         {
-          inventory_configuration: Stubs::InventoryConfiguration.default(visited),
+          inventory_configuration: InventoryConfiguration.default(visited),
         }
       end
 
@@ -1251,13 +1251,13 @@ module AWS::SDK::S3
         return nil if visited.include?('InventoryConfiguration')
         visited = visited + ['InventoryConfiguration']
         {
-          destination: Stubs::InventoryDestination.default(visited),
+          destination: InventoryDestination.default(visited),
           is_enabled: false,
-          filter: Stubs::InventoryFilter.default(visited),
+          filter: InventoryFilter.default(visited),
           id: 'id',
           included_object_versions: 'included_object_versions',
-          optional_fields: Stubs::InventoryOptionalFields.default(visited),
-          schedule: Stubs::InventorySchedule.default(visited),
+          optional_fields: InventoryOptionalFields.default(visited),
+          schedule: InventorySchedule.default(visited),
         }
       end
 
@@ -1337,7 +1337,7 @@ module AWS::SDK::S3
         return nil if visited.include?('InventoryDestination')
         visited = visited + ['InventoryDestination']
         {
-          s3_bucket_destination: Stubs::InventoryS3BucketDestination.default(visited),
+          s3_bucket_destination: InventoryS3BucketDestination.default(visited),
         }
       end
 
@@ -1359,7 +1359,7 @@ module AWS::SDK::S3
           bucket: 'bucket',
           format: 'format',
           prefix: 'prefix',
-          encryption: Stubs::InventoryEncryption.default(visited),
+          encryption: InventoryEncryption.default(visited),
         }
       end
 
@@ -1381,8 +1381,8 @@ module AWS::SDK::S3
         return nil if visited.include?('InventoryEncryption')
         visited = visited + ['InventoryEncryption']
         {
-          sses3: Stubs::SSES3.default(visited),
-          ssekms: Stubs::SSEKMS.default(visited),
+          sses3: SSES3.default(visited),
+          ssekms: SSEKMS.default(visited),
         }
       end
 
@@ -1433,7 +1433,7 @@ module AWS::SDK::S3
     class GetBucketLifecycleConfiguration
       def self.default(visited=[])
         {
-          rules: Stubs::LifecycleRules.default(visited),
+          rules: LifecycleRules.default(visited),
         }
       end
 
@@ -1455,7 +1455,7 @@ module AWS::SDK::S3
         return nil if visited.include?('LifecycleRules')
         visited = visited + ['LifecycleRules']
         [
-          Stubs::LifecycleRule.default(visited)
+          LifecycleRule.default(visited)
         ]
       end
 
@@ -1475,15 +1475,15 @@ module AWS::SDK::S3
         return nil if visited.include?('LifecycleRule')
         visited = visited + ['LifecycleRule']
         {
-          expiration: Stubs::LifecycleExpiration.default(visited),
+          expiration: LifecycleExpiration.default(visited),
           id: 'id',
           prefix: 'prefix',
-          filter: Stubs::LifecycleRuleFilter.default(visited),
+          filter: LifecycleRuleFilter.default(visited),
           status: 'status',
-          transitions: Stubs::TransitionList.default(visited),
-          noncurrent_version_transitions: Stubs::NoncurrentVersionTransitionList.default(visited),
-          noncurrent_version_expiration: Stubs::NoncurrentVersionExpiration.default(visited),
-          abort_incomplete_multipart_upload: Stubs::AbortIncompleteMultipartUpload.default(visited),
+          transitions: TransitionList.default(visited),
+          noncurrent_version_transitions: NoncurrentVersionTransitionList.default(visited),
+          noncurrent_version_expiration: NoncurrentVersionExpiration.default(visited),
+          abort_incomplete_multipart_upload: AbortIncompleteMultipartUpload.default(visited),
         }
       end
 
@@ -1547,7 +1547,7 @@ module AWS::SDK::S3
         return nil if visited.include?('NoncurrentVersionTransitionList')
         visited = visited + ['NoncurrentVersionTransitionList']
         [
-          Stubs::NoncurrentVersionTransition.default(visited)
+          NoncurrentVersionTransition.default(visited)
         ]
       end
 
@@ -1589,7 +1589,7 @@ module AWS::SDK::S3
         return nil if visited.include?('TransitionList')
         visited = visited + ['TransitionList']
         [
-          Stubs::Transition.default(visited)
+          Transition.default(visited)
         ]
       end
 
@@ -1664,7 +1664,7 @@ module AWS::SDK::S3
         visited = visited + ['LifecycleRuleAndOperator']
         {
           prefix: 'prefix',
-          tags: Stubs::TagSet.default(visited),
+          tags: TagSet.default(visited),
           object_size_greater_than: 1,
           object_size_less_than: 1,
         }
@@ -1727,7 +1727,7 @@ module AWS::SDK::S3
     class GetBucketLogging
       def self.default(visited=[])
         {
-          logging_enabled: Stubs::LoggingEnabled.default(visited),
+          logging_enabled: LoggingEnabled.default(visited),
         }
       end
 
@@ -1750,7 +1750,7 @@ module AWS::SDK::S3
         visited = visited + ['LoggingEnabled']
         {
           target_bucket: 'target_bucket',
-          target_grants: Stubs::TargetGrants.default(visited),
+          target_grants: TargetGrants.default(visited),
           target_prefix: 'target_prefix',
         }
       end
@@ -1771,7 +1771,7 @@ module AWS::SDK::S3
         return nil if visited.include?('TargetGrants')
         visited = visited + ['TargetGrants']
         [
-          Stubs::TargetGrant.default(visited)
+          TargetGrant.default(visited)
         ]
       end
 
@@ -1791,7 +1791,7 @@ module AWS::SDK::S3
         return nil if visited.include?('TargetGrant')
         visited = visited + ['TargetGrant']
         {
-          grantee: Stubs::Grantee.default(visited),
+          grantee: Grantee.default(visited),
           permission: 'permission',
         }
       end
@@ -1813,7 +1813,7 @@ module AWS::SDK::S3
     class GetBucketMetricsConfiguration
       def self.default(visited=[])
         {
-          metrics_configuration: Stubs::MetricsConfiguration.default(visited),
+          metrics_configuration: MetricsConfiguration.default(visited),
         }
       end
 
@@ -1833,7 +1833,7 @@ module AWS::SDK::S3
         visited = visited + ['MetricsConfiguration']
         {
           id: 'id',
-          filter: Stubs::MetricsFilter.default(visited),
+          filter: MetricsFilter.default(visited),
         }
       end
 
@@ -1883,7 +1883,7 @@ module AWS::SDK::S3
         visited = visited + ['MetricsAndOperator']
         {
           prefix: 'prefix',
-          tags: Stubs::TagSet.default(visited),
+          tags: TagSet.default(visited),
           access_point_arn: 'access_point_arn',
         }
       end
@@ -1902,10 +1902,10 @@ module AWS::SDK::S3
     class GetBucketNotificationConfiguration
       def self.default(visited=[])
         {
-          topic_configurations: Stubs::TopicConfigurationList.default(visited),
-          queue_configurations: Stubs::QueueConfigurationList.default(visited),
-          lambda_function_configurations: Stubs::LambdaFunctionConfigurationList.default(visited),
-          event_bridge_configuration: Stubs::EventBridgeConfiguration.default(visited),
+          topic_configurations: TopicConfigurationList.default(visited),
+          queue_configurations: QueueConfigurationList.default(visited),
+          lambda_function_configurations: LambdaFunctionConfigurationList.default(visited),
+          event_bridge_configuration: EventBridgeConfiguration.default(visited),
         }
       end
 
@@ -1946,7 +1946,7 @@ module AWS::SDK::S3
         return nil if visited.include?('LambdaFunctionConfigurationList')
         visited = visited + ['LambdaFunctionConfigurationList']
         [
-          Stubs::LambdaFunctionConfiguration.default(visited)
+          LambdaFunctionConfiguration.default(visited)
         ]
       end
 
@@ -1968,8 +1968,8 @@ module AWS::SDK::S3
         {
           id: 'id',
           lambda_function_arn: 'lambda_function_arn',
-          events: Stubs::EventList.default(visited),
-          filter: Stubs::NotificationConfigurationFilter.default(visited),
+          events: EventList.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -1990,7 +1990,7 @@ module AWS::SDK::S3
         return nil if visited.include?('NotificationConfigurationFilter')
         visited = visited + ['NotificationConfigurationFilter']
         {
-          key: Stubs::S3KeyFilter.default(visited),
+          key: S3KeyFilter.default(visited),
         }
       end
 
@@ -2008,7 +2008,7 @@ module AWS::SDK::S3
         return nil if visited.include?('S3KeyFilter')
         visited = visited + ['S3KeyFilter']
         {
-          filter_rules: Stubs::FilterRuleList.default(visited),
+          filter_rules: FilterRuleList.default(visited),
         }
       end
 
@@ -2026,7 +2026,7 @@ module AWS::SDK::S3
         return nil if visited.include?('FilterRuleList')
         visited = visited + ['FilterRuleList']
         [
-          Stubs::FilterRule.default(visited)
+          FilterRule.default(visited)
         ]
       end
 
@@ -2086,7 +2086,7 @@ module AWS::SDK::S3
         return nil if visited.include?('QueueConfigurationList')
         visited = visited + ['QueueConfigurationList']
         [
-          Stubs::QueueConfiguration.default(visited)
+          QueueConfiguration.default(visited)
         ]
       end
 
@@ -2108,8 +2108,8 @@ module AWS::SDK::S3
         {
           id: 'id',
           queue_arn: 'queue_arn',
-          events: Stubs::EventList.default(visited),
-          filter: Stubs::NotificationConfigurationFilter.default(visited),
+          events: EventList.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -2130,7 +2130,7 @@ module AWS::SDK::S3
         return nil if visited.include?('TopicConfigurationList')
         visited = visited + ['TopicConfigurationList']
         [
-          Stubs::TopicConfiguration.default(visited)
+          TopicConfiguration.default(visited)
         ]
       end
 
@@ -2152,8 +2152,8 @@ module AWS::SDK::S3
         {
           id: 'id',
           topic_arn: 'topic_arn',
-          events: Stubs::EventList.default(visited),
-          filter: Stubs::NotificationConfigurationFilter.default(visited),
+          events: EventList.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
         }
       end
 
@@ -2172,7 +2172,7 @@ module AWS::SDK::S3
     class GetBucketOwnershipControls
       def self.default(visited=[])
         {
-          ownership_controls: Stubs::OwnershipControls.default(visited),
+          ownership_controls: OwnershipControls.default(visited),
         }
       end
 
@@ -2191,7 +2191,7 @@ module AWS::SDK::S3
         return nil if visited.include?('OwnershipControls')
         visited = visited + ['OwnershipControls']
         {
-          rules: Stubs::OwnershipControlsRules.default(visited),
+          rules: OwnershipControlsRules.default(visited),
         }
       end
 
@@ -2209,7 +2209,7 @@ module AWS::SDK::S3
         return nil if visited.include?('OwnershipControlsRules')
         visited = visited + ['OwnershipControlsRules']
         [
-          Stubs::OwnershipControlsRule.default(visited)
+          OwnershipControlsRule.default(visited)
         ]
       end
 
@@ -2261,7 +2261,7 @@ module AWS::SDK::S3
     class GetBucketPolicyStatus
       def self.default(visited=[])
         {
-          policy_status: Stubs::PolicyStatus.default(visited),
+          policy_status: PolicyStatus.default(visited),
         }
       end
 
@@ -2296,7 +2296,7 @@ module AWS::SDK::S3
     class GetBucketReplication
       def self.default(visited=[])
         {
-          replication_configuration: Stubs::ReplicationConfiguration.default(visited),
+          replication_configuration: ReplicationConfiguration.default(visited),
         }
       end
 
@@ -2316,7 +2316,7 @@ module AWS::SDK::S3
         visited = visited + ['ReplicationConfiguration']
         {
           role: 'role',
-          rules: Stubs::ReplicationRules.default(visited),
+          rules: ReplicationRules.default(visited),
         }
       end
 
@@ -2335,7 +2335,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ReplicationRules')
         visited = visited + ['ReplicationRules']
         [
-          Stubs::ReplicationRule.default(visited)
+          ReplicationRule.default(visited)
         ]
       end
 
@@ -2358,12 +2358,12 @@ module AWS::SDK::S3
           id: 'id',
           priority: 1,
           prefix: 'prefix',
-          filter: Stubs::ReplicationRuleFilter.default(visited),
+          filter: ReplicationRuleFilter.default(visited),
           status: 'status',
-          source_selection_criteria: Stubs::SourceSelectionCriteria.default(visited),
-          existing_object_replication: Stubs::ExistingObjectReplication.default(visited),
-          destination: Stubs::Destination.default(visited),
-          delete_marker_replication: Stubs::DeleteMarkerReplication.default(visited),
+          source_selection_criteria: SourceSelectionCriteria.default(visited),
+          existing_object_replication: ExistingObjectReplication.default(visited),
+          destination: Destination.default(visited),
+          delete_marker_replication: DeleteMarkerReplication.default(visited),
         }
       end
 
@@ -2410,10 +2410,10 @@ module AWS::SDK::S3
           bucket: 'bucket',
           account: 'account',
           storage_class: 'storage_class',
-          access_control_translation: Stubs::AccessControlTranslation.default(visited),
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
-          replication_time: Stubs::ReplicationTime.default(visited),
-          metrics: Stubs::Metrics.default(visited),
+          access_control_translation: AccessControlTranslation.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          replication_time: ReplicationTime.default(visited),
+          metrics: Metrics.default(visited),
         }
       end
 
@@ -2438,7 +2438,7 @@ module AWS::SDK::S3
         visited = visited + ['Metrics']
         {
           status: 'status',
-          event_threshold: Stubs::ReplicationTimeValue.default(visited),
+          event_threshold: ReplicationTimeValue.default(visited),
         }
       end
 
@@ -2476,7 +2476,7 @@ module AWS::SDK::S3
         visited = visited + ['ReplicationTime']
         {
           status: 'status',
-          time: Stubs::ReplicationTimeValue.default(visited),
+          time: ReplicationTimeValue.default(visited),
         }
       end
 
@@ -2549,8 +2549,8 @@ module AWS::SDK::S3
         return nil if visited.include?('SourceSelectionCriteria')
         visited = visited + ['SourceSelectionCriteria']
         {
-          sse_kms_encrypted_objects: Stubs::SseKmsEncryptedObjects.default(visited),
-          replica_modifications: Stubs::ReplicaModifications.default(visited),
+          sse_kms_encrypted_objects: SseKmsEncryptedObjects.default(visited),
+          replica_modifications: ReplicaModifications.default(visited),
         }
       end
 
@@ -2634,7 +2634,7 @@ module AWS::SDK::S3
         visited = visited + ['ReplicationRuleAndOperator']
         {
           prefix: 'prefix',
-          tags: Stubs::TagSet.default(visited),
+          tags: TagSet.default(visited),
         }
       end
 
@@ -2671,7 +2671,7 @@ module AWS::SDK::S3
     class GetBucketTagging
       def self.default(visited=[])
         {
-          tag_set: Stubs::TagSet.default(visited),
+          tag_set: TagSet.default(visited),
         }
       end
 
@@ -2713,10 +2713,10 @@ module AWS::SDK::S3
     class GetBucketWebsite
       def self.default(visited=[])
         {
-          redirect_all_requests_to: Stubs::RedirectAllRequestsTo.default(visited),
-          index_document: Stubs::IndexDocument.default(visited),
-          error_document: Stubs::ErrorDocument.default(visited),
-          routing_rules: Stubs::RoutingRules.default(visited),
+          redirect_all_requests_to: RedirectAllRequestsTo.default(visited),
+          index_document: IndexDocument.default(visited),
+          error_document: ErrorDocument.default(visited),
+          routing_rules: RoutingRules.default(visited),
         }
       end
 
@@ -2741,7 +2741,7 @@ module AWS::SDK::S3
         return nil if visited.include?('RoutingRules')
         visited = visited + ['RoutingRules']
         [
-          Stubs::RoutingRule.default(visited)
+          RoutingRule.default(visited)
         ]
       end
 
@@ -2761,8 +2761,8 @@ module AWS::SDK::S3
         return nil if visited.include?('RoutingRule')
         visited = visited + ['RoutingRule']
         {
-          condition: Stubs::Condition.default(visited),
-          redirect: Stubs::Redirect.default(visited),
+          condition: Condition.default(visited),
+          redirect: Redirect.default(visited),
         }
       end
 
@@ -2904,7 +2904,7 @@ module AWS::SDK::S3
           expires: Time.now,
           website_redirect_location: 'website_redirect_location',
           server_side_encryption: 'server_side_encryption',
-          metadata: Stubs::Metadata.default(visited),
+          metadata: Metadata.default(visited),
           sse_customer_algorithm: 'sse_customer_algorithm',
           sse_customer_key_md5: 'sse_customer_key_md5',
           ssekms_key_id: 'ssekms_key_id',
@@ -2991,8 +2991,8 @@ module AWS::SDK::S3
     class GetObjectAcl
       def self.default(visited=[])
         {
-          owner: Stubs::Owner.default(visited),
-          grants: Stubs::Grants.default(visited),
+          owner: Owner.default(visited),
+          grants: Grants.default(visited),
           request_charged: 'request_charged',
         }
       end
@@ -3020,8 +3020,8 @@ module AWS::SDK::S3
           version_id: 'version_id',
           request_charged: 'request_charged',
           e_tag: 'e_tag',
-          checksum: Stubs::Checksum.default(visited),
-          object_parts: Stubs::GetObjectAttributesParts.default(visited),
+          checksum: Checksum.default(visited),
+          object_parts: GetObjectAttributesParts.default(visited),
           storage_class: 'storage_class',
           object_size: 1,
         }
@@ -3058,7 +3058,7 @@ module AWS::SDK::S3
           next_part_number_marker: 'next_part_number_marker',
           max_parts: 1,
           is_truncated: false,
-          parts: Stubs::PartsList.default(visited),
+          parts: PartsList.default(visited),
         }
       end
 
@@ -3081,7 +3081,7 @@ module AWS::SDK::S3
         return nil if visited.include?('PartsList')
         visited = visited + ['PartsList']
         [
-          Stubs::ObjectPart.default(visited)
+          ObjectPart.default(visited)
         ]
       end
 
@@ -3151,7 +3151,7 @@ module AWS::SDK::S3
     class GetObjectLegalHold
       def self.default(visited=[])
         {
-          legal_hold: Stubs::ObjectLockLegalHold.default(visited),
+          legal_hold: ObjectLockLegalHold.default(visited),
         }
       end
 
@@ -3186,7 +3186,7 @@ module AWS::SDK::S3
     class GetObjectLockConfiguration
       def self.default(visited=[])
         {
-          object_lock_configuration: Stubs::ObjectLockConfiguration.default(visited),
+          object_lock_configuration: ObjectLockConfiguration.default(visited),
         }
       end
 
@@ -3206,7 +3206,7 @@ module AWS::SDK::S3
         visited = visited + ['ObjectLockConfiguration']
         {
           object_lock_enabled: 'object_lock_enabled',
-          rule: Stubs::ObjectLockRule.default(visited),
+          rule: ObjectLockRule.default(visited),
         }
       end
 
@@ -3225,7 +3225,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ObjectLockRule')
         visited = visited + ['ObjectLockRule']
         {
-          default_retention: Stubs::DefaultRetention.default(visited),
+          default_retention: DefaultRetention.default(visited),
         }
       end
 
@@ -3263,7 +3263,7 @@ module AWS::SDK::S3
     class GetObjectRetention
       def self.default(visited=[])
         {
-          retention: Stubs::ObjectLockRetention.default(visited),
+          retention: ObjectLockRetention.default(visited),
         }
       end
 
@@ -3301,7 +3301,7 @@ module AWS::SDK::S3
       def self.default(visited=[])
         {
           version_id: 'version_id',
-          tag_set: Stubs::TagSet.default(visited),
+          tag_set: TagSet.default(visited),
         }
       end
 
@@ -3339,7 +3339,7 @@ module AWS::SDK::S3
     class GetPublicAccessBlock
       def self.default(visited=[])
         {
-          public_access_block_configuration: Stubs::PublicAccessBlockConfiguration.default(visited),
+          public_access_block_configuration: PublicAccessBlockConfiguration.default(visited),
         }
       end
 
@@ -3415,7 +3415,7 @@ module AWS::SDK::S3
           expires: Time.now,
           website_redirect_location: 'website_redirect_location',
           server_side_encryption: 'server_side_encryption',
-          metadata: Stubs::Metadata.default(visited),
+          metadata: Metadata.default(visited),
           sse_customer_algorithm: 'sse_customer_algorithm',
           sse_customer_key_md5: 'sse_customer_key_md5',
           ssekms_key_id: 'ssekms_key_id',
@@ -3479,7 +3479,7 @@ module AWS::SDK::S3
           is_truncated: false,
           continuation_token: 'continuation_token',
           next_continuation_token: 'next_continuation_token',
-          analytics_configuration_list: Stubs::AnalyticsConfigurationList.default(visited),
+          analytics_configuration_list: AnalyticsConfigurationList.default(visited),
         }
       end
 
@@ -3504,7 +3504,7 @@ module AWS::SDK::S3
         return nil if visited.include?('AnalyticsConfigurationList')
         visited = visited + ['AnalyticsConfigurationList']
         [
-          Stubs::AnalyticsConfiguration.default(visited)
+          AnalyticsConfiguration.default(visited)
         ]
       end
 
@@ -3525,7 +3525,7 @@ module AWS::SDK::S3
           is_truncated: false,
           continuation_token: 'continuation_token',
           next_continuation_token: 'next_continuation_token',
-          intelligent_tiering_configuration_list: Stubs::IntelligentTieringConfigurationList.default(visited),
+          intelligent_tiering_configuration_list: IntelligentTieringConfigurationList.default(visited),
         }
       end
 
@@ -3550,7 +3550,7 @@ module AWS::SDK::S3
         return nil if visited.include?('IntelligentTieringConfigurationList')
         visited = visited + ['IntelligentTieringConfigurationList']
         [
-          Stubs::IntelligentTieringConfiguration.default(visited)
+          IntelligentTieringConfiguration.default(visited)
         ]
       end
 
@@ -3569,7 +3569,7 @@ module AWS::SDK::S3
       def self.default(visited=[])
         {
           continuation_token: 'continuation_token',
-          inventory_configuration_list: Stubs::InventoryConfigurationList.default(visited),
+          inventory_configuration_list: InventoryConfigurationList.default(visited),
           is_truncated: false,
           next_continuation_token: 'next_continuation_token',
         }
@@ -3596,7 +3596,7 @@ module AWS::SDK::S3
         return nil if visited.include?('InventoryConfigurationList')
         visited = visited + ['InventoryConfigurationList']
         [
-          Stubs::InventoryConfiguration.default(visited)
+          InventoryConfiguration.default(visited)
         ]
       end
 
@@ -3617,7 +3617,7 @@ module AWS::SDK::S3
           is_truncated: false,
           continuation_token: 'continuation_token',
           next_continuation_token: 'next_continuation_token',
-          metrics_configuration_list: Stubs::MetricsConfigurationList.default(visited),
+          metrics_configuration_list: MetricsConfigurationList.default(visited),
         }
       end
 
@@ -3642,7 +3642,7 @@ module AWS::SDK::S3
         return nil if visited.include?('MetricsConfigurationList')
         visited = visited + ['MetricsConfigurationList']
         [
-          Stubs::MetricsConfiguration.default(visited)
+          MetricsConfiguration.default(visited)
         ]
       end
 
@@ -3660,8 +3660,8 @@ module AWS::SDK::S3
     class ListBuckets
       def self.default(visited=[])
         {
-          buckets: Stubs::Buckets.default(visited),
-          owner: Stubs::Owner.default(visited),
+          buckets: Buckets.default(visited),
+          owner: Owner.default(visited),
         }
       end
 
@@ -3684,7 +3684,7 @@ module AWS::SDK::S3
         return nil if visited.include?('Buckets')
         visited = visited + ['Buckets']
         [
-          Stubs::Bucket.default(visited)
+          Bucket.default(visited)
         ]
       end
 
@@ -3731,8 +3731,8 @@ module AWS::SDK::S3
           next_upload_id_marker: 'next_upload_id_marker',
           max_uploads: 1,
           is_truncated: false,
-          uploads: Stubs::MultipartUploadList.default(visited),
-          common_prefixes: Stubs::CommonPrefixList.default(visited),
+          uploads: MultipartUploadList.default(visited),
+          common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
         }
       end
@@ -3766,7 +3766,7 @@ module AWS::SDK::S3
         return nil if visited.include?('CommonPrefixList')
         visited = visited + ['CommonPrefixList']
         [
-          Stubs::CommonPrefix.default(visited)
+          CommonPrefix.default(visited)
         ]
       end
 
@@ -3804,7 +3804,7 @@ module AWS::SDK::S3
         return nil if visited.include?('MultipartUploadList')
         visited = visited + ['MultipartUploadList']
         [
-          Stubs::MultipartUpload.default(visited)
+          MultipartUpload.default(visited)
         ]
       end
 
@@ -3828,8 +3828,8 @@ module AWS::SDK::S3
           key: 'key',
           initiated: Time.now,
           storage_class: 'storage_class',
-          owner: Stubs::Owner.default(visited),
-          initiator: Stubs::Initiator.default(visited),
+          owner: Owner.default(visited),
+          initiator: Initiator.default(visited),
           checksum_algorithm: 'checksum_algorithm',
         }
       end
@@ -3877,13 +3877,13 @@ module AWS::SDK::S3
           version_id_marker: 'version_id_marker',
           next_key_marker: 'next_key_marker',
           next_version_id_marker: 'next_version_id_marker',
-          versions: Stubs::ObjectVersionList.default(visited),
-          delete_markers: Stubs::DeleteMarkers.default(visited),
+          versions: ObjectVersionList.default(visited),
+          delete_markers: DeleteMarkers.default(visited),
           name: 'name',
           prefix: 'prefix',
           delimiter: 'delimiter',
           max_keys: 1,
-          common_prefixes: Stubs::CommonPrefixList.default(visited),
+          common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
         }
       end
@@ -3918,7 +3918,7 @@ module AWS::SDK::S3
         return nil if visited.include?('DeleteMarkers')
         visited = visited + ['DeleteMarkers']
         [
-          Stubs::DeleteMarkerEntry.default(visited)
+          DeleteMarkerEntry.default(visited)
         ]
       end
 
@@ -3938,7 +3938,7 @@ module AWS::SDK::S3
         return nil if visited.include?('DeleteMarkerEntry')
         visited = visited + ['DeleteMarkerEntry']
         {
-          owner: Stubs::Owner.default(visited),
+          owner: Owner.default(visited),
           key: 'key',
           version_id: 'version_id',
           is_latest: false,
@@ -3964,7 +3964,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ObjectVersionList')
         visited = visited + ['ObjectVersionList']
         [
-          Stubs::ObjectVersion.default(visited)
+          ObjectVersion.default(visited)
         ]
       end
 
@@ -3985,14 +3985,14 @@ module AWS::SDK::S3
         visited = visited + ['ObjectVersion']
         {
           e_tag: 'e_tag',
-          checksum_algorithm: Stubs::ChecksumAlgorithmList.default(visited),
+          checksum_algorithm: ChecksumAlgorithmList.default(visited),
           size: 1,
           storage_class: 'storage_class',
           key: 'key',
           version_id: 'version_id',
           is_latest: false,
           last_modified: Time.now,
-          owner: Stubs::Owner.default(visited),
+          owner: Owner.default(visited),
         }
       end
 
@@ -4039,12 +4039,12 @@ module AWS::SDK::S3
           is_truncated: false,
           marker: 'marker',
           next_marker: 'next_marker',
-          contents: Stubs::ObjectList.default(visited),
+          contents: ObjectList.default(visited),
           name: 'name',
           prefix: 'prefix',
           delimiter: 'delimiter',
           max_keys: 1,
-          common_prefixes: Stubs::CommonPrefixList.default(visited),
+          common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
         }
       end
@@ -4076,7 +4076,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ObjectList')
         visited = visited + ['ObjectList']
         [
-          Stubs::Object.default(visited)
+          Object.default(visited)
         ]
       end
 
@@ -4099,10 +4099,10 @@ module AWS::SDK::S3
           key: 'key',
           last_modified: Time.now,
           e_tag: 'e_tag',
-          checksum_algorithm: Stubs::ChecksumAlgorithmList.default(visited),
+          checksum_algorithm: ChecksumAlgorithmList.default(visited),
           size: 1,
           storage_class: 'storage_class',
-          owner: Stubs::Owner.default(visited),
+          owner: Owner.default(visited),
         }
       end
 
@@ -4125,12 +4125,12 @@ module AWS::SDK::S3
       def self.default(visited=[])
         {
           is_truncated: false,
-          contents: Stubs::ObjectList.default(visited),
+          contents: ObjectList.default(visited),
           name: 'name',
           prefix: 'prefix',
           delimiter: 'delimiter',
           max_keys: 1,
-          common_prefixes: Stubs::CommonPrefixList.default(visited),
+          common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
           key_count: 1,
           continuation_token: 'continuation_token',
@@ -4175,9 +4175,9 @@ module AWS::SDK::S3
           next_part_number_marker: 'next_part_number_marker',
           max_parts: 1,
           is_truncated: false,
-          parts: Stubs::Parts.default(visited),
-          initiator: Stubs::Initiator.default(visited),
-          owner: Stubs::Owner.default(visited),
+          parts: Parts.default(visited),
+          initiator: Initiator.default(visited),
+          owner: Owner.default(visited),
           storage_class: 'storage_class',
           request_charged: 'request_charged',
           checksum_algorithm: 'checksum_algorithm',
@@ -4216,7 +4216,7 @@ module AWS::SDK::S3
         return nil if visited.include?('Parts')
         visited = visited + ['Parts']
         [
-          Stubs::Part.default(visited)
+          Part.default(visited)
         ]
       end
 
@@ -4646,7 +4646,7 @@ module AWS::SDK::S3
     class SelectObjectContent
       def self.default(visited=[])
         {
-          payload: Stubs::SelectObjectContentEventStream.default(visited),
+          payload: SelectObjectContentEventStream.default(visited),
         }
       end
 
@@ -4663,7 +4663,7 @@ module AWS::SDK::S3
         return nil if visited.include?('SelectObjectContentEventStream')
         visited = visited + ['SelectObjectContentEventStream']
         {
-          records: Stubs::RecordsEvent.default(visited),
+          records: RecordsEvent.default(visited),
         }
       end
 
@@ -4727,7 +4727,7 @@ module AWS::SDK::S3
         return nil if visited.include?('ProgressEvent')
         visited = visited + ['ProgressEvent']
         {
-          details: Stubs::Progress.default(visited),
+          details: Progress.default(visited),
         }
       end
 
@@ -4767,7 +4767,7 @@ module AWS::SDK::S3
         return nil if visited.include?('StatsEvent')
         visited = visited + ['StatsEvent']
         {
-          details: Stubs::Stats.default(visited),
+          details: Stats.default(visited),
         }
       end
 
@@ -4859,7 +4859,7 @@ module AWS::SDK::S3
       def self.default(visited=[])
         {
           copy_source_version_id: 'copy_source_version_id',
-          copy_part_result: Stubs::CopyPartResult.default(visited),
+          copy_part_result: CopyPartResult.default(visited),
           server_side_encryption: 'server_side_encryption',
           sse_customer_algorithm: 'sse_customer_algorithm',
           sse_customer_key_md5: 'sse_customer_key_md5',

@@ -79,11 +79,11 @@ module AWS::SDK::Athena
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retryable ||= false
       end
-
     end
 
     # @!attribute named_query_ids
@@ -242,13 +242,13 @@ module AWS::SDK::Athena
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.precision ||= 0
         self.scale ||= 0
         self.case_sensitive ||= false
       end
-
     end
 
     # Includes enum constants for ColumnNullable

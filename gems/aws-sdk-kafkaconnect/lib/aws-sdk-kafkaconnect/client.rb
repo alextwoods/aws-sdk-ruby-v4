@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KafkaConnect
@@ -166,7 +168,7 @@ module AWS::SDK::KafkaConnect
     def create_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectorInput,
         validate_input: @config.validate_input
@@ -256,7 +258,7 @@ module AWS::SDK::KafkaConnect
     def create_custom_plugin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomPluginInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomPluginInput,
         validate_input: @config.validate_input
@@ -339,7 +341,7 @@ module AWS::SDK::KafkaConnect
     def create_worker_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkerConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkerConfigurationInput,
         validate_input: @config.validate_input
@@ -413,7 +415,7 @@ module AWS::SDK::KafkaConnect
     def delete_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectorInput,
         validate_input: @config.validate_input
@@ -482,7 +484,7 @@ module AWS::SDK::KafkaConnect
     def delete_custom_plugin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomPluginInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomPluginInput,
         validate_input: @config.validate_input
@@ -605,7 +607,7 @@ module AWS::SDK::KafkaConnect
     def describe_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectorInput,
         validate_input: @config.validate_input
@@ -693,7 +695,7 @@ module AWS::SDK::KafkaConnect
     def describe_custom_plugin(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomPluginInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomPluginInput,
         validate_input: @config.validate_input
@@ -770,7 +772,7 @@ module AWS::SDK::KafkaConnect
     def describe_worker_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkerConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkerConfigurationInput,
         validate_input: @config.validate_input
@@ -903,7 +905,7 @@ module AWS::SDK::KafkaConnect
     def list_connectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectorsInput,
         validate_input: @config.validate_input
@@ -997,7 +999,7 @@ module AWS::SDK::KafkaConnect
     def list_custom_plugins(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCustomPluginsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCustomPluginsInput,
         validate_input: @config.validate_input
@@ -1081,7 +1083,7 @@ module AWS::SDK::KafkaConnect
     def list_worker_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkerConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkerConfigurationsInput,
         validate_input: @config.validate_input
@@ -1174,7 +1176,7 @@ module AWS::SDK::KafkaConnect
     def update_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectorInput,
         validate_input: @config.validate_input

@@ -13,11 +13,11 @@ module AWS::SDK::Rbin
     class CreateRuleInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleInput, context: context)
-        Validators::RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
+        RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -25,11 +25,11 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRuleOutput, context: context)
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
-        Validators::RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
+        RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -60,8 +60,8 @@ module AWS::SDK::Rbin
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -79,14 +79,14 @@ module AWS::SDK::Rbin
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
     class ListRulesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRulesOutput, context: context)
-        Validators::RuleSummaryList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
+        RuleSummaryList.validate!(input[:rules], context: "#{context}[:rules]") unless input[:rules].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -101,7 +101,7 @@ module AWS::SDK::Rbin
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -125,7 +125,7 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -143,7 +143,7 @@ module AWS::SDK::Rbin
         Hearth::Validator.validate!(input, Types::RuleSummary, context: context)
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
+        RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
       end
     end
 
@@ -151,7 +151,7 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RuleSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -185,7 +185,7 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -194,7 +194,7 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -208,7 +208,7 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -222,10 +222,10 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuleInput, context: context)
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
-        Validators::RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
+        RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
       end
     end
 
@@ -233,10 +233,10 @@ module AWS::SDK::Rbin
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRuleOutput, context: context)
         Hearth::Validator.validate!(input[:identifier], ::String, context: "#{context}[:identifier]")
-        Validators::RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
+        RetentionPeriod.validate!(input[:retention_period], context: "#{context}[:retention_period]") unless input[:retention_period].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
+        ResourceTags.validate!(input[:resource_tags], context: "#{context}[:resource_tags]") unless input[:resource_tags].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end

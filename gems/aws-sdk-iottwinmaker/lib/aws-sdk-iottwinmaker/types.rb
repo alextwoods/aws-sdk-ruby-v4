@@ -948,7 +948,7 @@ module AWS::SDK::IoTTwinMaker
     # @!attribute required_properties
     #   <p>The required properties of the function.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute scope
     #   <p>The scope of the function.</p>
@@ -976,7 +976,7 @@ module AWS::SDK::IoTTwinMaker
     # @!attribute required_properties
     #   <p>The required properties of the function.</p>
     #
-    #   @return [Set<String>]
+    #   @return [Array<String>]
     #
     # @!attribute scope
     #   <p>The scope of the function.</p>

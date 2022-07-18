@@ -14,7 +14,7 @@ module AWS::SDK::CloudHSMV2
     class CopyBackupToRegion
       def self.default(visited=[])
         {
-          destination_backup: Stubs::DestinationBackup.default(visited),
+          destination_backup: DestinationBackup.default(visited),
         }
       end
 
@@ -54,7 +54,7 @@ module AWS::SDK::CloudHSMV2
     class CreateCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -73,20 +73,20 @@ module AWS::SDK::CloudHSMV2
         visited = visited + ['Cluster']
         {
           backup_policy: 'backup_policy',
-          backup_retention_policy: Stubs::BackupRetentionPolicy.default(visited),
+          backup_retention_policy: BackupRetentionPolicy.default(visited),
           cluster_id: 'cluster_id',
           create_timestamp: Time.now,
-          hsms: Stubs::Hsms.default(visited),
+          hsms: Hsms.default(visited),
           hsm_type: 'hsm_type',
           pre_co_password: 'pre_co_password',
           security_group: 'security_group',
           source_backup_id: 'source_backup_id',
           state: 'state',
           state_message: 'state_message',
-          subnet_mapping: Stubs::ExternalSubnetMapping.default(visited),
+          subnet_mapping: ExternalSubnetMapping.default(visited),
           vpc_id: 'vpc_id',
-          certificates: Stubs::Certificates.default(visited),
-          tag_list: Stubs::TagList.default(visited),
+          certificates: Certificates.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::CloudHSMV2
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -204,7 +204,7 @@ module AWS::SDK::CloudHSMV2
         return nil if visited.include?('Hsms')
         visited = visited + ['Hsms']
         [
-          Stubs::Hsm.default(visited)
+          Hsm.default(visited)
         ]
       end
 
@@ -274,7 +274,7 @@ module AWS::SDK::CloudHSMV2
     class CreateHsm
       def self.default(visited=[])
         {
-          hsm: Stubs::Hsm.default(visited),
+          hsm: Hsm.default(visited),
         }
       end
 
@@ -290,7 +290,7 @@ module AWS::SDK::CloudHSMV2
     class DeleteBackup
       def self.default(visited=[])
         {
-          backup: Stubs::Backup.default(visited),
+          backup: Backup.default(visited),
         }
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::CloudHSMV2
           source_backup: 'source_backup',
           source_cluster: 'source_cluster',
           delete_timestamp: Time.now,
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::CloudHSMV2
     class DeleteCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -376,7 +376,7 @@ module AWS::SDK::CloudHSMV2
     class DescribeBackups
       def self.default(visited=[])
         {
-          backups: Stubs::Backups.default(visited),
+          backups: Backups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -396,7 +396,7 @@ module AWS::SDK::CloudHSMV2
         return nil if visited.include?('Backups')
         visited = visited + ['Backups']
         [
-          Stubs::Backup.default(visited)
+          Backup.default(visited)
         ]
       end
 
@@ -414,7 +414,7 @@ module AWS::SDK::CloudHSMV2
     class DescribeClusters
       def self.default(visited=[])
         {
-          clusters: Stubs::Clusters.default(visited),
+          clusters: Clusters.default(visited),
           next_token: 'next_token',
         }
       end
@@ -434,7 +434,7 @@ module AWS::SDK::CloudHSMV2
         return nil if visited.include?('Clusters')
         visited = visited + ['Clusters']
         [
-          Stubs::Cluster.default(visited)
+          Cluster.default(visited)
         ]
       end
 
@@ -470,7 +470,7 @@ module AWS::SDK::CloudHSMV2
     class ListTags
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -488,7 +488,7 @@ module AWS::SDK::CloudHSMV2
     class ModifyBackupAttributes
       def self.default(visited=[])
         {
-          backup: Stubs::Backup.default(visited),
+          backup: Backup.default(visited),
         }
       end
 
@@ -504,7 +504,7 @@ module AWS::SDK::CloudHSMV2
     class ModifyCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -520,7 +520,7 @@ module AWS::SDK::CloudHSMV2
     class RestoreBackup
       def self.default(visited=[])
         {
-          backup: Stubs::Backup.default(visited),
+          backup: Backup.default(visited),
         }
       end
 

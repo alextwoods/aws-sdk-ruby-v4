@@ -474,6 +474,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
@@ -1055,6 +1056,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.creation_time ||= 0
@@ -1345,11 +1347,11 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>The filter on the account ID of the linked account, or any of the following:</p>
@@ -2260,6 +2262,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
@@ -2368,6 +2371,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associated_pricing_plan_count ||= 0
@@ -2532,11 +2536,11 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute resource_arn
@@ -2697,6 +2701,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
@@ -2876,6 +2881,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.last_modified_time ||= 0
@@ -2987,6 +2993,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
@@ -3136,6 +3143,7 @@ module AWS::SDK::Billingconductor
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associated_pricing_plan_count ||= 0

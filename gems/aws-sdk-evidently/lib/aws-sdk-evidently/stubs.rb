@@ -14,7 +14,7 @@ module AWS::SDK::Evidently
     class BatchEvaluateFeature
       def self.default(visited=[])
         {
-          results: Stubs::EvaluationResultsList.default(visited),
+          results: EvaluationResultsList.default(visited),
         }
       end
 
@@ -33,7 +33,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('EvaluationResultsList')
         visited = visited + ['EvaluationResultsList']
         [
-          Stubs::EvaluationResult.default(visited)
+          EvaluationResult.default(visited)
         ]
       end
 
@@ -56,7 +56,7 @@ module AWS::SDK::Evidently
           project: 'project',
           feature: 'feature',
           variation: 'variation',
-          value: Stubs::VariableValue.default(visited),
+          value: VariableValue.default(visited),
           entity_id: 'entity_id',
           reason: 'reason',
           details: 'details',
@@ -111,7 +111,7 @@ module AWS::SDK::Evidently
     class CreateExperiment
       def self.default(visited=[])
         {
-          experiment: Stubs::Experiment.default(visited),
+          experiment: Experiment.default(visited),
         }
       end
 
@@ -138,15 +138,15 @@ module AWS::SDK::Evidently
           description: 'description',
           created_time: Time.now,
           last_updated_time: Time.now,
-          schedule: Stubs::ExperimentSchedule.default(visited),
-          execution: Stubs::ExperimentExecution.default(visited),
-          treatments: Stubs::TreatmentList.default(visited),
-          metric_goals: Stubs::MetricGoalsList.default(visited),
+          schedule: ExperimentSchedule.default(visited),
+          execution: ExperimentExecution.default(visited),
+          treatments: TreatmentList.default(visited),
+          metric_goals: MetricGoalsList.default(visited),
           randomization_salt: 'randomization_salt',
           sampling_rate: 1,
           type: 'type',
-          online_ab_definition: Stubs::OnlineAbDefinition.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          online_ab_definition: OnlineAbDefinition.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -201,7 +201,7 @@ module AWS::SDK::Evidently
         visited = visited + ['OnlineAbDefinition']
         {
           control_treatment_name: 'control_treatment_name',
-          treatment_weights: Stubs::TreatmentToWeightMap.default(visited),
+          treatment_weights: TreatmentToWeightMap.default(visited),
         }
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('MetricGoalsList')
         visited = visited + ['MetricGoalsList']
         [
-          Stubs::MetricGoal.default(visited)
+          MetricGoal.default(visited)
         ]
       end
 
@@ -260,7 +260,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('MetricGoal')
         visited = visited + ['MetricGoal']
         {
-          metric_definition: Stubs::MetricDefinition.default(visited),
+          metric_definition: MetricDefinition.default(visited),
           desired_change: 'desired_change',
         }
       end
@@ -306,7 +306,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('TreatmentList')
         visited = visited + ['TreatmentList']
         [
-          Stubs::Treatment.default(visited)
+          Treatment.default(visited)
         ]
       end
 
@@ -328,7 +328,7 @@ module AWS::SDK::Evidently
         {
           name: 'name',
           description: 'description',
-          feature_variations: Stubs::FeatureToVariationMap.default(visited),
+          feature_variations: FeatureToVariationMap.default(visited),
         }
       end
 
@@ -404,7 +404,7 @@ module AWS::SDK::Evidently
     class CreateFeature
       def self.default(visited=[])
         {
-          feature: Stubs::Feature.default(visited),
+          feature: Feature.default(visited),
         }
       end
 
@@ -432,11 +432,11 @@ module AWS::SDK::Evidently
           description: 'description',
           evaluation_strategy: 'evaluation_strategy',
           value_type: 'value_type',
-          variations: Stubs::VariationsList.default(visited),
+          variations: VariationsList.default(visited),
           default_variation: 'default_variation',
-          evaluation_rules: Stubs::EvaluationRulesList.default(visited),
-          tags: Stubs::TagMap.default(visited),
-          entity_overrides: Stubs::EntityOverrideMap.default(visited),
+          evaluation_rules: EvaluationRulesList.default(visited),
+          tags: TagMap.default(visited),
+          entity_overrides: EntityOverrideMap.default(visited),
         }
       end
 
@@ -487,7 +487,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('EvaluationRulesList')
         visited = visited + ['EvaluationRulesList']
         [
-          Stubs::EvaluationRule.default(visited)
+          EvaluationRule.default(visited)
         ]
       end
 
@@ -527,7 +527,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('VariationsList')
         visited = visited + ['VariationsList']
         [
-          Stubs::Variation.default(visited)
+          Variation.default(visited)
         ]
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::Evidently
         visited = visited + ['Variation']
         {
           name: 'name',
-          value: Stubs::VariableValue.default(visited),
+          value: VariableValue.default(visited),
         }
       end
 
@@ -565,7 +565,7 @@ module AWS::SDK::Evidently
     class CreateLaunch
       def self.default(visited=[])
         {
-          launch: Stubs::Launch.default(visited),
+          launch: Launch.default(visited),
         }
       end
 
@@ -592,13 +592,13 @@ module AWS::SDK::Evidently
           description: 'description',
           created_time: Time.now,
           last_updated_time: Time.now,
-          execution: Stubs::LaunchExecution.default(visited),
-          groups: Stubs::LaunchGroupList.default(visited),
-          metric_monitors: Stubs::MetricMonitorList.default(visited),
+          execution: LaunchExecution.default(visited),
+          groups: LaunchGroupList.default(visited),
+          metric_monitors: MetricMonitorList.default(visited),
           randomization_salt: 'randomization_salt',
           type: 'type',
-          scheduled_splits_definition: Stubs::ScheduledSplitsLaunchDefinition.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          scheduled_splits_definition: ScheduledSplitsLaunchDefinition.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ScheduledSplitsLaunchDefinition')
         visited = visited + ['ScheduledSplitsLaunchDefinition']
         {
-          steps: Stubs::ScheduledStepList.default(visited),
+          steps: ScheduledStepList.default(visited),
         }
       end
 
@@ -648,7 +648,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ScheduledStepList')
         visited = visited + ['ScheduledStepList']
         [
-          Stubs::ScheduledSplit.default(visited)
+          ScheduledSplit.default(visited)
         ]
       end
 
@@ -669,7 +669,7 @@ module AWS::SDK::Evidently
         visited = visited + ['ScheduledSplit']
         {
           start_time: Time.now,
-          group_weights: Stubs::GroupToWeightMap.default(visited),
+          group_weights: GroupToWeightMap.default(visited),
         }
       end
 
@@ -708,7 +708,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('MetricMonitorList')
         visited = visited + ['MetricMonitorList']
         [
-          Stubs::MetricMonitor.default(visited)
+          MetricMonitor.default(visited)
         ]
       end
 
@@ -728,7 +728,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('MetricMonitor')
         visited = visited + ['MetricMonitor']
         {
-          metric_definition: Stubs::MetricDefinition.default(visited),
+          metric_definition: MetricDefinition.default(visited),
         }
       end
 
@@ -746,7 +746,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('LaunchGroupList')
         visited = visited + ['LaunchGroupList']
         [
-          Stubs::LaunchGroup.default(visited)
+          LaunchGroup.default(visited)
         ]
       end
 
@@ -768,7 +768,7 @@ module AWS::SDK::Evidently
         {
           name: 'name',
           description: 'description',
-          feature_variations: Stubs::FeatureToVariationMap.default(visited),
+          feature_variations: FeatureToVariationMap.default(visited),
         }
       end
 
@@ -806,7 +806,7 @@ module AWS::SDK::Evidently
     class CreateProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -836,8 +836,8 @@ module AWS::SDK::Evidently
           active_launch_count: 1,
           experiment_count: 1,
           active_experiment_count: 1,
-          data_delivery: Stubs::ProjectDataDelivery.default(visited),
-          tags: Stubs::TagMap.default(visited),
+          data_delivery: ProjectDataDelivery.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -867,8 +867,8 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ProjectDataDelivery')
         visited = visited + ['ProjectDataDelivery']
         {
-          s3_destination: Stubs::S3Destination.default(visited),
-          cloud_watch_logs: Stubs::CloudWatchLogsDestination.default(visited),
+          s3_destination: S3Destination.default(visited),
+          cloud_watch_logs: CloudWatchLogsDestination.default(visited),
         }
       end
 
@@ -976,7 +976,7 @@ module AWS::SDK::Evidently
       def self.default(visited=[])
         {
           variation: 'variation',
-          value: Stubs::VariableValue.default(visited),
+          value: VariableValue.default(visited),
           reason: 'reason',
           details: 'details',
         }
@@ -998,7 +998,7 @@ module AWS::SDK::Evidently
     class GetExperiment
       def self.default(visited=[])
         {
-          experiment: Stubs::Experiment.default(visited),
+          experiment: Experiment.default(visited),
         }
       end
 
@@ -1015,9 +1015,9 @@ module AWS::SDK::Evidently
     class GetExperimentResults
       def self.default(visited=[])
         {
-          results_data: Stubs::ExperimentResultsDataList.default(visited),
-          reports: Stubs::ExperimentReportList.default(visited),
-          timestamps: Stubs::TimestampList.default(visited),
+          results_data: ExperimentResultsDataList.default(visited),
+          reports: ExperimentReportList.default(visited),
+          timestamps: TimestampList.default(visited),
           details: 'details',
         }
       end
@@ -1060,7 +1060,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ExperimentReportList')
         visited = visited + ['ExperimentReportList']
         [
-          Stubs::ExperimentReport.default(visited)
+          ExperimentReport.default(visited)
         ]
       end
 
@@ -1104,7 +1104,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ExperimentResultsDataList')
         visited = visited + ['ExperimentResultsDataList']
         [
-          Stubs::ExperimentResultsData.default(visited)
+          ExperimentResultsData.default(visited)
         ]
       end
 
@@ -1127,7 +1127,7 @@ module AWS::SDK::Evidently
           metric_name: 'metric_name',
           treatment_name: 'treatment_name',
           result_stat: 'result_stat',
-          values: Stubs::DoubleValueList.default(visited),
+          values: DoubleValueList.default(visited),
         }
       end
 
@@ -1166,7 +1166,7 @@ module AWS::SDK::Evidently
     class GetFeature
       def self.default(visited=[])
         {
-          feature: Stubs::Feature.default(visited),
+          feature: Feature.default(visited),
         }
       end
 
@@ -1183,7 +1183,7 @@ module AWS::SDK::Evidently
     class GetLaunch
       def self.default(visited=[])
         {
-          launch: Stubs::Launch.default(visited),
+          launch: Launch.default(visited),
         }
       end
 
@@ -1200,7 +1200,7 @@ module AWS::SDK::Evidently
     class GetProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -1217,7 +1217,7 @@ module AWS::SDK::Evidently
     class ListExperiments
       def self.default(visited=[])
         {
-          experiments: Stubs::ExperimentList.default(visited),
+          experiments: ExperimentList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1238,7 +1238,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ExperimentList')
         visited = visited + ['ExperimentList']
         [
-          Stubs::Experiment.default(visited)
+          Experiment.default(visited)
         ]
       end
 
@@ -1256,7 +1256,7 @@ module AWS::SDK::Evidently
     class ListFeatures
       def self.default(visited=[])
         {
-          features: Stubs::FeatureSummariesList.default(visited),
+          features: FeatureSummariesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1277,7 +1277,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('FeatureSummariesList')
         visited = visited + ['FeatureSummariesList']
         [
-          Stubs::FeatureSummary.default(visited)
+          FeatureSummary.default(visited)
         ]
       end
 
@@ -1304,9 +1304,9 @@ module AWS::SDK::Evidently
           created_time: Time.now,
           last_updated_time: Time.now,
           evaluation_strategy: 'evaluation_strategy',
-          evaluation_rules: Stubs::EvaluationRulesList.default(visited),
+          evaluation_rules: EvaluationRulesList.default(visited),
           default_variation: 'default_variation',
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1331,7 +1331,7 @@ module AWS::SDK::Evidently
     class ListLaunches
       def self.default(visited=[])
         {
-          launches: Stubs::LaunchesList.default(visited),
+          launches: LaunchesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1352,7 +1352,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('LaunchesList')
         visited = visited + ['LaunchesList']
         [
-          Stubs::Launch.default(visited)
+          Launch.default(visited)
         ]
       end
 
@@ -1370,7 +1370,7 @@ module AWS::SDK::Evidently
     class ListProjects
       def self.default(visited=[])
         {
-          projects: Stubs::ProjectSummariesList.default(visited),
+          projects: ProjectSummariesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1391,7 +1391,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('ProjectSummariesList')
         visited = visited + ['ProjectSummariesList']
         [
-          Stubs::ProjectSummary.default(visited)
+          ProjectSummary.default(visited)
         ]
       end
 
@@ -1422,7 +1422,7 @@ module AWS::SDK::Evidently
           active_launch_count: 1,
           experiment_count: 1,
           active_experiment_count: 1,
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1449,7 +1449,7 @@ module AWS::SDK::Evidently
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -1467,7 +1467,7 @@ module AWS::SDK::Evidently
       def self.default(visited=[])
         {
           failed_event_count: 1,
-          event_results: Stubs::PutProjectEventsResultEntryList.default(visited),
+          event_results: PutProjectEventsResultEntryList.default(visited),
         }
       end
 
@@ -1487,7 +1487,7 @@ module AWS::SDK::Evidently
         return nil if visited.include?('PutProjectEventsResultEntryList')
         visited = visited + ['PutProjectEventsResultEntryList']
         [
-          Stubs::PutProjectEventsResultEntry.default(visited)
+          PutProjectEventsResultEntry.default(visited)
         ]
       end
 
@@ -1544,7 +1544,7 @@ module AWS::SDK::Evidently
     class StartLaunch
       def self.default(visited=[])
         {
-          launch: Stubs::Launch.default(visited),
+          launch: Launch.default(visited),
         }
       end
 
@@ -1621,7 +1621,7 @@ module AWS::SDK::Evidently
     class UpdateExperiment
       def self.default(visited=[])
         {
-          experiment: Stubs::Experiment.default(visited),
+          experiment: Experiment.default(visited),
         }
       end
 
@@ -1638,7 +1638,7 @@ module AWS::SDK::Evidently
     class UpdateFeature
       def self.default(visited=[])
         {
-          feature: Stubs::Feature.default(visited),
+          feature: Feature.default(visited),
         }
       end
 
@@ -1655,7 +1655,7 @@ module AWS::SDK::Evidently
     class UpdateLaunch
       def self.default(visited=[])
         {
-          launch: Stubs::Launch.default(visited),
+          launch: Launch.default(visited),
         }
       end
 
@@ -1672,7 +1672,7 @@ module AWS::SDK::Evidently
     class UpdateProject
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 
@@ -1689,7 +1689,7 @@ module AWS::SDK::Evidently
     class UpdateProjectDataDelivery
       def self.default(visited=[])
         {
-          project: Stubs::Project.default(visited),
+          project: Project.default(visited),
         }
       end
 

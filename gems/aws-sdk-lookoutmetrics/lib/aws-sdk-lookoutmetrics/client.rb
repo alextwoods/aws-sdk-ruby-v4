@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LookoutMetrics
@@ -59,7 +61,7 @@ module AWS::SDK::LookoutMetrics
     def activate_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -127,7 +129,7 @@ module AWS::SDK::LookoutMetrics
     def back_test_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BackTestAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BackTestAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -228,7 +230,7 @@ module AWS::SDK::LookoutMetrics
     def create_alert(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAlertInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAlertInput,
         validate_input: @config.validate_input
@@ -317,7 +319,7 @@ module AWS::SDK::LookoutMetrics
     def create_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -509,7 +511,7 @@ module AWS::SDK::LookoutMetrics
     def create_metric_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMetricSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMetricSetInput,
         validate_input: @config.validate_input
@@ -577,7 +579,7 @@ module AWS::SDK::LookoutMetrics
     def deactivate_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -645,7 +647,7 @@ module AWS::SDK::LookoutMetrics
     def delete_alert(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlertInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAlertInput,
         validate_input: @config.validate_input
@@ -714,7 +716,7 @@ module AWS::SDK::LookoutMetrics
     def delete_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -802,7 +804,7 @@ module AWS::SDK::LookoutMetrics
     def describe_alert(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlertInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlertInput,
         validate_input: @config.validate_input
@@ -888,7 +890,7 @@ module AWS::SDK::LookoutMetrics
     def describe_anomaly_detection_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnomalyDetectionExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnomalyDetectionExecutionsInput,
         validate_input: @config.validate_input
@@ -969,7 +971,7 @@ module AWS::SDK::LookoutMetrics
     def describe_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -1114,7 +1116,7 @@ module AWS::SDK::LookoutMetrics
     def describe_metric_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMetricSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMetricSetInput,
         validate_input: @config.validate_input
@@ -1223,7 +1225,7 @@ module AWS::SDK::LookoutMetrics
     def detect_metric_set_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetectMetricSetConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetectMetricSetConfigInput,
         validate_input: @config.validate_input
@@ -1313,7 +1315,7 @@ module AWS::SDK::LookoutMetrics
     def get_anomaly_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAnomalyGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAnomalyGroupInput,
         validate_input: @config.validate_input
@@ -1401,7 +1403,7 @@ module AWS::SDK::LookoutMetrics
     def get_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFeedbackInput,
         validate_input: @config.validate_input
@@ -1498,7 +1500,7 @@ module AWS::SDK::LookoutMetrics
     def get_sample_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSampleDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSampleDataInput,
         validate_input: @config.validate_input
@@ -1590,7 +1592,7 @@ module AWS::SDK::LookoutMetrics
     def list_alerts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAlertsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAlertsInput,
         validate_input: @config.validate_input
@@ -1676,7 +1678,7 @@ module AWS::SDK::LookoutMetrics
     def list_anomaly_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnomalyDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnomalyDetectorsInput,
         validate_input: @config.validate_input
@@ -1770,7 +1772,7 @@ module AWS::SDK::LookoutMetrics
     def list_anomaly_group_related_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnomalyGroupRelatedMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnomalyGroupRelatedMetricsInput,
         validate_input: @config.validate_input
@@ -1865,7 +1867,7 @@ module AWS::SDK::LookoutMetrics
     def list_anomaly_group_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnomalyGroupSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnomalyGroupSummariesInput,
         validate_input: @config.validate_input
@@ -1963,7 +1965,7 @@ module AWS::SDK::LookoutMetrics
     def list_anomaly_group_time_series(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAnomalyGroupTimeSeriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAnomalyGroupTimeSeriesInput,
         validate_input: @config.validate_input
@@ -2054,7 +2056,7 @@ module AWS::SDK::LookoutMetrics
     def list_metric_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMetricSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMetricSetsInput,
         validate_input: @config.validate_input
@@ -2124,7 +2126,7 @@ module AWS::SDK::LookoutMetrics
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2199,7 +2201,7 @@ module AWS::SDK::LookoutMetrics
     def put_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFeedbackInput,
         validate_input: @config.validate_input
@@ -2275,7 +2277,7 @@ module AWS::SDK::LookoutMetrics
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2349,7 +2351,7 @@ module AWS::SDK::LookoutMetrics
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2431,7 +2433,7 @@ module AWS::SDK::LookoutMetrics
     def update_anomaly_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAnomalyDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAnomalyDetectorInput,
         validate_input: @config.validate_input
@@ -2609,7 +2611,7 @@ module AWS::SDK::LookoutMetrics
     def update_metric_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMetricSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMetricSetInput,
         validate_input: @config.validate_input

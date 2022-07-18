@@ -109,11 +109,11 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_restricted ||= false
       end
-
     end
 
     # @!attribute cluster_id
@@ -931,6 +931,7 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes_transferred ||= 0
@@ -938,7 +939,6 @@ module AWS::SDK::Snowball
         self.total_bytes ||= 0
         self.total_objects ||= 0
       end
-
     end
 
     # @!attribute address_id
@@ -1438,11 +1438,11 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_master ||= false
       end
-
     end
 
     # <p>Contains job logs. Whenever a Snow device is used to import data into or export data
@@ -2148,11 +2148,11 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.storage_limit ||= 0
       end
-
     end
 
     # <p>The Amazon Simple Notification Service (Amazon SNS) notification settings associated
@@ -2192,11 +2192,11 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.notify_all ||= false
       end
-
     end
 
     # <p>An object that represents the metadata and configuration settings for services on an Amazon Web Services
@@ -2523,11 +2523,11 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.storage_limit ||= 0
       end
-
     end
 
     # <p>An object that represents the service or services on the Snow Family device that your
@@ -2845,11 +2845,11 @@ module AWS::SDK::Snowball
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_wifi_enabled ||= false
       end
-
     end
 
   end

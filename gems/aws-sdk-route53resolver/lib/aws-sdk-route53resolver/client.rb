@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Route53Resolver
@@ -141,7 +143,7 @@ module AWS::SDK::Route53Resolver
     def associate_firewall_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateFirewallRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateFirewallRuleGroupInput,
         validate_input: @config.validate_input
@@ -236,7 +238,7 @@ module AWS::SDK::Route53Resolver
     def associate_resolver_endpoint_ip_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateResolverEndpointIpAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateResolverEndpointIpAddressInput,
         validate_input: @config.validate_input
@@ -330,7 +332,7 @@ module AWS::SDK::Route53Resolver
     def associate_resolver_query_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateResolverQueryLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateResolverQueryLogConfigInput,
         validate_input: @config.validate_input
@@ -417,7 +419,7 @@ module AWS::SDK::Route53Resolver
     def associate_resolver_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateResolverRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateResolverRuleInput,
         validate_input: @config.validate_input
@@ -511,7 +513,7 @@ module AWS::SDK::Route53Resolver
     def create_firewall_domain_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFirewallDomainListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFirewallDomainListInput,
         validate_input: @config.validate_input
@@ -667,7 +669,7 @@ module AWS::SDK::Route53Resolver
     def create_firewall_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFirewallRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFirewallRuleInput,
         validate_input: @config.validate_input
@@ -763,7 +765,7 @@ module AWS::SDK::Route53Resolver
     def create_firewall_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFirewallRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFirewallRuleGroupInput,
         validate_input: @config.validate_input
@@ -903,7 +905,7 @@ module AWS::SDK::Route53Resolver
     def create_resolver_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResolverEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResolverEndpointInput,
         validate_input: @config.validate_input
@@ -1038,7 +1040,7 @@ module AWS::SDK::Route53Resolver
     def create_resolver_query_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResolverQueryLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResolverQueryLogConfigInput,
         validate_input: @config.validate_input
@@ -1172,7 +1174,7 @@ module AWS::SDK::Route53Resolver
     def create_resolver_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResolverRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResolverRuleInput,
         validate_input: @config.validate_input
@@ -1251,7 +1253,7 @@ module AWS::SDK::Route53Resolver
     def delete_firewall_domain_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFirewallDomainListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFirewallDomainListInput,
         validate_input: @config.validate_input
@@ -1336,7 +1338,7 @@ module AWS::SDK::Route53Resolver
     def delete_firewall_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFirewallRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFirewallRuleInput,
         validate_input: @config.validate_input
@@ -1416,7 +1418,7 @@ module AWS::SDK::Route53Resolver
     def delete_firewall_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFirewallRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFirewallRuleGroupInput,
         validate_input: @config.validate_input
@@ -1510,7 +1512,7 @@ module AWS::SDK::Route53Resolver
     def delete_resolver_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResolverEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResolverEndpointInput,
         validate_input: @config.validate_input
@@ -1599,7 +1601,7 @@ module AWS::SDK::Route53Resolver
     def delete_resolver_query_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResolverQueryLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResolverQueryLogConfigInput,
         validate_input: @config.validate_input
@@ -1687,7 +1689,7 @@ module AWS::SDK::Route53Resolver
     def delete_resolver_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResolverRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResolverRuleInput,
         validate_input: @config.validate_input
@@ -1769,7 +1771,7 @@ module AWS::SDK::Route53Resolver
     def disassociate_firewall_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateFirewallRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateFirewallRuleGroupInput,
         validate_input: @config.validate_input
@@ -1863,7 +1865,7 @@ module AWS::SDK::Route53Resolver
     def disassociate_resolver_endpoint_ip_address(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateResolverEndpointIpAddressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateResolverEndpointIpAddressInput,
         validate_input: @config.validate_input
@@ -1958,7 +1960,7 @@ module AWS::SDK::Route53Resolver
     def disassociate_resolver_query_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateResolverQueryLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateResolverQueryLogConfigInput,
         validate_input: @config.validate_input
@@ -2041,7 +2043,7 @@ module AWS::SDK::Route53Resolver
     def disassociate_resolver_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateResolverRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateResolverRuleInput,
         validate_input: @config.validate_input
@@ -2115,7 +2117,7 @@ module AWS::SDK::Route53Resolver
     def get_firewall_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFirewallConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFirewallConfigInput,
         validate_input: @config.validate_input
@@ -2194,7 +2196,7 @@ module AWS::SDK::Route53Resolver
     def get_firewall_domain_list(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFirewallDomainListInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFirewallDomainListInput,
         validate_input: @config.validate_input
@@ -2274,7 +2276,7 @@ module AWS::SDK::Route53Resolver
     def get_firewall_rule_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFirewallRuleGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFirewallRuleGroupInput,
         validate_input: @config.validate_input
@@ -2356,7 +2358,7 @@ module AWS::SDK::Route53Resolver
     def get_firewall_rule_group_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFirewallRuleGroupAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFirewallRuleGroupAssociationInput,
         validate_input: @config.validate_input
@@ -2426,7 +2428,7 @@ module AWS::SDK::Route53Resolver
     def get_firewall_rule_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFirewallRuleGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFirewallRuleGroupPolicyInput,
         validate_input: @config.validate_input
@@ -2500,7 +2502,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverConfigInput,
         validate_input: @config.validate_input
@@ -2573,7 +2575,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_dnssec_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverDnssecConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverDnssecConfigInput,
         validate_input: @config.validate_input
@@ -2656,7 +2658,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverEndpointInput,
         validate_input: @config.validate_input
@@ -2736,7 +2738,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_query_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverQueryLogConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverQueryLogConfigInput,
         validate_input: @config.validate_input
@@ -2813,7 +2815,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_query_log_config_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverQueryLogConfigAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverQueryLogConfigAssociationInput,
         validate_input: @config.validate_input
@@ -2883,7 +2885,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_query_log_config_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverQueryLogConfigPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverQueryLogConfigPolicyInput,
         validate_input: @config.validate_input
@@ -2970,7 +2972,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverRuleInput,
         validate_input: @config.validate_input
@@ -3046,7 +3048,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_rule_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverRuleAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverRuleAssociationInput,
         validate_input: @config.validate_input
@@ -3116,7 +3118,7 @@ module AWS::SDK::Route53Resolver
     def get_resolver_rule_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResolverRulePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResolverRulePolicyInput,
         validate_input: @config.validate_input
@@ -3214,7 +3216,7 @@ module AWS::SDK::Route53Resolver
     def import_firewall_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportFirewallDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportFirewallDomainsInput,
         validate_input: @config.validate_input
@@ -3301,7 +3303,7 @@ module AWS::SDK::Route53Resolver
     def list_firewall_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallConfigsInput,
         validate_input: @config.validate_input
@@ -3389,7 +3391,7 @@ module AWS::SDK::Route53Resolver
     def list_firewall_domain_lists(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallDomainListsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallDomainListsInput,
         validate_input: @config.validate_input
@@ -3476,7 +3478,7 @@ module AWS::SDK::Route53Resolver
     def list_firewall_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallDomainsInput,
         validate_input: @config.validate_input
@@ -3592,7 +3594,7 @@ module AWS::SDK::Route53Resolver
     def list_firewall_rule_group_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallRuleGroupAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallRuleGroupAssociationsInput,
         validate_input: @config.validate_input
@@ -3681,7 +3683,7 @@ module AWS::SDK::Route53Resolver
     def list_firewall_rule_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallRuleGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallRuleGroupsInput,
         validate_input: @config.validate_input
@@ -3805,7 +3807,7 @@ module AWS::SDK::Route53Resolver
     def list_firewall_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFirewallRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFirewallRulesInput,
         validate_input: @config.validate_input
@@ -3891,7 +3893,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverConfigsInput,
         validate_input: @config.validate_input
@@ -3987,7 +3989,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_dnssec_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverDnssecConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverDnssecConfigsInput,
         validate_input: @config.validate_input
@@ -4078,7 +4080,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_endpoint_ip_addresses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverEndpointIpAddressesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverEndpointIpAddressesInput,
         validate_input: @config.validate_input
@@ -4185,7 +4187,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverEndpointsInput,
         validate_input: @config.validate_input
@@ -4374,7 +4376,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_query_log_config_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverQueryLogConfigAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverQueryLogConfigAssociationsInput,
         validate_input: @config.validate_input
@@ -4572,7 +4574,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_query_log_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverQueryLogConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverQueryLogConfigsInput,
         validate_input: @config.validate_input
@@ -4672,7 +4674,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_rule_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverRuleAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverRuleAssociationsInput,
         validate_input: @config.validate_input
@@ -4783,7 +4785,7 @@ module AWS::SDK::Route53Resolver
     def list_resolver_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResolverRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResolverRulesInput,
         validate_input: @config.validate_input
@@ -4867,7 +4869,7 @@ module AWS::SDK::Route53Resolver
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -4942,7 +4944,7 @@ module AWS::SDK::Route53Resolver
     def put_firewall_rule_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFirewallRuleGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFirewallRuleGroupPolicyInput,
         validate_input: @config.validate_input
@@ -5043,7 +5045,7 @@ module AWS::SDK::Route53Resolver
     def put_resolver_query_log_config_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResolverQueryLogConfigPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResolverQueryLogConfigPolicyInput,
         validate_input: @config.validate_input
@@ -5148,7 +5150,7 @@ module AWS::SDK::Route53Resolver
     def put_resolver_rule_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResolverRulePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResolverRulePolicyInput,
         validate_input: @config.validate_input
@@ -5258,7 +5260,7 @@ module AWS::SDK::Route53Resolver
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -5365,7 +5367,7 @@ module AWS::SDK::Route53Resolver
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -5454,7 +5456,7 @@ module AWS::SDK::Route53Resolver
     def update_firewall_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallConfigInput,
         validate_input: @config.validate_input
@@ -5565,7 +5567,7 @@ module AWS::SDK::Route53Resolver
     def update_firewall_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallDomainsInput,
         validate_input: @config.validate_input
@@ -5710,7 +5712,7 @@ module AWS::SDK::Route53Resolver
     def update_firewall_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallRuleInput,
         validate_input: @config.validate_input
@@ -5809,7 +5811,7 @@ module AWS::SDK::Route53Resolver
     def update_firewall_rule_group_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFirewallRuleGroupAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFirewallRuleGroupAssociationInput,
         validate_input: @config.validate_input
@@ -5894,7 +5896,7 @@ module AWS::SDK::Route53Resolver
     def update_resolver_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResolverConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResolverConfigInput,
         validate_input: @config.validate_input
@@ -5972,7 +5974,7 @@ module AWS::SDK::Route53Resolver
     def update_resolver_dnssec_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResolverDnssecConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResolverDnssecConfigInput,
         validate_input: @config.validate_input
@@ -6058,7 +6060,7 @@ module AWS::SDK::Route53Resolver
     def update_resolver_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResolverEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResolverEndpointInput,
         validate_input: @config.validate_input
@@ -6158,7 +6160,7 @@ module AWS::SDK::Route53Resolver
     def update_resolver_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResolverRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResolverRuleInput,
         validate_input: @config.validate_input

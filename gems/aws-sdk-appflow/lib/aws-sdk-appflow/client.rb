@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Appflow
@@ -306,7 +308,7 @@ module AWS::SDK::Appflow
     def create_connector_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConnectorProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConnectorProfileInput,
         validate_input: @config.validate_input
@@ -611,7 +613,7 @@ module AWS::SDK::Appflow
     def create_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFlowInput,
         validate_input: @config.validate_input
@@ -685,7 +687,7 @@ module AWS::SDK::Appflow
     def delete_connector_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectorProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectorProfileInput,
         validate_input: @config.validate_input
@@ -760,7 +762,7 @@ module AWS::SDK::Appflow
     def delete_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFlowInput,
         validate_input: @config.validate_input
@@ -944,7 +946,7 @@ module AWS::SDK::Appflow
     def describe_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectorInput,
         validate_input: @config.validate_input
@@ -1062,7 +1064,7 @@ module AWS::SDK::Appflow
     def describe_connector_entity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectorEntityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectorEntityInput,
         validate_input: @config.validate_input
@@ -1229,7 +1231,7 @@ module AWS::SDK::Appflow
     def describe_connector_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectorProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectorProfilesInput,
         validate_input: @config.validate_input
@@ -1433,7 +1435,7 @@ module AWS::SDK::Appflow
     def describe_connectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConnectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConnectorsInput,
         validate_input: @config.validate_input
@@ -1680,7 +1682,7 @@ module AWS::SDK::Appflow
     def describe_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFlowInput,
         validate_input: @config.validate_input
@@ -1774,7 +1776,7 @@ module AWS::SDK::Appflow
     def describe_flow_execution_records(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFlowExecutionRecordsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFlowExecutionRecordsInput,
         validate_input: @config.validate_input
@@ -1869,7 +1871,7 @@ module AWS::SDK::Appflow
     def list_connector_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectorEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectorEntitiesInput,
         validate_input: @config.validate_input
@@ -1959,7 +1961,7 @@ module AWS::SDK::Appflow
     def list_connectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConnectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConnectorsInput,
         validate_input: @config.validate_input
@@ -2053,7 +2055,7 @@ module AWS::SDK::Appflow
     def list_flows(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFlowsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFlowsInput,
         validate_input: @config.validate_input
@@ -2123,7 +2125,7 @@ module AWS::SDK::Appflow
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2211,7 +2213,7 @@ module AWS::SDK::Appflow
     def register_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterConnectorInput,
         validate_input: @config.validate_input
@@ -2284,7 +2286,7 @@ module AWS::SDK::Appflow
     def start_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartFlowInput,
         validate_input: @config.validate_input
@@ -2357,7 +2359,7 @@ module AWS::SDK::Appflow
     def stop_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopFlowInput,
         validate_input: @config.validate_input
@@ -2431,7 +2433,7 @@ module AWS::SDK::Appflow
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2506,7 +2508,7 @@ module AWS::SDK::Appflow
     def unregister_connector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnregisterConnectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnregisterConnectorInput,
         validate_input: @config.validate_input
@@ -2580,7 +2582,7 @@ module AWS::SDK::Appflow
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2841,7 +2843,7 @@ module AWS::SDK::Appflow
     def update_connector_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConnectorProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConnectorProfileInput,
         validate_input: @config.validate_input
@@ -3129,7 +3131,7 @@ module AWS::SDK::Appflow
     def update_flow(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFlowInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFlowInput,
         validate_input: @config.validate_input

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ElasticTranscoder
@@ -65,7 +67,7 @@ module AWS::SDK::ElasticTranscoder
     def cancel_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelJobInput,
         validate_input: @config.validate_input
@@ -388,7 +390,7 @@ module AWS::SDK::ElasticTranscoder
     def create_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateJobInput,
         validate_input: @config.validate_input
@@ -787,7 +789,7 @@ module AWS::SDK::ElasticTranscoder
     def create_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePipelineInput,
         validate_input: @config.validate_input
@@ -1000,7 +1002,7 @@ module AWS::SDK::ElasticTranscoder
     def create_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePresetInput,
         validate_input: @config.validate_input
@@ -1071,7 +1073,7 @@ module AWS::SDK::ElasticTranscoder
     def delete_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePipelineInput,
         validate_input: @config.validate_input
@@ -1141,7 +1143,7 @@ module AWS::SDK::ElasticTranscoder
     def delete_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePresetInput,
         validate_input: @config.validate_input
@@ -1334,7 +1336,7 @@ module AWS::SDK::ElasticTranscoder
     def list_jobs_by_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsByPipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsByPipelineInput,
         validate_input: @config.validate_input
@@ -1529,7 +1531,7 @@ module AWS::SDK::ElasticTranscoder
     def list_jobs_by_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListJobsByStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListJobsByStatusInput,
         validate_input: @config.validate_input
@@ -1629,7 +1631,7 @@ module AWS::SDK::ElasticTranscoder
     def list_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelinesInput,
         validate_input: @config.validate_input
@@ -1761,7 +1763,7 @@ module AWS::SDK::ElasticTranscoder
     def list_presets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPresetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPresetsInput,
         validate_input: @config.validate_input
@@ -1939,7 +1941,7 @@ module AWS::SDK::ElasticTranscoder
     def read_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReadJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReadJobInput,
         validate_input: @config.validate_input
@@ -2034,7 +2036,7 @@ module AWS::SDK::ElasticTranscoder
     def read_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReadPipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReadPipelineInput,
         validate_input: @config.validate_input
@@ -2156,7 +2158,7 @@ module AWS::SDK::ElasticTranscoder
     def read_preset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReadPresetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReadPresetInput,
         validate_input: @config.validate_input
@@ -2247,7 +2249,7 @@ module AWS::SDK::ElasticTranscoder
     def test_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestRoleInput,
         validate_input: @config.validate_input
@@ -2618,7 +2620,7 @@ module AWS::SDK::ElasticTranscoder
     def update_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineInput,
         validate_input: @config.validate_input
@@ -2749,7 +2751,7 @@ module AWS::SDK::ElasticTranscoder
     def update_pipeline_notifications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineNotificationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineNotificationsInput,
         validate_input: @config.validate_input
@@ -2860,7 +2862,7 @@ module AWS::SDK::ElasticTranscoder
     def update_pipeline_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineStatusInput,
         validate_input: @config.validate_input

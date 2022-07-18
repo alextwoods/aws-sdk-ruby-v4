@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ComputeOptimizer
@@ -98,7 +100,7 @@ module AWS::SDK::ComputeOptimizer
     def delete_recommendation_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRecommendationPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRecommendationPreferencesInput,
         validate_input: @config.validate_input
@@ -210,7 +212,7 @@ module AWS::SDK::ComputeOptimizer
     def describe_recommendation_export_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRecommendationExportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRecommendationExportJobsInput,
         validate_input: @config.validate_input
@@ -361,7 +363,7 @@ module AWS::SDK::ComputeOptimizer
     def export_auto_scaling_group_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportAutoScalingGroupRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportAutoScalingGroupRecommendationsInput,
         validate_input: @config.validate_input
@@ -503,7 +505,7 @@ module AWS::SDK::ComputeOptimizer
     def export_ebs_volume_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportEBSVolumeRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportEBSVolumeRecommendationsInput,
         validate_input: @config.validate_input
@@ -654,7 +656,7 @@ module AWS::SDK::ComputeOptimizer
     def export_ec2_instance_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportEC2InstanceRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportEC2InstanceRecommendationsInput,
         validate_input: @config.validate_input
@@ -796,7 +798,7 @@ module AWS::SDK::ComputeOptimizer
     def export_lambda_function_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportLambdaFunctionRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportLambdaFunctionRecommendationsInput,
         validate_input: @config.validate_input
@@ -958,7 +960,7 @@ module AWS::SDK::ComputeOptimizer
     def get_auto_scaling_group_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAutoScalingGroupRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAutoScalingGroupRecommendationsInput,
         validate_input: @config.validate_input
@@ -1101,7 +1103,7 @@ module AWS::SDK::ComputeOptimizer
     def get_ebs_volume_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEBSVolumeRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEBSVolumeRecommendationsInput,
         validate_input: @config.validate_input
@@ -1265,7 +1267,7 @@ module AWS::SDK::ComputeOptimizer
     def get_ec2_instance_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEC2InstanceRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEC2InstanceRecommendationsInput,
         validate_input: @config.validate_input
@@ -1377,7 +1379,7 @@ module AWS::SDK::ComputeOptimizer
     def get_ec2_recommendation_projected_metrics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEC2RecommendationProjectedMetricsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEC2RecommendationProjectedMetricsInput,
         validate_input: @config.validate_input
@@ -1453,7 +1455,7 @@ module AWS::SDK::ComputeOptimizer
     def get_effective_recommendation_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEffectiveRecommendationPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEffectiveRecommendationPreferencesInput,
         validate_input: @config.validate_input
@@ -1525,7 +1527,7 @@ module AWS::SDK::ComputeOptimizer
     def get_enrollment_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnrollmentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnrollmentStatusInput,
         validate_input: @config.validate_input
@@ -1621,7 +1623,7 @@ module AWS::SDK::ComputeOptimizer
     def get_enrollment_statuses_for_organization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEnrollmentStatusesForOrganizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEnrollmentStatusesForOrganizationInput,
         validate_input: @config.validate_input
@@ -1768,7 +1770,7 @@ module AWS::SDK::ComputeOptimizer
     def get_lambda_function_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLambdaFunctionRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLambdaFunctionRecommendationsInput,
         validate_input: @config.validate_input
@@ -1883,7 +1885,7 @@ module AWS::SDK::ComputeOptimizer
     def get_recommendation_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommendationPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommendationPreferencesInput,
         validate_input: @config.validate_input
@@ -2010,7 +2012,7 @@ module AWS::SDK::ComputeOptimizer
     def get_recommendation_summaries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommendationSummariesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommendationSummariesInput,
         validate_input: @config.validate_input
@@ -2137,7 +2139,7 @@ module AWS::SDK::ComputeOptimizer
     def put_recommendation_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRecommendationPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRecommendationPreferencesInput,
         validate_input: @config.validate_input
@@ -2240,7 +2242,7 @@ module AWS::SDK::ComputeOptimizer
     def update_enrollment_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnrollmentStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnrollmentStatusInput,
         validate_input: @config.validate_input

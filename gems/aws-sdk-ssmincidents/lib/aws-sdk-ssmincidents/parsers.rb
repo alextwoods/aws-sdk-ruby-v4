@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::SSMIncidents
   module Parsers
 
@@ -231,7 +229,7 @@ module AWS::SDK::SSMIncidents
           value = (Parsers::EmptyChatChannel.parse(value) unless value.nil?)
           Types::ChatChannel::Empty.new(value) if value
         when 'chatbotSns'
-          value = value
+          value = (Parsers::ChatbotSnsConfigurationSet.parse(value) unless value.nil?)
           Types::ChatChannel::ChatbotSns.new(value) if value
         else
           Types::ChatChannel::Unknown.new({name: key, value: value})
@@ -241,10 +239,11 @@ module AWS::SDK::SSMIncidents
 
     class ChatbotSnsConfigurationSet
       def self.parse(list)
-        data = list.map do |value|
-          value unless value.nil?
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
         end
-        Set.new(data)
+        data
       end
     end
 
@@ -376,7 +375,7 @@ module AWS::SDK::SSMIncidents
         data.display_name = map['displayName']
         data.incident_template = (Parsers::IncidentTemplate.parse(map['incidentTemplate']) unless map['incidentTemplate'].nil?)
         data.chat_channel = (Parsers::ChatChannel.parse(map['chatChannel']) unless map['chatChannel'].nil?)
-        data.engagements = map['engagements']
+        data.engagements = (Parsers::EngagementSet.parse(map['engagements']) unless map['engagements'].nil?)
         data.actions = (Parsers::ActionsList.parse(map['actions']) unless map['actions'].nil?)
         data
       end
@@ -463,10 +462,11 @@ module AWS::SDK::SSMIncidents
 
     class EngagementSet
       def self.parse(list)
-        data = list.map do |value|
-          value unless value.nil?
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
         end
-        Set.new(data)
+        data
       end
     end
 

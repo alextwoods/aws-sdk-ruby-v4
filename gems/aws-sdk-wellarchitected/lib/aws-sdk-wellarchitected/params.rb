@@ -229,7 +229,7 @@ module AWS::SDK::WellArchitected
         type = Types::CreateLensShareInput.new
         type.lens_alias = params[:lens_alias]
         type.shared_with = params[:shared_with]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -250,7 +250,7 @@ module AWS::SDK::WellArchitected
         type.lens_alias = params[:lens_alias]
         type.lens_version = params[:lens_version]
         type.is_major_version = params[:is_major_version]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::WellArchitected
         type = Types::CreateMilestoneInput.new
         type.workload_id = params[:workload_id]
         type.milestone_name = params[:milestone_name]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -303,7 +303,7 @@ module AWS::SDK::WellArchitected
         type.industry = params[:industry]
         type.lenses = WorkloadLenses.build(params[:lenses], context: "#{context}[:lenses]") unless params[:lenses].nil?
         type.notes = params[:notes]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -326,7 +326,7 @@ module AWS::SDK::WellArchitected
         type.workload_id = params[:workload_id]
         type.shared_with = params[:shared_with]
         type.permission_type = params[:permission_type]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -346,7 +346,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteLensInput, context: context)
         type = Types::DeleteLensInput.new
         type.lens_alias = params[:lens_alias]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.lens_status = params[:lens_status]
         type
       end
@@ -366,7 +366,7 @@ module AWS::SDK::WellArchitected
         type = Types::DeleteLensShareInput.new
         type.share_id = params[:share_id]
         type.lens_alias = params[:lens_alias]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -384,7 +384,7 @@ module AWS::SDK::WellArchitected
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteWorkloadInput, context: context)
         type = Types::DeleteWorkloadInput.new
         type.workload_id = params[:workload_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -403,7 +403,7 @@ module AWS::SDK::WellArchitected
         type = Types::DeleteWorkloadShareInput.new
         type.share_id = params[:share_id]
         type.workload_id = params[:workload_id]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::WellArchitected
         type = Types::ImportLensInput.new
         type.lens_alias = params[:lens_alias]
         type.json_string = params[:json_string]
-        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
+        type.client_request_token = params[:client_request_token] || ::SecureRandom.uuid
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end

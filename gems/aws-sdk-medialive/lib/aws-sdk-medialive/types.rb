@@ -162,12 +162,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for AacSpec
@@ -352,12 +352,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.dialnorm ||= 0
       end
-
     end
 
     # Includes enum constants for AcceptHeader
@@ -419,11 +419,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_ancillary_channel_number ||= 0
       end
-
     end
 
     # Archive Cdn Settings
@@ -484,11 +484,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rollover_interval ||= 0
       end
-
     end
 
     # Archive Output Settings
@@ -569,11 +569,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.output_channel ||= 0
       end
-
     end
 
     # Audio Codec Settings
@@ -829,11 +829,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_lkfs ||= 0
       end
-
     end
 
     # Includes enum constants for AudioOnlyHlsSegmentType
@@ -930,11 +930,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
       end
-
     end
 
     # Audio Selector
@@ -1007,11 +1007,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audio_silence_threshold_msec ||= 0
       end
-
     end
 
     # Audio Track
@@ -1026,11 +1026,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.track ||= 0
       end
-
     end
 
     # Audio Track Selection
@@ -1125,11 +1125,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.error_clear_time_msec ||= 0
       end
-
     end
 
     # Avail Blanking
@@ -1738,6 +1738,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.background_opacity ||= 0
@@ -1750,7 +1751,6 @@ module AWS::SDK::MediaLive
         self.x_position ||= 0
         self.y_position ||= 0
       end
-
     end
 
     # Includes enum constants for BurnInFontColor
@@ -2008,11 +2008,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.caption_channel ||= 0
       end
-
     end
 
     # Caption Rectangle
@@ -2054,6 +2054,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
@@ -2061,7 +2062,6 @@ module AWS::SDK::MediaLive
         self.top_offset ||= 0
         self.width ||= 0
       end
-
     end
 
     # Output groups for this Live Event. Output groups contain information about where streams should be distributed.
@@ -2298,11 +2298,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
       end
-
     end
 
     # Includes enum constants for ChannelClass
@@ -2489,11 +2489,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
       end
-
     end
 
     # A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
@@ -3099,11 +3099,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
       end
-
     end
 
     # Placeholder documentation for DeleteInputRequest
@@ -3234,12 +3234,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
         self.program_count ||= 0
       end
-
     end
 
     # Placeholder documentation for DeleteMultiplexProgramRequest
@@ -3434,6 +3434,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
@@ -3441,7 +3442,6 @@ module AWS::SDK::MediaLive
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # Placeholder documentation for DeleteScheduleRequest
@@ -3630,11 +3630,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
       end
-
     end
 
     # Placeholder documentation for DescribeInputDeviceRequest
@@ -3799,11 +3799,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.content_length ||= 0
       end
-
     end
 
     # Placeholder documentation for DescribeInputRequest
@@ -4076,12 +4076,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
         self.program_count ||= 0
       end
-
     end
 
     # Placeholder documentation for DescribeMultiplexProgramRequest
@@ -4232,13 +4232,13 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # Placeholder documentation for DescribeReservationRequest
@@ -4375,6 +4375,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
@@ -4382,7 +4383,6 @@ module AWS::SDK::MediaLive
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # Placeholder documentation for DescribeScheduleRequest
@@ -4409,11 +4409,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for DescribeScheduleResponse
@@ -4484,12 +4484,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_id ||= 0
         self.rep_interval ||= 0
       end
-
     end
 
     # Includes enum constants for DvbSdtOutputSdt
@@ -4544,11 +4544,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rep_interval ||= 0
       end
-
     end
 
     # Includes enum constants for DvbSubDestinationAlignment
@@ -4759,6 +4759,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.background_opacity ||= 0
@@ -4771,7 +4772,6 @@ module AWS::SDK::MediaLive
         self.x_position ||= 0
         self.y_position ||= 0
       end
-
     end
 
     # Includes enum constants for DvbSubDestinationShadowColor
@@ -4851,11 +4851,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
       end
-
     end
 
     # DVB Time and Date Table (SDT)
@@ -4870,11 +4870,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rep_interval ||= 0
       end
-
     end
 
     # Includes enum constants for Eac3AttenuationControl
@@ -5211,6 +5211,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -5220,7 +5221,6 @@ module AWS::SDK::MediaLive
         self.lt_rt_center_mix_level ||= 0
         self.lt_rt_surround_mix_level ||= 0
       end
-
     end
 
     # Includes enum constants for Eac3StereoDownmix
@@ -5422,12 +5422,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source608_channel_number ||= 0
         self.source608_track_number ||= 0
       end
-
     end
 
     # Encoder Settings
@@ -5617,12 +5617,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.column_depth ||= 0
         self.row_length ||= 0
       end
-
     end
 
     # Includes enum constants for FixedAfd
@@ -5894,11 +5894,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.capture_interval ||= 0
       end
-
     end
 
     # Placeholder documentation for GatewayTimeoutException
@@ -5968,11 +5968,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.initial_audio_gain ||= 0
       end
-
     end
 
     # Includes enum constants for GlobalConfigurationInputEndAction
@@ -6692,6 +6692,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -6711,7 +6712,6 @@ module AWS::SDK::MediaLive
         self.slices ||= 0
         self.softness ||= 0
       end
-
     end
 
     # Includes enum constants for H264SpatialAq
@@ -7256,6 +7256,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
@@ -7271,7 +7272,6 @@ module AWS::SDK::MediaLive
         self.qvbr_quality_level ||= 0
         self.slices ||= 0
       end
-
     end
 
     # Includes enum constants for H265Tier
@@ -7320,12 +7320,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_cll ||= 0
         self.max_fall ||= 0
       end
-
     end
 
     # Includes enum constants for HlsAdMarkers
@@ -7406,6 +7406,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connection_retry_interval ||= 0
@@ -7413,7 +7414,6 @@ module AWS::SDK::MediaLive
         self.num_retries ||= 0
         self.restart_delay ||= 0
       end
-
     end
 
     # Hls Basic Put Settings
@@ -7446,6 +7446,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connection_retry_interval ||= 0
@@ -7453,7 +7454,6 @@ module AWS::SDK::MediaLive
         self.num_retries ||= 0
         self.restart_delay ||= 0
       end
-
     end
 
     # Includes enum constants for HlsCaptionLanguageSetting
@@ -7915,6 +7915,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.index_n_segments ||= 0
@@ -7926,7 +7927,6 @@ module AWS::SDK::MediaLive
         self.timed_metadata_id3_period ||= 0
         self.timestamp_delta_milliseconds ||= 0
       end
-
     end
 
     # Includes enum constants for HlsH265PackagingType
@@ -8017,6 +8017,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bandwidth ||= 0
@@ -8024,7 +8025,6 @@ module AWS::SDK::MediaLive
         self.retries ||= 0
         self.retry_interval ||= 0
       end
-
     end
 
     # Includes enum constants for HlsIvInManifest
@@ -8113,6 +8113,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connection_retry_interval ||= 0
@@ -8120,7 +8121,6 @@ module AWS::SDK::MediaLive
         self.num_retries ||= 0
         self.restart_delay ||= 0
       end
-
     end
 
     # Includes enum constants for HlsMediaStoreStorageClass
@@ -8406,6 +8406,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connection_retry_interval ||= 0
@@ -8413,7 +8414,6 @@ module AWS::SDK::MediaLive
         self.num_retries ||= 0
         self.restart_delay ||= 0
       end
-
     end
 
     # Html Motion Graphics Settings
@@ -8610,12 +8610,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.gain ||= 0
         self.input_channel ||= 0
       end
-
     end
 
     # Includes enum constants for InputClass
@@ -8799,11 +8799,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_bitrate ||= 0
       end
-
     end
 
     # Includes enum constants for InputDeviceConfiguredInput
@@ -8896,6 +8896,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate ||= 0
@@ -8903,7 +8904,6 @@ module AWS::SDK::MediaLive
         self.max_bitrate ||= 0
         self.width ||= 0
       end
-
     end
 
     # Includes enum constants for InputDeviceIpScheme
@@ -9180,6 +9180,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate ||= 0
@@ -9187,7 +9188,6 @@ module AWS::SDK::MediaLive
         self.max_bitrate ||= 0
         self.width ||= 0
       end
-
     end
 
     # Includes enum constants for InputFilter
@@ -9322,12 +9322,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.black_frame_msec ||= 0
         self.repeat_frame_msec ||= 0
       end
-
     end
 
     # MediaLive will perform a failover if content is not detected in this input for the specified period.
@@ -9342,11 +9342,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.input_loss_threshold_msec ||= 0
       end
-
     end
 
     # Includes enum constants for InputLossImageType
@@ -9584,12 +9584,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.filter_strength ||= 0
         self.scte35_pid ||= 0
       end
-
     end
 
     # The settings for a PULL type input.
@@ -9919,11 +9919,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListChannelsResponse
@@ -9970,11 +9970,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListInputDeviceTransfersResponse
@@ -10015,11 +10015,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListInputDevicesResponse
@@ -10060,11 +10060,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListInputSecurityGroupsResponse
@@ -10105,11 +10105,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListInputsResponse
@@ -10156,11 +10156,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListMultiplexProgramsResponse
@@ -10201,11 +10201,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListMultiplexesResponse
@@ -10306,11 +10306,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListOfferingsResponse
@@ -10399,11 +10399,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # Placeholder documentation for ListReservationsResponse
@@ -11040,6 +11040,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audio_frames_per_pes ||= 0
@@ -11054,7 +11055,6 @@ module AWS::SDK::MediaLive
         self.segmentation_time ||= 0
         self.transport_stream_id ||= 0
       end
-
     end
 
     # Includes enum constants for M2tsTimedMetadataBehavior
@@ -11221,6 +11221,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.audio_frames_per_pes ||= 0
@@ -11230,7 +11231,6 @@ module AWS::SDK::MediaLive
         self.program_num ||= 0
         self.transport_stream_id ||= 0
       end
-
     end
 
     # Includes enum constants for M3u8TimedMetadataBehavior
@@ -11456,11 +11456,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # Motion Graphics Configuration
@@ -11558,12 +11558,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bitrate ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Includes enum constants for Mpeg2AdaptiveQuantization
@@ -11799,6 +11799,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.framerate_denominator ||= 0
@@ -11807,7 +11808,6 @@ module AWS::SDK::MediaLive
         self.gop_num_b_frames ||= 0
         self.gop_size ||= 0
       end
-
     end
 
     # Includes enum constants for Mpeg2SubGopLength
@@ -11984,6 +11984,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connection_retry_interval ||= 0
@@ -11993,7 +11994,6 @@ module AWS::SDK::MediaLive
         self.restart_delay ||= 0
         self.send_delay_ms ||= 0
       end
-
     end
 
     # Includes enum constants for MsSmoothH265PackagingType
@@ -12099,12 +12099,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
         self.program_count ||= 0
       end
-
     end
 
     # Multiplex Group Settings
@@ -12301,6 +12301,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dvb_teletext_pid ||= 0
@@ -12313,7 +12314,6 @@ module AWS::SDK::MediaLive
         self.timed_metadata_pid ||= 0
         self.video_pid ||= 0
       end
-
     end
 
     # The current source for one of the pipelines in the multiplex.
@@ -12388,11 +12388,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.program_number ||= 0
       end
-
     end
 
     # Placeholder documentation for MultiplexProgramSummary
@@ -12445,6 +12445,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_video_buffer_delay_milliseconds ||= 0
@@ -12452,7 +12453,6 @@ module AWS::SDK::MediaLive
         self.transport_stream_id ||= 0
         self.transport_stream_reserved_bitrate ||= 0
       end
-
     end
 
     # Contains summary configuration for a Multiplex event.
@@ -12467,11 +12467,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.transport_stream_bitrate ||= 0
       end
-
     end
 
     # Includes enum constants for MultiplexState
@@ -12538,13 +12538,13 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.maximum_bitrate ||= 0
         self.minimum_bitrate ||= 0
         self.priority ||= 0
       end
-
     end
 
     # Placeholder documentation for MultiplexSummary
@@ -12609,12 +12609,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
         self.program_count ||= 0
       end
-
     end
 
     # The video configuration for each program in a multiplex.
@@ -12637,11 +12637,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.constant_bitrate ||= 0
       end
-
     end
 
     # Includes enum constants for NetworkInputServerValidation
@@ -12746,11 +12746,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sid ||= 0
       end
-
     end
 
     # Includes enum constants for NielsenPcmToId3TaggingState
@@ -12909,13 +12909,13 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # Includes enum constants for OfferingDurationUnits
@@ -13335,11 +13335,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # Placeholder documentation for PurchaseOfferingResponse
@@ -13431,12 +13431,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.channels_in ||= 0
         self.channels_out ||= 0
       end
-
     end
 
     # Reserved resources available to use
@@ -13559,6 +13559,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
@@ -13566,7 +13567,6 @@ module AWS::SDK::MediaLive
         self.fixed_price ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # Includes enum constants for ReservationCodec
@@ -13893,12 +13893,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cache_length ||= 0
         self.restart_delay ||= 0
       end
-
     end
 
     # Includes enum constants for RtmpOutputCertificateMode
@@ -13945,12 +13945,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.connection_retry_interval ||= 0
         self.num_retries ||= 0
       end
-
     end
 
     # Includes enum constants for S3CannedAcl
@@ -14146,11 +14146,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source608_channel_number ||= 0
       end
-
     end
 
     # Scte27 Destination Settings
@@ -14215,11 +14215,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
       end
-
     end
 
     # Includes enum constants for Scte35AposNoRegionalBlackoutBehavior
@@ -14370,11 +14370,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.splice_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for Scte35SegmentationCancelIndicator
@@ -14463,6 +14463,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_num ||= 0
@@ -14474,7 +14475,6 @@ module AWS::SDK::MediaLive
         self.sub_segment_num ||= 0
         self.sub_segments_expected ||= 0
       end
-
     end
 
     # Scte35 Splice Insert
@@ -14505,11 +14505,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ad_avail_offset ||= 0
       end
-
     end
 
     # Includes enum constants for Scte35SpliceInsertNoRegionalBlackoutBehavior
@@ -14542,12 +14542,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
         self.splice_event_id ||= 0
       end
-
     end
 
     # Includes enum constants for Scte35SpliceInsertWebDeliveryAllowedBehavior
@@ -14590,11 +14590,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ad_avail_offset ||= 0
       end
-
     end
 
     # Settings for a SCTE-35 time_signal.
@@ -14904,11 +14904,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
       end
-
     end
 
     # Placeholder documentation for StartMultiplexRequest
@@ -14993,12 +14993,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
         self.program_count ||= 0
       end
-
     end
 
     # Settings to identify the start of the clip.
@@ -15081,6 +15081,7 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -15093,7 +15094,6 @@ module AWS::SDK::MediaLive
         self.opacity ||= 0
         self.width ||= 0
       end
-
     end
 
     # Settings for the action to deactivate the image in a specific layer.
@@ -15114,12 +15114,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fade_out ||= 0
         self.layer ||= 0
       end
-
     end
 
     # Static Key Settings
@@ -15278,11 +15278,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
       end
-
     end
 
     # Placeholder documentation for StopMultiplexRequest
@@ -15367,12 +15367,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pipelines_running_count ||= 0
         self.program_count ||= 0
       end
-
     end
 
     # Settings to identify the end of the clip.
@@ -15563,11 +15563,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sync_threshold ||= 0
       end
-
     end
 
     # Includes enum constants for TimecodeConfigSource
@@ -15745,11 +15745,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.timed_metadata_id3_period ||= 0
       end
-
     end
 
     # Udp Output Settings
@@ -15782,11 +15782,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.buffer_msec ||= 0
       end
-
     end
 
     # Includes enum constants for UdpTimedMetadataId3Frame
@@ -16337,12 +16337,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.black_detect_threshold ||= 0
         self.video_black_threshold_msec ||= 0
       end
-
     end
 
     # Video Codec Settings
@@ -16432,13 +16432,13 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.height ||= 0
         self.sharpness ||= 0
         self.width ||= 0
       end
-
     end
 
     # Includes enum constants for VideoDescriptionRespondToAfd
@@ -16567,11 +16567,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pid ||= 0
       end
-
     end
 
     # Video Selector Program Id
@@ -16586,11 +16586,11 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.program_id ||= 0
       end
-
     end
 
     # Video Selector Settings
@@ -16724,12 +16724,12 @@ module AWS::SDK::MediaLive
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bit_depth ||= 0
         self.sample_rate ||= 0
       end
-
     end
 
     # Webvtt Destination Settings

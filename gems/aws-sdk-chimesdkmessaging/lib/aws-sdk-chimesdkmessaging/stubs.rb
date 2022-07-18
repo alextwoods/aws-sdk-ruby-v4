@@ -27,8 +27,8 @@ module AWS::SDK::ChimeSDKMessaging
     class BatchCreateChannelMembership
       def self.default(visited=[])
         {
-          batch_channel_memberships: Stubs::BatchChannelMemberships.default(visited),
-          errors: Stubs::BatchCreateChannelMembershipErrors.default(visited),
+          batch_channel_memberships: BatchChannelMemberships.default(visited),
+          errors: BatchCreateChannelMembershipErrors.default(visited),
         }
       end
 
@@ -48,7 +48,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('BatchCreateChannelMembershipErrors')
         visited = visited + ['BatchCreateChannelMembershipErrors']
         [
-          Stubs::BatchCreateChannelMembershipError.default(visited)
+          BatchCreateChannelMembershipError.default(visited)
         ]
       end
 
@@ -90,9 +90,9 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('BatchChannelMemberships')
         visited = visited + ['BatchChannelMemberships']
         {
-          invited_by: Stubs::Identity.default(visited),
+          invited_by: Identity.default(visited),
           type: 'type',
-          members: Stubs::Members.default(visited),
+          members: Members.default(visited),
           channel_arn: 'channel_arn',
         }
       end
@@ -114,7 +114,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('Members')
         visited = visited + ['Members']
         [
-          Stubs::Identity.default(visited)
+          Identity.default(visited)
         ]
       end
 
@@ -189,7 +189,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          channel_moderator: Stubs::Identity.default(visited),
+          channel_moderator: Identity.default(visited),
         }
       end
 
@@ -340,7 +340,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 
@@ -364,7 +364,7 @@ module AWS::SDK::ChimeSDKMessaging
           mode: 'mode',
           privacy: 'privacy',
           metadata: 'metadata',
-          created_by: Stubs::Identity.default(visited),
+          created_by: Identity.default(visited),
           created_timestamp: Time.now,
           last_message_timestamp: Time.now,
           last_updated_timestamp: Time.now,
@@ -393,7 +393,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannelBan
       def self.default(visited=[])
         {
-          channel_ban: Stubs::ChannelBan.default(visited),
+          channel_ban: ChannelBan.default(visited),
         }
       end
 
@@ -412,10 +412,10 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelBan')
         visited = visited + ['ChannelBan']
         {
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
           channel_arn: 'channel_arn',
           created_timestamp: Time.now,
-          created_by: Stubs::Identity.default(visited),
+          created_by: Identity.default(visited),
         }
       end
 
@@ -434,7 +434,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannelFlow
       def self.default(visited=[])
         {
-          channel_flow: Stubs::ChannelFlow.default(visited),
+          channel_flow: ChannelFlow.default(visited),
         }
       end
 
@@ -454,7 +454,7 @@ module AWS::SDK::ChimeSDKMessaging
         visited = visited + ['ChannelFlow']
         {
           channel_flow_arn: 'channel_flow_arn',
-          processors: Stubs::ProcessorList.default(visited),
+          processors: ProcessorList.default(visited),
           name: 'name',
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
@@ -479,7 +479,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ProcessorList')
         visited = visited + ['ProcessorList']
         [
-          Stubs::Processor.default(visited)
+          Processor.default(visited)
         ]
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::ChimeSDKMessaging
         visited = visited + ['Processor']
         {
           name: 'name',
-          configuration: Stubs::ProcessorConfiguration.default(visited),
+          configuration: ProcessorConfiguration.default(visited),
           execution_order: 1,
           fallback_action: 'fallback_action',
         }
@@ -523,7 +523,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ProcessorConfiguration')
         visited = visited + ['ProcessorConfiguration']
         {
-          lambda: Stubs::LambdaConfiguration.default(visited),
+          lambda: LambdaConfiguration.default(visited),
         }
       end
 
@@ -559,7 +559,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannelMembership
       def self.default(visited=[])
         {
-          channel_membership: Stubs::ChannelMembership.default(visited),
+          channel_membership: ChannelMembership.default(visited),
         }
       end
 
@@ -578,9 +578,9 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMembership')
         visited = visited + ['ChannelMembership']
         {
-          invited_by: Stubs::Identity.default(visited),
+          invited_by: Identity.default(visited),
           type: 'type',
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
           channel_arn: 'channel_arn',
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
@@ -604,7 +604,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannelMembershipForAppInstanceUser
       def self.default(visited=[])
         {
-          channel_membership: Stubs::ChannelMembershipForAppInstanceUserSummary.default(visited),
+          channel_membership: ChannelMembershipForAppInstanceUserSummary.default(visited),
         }
       end
 
@@ -623,8 +623,8 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMembershipForAppInstanceUserSummary')
         visited = visited + ['ChannelMembershipForAppInstanceUserSummary']
         {
-          channel_summary: Stubs::ChannelSummary.default(visited),
-          app_instance_user_membership_summary: Stubs::AppInstanceUserMembershipSummary.default(visited),
+          channel_summary: ChannelSummary.default(visited),
+          app_instance_user_membership_summary: AppInstanceUserMembershipSummary.default(visited),
         }
       end
 
@@ -689,7 +689,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannelModeratedByAppInstanceUser
       def self.default(visited=[])
         {
-          channel: Stubs::ChannelModeratedByAppInstanceUserSummary.default(visited),
+          channel: ChannelModeratedByAppInstanceUserSummary.default(visited),
         }
       end
 
@@ -708,7 +708,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelModeratedByAppInstanceUserSummary')
         visited = visited + ['ChannelModeratedByAppInstanceUserSummary']
         {
-          channel_summary: Stubs::ChannelSummary.default(visited),
+          channel_summary: ChannelSummary.default(visited),
         }
       end
 
@@ -724,7 +724,7 @@ module AWS::SDK::ChimeSDKMessaging
     class DescribeChannelModerator
       def self.default(visited=[])
         {
-          channel_moderator: Stubs::ChannelModerator.default(visited),
+          channel_moderator: ChannelModerator.default(visited),
         }
       end
 
@@ -743,10 +743,10 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelModerator')
         visited = visited + ['ChannelModerator']
         {
-          moderator: Stubs::Identity.default(visited),
+          moderator: Identity.default(visited),
           channel_arn: 'channel_arn',
           created_timestamp: Time.now,
-          created_by: Stubs::Identity.default(visited),
+          created_by: Identity.default(visited),
         }
       end
 
@@ -779,8 +779,8 @@ module AWS::SDK::ChimeSDKMessaging
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          member: Stubs::Identity.default(visited),
-          preferences: Stubs::ChannelMembershipPreferences.default(visited),
+          member: Identity.default(visited),
+          preferences: ChannelMembershipPreferences.default(visited),
         }
       end
 
@@ -801,7 +801,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMembershipPreferences')
         visited = visited + ['ChannelMembershipPreferences']
         {
-          push_notifications: Stubs::PushNotificationPreferences.default(visited),
+          push_notifications: PushNotificationPreferences.default(visited),
         }
       end
 
@@ -837,7 +837,7 @@ module AWS::SDK::ChimeSDKMessaging
     class GetChannelMessage
       def self.default(visited=[])
         {
-          channel_message: Stubs::ChannelMessage.default(visited),
+          channel_message: ChannelMessage.default(visited),
         }
       end
 
@@ -864,11 +864,11 @@ module AWS::SDK::ChimeSDKMessaging
           created_timestamp: Time.now,
           last_edited_timestamp: Time.now,
           last_updated_timestamp: Time.now,
-          sender: Stubs::Identity.default(visited),
+          sender: Identity.default(visited),
           redacted: false,
           persistence: 'persistence',
-          status: Stubs::ChannelMessageStatusStructure.default(visited),
-          message_attributes: Stubs::MessageAttributeMap.default(visited),
+          status: ChannelMessageStatusStructure.default(visited),
+          message_attributes: MessageAttributeMap.default(visited),
         }
       end
 
@@ -898,7 +898,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('MessageAttributeMap')
         visited = visited + ['MessageAttributeMap']
         {
-          test_key: Stubs::MessageAttributeValue.default(visited)
+          test_key: MessageAttributeValue.default(visited)
         }
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('MessageAttributeValue')
         visited = visited + ['MessageAttributeValue']
         {
-          string_values: Stubs::MessageAttributeStringValues.default(visited),
+          string_values: MessageAttributeStringValues.default(visited),
         }
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::ChimeSDKMessaging
     class GetChannelMessageStatus
       def self.default(visited=[])
         {
-          status: Stubs::ChannelMessageStatusStructure.default(visited),
+          status: ChannelMessageStatusStructure.default(visited),
         }
       end
 
@@ -991,7 +991,7 @@ module AWS::SDK::ChimeSDKMessaging
     class GetMessagingSessionEndpoint
       def self.default(visited=[])
         {
-          endpoint: Stubs::MessagingSessionEndpoint.default(visited),
+          endpoint: MessagingSessionEndpoint.default(visited),
         }
       end
 
@@ -1028,7 +1028,7 @@ module AWS::SDK::ChimeSDKMessaging
         {
           channel_arn: 'channel_arn',
           next_token: 'next_token',
-          channel_bans: Stubs::ChannelBanSummaryList.default(visited),
+          channel_bans: ChannelBanSummaryList.default(visited),
         }
       end
 
@@ -1049,7 +1049,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelBanSummaryList')
         visited = visited + ['ChannelBanSummaryList']
         [
-          Stubs::ChannelBanSummary.default(visited)
+          ChannelBanSummary.default(visited)
         ]
       end
 
@@ -1069,7 +1069,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelBanSummary')
         visited = visited + ['ChannelBanSummary']
         {
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -1085,7 +1085,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ListChannelFlows
       def self.default(visited=[])
         {
-          channel_flows: Stubs::ChannelFlowSummaryList.default(visited),
+          channel_flows: ChannelFlowSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1106,7 +1106,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelFlowSummaryList')
         visited = visited + ['ChannelFlowSummaryList']
         [
-          Stubs::ChannelFlowSummary.default(visited)
+          ChannelFlowSummary.default(visited)
         ]
       end
 
@@ -1128,7 +1128,7 @@ module AWS::SDK::ChimeSDKMessaging
         {
           channel_flow_arn: 'channel_flow_arn',
           name: 'name',
-          processors: Stubs::ProcessorList.default(visited),
+          processors: ProcessorList.default(visited),
         }
       end
 
@@ -1147,7 +1147,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          channel_memberships: Stubs::ChannelMembershipSummaryList.default(visited),
+          channel_memberships: ChannelMembershipSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1169,7 +1169,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMembershipSummaryList')
         visited = visited + ['ChannelMembershipSummaryList']
         [
-          Stubs::ChannelMembershipSummary.default(visited)
+          ChannelMembershipSummary.default(visited)
         ]
       end
 
@@ -1189,7 +1189,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMembershipSummary')
         visited = visited + ['ChannelMembershipSummary']
         {
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -1205,7 +1205,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ListChannelMembershipsForAppInstanceUser
       def self.default(visited=[])
         {
-          channel_memberships: Stubs::ChannelMembershipForAppInstanceUserSummaryList.default(visited),
+          channel_memberships: ChannelMembershipForAppInstanceUserSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1226,7 +1226,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMembershipForAppInstanceUserSummaryList')
         visited = visited + ['ChannelMembershipForAppInstanceUserSummaryList']
         [
-          Stubs::ChannelMembershipForAppInstanceUserSummary.default(visited)
+          ChannelMembershipForAppInstanceUserSummary.default(visited)
         ]
       end
 
@@ -1246,7 +1246,7 @@ module AWS::SDK::ChimeSDKMessaging
         {
           channel_arn: 'channel_arn',
           next_token: 'next_token',
-          channel_messages: Stubs::ChannelMessageSummaryList.default(visited),
+          channel_messages: ChannelMessageSummaryList.default(visited),
         }
       end
 
@@ -1267,7 +1267,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelMessageSummaryList')
         visited = visited + ['ChannelMessageSummaryList']
         [
-          Stubs::ChannelMessageSummary.default(visited)
+          ChannelMessageSummary.default(visited)
         ]
       end
 
@@ -1294,10 +1294,10 @@ module AWS::SDK::ChimeSDKMessaging
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
           last_edited_timestamp: Time.now,
-          sender: Stubs::Identity.default(visited),
+          sender: Identity.default(visited),
           redacted: false,
-          status: Stubs::ChannelMessageStatusStructure.default(visited),
-          message_attributes: Stubs::MessageAttributeMap.default(visited),
+          status: ChannelMessageStatusStructure.default(visited),
+          message_attributes: MessageAttributeMap.default(visited),
         }
       end
 
@@ -1325,7 +1325,7 @@ module AWS::SDK::ChimeSDKMessaging
         {
           channel_arn: 'channel_arn',
           next_token: 'next_token',
-          channel_moderators: Stubs::ChannelModeratorSummaryList.default(visited),
+          channel_moderators: ChannelModeratorSummaryList.default(visited),
         }
       end
 
@@ -1346,7 +1346,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelModeratorSummaryList')
         visited = visited + ['ChannelModeratorSummaryList']
         [
-          Stubs::ChannelModeratorSummary.default(visited)
+          ChannelModeratorSummary.default(visited)
         ]
       end
 
@@ -1366,7 +1366,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelModeratorSummary')
         visited = visited + ['ChannelModeratorSummary']
         {
-          moderator: Stubs::Identity.default(visited),
+          moderator: Identity.default(visited),
         }
       end
 
@@ -1382,7 +1382,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ListChannels
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelSummaryList.default(visited),
+          channels: ChannelSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1403,7 +1403,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelSummaryList')
         visited = visited + ['ChannelSummaryList']
         [
-          Stubs::ChannelSummary.default(visited)
+          ChannelSummary.default(visited)
         ]
       end
 
@@ -1421,7 +1421,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ListChannelsAssociatedWithChannelFlow
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelAssociatedWithFlowSummaryList.default(visited),
+          channels: ChannelAssociatedWithFlowSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1442,7 +1442,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelAssociatedWithFlowSummaryList')
         visited = visited + ['ChannelAssociatedWithFlowSummaryList']
         [
-          Stubs::ChannelAssociatedWithFlowSummary.default(visited)
+          ChannelAssociatedWithFlowSummary.default(visited)
         ]
       end
 
@@ -1486,7 +1486,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ListChannelsModeratedByAppInstanceUser
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelModeratedByAppInstanceUserSummaryList.default(visited),
+          channels: ChannelModeratedByAppInstanceUserSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1507,7 +1507,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('ChannelModeratedByAppInstanceUserSummaryList')
         visited = visited + ['ChannelModeratedByAppInstanceUserSummaryList']
         [
-          Stubs::ChannelModeratedByAppInstanceUserSummary.default(visited)
+          ChannelModeratedByAppInstanceUserSummary.default(visited)
         ]
       end
 
@@ -1525,7 +1525,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1544,7 +1544,7 @@ module AWS::SDK::ChimeSDKMessaging
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1583,8 +1583,8 @@ module AWS::SDK::ChimeSDKMessaging
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          member: Stubs::Identity.default(visited),
-          preferences: Stubs::ChannelMembershipPreferences.default(visited),
+          member: Identity.default(visited),
+          preferences: ChannelMembershipPreferences.default(visited),
         }
       end
 
@@ -1622,7 +1622,7 @@ module AWS::SDK::ChimeSDKMessaging
     class SearchChannels
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelSummaryList.default(visited),
+          channels: ChannelSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1643,7 +1643,7 @@ module AWS::SDK::ChimeSDKMessaging
         {
           channel_arn: 'channel_arn',
           message_id: 'message_id',
-          status: Stubs::ChannelMessageStatusStructure.default(visited),
+          status: ChannelMessageStatusStructure.default(visited),
         }
       end
 
@@ -1724,7 +1724,7 @@ module AWS::SDK::ChimeSDKMessaging
         {
           channel_arn: 'channel_arn',
           message_id: 'message_id',
-          status: Stubs::ChannelMessageStatusStructure.default(visited),
+          status: ChannelMessageStatusStructure.default(visited),
         }
       end
 

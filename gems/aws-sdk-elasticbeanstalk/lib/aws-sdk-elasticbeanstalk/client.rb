@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ElasticBeanstalk
@@ -78,7 +80,7 @@ module AWS::SDK::ElasticBeanstalk
     def abort_environment_update(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AbortEnvironmentUpdateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AbortEnvironmentUpdateInput,
         validate_input: @config.validate_input
@@ -160,7 +162,7 @@ module AWS::SDK::ElasticBeanstalk
     def apply_environment_managed_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ApplyEnvironmentManagedActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ApplyEnvironmentManagedActionInput,
         validate_input: @config.validate_input
@@ -236,7 +238,7 @@ module AWS::SDK::ElasticBeanstalk
     def associate_environment_operations_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateEnvironmentOperationsRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateEnvironmentOperationsRoleInput,
         validate_input: @config.validate_input
@@ -306,7 +308,7 @@ module AWS::SDK::ElasticBeanstalk
     def check_dns_availability(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CheckDNSAvailabilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CheckDNSAvailabilityInput,
         validate_input: @config.validate_input
@@ -432,7 +434,7 @@ module AWS::SDK::ElasticBeanstalk
     def compose_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ComposeEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ComposeEnvironmentsInput,
         validate_input: @config.validate_input
@@ -556,7 +558,7 @@ module AWS::SDK::ElasticBeanstalk
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -735,7 +737,7 @@ module AWS::SDK::ElasticBeanstalk
     def create_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationVersionInput,
         validate_input: @config.validate_input
@@ -923,7 +925,7 @@ module AWS::SDK::ElasticBeanstalk
     def create_configuration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateConfigurationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateConfigurationTemplateInput,
         validate_input: @config.validate_input
@@ -1140,7 +1142,7 @@ module AWS::SDK::ElasticBeanstalk
     def create_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEnvironmentInput,
         validate_input: @config.validate_input
@@ -1262,7 +1264,7 @@ module AWS::SDK::ElasticBeanstalk
     def create_platform_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePlatformVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePlatformVersionInput,
         validate_input: @config.validate_input
@@ -1330,7 +1332,7 @@ module AWS::SDK::ElasticBeanstalk
     def create_storage_location(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStorageLocationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStorageLocationInput,
         validate_input: @config.validate_input
@@ -1408,7 +1410,7 @@ module AWS::SDK::ElasticBeanstalk
     def delete_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationInput,
         validate_input: @config.validate_input
@@ -1490,7 +1492,7 @@ module AWS::SDK::ElasticBeanstalk
     def delete_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationVersionInput,
         validate_input: @config.validate_input
@@ -1567,7 +1569,7 @@ module AWS::SDK::ElasticBeanstalk
     def delete_configuration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationTemplateInput,
         validate_input: @config.validate_input
@@ -1644,7 +1646,7 @@ module AWS::SDK::ElasticBeanstalk
     def delete_environment_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEnvironmentConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEnvironmentConfigurationInput,
         validate_input: @config.validate_input
@@ -1727,7 +1729,7 @@ module AWS::SDK::ElasticBeanstalk
     def delete_platform_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePlatformVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePlatformVersionInput,
         validate_input: @config.validate_input
@@ -1799,7 +1801,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -1905,7 +1907,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_application_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationVersionsInput,
         validate_input: @config.validate_input
@@ -1998,7 +2000,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeApplicationsInput,
         validate_input: @config.validate_input
@@ -2117,7 +2119,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_configuration_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationOptionsInput,
         validate_input: @config.validate_input
@@ -2232,7 +2234,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_configuration_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationSettingsInput,
         validate_input: @config.validate_input
@@ -2349,7 +2351,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_environment_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentHealthInput,
         validate_input: @config.validate_input
@@ -2440,7 +2442,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_environment_managed_action_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentManagedActionHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentManagedActionHistoryInput,
         validate_input: @config.validate_input
@@ -2523,7 +2525,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_environment_managed_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentManagedActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentManagedActionsInput,
         validate_input: @config.validate_input
@@ -2625,7 +2627,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_environment_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentResourcesInput,
         validate_input: @config.validate_input
@@ -2777,7 +2779,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_environments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEnvironmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEnvironmentsInput,
         validate_input: @config.validate_input
@@ -2916,7 +2918,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -3048,7 +3050,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_instances_health(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstancesHealthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstancesHealthInput,
         validate_input: @config.validate_input
@@ -3152,7 +3154,7 @@ module AWS::SDK::ElasticBeanstalk
     def describe_platform_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePlatformVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePlatformVersionInput,
         validate_input: @config.validate_input
@@ -3223,7 +3225,7 @@ module AWS::SDK::ElasticBeanstalk
     def disassociate_environment_operations_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateEnvironmentOperationsRoleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateEnvironmentOperationsRoleInput,
         validate_input: @config.validate_input
@@ -3294,7 +3296,7 @@ module AWS::SDK::ElasticBeanstalk
     def list_available_solution_stacks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAvailableSolutionStacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAvailableSolutionStacksInput,
         validate_input: @config.validate_input
@@ -3462,7 +3464,7 @@ module AWS::SDK::ElasticBeanstalk
     def list_platform_branches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlatformBranchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlatformBranchesInput,
         validate_input: @config.validate_input
@@ -3572,7 +3574,7 @@ module AWS::SDK::ElasticBeanstalk
     def list_platform_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPlatformVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPlatformVersionsInput,
         validate_input: @config.validate_input
@@ -3649,7 +3651,7 @@ module AWS::SDK::ElasticBeanstalk
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -3728,7 +3730,7 @@ module AWS::SDK::ElasticBeanstalk
     def rebuild_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebuildEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebuildEnvironmentInput,
         validate_input: @config.validate_input
@@ -3829,7 +3831,7 @@ module AWS::SDK::ElasticBeanstalk
     def request_environment_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RequestEnvironmentInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RequestEnvironmentInfoInput,
         validate_input: @config.validate_input
@@ -3908,7 +3910,7 @@ module AWS::SDK::ElasticBeanstalk
     def restart_app_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestartAppServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestartAppServerInput,
         validate_input: @config.validate_input
@@ -4008,7 +4010,7 @@ module AWS::SDK::ElasticBeanstalk
     def retrieve_environment_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetrieveEnvironmentInfoInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetrieveEnvironmentInfoInput,
         validate_input: @config.validate_input
@@ -4103,7 +4105,7 @@ module AWS::SDK::ElasticBeanstalk
     def swap_environment_cnam_es(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SwapEnvironmentCNAMEsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SwapEnvironmentCNAMEsInput,
         validate_input: @config.validate_input
@@ -4243,7 +4245,7 @@ module AWS::SDK::ElasticBeanstalk
     def terminate_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TerminateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TerminateEnvironmentInput,
         validate_input: @config.validate_input
@@ -4344,7 +4346,7 @@ module AWS::SDK::ElasticBeanstalk
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input
@@ -4442,7 +4444,7 @@ module AWS::SDK::ElasticBeanstalk
     def update_application_resource_lifecycle(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationResourceLifecycleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationResourceLifecycleInput,
         validate_input: @config.validate_input
@@ -4542,7 +4544,7 @@ module AWS::SDK::ElasticBeanstalk
     def update_application_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationVersionInput,
         validate_input: @config.validate_input
@@ -4676,7 +4678,7 @@ module AWS::SDK::ElasticBeanstalk
     def update_configuration_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateConfigurationTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateConfigurationTemplateInput,
         validate_input: @config.validate_input
@@ -4870,7 +4872,7 @@ module AWS::SDK::ElasticBeanstalk
     def update_environment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEnvironmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEnvironmentInput,
         validate_input: @config.validate_input
@@ -4978,7 +4980,7 @@ module AWS::SDK::ElasticBeanstalk
     def update_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTagsForResourceInput,
         validate_input: @config.validate_input
@@ -5077,7 +5079,7 @@ module AWS::SDK::ElasticBeanstalk
     def validate_configuration_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ValidateConfigurationSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ValidateConfigurationSettingsInput,
         validate_input: @config.validate_input

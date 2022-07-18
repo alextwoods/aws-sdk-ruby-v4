@@ -42,7 +42,7 @@ module AWS::SDK::Greengrass
     class BadRequestException
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BadRequestException, context: context)
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -73,7 +73,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:deployment_id], ::String, context: "#{context}[:deployment_id]")
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:group_arn], ::String, context: "#{context}[:group_arn]")
       end
@@ -83,7 +83,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BulkDeploymentResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BulkDeploymentResult.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -92,7 +92,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BulkDeployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BulkDeployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -112,14 +112,14 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::Connector, context: context)
         Hearth::Validator.validate!(input[:connector_arn], ::String, context: "#{context}[:connector_arn]")
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Validators::Map____mapOf__string.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        Map____mapOf__string.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
     class ConnectorDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConnectorDefinitionVersion, context: context)
-        Validators::List____listOfConnector.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
+        List____listOfConnector.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
       end
     end
 
@@ -136,7 +136,7 @@ module AWS::SDK::Greengrass
     class CoreDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CoreDefinitionVersion, context: context)
-        Validators::List____listOfCore.validate!(input[:cores], context: "#{context}[:cores]") unless input[:cores].nil?
+        List____listOfCore.validate!(input[:cores], context: "#{context}[:cores]") unless input[:cores].nil?
       end
     end
 
@@ -144,9 +144,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConnectorDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::ConnectorDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        ConnectorDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -168,7 +168,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::CreateConnectorDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:connector_definition_id], ::String, context: "#{context}[:connector_definition_id]")
-        Validators::List____listOfConnector.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
+        List____listOfConnector.validate!(input[:connectors], context: "#{context}[:connectors]") unless input[:connectors].nil?
       end
     end
 
@@ -186,9 +186,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCoreDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::CoreDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        CoreDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -210,7 +210,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::CreateCoreDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:core_definition_id], ::String, context: "#{context}[:core_definition_id]")
-        Validators::List____listOfCore.validate!(input[:cores], context: "#{context}[:cores]") unless input[:cores].nil?
+        List____listOfCore.validate!(input[:cores], context: "#{context}[:cores]") unless input[:cores].nil?
       end
     end
 
@@ -247,9 +247,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeviceDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::DeviceDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        DeviceDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -271,7 +271,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::CreateDeviceDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:device_definition_id], ::String, context: "#{context}[:device_definition_id]")
-        Validators::List____listOfDevice.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        List____listOfDevice.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
       end
     end
 
@@ -289,9 +289,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFunctionDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::FunctionDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        FunctionDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -312,9 +312,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFunctionDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::FunctionDefaultConfig.validate!(input[:default_config], context: "#{context}[:default_config]") unless input[:default_config].nil?
+        FunctionDefaultConfig.validate!(input[:default_config], context: "#{context}[:default_config]") unless input[:default_config].nil?
         Hearth::Validator.validate!(input[:function_definition_id], ::String, context: "#{context}[:function_definition_id]")
-        Validators::List____listOfFunction.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        List____listOfFunction.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
       end
     end
 
@@ -347,9 +347,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateGroupInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::GroupVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        GroupVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -395,9 +395,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLoggerDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::LoggerDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        LoggerDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -419,7 +419,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::CreateLoggerDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:logger_definition_id], ::String, context: "#{context}[:logger_definition_id]")
-        Validators::List____listOfLogger.validate!(input[:loggers], context: "#{context}[:loggers]") unless input[:loggers].nil?
+        List____listOfLogger.validate!(input[:loggers], context: "#{context}[:loggers]") unless input[:loggers].nil?
       end
     end
 
@@ -437,9 +437,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateResourceDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::ResourceDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        ResourceDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -461,7 +461,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::CreateResourceDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:resource_definition_id], ::String, context: "#{context}[:resource_definition_id]")
-        Validators::List____listOfResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        List____listOfResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
       end
     end
 
@@ -482,7 +482,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:s3_url_signer_role], ::String, context: "#{context}[:s3_url_signer_role]")
         Hearth::Validator.validate!(input[:software_to_update], ::String, context: "#{context}[:software_to_update]")
         Hearth::Validator.validate!(input[:update_agent_log_level], ::String, context: "#{context}[:update_agent_log_level]")
-        Validators::UpdateTargets.validate!(input[:update_targets], context: "#{context}[:update_targets]") unless input[:update_targets].nil?
+        UpdateTargets.validate!(input[:update_targets], context: "#{context}[:update_targets]") unless input[:update_targets].nil?
         Hearth::Validator.validate!(input[:update_targets_architecture], ::String, context: "#{context}[:update_targets_architecture]")
         Hearth::Validator.validate!(input[:update_targets_operating_system], ::String, context: "#{context}[:update_targets_operating_system]")
       end
@@ -501,9 +501,9 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSubscriptionDefinitionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
-        Validators::SubscriptionDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
+        SubscriptionDefinitionVersion.validate!(input[:initial_version], context: "#{context}[:initial_version]") unless input[:initial_version].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -525,7 +525,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::CreateSubscriptionDefinitionVersionInput, context: context)
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:subscription_definition_id], ::String, context: "#{context}[:subscription_definition_id]")
-        Validators::List____listOfSubscription.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
+        List____listOfSubscription.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
       end
     end
 
@@ -549,7 +549,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -672,7 +672,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Deployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Deployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -690,7 +690,7 @@ module AWS::SDK::Greengrass
     class DeviceDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeviceDefinitionVersion, context: context)
-        Validators::List____listOfDevice.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        List____listOfDevice.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
       end
     end
 
@@ -733,7 +733,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ErrorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ErrorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -742,7 +742,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Function, context: context)
         Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
-        Validators::FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
+        FunctionConfiguration.validate!(input[:function_configuration], context: "#{context}[:function_configuration]") unless input[:function_configuration].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
       end
     end
@@ -751,7 +751,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionConfiguration, context: context)
         Hearth::Validator.validate!(input[:encoding_type], ::String, context: "#{context}[:encoding_type]")
-        Validators::FunctionConfigurationEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        FunctionConfigurationEnvironment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:exec_args], ::String, context: "#{context}[:exec_args]")
         Hearth::Validator.validate!(input[:executable], ::String, context: "#{context}[:executable]")
         Hearth::Validator.validate!(input[:memory_size], ::Integer, context: "#{context}[:memory_size]")
@@ -764,16 +764,16 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionConfigurationEnvironment, context: context)
         Hearth::Validator.validate!(input[:access_sysfs], ::TrueClass, ::FalseClass, context: "#{context}[:access_sysfs]")
-        Validators::FunctionExecutionConfig.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
-        Validators::List____listOfResourceAccessPolicy.validate!(input[:resource_access_policies], context: "#{context}[:resource_access_policies]") unless input[:resource_access_policies].nil?
-        Validators::Map____mapOf__string.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
+        FunctionExecutionConfig.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
+        List____listOfResourceAccessPolicy.validate!(input[:resource_access_policies], context: "#{context}[:resource_access_policies]") unless input[:resource_access_policies].nil?
+        Map____mapOf__string.validate!(input[:variables], context: "#{context}[:variables]") unless input[:variables].nil?
       end
     end
 
     class FunctionDefaultConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionDefaultConfig, context: context)
-        Validators::FunctionDefaultExecutionConfig.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
+        FunctionDefaultExecutionConfig.validate!(input[:execution], context: "#{context}[:execution]") unless input[:execution].nil?
       end
     end
 
@@ -781,15 +781,15 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionDefaultExecutionConfig, context: context)
         Hearth::Validator.validate!(input[:isolation_mode], ::String, context: "#{context}[:isolation_mode]")
-        Validators::FunctionRunAsConfig.validate!(input[:run_as], context: "#{context}[:run_as]") unless input[:run_as].nil?
+        FunctionRunAsConfig.validate!(input[:run_as], context: "#{context}[:run_as]") unless input[:run_as].nil?
       end
     end
 
     class FunctionDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionDefinitionVersion, context: context)
-        Validators::FunctionDefaultConfig.validate!(input[:default_config], context: "#{context}[:default_config]") unless input[:default_config].nil?
-        Validators::List____listOfFunction.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
+        FunctionDefaultConfig.validate!(input[:default_config], context: "#{context}[:default_config]") unless input[:default_config].nil?
+        List____listOfFunction.validate!(input[:functions], context: "#{context}[:functions]") unless input[:functions].nil?
       end
     end
 
@@ -797,7 +797,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionExecutionConfig, context: context)
         Hearth::Validator.validate!(input[:isolation_mode], ::String, context: "#{context}[:isolation_mode]")
-        Validators::FunctionRunAsConfig.validate!(input[:run_as], context: "#{context}[:run_as]") unless input[:run_as].nil?
+        FunctionRunAsConfig.validate!(input[:run_as], context: "#{context}[:run_as]") unless input[:run_as].nil?
       end
     end
 
@@ -834,12 +834,12 @@ module AWS::SDK::Greengrass
     class GetBulkDeploymentStatusOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBulkDeploymentStatusOutput, context: context)
-        Validators::BulkDeploymentMetrics.validate!(input[:bulk_deployment_metrics], context: "#{context}[:bulk_deployment_metrics]") unless input[:bulk_deployment_metrics].nil?
+        BulkDeploymentMetrics.validate!(input[:bulk_deployment_metrics], context: "#{context}[:bulk_deployment_metrics]") unless input[:bulk_deployment_metrics].nil?
         Hearth::Validator.validate!(input[:bulk_deployment_status], ::String, context: "#{context}[:bulk_deployment_status]")
         Hearth::Validator.validate!(input[:created_at], ::String, context: "#{context}[:created_at]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -853,7 +853,7 @@ module AWS::SDK::Greengrass
     class GetConnectivityInfoOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConnectivityInfoOutput, context: context)
-        Validators::List____listOfConnectivityInfo.validate!(input[:connectivity_info], context: "#{context}[:connectivity_info]") unless input[:connectivity_info].nil?
+        List____listOfConnectivityInfo.validate!(input[:connectivity_info], context: "#{context}[:connectivity_info]") unless input[:connectivity_info].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -875,7 +875,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -893,7 +893,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetConnectorDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::ConnectorDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ConnectorDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
@@ -917,7 +917,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -934,7 +934,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetCoreDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::CoreDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        CoreDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
@@ -954,7 +954,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetDeploymentStatusOutput, context: context)
         Hearth::Validator.validate!(input[:deployment_status], ::String, context: "#{context}[:deployment_status]")
         Hearth::Validator.validate!(input[:deployment_type], ::String, context: "#{context}[:deployment_type]")
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
         Hearth::Validator.validate!(input[:updated_at], ::String, context: "#{context}[:updated_at]")
       end
@@ -977,7 +977,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -995,7 +995,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetDeviceDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::DeviceDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        DeviceDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
@@ -1019,7 +1019,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1037,7 +1037,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetFunctionDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::FunctionDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        FunctionDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
@@ -1094,7 +1094,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1111,7 +1111,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetGroupVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::GroupVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        GroupVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
@@ -1134,7 +1134,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1152,7 +1152,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetLoggerDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::LoggerDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        LoggerDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
@@ -1175,7 +1175,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1192,7 +1192,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetResourceDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::ResourceDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        ResourceDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
@@ -1229,7 +1229,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:latest_version], ::String, context: "#{context}[:latest_version]")
         Hearth::Validator.validate!(input[:latest_version_arn], ::String, context: "#{context}[:latest_version_arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1247,7 +1247,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::GetSubscriptionDefinitionVersionOutput, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:creation_timestamp], ::String, context: "#{context}[:creation_timestamp]")
-        Validators::SubscriptionDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
+        SubscriptionDefinitionVersion.validate!(input[:definition], context: "#{context}[:definition]") unless input[:definition].nil?
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
@@ -1264,7 +1264,7 @@ module AWS::SDK::Greengrass
     class GetThingRuntimeConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetThingRuntimeConfigurationOutput, context: context)
-        Validators::RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
+        RuntimeConfiguration.validate!(input[:runtime_configuration], context: "#{context}[:runtime_configuration]") unless input[:runtime_configuration].nil?
       end
     end
 
@@ -1313,7 +1313,7 @@ module AWS::SDK::Greengrass
     class InternalServerErrorException
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InternalServerErrorException, context: context)
-        Validators::ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
+        ErrorDetails.validate!(input[:error_details], context: "#{context}[:error_details]") unless input[:error_details].nil?
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
@@ -1330,7 +1330,7 @@ module AWS::SDK::Greengrass
     class ListBulkDeploymentDetailedReportsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBulkDeploymentDetailedReportsOutput, context: context)
-        Validators::BulkDeploymentResults.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
+        BulkDeploymentResults.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1346,7 +1346,7 @@ module AWS::SDK::Greengrass
     class ListBulkDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListBulkDeploymentsOutput, context: context)
-        Validators::BulkDeployments.validate!(input[:bulk_deployments], context: "#{context}[:bulk_deployments]") unless input[:bulk_deployments].nil?
+        BulkDeployments.validate!(input[:bulk_deployments], context: "#{context}[:bulk_deployments]") unless input[:bulk_deployments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1364,7 +1364,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectorDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1379,7 +1379,7 @@ module AWS::SDK::Greengrass
     class ListConnectorDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConnectorDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1397,7 +1397,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoreDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1412,7 +1412,7 @@ module AWS::SDK::Greengrass
     class ListCoreDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCoreDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1429,7 +1429,7 @@ module AWS::SDK::Greengrass
     class ListDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentsOutput, context: context)
-        Validators::Deployments.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
+        Deployments.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1447,7 +1447,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1462,7 +1462,7 @@ module AWS::SDK::Greengrass
     class ListDeviceDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1480,7 +1480,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFunctionDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1495,7 +1495,7 @@ module AWS::SDK::Greengrass
     class ListFunctionDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFunctionDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1510,7 +1510,7 @@ module AWS::SDK::Greengrass
     class ListGroupCertificateAuthoritiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupCertificateAuthoritiesOutput, context: context)
-        Validators::List____listOfGroupCertificateAuthorityProperties.validate!(input[:group_certificate_authorities], context: "#{context}[:group_certificate_authorities]") unless input[:group_certificate_authorities].nil?
+        List____listOfGroupCertificateAuthorityProperties.validate!(input[:group_certificate_authorities], context: "#{context}[:group_certificate_authorities]") unless input[:group_certificate_authorities].nil?
       end
     end
 
@@ -1527,7 +1527,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1542,7 +1542,7 @@ module AWS::SDK::Greengrass
     class ListGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListGroupsOutput, context: context)
-        Validators::List____listOfGroupInformation.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
+        List____listOfGroupInformation.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1560,7 +1560,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLoggerDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1575,7 +1575,7 @@ module AWS::SDK::Greengrass
     class ListLoggerDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLoggerDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1593,7 +1593,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1608,7 +1608,7 @@ module AWS::SDK::Greengrass
     class ListResourceDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListResourceDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1626,7 +1626,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSubscriptionDefinitionVersionsOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
+        List____listOfVersionInformation.validate!(input[:versions], context: "#{context}[:versions]") unless input[:versions].nil?
       end
     end
 
@@ -1641,7 +1641,7 @@ module AWS::SDK::Greengrass
     class ListSubscriptionDefinitionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSubscriptionDefinitionsOutput, context: context)
-        Validators::List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
+        List____listOfDefinitionInformation.validate!(input[:definitions], context: "#{context}[:definitions]") unless input[:definitions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1656,14 +1656,14 @@ module AWS::SDK::Greengrass
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class LocalDeviceResourceData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocalDeviceResourceData, context: context)
-        Validators::GroupOwnerSetting.validate!(input[:group_owner_setting], context: "#{context}[:group_owner_setting]") unless input[:group_owner_setting].nil?
+        GroupOwnerSetting.validate!(input[:group_owner_setting], context: "#{context}[:group_owner_setting]") unless input[:group_owner_setting].nil?
         Hearth::Validator.validate!(input[:source_path], ::String, context: "#{context}[:source_path]")
       end
     end
@@ -1672,7 +1672,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LocalVolumeResourceData, context: context)
         Hearth::Validator.validate!(input[:destination_path], ::String, context: "#{context}[:destination_path]")
-        Validators::GroupOwnerSetting.validate!(input[:group_owner_setting], context: "#{context}[:group_owner_setting]") unless input[:group_owner_setting].nil?
+        GroupOwnerSetting.validate!(input[:group_owner_setting], context: "#{context}[:group_owner_setting]") unless input[:group_owner_setting].nil?
         Hearth::Validator.validate!(input[:source_path], ::String, context: "#{context}[:source_path]")
       end
     end
@@ -1691,7 +1691,7 @@ module AWS::SDK::Greengrass
     class LoggerDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoggerDefinitionVersion, context: context)
-        Validators::List____listOfLogger.validate!(input[:loggers], context: "#{context}[:loggers]") unless input[:loggers].nil?
+        List____listOfLogger.validate!(input[:loggers], context: "#{context}[:loggers]") unless input[:loggers].nil?
       end
     end
 
@@ -1717,7 +1717,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input, Types::Resource, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ResourceDataContainer.validate!(input[:resource_data_container], context: "#{context}[:resource_data_container]") unless input[:resource_data_container].nil?
+        ResourceDataContainer.validate!(input[:resource_data_container], context: "#{context}[:resource_data_container]") unless input[:resource_data_container].nil?
       end
     end
 
@@ -1732,18 +1732,18 @@ module AWS::SDK::Greengrass
     class ResourceDataContainer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceDataContainer, context: context)
-        Validators::LocalDeviceResourceData.validate!(input[:local_device_resource_data], context: "#{context}[:local_device_resource_data]") unless input[:local_device_resource_data].nil?
-        Validators::LocalVolumeResourceData.validate!(input[:local_volume_resource_data], context: "#{context}[:local_volume_resource_data]") unless input[:local_volume_resource_data].nil?
-        Validators::S3MachineLearningModelResourceData.validate!(input[:s3_machine_learning_model_resource_data], context: "#{context}[:s3_machine_learning_model_resource_data]") unless input[:s3_machine_learning_model_resource_data].nil?
-        Validators::SageMakerMachineLearningModelResourceData.validate!(input[:sage_maker_machine_learning_model_resource_data], context: "#{context}[:sage_maker_machine_learning_model_resource_data]") unless input[:sage_maker_machine_learning_model_resource_data].nil?
-        Validators::SecretsManagerSecretResourceData.validate!(input[:secrets_manager_secret_resource_data], context: "#{context}[:secrets_manager_secret_resource_data]") unless input[:secrets_manager_secret_resource_data].nil?
+        LocalDeviceResourceData.validate!(input[:local_device_resource_data], context: "#{context}[:local_device_resource_data]") unless input[:local_device_resource_data].nil?
+        LocalVolumeResourceData.validate!(input[:local_volume_resource_data], context: "#{context}[:local_volume_resource_data]") unless input[:local_volume_resource_data].nil?
+        S3MachineLearningModelResourceData.validate!(input[:s3_machine_learning_model_resource_data], context: "#{context}[:s3_machine_learning_model_resource_data]") unless input[:s3_machine_learning_model_resource_data].nil?
+        SageMakerMachineLearningModelResourceData.validate!(input[:sage_maker_machine_learning_model_resource_data], context: "#{context}[:sage_maker_machine_learning_model_resource_data]") unless input[:sage_maker_machine_learning_model_resource_data].nil?
+        SecretsManagerSecretResourceData.validate!(input[:secrets_manager_secret_resource_data], context: "#{context}[:secrets_manager_secret_resource_data]") unless input[:secrets_manager_secret_resource_data].nil?
       end
     end
 
     class ResourceDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceDefinitionVersion, context: context)
-        Validators::List____listOfResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        List____listOfResource.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
       end
     end
 
@@ -1758,7 +1758,7 @@ module AWS::SDK::Greengrass
     class RuntimeConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RuntimeConfiguration, context: context)
-        Validators::TelemetryConfiguration.validate!(input[:telemetry_configuration], context: "#{context}[:telemetry_configuration]") unless input[:telemetry_configuration].nil?
+        TelemetryConfiguration.validate!(input[:telemetry_configuration], context: "#{context}[:telemetry_configuration]") unless input[:telemetry_configuration].nil?
       end
     end
 
@@ -1766,7 +1766,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::S3MachineLearningModelResourceData, context: context)
         Hearth::Validator.validate!(input[:destination_path], ::String, context: "#{context}[:destination_path]")
-        Validators::ResourceDownloadOwnerSetting.validate!(input[:owner_setting], context: "#{context}[:owner_setting]") unless input[:owner_setting].nil?
+        ResourceDownloadOwnerSetting.validate!(input[:owner_setting], context: "#{context}[:owner_setting]") unless input[:owner_setting].nil?
         Hearth::Validator.validate!(input[:s3_uri], ::String, context: "#{context}[:s3_uri]")
       end
     end
@@ -1775,7 +1775,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SageMakerMachineLearningModelResourceData, context: context)
         Hearth::Validator.validate!(input[:destination_path], ::String, context: "#{context}[:destination_path]")
-        Validators::ResourceDownloadOwnerSetting.validate!(input[:owner_setting], context: "#{context}[:owner_setting]") unless input[:owner_setting].nil?
+        ResourceDownloadOwnerSetting.validate!(input[:owner_setting], context: "#{context}[:owner_setting]") unless input[:owner_setting].nil?
         Hearth::Validator.validate!(input[:sage_maker_job_arn], ::String, context: "#{context}[:sage_maker_job_arn]")
       end
     end
@@ -1784,7 +1784,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SecretsManagerSecretResourceData, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::List____listOf__string.validate!(input[:additional_staging_labels_to_download], context: "#{context}[:additional_staging_labels_to_download]") unless input[:additional_staging_labels_to_download].nil?
+        List____listOf__string.validate!(input[:additional_staging_labels_to_download], context: "#{context}[:additional_staging_labels_to_download]") unless input[:additional_staging_labels_to_download].nil?
       end
     end
 
@@ -1794,7 +1794,7 @@ module AWS::SDK::Greengrass
         Hearth::Validator.validate!(input[:amzn_client_token], ::String, context: "#{context}[:amzn_client_token]")
         Hearth::Validator.validate!(input[:execution_role_arn], ::String, context: "#{context}[:execution_role_arn]")
         Hearth::Validator.validate!(input[:input_file_uri], ::String, context: "#{context}[:input_file_uri]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1832,7 +1832,7 @@ module AWS::SDK::Greengrass
     class SubscriptionDefinitionVersion
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SubscriptionDefinitionVersion, context: context)
-        Validators::List____listOfSubscription.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
+        List____listOfSubscription.validate!(input[:subscriptions], context: "#{context}[:subscriptions]") unless input[:subscriptions].nil?
       end
     end
 
@@ -1840,7 +1840,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1879,7 +1879,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        List____listOf__string.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1892,7 +1892,7 @@ module AWS::SDK::Greengrass
     class UpdateConnectivityInfoInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConnectivityInfoInput, context: context)
-        Validators::List____listOfConnectivityInfo.validate!(input[:connectivity_info], context: "#{context}[:connectivity_info]") unless input[:connectivity_info].nil?
+        List____listOfConnectivityInfo.validate!(input[:connectivity_info], context: "#{context}[:connectivity_info]") unless input[:connectivity_info].nil?
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
       end
     end
@@ -2046,7 +2046,7 @@ module AWS::SDK::Greengrass
     class UpdateThingRuntimeConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateThingRuntimeConfigurationInput, context: context)
-        Validators::TelemetryConfigurationUpdate.validate!(input[:telemetry_configuration], context: "#{context}[:telemetry_configuration]") unless input[:telemetry_configuration].nil?
+        TelemetryConfigurationUpdate.validate!(input[:telemetry_configuration], context: "#{context}[:telemetry_configuration]") unless input[:telemetry_configuration].nil?
         Hearth::Validator.validate!(input[:thing_name], ::String, context: "#{context}[:thing_name]")
       end
     end
@@ -2071,7 +2071,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ConnectivityInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ConnectivityInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2080,7 +2080,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Connector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Connector.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2089,7 +2089,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Core.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Core.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2098,7 +2098,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DefinitionInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DefinitionInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2107,7 +2107,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Device.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2116,7 +2116,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Function.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Function.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2125,7 +2125,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupCertificateAuthorityProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupCertificateAuthorityProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2134,7 +2134,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::GroupInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          GroupInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2143,7 +2143,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Logger.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Logger.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2152,7 +2152,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Resource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2161,7 +2161,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceAccessPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceAccessPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2170,7 +2170,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Subscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Subscription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2179,7 +2179,7 @@ module AWS::SDK::Greengrass
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::VersionInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          VersionInformation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

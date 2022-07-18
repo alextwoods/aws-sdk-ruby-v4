@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MediaPackage
@@ -85,7 +87,7 @@ module AWS::SDK::MediaPackage
     def configure_logs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfigureLogsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfigureLogsInput,
         validate_input: @config.validate_input
@@ -180,7 +182,7 @@ module AWS::SDK::MediaPackage
     def create_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChannelInput,
         validate_input: @config.validate_input
@@ -282,7 +284,7 @@ module AWS::SDK::MediaPackage
     def create_harvest_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHarvestJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHarvestJobInput,
         validate_input: @config.validate_input
@@ -580,7 +582,7 @@ module AWS::SDK::MediaPackage
     def create_origin_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOriginEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOriginEndpointInput,
         validate_input: @config.validate_input
@@ -648,7 +650,7 @@ module AWS::SDK::MediaPackage
     def delete_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteChannelInput,
         validate_input: @config.validate_input
@@ -715,7 +717,7 @@ module AWS::SDK::MediaPackage
     def delete_origin_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOriginEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOriginEndpointInput,
         validate_input: @config.validate_input
@@ -798,7 +800,7 @@ module AWS::SDK::MediaPackage
     def describe_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChannelInput,
         validate_input: @config.validate_input
@@ -877,7 +879,7 @@ module AWS::SDK::MediaPackage
     def describe_harvest_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHarvestJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHarvestJobInput,
         validate_input: @config.validate_input
@@ -1033,7 +1035,7 @@ module AWS::SDK::MediaPackage
     def describe_origin_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOriginEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOriginEndpointInput,
         validate_input: @config.validate_input
@@ -1123,7 +1125,7 @@ module AWS::SDK::MediaPackage
     def list_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChannelsInput,
         validate_input: @config.validate_input
@@ -1217,7 +1219,7 @@ module AWS::SDK::MediaPackage
     def list_harvest_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHarvestJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHarvestJobsInput,
         validate_input: @config.validate_input
@@ -1384,7 +1386,7 @@ module AWS::SDK::MediaPackage
     def list_origin_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOriginEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOriginEndpointsInput,
         validate_input: @config.validate_input
@@ -1448,7 +1450,7 @@ module AWS::SDK::MediaPackage
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1534,7 +1536,7 @@ module AWS::SDK::MediaPackage
     def rotate_channel_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RotateChannelCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RotateChannelCredentialsInput,
         validate_input: @config.validate_input
@@ -1621,7 +1623,7 @@ module AWS::SDK::MediaPackage
     def rotate_ingest_endpoint_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RotateIngestEndpointCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RotateIngestEndpointCredentialsInput,
         validate_input: @config.validate_input
@@ -1686,7 +1688,7 @@ module AWS::SDK::MediaPackage
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1755,7 +1757,7 @@ module AWS::SDK::MediaPackage
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1842,7 +1844,7 @@ module AWS::SDK::MediaPackage
     def update_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateChannelInput,
         validate_input: @config.validate_input
@@ -2128,7 +2130,7 @@ module AWS::SDK::MediaPackage
     def update_origin_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOriginEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOriginEndpointInput,
         validate_input: @config.validate_input

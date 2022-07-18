@@ -175,11 +175,11 @@ module AWS::SDK::FinspaceData
           changeset_arn: 'changeset_arn',
           dataset_id: 'dataset_id',
           change_type: 'change_type',
-          source_params: Stubs::SourceParams.default(visited),
-          format_params: Stubs::FormatParams.default(visited),
+          source_params: SourceParams.default(visited),
+          format_params: FormatParams.default(visited),
           create_time: 1,
           status: 'status',
-          error_info: Stubs::ChangesetErrorInfo.default(visited),
+          error_info: ChangesetErrorInfo.default(visited),
           active_until_timestamp: 1,
           active_from_timestamp: 1,
           updates_changeset_id: 'updates_changeset_id',
@@ -273,16 +273,16 @@ module AWS::SDK::FinspaceData
       def self.default(visited=[])
         {
           auto_update: false,
-          partition_columns: Stubs::PartitionColumnList.default(visited),
+          partition_columns: PartitionColumnList.default(visited),
           dataset_id: 'dataset_id',
           as_of_timestamp: 1,
-          error_info: Stubs::DataViewErrorInfo.default(visited),
+          error_info: DataViewErrorInfo.default(visited),
           last_modified_time: 1,
           create_time: 1,
-          sort_columns: Stubs::SortColumnList.default(visited),
+          sort_columns: SortColumnList.default(visited),
           data_view_id: 'data_view_id',
           data_view_arn: 'data_view_arn',
-          destination_type_params: Stubs::DataViewDestinationTypeParams.default(visited),
+          destination_type_params: DataViewDestinationTypeParams.default(visited),
           status: 'status',
         }
       end
@@ -315,7 +315,7 @@ module AWS::SDK::FinspaceData
         {
           destination_type: 'destination_type',
           s3_destination_export_file_format: 's3_destination_export_file_format',
-          s3_destination_export_file_format_options: Stubs::S3DestinationFormatOptions.default(visited),
+          s3_destination_export_file_format_options: S3DestinationFormatOptions.default(visited),
         }
       end
 
@@ -420,7 +420,7 @@ module AWS::SDK::FinspaceData
           dataset_description: 'dataset_description',
           create_time: 1,
           last_modified_time: 1,
-          schema_definition: Stubs::SchemaUnion.default(visited),
+          schema_definition: SchemaUnion.default(visited),
           alias: 'alias',
           status: 'status',
         }
@@ -450,7 +450,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('SchemaUnion')
         visited = visited + ['SchemaUnion']
         {
-          tabular_schema_config: Stubs::SchemaDefinition.default(visited),
+          tabular_schema_config: SchemaDefinition.default(visited),
         }
       end
 
@@ -468,8 +468,8 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('SchemaDefinition')
         visited = visited + ['SchemaDefinition']
         {
-          columns: Stubs::ColumnList.default(visited),
-          primary_key_columns: Stubs::ColumnNameList.default(visited),
+          columns: ColumnList.default(visited),
+          primary_key_columns: ColumnNameList.default(visited),
         }
       end
 
@@ -508,7 +508,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('ColumnList')
         visited = visited + ['ColumnList']
         [
-          Stubs::ColumnDefinition.default(visited)
+          ColumnDefinition.default(visited)
         ]
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::FinspaceData
     class GetProgrammaticAccessCredentials
       def self.default(visited=[])
         {
-          credentials: Stubs::Credentials.default(visited),
+          credentials: Credentials.default(visited),
           duration_in_minutes: 1,
         }
       end
@@ -651,7 +651,7 @@ module AWS::SDK::FinspaceData
     class ListChangesets
       def self.default(visited=[])
         {
-          changesets: Stubs::ChangesetList.default(visited),
+          changesets: ChangesetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -672,7 +672,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('ChangesetList')
         visited = visited + ['ChangesetList']
         [
-          Stubs::ChangesetSummary.default(visited)
+          ChangesetSummary.default(visited)
         ]
       end
 
@@ -696,11 +696,11 @@ module AWS::SDK::FinspaceData
           changeset_arn: 'changeset_arn',
           dataset_id: 'dataset_id',
           change_type: 'change_type',
-          source_params: Stubs::SourceParams.default(visited),
-          format_params: Stubs::FormatParams.default(visited),
+          source_params: SourceParams.default(visited),
+          format_params: FormatParams.default(visited),
           create_time: 1,
           status: 'status',
-          error_info: Stubs::ChangesetErrorInfo.default(visited),
+          error_info: ChangesetErrorInfo.default(visited),
           active_until_timestamp: 1,
           active_from_timestamp: 1,
           updates_changeset_id: 'updates_changeset_id',
@@ -733,7 +733,7 @@ module AWS::SDK::FinspaceData
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          data_views: Stubs::DataViewList.default(visited),
+          data_views: DataViewList.default(visited),
         }
       end
 
@@ -753,7 +753,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('DataViewList')
         visited = visited + ['DataViewList']
         [
-          Stubs::DataViewSummary.default(visited)
+          DataViewSummary.default(visited)
         ]
       end
 
@@ -777,11 +777,11 @@ module AWS::SDK::FinspaceData
           data_view_arn: 'data_view_arn',
           dataset_id: 'dataset_id',
           as_of_timestamp: 1,
-          partition_columns: Stubs::PartitionColumnList.default(visited),
-          sort_columns: Stubs::SortColumnList.default(visited),
+          partition_columns: PartitionColumnList.default(visited),
+          sort_columns: SortColumnList.default(visited),
           status: 'status',
-          error_info: Stubs::DataViewErrorInfo.default(visited),
-          destination_type_properties: Stubs::DataViewDestinationTypeParams.default(visited),
+          error_info: DataViewErrorInfo.default(visited),
+          destination_type_properties: DataViewDestinationTypeParams.default(visited),
           auto_update: false,
           create_time: 1,
           last_modified_time: 1,
@@ -811,7 +811,7 @@ module AWS::SDK::FinspaceData
     class ListDatasets
       def self.default(visited=[])
         {
-          datasets: Stubs::DatasetList.default(visited),
+          datasets: DatasetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -832,7 +832,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('DatasetList')
         visited = visited + ['DatasetList']
         [
-          Stubs::Dataset.default(visited)
+          Dataset.default(visited)
         ]
       end
 
@@ -857,10 +857,10 @@ module AWS::SDK::FinspaceData
           dataset_title: 'dataset_title',
           kind: 'kind',
           dataset_description: 'dataset_description',
-          owner_info: Stubs::DatasetOwnerInfo.default(visited),
+          owner_info: DatasetOwnerInfo.default(visited),
           create_time: 1,
           last_modified_time: 1,
-          schema_definition: Stubs::SchemaUnion.default(visited),
+          schema_definition: SchemaUnion.default(visited),
           alias: 'alias',
         }
       end
@@ -908,7 +908,7 @@ module AWS::SDK::FinspaceData
     class ListPermissionGroups
       def self.default(visited=[])
         {
-          permission_groups: Stubs::PermissionGroupList.default(visited),
+          permission_groups: PermissionGroupList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -929,7 +929,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('PermissionGroupList')
         visited = visited + ['PermissionGroupList']
         [
-          Stubs::PermissionGroup.default(visited)
+          PermissionGroup.default(visited)
         ]
       end
 
@@ -952,7 +952,7 @@ module AWS::SDK::FinspaceData
           permission_group_id: 'permission_group_id',
           name: 'name',
           description: 'description',
-          application_permissions: Stubs::ApplicationPermissionList.default(visited),
+          application_permissions: ApplicationPermissionList.default(visited),
           create_time: 1,
           last_modified_time: 1,
         }
@@ -995,7 +995,7 @@ module AWS::SDK::FinspaceData
     class ListUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserList.default(visited),
+          users: UserList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1016,7 +1016,7 @@ module AWS::SDK::FinspaceData
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 

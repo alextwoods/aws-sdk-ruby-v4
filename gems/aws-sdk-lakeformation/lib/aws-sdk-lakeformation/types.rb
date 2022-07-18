@@ -91,11 +91,11 @@ module AWS::SDK::LakeFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>A structure that you pass to indicate you want all rows in a filter. </p>
@@ -971,13 +971,13 @@ module AWS::SDK::LakeFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.average_execution_time_millis ||= 0
         self.data_scanned_bytes ||= 0
         self.work_units_executed_count ||= 0
       end
-
     end
 
     # <p>Contains details about an error where the query request expired.</p>
@@ -1549,6 +1549,7 @@ module AWS::SDK::LakeFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.work_unit_id ||= 0
@@ -2319,6 +2320,7 @@ module AWS::SDK::LakeFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.estimated_data_to_scan_bytes ||= 0
@@ -2326,7 +2328,6 @@ module AWS::SDK::LakeFormation
         self.queue_time_millis ||= 0
         self.work_units_generated_count ||= 0
       end
-
     end
 
     # <p>Permissions granted to a principal.</p>
@@ -2982,11 +2983,11 @@ module AWS::SDK::LakeFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
@@ -3461,12 +3462,12 @@ module AWS::SDK::LakeFormation
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.work_unit_id_max ||= 0
         self.work_unit_id_min ||= 0
       end
-
     end
 
     # <p>Contains details about an error related to work units not being ready.</p>

@@ -97,13 +97,13 @@ module AWS::SDK::Keyspaces
           resource_arn: 'resource_arn',
           creation_timestamp: Time.now,
           status: 'status',
-          schema_definition: Stubs::SchemaDefinition.default(visited),
-          capacity_specification: Stubs::CapacitySpecificationSummary.default(visited),
-          encryption_specification: Stubs::EncryptionSpecification.default(visited),
-          point_in_time_recovery: Stubs::PointInTimeRecoverySummary.default(visited),
-          ttl: Stubs::TimeToLive.default(visited),
+          schema_definition: SchemaDefinition.default(visited),
+          capacity_specification: CapacitySpecificationSummary.default(visited),
+          encryption_specification: EncryptionSpecification.default(visited),
+          point_in_time_recovery: PointInTimeRecoverySummary.default(visited),
+          ttl: TimeToLive.default(visited),
           default_time_to_live: 1,
-          comment: Stubs::Comment.default(visited),
+          comment: Comment.default(visited),
         }
       end
 
@@ -232,10 +232,10 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('SchemaDefinition')
         visited = visited + ['SchemaDefinition']
         {
-          all_columns: Stubs::ColumnDefinitionList.default(visited),
-          partition_keys: Stubs::PartitionKeyList.default(visited),
-          clustering_keys: Stubs::ClusteringKeyList.default(visited),
-          static_columns: Stubs::StaticColumnList.default(visited),
+          all_columns: ColumnDefinitionList.default(visited),
+          partition_keys: PartitionKeyList.default(visited),
+          clustering_keys: ClusteringKeyList.default(visited),
+          static_columns: StaticColumnList.default(visited),
         }
       end
 
@@ -256,7 +256,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('StaticColumnList')
         visited = visited + ['StaticColumnList']
         [
-          Stubs::StaticColumn.default(visited)
+          StaticColumn.default(visited)
         ]
       end
 
@@ -294,7 +294,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('ClusteringKeyList')
         visited = visited + ['ClusteringKeyList']
         [
-          Stubs::ClusteringKey.default(visited)
+          ClusteringKey.default(visited)
         ]
       end
 
@@ -334,7 +334,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('PartitionKeyList')
         visited = visited + ['PartitionKeyList']
         [
-          Stubs::PartitionKey.default(visited)
+          PartitionKey.default(visited)
         ]
       end
 
@@ -372,7 +372,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('ColumnDefinitionList')
         visited = visited + ['ColumnDefinitionList']
         [
-          Stubs::ColumnDefinition.default(visited)
+          ColumnDefinition.default(visited)
         ]
       end
 
@@ -411,7 +411,7 @@ module AWS::SDK::Keyspaces
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          keyspaces: Stubs::KeyspaceSummaryList.default(visited),
+          keyspaces: KeyspaceSummaryList.default(visited),
         }
       end
 
@@ -430,7 +430,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('KeyspaceSummaryList')
         visited = visited + ['KeyspaceSummaryList']
         [
-          Stubs::KeyspaceSummary.default(visited)
+          KeyspaceSummary.default(visited)
         ]
       end
 
@@ -469,7 +469,7 @@ module AWS::SDK::Keyspaces
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tables: Stubs::TableSummaryList.default(visited),
+          tables: TableSummaryList.default(visited),
         }
       end
 
@@ -488,7 +488,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('TableSummaryList')
         visited = visited + ['TableSummaryList']
         [
-          Stubs::TableSummary.default(visited)
+          TableSummary.default(visited)
         ]
       end
 
@@ -529,7 +529,7 @@ module AWS::SDK::Keyspaces
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -548,7 +548,7 @@ module AWS::SDK::Keyspaces
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

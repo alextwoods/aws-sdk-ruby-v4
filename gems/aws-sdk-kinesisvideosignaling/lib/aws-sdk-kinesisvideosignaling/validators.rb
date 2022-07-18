@@ -30,14 +30,14 @@ module AWS::SDK::KinesisVideoSignaling
     class GetIceServerConfigOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIceServerConfigOutput, context: context)
-        Validators::IceServerList.validate!(input[:ice_server_list], context: "#{context}[:ice_server_list]") unless input[:ice_server_list].nil?
+        IceServerList.validate!(input[:ice_server_list], context: "#{context}[:ice_server_list]") unless input[:ice_server_list].nil?
       end
     end
 
     class IceServer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IceServer, context: context)
-        Validators::Uris.validate!(input[:uris], context: "#{context}[:uris]") unless input[:uris].nil?
+        Uris.validate!(input[:uris], context: "#{context}[:uris]") unless input[:uris].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
         Hearth::Validator.validate!(input[:ttl], ::Integer, context: "#{context}[:ttl]")
@@ -48,7 +48,7 @@ module AWS::SDK::KinesisVideoSignaling
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IceServer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IceServer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

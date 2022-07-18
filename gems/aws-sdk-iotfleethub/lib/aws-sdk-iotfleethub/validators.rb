@@ -14,7 +14,7 @@ module AWS::SDK::IoTFleetHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -46,7 +46,7 @@ module AWS::SDK::IoTFleetHub
         Hearth::Validator.validate!(input[:application_description], ::String, context: "#{context}[:application_description]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -93,7 +93,7 @@ module AWS::SDK::IoTFleetHub
         Hearth::Validator.validate!(input[:role_arn], ::String, context: "#{context}[:role_arn]")
         Hearth::Validator.validate!(input[:sso_client_id], ::String, context: "#{context}[:sso_client_id]")
         Hearth::Validator.validate!(input[:error_message], ::String, context: "#{context}[:error_message]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -128,7 +128,7 @@ module AWS::SDK::IoTFleetHub
     class ListApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationsOutput, context: context)
-        Validators::ApplicationSummaries.validate!(input[:application_summaries], context: "#{context}[:application_summaries]") unless input[:application_summaries].nil?
+        ApplicationSummaries.validate!(input[:application_summaries], context: "#{context}[:application_summaries]") unless input[:application_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -143,7 +143,7 @@ module AWS::SDK::IoTFleetHub
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -177,7 +177,7 @@ module AWS::SDK::IoTFleetHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -198,7 +198,7 @@ module AWS::SDK::IoTFleetHub
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

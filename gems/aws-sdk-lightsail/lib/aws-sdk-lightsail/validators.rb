@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Lightsail
   module Validators
 
@@ -27,7 +29,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:secret_access_key], ::String, context: "#{context}[:secret_access_key]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::AccessKeyLastUsed.validate!(input[:last_used], context: "#{context}[:last_used]") unless input[:last_used].nil?
+        AccessKeyLastUsed.validate!(input[:last_used], context: "#{context}[:last_used]") unless input[:last_used].nil?
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AccessKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AccessKey.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceReceivingAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceReceivingAccess.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -100,7 +102,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AddOn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AddOn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddOnRequest, context: context)
         Hearth::Validator.validate!(input[:add_on_type], ::String, context: "#{context}[:add_on_type]")
-        Validators::AutoSnapshotAddOnRequest.validate!(input[:auto_snapshot_add_on_request], context: "#{context}[:auto_snapshot_add_on_request]") unless input[:auto_snapshot_add_on_request].nil?
+        AutoSnapshotAddOnRequest.validate!(input[:auto_snapshot_add_on_request], context: "#{context}[:auto_snapshot_add_on_request]") unless input[:auto_snapshot_add_on_request].nil?
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AddOnRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AddOnRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -128,10 +130,10 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
-        Validators::MonitoredResourceInfo.validate!(input[:monitored_resource_info], context: "#{context}[:monitored_resource_info]") unless input[:monitored_resource_info].nil?
+        MonitoredResourceInfo.validate!(input[:monitored_resource_info], context: "#{context}[:monitored_resource_info]") unless input[:monitored_resource_info].nil?
         Hearth::Validator.validate!(input[:comparison_operator], ::String, context: "#{context}[:comparison_operator]")
         Hearth::Validator.validate!(input[:evaluation_periods], ::Integer, context: "#{context}[:evaluation_periods]")
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
@@ -142,8 +144,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::ContactProtocolsList.validate!(input[:contact_protocols], context: "#{context}[:contact_protocols]") unless input[:contact_protocols].nil?
-        Validators::NotificationTriggerList.validate!(input[:notification_triggers], context: "#{context}[:notification_triggers]") unless input[:notification_triggers].nil?
+        ContactProtocolsList.validate!(input[:contact_protocols], context: "#{context}[:contact_protocols]") unless input[:contact_protocols].nil?
+        NotificationTriggerList.validate!(input[:notification_triggers], context: "#{context}[:notification_triggers]") unless input[:notification_triggers].nil?
         Hearth::Validator.validate!(input[:notification_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:notification_enabled]")
       end
     end
@@ -152,7 +154,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Alarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Alarm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::Lightsail
     class AllocateStaticIpOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AllocateStaticIpOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::Lightsail
     class AttachCertificateToDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachCertificateToDistributionOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::Lightsail
     class AttachDiskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachDiskOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -206,14 +208,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachInstancesToLoadBalancerInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_name], ::String, context: "#{context}[:load_balancer_name]")
-        Validators::ResourceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        ResourceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
       end
     end
 
     class AttachInstancesToLoadBalancerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachInstancesToLoadBalancerOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -228,7 +230,7 @@ module AWS::SDK::Lightsail
     class AttachLoadBalancerTlsCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachLoadBalancerTlsCertificateOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -243,7 +245,7 @@ module AWS::SDK::Lightsail
     class AttachStaticIpOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AttachStaticIpOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -259,7 +261,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttachedDisk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttachedDisk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -269,7 +271,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::DiskMapList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          DiskMapList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -287,7 +289,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:date], ::String, context: "#{context}[:date]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::AttachedDiskList.validate!(input[:from_attached_disks], context: "#{context}[:from_attached_disks]") unless input[:from_attached_disks].nil?
+        AttachedDiskList.validate!(input[:from_attached_disks], context: "#{context}[:from_attached_disks]") unless input[:from_attached_disks].nil?
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AutoSnapshotDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AutoSnapshotDetails.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -312,7 +314,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AvailabilityZone.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Blueprint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Blueprint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -348,21 +350,21 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Bucket, context: context)
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::AccessRules.validate!(input[:access_rules], context: "#{context}[:access_rules]") unless input[:access_rules].nil?
+        AccessRules.validate!(input[:access_rules], context: "#{context}[:access_rules]") unless input[:access_rules].nil?
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:object_versioning], ::String, context: "#{context}[:object_versioning]")
         Hearth::Validator.validate!(input[:able_to_update_bundle], ::TrueClass, ::FalseClass, context: "#{context}[:able_to_update_bundle]")
-        Validators::PartnerIdList.validate!(input[:readonly_access_accounts], context: "#{context}[:readonly_access_accounts]") unless input[:readonly_access_accounts].nil?
-        Validators::AccessReceiverList.validate!(input[:resources_receiving_access], context: "#{context}[:resources_receiving_access]") unless input[:resources_receiving_access].nil?
-        Validators::BucketState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
-        Validators::BucketAccessLogConfig.validate!(input[:access_log_config], context: "#{context}[:access_log_config]") unless input[:access_log_config].nil?
+        PartnerIdList.validate!(input[:readonly_access_accounts], context: "#{context}[:readonly_access_accounts]") unless input[:readonly_access_accounts].nil?
+        AccessReceiverList.validate!(input[:resources_receiving_access], context: "#{context}[:resources_receiving_access]") unless input[:resources_receiving_access].nil?
+        BucketState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        BucketAccessLogConfig.validate!(input[:access_log_config], context: "#{context}[:access_log_config]") unless input[:access_log_config].nil?
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BucketBundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BucketBundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Bucket.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Bucket.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -426,7 +428,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:power], ::Integer, context: "#{context}[:power]")
         Hearth::Validator.validate!(input[:ram_size_in_gb], ::Float, context: "#{context}[:ram_size_in_gb]")
         Hearth::Validator.validate!(input[:transfer_per_month_in_gb], ::Integer, context: "#{context}[:transfer_per_month_in_gb]")
-        Validators::InstancePlatformList.validate!(input[:supported_platforms], context: "#{context}[:supported_platforms]") unless input[:supported_platforms].nil?
+        InstancePlatformList.validate!(input[:supported_platforms], context: "#{context}[:supported_platforms]") unless input[:supported_platforms].nil?
       end
     end
 
@@ -434,7 +436,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Bundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Bundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -450,7 +452,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CacheBehaviorPerPath.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CacheBehaviorPerPath.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -471,9 +473,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:maximum_ttl], ::Integer, context: "#{context}[:maximum_ttl]")
         Hearth::Validator.validate!(input[:allowed_http_methods], ::String, context: "#{context}[:allowed_http_methods]")
         Hearth::Validator.validate!(input[:cached_http_methods], ::String, context: "#{context}[:cached_http_methods]")
-        Validators::CookieObject.validate!(input[:forwarded_cookies], context: "#{context}[:forwarded_cookies]") unless input[:forwarded_cookies].nil?
-        Validators::HeaderObject.validate!(input[:forwarded_headers], context: "#{context}[:forwarded_headers]") unless input[:forwarded_headers].nil?
-        Validators::QueryStringObject.validate!(input[:forwarded_query_strings], context: "#{context}[:forwarded_query_strings]") unless input[:forwarded_query_strings].nil?
+        CookieObject.validate!(input[:forwarded_cookies], context: "#{context}[:forwarded_cookies]") unless input[:forwarded_cookies].nil?
+        HeaderObject.validate!(input[:forwarded_headers], context: "#{context}[:forwarded_headers]") unless input[:forwarded_headers].nil?
+        QueryStringObject.validate!(input[:forwarded_query_strings], context: "#{context}[:forwarded_query_strings]") unless input[:forwarded_query_strings].nil?
       end
     end
 
@@ -485,8 +487,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
-        Validators::SubjectAlternativeNameList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
-        Validators::DomainValidationRecordList.validate!(input[:domain_validation_records], context: "#{context}[:domain_validation_records]") unless input[:domain_validation_records].nil?
+        SubjectAlternativeNameList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        DomainValidationRecordList.validate!(input[:domain_validation_records], context: "#{context}[:domain_validation_records]") unless input[:domain_validation_records].nil?
         Hearth::Validator.validate!(input[:request_failure_reason], ::String, context: "#{context}[:request_failure_reason]")
         Hearth::Validator.validate!(input[:in_use_resource_count], ::Integer, context: "#{context}[:in_use_resource_count]")
         Hearth::Validator.validate!(input[:key_algorithm], ::String, context: "#{context}[:key_algorithm]")
@@ -496,10 +498,10 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:not_before], ::Time, context: "#{context}[:not_before]")
         Hearth::Validator.validate!(input[:not_after], ::Time, context: "#{context}[:not_after]")
         Hearth::Validator.validate!(input[:eligible_to_renew], ::String, context: "#{context}[:eligible_to_renew]")
-        Validators::RenewalSummary.validate!(input[:renewal_summary], context: "#{context}[:renewal_summary]") unless input[:renewal_summary].nil?
+        RenewalSummary.validate!(input[:renewal_summary], context: "#{context}[:renewal_summary]") unless input[:renewal_summary].nil?
         Hearth::Validator.validate!(input[:revoked_at], ::Time, context: "#{context}[:revoked_at]")
         Hearth::Validator.validate!(input[:revocation_reason], ::String, context: "#{context}[:revocation_reason]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
       end
     end
@@ -519,8 +521,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
         Hearth::Validator.validate!(input[:certificate_name], ::String, context: "#{context}[:certificate_name]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::Certificate.validate!(input[:certificate_detail], context: "#{context}[:certificate_detail]") unless input[:certificate_detail].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Certificate.validate!(input[:certificate_detail], context: "#{context}[:certificate_detail]") unless input[:certificate_detail].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -528,7 +530,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -536,7 +538,7 @@ module AWS::SDK::Lightsail
     class CloseInstancePublicPortsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CloseInstancePublicPortsInput, context: context)
-        Validators::PortInfo.validate!(input[:port_info], context: "#{context}[:port_info]") unless input[:port_info].nil?
+        PortInfo.validate!(input[:port_info], context: "#{context}[:port_info]") unless input[:port_info].nil?
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
       end
     end
@@ -544,7 +546,7 @@ module AWS::SDK::Lightsail
     class CloseInstancePublicPortsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CloseInstancePublicPortsOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -554,11 +556,11 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::CloudFormationStackRecordSourceInfoList.validate!(input[:source_info], context: "#{context}[:source_info]") unless input[:source_info].nil?
-        Validators::DestinationInfo.validate!(input[:destination_info], context: "#{context}[:destination_info]") unless input[:destination_info].nil?
+        CloudFormationStackRecordSourceInfoList.validate!(input[:source_info], context: "#{context}[:source_info]") unless input[:source_info].nil?
+        DestinationInfo.validate!(input[:destination_info], context: "#{context}[:destination_info]") unless input[:destination_info].nil?
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudFormationStackRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudFormationStackRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -584,7 +586,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CloudFormationStackRecordSourceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CloudFormationStackRecordSourceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -598,7 +600,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
       end
@@ -608,7 +610,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContactMethod.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContactMethod.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -626,9 +628,9 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Container, context: context)
         Hearth::Validator.validate!(input[:image], ::String, context: "#{context}[:image]")
-        Validators::StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
-        Validators::PortMap.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
+        StringList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        PortMap.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
       end
     end
 
@@ -645,7 +647,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerImage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Container.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Container.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -666,22 +668,22 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:container_service_name], ::String, context: "#{context}[:container_service_name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:power], ::String, context: "#{context}[:power]")
         Hearth::Validator.validate!(input[:power_id], ::String, context: "#{context}[:power_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ContainerServiceStateDetail.validate!(input[:state_detail], context: "#{context}[:state_detail]") unless input[:state_detail].nil?
+        ContainerServiceStateDetail.validate!(input[:state_detail], context: "#{context}[:state_detail]") unless input[:state_detail].nil?
         Hearth::Validator.validate!(input[:scale], ::Integer, context: "#{context}[:scale]")
-        Validators::ContainerServiceDeployment.validate!(input[:current_deployment], context: "#{context}[:current_deployment]") unless input[:current_deployment].nil?
-        Validators::ContainerServiceDeployment.validate!(input[:next_deployment], context: "#{context}[:next_deployment]") unless input[:next_deployment].nil?
+        ContainerServiceDeployment.validate!(input[:current_deployment], context: "#{context}[:current_deployment]") unless input[:current_deployment].nil?
+        ContainerServiceDeployment.validate!(input[:next_deployment], context: "#{context}[:next_deployment]") unless input[:next_deployment].nil?
         Hearth::Validator.validate!(input[:is_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_disabled]")
         Hearth::Validator.validate!(input[:principal_arn], ::String, context: "#{context}[:principal_arn]")
         Hearth::Validator.validate!(input[:private_domain_name], ::String, context: "#{context}[:private_domain_name]")
-        Validators::ContainerServicePublicDomains.validate!(input[:public_domain_names], context: "#{context}[:public_domain_names]") unless input[:public_domain_names].nil?
+        ContainerServicePublicDomains.validate!(input[:public_domain_names], context: "#{context}[:public_domain_names]") unless input[:public_domain_names].nil?
         Hearth::Validator.validate!(input[:url], ::String, context: "#{context}[:url]")
-        Validators::PrivateRegistryAccess.validate!(input[:private_registry_access], context: "#{context}[:private_registry_access]") unless input[:private_registry_access].nil?
+        PrivateRegistryAccess.validate!(input[:private_registry_access], context: "#{context}[:private_registry_access]") unless input[:private_registry_access].nil?
       end
     end
 
@@ -690,8 +692,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::ContainerServiceDeployment, context: context)
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ContainerMap.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
-        Validators::ContainerServiceEndpoint.validate!(input[:public_endpoint], context: "#{context}[:public_endpoint]") unless input[:public_endpoint].nil?
+        ContainerMap.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
+        ContainerServiceEndpoint.validate!(input[:public_endpoint], context: "#{context}[:public_endpoint]") unless input[:public_endpoint].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerServiceDeployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerServiceDeployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -708,8 +710,8 @@ module AWS::SDK::Lightsail
     class ContainerServiceDeploymentRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ContainerServiceDeploymentRequest, context: context)
-        Validators::ContainerMap.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
-        Validators::EndpointRequest.validate!(input[:public_endpoint], context: "#{context}[:public_endpoint]") unless input[:public_endpoint].nil?
+        ContainerMap.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
+        EndpointRequest.validate!(input[:public_endpoint], context: "#{context}[:public_endpoint]") unless input[:public_endpoint].nil?
       end
     end
 
@@ -733,7 +735,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::ContainerServiceEndpoint, context: context)
         Hearth::Validator.validate!(input[:container_name], ::String, context: "#{context}[:container_name]")
         Hearth::Validator.validate!(input[:container_port], ::Integer, context: "#{context}[:container_port]")
-        Validators::ContainerServiceHealthCheckConfig.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        ContainerServiceHealthCheckConfig.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
       end
     end
 
@@ -753,7 +755,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerService.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -770,7 +772,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerServiceLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerServiceLogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -789,7 +791,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerServiceMetadataEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerServiceMetadataEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -810,7 +812,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ContainerServicePower.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ContainerServicePower.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -820,7 +822,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::ContainerServicePublicDomainsList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          ContainerServicePublicDomainsList.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -856,7 +858,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CookieObject, context: context)
         Hearth::Validator.validate!(input[:option], ::String, context: "#{context}[:option]")
-        Validators::StringList.validate!(input[:cookies_allow_list], context: "#{context}[:cookies_allow_list]") unless input[:cookies_allow_list].nil?
+        StringList.validate!(input[:cookies_allow_list], context: "#{context}[:cookies_allow_list]") unless input[:cookies_allow_list].nil?
       end
     end
 
@@ -875,7 +877,7 @@ module AWS::SDK::Lightsail
     class CopySnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopySnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -889,8 +891,8 @@ module AWS::SDK::Lightsail
     class CreateBucketAccessKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBucketAccessKeyOutput, context: context)
-        Validators::AccessKey.validate!(input[:access_key], context: "#{context}[:access_key]") unless input[:access_key].nil?
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        AccessKey.validate!(input[:access_key], context: "#{context}[:access_key]") unless input[:access_key].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -899,7 +901,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::CreateBucketInput, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:enable_object_versioning], ::TrueClass, ::FalseClass, context: "#{context}[:enable_object_versioning]")
       end
     end
@@ -907,8 +909,8 @@ module AWS::SDK::Lightsail
     class CreateBucketOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateBucketOutput, context: context)
-        Validators::Bucket.validate!(input[:bucket], context: "#{context}[:bucket]") unless input[:bucket].nil?
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        Bucket.validate!(input[:bucket], context: "#{context}[:bucket]") unless input[:bucket].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -917,30 +919,30 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::CreateCertificateInput, context: context)
         Hearth::Validator.validate!(input[:certificate_name], ::String, context: "#{context}[:certificate_name]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::SubjectAlternativeNameList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        SubjectAlternativeNameList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCertificateOutput, context: context)
-        Validators::CertificateSummary.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        CertificateSummary.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
     class CreateCloudFormationStackInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCloudFormationStackInput, context: context)
-        Validators::InstanceEntryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceEntryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
       end
     end
 
     class CreateCloudFormationStackOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateCloudFormationStackOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -955,7 +957,7 @@ module AWS::SDK::Lightsail
     class CreateContactMethodOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContactMethodOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -963,15 +965,15 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContainerServiceDeploymentInput, context: context)
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
-        Validators::ContainerMap.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
-        Validators::EndpointRequest.validate!(input[:public_endpoint], context: "#{context}[:public_endpoint]") unless input[:public_endpoint].nil?
+        ContainerMap.validate!(input[:containers], context: "#{context}[:containers]") unless input[:containers].nil?
+        EndpointRequest.validate!(input[:public_endpoint], context: "#{context}[:public_endpoint]") unless input[:public_endpoint].nil?
       end
     end
 
     class CreateContainerServiceDeploymentOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContainerServiceDeploymentOutput, context: context)
-        Validators::ContainerService.validate!(input[:container_service], context: "#{context}[:container_service]") unless input[:container_service].nil?
+        ContainerService.validate!(input[:container_service], context: "#{context}[:container_service]") unless input[:container_service].nil?
       end
     end
 
@@ -981,17 +983,17 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:service_name], ::String, context: "#{context}[:service_name]")
         Hearth::Validator.validate!(input[:power], ::String, context: "#{context}[:power]")
         Hearth::Validator.validate!(input[:scale], ::Integer, context: "#{context}[:scale]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::ContainerServicePublicDomains.validate!(input[:public_domain_names], context: "#{context}[:public_domain_names]") unless input[:public_domain_names].nil?
-        Validators::ContainerServiceDeploymentRequest.validate!(input[:deployment], context: "#{context}[:deployment]") unless input[:deployment].nil?
-        Validators::PrivateRegistryAccessRequest.validate!(input[:private_registry_access], context: "#{context}[:private_registry_access]") unless input[:private_registry_access].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ContainerServicePublicDomains.validate!(input[:public_domain_names], context: "#{context}[:public_domain_names]") unless input[:public_domain_names].nil?
+        ContainerServiceDeploymentRequest.validate!(input[:deployment], context: "#{context}[:deployment]") unless input[:deployment].nil?
+        PrivateRegistryAccessRequest.validate!(input[:private_registry_access], context: "#{context}[:private_registry_access]") unless input[:private_registry_access].nil?
       end
     end
 
     class CreateContainerServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContainerServiceOutput, context: context)
-        Validators::ContainerService.validate!(input[:container_service], context: "#{context}[:container_service]") unless input[:container_service].nil?
+        ContainerService.validate!(input[:container_service], context: "#{context}[:container_service]") unless input[:container_service].nil?
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::Lightsail
     class CreateContainerServiceRegistryLoginOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateContainerServiceRegistryLoginOutput, context: context)
-        Validators::ContainerServiceRegistryLogin.validate!(input[:registry_login], context: "#{context}[:registry_login]") unless input[:registry_login].nil?
+        ContainerServiceRegistryLogin.validate!(input[:registry_login], context: "#{context}[:registry_login]") unless input[:registry_login].nil?
       end
     end
 
@@ -1015,8 +1017,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:disk_snapshot_name], ::String, context: "#{context}[:disk_snapshot_name]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:size_in_gb], ::Integer, context: "#{context}[:size_in_gb]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
         Hearth::Validator.validate!(input[:source_disk_name], ::String, context: "#{context}[:source_disk_name]")
         Hearth::Validator.validate!(input[:restore_date], ::String, context: "#{context}[:restore_date]")
         Hearth::Validator.validate!(input[:use_latest_restorable_auto_snapshot], ::TrueClass, ::FalseClass, context: "#{context}[:use_latest_restorable_auto_snapshot]")
@@ -1026,7 +1028,7 @@ module AWS::SDK::Lightsail
     class CreateDiskFromSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDiskFromSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1036,15 +1038,15 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:disk_name], ::String, context: "#{context}[:disk_name]")
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:size_in_gb], ::Integer, context: "#{context}[:size_in_gb]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
       end
     end
 
     class CreateDiskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDiskOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1054,14 +1056,14 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:disk_name], ::String, context: "#{context}[:disk_name]")
         Hearth::Validator.validate!(input[:disk_snapshot_name], ::String, context: "#{context}[:disk_snapshot_name]")
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDiskSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDiskSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1069,21 +1071,21 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDistributionInput, context: context)
         Hearth::Validator.validate!(input[:distribution_name], ::String, context: "#{context}[:distribution_name]")
-        Validators::InputOrigin.validate!(input[:origin], context: "#{context}[:origin]") unless input[:origin].nil?
-        Validators::CacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
-        Validators::CacheSettings.validate!(input[:cache_behavior_settings], context: "#{context}[:cache_behavior_settings]") unless input[:cache_behavior_settings].nil?
-        Validators::CacheBehaviorList.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
+        InputOrigin.validate!(input[:origin], context: "#{context}[:origin]") unless input[:origin].nil?
+        CacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
+        CacheSettings.validate!(input[:cache_behavior_settings], context: "#{context}[:cache_behavior_settings]") unless input[:cache_behavior_settings].nil?
+        CacheBehaviorList.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDistributionOutput, context: context)
-        Validators::LightsailDistribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        LightsailDistribution.validate!(input[:distribution], context: "#{context}[:distribution]") unless input[:distribution].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1091,14 +1093,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainEntryInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainEntry.validate!(input[:domain_entry], context: "#{context}[:domain_entry]") unless input[:domain_entry].nil?
+        DomainEntry.validate!(input[:domain_entry], context: "#{context}[:domain_entry]") unless input[:domain_entry].nil?
       end
     end
 
     class CreateDomainEntryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainEntryOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1106,14 +1108,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDomainOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1122,29 +1124,29 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::CreateInstanceSnapshotInput, context: context)
         Hearth::Validator.validate!(input[:instance_snapshot_name], ::String, context: "#{context}[:instance_snapshot_name]")
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateInstanceSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstanceSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
     class CreateInstancesFromSnapshotInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstancesFromSnapshotInput, context: context)
-        Validators::StringList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
-        Validators::AttachedDiskMap.validate!(input[:attached_disk_mapping], context: "#{context}[:attached_disk_mapping]") unless input[:attached_disk_mapping].nil?
+        StringList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        AttachedDiskMap.validate!(input[:attached_disk_mapping], context: "#{context}[:attached_disk_mapping]") unless input[:attached_disk_mapping].nil?
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:instance_snapshot_name], ::String, context: "#{context}[:instance_snapshot_name]")
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
         Hearth::Validator.validate!(input[:user_data], ::String, context: "#{context}[:user_data]")
         Hearth::Validator.validate!(input[:key_pair_name], ::String, context: "#{context}[:key_pair_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:source_instance_name], ::String, context: "#{context}[:source_instance_name]")
         Hearth::Validator.validate!(input[:restore_date], ::String, context: "#{context}[:restore_date]")
@@ -1155,22 +1157,22 @@ module AWS::SDK::Lightsail
     class CreateInstancesFromSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstancesFromSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
     class CreateInstancesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstancesInput, context: context)
-        Validators::StringList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        StringList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
         Hearth::Validator.validate!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
         Hearth::Validator.validate!(input[:custom_image_name], ::String, context: "#{context}[:custom_image_name]")
         Hearth::Validator.validate!(input[:blueprint_id], ::String, context: "#{context}[:blueprint_id]")
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
         Hearth::Validator.validate!(input[:user_data], ::String, context: "#{context}[:user_data]")
         Hearth::Validator.validate!(input[:key_pair_name], ::String, context: "#{context}[:key_pair_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AddOnRequestList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
       end
     end
@@ -1178,7 +1180,7 @@ module AWS::SDK::Lightsail
     class CreateInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstancesOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1186,17 +1188,17 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeyPairInput, context: context)
         Hearth::Validator.validate!(input[:key_pair_name], ::String, context: "#{context}[:key_pair_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateKeyPairOutput, context: context)
-        Validators::KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
+        KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
         Hearth::Validator.validate!(input[:public_key_base64], ::String, context: "#{context}[:public_key_base64]")
         Hearth::Validator.validate!(input[:private_key_base64], ::String, context: "#{context}[:private_key_base64]")
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1208,8 +1210,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:health_check_path], ::String, context: "#{context}[:health_check_path]")
         Hearth::Validator.validate!(input[:certificate_name], ::String, context: "#{context}[:certificate_name]")
         Hearth::Validator.validate!(input[:certificate_domain_name], ::String, context: "#{context}[:certificate_domain_name]")
-        Validators::DomainNameList.validate!(input[:certificate_alternative_names], context: "#{context}[:certificate_alternative_names]") unless input[:certificate_alternative_names].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameList.validate!(input[:certificate_alternative_names], context: "#{context}[:certificate_alternative_names]") unless input[:certificate_alternative_names].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:tls_policy_name], ::String, context: "#{context}[:tls_policy_name]")
       end
@@ -1218,7 +1220,7 @@ module AWS::SDK::Lightsail
     class CreateLoadBalancerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLoadBalancerOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1228,15 +1230,15 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:load_balancer_name], ::String, context: "#{context}[:load_balancer_name]")
         Hearth::Validator.validate!(input[:certificate_name], ::String, context: "#{context}[:certificate_name]")
         Hearth::Validator.validate!(input[:certificate_domain_name], ::String, context: "#{context}[:certificate_domain_name]")
-        Validators::DomainNameList.validate!(input[:certificate_alternative_names], context: "#{context}[:certificate_alternative_names]") unless input[:certificate_alternative_names].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainNameList.validate!(input[:certificate_alternative_names], context: "#{context}[:certificate_alternative_names]") unless input[:certificate_alternative_names].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateLoadBalancerTlsCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateLoadBalancerTlsCertificateOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1251,14 +1253,14 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:source_relational_database_name], ::String, context: "#{context}[:source_relational_database_name]")
         Hearth::Validator.validate!(input[:restore_time], ::Time, context: "#{context}[:restore_time]")
         Hearth::Validator.validate!(input[:use_latest_restorable_time], ::TrueClass, ::FalseClass, context: "#{context}[:use_latest_restorable_time]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRelationalDatabaseFromSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRelationalDatabaseFromSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1275,14 +1277,14 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:preferred_backup_window], ::String, context: "#{context}[:preferred_backup_window]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRelationalDatabaseOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1291,14 +1293,14 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::CreateRelationalDatabaseSnapshotInput, context: context)
         Hearth::Validator.validate!(input[:relational_database_name], ::String, context: "#{context}[:relational_database_name]")
         Hearth::Validator.validate!(input[:relational_database_snapshot_name], ::String, context: "#{context}[:relational_database_snapshot_name]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class CreateRelationalDatabaseSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRelationalDatabaseSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1312,7 +1314,7 @@ module AWS::SDK::Lightsail
     class DeleteAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAlarmOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1327,7 +1329,7 @@ module AWS::SDK::Lightsail
     class DeleteAutoSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAutoSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1342,7 +1344,7 @@ module AWS::SDK::Lightsail
     class DeleteBucketAccessKeyOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBucketAccessKeyOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1357,7 +1359,7 @@ module AWS::SDK::Lightsail
     class DeleteBucketOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBucketOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1371,7 +1373,7 @@ module AWS::SDK::Lightsail
     class DeleteCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteCertificateOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1385,7 +1387,7 @@ module AWS::SDK::Lightsail
     class DeleteContactMethodOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteContactMethodOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1427,7 +1429,7 @@ module AWS::SDK::Lightsail
     class DeleteDiskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDiskOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1441,7 +1443,7 @@ module AWS::SDK::Lightsail
     class DeleteDiskSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDiskSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1455,7 +1457,7 @@ module AWS::SDK::Lightsail
     class DeleteDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDistributionOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1463,14 +1465,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainEntryInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainEntry.validate!(input[:domain_entry], context: "#{context}[:domain_entry]") unless input[:domain_entry].nil?
+        DomainEntry.validate!(input[:domain_entry], context: "#{context}[:domain_entry]") unless input[:domain_entry].nil?
       end
     end
 
     class DeleteDomainEntryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainEntryOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1484,7 +1486,7 @@ module AWS::SDK::Lightsail
     class DeleteDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteDomainOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1499,7 +1501,7 @@ module AWS::SDK::Lightsail
     class DeleteInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteInstanceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1513,7 +1515,7 @@ module AWS::SDK::Lightsail
     class DeleteInstanceSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteInstanceSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1528,7 +1530,7 @@ module AWS::SDK::Lightsail
     class DeleteKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteKeyPairOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1542,7 +1544,7 @@ module AWS::SDK::Lightsail
     class DeleteKnownHostKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteKnownHostKeysOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1556,7 +1558,7 @@ module AWS::SDK::Lightsail
     class DeleteLoadBalancerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteLoadBalancerOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1572,7 +1574,7 @@ module AWS::SDK::Lightsail
     class DeleteLoadBalancerTlsCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteLoadBalancerTlsCertificateOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1588,7 +1590,7 @@ module AWS::SDK::Lightsail
     class DeleteRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRelationalDatabaseOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1602,7 +1604,7 @@ module AWS::SDK::Lightsail
     class DeleteRelationalDatabaseSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRelationalDatabaseSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1624,7 +1626,7 @@ module AWS::SDK::Lightsail
     class DetachCertificateFromDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachCertificateFromDistributionOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -1638,7 +1640,7 @@ module AWS::SDK::Lightsail
     class DetachDiskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachDiskOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1646,14 +1648,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachInstancesFromLoadBalancerInput, context: context)
         Hearth::Validator.validate!(input[:load_balancer_name], ::String, context: "#{context}[:load_balancer_name]")
-        Validators::ResourceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
+        ResourceNameList.validate!(input[:instance_names], context: "#{context}[:instance_names]") unless input[:instance_names].nil?
       end
     end
 
     class DetachInstancesFromLoadBalancerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachInstancesFromLoadBalancerOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1667,7 +1669,7 @@ module AWS::SDK::Lightsail
     class DetachStaticIpOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetachStaticIpOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1682,7 +1684,7 @@ module AWS::SDK::Lightsail
     class DisableAddOnOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DisableAddOnOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1693,10 +1695,10 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::AddOnList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        AddOnList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
         Hearth::Validator.validate!(input[:size_in_gb], ::Integer, context: "#{context}[:size_in_gb]")
         Hearth::Validator.validate!(input[:is_system_disk], ::TrueClass, ::FalseClass, context: "#{context}[:is_system_disk]")
         Hearth::Validator.validate!(input[:iops], ::Integer, context: "#{context}[:iops]")
@@ -1723,7 +1725,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DiskInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DiskInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1732,7 +1734,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Disk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Disk.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1749,7 +1751,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DiskMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DiskMap.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1761,9 +1763,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:size_in_gb], ::Integer, context: "#{context}[:size_in_gb]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:progress], ::String, context: "#{context}[:progress]")
@@ -1786,7 +1788,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DiskSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DiskSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1806,7 +1808,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DistributionBundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DistributionBundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1815,7 +1817,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LightsailDistribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LightsailDistribution.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1827,10 +1829,10 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::DomainEntryList.validate!(input[:domain_entries], context: "#{context}[:domain_entries]") unless input[:domain_entries].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DomainEntryList.validate!(input[:domain_entries], context: "#{context}[:domain_entries]") unless input[:domain_entries].nil?
       end
     end
 
@@ -1842,7 +1844,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:target], ::String, context: "#{context}[:target]")
         Hearth::Validator.validate!(input[:is_alias], ::TrueClass, ::FalseClass, context: "#{context}[:is_alias]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::DomainEntryOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        DomainEntryOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -1850,7 +1852,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1869,7 +1871,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Domain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Domain.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1887,7 +1889,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DomainValidationRecord, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ResourceRecord.validate!(input[:resource_record], context: "#{context}[:resource_record]") unless input[:resource_record].nil?
+        ResourceRecord.validate!(input[:resource_record], context: "#{context}[:resource_record]") unless input[:resource_record].nil?
       end
     end
 
@@ -1895,7 +1897,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainValidationRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainValidationRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1919,14 +1921,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableAddOnInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
-        Validators::AddOnRequest.validate!(input[:add_on_request], context: "#{context}[:add_on_request]") unless input[:add_on_request].nil?
+        AddOnRequest.validate!(input[:add_on_request], context: "#{context}[:add_on_request]") unless input[:add_on_request].nil?
       end
     end
 
     class EnableAddOnOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnableAddOnOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1935,7 +1937,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::EndpointRequest, context: context)
         Hearth::Validator.validate!(input[:container_name], ::String, context: "#{context}[:container_name]")
         Hearth::Validator.validate!(input[:container_port], ::Integer, context: "#{context}[:container_port]")
-        Validators::ContainerServiceHealthCheckConfig.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
+        ContainerServiceHealthCheckConfig.validate!(input[:health_check], context: "#{context}[:health_check]") unless input[:health_check].nil?
       end
     end
 
@@ -1959,7 +1961,7 @@ module AWS::SDK::Lightsail
     class ExportSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ExportSnapshotOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -1969,11 +1971,11 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::ExportSnapshotRecordSourceInfo.validate!(input[:source_info], context: "#{context}[:source_info]") unless input[:source_info].nil?
-        Validators::DestinationInfo.validate!(input[:destination_info], context: "#{context}[:destination_info]") unless input[:destination_info].nil?
+        ExportSnapshotRecordSourceInfo.validate!(input[:source_info], context: "#{context}[:source_info]") unless input[:source_info].nil?
+        DestinationInfo.validate!(input[:destination_info], context: "#{context}[:destination_info]") unless input[:destination_info].nil?
       end
     end
 
@@ -1981,7 +1983,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExportSnapshotRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExportSnapshotRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1995,8 +1997,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:from_resource_name], ::String, context: "#{context}[:from_resource_name]")
         Hearth::Validator.validate!(input[:from_resource_arn], ::String, context: "#{context}[:from_resource_arn]")
-        Validators::InstanceSnapshotInfo.validate!(input[:instance_snapshot_info], context: "#{context}[:instance_snapshot_info]") unless input[:instance_snapshot_info].nil?
-        Validators::DiskSnapshotInfo.validate!(input[:disk_snapshot_info], context: "#{context}[:disk_snapshot_info]") unless input[:disk_snapshot_info].nil?
+        InstanceSnapshotInfo.validate!(input[:instance_snapshot_info], context: "#{context}[:instance_snapshot_info]") unless input[:instance_snapshot_info].nil?
+        DiskSnapshotInfo.validate!(input[:disk_snapshot_info], context: "#{context}[:disk_snapshot_info]") unless input[:disk_snapshot_info].nil?
       end
     end
 
@@ -2010,7 +2012,7 @@ module AWS::SDK::Lightsail
     class GetActiveNamesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetActiveNamesOutput, context: context)
-        Validators::StringList.validate!(input[:active_names], context: "#{context}[:active_names]") unless input[:active_names].nil?
+        StringList.validate!(input[:active_names], context: "#{context}[:active_names]") unless input[:active_names].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2027,7 +2029,7 @@ module AWS::SDK::Lightsail
     class GetAlarmsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAlarmsOutput, context: context)
-        Validators::AlarmsList.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
+        AlarmsList.validate!(input[:alarms], context: "#{context}[:alarms]") unless input[:alarms].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2044,7 +2046,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::GetAutoSnapshotsOutput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::AutoSnapshotDetailsList.validate!(input[:auto_snapshots], context: "#{context}[:auto_snapshots]") unless input[:auto_snapshots].nil?
+        AutoSnapshotDetailsList.validate!(input[:auto_snapshots], context: "#{context}[:auto_snapshots]") unless input[:auto_snapshots].nil?
       end
     end
 
@@ -2059,7 +2061,7 @@ module AWS::SDK::Lightsail
     class GetBlueprintsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBlueprintsOutput, context: context)
-        Validators::BlueprintList.validate!(input[:blueprints], context: "#{context}[:blueprints]") unless input[:blueprints].nil?
+        BlueprintList.validate!(input[:blueprints], context: "#{context}[:blueprints]") unless input[:blueprints].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2074,7 +2076,7 @@ module AWS::SDK::Lightsail
     class GetBucketAccessKeysOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBucketAccessKeysOutput, context: context)
-        Validators::AccessKeyList.validate!(input[:access_keys], context: "#{context}[:access_keys]") unless input[:access_keys].nil?
+        AccessKeyList.validate!(input[:access_keys], context: "#{context}[:access_keys]") unless input[:access_keys].nil?
       end
     end
 
@@ -2088,7 +2090,7 @@ module AWS::SDK::Lightsail
     class GetBucketBundlesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBucketBundlesOutput, context: context)
-        Validators::BucketBundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
+        BucketBundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
       end
     end
 
@@ -2100,7 +2102,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
-        Validators::MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
       end
     end
@@ -2109,7 +2111,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBucketMetricDataOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
@@ -2125,9 +2127,9 @@ module AWS::SDK::Lightsail
     class GetBucketsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBucketsOutput, context: context)
-        Validators::BucketList.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
+        BucketList.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
-        Validators::AccountLevelBpaSync.validate!(input[:account_level_bpa_sync], context: "#{context}[:account_level_bpa_sync]") unless input[:account_level_bpa_sync].nil?
+        AccountLevelBpaSync.validate!(input[:account_level_bpa_sync], context: "#{context}[:account_level_bpa_sync]") unless input[:account_level_bpa_sync].nil?
       end
     end
 
@@ -2142,7 +2144,7 @@ module AWS::SDK::Lightsail
     class GetBundlesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBundlesOutput, context: context)
-        Validators::BundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
+        BundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2150,7 +2152,7 @@ module AWS::SDK::Lightsail
     class GetCertificatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCertificatesInput, context: context)
-        Validators::CertificateStatusList.validate!(input[:certificate_statuses], context: "#{context}[:certificate_statuses]") unless input[:certificate_statuses].nil?
+        CertificateStatusList.validate!(input[:certificate_statuses], context: "#{context}[:certificate_statuses]") unless input[:certificate_statuses].nil?
         Hearth::Validator.validate!(input[:include_certificate_details], ::TrueClass, ::FalseClass, context: "#{context}[:include_certificate_details]")
         Hearth::Validator.validate!(input[:certificate_name], ::String, context: "#{context}[:certificate_name]")
       end
@@ -2159,7 +2161,7 @@ module AWS::SDK::Lightsail
     class GetCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCertificatesOutput, context: context)
-        Validators::CertificateSummaryList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        CertificateSummaryList.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
       end
     end
 
@@ -2173,7 +2175,7 @@ module AWS::SDK::Lightsail
     class GetCloudFormationStackRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetCloudFormationStackRecordsOutput, context: context)
-        Validators::CloudFormationStackRecordList.validate!(input[:cloud_formation_stack_records], context: "#{context}[:cloud_formation_stack_records]") unless input[:cloud_formation_stack_records].nil?
+        CloudFormationStackRecordList.validate!(input[:cloud_formation_stack_records], context: "#{context}[:cloud_formation_stack_records]") unless input[:cloud_formation_stack_records].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2181,14 +2183,14 @@ module AWS::SDK::Lightsail
     class GetContactMethodsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContactMethodsInput, context: context)
-        Validators::ContactProtocolsList.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        ContactProtocolsList.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
       end
     end
 
     class GetContactMethodsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContactMethodsOutput, context: context)
-        Validators::ContactMethodsList.validate!(input[:contact_methods], context: "#{context}[:contact_methods]") unless input[:contact_methods].nil?
+        ContactMethodsList.validate!(input[:contact_methods], context: "#{context}[:contact_methods]") unless input[:contact_methods].nil?
       end
     end
 
@@ -2201,7 +2203,7 @@ module AWS::SDK::Lightsail
     class GetContainerAPIMetadataOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerAPIMetadataOutput, context: context)
-        Validators::ContainerServiceMetadataEntryList.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
+        ContainerServiceMetadataEntryList.validate!(input[:metadata], context: "#{context}[:metadata]") unless input[:metadata].nil?
       end
     end
 
@@ -2215,7 +2217,7 @@ module AWS::SDK::Lightsail
     class GetContainerImagesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerImagesOutput, context: context)
-        Validators::ContainerImageList.validate!(input[:container_images], context: "#{context}[:container_images]") unless input[:container_images].nil?
+        ContainerImageList.validate!(input[:container_images], context: "#{context}[:container_images]") unless input[:container_images].nil?
       end
     end
 
@@ -2234,7 +2236,7 @@ module AWS::SDK::Lightsail
     class GetContainerLogOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerLogOutput, context: context)
-        Validators::ContainerServiceLogEventList.validate!(input[:log_events], context: "#{context}[:log_events]") unless input[:log_events].nil?
+        ContainerServiceLogEventList.validate!(input[:log_events], context: "#{context}[:log_events]") unless input[:log_events].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2249,7 +2251,7 @@ module AWS::SDK::Lightsail
     class GetContainerServiceDeploymentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerServiceDeploymentsOutput, context: context)
-        Validators::ContainerServiceDeploymentList.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
+        ContainerServiceDeploymentList.validate!(input[:deployments], context: "#{context}[:deployments]") unless input[:deployments].nil?
       end
     end
 
@@ -2261,7 +2263,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
-        Validators::MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -2269,7 +2271,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerServiceMetricDataOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
@@ -2282,7 +2284,7 @@ module AWS::SDK::Lightsail
     class GetContainerServicePowersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerServicePowersOutput, context: context)
-        Validators::ContainerServicePowerList.validate!(input[:powers], context: "#{context}[:powers]") unless input[:powers].nil?
+        ContainerServicePowerList.validate!(input[:powers], context: "#{context}[:powers]") unless input[:powers].nil?
       end
     end
 
@@ -2296,7 +2298,7 @@ module AWS::SDK::Lightsail
     class GetContainerServicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetContainerServicesOutput, context: context)
-        Validators::ContainerServiceList.validate!(input[:container_services], context: "#{context}[:container_services]") unless input[:container_services].nil?
+        ContainerServiceList.validate!(input[:container_services], context: "#{context}[:container_services]") unless input[:container_services].nil?
       end
     end
 
@@ -2310,7 +2312,7 @@ module AWS::SDK::Lightsail
     class GetDiskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDiskOutput, context: context)
-        Validators::Disk.validate!(input[:disk], context: "#{context}[:disk]") unless input[:disk].nil?
+        Disk.validate!(input[:disk], context: "#{context}[:disk]") unless input[:disk].nil?
       end
     end
 
@@ -2324,7 +2326,7 @@ module AWS::SDK::Lightsail
     class GetDiskSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDiskSnapshotOutput, context: context)
-        Validators::DiskSnapshot.validate!(input[:disk_snapshot], context: "#{context}[:disk_snapshot]") unless input[:disk_snapshot].nil?
+        DiskSnapshot.validate!(input[:disk_snapshot], context: "#{context}[:disk_snapshot]") unless input[:disk_snapshot].nil?
       end
     end
 
@@ -2338,7 +2340,7 @@ module AWS::SDK::Lightsail
     class GetDiskSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDiskSnapshotsOutput, context: context)
-        Validators::DiskSnapshotList.validate!(input[:disk_snapshots], context: "#{context}[:disk_snapshots]") unless input[:disk_snapshots].nil?
+        DiskSnapshotList.validate!(input[:disk_snapshots], context: "#{context}[:disk_snapshots]") unless input[:disk_snapshots].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2353,7 +2355,7 @@ module AWS::SDK::Lightsail
     class GetDisksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDisksOutput, context: context)
-        Validators::DiskList.validate!(input[:disks], context: "#{context}[:disks]") unless input[:disks].nil?
+        DiskList.validate!(input[:disks], context: "#{context}[:disks]") unless input[:disks].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2367,7 +2369,7 @@ module AWS::SDK::Lightsail
     class GetDistributionBundlesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDistributionBundlesOutput, context: context)
-        Validators::DistributionBundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
+        DistributionBundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
       end
     end
 
@@ -2395,7 +2397,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:period], ::Integer, context: "#{context}[:period]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -2403,7 +2405,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDistributionMetricDataOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
@@ -2418,7 +2420,7 @@ module AWS::SDK::Lightsail
     class GetDistributionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDistributionsOutput, context: context)
-        Validators::DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
+        DistributionList.validate!(input[:distributions], context: "#{context}[:distributions]") unless input[:distributions].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2433,7 +2435,7 @@ module AWS::SDK::Lightsail
     class GetDomainOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainOutput, context: context)
-        Validators::Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
+        Domain.validate!(input[:domain], context: "#{context}[:domain]") unless input[:domain].nil?
       end
     end
 
@@ -2447,7 +2449,7 @@ module AWS::SDK::Lightsail
     class GetDomainsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetDomainsOutput, context: context)
-        Validators::DomainList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
+        DomainList.validate!(input[:domains], context: "#{context}[:domains]") unless input[:domains].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2462,7 +2464,7 @@ module AWS::SDK::Lightsail
     class GetExportSnapshotRecordsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetExportSnapshotRecordsOutput, context: context)
-        Validators::ExportSnapshotRecordList.validate!(input[:export_snapshot_records], context: "#{context}[:export_snapshot_records]") unless input[:export_snapshot_records].nil?
+        ExportSnapshotRecordList.validate!(input[:export_snapshot_records], context: "#{context}[:export_snapshot_records]") unless input[:export_snapshot_records].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2478,7 +2480,7 @@ module AWS::SDK::Lightsail
     class GetInstanceAccessDetailsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceAccessDetailsOutput, context: context)
-        Validators::InstanceAccessDetails.validate!(input[:access_details], context: "#{context}[:access_details]") unless input[:access_details].nil?
+        InstanceAccessDetails.validate!(input[:access_details], context: "#{context}[:access_details]") unless input[:access_details].nil?
       end
     end
 
@@ -2498,7 +2500,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -2506,14 +2508,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceMetricDataOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
     class GetInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceOutput, context: context)
-        Validators::Instance.validate!(input[:instance], context: "#{context}[:instance]") unless input[:instance].nil?
+        Instance.validate!(input[:instance], context: "#{context}[:instance]") unless input[:instance].nil?
       end
     end
 
@@ -2527,7 +2529,7 @@ module AWS::SDK::Lightsail
     class GetInstancePortStatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstancePortStatesOutput, context: context)
-        Validators::InstancePortStateList.validate!(input[:port_states], context: "#{context}[:port_states]") unless input[:port_states].nil?
+        InstancePortStateList.validate!(input[:port_states], context: "#{context}[:port_states]") unless input[:port_states].nil?
       end
     end
 
@@ -2541,7 +2543,7 @@ module AWS::SDK::Lightsail
     class GetInstanceSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceSnapshotOutput, context: context)
-        Validators::InstanceSnapshot.validate!(input[:instance_snapshot], context: "#{context}[:instance_snapshot]") unless input[:instance_snapshot].nil?
+        InstanceSnapshot.validate!(input[:instance_snapshot], context: "#{context}[:instance_snapshot]") unless input[:instance_snapshot].nil?
       end
     end
 
@@ -2555,7 +2557,7 @@ module AWS::SDK::Lightsail
     class GetInstanceSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceSnapshotsOutput, context: context)
-        Validators::InstanceSnapshotList.validate!(input[:instance_snapshots], context: "#{context}[:instance_snapshots]") unless input[:instance_snapshots].nil?
+        InstanceSnapshotList.validate!(input[:instance_snapshots], context: "#{context}[:instance_snapshots]") unless input[:instance_snapshots].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2570,7 +2572,7 @@ module AWS::SDK::Lightsail
     class GetInstanceStateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstanceStateOutput, context: context)
-        Validators::InstanceState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        InstanceState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
       end
     end
 
@@ -2584,7 +2586,7 @@ module AWS::SDK::Lightsail
     class GetInstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetInstancesOutput, context: context)
-        Validators::InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2599,7 +2601,7 @@ module AWS::SDK::Lightsail
     class GetKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetKeyPairOutput, context: context)
-        Validators::KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
+        KeyPair.validate!(input[:key_pair], context: "#{context}[:key_pair]") unless input[:key_pair].nil?
       end
     end
 
@@ -2614,7 +2616,7 @@ module AWS::SDK::Lightsail
     class GetKeyPairsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetKeyPairsOutput, context: context)
-        Validators::KeyPairList.validate!(input[:key_pairs], context: "#{context}[:key_pairs]") unless input[:key_pairs].nil?
+        KeyPairList.validate!(input[:key_pairs], context: "#{context}[:key_pairs]") unless input[:key_pairs].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2635,7 +2637,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -2643,14 +2645,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoadBalancerMetricDataOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
     class GetLoadBalancerOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoadBalancerOutput, context: context)
-        Validators::LoadBalancer.validate!(input[:load_balancer], context: "#{context}[:load_balancer]") unless input[:load_balancer].nil?
+        LoadBalancer.validate!(input[:load_balancer], context: "#{context}[:load_balancer]") unless input[:load_balancer].nil?
       end
     end
 
@@ -2664,7 +2666,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancerTlsCertificatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoadBalancerTlsCertificatesOutput, context: context)
-        Validators::LoadBalancerTlsCertificateList.validate!(input[:tls_certificates], context: "#{context}[:tls_certificates]") unless input[:tls_certificates].nil?
+        LoadBalancerTlsCertificateList.validate!(input[:tls_certificates], context: "#{context}[:tls_certificates]") unless input[:tls_certificates].nil?
       end
     end
 
@@ -2678,7 +2680,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancerTlsPoliciesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoadBalancerTlsPoliciesOutput, context: context)
-        Validators::LoadBalancerTlsPolicyList.validate!(input[:tls_policies], context: "#{context}[:tls_policies]") unless input[:tls_policies].nil?
+        LoadBalancerTlsPolicyList.validate!(input[:tls_policies], context: "#{context}[:tls_policies]") unless input[:tls_policies].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2693,7 +2695,7 @@ module AWS::SDK::Lightsail
     class GetLoadBalancersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLoadBalancersOutput, context: context)
-        Validators::LoadBalancerList.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
+        LoadBalancerList.validate!(input[:load_balancers], context: "#{context}[:load_balancers]") unless input[:load_balancers].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2708,7 +2710,7 @@ module AWS::SDK::Lightsail
     class GetOperationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOperationOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -2723,7 +2725,7 @@ module AWS::SDK::Lightsail
     class GetOperationsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOperationsForResourceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
         Hearth::Validator.validate!(input[:next_page_count], ::String, context: "#{context}[:next_page_count]")
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
@@ -2739,7 +2741,7 @@ module AWS::SDK::Lightsail
     class GetOperationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetOperationsOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2755,7 +2757,7 @@ module AWS::SDK::Lightsail
     class GetRegionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRegionsOutput, context: context)
-        Validators::RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
+        RegionList.validate!(input[:regions], context: "#{context}[:regions]") unless input[:regions].nil?
       end
     end
 
@@ -2769,7 +2771,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseBlueprintsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseBlueprintsOutput, context: context)
-        Validators::RelationalDatabaseBlueprintList.validate!(input[:blueprints], context: "#{context}[:blueprints]") unless input[:blueprints].nil?
+        RelationalDatabaseBlueprintList.validate!(input[:blueprints], context: "#{context}[:blueprints]") unless input[:blueprints].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2785,7 +2787,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseBundlesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseBundlesOutput, context: context)
-        Validators::RelationalDatabaseBundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
+        RelationalDatabaseBundleList.validate!(input[:bundles], context: "#{context}[:bundles]") unless input[:bundles].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2802,7 +2804,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseEventsOutput, context: context)
-        Validators::RelationalDatabaseEventList.validate!(input[:relational_database_events], context: "#{context}[:relational_database_events]") unless input[:relational_database_events].nil?
+        RelationalDatabaseEventList.validate!(input[:relational_database_events], context: "#{context}[:relational_database_events]") unless input[:relational_database_events].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2829,7 +2831,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseLogEventsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseLogEventsOutput, context: context)
-        Validators::LogEventList.validate!(input[:resource_log_events], context: "#{context}[:resource_log_events]") unless input[:resource_log_events].nil?
+        LogEventList.validate!(input[:resource_log_events], context: "#{context}[:resource_log_events]") unless input[:resource_log_events].nil?
         Hearth::Validator.validate!(input[:next_backward_token], ::String, context: "#{context}[:next_backward_token]")
         Hearth::Validator.validate!(input[:next_forward_token], ::String, context: "#{context}[:next_forward_token]")
       end
@@ -2845,7 +2847,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseLogStreamsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseLogStreamsOutput, context: context)
-        Validators::StringList.validate!(input[:log_streams], context: "#{context}[:log_streams]") unless input[:log_streams].nil?
+        StringList.validate!(input[:log_streams], context: "#{context}[:log_streams]") unless input[:log_streams].nil?
       end
     end
 
@@ -2874,7 +2876,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:start_time], ::Time, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:unit], ::String, context: "#{context}[:unit]")
-        Validators::MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
+        MetricStatisticList.validate!(input[:statistics], context: "#{context}[:statistics]") unless input[:statistics].nil?
       end
     end
 
@@ -2882,14 +2884,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseMetricDataOutput, context: context)
         Hearth::Validator.validate!(input[:metric_name], ::String, context: "#{context}[:metric_name]")
-        Validators::MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
+        MetricDatapointList.validate!(input[:metric_data], context: "#{context}[:metric_data]") unless input[:metric_data].nil?
       end
     end
 
     class GetRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseOutput, context: context)
-        Validators::RelationalDatabase.validate!(input[:relational_database], context: "#{context}[:relational_database]") unless input[:relational_database].nil?
+        RelationalDatabase.validate!(input[:relational_database], context: "#{context}[:relational_database]") unless input[:relational_database].nil?
       end
     end
 
@@ -2904,7 +2906,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseParametersOutput, context: context)
-        Validators::RelationalDatabaseParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        RelationalDatabaseParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2919,7 +2921,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseSnapshotOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseSnapshotOutput, context: context)
-        Validators::RelationalDatabaseSnapshot.validate!(input[:relational_database_snapshot], context: "#{context}[:relational_database_snapshot]") unless input[:relational_database_snapshot].nil?
+        RelationalDatabaseSnapshot.validate!(input[:relational_database_snapshot], context: "#{context}[:relational_database_snapshot]") unless input[:relational_database_snapshot].nil?
       end
     end
 
@@ -2933,7 +2935,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabaseSnapshotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabaseSnapshotsOutput, context: context)
-        Validators::RelationalDatabaseSnapshotList.validate!(input[:relational_database_snapshots], context: "#{context}[:relational_database_snapshots]") unless input[:relational_database_snapshots].nil?
+        RelationalDatabaseSnapshotList.validate!(input[:relational_database_snapshots], context: "#{context}[:relational_database_snapshots]") unless input[:relational_database_snapshots].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2948,7 +2950,7 @@ module AWS::SDK::Lightsail
     class GetRelationalDatabasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRelationalDatabasesOutput, context: context)
-        Validators::RelationalDatabaseList.validate!(input[:relational_databases], context: "#{context}[:relational_databases]") unless input[:relational_databases].nil?
+        RelationalDatabaseList.validate!(input[:relational_databases], context: "#{context}[:relational_databases]") unless input[:relational_databases].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2963,7 +2965,7 @@ module AWS::SDK::Lightsail
     class GetStaticIpOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStaticIpOutput, context: context)
-        Validators::StaticIp.validate!(input[:static_ip], context: "#{context}[:static_ip]") unless input[:static_ip].nil?
+        StaticIp.validate!(input[:static_ip], context: "#{context}[:static_ip]") unless input[:static_ip].nil?
       end
     end
 
@@ -2977,7 +2979,7 @@ module AWS::SDK::Lightsail
     class GetStaticIpsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetStaticIpsOutput, context: context)
-        Validators::StaticIpList.validate!(input[:static_ips], context: "#{context}[:static_ips]") unless input[:static_ips].nil?
+        StaticIpList.validate!(input[:static_ips], context: "#{context}[:static_ips]") unless input[:static_ips].nil?
         Hearth::Validator.validate!(input[:next_page_token], ::String, context: "#{context}[:next_page_token]")
       end
     end
@@ -2995,7 +2997,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::HeaderObject, context: context)
         Hearth::Validator.validate!(input[:option], ::String, context: "#{context}[:option]")
-        Validators::HeaderForwardList.validate!(input[:headers_allow_list], context: "#{context}[:headers_allow_list]") unless input[:headers_allow_list].nil?
+        HeaderForwardList.validate!(input[:headers_allow_list], context: "#{context}[:headers_allow_list]") unless input[:headers_allow_list].nil?
       end
     end
 
@@ -3016,7 +3018,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::HostKeyAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          HostKeyAttributes.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3032,7 +3034,7 @@ module AWS::SDK::Lightsail
     class ImportKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ImportKeyPairOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -3052,21 +3054,21 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:blueprint_id], ::String, context: "#{context}[:blueprint_id]")
         Hearth::Validator.validate!(input[:blueprint_name], ::String, context: "#{context}[:blueprint_name]")
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
-        Validators::AddOnList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
+        AddOnList.validate!(input[:add_ons], context: "#{context}[:add_ons]") unless input[:add_ons].nil?
         Hearth::Validator.validate!(input[:is_static_ip], ::TrueClass, ::FalseClass, context: "#{context}[:is_static_ip]")
         Hearth::Validator.validate!(input[:private_ip_address], ::String, context: "#{context}[:private_ip_address]")
         Hearth::Validator.validate!(input[:public_ip_address], ::String, context: "#{context}[:public_ip_address]")
-        Validators::Ipv6AddressList.validate!(input[:ipv6_addresses], context: "#{context}[:ipv6_addresses]") unless input[:ipv6_addresses].nil?
+        Ipv6AddressList.validate!(input[:ipv6_addresses], context: "#{context}[:ipv6_addresses]") unless input[:ipv6_addresses].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
-        Validators::InstanceHardware.validate!(input[:hardware], context: "#{context}[:hardware]") unless input[:hardware].nil?
-        Validators::InstanceNetworking.validate!(input[:networking], context: "#{context}[:networking]") unless input[:networking].nil?
-        Validators::InstanceState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        InstanceHardware.validate!(input[:hardware], context: "#{context}[:hardware]") unless input[:hardware].nil?
+        InstanceNetworking.validate!(input[:networking], context: "#{context}[:networking]") unless input[:networking].nil?
+        InstanceState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
         Hearth::Validator.validate!(input[:ssh_key_name], ::String, context: "#{context}[:ssh_key_name]")
       end
@@ -3079,12 +3081,12 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:expires_at], ::Time, context: "#{context}[:expires_at]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:password], ::String, context: "#{context}[:password]")
-        Validators::PasswordData.validate!(input[:password_data], context: "#{context}[:password_data]") unless input[:password_data].nil?
+        PasswordData.validate!(input[:password_data], context: "#{context}[:password_data]") unless input[:password_data].nil?
         Hearth::Validator.validate!(input[:private_key], ::String, context: "#{context}[:private_key]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
         Hearth::Validator.validate!(input[:username], ::String, context: "#{context}[:username]")
-        Validators::HostKeysList.validate!(input[:host_keys], context: "#{context}[:host_keys]") unless input[:host_keys].nil?
+        HostKeysList.validate!(input[:host_keys], context: "#{context}[:host_keys]") unless input[:host_keys].nil?
       end
     end
 
@@ -3103,7 +3105,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceEntry.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3112,7 +3114,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceHardware, context: context)
         Hearth::Validator.validate!(input[:cpu_count], ::Integer, context: "#{context}[:cpu_count]")
-        Validators::DiskList.validate!(input[:disks], context: "#{context}[:disks]") unless input[:disks].nil?
+        DiskList.validate!(input[:disks], context: "#{context}[:disks]") unless input[:disks].nil?
         Hearth::Validator.validate!(input[:ram_size_in_gb], ::Float, context: "#{context}[:ram_size_in_gb]")
       end
     end
@@ -3130,7 +3132,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceHealthSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceHealthSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3139,7 +3141,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Instance.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3147,8 +3149,8 @@ module AWS::SDK::Lightsail
     class InstanceNetworking
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceNetworking, context: context)
-        Validators::MonthlyTransfer.validate!(input[:monthly_transfer], context: "#{context}[:monthly_transfer]") unless input[:monthly_transfer].nil?
-        Validators::InstancePortInfoList.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
+        MonthlyTransfer.validate!(input[:monthly_transfer], context: "#{context}[:monthly_transfer]") unless input[:monthly_transfer].nil?
+        InstancePortInfoList.validate!(input[:ports], context: "#{context}[:ports]") unless input[:ports].nil?
       end
     end
 
@@ -3171,9 +3173,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:access_type], ::String, context: "#{context}[:access_type]")
         Hearth::Validator.validate!(input[:common_name], ::String, context: "#{context}[:common_name]")
         Hearth::Validator.validate!(input[:access_direction], ::String, context: "#{context}[:access_direction]")
-        Validators::StringList.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
-        Validators::StringList.validate!(input[:ipv6_cidrs], context: "#{context}[:ipv6_cidrs]") unless input[:ipv6_cidrs].nil?
-        Validators::StringList.validate!(input[:cidr_list_aliases], context: "#{context}[:cidr_list_aliases]") unless input[:cidr_list_aliases].nil?
+        StringList.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
+        StringList.validate!(input[:ipv6_cidrs], context: "#{context}[:ipv6_cidrs]") unless input[:ipv6_cidrs].nil?
+        StringList.validate!(input[:cidr_list_aliases], context: "#{context}[:cidr_list_aliases]") unless input[:cidr_list_aliases].nil?
       end
     end
 
@@ -3181,7 +3183,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstancePortInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstancePortInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3193,9 +3195,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:to_port], ::Integer, context: "#{context}[:to_port]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::StringList.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
-        Validators::StringList.validate!(input[:ipv6_cidrs], context: "#{context}[:ipv6_cidrs]") unless input[:ipv6_cidrs].nil?
-        Validators::StringList.validate!(input[:cidr_list_aliases], context: "#{context}[:cidr_list_aliases]") unless input[:cidr_list_aliases].nil?
+        StringList.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
+        StringList.validate!(input[:ipv6_cidrs], context: "#{context}[:ipv6_cidrs]") unless input[:ipv6_cidrs].nil?
+        StringList.validate!(input[:cidr_list_aliases], context: "#{context}[:cidr_list_aliases]") unless input[:cidr_list_aliases].nil?
       end
     end
 
@@ -3203,7 +3205,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstancePortState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstancePortState.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3215,12 +3217,12 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:progress], ::String, context: "#{context}[:progress]")
-        Validators::DiskList.validate!(input[:from_attached_disks], context: "#{context}[:from_attached_disks]") unless input[:from_attached_disks].nil?
+        DiskList.validate!(input[:from_attached_disks], context: "#{context}[:from_attached_disks]") unless input[:from_attached_disks].nil?
         Hearth::Validator.validate!(input[:from_instance_name], ::String, context: "#{context}[:from_instance_name]")
         Hearth::Validator.validate!(input[:from_instance_arn], ::String, context: "#{context}[:from_instance_arn]")
         Hearth::Validator.validate!(input[:from_blueprint_id], ::String, context: "#{context}[:from_blueprint_id]")
@@ -3235,7 +3237,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::InstanceSnapshotInfo, context: context)
         Hearth::Validator.validate!(input[:from_bundle_id], ::String, context: "#{context}[:from_bundle_id]")
         Hearth::Validator.validate!(input[:from_blueprint_id], ::String, context: "#{context}[:from_blueprint_id]")
-        Validators::DiskInfoList.validate!(input[:from_disk_info], context: "#{context}[:from_disk_info]") unless input[:from_disk_info].nil?
+        DiskInfoList.validate!(input[:from_disk_info], context: "#{context}[:from_disk_info]") unless input[:from_disk_info].nil?
       end
     end
 
@@ -3243,7 +3245,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3295,9 +3297,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:fingerprint], ::String, context: "#{context}[:fingerprint]")
       end
     end
@@ -3306,7 +3308,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyPair.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3318,22 +3320,22 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::StringList.validate!(input[:alternative_domain_names], context: "#{context}[:alternative_domain_names]") unless input[:alternative_domain_names].nil?
+        StringList.validate!(input[:alternative_domain_names], context: "#{context}[:alternative_domain_names]") unless input[:alternative_domain_names].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:is_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_enabled]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:bundle_id], ::String, context: "#{context}[:bundle_id]")
         Hearth::Validator.validate!(input[:certificate_name], ::String, context: "#{context}[:certificate_name]")
-        Validators::Origin.validate!(input[:origin], context: "#{context}[:origin]") unless input[:origin].nil?
+        Origin.validate!(input[:origin], context: "#{context}[:origin]") unless input[:origin].nil?
         Hearth::Validator.validate!(input[:origin_public_dns], ::String, context: "#{context}[:origin_public_dns]")
-        Validators::CacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
-        Validators::CacheSettings.validate!(input[:cache_behavior_settings], context: "#{context}[:cache_behavior_settings]") unless input[:cache_behavior_settings].nil?
-        Validators::CacheBehaviorList.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
+        CacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
+        CacheSettings.validate!(input[:cache_behavior_settings], context: "#{context}[:cache_behavior_settings]") unless input[:cache_behavior_settings].nil?
+        CacheBehaviorList.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
         Hearth::Validator.validate!(input[:able_to_update_bundle], ::TrueClass, ::FalseClass, context: "#{context}[:able_to_update_bundle]")
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -3344,18 +3346,18 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:dns_name], ::String, context: "#{context}[:dns_name]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
-        Validators::PortList.validate!(input[:public_ports], context: "#{context}[:public_ports]") unless input[:public_ports].nil?
+        PortList.validate!(input[:public_ports], context: "#{context}[:public_ports]") unless input[:public_ports].nil?
         Hearth::Validator.validate!(input[:health_check_path], ::String, context: "#{context}[:health_check_path]")
         Hearth::Validator.validate!(input[:instance_port], ::Integer, context: "#{context}[:instance_port]")
-        Validators::InstanceHealthSummaryList.validate!(input[:instance_health_summary], context: "#{context}[:instance_health_summary]") unless input[:instance_health_summary].nil?
-        Validators::LoadBalancerTlsCertificateSummaryList.validate!(input[:tls_certificate_summaries], context: "#{context}[:tls_certificate_summaries]") unless input[:tls_certificate_summaries].nil?
-        Validators::LoadBalancerConfigurationOptions.validate!(input[:configuration_options], context: "#{context}[:configuration_options]") unless input[:configuration_options].nil?
+        InstanceHealthSummaryList.validate!(input[:instance_health_summary], context: "#{context}[:instance_health_summary]") unless input[:instance_health_summary].nil?
+        LoadBalancerTlsCertificateSummaryList.validate!(input[:tls_certificate_summaries], context: "#{context}[:tls_certificate_summaries]") unless input[:tls_certificate_summaries].nil?
+        LoadBalancerConfigurationOptions.validate!(input[:configuration_options], context: "#{context}[:configuration_options]") unless input[:configuration_options].nil?
         Hearth::Validator.validate!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         Hearth::Validator.validate!(input[:https_redirection_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:https_redirection_enabled]")
         Hearth::Validator.validate!(input[:tls_policy_name], ::String, context: "#{context}[:tls_policy_name]")
@@ -3376,7 +3378,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancer.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3388,27 +3390,27 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:load_balancer_name], ::String, context: "#{context}[:load_balancer_name]")
         Hearth::Validator.validate!(input[:is_attached], ::TrueClass, ::FalseClass, context: "#{context}[:is_attached]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::LoadBalancerTlsCertificateDomainValidationRecordList.validate!(input[:domain_validation_records], context: "#{context}[:domain_validation_records]") unless input[:domain_validation_records].nil?
+        LoadBalancerTlsCertificateDomainValidationRecordList.validate!(input[:domain_validation_records], context: "#{context}[:domain_validation_records]") unless input[:domain_validation_records].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:issued_at], ::Time, context: "#{context}[:issued_at]")
         Hearth::Validator.validate!(input[:issuer], ::String, context: "#{context}[:issuer]")
         Hearth::Validator.validate!(input[:key_algorithm], ::String, context: "#{context}[:key_algorithm]")
         Hearth::Validator.validate!(input[:not_after], ::Time, context: "#{context}[:not_after]")
         Hearth::Validator.validate!(input[:not_before], ::Time, context: "#{context}[:not_before]")
-        Validators::LoadBalancerTlsCertificateRenewalSummary.validate!(input[:renewal_summary], context: "#{context}[:renewal_summary]") unless input[:renewal_summary].nil?
+        LoadBalancerTlsCertificateRenewalSummary.validate!(input[:renewal_summary], context: "#{context}[:renewal_summary]") unless input[:renewal_summary].nil?
         Hearth::Validator.validate!(input[:revocation_reason], ::String, context: "#{context}[:revocation_reason]")
         Hearth::Validator.validate!(input[:revoked_at], ::Time, context: "#{context}[:revoked_at]")
         Hearth::Validator.validate!(input[:serial], ::String, context: "#{context}[:serial]")
         Hearth::Validator.validate!(input[:signature_algorithm], ::String, context: "#{context}[:signature_algorithm]")
         Hearth::Validator.validate!(input[:subject], ::String, context: "#{context}[:subject]")
-        Validators::StringList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        StringList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
       end
     end
 
@@ -3424,7 +3426,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerTlsCertificateDomainValidationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerTlsCertificateDomainValidationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3444,7 +3446,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerTlsCertificateDomainValidationRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerTlsCertificateDomainValidationRecord.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3453,7 +3455,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerTlsCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerTlsCertificate.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3462,7 +3464,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LoadBalancerTlsCertificateRenewalSummary, context: context)
         Hearth::Validator.validate!(input[:renewal_status], ::String, context: "#{context}[:renewal_status]")
-        Validators::LoadBalancerTlsCertificateDomainValidationOptionList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
+        LoadBalancerTlsCertificateDomainValidationOptionList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
       end
     end
 
@@ -3478,7 +3480,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerTlsCertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerTlsCertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3489,8 +3491,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:is_default], ::TrueClass, ::FalseClass, context: "#{context}[:is_default]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::StringList.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
-        Validators::StringList.validate!(input[:ciphers], context: "#{context}[:ciphers]") unless input[:ciphers].nil?
+        StringList.validate!(input[:protocols], context: "#{context}[:protocols]") unless input[:protocols].nil?
+        StringList.validate!(input[:ciphers], context: "#{context}[:ciphers]") unless input[:ciphers].nil?
       end
     end
 
@@ -3498,7 +3500,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LoadBalancerTlsPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LoadBalancerTlsPolicy.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3515,7 +3517,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3537,7 +3539,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MetricDatapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MetricDatapoint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3589,7 +3591,7 @@ module AWS::SDK::Lightsail
     class OpenInstancePublicPortsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OpenInstancePublicPortsInput, context: context)
-        Validators::PortInfo.validate!(input[:port_info], context: "#{context}[:port_info]") unless input[:port_info].nil?
+        PortInfo.validate!(input[:port_info], context: "#{context}[:port_info]") unless input[:port_info].nil?
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
       end
     end
@@ -3597,7 +3599,7 @@ module AWS::SDK::Lightsail
     class OpenInstancePublicPortsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OpenInstancePublicPortsOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -3608,7 +3610,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:is_terminal], ::TrueClass, ::FalseClass, context: "#{context}[:is_terminal]")
         Hearth::Validator.validate!(input[:operation_details], ::String, context: "#{context}[:operation_details]")
         Hearth::Validator.validate!(input[:operation_type], ::String, context: "#{context}[:operation_type]")
@@ -3633,7 +3635,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Operation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Operation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3674,7 +3676,7 @@ module AWS::SDK::Lightsail
     class PeerVpcOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PeerVpcOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -3691,7 +3693,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PendingMaintenanceAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PendingMaintenanceAction.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3711,9 +3713,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:from_port], ::Integer, context: "#{context}[:from_port]")
         Hearth::Validator.validate!(input[:to_port], ::Integer, context: "#{context}[:to_port]")
         Hearth::Validator.validate!(input[:protocol], ::String, context: "#{context}[:protocol]")
-        Validators::StringList.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
-        Validators::StringList.validate!(input[:ipv6_cidrs], context: "#{context}[:ipv6_cidrs]") unless input[:ipv6_cidrs].nil?
-        Validators::StringList.validate!(input[:cidr_list_aliases], context: "#{context}[:cidr_list_aliases]") unless input[:cidr_list_aliases].nil?
+        StringList.validate!(input[:cidrs], context: "#{context}[:cidrs]") unless input[:cidrs].nil?
+        StringList.validate!(input[:ipv6_cidrs], context: "#{context}[:ipv6_cidrs]") unless input[:ipv6_cidrs].nil?
+        StringList.validate!(input[:cidr_list_aliases], context: "#{context}[:cidr_list_aliases]") unless input[:cidr_list_aliases].nil?
       end
     end
 
@@ -3721,7 +3723,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3748,14 +3750,14 @@ module AWS::SDK::Lightsail
     class PrivateRegistryAccess
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateRegistryAccess, context: context)
-        Validators::ContainerServiceECRImagePullerRole.validate!(input[:ecr_image_puller_role], context: "#{context}[:ecr_image_puller_role]") unless input[:ecr_image_puller_role].nil?
+        ContainerServiceECRImagePullerRole.validate!(input[:ecr_image_puller_role], context: "#{context}[:ecr_image_puller_role]") unless input[:ecr_image_puller_role].nil?
       end
     end
 
     class PrivateRegistryAccessRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PrivateRegistryAccessRequest, context: context)
-        Validators::ContainerServiceECRImagePullerRoleRequest.validate!(input[:ecr_image_puller_role], context: "#{context}[:ecr_image_puller_role]") unless input[:ecr_image_puller_role].nil?
+        ContainerServiceECRImagePullerRoleRequest.validate!(input[:ecr_image_puller_role], context: "#{context}[:ecr_image_puller_role]") unless input[:ecr_image_puller_role].nil?
       end
     end
 
@@ -3770,8 +3772,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:evaluation_periods], ::Integer, context: "#{context}[:evaluation_periods]")
         Hearth::Validator.validate!(input[:datapoints_to_alarm], ::Integer, context: "#{context}[:datapoints_to_alarm]")
         Hearth::Validator.validate!(input[:treat_missing_data], ::String, context: "#{context}[:treat_missing_data]")
-        Validators::ContactProtocolsList.validate!(input[:contact_protocols], context: "#{context}[:contact_protocols]") unless input[:contact_protocols].nil?
-        Validators::NotificationTriggerList.validate!(input[:notification_triggers], context: "#{context}[:notification_triggers]") unless input[:notification_triggers].nil?
+        ContactProtocolsList.validate!(input[:contact_protocols], context: "#{context}[:contact_protocols]") unless input[:contact_protocols].nil?
+        NotificationTriggerList.validate!(input[:notification_triggers], context: "#{context}[:notification_triggers]") unless input[:notification_triggers].nil?
         Hearth::Validator.validate!(input[:notification_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:notification_enabled]")
       end
     end
@@ -3779,14 +3781,14 @@ module AWS::SDK::Lightsail
     class PutAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAlarmOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
     class PutInstancePublicPortsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutInstancePublicPortsInput, context: context)
-        Validators::PortInfoList.validate!(input[:port_infos], context: "#{context}[:port_infos]") unless input[:port_infos].nil?
+        PortInfoList.validate!(input[:port_infos], context: "#{context}[:port_infos]") unless input[:port_infos].nil?
         Hearth::Validator.validate!(input[:instance_name], ::String, context: "#{context}[:instance_name]")
       end
     end
@@ -3794,7 +3796,7 @@ module AWS::SDK::Lightsail
     class PutInstancePublicPortsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutInstancePublicPortsOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -3802,7 +3804,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::QueryStringObject, context: context)
         Hearth::Validator.validate!(input[:option], ::TrueClass, ::FalseClass, context: "#{context}[:option]")
-        Validators::StringList.validate!(input[:query_strings_allow_list], context: "#{context}[:query_strings_allow_list]") unless input[:query_strings_allow_list].nil?
+        StringList.validate!(input[:query_strings_allow_list], context: "#{context}[:query_strings_allow_list]") unless input[:query_strings_allow_list].nil?
       end
     end
 
@@ -3816,7 +3818,7 @@ module AWS::SDK::Lightsail
     class RebootInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebootInstanceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -3830,7 +3832,7 @@ module AWS::SDK::Lightsail
     class RebootRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RebootRelationalDatabaseOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -3841,8 +3843,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:display_name], ::String, context: "#{context}[:display_name]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::AvailabilityZoneList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
-        Validators::AvailabilityZoneList.validate!(input[:relational_database_availability_zones], context: "#{context}[:relational_database_availability_zones]") unless input[:relational_database_availability_zones].nil?
+        AvailabilityZoneList.validate!(input[:availability_zones], context: "#{context}[:availability_zones]") unless input[:availability_zones].nil?
+        AvailabilityZoneList.validate!(input[:relational_database_availability_zones], context: "#{context}[:relational_database_availability_zones]") unless input[:relational_database_availability_zones].nil?
       end
     end
 
@@ -3850,7 +3852,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Region.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Region.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3867,7 +3869,7 @@ module AWS::SDK::Lightsail
     class RegisterContainerImageOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RegisterContainerImageOutput, context: context)
-        Validators::ContainerImage.validate!(input[:container_image], context: "#{context}[:container_image]") unless input[:container_image].nil?
+        ContainerImage.validate!(input[:container_image], context: "#{context}[:container_image]") unless input[:container_image].nil?
       end
     end
 
@@ -3878,17 +3880,17 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:relational_database_blueprint_id], ::String, context: "#{context}[:relational_database_blueprint_id]")
         Hearth::Validator.validate!(input[:relational_database_bundle_id], ::String, context: "#{context}[:relational_database_bundle_id]")
         Hearth::Validator.validate!(input[:master_database_name], ::String, context: "#{context}[:master_database_name]")
-        Validators::RelationalDatabaseHardware.validate!(input[:hardware], context: "#{context}[:hardware]") unless input[:hardware].nil?
+        RelationalDatabaseHardware.validate!(input[:hardware], context: "#{context}[:hardware]") unless input[:hardware].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:secondary_availability_zone], ::String, context: "#{context}[:secondary_availability_zone]")
         Hearth::Validator.validate!(input[:backup_retention_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:backup_retention_enabled]")
-        Validators::PendingModifiedRelationalDatabaseValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
+        PendingModifiedRelationalDatabaseValues.validate!(input[:pending_modified_values], context: "#{context}[:pending_modified_values]") unless input[:pending_modified_values].nil?
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:latest_restorable_time], ::Time, context: "#{context}[:latest_restorable_time]")
@@ -3897,8 +3899,8 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:preferred_backup_window], ::String, context: "#{context}[:preferred_backup_window]")
         Hearth::Validator.validate!(input[:preferred_maintenance_window], ::String, context: "#{context}[:preferred_maintenance_window]")
         Hearth::Validator.validate!(input[:publicly_accessible], ::TrueClass, ::FalseClass, context: "#{context}[:publicly_accessible]")
-        Validators::RelationalDatabaseEndpoint.validate!(input[:master_endpoint], context: "#{context}[:master_endpoint]") unless input[:master_endpoint].nil?
-        Validators::PendingMaintenanceActionList.validate!(input[:pending_maintenance_actions], context: "#{context}[:pending_maintenance_actions]") unless input[:pending_maintenance_actions].nil?
+        RelationalDatabaseEndpoint.validate!(input[:master_endpoint], context: "#{context}[:master_endpoint]") unless input[:master_endpoint].nil?
+        PendingMaintenanceActionList.validate!(input[:pending_maintenance_actions], context: "#{context}[:pending_maintenance_actions]") unless input[:pending_maintenance_actions].nil?
         Hearth::Validator.validate!(input[:ca_certificate_identifier], ::String, context: "#{context}[:ca_certificate_identifier]")
       end
     end
@@ -3919,7 +3921,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelationalDatabaseBlueprint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelationalDatabaseBlueprint.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3943,7 +3945,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelationalDatabaseBundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelationalDatabaseBundle.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3962,7 +3964,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:resource], ::String, context: "#{context}[:resource]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::StringList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
+        StringList.validate!(input[:event_categories], context: "#{context}[:event_categories]") unless input[:event_categories].nil?
       end
     end
 
@@ -3970,7 +3972,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelationalDatabaseEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelationalDatabaseEvent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -3988,7 +3990,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelationalDatabase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelationalDatabase.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4011,7 +4013,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelationalDatabaseParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelationalDatabaseParameter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4023,9 +4025,9 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:engine_version], ::String, context: "#{context}[:engine_version]")
         Hearth::Validator.validate!(input[:size_in_gb], ::Integer, context: "#{context}[:size_in_gb]")
@@ -4041,7 +4043,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RelationalDatabaseSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RelationalDatabaseSnapshot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4056,14 +4058,14 @@ module AWS::SDK::Lightsail
     class ReleaseStaticIpOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ReleaseStaticIpOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
     class RenewalSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RenewalSummary, context: context)
-        Validators::DomainValidationRecordList.validate!(input[:domain_validation_records], context: "#{context}[:domain_validation_records]") unless input[:domain_validation_records].nil?
+        DomainValidationRecordList.validate!(input[:domain_validation_records], context: "#{context}[:domain_validation_records]") unless input[:domain_validation_records].nil?
         Hearth::Validator.validate!(input[:renewal_status], ::String, context: "#{context}[:renewal_status]")
         Hearth::Validator.validate!(input[:renewal_status_reason], ::String, context: "#{context}[:renewal_status_reason]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
@@ -4082,7 +4084,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::ResetDistributionCacheOutput, context: context)
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:create_time], ::Time, context: "#{context}[:create_time]")
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -4130,7 +4132,7 @@ module AWS::SDK::Lightsail
     class SendContactMethodVerificationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SendContactMethodVerificationOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4156,7 +4158,7 @@ module AWS::SDK::Lightsail
     class SetIpAddressTypeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetIpAddressTypeOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4172,7 +4174,7 @@ module AWS::SDK::Lightsail
     class SetResourceAccessForBucketOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SetResourceAccessForBucketOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4186,7 +4188,7 @@ module AWS::SDK::Lightsail
     class StartInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartInstanceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4200,7 +4202,7 @@ module AWS::SDK::Lightsail
     class StartRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartRelationalDatabaseOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4211,7 +4213,7 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:support_code], ::String, context: "#{context}[:support_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        ResourceLocation.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:ip_address], ::String, context: "#{context}[:ip_address]")
         Hearth::Validator.validate!(input[:attached_to], ::String, context: "#{context}[:attached_to]")
@@ -4223,7 +4225,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::StaticIp.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          StaticIp.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4239,7 +4241,7 @@ module AWS::SDK::Lightsail
     class StopInstanceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopInstanceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4254,7 +4256,7 @@ module AWS::SDK::Lightsail
     class StopRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StopRelationalDatabaseOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4297,7 +4299,7 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -4307,14 +4309,14 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class TagResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4329,7 +4331,7 @@ module AWS::SDK::Lightsail
     class TestAlarmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestAlarmOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4352,7 +4354,7 @@ module AWS::SDK::Lightsail
     class UnpeerVpcOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UnpeerVpcOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -4361,14 +4363,14 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_name], ::String, context: "#{context}[:resource_name]")
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
     class UntagResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4383,7 +4385,7 @@ module AWS::SDK::Lightsail
     class UpdateBucketBundleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBucketBundleOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4391,18 +4393,18 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBucketInput, context: context)
         Hearth::Validator.validate!(input[:bucket_name], ::String, context: "#{context}[:bucket_name]")
-        Validators::AccessRules.validate!(input[:access_rules], context: "#{context}[:access_rules]") unless input[:access_rules].nil?
+        AccessRules.validate!(input[:access_rules], context: "#{context}[:access_rules]") unless input[:access_rules].nil?
         Hearth::Validator.validate!(input[:versioning], ::String, context: "#{context}[:versioning]")
-        Validators::PartnerIdList.validate!(input[:readonly_access_accounts], context: "#{context}[:readonly_access_accounts]") unless input[:readonly_access_accounts].nil?
-        Validators::BucketAccessLogConfig.validate!(input[:access_log_config], context: "#{context}[:access_log_config]") unless input[:access_log_config].nil?
+        PartnerIdList.validate!(input[:readonly_access_accounts], context: "#{context}[:readonly_access_accounts]") unless input[:readonly_access_accounts].nil?
+        BucketAccessLogConfig.validate!(input[:access_log_config], context: "#{context}[:access_log_config]") unless input[:access_log_config].nil?
       end
     end
 
     class UpdateBucketOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateBucketOutput, context: context)
-        Validators::Bucket.validate!(input[:bucket], context: "#{context}[:bucket]") unless input[:bucket].nil?
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        Bucket.validate!(input[:bucket], context: "#{context}[:bucket]") unless input[:bucket].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4413,15 +4415,15 @@ module AWS::SDK::Lightsail
         Hearth::Validator.validate!(input[:power], ::String, context: "#{context}[:power]")
         Hearth::Validator.validate!(input[:scale], ::Integer, context: "#{context}[:scale]")
         Hearth::Validator.validate!(input[:is_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_disabled]")
-        Validators::ContainerServicePublicDomains.validate!(input[:public_domain_names], context: "#{context}[:public_domain_names]") unless input[:public_domain_names].nil?
-        Validators::PrivateRegistryAccessRequest.validate!(input[:private_registry_access], context: "#{context}[:private_registry_access]") unless input[:private_registry_access].nil?
+        ContainerServicePublicDomains.validate!(input[:public_domain_names], context: "#{context}[:public_domain_names]") unless input[:public_domain_names].nil?
+        PrivateRegistryAccessRequest.validate!(input[:private_registry_access], context: "#{context}[:private_registry_access]") unless input[:private_registry_access].nil?
       end
     end
 
     class UpdateContainerServiceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateContainerServiceOutput, context: context)
-        Validators::ContainerService.validate!(input[:container_service], context: "#{context}[:container_service]") unless input[:container_service].nil?
+        ContainerService.validate!(input[:container_service], context: "#{context}[:container_service]") unless input[:container_service].nil?
       end
     end
 
@@ -4436,7 +4438,7 @@ module AWS::SDK::Lightsail
     class UpdateDistributionBundleOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDistributionBundleOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -4444,10 +4446,10 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDistributionInput, context: context)
         Hearth::Validator.validate!(input[:distribution_name], ::String, context: "#{context}[:distribution_name]")
-        Validators::InputOrigin.validate!(input[:origin], context: "#{context}[:origin]") unless input[:origin].nil?
-        Validators::CacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
-        Validators::CacheSettings.validate!(input[:cache_behavior_settings], context: "#{context}[:cache_behavior_settings]") unless input[:cache_behavior_settings].nil?
-        Validators::CacheBehaviorList.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
+        InputOrigin.validate!(input[:origin], context: "#{context}[:origin]") unless input[:origin].nil?
+        CacheBehavior.validate!(input[:default_cache_behavior], context: "#{context}[:default_cache_behavior]") unless input[:default_cache_behavior].nil?
+        CacheSettings.validate!(input[:cache_behavior_settings], context: "#{context}[:cache_behavior_settings]") unless input[:cache_behavior_settings].nil?
+        CacheBehaviorList.validate!(input[:cache_behaviors], context: "#{context}[:cache_behaviors]") unless input[:cache_behaviors].nil?
         Hearth::Validator.validate!(input[:is_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:is_enabled]")
       end
     end
@@ -4455,7 +4457,7 @@ module AWS::SDK::Lightsail
     class UpdateDistributionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDistributionOutput, context: context)
-        Validators::Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
+        Operation.validate!(input[:operation], context: "#{context}[:operation]") unless input[:operation].nil?
       end
     end
 
@@ -4463,14 +4465,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainEntryInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainEntry.validate!(input[:domain_entry], context: "#{context}[:domain_entry]") unless input[:domain_entry].nil?
+        DomainEntry.validate!(input[:domain_entry], context: "#{context}[:domain_entry]") unless input[:domain_entry].nil?
       end
     end
 
     class UpdateDomainEntryOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateDomainEntryOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4486,7 +4488,7 @@ module AWS::SDK::Lightsail
     class UpdateLoadBalancerAttributeOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateLoadBalancerAttributeOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4509,7 +4511,7 @@ module AWS::SDK::Lightsail
     class UpdateRelationalDatabaseOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRelationalDatabaseOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 
@@ -4517,14 +4519,14 @@ module AWS::SDK::Lightsail
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRelationalDatabaseParametersInput, context: context)
         Hearth::Validator.validate!(input[:relational_database_name], ::String, context: "#{context}[:relational_database_name]")
-        Validators::RelationalDatabaseParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
+        RelationalDatabaseParameterList.validate!(input[:parameters], context: "#{context}[:parameters]") unless input[:parameters].nil?
       end
     end
 
     class UpdateRelationalDatabaseParametersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRelationalDatabaseParametersOutput, context: context)
-        Validators::OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
+        OperationList.validate!(input[:operations], context: "#{context}[:operations]") unless input[:operations].nil?
       end
     end
 

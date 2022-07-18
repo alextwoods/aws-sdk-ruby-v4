@@ -7,8 +7,6 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'base64'
-
 module AWS::SDK::AppMesh
   module Parsers
 
@@ -1055,7 +1053,7 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::VirtualGatewayClientPolicyTls.new
         data.enforce = map['enforce']
-        data.ports = map['ports']
+        data.ports = (Parsers::PortSet.parse(map['ports']) unless map['ports'].nil?)
         data.certificate = (Parsers::VirtualGatewayClientTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
         data.validation = (Parsers::VirtualGatewayTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
         return data
@@ -1126,10 +1124,11 @@ module AWS::SDK::AppMesh
 
     class PortSet
       def self.parse(list)
-        data = list.map do |value|
-          value unless value.nil?
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
         end
-        Set.new(data)
+        data
       end
     end
 
@@ -1224,7 +1223,7 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::ClientPolicyTls.new
         data.enforce = map['enforce']
-        data.ports = map['ports']
+        data.ports = (Parsers::PortSet.parse(map['ports']) unless map['ports'].nil?)
         data.certificate = (Parsers::ClientTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
         data.validation = (Parsers::TlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
         return data

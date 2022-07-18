@@ -192,7 +192,7 @@ module AWS::SDK::SSMContacts
           alias: 'alias',
           display_name: 'display_name',
           type: 'type',
-          plan: Stubs::Plan.default(visited),
+          plan: Plan.default(visited),
         }
       end
 
@@ -214,7 +214,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('Plan')
         visited = visited + ['Plan']
         {
-          stages: Stubs::StagesList.default(visited),
+          stages: StagesList.default(visited),
         }
       end
 
@@ -232,7 +232,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('StagesList')
         visited = visited + ['StagesList']
         [
-          Stubs::Stage.default(visited)
+          Stage.default(visited)
         ]
       end
 
@@ -253,7 +253,7 @@ module AWS::SDK::SSMContacts
         visited = visited + ['Stage']
         {
           duration_in_minutes: 1,
-          targets: Stubs::TargetsList.default(visited),
+          targets: TargetsList.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('TargetsList')
         visited = visited + ['TargetsList']
         [
-          Stubs::Target.default(visited)
+          Target.default(visited)
         ]
       end
 
@@ -292,8 +292,8 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('Target')
         visited = visited + ['Target']
         {
-          channel_target_info: Stubs::ChannelTargetInfo.default(visited),
-          contact_target_info: Stubs::ContactTargetInfo.default(visited),
+          channel_target_info: ChannelTargetInfo.default(visited),
+          contact_target_info: ContactTargetInfo.default(visited),
         }
       end
 
@@ -354,7 +354,7 @@ module AWS::SDK::SSMContacts
           contact_channel_arn: 'contact_channel_arn',
           name: 'name',
           type: 'type',
-          delivery_address: Stubs::ContactChannelAddress.default(visited),
+          delivery_address: ContactChannelAddress.default(visited),
           activation_status: 'activation_status',
         }
       end
@@ -413,7 +413,7 @@ module AWS::SDK::SSMContacts
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          contact_channels: Stubs::ContactChannelList.default(visited),
+          contact_channels: ContactChannelList.default(visited),
         }
       end
 
@@ -432,7 +432,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('ContactChannelList')
         visited = visited + ['ContactChannelList']
         [
-          Stubs::ContactChannel.default(visited)
+          ContactChannel.default(visited)
         ]
       end
 
@@ -456,7 +456,7 @@ module AWS::SDK::SSMContacts
           contact_arn: 'contact_arn',
           name: 'name',
           type: 'type',
-          delivery_address: Stubs::ContactChannelAddress.default(visited),
+          delivery_address: ContactChannelAddress.default(visited),
           activation_status: 'activation_status',
         }
       end
@@ -479,7 +479,7 @@ module AWS::SDK::SSMContacts
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          contacts: Stubs::ContactsList.default(visited),
+          contacts: ContactsList.default(visited),
         }
       end
 
@@ -498,7 +498,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('ContactsList')
         visited = visited + ['ContactsList']
         [
-          Stubs::Contact.default(visited)
+          Contact.default(visited)
         ]
       end
 
@@ -541,7 +541,7 @@ module AWS::SDK::SSMContacts
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          engagements: Stubs::EngagementsList.default(visited),
+          engagements: EngagementsList.default(visited),
         }
       end
 
@@ -560,7 +560,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('EngagementsList')
         visited = visited + ['EngagementsList']
         [
-          Stubs::Engagement.default(visited)
+          Engagement.default(visited)
         ]
       end
 
@@ -607,7 +607,7 @@ module AWS::SDK::SSMContacts
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          receipts: Stubs::ReceiptsList.default(visited),
+          receipts: ReceiptsList.default(visited),
         }
       end
 
@@ -626,7 +626,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('ReceiptsList')
         visited = visited + ['ReceiptsList']
         [
-          Stubs::Receipt.default(visited)
+          Receipt.default(visited)
         ]
       end
 
@@ -669,7 +669,7 @@ module AWS::SDK::SSMContacts
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          pages: Stubs::PagesList.default(visited),
+          pages: PagesList.default(visited),
         }
       end
 
@@ -688,7 +688,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('PagesList')
         visited = visited + ['PagesList']
         [
-          Stubs::Page.default(visited)
+          Page.default(visited)
         ]
       end
 
@@ -739,7 +739,7 @@ module AWS::SDK::SSMContacts
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          pages: Stubs::PagesList.default(visited),
+          pages: PagesList.default(visited),
         }
       end
 
@@ -756,7 +756,7 @@ module AWS::SDK::SSMContacts
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagsList.default(visited),
+          tags: TagsList.default(visited),
         }
       end
 
@@ -774,7 +774,7 @@ module AWS::SDK::SSMContacts
         return nil if visited.include?('TagsList')
         visited = visited + ['TagsList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ApplicationDiscoveryService
@@ -189,7 +191,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def associate_configuration_items_to_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateConfigurationItemsToApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateConfigurationItemsToApplicationInput,
         validate_input: @config.validate_input
@@ -271,7 +273,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def batch_delete_import_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteImportDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteImportDataInput,
         validate_input: @config.validate_input
@@ -344,7 +346,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def create_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateApplicationInput,
         validate_input: @config.validate_input
@@ -433,7 +435,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -504,7 +506,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def delete_applications(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteApplicationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteApplicationsInput,
         validate_input: @config.validate_input
@@ -589,7 +591,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -707,7 +709,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_agents(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAgentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAgentsInput,
         validate_input: @config.validate_input
@@ -805,7 +807,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationsInput,
         validate_input: @config.validate_input
@@ -898,7 +900,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_continuous_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContinuousExportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContinuousExportsInput,
         validate_input: @config.validate_input
@@ -991,7 +993,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_export_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportConfigurationsInput,
         validate_input: @config.validate_input
@@ -1107,7 +1109,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_export_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportTasksInput,
         validate_input: @config.validate_input
@@ -1209,7 +1211,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_import_tasks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImportTasksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImportTasksInput,
         validate_input: @config.validate_input
@@ -1318,7 +1320,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -1392,7 +1394,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def disassociate_configuration_items_from_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateConfigurationItemsFromApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateConfigurationItemsFromApplicationInput,
         validate_input: @config.validate_input
@@ -1463,7 +1465,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def export_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportConfigurationsInput,
         validate_input: @config.validate_input
@@ -1556,7 +1558,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def get_discovery_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDiscoverySummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDiscoverySummaryInput,
         validate_input: @config.validate_input
@@ -1671,7 +1673,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def list_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConfigurationsInput,
         validate_input: @config.validate_input
@@ -1771,7 +1773,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def list_server_neighbors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListServerNeighborsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListServerNeighborsInput,
         validate_input: @config.validate_input
@@ -1840,7 +1842,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def start_continuous_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartContinuousExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartContinuousExportInput,
         validate_input: @config.validate_input
@@ -1921,7 +1923,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def start_data_collection_by_agent_ids(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDataCollectionByAgentIdsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDataCollectionByAgentIdsInput,
         validate_input: @config.validate_input
@@ -2034,7 +2036,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def start_export_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartExportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartExportTaskInput,
         validate_input: @config.validate_input
@@ -2173,7 +2175,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def start_import_task(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartImportTaskInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartImportTaskInput,
         validate_input: @config.validate_input
@@ -2243,7 +2245,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def stop_continuous_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopContinuousExportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopContinuousExportInput,
         validate_input: @config.validate_input
@@ -2318,7 +2320,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def stop_data_collection_by_agent_ids(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopDataCollectionByAgentIdsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopDataCollectionByAgentIdsInput,
         validate_input: @config.validate_input
@@ -2394,7 +2396,7 @@ module AWS::SDK::ApplicationDiscoveryService
     def update_application(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateApplicationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateApplicationInput,
         validate_input: @config.validate_input

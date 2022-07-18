@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ApiGatewayManagementApi
@@ -54,7 +56,7 @@ module AWS::SDK::ApiGatewayManagementApi
     def delete_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConnectionInput,
         validate_input: @config.validate_input
@@ -123,7 +125,7 @@ module AWS::SDK::ApiGatewayManagementApi
     def get_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConnectionInput,
         validate_input: @config.validate_input
@@ -194,7 +196,7 @@ module AWS::SDK::ApiGatewayManagementApi
     def post_to_connection(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PostToConnectionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PostToConnectionInput,
         validate_input: @config.validate_input

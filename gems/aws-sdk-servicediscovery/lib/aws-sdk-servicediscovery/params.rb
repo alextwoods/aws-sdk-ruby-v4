@@ -28,7 +28,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(params, ::Hash, Types::CreateHttpNamespaceInput, context: context)
         type = Types::CreateHttpNamespaceInput.new
         type.name = params[:name]
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.description = params[:description]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -49,7 +49,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(params, ::Hash, Types::CreatePrivateDnsNamespaceInput, context: context)
         type = Types::CreatePrivateDnsNamespaceInput.new
         type.name = params[:name]
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.description = params[:description]
         type.vpc = params[:vpc]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -72,7 +72,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(params, ::Hash, Types::CreatePublicDnsNamespaceInput, context: context)
         type = Types::CreatePublicDnsNamespaceInput.new
         type.name = params[:name]
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.description = params[:description]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.properties = PublicDnsNamespaceProperties.build(params[:properties], context: "#{context}[:properties]") unless params[:properties].nil?
@@ -95,7 +95,7 @@ module AWS::SDK::ServiceDiscovery
         type = Types::CreateServiceInput.new
         type.name = params[:name]
         type.namespace_id = params[:namespace_id]
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.description = params[:description]
         type.dns_config = DnsConfig.build(params[:dns_config], context: "#{context}[:dns_config]") unless params[:dns_config].nil?
         type.health_check_config = HealthCheckConfig.build(params[:health_check_config], context: "#{context}[:health_check_config]") unless params[:health_check_config].nil?
@@ -877,7 +877,7 @@ module AWS::SDK::ServiceDiscovery
         type = Types::RegisterInstanceInput.new
         type.service_id = params[:service_id]
         type.instance_id = params[:instance_id]
-        type.creator_request_id = params[:creator_request_id] || SecureRandom.uuid
+        type.creator_request_id = params[:creator_request_id] || ::SecureRandom.uuid
         type.attributes = Attributes.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
         type
       end
@@ -1131,7 +1131,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateHttpNamespaceInput, context: context)
         type = Types::UpdateHttpNamespaceInput.new
         type.id = params[:id]
-        type.updater_request_id = params[:updater_request_id] || SecureRandom.uuid
+        type.updater_request_id = params[:updater_request_id] || ::SecureRandom.uuid
         type.namespace = HttpNamespaceChange.build(params[:namespace], context: "#{context}[:namespace]") unless params[:namespace].nil?
         type
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(params, ::Hash, Types::UpdatePrivateDnsNamespaceInput, context: context)
         type = Types::UpdatePrivateDnsNamespaceInput.new
         type.id = params[:id]
-        type.updater_request_id = params[:updater_request_id] || SecureRandom.uuid
+        type.updater_request_id = params[:updater_request_id] || ::SecureRandom.uuid
         type.namespace = PrivateDnsNamespaceChange.build(params[:namespace], context: "#{context}[:namespace]") unless params[:namespace].nil?
         type
       end
@@ -1190,7 +1190,7 @@ module AWS::SDK::ServiceDiscovery
         Hearth::Validator.validate!(params, ::Hash, Types::UpdatePublicDnsNamespaceInput, context: context)
         type = Types::UpdatePublicDnsNamespaceInput.new
         type.id = params[:id]
-        type.updater_request_id = params[:updater_request_id] || SecureRandom.uuid
+        type.updater_request_id = params[:updater_request_id] || ::SecureRandom.uuid
         type.namespace = PublicDnsNamespaceChange.build(params[:namespace], context: "#{context}[:namespace]") unless params[:namespace].nil?
         type
       end

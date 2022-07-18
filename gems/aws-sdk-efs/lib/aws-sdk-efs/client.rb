@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EFS
@@ -137,7 +139,7 @@ module AWS::SDK::EFS
     def create_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccessPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccessPointInput,
         validate_input: @config.validate_input
@@ -389,7 +391,7 @@ module AWS::SDK::EFS
     def create_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFileSystemInput,
         validate_input: @config.validate_input
@@ -624,7 +626,7 @@ module AWS::SDK::EFS
     def create_mount_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMountTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMountTargetInput,
         validate_input: @config.validate_input
@@ -798,7 +800,7 @@ module AWS::SDK::EFS
     def create_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -889,7 +891,7 @@ module AWS::SDK::EFS
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -960,7 +962,7 @@ module AWS::SDK::EFS
     def delete_access_point(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccessPointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccessPointInput,
         validate_input: @config.validate_input
@@ -1048,7 +1050,7 @@ module AWS::SDK::EFS
     def delete_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFileSystemInput,
         validate_input: @config.validate_input
@@ -1118,7 +1120,7 @@ module AWS::SDK::EFS
     def delete_file_system_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFileSystemPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFileSystemPolicyInput,
         validate_input: @config.validate_input
@@ -1218,7 +1220,7 @@ module AWS::SDK::EFS
     def delete_mount_target(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMountTargetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMountTargetInput,
         validate_input: @config.validate_input
@@ -1290,7 +1292,7 @@ module AWS::SDK::EFS
     def delete_replication_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReplicationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReplicationConfigurationInput,
         validate_input: @config.validate_input
@@ -1376,7 +1378,7 @@ module AWS::SDK::EFS
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -1488,7 +1490,7 @@ module AWS::SDK::EFS
     def describe_access_points(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccessPointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccessPointsInput,
         validate_input: @config.validate_input
@@ -1568,7 +1570,7 @@ module AWS::SDK::EFS
     def describe_account_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountPreferencesInput,
         validate_input: @config.validate_input
@@ -1638,7 +1640,7 @@ module AWS::SDK::EFS
     def describe_backup_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupPolicyInput,
         validate_input: @config.validate_input
@@ -1708,7 +1710,7 @@ module AWS::SDK::EFS
     def describe_file_system_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFileSystemPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFileSystemPolicyInput,
         validate_input: @config.validate_input
@@ -1843,7 +1845,7 @@ module AWS::SDK::EFS
     def describe_file_systems(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFileSystemsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFileSystemsInput,
         validate_input: @config.validate_input
@@ -1923,7 +1925,7 @@ module AWS::SDK::EFS
     def describe_lifecycle_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLifecycleConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLifecycleConfigurationInput,
         validate_input: @config.validate_input
@@ -2007,7 +2009,7 @@ module AWS::SDK::EFS
     def describe_mount_target_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMountTargetSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMountTargetSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -2118,7 +2120,7 @@ module AWS::SDK::EFS
     def describe_mount_targets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMountTargetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMountTargetsInput,
         validate_input: @config.validate_input
@@ -2214,7 +2216,7 @@ module AWS::SDK::EFS
     def describe_replication_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReplicationConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReplicationConfigurationsInput,
         validate_input: @config.validate_input
@@ -2311,7 +2313,7 @@ module AWS::SDK::EFS
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -2392,7 +2394,7 @@ module AWS::SDK::EFS
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2484,7 +2486,7 @@ module AWS::SDK::EFS
     def modify_mount_target_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyMountTargetSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyMountTargetSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -2573,7 +2575,7 @@ module AWS::SDK::EFS
     def put_account_preferences(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAccountPreferencesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAccountPreferencesInput,
         validate_input: @config.validate_input
@@ -2649,7 +2651,7 @@ module AWS::SDK::EFS
     def put_backup_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutBackupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBackupPolicyInput,
         validate_input: @config.validate_input
@@ -2747,7 +2749,7 @@ module AWS::SDK::EFS
     def put_file_system_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFileSystemPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFileSystemPolicyInput,
         validate_input: @config.validate_input
@@ -2892,7 +2894,7 @@ module AWS::SDK::EFS
     def put_lifecycle_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutLifecycleConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutLifecycleConfigurationInput,
         validate_input: @config.validate_input
@@ -2971,7 +2973,7 @@ module AWS::SDK::EFS
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -3047,7 +3049,7 @@ module AWS::SDK::EFS
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -3153,7 +3155,7 @@ module AWS::SDK::EFS
     def update_file_system(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFileSystemInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFileSystemInput,
         validate_input: @config.validate_input

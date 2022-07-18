@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::MarketplaceCatalog
@@ -74,7 +76,7 @@ module AWS::SDK::MarketplaceCatalog
     def cancel_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelChangeSetInput,
         validate_input: @config.validate_input
@@ -168,7 +170,7 @@ module AWS::SDK::MarketplaceCatalog
     def describe_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeChangeSetInput,
         validate_input: @config.validate_input
@@ -246,7 +248,7 @@ module AWS::SDK::MarketplaceCatalog
     def describe_entity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEntityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEntityInput,
         validate_input: @config.validate_input
@@ -362,7 +364,7 @@ module AWS::SDK::MarketplaceCatalog
     def list_change_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListChangeSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListChangeSetsInput,
         validate_input: @config.validate_input
@@ -473,7 +475,7 @@ module AWS::SDK::MarketplaceCatalog
     def list_entities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEntitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEntitiesInput,
         validate_input: @config.validate_input
@@ -579,7 +581,7 @@ module AWS::SDK::MarketplaceCatalog
     def start_change_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartChangeSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartChangeSetInput,
         validate_input: @config.validate_input

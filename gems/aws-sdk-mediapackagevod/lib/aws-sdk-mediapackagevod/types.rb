@@ -153,12 +153,12 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_encoder_configuration_in_segments ||= false
         self.segment_duration_seconds ||= 0
       end
-
     end
 
     # The option to configure log subscription.
@@ -567,11 +567,11 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min_buffer_time_seconds ||= 0
       end
-
     end
 
     # A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
@@ -622,12 +622,12 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_encoder_configuration_in_segments ||= false
         self.segment_duration_seconds ||= 0
       end
-
     end
 
     # @!attribute id
@@ -1030,13 +1030,13 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_iframe_only_stream ||= false
         self.program_date_time_interval_seconds ||= 0
         self.repeat_ext_x_key ||= false
       end
-
     end
 
     # An HTTP Live Streaming (HLS) packaging configuration.
@@ -1076,13 +1076,13 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_dvb_subtitles ||= false
         self.segment_duration_seconds ||= 0
         self.use_audio_rendition_group ||= false
       end
-
     end
 
     # An unexpected error occurred.
@@ -1120,11 +1120,11 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute assets
@@ -1167,11 +1167,11 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1208,11 +1208,11 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -1327,11 +1327,11 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.segment_duration_seconds ||= 0
       end
-
     end
 
     # The requested resource does not exist.
@@ -1569,12 +1569,12 @@ module AWS::SDK::MediaPackageVod
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_video_bits_per_second ||= 0
         self.min_video_bits_per_second ||= 0
       end
-
     end
 
     # @!attribute resource_arn

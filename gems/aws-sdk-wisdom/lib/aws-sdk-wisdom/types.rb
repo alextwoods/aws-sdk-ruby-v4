@@ -1306,11 +1306,11 @@ module AWS::SDK::Wisdom
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.wait_time_seconds ||= 0
       end
-
     end
 
     # @!attribute recommendations
@@ -1380,12 +1380,12 @@ module AWS::SDK::Wisdom
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.begin_offset_inclusive ||= 0
         self.end_offset_exclusive ||= 0
       end
-
     end
 
     # <p>Association information about the knowledge base.</p>
@@ -1975,11 +1975,11 @@ module AWS::SDK::Wisdom
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.relevance_score ||= 0
       end
-
     end
 
     # Includes enum constants for RecommendationSourceType
@@ -2203,11 +2203,11 @@ module AWS::SDK::Wisdom
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.relevance_score ||= 0
       end
-
     end
 
     # @!attribute next_token

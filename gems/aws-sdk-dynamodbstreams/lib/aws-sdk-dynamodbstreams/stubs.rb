@@ -14,7 +14,7 @@ module AWS::SDK::DynamoDBStreams
     class DescribeStream
       def self.default(visited=[])
         {
-          stream_description: Stubs::StreamDescription.default(visited),
+          stream_description: StreamDescription.default(visited),
         }
       end
 
@@ -38,8 +38,8 @@ module AWS::SDK::DynamoDBStreams
           stream_view_type: 'stream_view_type',
           creation_request_date_time: Time.now,
           table_name: 'table_name',
-          key_schema: Stubs::KeySchema.default(visited),
-          shards: Stubs::ShardDescriptionList.default(visited),
+          key_schema: KeySchema.default(visited),
+          shards: ShardDescriptionList.default(visited),
           last_evaluated_shard_id: 'last_evaluated_shard_id',
         }
       end
@@ -66,7 +66,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('ShardDescriptionList')
         visited = visited + ['ShardDescriptionList']
         [
-          Stubs::Shard.default(visited)
+          Shard.default(visited)
         ]
       end
 
@@ -87,7 +87,7 @@ module AWS::SDK::DynamoDBStreams
         visited = visited + ['Shard']
         {
           shard_id: 'shard_id',
-          sequence_number_range: Stubs::SequenceNumberRange.default(visited),
+          sequence_number_range: SequenceNumberRange.default(visited),
           parent_shard_id: 'parent_shard_id',
         }
       end
@@ -128,7 +128,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('KeySchema')
         visited = visited + ['KeySchema']
         [
-          Stubs::KeySchemaElement.default(visited)
+          KeySchemaElement.default(visited)
         ]
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::DynamoDBStreams
     class GetRecords
       def self.default(visited=[])
         {
-          records: Stubs::RecordList.default(visited),
+          records: RecordList.default(visited),
           next_shard_iterator: 'next_shard_iterator',
         }
       end
@@ -186,7 +186,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('RecordList')
         visited = visited + ['RecordList']
         [
-          Stubs::Record.default(visited)
+          Record.default(visited)
         ]
       end
 
@@ -211,8 +211,8 @@ module AWS::SDK::DynamoDBStreams
           event_version: 'event_version',
           event_source: 'event_source',
           aws_region: 'aws_region',
-          dynamodb: Stubs::StreamRecord.default(visited),
-          user_identity: Stubs::Identity.default(visited),
+          dynamodb: StreamRecord.default(visited),
+          user_identity: Identity.default(visited),
         }
       end
 
@@ -257,9 +257,9 @@ module AWS::SDK::DynamoDBStreams
         visited = visited + ['StreamRecord']
         {
           approximate_creation_date_time: Time.now,
-          keys: Stubs::AttributeMap.default(visited),
-          new_image: Stubs::AttributeMap.default(visited),
-          old_image: Stubs::AttributeMap.default(visited),
+          keys: AttributeMap.default(visited),
+          new_image: AttributeMap.default(visited),
+          old_image: AttributeMap.default(visited),
           sequence_number: 'sequence_number',
           size_bytes: 1,
           stream_view_type: 'stream_view_type',
@@ -286,7 +286,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('AttributeMap')
         visited = visited + ['AttributeMap']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -348,7 +348,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('ListAttributeValue')
         visited = visited + ['ListAttributeValue']
         [
-          Stubs::AttributeValue.default(visited)
+          AttributeValue.default(visited)
         ]
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('MapAttributeValue')
         visited = visited + ['MapAttributeValue']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -462,7 +462,7 @@ module AWS::SDK::DynamoDBStreams
     class ListStreams
       def self.default(visited=[])
         {
-          streams: Stubs::StreamList.default(visited),
+          streams: StreamList.default(visited),
           last_evaluated_stream_arn: 'last_evaluated_stream_arn',
         }
       end
@@ -482,7 +482,7 @@ module AWS::SDK::DynamoDBStreams
         return nil if visited.include?('StreamList')
         visited = visited + ['StreamList']
         [
-          Stubs::Stream.default(visited)
+          Stream.default(visited)
         ]
       end
 

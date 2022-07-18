@@ -160,7 +160,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         type.name = params[:name]
         type.description = params[:description]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         type.description = params[:description]
         type.attributes = params[:attributes]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

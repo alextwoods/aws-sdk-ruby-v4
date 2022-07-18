@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::AutoScalingPlans
@@ -163,7 +165,7 @@ module AWS::SDK::AutoScalingPlans
     def create_scaling_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScalingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScalingPlanInput,
         validate_input: @config.validate_input
@@ -240,7 +242,7 @@ module AWS::SDK::AutoScalingPlans
     def delete_scaling_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScalingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScalingPlanInput,
         validate_input: @config.validate_input
@@ -354,7 +356,7 @@ module AWS::SDK::AutoScalingPlans
     def describe_scaling_plan_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingPlanResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingPlanResourcesInput,
         validate_input: @config.validate_input
@@ -517,7 +519,7 @@ module AWS::SDK::AutoScalingPlans
     def describe_scaling_plans(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScalingPlansInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScalingPlansInput,
         validate_input: @config.validate_input
@@ -652,7 +654,7 @@ module AWS::SDK::AutoScalingPlans
     def get_scaling_plan_resource_forecast_data(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetScalingPlanResourceForecastDataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetScalingPlanResourceForecastDataInput,
         validate_input: @config.validate_input
@@ -796,7 +798,7 @@ module AWS::SDK::AutoScalingPlans
     def update_scaling_plan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateScalingPlanInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateScalingPlanInput,
         validate_input: @config.validate_input

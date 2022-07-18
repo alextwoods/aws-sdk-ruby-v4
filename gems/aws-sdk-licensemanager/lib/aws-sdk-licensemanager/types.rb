@@ -1613,11 +1613,11 @@ module AWS::SDK::LicenseManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute license_consumption_token
@@ -3888,11 +3888,11 @@ module AWS::SDK::LicenseManager
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_integration ||= false
       end
-
     end
 
     # <p>Describes product information for a license configuration.</p>

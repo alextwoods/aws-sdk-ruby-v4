@@ -27,7 +27,7 @@ module AWS::SDK::Account
     class GetAlternateContact
       def self.default(visited=[])
         {
-          alternate_contact: Stubs::AlternateContact.default(visited),
+          alternate_contact: AlternateContact.default(visited),
         }
       end
 

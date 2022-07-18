@@ -92,7 +92,7 @@ module AWS::SDK::SSM
     class CreateAssociation
       def self.default(visited=[])
         {
-          association_description: Stubs::AssociationDescription.default(visited),
+          association_description: AssociationDescription.default(visited),
         }
       end
 
@@ -115,15 +115,15 @@ module AWS::SDK::SSM
           association_version: 'association_version',
           date: Time.now,
           last_update_association_date: Time.now,
-          status: Stubs::AssociationStatus.default(visited),
-          overview: Stubs::AssociationOverview.default(visited),
+          status: AssociationStatus.default(visited),
+          overview: AssociationOverview.default(visited),
           document_version: 'document_version',
           automation_target_parameter_name: 'automation_target_parameter_name',
-          parameters: Stubs::Parameters.default(visited),
+          parameters: Parameters.default(visited),
           association_id: 'association_id',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           schedule_expression: 'schedule_expression',
-          output_location: Stubs::InstanceAssociationOutputLocation.default(visited),
+          output_location: InstanceAssociationOutputLocation.default(visited),
           last_execution_date: Time.now,
           last_successful_execution_date: Time.now,
           association_name: 'association_name',
@@ -132,10 +132,10 @@ module AWS::SDK::SSM
           compliance_severity: 'compliance_severity',
           sync_compliance: 'sync_compliance',
           apply_only_at_cron_interval: false,
-          calendar_names: Stubs::CalendarNameOrARNList.default(visited),
-          target_locations: Stubs::TargetLocations.default(visited),
+          calendar_names: CalendarNameOrARNList.default(visited),
+          target_locations: TargetLocations.default(visited),
           schedule_offset: 1,
-          target_maps: Stubs::TargetMaps.default(visited),
+          target_maps: TargetMaps.default(visited),
         }
       end
 
@@ -178,7 +178,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('TargetMaps')
         visited = visited + ['TargetMaps']
         [
-          Stubs::TargetMap.default(visited)
+          TargetMap.default(visited)
         ]
       end
 
@@ -198,7 +198,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('TargetMap')
         visited = visited + ['TargetMap']
         {
-          test_key: Stubs::TargetMapValueList.default(visited)
+          test_key: TargetMapValueList.default(visited)
         }
       end
 
@@ -238,7 +238,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('TargetLocations')
         visited = visited + ['TargetLocations']
         [
-          Stubs::TargetLocation.default(visited)
+          TargetLocation.default(visited)
         ]
       end
 
@@ -258,8 +258,8 @@ module AWS::SDK::SSM
         return nil if visited.include?('TargetLocation')
         visited = visited + ['TargetLocation']
         {
-          accounts: Stubs::Accounts.default(visited),
-          regions: Stubs::Regions.default(visited),
+          accounts: Accounts.default(visited),
+          regions: Regions.default(visited),
           target_location_max_concurrency: 'target_location_max_concurrency',
           target_location_max_errors: 'target_location_max_errors',
           execution_role_name: 'execution_role_name',
@@ -344,7 +344,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstanceAssociationOutputLocation')
         visited = visited + ['InstanceAssociationOutputLocation']
         {
-          s3_location: Stubs::S3OutputLocation.default(visited),
+          s3_location: S3OutputLocation.default(visited),
         }
       end
 
@@ -384,7 +384,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('Targets')
         visited = visited + ['Targets']
         [
-          Stubs::Target.default(visited)
+          Target.default(visited)
         ]
       end
 
@@ -405,7 +405,7 @@ module AWS::SDK::SSM
         visited = visited + ['Target']
         {
           key: 'key',
-          values: Stubs::TargetValues.default(visited),
+          values: TargetValues.default(visited),
         }
       end
 
@@ -444,7 +444,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('Parameters')
         visited = visited + ['Parameters']
         {
-          test_key: Stubs::ParameterValueList.default(visited)
+          test_key: ParameterValueList.default(visited)
         }
       end
 
@@ -486,7 +486,7 @@ module AWS::SDK::SSM
         {
           status: 'status',
           detailed_status: 'detailed_status',
-          association_status_aggregated_count: Stubs::AssociationStatusAggregatedCount.default(visited),
+          association_status_aggregated_count: AssociationStatusAggregatedCount.default(visited),
         }
       end
 
@@ -548,8 +548,8 @@ module AWS::SDK::SSM
     class CreateAssociationBatch
       def self.default(visited=[])
         {
-          successful: Stubs::AssociationDescriptionList.default(visited),
-          failed: Stubs::FailedCreateAssociationList.default(visited),
+          successful: AssociationDescriptionList.default(visited),
+          failed: FailedCreateAssociationList.default(visited),
         }
       end
 
@@ -568,7 +568,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('FailedCreateAssociationList')
         visited = visited + ['FailedCreateAssociationList']
         [
-          Stubs::FailedCreateAssociation.default(visited)
+          FailedCreateAssociation.default(visited)
         ]
       end
 
@@ -588,7 +588,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('FailedCreateAssociation')
         visited = visited + ['FailedCreateAssociation']
         {
-          entry: Stubs::CreateAssociationBatchRequestEntry.default(visited),
+          entry: CreateAssociationBatchRequestEntry.default(visited),
           message: 'message',
           fault: 'fault',
         }
@@ -612,22 +612,22 @@ module AWS::SDK::SSM
         {
           name: 'name',
           instance_id: 'instance_id',
-          parameters: Stubs::Parameters.default(visited),
+          parameters: Parameters.default(visited),
           automation_target_parameter_name: 'automation_target_parameter_name',
           document_version: 'document_version',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           schedule_expression: 'schedule_expression',
-          output_location: Stubs::InstanceAssociationOutputLocation.default(visited),
+          output_location: InstanceAssociationOutputLocation.default(visited),
           association_name: 'association_name',
           max_errors: 'max_errors',
           max_concurrency: 'max_concurrency',
           compliance_severity: 'compliance_severity',
           sync_compliance: 'sync_compliance',
           apply_only_at_cron_interval: false,
-          calendar_names: Stubs::CalendarNameOrARNList.default(visited),
-          target_locations: Stubs::TargetLocations.default(visited),
+          calendar_names: CalendarNameOrARNList.default(visited),
+          target_locations: TargetLocations.default(visited),
           schedule_offset: 1,
-          target_maps: Stubs::TargetMaps.default(visited),
+          target_maps: TargetMaps.default(visited),
         }
       end
 
@@ -662,7 +662,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AssociationDescriptionList')
         visited = visited + ['AssociationDescriptionList']
         [
-          Stubs::AssociationDescription.default(visited)
+          AssociationDescription.default(visited)
         ]
       end
 
@@ -680,7 +680,7 @@ module AWS::SDK::SSM
     class CreateDocument
       def self.default(visited=[])
         {
-          document_description: Stubs::DocumentDescription.default(visited),
+          document_description: DocumentDescription.default(visited),
         }
       end
 
@@ -710,24 +710,24 @@ module AWS::SDK::SSM
           status_information: 'status_information',
           document_version: 'document_version',
           description: 'description',
-          parameters: Stubs::DocumentParameterList.default(visited),
-          platform_types: Stubs::PlatformTypeList.default(visited),
+          parameters: DocumentParameterList.default(visited),
+          platform_types: PlatformTypeList.default(visited),
           document_type: 'document_type',
           schema_version: 'schema_version',
           latest_version: 'latest_version',
           default_version: 'default_version',
           document_format: 'document_format',
           target_type: 'target_type',
-          tags: Stubs::TagList.default(visited),
-          attachments_information: Stubs::AttachmentInformationList.default(visited),
-          requires: Stubs::DocumentRequiresList.default(visited),
+          tags: TagList.default(visited),
+          attachments_information: AttachmentInformationList.default(visited),
+          requires: DocumentRequiresList.default(visited),
           author: 'author',
-          review_information: Stubs::ReviewInformationList.default(visited),
+          review_information: ReviewInformationList.default(visited),
           approved_version: 'approved_version',
           pending_review_version: 'pending_review_version',
           review_status: 'review_status',
-          category: Stubs::CategoryList.default(visited),
-          category_enum: Stubs::CategoryEnumList.default(visited),
+          category: CategoryList.default(visited),
+          category_enum: CategoryEnumList.default(visited),
         }
       end
 
@@ -814,7 +814,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ReviewInformationList')
         visited = visited + ['ReviewInformationList']
         [
-          Stubs::ReviewInformation.default(visited)
+          ReviewInformation.default(visited)
         ]
       end
 
@@ -856,7 +856,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentRequiresList')
         visited = visited + ['DocumentRequiresList']
         [
-          Stubs::DocumentRequires.default(visited)
+          DocumentRequires.default(visited)
         ]
       end
 
@@ -896,7 +896,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AttachmentInformationList')
         visited = visited + ['AttachmentInformationList']
         [
-          Stubs::AttachmentInformation.default(visited)
+          AttachmentInformation.default(visited)
         ]
       end
 
@@ -934,7 +934,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -994,7 +994,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentParameterList')
         visited = visited + ['DocumentParameterList']
         [
-          Stubs::DocumentParameter.default(visited)
+          DocumentParameter.default(visited)
         ]
       end
 
@@ -1158,7 +1158,7 @@ module AWS::SDK::SSM
         {
           deletion_id: 'deletion_id',
           type_name: 'type_name',
-          deletion_summary: Stubs::InventoryDeletionSummary.default(visited),
+          deletion_summary: InventoryDeletionSummary.default(visited),
         }
       end
 
@@ -1180,7 +1180,7 @@ module AWS::SDK::SSM
         {
           total_count: 1,
           remaining_count: 1,
-          summary_items: Stubs::InventoryDeletionSummaryItems.default(visited),
+          summary_items: InventoryDeletionSummaryItems.default(visited),
         }
       end
 
@@ -1200,7 +1200,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryDeletionSummaryItems')
         visited = visited + ['InventoryDeletionSummaryItems']
         [
-          Stubs::InventoryDeletionSummaryItem.default(visited)
+          InventoryDeletionSummaryItem.default(visited)
         ]
       end
 
@@ -1284,8 +1284,8 @@ module AWS::SDK::SSM
     class DeleteParameters
       def self.default(visited=[])
         {
-          deleted_parameters: Stubs::ParameterNameList.default(visited),
-          invalid_parameters: Stubs::ParameterNameList.default(visited),
+          deleted_parameters: ParameterNameList.default(visited),
+          invalid_parameters: ParameterNameList.default(visited),
         }
       end
 
@@ -1420,7 +1420,7 @@ module AWS::SDK::SSM
     class DescribeActivations
       def self.default(visited=[])
         {
-          activation_list: Stubs::ActivationList.default(visited),
+          activation_list: ActivationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1440,7 +1440,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ActivationList')
         visited = visited + ['ActivationList']
         [
-          Stubs::Activation.default(visited)
+          Activation.default(visited)
         ]
       end
 
@@ -1469,7 +1469,7 @@ module AWS::SDK::SSM
           expiration_date: Time.now,
           expired: false,
           created_date: Time.now,
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1494,7 +1494,7 @@ module AWS::SDK::SSM
     class DescribeAssociation
       def self.default(visited=[])
         {
-          association_description: Stubs::AssociationDescription.default(visited),
+          association_description: AssociationDescription.default(visited),
         }
       end
 
@@ -1510,7 +1510,7 @@ module AWS::SDK::SSM
     class DescribeAssociationExecutionTargets
       def self.default(visited=[])
         {
-          association_execution_targets: Stubs::AssociationExecutionTargetsList.default(visited),
+          association_execution_targets: AssociationExecutionTargetsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1530,7 +1530,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AssociationExecutionTargetsList')
         visited = visited + ['AssociationExecutionTargetsList']
         [
-          Stubs::AssociationExecutionTarget.default(visited)
+          AssociationExecutionTarget.default(visited)
         ]
       end
 
@@ -1558,7 +1558,7 @@ module AWS::SDK::SSM
           status: 'status',
           detailed_status: 'detailed_status',
           last_execution_date: Time.now,
-          output_source: Stubs::OutputSource.default(visited),
+          output_source: OutputSource.default(visited),
         }
       end
 
@@ -1602,7 +1602,7 @@ module AWS::SDK::SSM
     class DescribeAssociationExecutions
       def self.default(visited=[])
         {
-          association_executions: Stubs::AssociationExecutionsList.default(visited),
+          association_executions: AssociationExecutionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1622,7 +1622,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AssociationExecutionsList')
         visited = visited + ['AssociationExecutionsList']
         [
-          Stubs::AssociationExecution.default(visited)
+          AssociationExecution.default(visited)
         ]
       end
 
@@ -1672,7 +1672,7 @@ module AWS::SDK::SSM
     class DescribeAutomationExecutions
       def self.default(visited=[])
         {
-          automation_execution_metadata_list: Stubs::AutomationExecutionMetadataList.default(visited),
+          automation_execution_metadata_list: AutomationExecutionMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1692,7 +1692,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AutomationExecutionMetadataList')
         visited = visited + ['AutomationExecutionMetadataList']
         [
-          Stubs::AutomationExecutionMetadata.default(visited)
+          AutomationExecutionMetadata.default(visited)
         ]
       end
 
@@ -1720,23 +1720,23 @@ module AWS::SDK::SSM
           execution_end_time: Time.now,
           executed_by: 'executed_by',
           log_file: 'log_file',
-          outputs: Stubs::AutomationParameterMap.default(visited),
+          outputs: AutomationParameterMap.default(visited),
           mode: 'mode',
           parent_automation_execution_id: 'parent_automation_execution_id',
           current_step_name: 'current_step_name',
           current_action: 'current_action',
           failure_message: 'failure_message',
           target_parameter_name: 'target_parameter_name',
-          targets: Stubs::Targets.default(visited),
-          target_maps: Stubs::TargetMaps.default(visited),
-          resolved_targets: Stubs::ResolvedTargets.default(visited),
+          targets: Targets.default(visited),
+          target_maps: TargetMaps.default(visited),
+          resolved_targets: ResolvedTargets.default(visited),
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
           target: 'target',
           automation_type: 'automation_type',
           automation_subtype: 'automation_subtype',
           scheduled_time: Time.now,
-          runbooks: Stubs::Runbooks.default(visited),
+          runbooks: Runbooks.default(visited),
           ops_item_id: 'ops_item_id',
           association_id: 'association_id',
           change_request_name: 'change_request_name',
@@ -1784,7 +1784,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('Runbooks')
         visited = visited + ['Runbooks']
         [
-          Stubs::Runbook.default(visited)
+          Runbook.default(visited)
         ]
       end
 
@@ -1806,13 +1806,13 @@ module AWS::SDK::SSM
         {
           document_name: 'document_name',
           document_version: 'document_version',
-          parameters: Stubs::AutomationParameterMap.default(visited),
+          parameters: AutomationParameterMap.default(visited),
           target_parameter_name: 'target_parameter_name',
-          targets: Stubs::Targets.default(visited),
-          target_maps: Stubs::TargetMaps.default(visited),
+          targets: Targets.default(visited),
+          target_maps: TargetMaps.default(visited),
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
-          target_locations: Stubs::TargetLocations.default(visited),
+          target_locations: TargetLocations.default(visited),
         }
       end
 
@@ -1838,7 +1838,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AutomationParameterMap')
         visited = visited + ['AutomationParameterMap']
         {
-          test_key: Stubs::AutomationParameterValueList.default(visited)
+          test_key: AutomationParameterValueList.default(visited)
         }
       end
 
@@ -1878,7 +1878,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ResolvedTargets')
         visited = visited + ['ResolvedTargets']
         {
-          parameter_values: Stubs::TargetParameterList.default(visited),
+          parameter_values: TargetParameterList.default(visited),
           truncated: false,
         }
       end
@@ -1916,7 +1916,7 @@ module AWS::SDK::SSM
     class DescribeAutomationStepExecutions
       def self.default(visited=[])
         {
-          step_executions: Stubs::StepExecutionList.default(visited),
+          step_executions: StepExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1936,7 +1936,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('StepExecutionList')
         visited = visited + ['StepExecutionList']
         [
-          Stubs::StepExecution.default(visited)
+          StepExecution.default(visited)
         ]
       end
 
@@ -1965,19 +1965,19 @@ module AWS::SDK::SSM
           execution_end_time: Time.now,
           step_status: 'step_status',
           response_code: 'response_code',
-          inputs: Stubs::NormalStringMap.default(visited),
-          outputs: Stubs::AutomationParameterMap.default(visited),
+          inputs: NormalStringMap.default(visited),
+          outputs: AutomationParameterMap.default(visited),
           response: 'response',
           failure_message: 'failure_message',
-          failure_details: Stubs::FailureDetails.default(visited),
+          failure_details: FailureDetails.default(visited),
           step_execution_id: 'step_execution_id',
-          overridden_parameters: Stubs::AutomationParameterMap.default(visited),
+          overridden_parameters: AutomationParameterMap.default(visited),
           is_end: false,
           next_step: 'next_step',
           is_critical: false,
-          valid_next_steps: Stubs::ValidNextStepList.default(visited),
-          targets: Stubs::Targets.default(visited),
-          target_location: Stubs::TargetLocation.default(visited),
+          valid_next_steps: ValidNextStepList.default(visited),
+          targets: Targets.default(visited),
+          target_location: TargetLocation.default(visited),
         }
       end
 
@@ -2038,7 +2038,7 @@ module AWS::SDK::SSM
         {
           failure_stage: 'failure_stage',
           failure_type: 'failure_type',
-          details: Stubs::AutomationParameterMap.default(visited),
+          details: AutomationParameterMap.default(visited),
         }
       end
 
@@ -2076,7 +2076,7 @@ module AWS::SDK::SSM
     class DescribeAvailablePatches
       def self.default(visited=[])
         {
-          patches: Stubs::PatchList.default(visited),
+          patches: PatchList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2096,7 +2096,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchList')
         visited = visited + ['PatchList']
         [
-          Stubs::Patch.default(visited)
+          Patch.default(visited)
         ]
       end
 
@@ -2129,9 +2129,9 @@ module AWS::SDK::SSM
           kb_number: 'kb_number',
           msrc_number: 'msrc_number',
           language: 'language',
-          advisory_ids: Stubs::PatchAdvisoryIdList.default(visited),
-          bugzilla_ids: Stubs::PatchBugzillaIdList.default(visited),
-          cve_ids: Stubs::PatchCVEIdList.default(visited),
+          advisory_ids: PatchAdvisoryIdList.default(visited),
+          bugzilla_ids: PatchBugzillaIdList.default(visited),
+          cve_ids: PatchCVEIdList.default(visited),
           name: 'name',
           epoch: 1,
           version: 'version',
@@ -2236,7 +2236,7 @@ module AWS::SDK::SSM
     class DescribeDocument
       def self.default(visited=[])
         {
-          document: Stubs::DocumentDescription.default(visited),
+          document: DocumentDescription.default(visited),
         }
       end
 
@@ -2252,8 +2252,8 @@ module AWS::SDK::SSM
     class DescribeDocumentPermission
       def self.default(visited=[])
         {
-          account_ids: Stubs::AccountIdList.default(visited),
-          account_sharing_info_list: Stubs::AccountSharingInfoList.default(visited),
+          account_ids: AccountIdList.default(visited),
+          account_sharing_info_list: AccountSharingInfoList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2274,7 +2274,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AccountSharingInfoList')
         visited = visited + ['AccountSharingInfoList']
         [
-          Stubs::AccountSharingInfo.default(visited)
+          AccountSharingInfo.default(visited)
         ]
       end
 
@@ -2332,7 +2332,7 @@ module AWS::SDK::SSM
     class DescribeEffectiveInstanceAssociations
       def self.default(visited=[])
         {
-          associations: Stubs::InstanceAssociationList.default(visited),
+          associations: InstanceAssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2352,7 +2352,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstanceAssociationList')
         visited = visited + ['InstanceAssociationList']
         [
-          Stubs::InstanceAssociation.default(visited)
+          InstanceAssociation.default(visited)
         ]
       end
 
@@ -2394,7 +2394,7 @@ module AWS::SDK::SSM
     class DescribeEffectivePatchesForPatchBaseline
       def self.default(visited=[])
         {
-          effective_patches: Stubs::EffectivePatchList.default(visited),
+          effective_patches: EffectivePatchList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2414,7 +2414,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('EffectivePatchList')
         visited = visited + ['EffectivePatchList']
         [
-          Stubs::EffectivePatch.default(visited)
+          EffectivePatch.default(visited)
         ]
       end
 
@@ -2434,8 +2434,8 @@ module AWS::SDK::SSM
         return nil if visited.include?('EffectivePatch')
         visited = visited + ['EffectivePatch']
         {
-          patch: Stubs::Patch.default(visited),
-          patch_status: Stubs::PatchStatus.default(visited),
+          patch: Patch.default(visited),
+          patch_status: PatchStatus.default(visited),
         }
       end
 
@@ -2474,7 +2474,7 @@ module AWS::SDK::SSM
     class DescribeInstanceAssociationsStatus
       def self.default(visited=[])
         {
-          instance_association_status_infos: Stubs::InstanceAssociationStatusInfos.default(visited),
+          instance_association_status_infos: InstanceAssociationStatusInfos.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2494,7 +2494,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstanceAssociationStatusInfos')
         visited = visited + ['InstanceAssociationStatusInfos']
         [
-          Stubs::InstanceAssociationStatusInfo.default(visited)
+          InstanceAssociationStatusInfo.default(visited)
         ]
       end
 
@@ -2524,7 +2524,7 @@ module AWS::SDK::SSM
           detailed_status: 'detailed_status',
           execution_summary: 'execution_summary',
           error_code: 'error_code',
-          output_url: Stubs::InstanceAssociationOutputUrl.default(visited),
+          output_url: InstanceAssociationOutputUrl.default(visited),
           association_name: 'association_name',
         }
       end
@@ -2554,7 +2554,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstanceAssociationOutputUrl')
         visited = visited + ['InstanceAssociationOutputUrl']
         {
-          s3_output_url: Stubs::S3OutputUrl.default(visited),
+          s3_output_url: S3OutputUrl.default(visited),
         }
       end
 
@@ -2588,7 +2588,7 @@ module AWS::SDK::SSM
     class DescribeInstanceInformation
       def self.default(visited=[])
         {
-          instance_information_list: Stubs::InstanceInformationList.default(visited),
+          instance_information_list: InstanceInformationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2608,7 +2608,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstanceInformationList')
         visited = visited + ['InstanceInformationList']
         [
-          Stubs::InstanceInformation.default(visited)
+          InstanceInformation.default(visited)
         ]
       end
 
@@ -2646,7 +2646,7 @@ module AWS::SDK::SSM
           association_status: 'association_status',
           last_association_execution_date: Time.now,
           last_successful_association_execution_date: Time.now,
-          association_overview: Stubs::InstanceAggregatedAssociationOverview.default(visited),
+          association_overview: InstanceAggregatedAssociationOverview.default(visited),
           source_id: 'source_id',
           source_type: 'source_type',
         }
@@ -2687,7 +2687,7 @@ module AWS::SDK::SSM
         visited = visited + ['InstanceAggregatedAssociationOverview']
         {
           detailed_status: 'detailed_status',
-          instance_association_status_aggregated_count: Stubs::InstanceAssociationStatusAggregatedCount.default(visited),
+          instance_association_status_aggregated_count: InstanceAssociationStatusAggregatedCount.default(visited),
         }
       end
 
@@ -2724,7 +2724,7 @@ module AWS::SDK::SSM
     class DescribeInstancePatchStates
       def self.default(visited=[])
         {
-          instance_patch_states: Stubs::InstancePatchStateList.default(visited),
+          instance_patch_states: InstancePatchStateList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2744,7 +2744,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstancePatchStateList')
         visited = visited + ['InstancePatchStateList']
         [
-          Stubs::InstancePatchState.default(visited)
+          InstancePatchState.default(visited)
         ]
       end
 
@@ -2822,7 +2822,7 @@ module AWS::SDK::SSM
     class DescribeInstancePatchStatesForPatchGroup
       def self.default(visited=[])
         {
-          instance_patch_states: Stubs::InstancePatchStatesList.default(visited),
+          instance_patch_states: InstancePatchStatesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2842,7 +2842,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InstancePatchStatesList')
         visited = visited + ['InstancePatchStatesList']
         [
-          Stubs::InstancePatchState.default(visited)
+          InstancePatchState.default(visited)
         ]
       end
 
@@ -2860,7 +2860,7 @@ module AWS::SDK::SSM
     class DescribeInstancePatches
       def self.default(visited=[])
         {
-          patches: Stubs::PatchComplianceDataList.default(visited),
+          patches: PatchComplianceDataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2880,7 +2880,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchComplianceDataList')
         visited = visited + ['PatchComplianceDataList']
         [
-          Stubs::PatchComplianceData.default(visited)
+          PatchComplianceData.default(visited)
         ]
       end
 
@@ -2928,7 +2928,7 @@ module AWS::SDK::SSM
     class DescribeInventoryDeletions
       def self.default(visited=[])
         {
-          inventory_deletions: Stubs::InventoryDeletionsList.default(visited),
+          inventory_deletions: InventoryDeletionsList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2948,7 +2948,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryDeletionsList')
         visited = visited + ['InventoryDeletionsList']
         [
-          Stubs::InventoryDeletionStatusItem.default(visited)
+          InventoryDeletionStatusItem.default(visited)
         ]
       end
 
@@ -2973,7 +2973,7 @@ module AWS::SDK::SSM
           deletion_start_time: Time.now,
           last_status: 'last_status',
           last_status_message: 'last_status_message',
-          deletion_summary: Stubs::InventoryDeletionSummary.default(visited),
+          deletion_summary: InventoryDeletionSummary.default(visited),
           last_status_update_time: Time.now,
         }
       end
@@ -2996,7 +2996,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowExecutionTaskInvocations
       def self.default(visited=[])
         {
-          window_execution_task_invocation_identities: Stubs::MaintenanceWindowExecutionTaskInvocationIdentityList.default(visited),
+          window_execution_task_invocation_identities: MaintenanceWindowExecutionTaskInvocationIdentityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3016,7 +3016,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowExecutionTaskInvocationIdentityList')
         visited = visited + ['MaintenanceWindowExecutionTaskInvocationIdentityList']
         [
-          Stubs::MaintenanceWindowExecutionTaskInvocationIdentity.default(visited)
+          MaintenanceWindowExecutionTaskInvocationIdentity.default(visited)
         ]
       end
 
@@ -3074,7 +3074,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowExecutionTasks
       def self.default(visited=[])
         {
-          window_execution_task_identities: Stubs::MaintenanceWindowExecutionTaskIdentityList.default(visited),
+          window_execution_task_identities: MaintenanceWindowExecutionTaskIdentityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3094,7 +3094,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowExecutionTaskIdentityList')
         visited = visited + ['MaintenanceWindowExecutionTaskIdentityList']
         [
-          Stubs::MaintenanceWindowExecutionTaskIdentity.default(visited)
+          MaintenanceWindowExecutionTaskIdentity.default(visited)
         ]
       end
 
@@ -3144,7 +3144,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowExecutions
       def self.default(visited=[])
         {
-          window_executions: Stubs::MaintenanceWindowExecutionList.default(visited),
+          window_executions: MaintenanceWindowExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3164,7 +3164,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowExecutionList')
         visited = visited + ['MaintenanceWindowExecutionList']
         [
-          Stubs::MaintenanceWindowExecution.default(visited)
+          MaintenanceWindowExecution.default(visited)
         ]
       end
 
@@ -3210,7 +3210,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowSchedule
       def self.default(visited=[])
         {
-          scheduled_window_executions: Stubs::ScheduledWindowExecutionList.default(visited),
+          scheduled_window_executions: ScheduledWindowExecutionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3230,7 +3230,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ScheduledWindowExecutionList')
         visited = visited + ['ScheduledWindowExecutionList']
         [
-          Stubs::ScheduledWindowExecution.default(visited)
+          ScheduledWindowExecution.default(visited)
         ]
       end
 
@@ -3270,7 +3270,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowTargets
       def self.default(visited=[])
         {
-          targets: Stubs::MaintenanceWindowTargetList.default(visited),
+          targets: MaintenanceWindowTargetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3290,7 +3290,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowTargetList')
         visited = visited + ['MaintenanceWindowTargetList']
         [
-          Stubs::MaintenanceWindowTarget.default(visited)
+          MaintenanceWindowTarget.default(visited)
         ]
       end
 
@@ -3313,7 +3313,7 @@ module AWS::SDK::SSM
           window_id: 'window_id',
           window_target_id: 'window_target_id',
           resource_type: 'resource_type',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           owner_information: 'owner_information',
           name: 'name',
           description: 'description',
@@ -3338,7 +3338,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowTasks
       def self.default(visited=[])
         {
-          tasks: Stubs::MaintenanceWindowTaskList.default(visited),
+          tasks: MaintenanceWindowTaskList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3358,7 +3358,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowTaskList')
         visited = visited + ['MaintenanceWindowTaskList']
         [
-          Stubs::MaintenanceWindowTask.default(visited)
+          MaintenanceWindowTask.default(visited)
         ]
       end
 
@@ -3382,10 +3382,10 @@ module AWS::SDK::SSM
           window_task_id: 'window_task_id',
           task_arn: 'task_arn',
           type: 'type',
-          targets: Stubs::Targets.default(visited),
-          task_parameters: Stubs::MaintenanceWindowTaskParameters.default(visited),
+          targets: Targets.default(visited),
+          task_parameters: MaintenanceWindowTaskParameters.default(visited),
           priority: 1,
-          logging_info: Stubs::LoggingInfo.default(visited),
+          logging_info: LoggingInfo.default(visited),
           service_role_arn: 'service_role_arn',
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
@@ -3444,7 +3444,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowTaskParameters')
         visited = visited + ['MaintenanceWindowTaskParameters']
         {
-          test_key: Stubs::MaintenanceWindowTaskParameterValueExpression.default(visited)
+          test_key: MaintenanceWindowTaskParameterValueExpression.default(visited)
         }
       end
 
@@ -3464,7 +3464,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowTaskParameterValueExpression')
         visited = visited + ['MaintenanceWindowTaskParameterValueExpression']
         {
-          values: Stubs::MaintenanceWindowTaskParameterValueList.default(visited),
+          values: MaintenanceWindowTaskParameterValueList.default(visited),
         }
       end
 
@@ -3500,7 +3500,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindows
       def self.default(visited=[])
         {
-          window_identities: Stubs::MaintenanceWindowIdentityList.default(visited),
+          window_identities: MaintenanceWindowIdentityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3520,7 +3520,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowIdentityList')
         visited = visited + ['MaintenanceWindowIdentityList']
         [
-          Stubs::MaintenanceWindowIdentity.default(visited)
+          MaintenanceWindowIdentity.default(visited)
         ]
       end
 
@@ -3578,7 +3578,7 @@ module AWS::SDK::SSM
     class DescribeMaintenanceWindowsForTarget
       def self.default(visited=[])
         {
-          window_identities: Stubs::MaintenanceWindowsForTargetList.default(visited),
+          window_identities: MaintenanceWindowsForTargetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3598,7 +3598,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowsForTargetList')
         visited = visited + ['MaintenanceWindowsForTargetList']
         [
-          Stubs::MaintenanceWindowIdentityForTarget.default(visited)
+          MaintenanceWindowIdentityForTarget.default(visited)
         ]
       end
 
@@ -3637,7 +3637,7 @@ module AWS::SDK::SSM
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          ops_item_summaries: Stubs::OpsItemSummaries.default(visited),
+          ops_item_summaries: OpsItemSummaries.default(visited),
         }
       end
 
@@ -3656,7 +3656,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsItemSummaries')
         visited = visited + ['OpsItemSummaries']
         [
-          Stubs::OpsItemSummary.default(visited)
+          OpsItemSummary.default(visited)
         ]
       end
 
@@ -3685,7 +3685,7 @@ module AWS::SDK::SSM
           status: 'status',
           ops_item_id: 'ops_item_id',
           title: 'title',
-          operational_data: Stubs::OpsItemOperationalData.default(visited),
+          operational_data: OpsItemOperationalData.default(visited),
           category: 'category',
           severity: 'severity',
           ops_item_type: 'ops_item_type',
@@ -3726,7 +3726,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsItemOperationalData')
         visited = visited + ['OpsItemOperationalData']
         {
-          test_key: Stubs::OpsItemDataValue.default(visited)
+          test_key: OpsItemDataValue.default(visited)
         }
       end
 
@@ -3764,7 +3764,7 @@ module AWS::SDK::SSM
     class DescribeParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParameterMetadataList.default(visited),
+          parameters: ParameterMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3784,7 +3784,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ParameterMetadataList')
         visited = visited + ['ParameterMetadataList']
         [
-          Stubs::ParameterMetadata.default(visited)
+          ParameterMetadata.default(visited)
         ]
       end
 
@@ -3813,7 +3813,7 @@ module AWS::SDK::SSM
           allowed_pattern: 'allowed_pattern',
           version: 1,
           tier: 'tier',
-          policies: Stubs::ParameterPolicyList.default(visited),
+          policies: ParameterPolicyList.default(visited),
           data_type: 'data_type',
         }
       end
@@ -3842,7 +3842,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ParameterPolicyList')
         visited = visited + ['ParameterPolicyList']
         [
-          Stubs::ParameterInlinePolicy.default(visited)
+          ParameterInlinePolicy.default(visited)
         ]
       end
 
@@ -3882,7 +3882,7 @@ module AWS::SDK::SSM
     class DescribePatchBaselines
       def self.default(visited=[])
         {
-          baseline_identities: Stubs::PatchBaselineIdentityList.default(visited),
+          baseline_identities: PatchBaselineIdentityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3902,7 +3902,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchBaselineIdentityList')
         visited = visited + ['PatchBaselineIdentityList']
         [
-          Stubs::PatchBaselineIdentity.default(visited)
+          PatchBaselineIdentity.default(visited)
         ]
       end
 
@@ -3984,7 +3984,7 @@ module AWS::SDK::SSM
     class DescribePatchGroups
       def self.default(visited=[])
         {
-          mappings: Stubs::PatchGroupPatchBaselineMappingList.default(visited),
+          mappings: PatchGroupPatchBaselineMappingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4004,7 +4004,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchGroupPatchBaselineMappingList')
         visited = visited + ['PatchGroupPatchBaselineMappingList']
         [
-          Stubs::PatchGroupPatchBaselineMapping.default(visited)
+          PatchGroupPatchBaselineMapping.default(visited)
         ]
       end
 
@@ -4025,7 +4025,7 @@ module AWS::SDK::SSM
         visited = visited + ['PatchGroupPatchBaselineMapping']
         {
           patch_group: 'patch_group',
-          baseline_identity: Stubs::PatchBaselineIdentity.default(visited),
+          baseline_identity: PatchBaselineIdentity.default(visited),
         }
       end
 
@@ -4042,7 +4042,7 @@ module AWS::SDK::SSM
     class DescribePatchProperties
       def self.default(visited=[])
         {
-          properties: Stubs::PatchPropertiesList.default(visited),
+          properties: PatchPropertiesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4062,7 +4062,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchPropertiesList')
         visited = visited + ['PatchPropertiesList']
         [
-          Stubs::PatchPropertyEntry.default(visited)
+          PatchPropertyEntry.default(visited)
         ]
       end
 
@@ -4100,7 +4100,7 @@ module AWS::SDK::SSM
     class DescribeSessions
       def self.default(visited=[])
         {
-          sessions: Stubs::SessionList.default(visited),
+          sessions: SessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4120,7 +4120,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('SessionList')
         visited = visited + ['SessionList']
         [
-          Stubs::Session.default(visited)
+          Session.default(visited)
         ]
       end
 
@@ -4149,7 +4149,7 @@ module AWS::SDK::SSM
           owner: 'owner',
           reason: 'reason',
           details: 'details',
-          output_url: Stubs::SessionManagerOutputUrl.default(visited),
+          output_url: SessionManagerOutputUrl.default(visited),
           max_session_duration: 'max_session_duration',
         }
       end
@@ -4210,7 +4210,7 @@ module AWS::SDK::SSM
     class GetAutomationExecution
       def self.default(visited=[])
         {
-          automation_execution: Stubs::AutomationExecution.default(visited),
+          automation_execution: AutomationExecution.default(visited),
         }
       end
 
@@ -4234,10 +4234,10 @@ module AWS::SDK::SSM
           execution_start_time: Time.now,
           execution_end_time: Time.now,
           automation_execution_status: 'automation_execution_status',
-          step_executions: Stubs::StepExecutionList.default(visited),
+          step_executions: StepExecutionList.default(visited),
           step_executions_truncated: false,
-          parameters: Stubs::AutomationParameterMap.default(visited),
-          outputs: Stubs::AutomationParameterMap.default(visited),
+          parameters: AutomationParameterMap.default(visited),
+          outputs: AutomationParameterMap.default(visited),
           failure_message: 'failure_message',
           mode: 'mode',
           parent_automation_execution_id: 'parent_automation_execution_id',
@@ -4245,17 +4245,17 @@ module AWS::SDK::SSM
           current_step_name: 'current_step_name',
           current_action: 'current_action',
           target_parameter_name: 'target_parameter_name',
-          targets: Stubs::Targets.default(visited),
-          target_maps: Stubs::TargetMaps.default(visited),
-          resolved_targets: Stubs::ResolvedTargets.default(visited),
+          targets: Targets.default(visited),
+          target_maps: TargetMaps.default(visited),
+          resolved_targets: ResolvedTargets.default(visited),
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
           target: 'target',
-          target_locations: Stubs::TargetLocations.default(visited),
-          progress_counters: Stubs::ProgressCounters.default(visited),
+          target_locations: TargetLocations.default(visited),
+          progress_counters: ProgressCounters.default(visited),
           automation_subtype: 'automation_subtype',
           scheduled_time: Time.now,
-          runbooks: Stubs::Runbooks.default(visited),
+          runbooks: Runbooks.default(visited),
           ops_item_id: 'ops_item_id',
           association_id: 'association_id',
           change_request_name: 'change_request_name',
@@ -4366,7 +4366,7 @@ module AWS::SDK::SSM
           standard_output_url: 'standard_output_url',
           standard_error_content: 'standard_error_content',
           standard_error_url: 'standard_error_url',
-          cloud_watch_output_config: Stubs::CloudWatchOutputConfig.default(visited),
+          cloud_watch_output_config: CloudWatchOutputConfig.default(visited),
         }
       end
 
@@ -4486,8 +4486,8 @@ module AWS::SDK::SSM
           content: 'content',
           document_type: 'document_type',
           document_format: 'document_format',
-          requires: Stubs::DocumentRequiresList.default(visited),
-          attachments_content: Stubs::AttachmentContentList.default(visited),
+          requires: DocumentRequiresList.default(visited),
+          attachments_content: AttachmentContentList.default(visited),
           review_status: 'review_status',
         }
       end
@@ -4518,7 +4518,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AttachmentContentList')
         visited = visited + ['AttachmentContentList']
         [
-          Stubs::AttachmentContent.default(visited)
+          AttachmentContent.default(visited)
         ]
       end
 
@@ -4562,7 +4562,7 @@ module AWS::SDK::SSM
     class GetInventory
       def self.default(visited=[])
         {
-          entities: Stubs::InventoryResultEntityList.default(visited),
+          entities: InventoryResultEntityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4582,7 +4582,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryResultEntityList')
         visited = visited + ['InventoryResultEntityList']
         [
-          Stubs::InventoryResultEntity.default(visited)
+          InventoryResultEntity.default(visited)
         ]
       end
 
@@ -4603,7 +4603,7 @@ module AWS::SDK::SSM
         visited = visited + ['InventoryResultEntity']
         {
           id: 'id',
-          data: Stubs::InventoryResultItemMap.default(visited),
+          data: InventoryResultItemMap.default(visited),
         }
       end
 
@@ -4622,7 +4622,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryResultItemMap')
         visited = visited + ['InventoryResultItemMap']
         {
-          test_key: Stubs::InventoryResultItem.default(visited)
+          test_key: InventoryResultItem.default(visited)
         }
       end
 
@@ -4646,7 +4646,7 @@ module AWS::SDK::SSM
           schema_version: 'schema_version',
           capture_time: 'capture_time',
           content_hash: 'content_hash',
-          content: Stubs::InventoryItemEntryList.default(visited),
+          content: InventoryItemEntryList.default(visited),
         }
       end
 
@@ -4668,7 +4668,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryItemEntryList')
         visited = visited + ['InventoryItemEntryList']
         [
-          Stubs::InventoryItemEntry.default(visited)
+          InventoryItemEntry.default(visited)
         ]
       end
 
@@ -4706,7 +4706,7 @@ module AWS::SDK::SSM
     class GetInventorySchema
       def self.default(visited=[])
         {
-          schemas: Stubs::InventoryItemSchemaResultList.default(visited),
+          schemas: InventoryItemSchemaResultList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4726,7 +4726,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryItemSchemaResultList')
         visited = visited + ['InventoryItemSchemaResultList']
         [
-          Stubs::InventoryItemSchema.default(visited)
+          InventoryItemSchema.default(visited)
         ]
       end
 
@@ -4748,7 +4748,7 @@ module AWS::SDK::SSM
         {
           type_name: 'type_name',
           version: 'version',
-          attributes: Stubs::InventoryItemAttributeList.default(visited),
+          attributes: InventoryItemAttributeList.default(visited),
           display_name: 'display_name',
         }
       end
@@ -4770,7 +4770,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('InventoryItemAttributeList')
         visited = visited + ['InventoryItemAttributeList']
         [
-          Stubs::InventoryItemAttribute.default(visited)
+          InventoryItemAttribute.default(visited)
         ]
       end
 
@@ -4853,7 +4853,7 @@ module AWS::SDK::SSM
       def self.default(visited=[])
         {
           window_execution_id: 'window_execution_id',
-          task_ids: Stubs::MaintenanceWindowExecutionTaskIdList.default(visited),
+          task_ids: MaintenanceWindowExecutionTaskIdList.default(visited),
           status: 'status',
           status_details: 'status_details',
           start_time: Time.now,
@@ -4903,7 +4903,7 @@ module AWS::SDK::SSM
           task_arn: 'task_arn',
           service_role: 'service_role',
           type: 'type',
-          task_parameters: Stubs::MaintenanceWindowTaskParametersList.default(visited),
+          task_parameters: MaintenanceWindowTaskParametersList.default(visited),
           priority: 1,
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
@@ -4940,7 +4940,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowTaskParametersList')
         visited = visited + ['MaintenanceWindowTaskParametersList']
         [
-          Stubs::MaintenanceWindowTaskParameters.default(visited)
+          MaintenanceWindowTaskParameters.default(visited)
         ]
       end
 
@@ -4998,16 +4998,16 @@ module AWS::SDK::SSM
         {
           window_id: 'window_id',
           window_task_id: 'window_task_id',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           task_arn: 'task_arn',
           service_role_arn: 'service_role_arn',
           task_type: 'task_type',
-          task_parameters: Stubs::MaintenanceWindowTaskParameters.default(visited),
-          task_invocation_parameters: Stubs::MaintenanceWindowTaskInvocationParameters.default(visited),
+          task_parameters: MaintenanceWindowTaskParameters.default(visited),
+          task_invocation_parameters: MaintenanceWindowTaskInvocationParameters.default(visited),
           priority: 1,
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
-          logging_info: Stubs::LoggingInfo.default(visited),
+          logging_info: LoggingInfo.default(visited),
           name: 'name',
           description: 'description',
           cutoff_behavior: 'cutoff_behavior',
@@ -5042,10 +5042,10 @@ module AWS::SDK::SSM
         return nil if visited.include?('MaintenanceWindowTaskInvocationParameters')
         visited = visited + ['MaintenanceWindowTaskInvocationParameters']
         {
-          run_command: Stubs::MaintenanceWindowRunCommandParameters.default(visited),
-          automation: Stubs::MaintenanceWindowAutomationParameters.default(visited),
-          step_functions: Stubs::MaintenanceWindowStepFunctionsParameters.default(visited),
-          lambda: Stubs::MaintenanceWindowLambdaParameters.default(visited),
+          run_command: MaintenanceWindowRunCommandParameters.default(visited),
+          automation: MaintenanceWindowAutomationParameters.default(visited),
+          step_functions: MaintenanceWindowStepFunctionsParameters.default(visited),
+          lambda: MaintenanceWindowLambdaParameters.default(visited),
         }
       end
 
@@ -5109,7 +5109,7 @@ module AWS::SDK::SSM
         visited = visited + ['MaintenanceWindowAutomationParameters']
         {
           document_version: 'document_version',
-          parameters: Stubs::AutomationParameterMap.default(visited),
+          parameters: AutomationParameterMap.default(visited),
         }
       end
 
@@ -5129,14 +5129,14 @@ module AWS::SDK::SSM
         visited = visited + ['MaintenanceWindowRunCommandParameters']
         {
           comment: 'comment',
-          cloud_watch_output_config: Stubs::CloudWatchOutputConfig.default(visited),
+          cloud_watch_output_config: CloudWatchOutputConfig.default(visited),
           document_hash: 'document_hash',
           document_hash_type: 'document_hash_type',
           document_version: 'document_version',
-          notification_config: Stubs::NotificationConfig.default(visited),
+          notification_config: NotificationConfig.default(visited),
           output_s3_bucket_name: 'output_s3_bucket_name',
           output_s3_key_prefix: 'output_s3_key_prefix',
-          parameters: Stubs::Parameters.default(visited),
+          parameters: Parameters.default(visited),
           service_role_arn: 'service_role_arn',
           timeout_seconds: 1,
         }
@@ -5167,7 +5167,7 @@ module AWS::SDK::SSM
         visited = visited + ['NotificationConfig']
         {
           notification_arn: 'notification_arn',
-          notification_events: Stubs::NotificationEventList.default(visited),
+          notification_events: NotificationEventList.default(visited),
           notification_type: 'notification_type',
         }
       end
@@ -5206,7 +5206,7 @@ module AWS::SDK::SSM
     class GetOpsItem
       def self.default(visited=[])
         {
-          ops_item: Stubs::OpsItem.default(visited),
+          ops_item: OpsItem.default(visited),
         }
       end
 
@@ -5230,15 +5230,15 @@ module AWS::SDK::SSM
           description: 'description',
           last_modified_by: 'last_modified_by',
           last_modified_time: Time.now,
-          notifications: Stubs::OpsItemNotifications.default(visited),
+          notifications: OpsItemNotifications.default(visited),
           priority: 1,
-          related_ops_items: Stubs::RelatedOpsItems.default(visited),
+          related_ops_items: RelatedOpsItems.default(visited),
           status: 'status',
           ops_item_id: 'ops_item_id',
           version: 'version',
           title: 'title',
           source: 'source',
-          operational_data: Stubs::OpsItemOperationalData.default(visited),
+          operational_data: OpsItemOperationalData.default(visited),
           category: 'category',
           severity: 'severity',
           actual_start_time: Time.now,
@@ -5282,7 +5282,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('RelatedOpsItems')
         visited = visited + ['RelatedOpsItems']
         [
-          Stubs::RelatedOpsItem.default(visited)
+          RelatedOpsItem.default(visited)
         ]
       end
 
@@ -5320,7 +5320,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsItemNotifications')
         visited = visited + ['OpsItemNotifications']
         [
-          Stubs::OpsItemNotification.default(visited)
+          OpsItemNotification.default(visited)
         ]
       end
 
@@ -5357,7 +5357,7 @@ module AWS::SDK::SSM
       def self.default(visited=[])
         {
           resource_id: 'resource_id',
-          metadata: Stubs::MetadataMap.default(visited),
+          metadata: MetadataMap.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5378,7 +5378,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('MetadataMap')
         visited = visited + ['MetadataMap']
         {
-          test_key: Stubs::MetadataValue.default(visited)
+          test_key: MetadataValue.default(visited)
         }
       end
 
@@ -5414,7 +5414,7 @@ module AWS::SDK::SSM
     class GetOpsSummary
       def self.default(visited=[])
         {
-          entities: Stubs::OpsEntityList.default(visited),
+          entities: OpsEntityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5434,7 +5434,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsEntityList')
         visited = visited + ['OpsEntityList']
         [
-          Stubs::OpsEntity.default(visited)
+          OpsEntity.default(visited)
         ]
       end
 
@@ -5455,7 +5455,7 @@ module AWS::SDK::SSM
         visited = visited + ['OpsEntity']
         {
           id: 'id',
-          data: Stubs::OpsEntityItemMap.default(visited),
+          data: OpsEntityItemMap.default(visited),
         }
       end
 
@@ -5474,7 +5474,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsEntityItemMap')
         visited = visited + ['OpsEntityItemMap']
         {
-          test_key: Stubs::OpsEntityItem.default(visited)
+          test_key: OpsEntityItem.default(visited)
         }
       end
 
@@ -5495,7 +5495,7 @@ module AWS::SDK::SSM
         visited = visited + ['OpsEntityItem']
         {
           capture_time: 'capture_time',
-          content: Stubs::OpsEntityItemEntryList.default(visited),
+          content: OpsEntityItemEntryList.default(visited),
         }
       end
 
@@ -5514,7 +5514,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsEntityItemEntryList')
         visited = visited + ['OpsEntityItemEntryList']
         [
-          Stubs::OpsEntityItemEntry.default(visited)
+          OpsEntityItemEntry.default(visited)
         ]
       end
 
@@ -5552,7 +5552,7 @@ module AWS::SDK::SSM
     class GetParameter
       def self.default(visited=[])
         {
-          parameter: Stubs::Parameter.default(visited),
+          parameter: Parameter.default(visited),
         }
       end
 
@@ -5602,7 +5602,7 @@ module AWS::SDK::SSM
     class GetParameterHistory
       def self.default(visited=[])
         {
-          parameters: Stubs::ParameterHistoryList.default(visited),
+          parameters: ParameterHistoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5622,7 +5622,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ParameterHistoryList')
         visited = visited + ['ParameterHistoryList']
         [
-          Stubs::ParameterHistory.default(visited)
+          ParameterHistory.default(visited)
         ]
       end
 
@@ -5651,9 +5651,9 @@ module AWS::SDK::SSM
           value: 'value',
           allowed_pattern: 'allowed_pattern',
           version: 1,
-          labels: Stubs::ParameterLabelList.default(visited),
+          labels: ParameterLabelList.default(visited),
           tier: 'tier',
-          policies: Stubs::ParameterPolicyList.default(visited),
+          policies: ParameterPolicyList.default(visited),
           data_type: 'data_type',
         }
       end
@@ -5702,8 +5702,8 @@ module AWS::SDK::SSM
     class GetParameters
       def self.default(visited=[])
         {
-          parameters: Stubs::ParameterList.default(visited),
-          invalid_parameters: Stubs::ParameterNameList.default(visited),
+          parameters: ParameterList.default(visited),
+          invalid_parameters: ParameterNameList.default(visited),
         }
       end
 
@@ -5722,7 +5722,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ParameterList')
         visited = visited + ['ParameterList']
         [
-          Stubs::Parameter.default(visited)
+          Parameter.default(visited)
         ]
       end
 
@@ -5740,7 +5740,7 @@ module AWS::SDK::SSM
     class GetParametersByPath
       def self.default(visited=[])
         {
-          parameters: Stubs::ParameterList.default(visited),
+          parameters: ParameterList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5761,18 +5761,18 @@ module AWS::SDK::SSM
           baseline_id: 'baseline_id',
           name: 'name',
           operating_system: 'operating_system',
-          global_filters: Stubs::PatchFilterGroup.default(visited),
-          approval_rules: Stubs::PatchRuleGroup.default(visited),
-          approved_patches: Stubs::PatchIdList.default(visited),
+          global_filters: PatchFilterGroup.default(visited),
+          approval_rules: PatchRuleGroup.default(visited),
+          approved_patches: PatchIdList.default(visited),
           approved_patches_compliance_level: 'approved_patches_compliance_level',
           approved_patches_enable_non_security: false,
-          rejected_patches: Stubs::PatchIdList.default(visited),
+          rejected_patches: PatchIdList.default(visited),
           rejected_patches_action: 'rejected_patches_action',
-          patch_groups: Stubs::PatchGroupList.default(visited),
+          patch_groups: PatchGroupList.default(visited),
           created_date: Time.now,
           modified_date: Time.now,
           description: 'description',
-          sources: Stubs::PatchSourceList.default(visited),
+          sources: PatchSourceList.default(visited),
         }
       end
 
@@ -5804,7 +5804,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchSourceList')
         visited = visited + ['PatchSourceList']
         [
-          Stubs::PatchSource.default(visited)
+          PatchSource.default(visited)
         ]
       end
 
@@ -5825,7 +5825,7 @@ module AWS::SDK::SSM
         visited = visited + ['PatchSource']
         {
           name: 'name',
-          products: Stubs::PatchSourceProductList.default(visited),
+          products: PatchSourceProductList.default(visited),
           configuration: 'configuration',
         }
       end
@@ -5906,7 +5906,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchRuleGroup')
         visited = visited + ['PatchRuleGroup']
         {
-          patch_rules: Stubs::PatchRuleList.default(visited),
+          patch_rules: PatchRuleList.default(visited),
         }
       end
 
@@ -5924,7 +5924,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchRuleList')
         visited = visited + ['PatchRuleList']
         [
-          Stubs::PatchRule.default(visited)
+          PatchRule.default(visited)
         ]
       end
 
@@ -5944,7 +5944,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchRule')
         visited = visited + ['PatchRule']
         {
-          patch_filter_group: Stubs::PatchFilterGroup.default(visited),
+          patch_filter_group: PatchFilterGroup.default(visited),
           compliance_level: 'compliance_level',
           approve_after_days: 1,
           approve_until_date: 'approve_until_date',
@@ -5970,7 +5970,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchFilterGroup')
         visited = visited + ['PatchFilterGroup']
         {
-          patch_filters: Stubs::PatchFilterList.default(visited),
+          patch_filters: PatchFilterList.default(visited),
         }
       end
 
@@ -5988,7 +5988,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('PatchFilterList')
         visited = visited + ['PatchFilterList']
         [
-          Stubs::PatchFilter.default(visited)
+          PatchFilter.default(visited)
         ]
       end
 
@@ -6009,7 +6009,7 @@ module AWS::SDK::SSM
         visited = visited + ['PatchFilter']
         {
           key: 'key',
-          values: Stubs::PatchFilterValueList.default(visited),
+          values: PatchFilterValueList.default(visited),
         }
       end
 
@@ -6066,7 +6066,7 @@ module AWS::SDK::SSM
     class GetServiceSetting
       def self.default(visited=[])
         {
-          service_setting: Stubs::ServiceSetting.default(visited),
+          service_setting: ServiceSetting.default(visited),
         }
       end
 
@@ -6110,7 +6110,7 @@ module AWS::SDK::SSM
     class LabelParameterVersion
       def self.default(visited=[])
         {
-          invalid_labels: Stubs::ParameterLabelList.default(visited),
+          invalid_labels: ParameterLabelList.default(visited),
           parameter_version: 1,
         }
       end
@@ -6128,7 +6128,7 @@ module AWS::SDK::SSM
     class ListAssociationVersions
       def self.default(visited=[])
         {
-          association_versions: Stubs::AssociationVersionList.default(visited),
+          association_versions: AssociationVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6148,7 +6148,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AssociationVersionList')
         visited = visited + ['AssociationVersionList']
         [
-          Stubs::AssociationVersionInfo.default(visited)
+          AssociationVersionInfo.default(visited)
         ]
       end
 
@@ -6173,20 +6173,20 @@ module AWS::SDK::SSM
           created_date: Time.now,
           name: 'name',
           document_version: 'document_version',
-          parameters: Stubs::Parameters.default(visited),
-          targets: Stubs::Targets.default(visited),
+          parameters: Parameters.default(visited),
+          targets: Targets.default(visited),
           schedule_expression: 'schedule_expression',
-          output_location: Stubs::InstanceAssociationOutputLocation.default(visited),
+          output_location: InstanceAssociationOutputLocation.default(visited),
           association_name: 'association_name',
           max_errors: 'max_errors',
           max_concurrency: 'max_concurrency',
           compliance_severity: 'compliance_severity',
           sync_compliance: 'sync_compliance',
           apply_only_at_cron_interval: false,
-          calendar_names: Stubs::CalendarNameOrARNList.default(visited),
-          target_locations: Stubs::TargetLocations.default(visited),
+          calendar_names: CalendarNameOrARNList.default(visited),
+          target_locations: TargetLocations.default(visited),
           schedule_offset: 1,
-          target_maps: Stubs::TargetMaps.default(visited),
+          target_maps: TargetMaps.default(visited),
         }
       end
 
@@ -6220,7 +6220,7 @@ module AWS::SDK::SSM
     class ListAssociations
       def self.default(visited=[])
         {
-          associations: Stubs::AssociationList.default(visited),
+          associations: AssociationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6240,7 +6240,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('AssociationList')
         visited = visited + ['AssociationList']
         [
-          Stubs::Association.default(visited)
+          Association.default(visited)
         ]
       end
 
@@ -6265,13 +6265,13 @@ module AWS::SDK::SSM
           association_id: 'association_id',
           association_version: 'association_version',
           document_version: 'document_version',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           last_execution_date: Time.now,
-          overview: Stubs::AssociationOverview.default(visited),
+          overview: AssociationOverview.default(visited),
           schedule_expression: 'schedule_expression',
           association_name: 'association_name',
           schedule_offset: 1,
-          target_maps: Stubs::TargetMaps.default(visited),
+          target_maps: TargetMaps.default(visited),
         }
       end
 
@@ -6298,7 +6298,7 @@ module AWS::SDK::SSM
     class ListCommandInvocations
       def self.default(visited=[])
         {
-          command_invocations: Stubs::CommandInvocationList.default(visited),
+          command_invocations: CommandInvocationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6318,7 +6318,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('CommandInvocationList')
         visited = visited + ['CommandInvocationList']
         [
-          Stubs::CommandInvocation.default(visited)
+          CommandInvocation.default(visited)
         ]
       end
 
@@ -6350,10 +6350,10 @@ module AWS::SDK::SSM
           trace_output: 'trace_output',
           standard_output_url: 'standard_output_url',
           standard_error_url: 'standard_error_url',
-          command_plugins: Stubs::CommandPluginList.default(visited),
+          command_plugins: CommandPluginList.default(visited),
           service_role: 'service_role',
-          notification_config: Stubs::NotificationConfig.default(visited),
-          cloud_watch_output_config: Stubs::CloudWatchOutputConfig.default(visited),
+          notification_config: NotificationConfig.default(visited),
+          cloud_watch_output_config: CloudWatchOutputConfig.default(visited),
         }
       end
 
@@ -6386,7 +6386,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('CommandPluginList')
         visited = visited + ['CommandPluginList']
         [
-          Stubs::CommandPlugin.default(visited)
+          CommandPlugin.default(visited)
         ]
       end
 
@@ -6444,7 +6444,7 @@ module AWS::SDK::SSM
     class ListCommands
       def self.default(visited=[])
         {
-          commands: Stubs::CommandList.default(visited),
+          commands: CommandList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6464,7 +6464,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('CommandList')
         visited = visited + ['CommandList']
         [
-          Stubs::Command.default(visited)
+          Command.default(visited)
         ]
       end
 
@@ -6489,9 +6489,9 @@ module AWS::SDK::SSM
           document_version: 'document_version',
           comment: 'comment',
           expires_after: Time.now,
-          parameters: Stubs::Parameters.default(visited),
-          instance_ids: Stubs::InstanceIdList.default(visited),
-          targets: Stubs::Targets.default(visited),
+          parameters: Parameters.default(visited),
+          instance_ids: InstanceIdList.default(visited),
+          targets: Targets.default(visited),
           requested_date_time: Time.now,
           status: 'status',
           status_details: 'status_details',
@@ -6505,8 +6505,8 @@ module AWS::SDK::SSM
           error_count: 1,
           delivery_timed_out_count: 1,
           service_role: 'service_role',
-          notification_config: Stubs::NotificationConfig.default(visited),
-          cloud_watch_output_config: Stubs::CloudWatchOutputConfig.default(visited),
+          notification_config: NotificationConfig.default(visited),
+          cloud_watch_output_config: CloudWatchOutputConfig.default(visited),
           timeout_seconds: 1,
         }
       end
@@ -6566,7 +6566,7 @@ module AWS::SDK::SSM
     class ListComplianceItems
       def self.default(visited=[])
         {
-          compliance_items: Stubs::ComplianceItemList.default(visited),
+          compliance_items: ComplianceItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6586,7 +6586,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ComplianceItemList')
         visited = visited + ['ComplianceItemList']
         [
-          Stubs::ComplianceItem.default(visited)
+          ComplianceItem.default(visited)
         ]
       end
 
@@ -6613,8 +6613,8 @@ module AWS::SDK::SSM
           title: 'title',
           status: 'status',
           severity: 'severity',
-          execution_summary: Stubs::ComplianceExecutionSummary.default(visited),
-          details: Stubs::ComplianceItemDetails.default(visited),
+          execution_summary: ComplianceExecutionSummary.default(visited),
+          details: ComplianceItemDetails.default(visited),
         }
       end
 
@@ -6680,7 +6680,7 @@ module AWS::SDK::SSM
     class ListComplianceSummaries
       def self.default(visited=[])
         {
-          compliance_summary_items: Stubs::ComplianceSummaryItemList.default(visited),
+          compliance_summary_items: ComplianceSummaryItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6700,7 +6700,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ComplianceSummaryItemList')
         visited = visited + ['ComplianceSummaryItemList']
         [
-          Stubs::ComplianceSummaryItem.default(visited)
+          ComplianceSummaryItem.default(visited)
         ]
       end
 
@@ -6721,8 +6721,8 @@ module AWS::SDK::SSM
         visited = visited + ['ComplianceSummaryItem']
         {
           compliance_type: 'compliance_type',
-          compliant_summary: Stubs::CompliantSummary.default(visited),
-          non_compliant_summary: Stubs::NonCompliantSummary.default(visited),
+          compliant_summary: CompliantSummary.default(visited),
+          non_compliant_summary: NonCompliantSummary.default(visited),
         }
       end
 
@@ -6743,7 +6743,7 @@ module AWS::SDK::SSM
         visited = visited + ['NonCompliantSummary']
         {
           non_compliant_count: 1,
-          severity_summary: Stubs::SeveritySummary.default(visited),
+          severity_summary: SeveritySummary.default(visited),
         }
       end
 
@@ -6791,7 +6791,7 @@ module AWS::SDK::SSM
         visited = visited + ['CompliantSummary']
         {
           compliant_count: 1,
-          severity_summary: Stubs::SeveritySummary.default(visited),
+          severity_summary: SeveritySummary.default(visited),
         }
       end
 
@@ -6811,7 +6811,7 @@ module AWS::SDK::SSM
           name: 'name',
           document_version: 'document_version',
           author: 'author',
-          metadata: Stubs::DocumentMetadataResponseInfo.default(visited),
+          metadata: DocumentMetadataResponseInfo.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6834,7 +6834,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentMetadataResponseInfo')
         visited = visited + ['DocumentMetadataResponseInfo']
         {
-          reviewer_response: Stubs::DocumentReviewerResponseList.default(visited),
+          reviewer_response: DocumentReviewerResponseList.default(visited),
         }
       end
 
@@ -6852,7 +6852,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentReviewerResponseList')
         visited = visited + ['DocumentReviewerResponseList']
         [
-          Stubs::DocumentReviewerResponseSource.default(visited)
+          DocumentReviewerResponseSource.default(visited)
         ]
       end
 
@@ -6875,7 +6875,7 @@ module AWS::SDK::SSM
           create_time: Time.now,
           updated_time: Time.now,
           review_status: 'review_status',
-          comment: Stubs::DocumentReviewCommentList.default(visited),
+          comment: DocumentReviewCommentList.default(visited),
           reviewer: 'reviewer',
         }
       end
@@ -6898,7 +6898,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentReviewCommentList')
         visited = visited + ['DocumentReviewCommentList']
         [
-          Stubs::DocumentReviewCommentSource.default(visited)
+          DocumentReviewCommentSource.default(visited)
         ]
       end
 
@@ -6936,7 +6936,7 @@ module AWS::SDK::SSM
     class ListDocumentVersions
       def self.default(visited=[])
         {
-          document_versions: Stubs::DocumentVersionList.default(visited),
+          document_versions: DocumentVersionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -6956,7 +6956,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentVersionList')
         visited = visited + ['DocumentVersionList']
         [
-          Stubs::DocumentVersionInfo.default(visited)
+          DocumentVersionInfo.default(visited)
         ]
       end
 
@@ -7010,7 +7010,7 @@ module AWS::SDK::SSM
     class ListDocuments
       def self.default(visited=[])
         {
-          document_identifiers: Stubs::DocumentIdentifierList.default(visited),
+          document_identifiers: DocumentIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7030,7 +7030,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('DocumentIdentifierList')
         visited = visited + ['DocumentIdentifierList']
         [
-          Stubs::DocumentIdentifier.default(visited)
+          DocumentIdentifier.default(visited)
         ]
       end
 
@@ -7055,14 +7055,14 @@ module AWS::SDK::SSM
           display_name: 'display_name',
           owner: 'owner',
           version_name: 'version_name',
-          platform_types: Stubs::PlatformTypeList.default(visited),
+          platform_types: PlatformTypeList.default(visited),
           document_version: 'document_version',
           document_type: 'document_type',
           schema_version: 'schema_version',
           document_format: 'document_format',
           target_type: 'target_type',
-          tags: Stubs::TagList.default(visited),
-          requires: Stubs::DocumentRequiresList.default(visited),
+          tags: TagList.default(visited),
+          requires: DocumentRequiresList.default(visited),
           review_status: 'review_status',
           author: 'author',
         }
@@ -7098,7 +7098,7 @@ module AWS::SDK::SSM
           instance_id: 'instance_id',
           schema_version: 'schema_version',
           capture_time: 'capture_time',
-          entries: Stubs::InventoryItemEntryList.default(visited),
+          entries: InventoryItemEntryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7121,7 +7121,7 @@ module AWS::SDK::SSM
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          summaries: Stubs::OpsItemEventSummaries.default(visited),
+          summaries: OpsItemEventSummaries.default(visited),
         }
       end
 
@@ -7140,7 +7140,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsItemEventSummaries')
         visited = visited + ['OpsItemEventSummaries']
         [
-          Stubs::OpsItemEventSummary.default(visited)
+          OpsItemEventSummary.default(visited)
         ]
       end
 
@@ -7165,7 +7165,7 @@ module AWS::SDK::SSM
           source: 'source',
           detail_type: 'detail_type',
           detail: 'detail',
-          created_by: Stubs::OpsItemIdentity.default(visited),
+          created_by: OpsItemIdentity.default(visited),
           created_time: Time.now,
         }
       end
@@ -7207,7 +7207,7 @@ module AWS::SDK::SSM
       def self.default(visited=[])
         {
           next_token: 'next_token',
-          summaries: Stubs::OpsItemRelatedItemSummaries.default(visited),
+          summaries: OpsItemRelatedItemSummaries.default(visited),
         }
       end
 
@@ -7226,7 +7226,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsItemRelatedItemSummaries')
         visited = visited + ['OpsItemRelatedItemSummaries']
         [
-          Stubs::OpsItemRelatedItemSummary.default(visited)
+          OpsItemRelatedItemSummary.default(visited)
         ]
       end
 
@@ -7251,9 +7251,9 @@ module AWS::SDK::SSM
           resource_type: 'resource_type',
           association_type: 'association_type',
           resource_uri: 'resource_uri',
-          created_by: Stubs::OpsItemIdentity.default(visited),
+          created_by: OpsItemIdentity.default(visited),
           created_time: Time.now,
-          last_modified_by: Stubs::OpsItemIdentity.default(visited),
+          last_modified_by: OpsItemIdentity.default(visited),
           last_modified_time: Time.now,
         }
       end
@@ -7278,7 +7278,7 @@ module AWS::SDK::SSM
     class ListOpsMetadata
       def self.default(visited=[])
         {
-          ops_metadata_list: Stubs::OpsMetadataList.default(visited),
+          ops_metadata_list: OpsMetadataList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7298,7 +7298,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('OpsMetadataList')
         visited = visited + ['OpsMetadataList']
         [
-          Stubs::OpsMetadata.default(visited)
+          OpsMetadata.default(visited)
         ]
       end
 
@@ -7342,7 +7342,7 @@ module AWS::SDK::SSM
     class ListResourceComplianceSummaries
       def self.default(visited=[])
         {
-          resource_compliance_summary_items: Stubs::ResourceComplianceSummaryItemList.default(visited),
+          resource_compliance_summary_items: ResourceComplianceSummaryItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7362,7 +7362,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ResourceComplianceSummaryItemList')
         visited = visited + ['ResourceComplianceSummaryItemList']
         [
-          Stubs::ResourceComplianceSummaryItem.default(visited)
+          ResourceComplianceSummaryItem.default(visited)
         ]
       end
 
@@ -7387,9 +7387,9 @@ module AWS::SDK::SSM
           resource_id: 'resource_id',
           status: 'status',
           overall_severity: 'overall_severity',
-          execution_summary: Stubs::ComplianceExecutionSummary.default(visited),
-          compliant_summary: Stubs::CompliantSummary.default(visited),
-          non_compliant_summary: Stubs::NonCompliantSummary.default(visited),
+          execution_summary: ComplianceExecutionSummary.default(visited),
+          compliant_summary: CompliantSummary.default(visited),
+          non_compliant_summary: NonCompliantSummary.default(visited),
         }
       end
 
@@ -7412,7 +7412,7 @@ module AWS::SDK::SSM
     class ListResourceDataSync
       def self.default(visited=[])
         {
-          resource_data_sync_items: Stubs::ResourceDataSyncItemList.default(visited),
+          resource_data_sync_items: ResourceDataSyncItemList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -7432,7 +7432,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ResourceDataSyncItemList')
         visited = visited + ['ResourceDataSyncItemList']
         [
-          Stubs::ResourceDataSyncItem.default(visited)
+          ResourceDataSyncItem.default(visited)
         ]
       end
 
@@ -7454,8 +7454,8 @@ module AWS::SDK::SSM
         {
           sync_name: 'sync_name',
           sync_type: 'sync_type',
-          sync_source: Stubs::ResourceDataSyncSourceWithState.default(visited),
-          s3_destination: Stubs::ResourceDataSyncS3Destination.default(visited),
+          sync_source: ResourceDataSyncSourceWithState.default(visited),
+          s3_destination: ResourceDataSyncS3Destination.default(visited),
           last_sync_time: Time.now,
           last_successful_sync_time: Time.now,
           sync_last_modified_time: Time.now,
@@ -7493,7 +7493,7 @@ module AWS::SDK::SSM
           sync_format: 'sync_format',
           region: 'region',
           awskms_key_arn: 'awskms_key_arn',
-          destination_data_sharing: Stubs::ResourceDataSyncDestinationDataSharing.default(visited),
+          destination_data_sharing: ResourceDataSyncDestinationDataSharing.default(visited),
         }
       end
 
@@ -7535,8 +7535,8 @@ module AWS::SDK::SSM
         visited = visited + ['ResourceDataSyncSourceWithState']
         {
           source_type: 'source_type',
-          aws_organizations_source: Stubs::ResourceDataSyncAwsOrganizationsSource.default(visited),
-          source_regions: Stubs::ResourceDataSyncSourceRegionList.default(visited),
+          aws_organizations_source: ResourceDataSyncAwsOrganizationsSource.default(visited),
+          source_regions: ResourceDataSyncSourceRegionList.default(visited),
           include_future_regions: false,
           state: 'state',
           enable_all_ops_data_sources: false,
@@ -7583,7 +7583,7 @@ module AWS::SDK::SSM
         visited = visited + ['ResourceDataSyncAwsOrganizationsSource']
         {
           organization_source_type: 'organization_source_type',
-          organizational_units: Stubs::ResourceDataSyncOrganizationalUnitList.default(visited),
+          organizational_units: ResourceDataSyncOrganizationalUnitList.default(visited),
         }
       end
 
@@ -7602,7 +7602,7 @@ module AWS::SDK::SSM
         return nil if visited.include?('ResourceDataSyncOrganizationalUnitList')
         visited = visited + ['ResourceDataSyncOrganizationalUnitList']
         [
-          Stubs::ResourceDataSyncOrganizationalUnit.default(visited)
+          ResourceDataSyncOrganizationalUnit.default(visited)
         ]
       end
 
@@ -7638,7 +7638,7 @@ module AWS::SDK::SSM
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -7796,7 +7796,7 @@ module AWS::SDK::SSM
     class ResetServiceSetting
       def self.default(visited=[])
         {
-          service_setting: Stubs::ServiceSetting.default(visited),
+          service_setting: ServiceSetting.default(visited),
         }
       end
 
@@ -7846,7 +7846,7 @@ module AWS::SDK::SSM
     class SendCommand
       def self.default(visited=[])
         {
-          command: Stubs::Command.default(visited),
+          command: Command.default(visited),
         }
       end
 
@@ -7958,8 +7958,8 @@ module AWS::SDK::SSM
     class UnlabelParameterVersion
       def self.default(visited=[])
         {
-          removed_labels: Stubs::ParameterLabelList.default(visited),
-          invalid_labels: Stubs::ParameterLabelList.default(visited),
+          removed_labels: ParameterLabelList.default(visited),
+          invalid_labels: ParameterLabelList.default(visited),
         }
       end
 
@@ -7976,7 +7976,7 @@ module AWS::SDK::SSM
     class UpdateAssociation
       def self.default(visited=[])
         {
-          association_description: Stubs::AssociationDescription.default(visited),
+          association_description: AssociationDescription.default(visited),
         }
       end
 
@@ -7992,7 +7992,7 @@ module AWS::SDK::SSM
     class UpdateAssociationStatus
       def self.default(visited=[])
         {
-          association_description: Stubs::AssociationDescription.default(visited),
+          association_description: AssociationDescription.default(visited),
         }
       end
 
@@ -8008,7 +8008,7 @@ module AWS::SDK::SSM
     class UpdateDocument
       def self.default(visited=[])
         {
-          document_description: Stubs::DocumentDescription.default(visited),
+          document_description: DocumentDescription.default(visited),
         }
       end
 
@@ -8024,7 +8024,7 @@ module AWS::SDK::SSM
     class UpdateDocumentDefaultVersion
       def self.default(visited=[])
         {
-          description: Stubs::DocumentDefaultVersionDescription.default(visited),
+          description: DocumentDefaultVersionDescription.default(visited),
         }
       end
 
@@ -8116,7 +8116,7 @@ module AWS::SDK::SSM
         {
           window_id: 'window_id',
           window_target_id: 'window_target_id',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           owner_information: 'owner_information',
           name: 'name',
           description: 'description',
@@ -8142,15 +8142,15 @@ module AWS::SDK::SSM
         {
           window_id: 'window_id',
           window_task_id: 'window_task_id',
-          targets: Stubs::Targets.default(visited),
+          targets: Targets.default(visited),
           task_arn: 'task_arn',
           service_role_arn: 'service_role_arn',
-          task_parameters: Stubs::MaintenanceWindowTaskParameters.default(visited),
-          task_invocation_parameters: Stubs::MaintenanceWindowTaskInvocationParameters.default(visited),
+          task_parameters: MaintenanceWindowTaskParameters.default(visited),
+          task_invocation_parameters: MaintenanceWindowTaskInvocationParameters.default(visited),
           priority: 1,
           max_concurrency: 'max_concurrency',
           max_errors: 'max_errors',
-          logging_info: Stubs::LoggingInfo.default(visited),
+          logging_info: LoggingInfo.default(visited),
           name: 'name',
           description: 'description',
           cutoff_behavior: 'cutoff_behavior',
@@ -8229,17 +8229,17 @@ module AWS::SDK::SSM
           baseline_id: 'baseline_id',
           name: 'name',
           operating_system: 'operating_system',
-          global_filters: Stubs::PatchFilterGroup.default(visited),
-          approval_rules: Stubs::PatchRuleGroup.default(visited),
-          approved_patches: Stubs::PatchIdList.default(visited),
+          global_filters: PatchFilterGroup.default(visited),
+          approval_rules: PatchRuleGroup.default(visited),
+          approved_patches: PatchIdList.default(visited),
           approved_patches_compliance_level: 'approved_patches_compliance_level',
           approved_patches_enable_non_security: false,
-          rejected_patches: Stubs::PatchIdList.default(visited),
+          rejected_patches: PatchIdList.default(visited),
           rejected_patches_action: 'rejected_patches_action',
           created_date: Time.now,
           modified_date: Time.now,
           description: 'description',
-          sources: Stubs::PatchSourceList.default(visited),
+          sources: PatchSourceList.default(visited),
         }
       end
 

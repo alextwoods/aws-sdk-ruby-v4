@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoT1ClickDevicesService
@@ -62,7 +64,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def claim_devices_by_claim_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ClaimDevicesByClaimCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ClaimDevicesByClaimCodeInput,
         validate_input: @config.validate_input
@@ -140,7 +142,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def describe_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceInput,
         validate_input: @config.validate_input
@@ -222,7 +224,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def finalize_device_claim(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::FinalizeDeviceClaimInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::FinalizeDeviceClaimInput,
         validate_input: @config.validate_input
@@ -294,7 +296,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def get_device_methods(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceMethodsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceMethodsInput,
         validate_input: @config.validate_input
@@ -366,7 +368,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def initiate_device_claim(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateDeviceClaimInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateDeviceClaimInput,
         validate_input: @config.validate_input
@@ -446,7 +448,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def invoke_device_method(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeDeviceMethodInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeDeviceMethodInput,
         validate_input: @config.validate_input
@@ -544,7 +546,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def list_device_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceEventsInput,
         validate_input: @config.validate_input
@@ -632,7 +634,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -701,7 +703,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -779,7 +781,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -848,7 +850,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def unclaim_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UnclaimDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UnclaimDeviceInput,
         validate_input: @config.validate_input
@@ -922,7 +924,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -995,7 +997,7 @@ module AWS::SDK::IoT1ClickDevicesService
     def update_device_state(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceStateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceStateInput,
         validate_input: @config.validate_input

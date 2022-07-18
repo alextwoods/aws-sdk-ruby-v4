@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::SnowDeviceManagement
   module Validators
 
@@ -46,7 +48,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Capacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Capacity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -55,9 +57,9 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         case input
         when Types::Command::Unlock
-          Validators::Unlock.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Unlock.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         when Types::Command::Reboot
-          Validators::Reboot.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
+          Reboot.validate!(input.__getobj__, context: context) unless input.__getobj__.nil?
         else
           raise ArgumentError,
                 "Expected #{context} to be a union member of "\
@@ -89,10 +91,10 @@ module AWS::SDK::SnowDeviceManagement
     class CreateTaskInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateTaskInput, context: context)
-        Validators::TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
-        Validators::Command.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
+        TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        Command.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -109,14 +111,14 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDeviceEc2InstancesInput, context: context)
         Hearth::Validator.validate!(input[:managed_device_id], ::String, context: "#{context}[:managed_device_id]")
-        Validators::InstanceIdsList.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        InstanceIdsList.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
       end
     end
 
     class DescribeDeviceEc2InstancesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeDeviceEc2InstancesOutput, context: context)
-        Validators::InstanceSummaryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        InstanceSummaryList.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
       end
     end
 
@@ -132,15 +134,15 @@ module AWS::SDK::SnowDeviceManagement
         Hearth::Validator.validate!(input, Types::DescribeDeviceOutput, context: context)
         Hearth::Validator.validate!(input[:last_reached_out_at], ::Time, context: "#{context}[:last_reached_out_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:managed_device_id], ::String, context: "#{context}[:managed_device_id]")
         Hearth::Validator.validate!(input[:managed_device_arn], ::String, context: "#{context}[:managed_device_arn]")
         Hearth::Validator.validate!(input[:device_type], ::String, context: "#{context}[:device_type]")
         Hearth::Validator.validate!(input[:associated_with_job], ::String, context: "#{context}[:associated_with_job]")
         Hearth::Validator.validate!(input[:device_state], ::String, context: "#{context}[:device_state]")
-        Validators::PhysicalNetworkInterfaceList.validate!(input[:physical_network_interfaces], context: "#{context}[:physical_network_interfaces]") unless input[:physical_network_interfaces].nil?
-        Validators::CapacityList.validate!(input[:device_capacities], context: "#{context}[:device_capacities]") unless input[:device_capacities].nil?
-        Validators::SoftwareInformation.validate!(input[:software], context: "#{context}[:software]") unless input[:software].nil?
+        PhysicalNetworkInterfaceList.validate!(input[:physical_network_interfaces], context: "#{context}[:physical_network_interfaces]") unless input[:physical_network_interfaces].nil?
+        CapacityList.validate!(input[:device_capacities], context: "#{context}[:device_capacities]") unless input[:device_capacities].nil?
+        SoftwareInformation.validate!(input[:software], context: "#{context}[:software]") unless input[:software].nil?
       end
     end
 
@@ -176,13 +178,13 @@ module AWS::SDK::SnowDeviceManagement
         Hearth::Validator.validate!(input, Types::DescribeTaskOutput, context: context)
         Hearth::Validator.validate!(input[:task_id], ::String, context: "#{context}[:task_id]")
         Hearth::Validator.validate!(input[:task_arn], ::String, context: "#{context}[:task_arn]")
-        Validators::TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
+        TargetList.validate!(input[:targets], context: "#{context}[:targets]") unless input[:targets].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:completed_at], ::Time, context: "#{context}[:completed_at]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::SnowDeviceManagement
         Hearth::Validator.validate!(input[:managed_device_id], ::String, context: "#{context}[:managed_device_id]")
         Hearth::Validator.validate!(input[:managed_device_arn], ::String, context: "#{context}[:managed_device_arn]")
         Hearth::Validator.validate!(input[:associated_with_job], ::String, context: "#{context}[:associated_with_job]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -200,7 +202,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeviceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -229,7 +231,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExecutionSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -240,15 +242,15 @@ module AWS::SDK::SnowDeviceManagement
         Hearth::Validator.validate!(input[:image_id], ::String, context: "#{context}[:image_id]")
         Hearth::Validator.validate!(input[:ami_launch_index], ::Integer, context: "#{context}[:ami_launch_index]")
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
-        Validators::InstanceState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
+        InstanceState.validate!(input[:state], context: "#{context}[:state]") unless input[:state].nil?
         Hearth::Validator.validate!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
         Hearth::Validator.validate!(input[:private_ip_address], ::String, context: "#{context}[:private_ip_address]")
         Hearth::Validator.validate!(input[:public_ip_address], ::String, context: "#{context}[:public_ip_address]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
-        Validators::InstanceBlockDeviceMappingList.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
-        Validators::SecurityGroupIdentifierList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
-        Validators::CpuOptions.validate!(input[:cpu_options], context: "#{context}[:cpu_options]") unless input[:cpu_options].nil?
+        InstanceBlockDeviceMappingList.validate!(input[:block_device_mappings], context: "#{context}[:block_device_mappings]") unless input[:block_device_mappings].nil?
+        SecurityGroupIdentifierList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        CpuOptions.validate!(input[:cpu_options], context: "#{context}[:cpu_options]") unless input[:cpu_options].nil?
         Hearth::Validator.validate!(input[:root_device_name], ::String, context: "#{context}[:root_device_name]")
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceBlockDeviceMapping, context: context)
         Hearth::Validator.validate!(input[:device_name], ::String, context: "#{context}[:device_name]")
-        Validators::EbsInstanceBlockDevice.validate!(input[:ebs], context: "#{context}[:ebs]") unless input[:ebs].nil?
+        EbsInstanceBlockDevice.validate!(input[:ebs], context: "#{context}[:ebs]") unless input[:ebs].nil?
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceBlockDeviceMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceBlockDeviceMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::SnowDeviceManagement
     class InstanceSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceSummary, context: context)
-        Validators::Instance.validate!(input[:instance], context: "#{context}[:instance]") unless input[:instance].nil?
+        Instance.validate!(input[:instance], context: "#{context}[:instance]") unless input[:instance].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
       end
     end
@@ -299,7 +301,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InstanceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListDeviceResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeviceResourcesOutput, context: context)
-        Validators::ResourceSummaryList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        ResourceSummaryList.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -341,7 +343,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListDevicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDevicesOutput, context: context)
-        Validators::DeviceSummaryList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
+        DeviceSummaryList.validate!(input[:devices], context: "#{context}[:devices]") unless input[:devices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -359,7 +361,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListExecutionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListExecutionsOutput, context: context)
-        Validators::ExecutionSummaryList.validate!(input[:executions], context: "#{context}[:executions]") unless input[:executions].nil?
+        ExecutionSummaryList.validate!(input[:executions], context: "#{context}[:executions]") unless input[:executions].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -374,7 +376,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -390,7 +392,7 @@ module AWS::SDK::SnowDeviceManagement
     class ListTasksOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTasksOutput, context: context)
-        Validators::TaskSummaryList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
+        TaskSummaryList.validate!(input[:tasks], context: "#{context}[:tasks]") unless input[:tasks].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PhysicalNetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PhysicalNetworkInterface.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -460,7 +462,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SecurityGroupIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SecurityGroupIdentifier.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::SnowDeviceManagement
         Hearth::Validator.validate!(input[:task_id], ::String, context: "#{context}[:task_id]")
         Hearth::Validator.validate!(input[:task_arn], ::String, context: "#{context}[:task_arn]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -537,7 +539,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TaskSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -559,7 +561,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 

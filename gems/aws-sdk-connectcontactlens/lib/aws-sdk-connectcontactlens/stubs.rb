@@ -14,7 +14,7 @@ module AWS::SDK::ConnectContactLens
     class ListRealtimeContactAnalysisSegments
       def self.default(visited=[])
         {
-          segments: Stubs::RealtimeContactAnalysisSegments.default(visited),
+          segments: RealtimeContactAnalysisSegments.default(visited),
           next_token: 'next_token',
         }
       end
@@ -35,7 +35,7 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('RealtimeContactAnalysisSegments')
         visited = visited + ['RealtimeContactAnalysisSegments']
         [
-          Stubs::RealtimeContactAnalysisSegment.default(visited)
+          RealtimeContactAnalysisSegment.default(visited)
         ]
       end
 
@@ -55,8 +55,8 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('RealtimeContactAnalysisSegment')
         visited = visited + ['RealtimeContactAnalysisSegment']
         {
-          transcript: Stubs::Transcript.default(visited),
-          categories: Stubs::Categories.default(visited),
+          transcript: Transcript.default(visited),
+          categories: Categories.default(visited),
         }
       end
 
@@ -75,8 +75,8 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('Categories')
         visited = visited + ['Categories']
         {
-          matched_categories: Stubs::MatchedCategories.default(visited),
-          matched_details: Stubs::MatchedDetails.default(visited),
+          matched_categories: MatchedCategories.default(visited),
+          matched_details: MatchedDetails.default(visited),
         }
       end
 
@@ -95,7 +95,7 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('MatchedDetails')
         visited = visited + ['MatchedDetails']
         {
-          test_key: Stubs::CategoryDetails.default(visited)
+          test_key: CategoryDetails.default(visited)
         }
       end
 
@@ -115,7 +115,7 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('CategoryDetails')
         visited = visited + ['CategoryDetails']
         {
-          points_of_interest: Stubs::PointsOfInterest.default(visited),
+          points_of_interest: PointsOfInterest.default(visited),
         }
       end
 
@@ -133,7 +133,7 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('PointsOfInterest')
         visited = visited + ['PointsOfInterest']
         [
-          Stubs::PointOfInterest.default(visited)
+          PointOfInterest.default(visited)
         ]
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::ConnectContactLens
           begin_offset_millis: 1,
           end_offset_millis: 1,
           sentiment: 'sentiment',
-          issues_detected: Stubs::IssuesDetected.default(visited),
+          issues_detected: IssuesDetected.default(visited),
         }
       end
 
@@ -225,7 +225,7 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('IssuesDetected')
         visited = visited + ['IssuesDetected']
         [
-          Stubs::IssueDetected.default(visited)
+          IssueDetected.default(visited)
         ]
       end
 
@@ -245,7 +245,7 @@ module AWS::SDK::ConnectContactLens
         return nil if visited.include?('IssueDetected')
         visited = visited + ['IssueDetected']
         {
-          character_offsets: Stubs::CharacterOffsets.default(visited),
+          character_offsets: CharacterOffsets.default(visited),
         }
       end
 

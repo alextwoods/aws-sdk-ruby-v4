@@ -16,7 +16,7 @@ module AWS::SDK::AppRunner
         {
           dns_target: 'dns_target',
           service_arn: 'service_arn',
-          custom_domain: Stubs::CustomDomain.default(visited),
+          custom_domain: CustomDomain.default(visited),
         }
       end
 
@@ -38,7 +38,7 @@ module AWS::SDK::AppRunner
         {
           domain_name: 'domain_name',
           enable_www_subdomain: false,
-          certificate_validation_records: Stubs::CertificateValidationRecordList.default(visited),
+          certificate_validation_records: CertificateValidationRecordList.default(visited),
           status: 'status',
         }
       end
@@ -60,7 +60,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('CertificateValidationRecordList')
         visited = visited + ['CertificateValidationRecordList']
         [
-          Stubs::CertificateValidationRecord.default(visited)
+          CertificateValidationRecord.default(visited)
         ]
       end
 
@@ -102,7 +102,7 @@ module AWS::SDK::AppRunner
     class CreateAutoScalingConfiguration
       def self.default(visited=[])
         {
-          auto_scaling_configuration: Stubs::AutoScalingConfiguration.default(visited),
+          auto_scaling_configuration: AutoScalingConfiguration.default(visited),
         }
       end
 
@@ -154,7 +154,7 @@ module AWS::SDK::AppRunner
     class CreateConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -196,7 +196,7 @@ module AWS::SDK::AppRunner
     class CreateObservabilityConfiguration
       def self.default(visited=[])
         {
-          observability_configuration: Stubs::ObservabilityConfiguration.default(visited),
+          observability_configuration: ObservabilityConfiguration.default(visited),
         }
       end
 
@@ -216,7 +216,7 @@ module AWS::SDK::AppRunner
         {
           observability_configuration_arn: 'observability_configuration_arn',
           observability_configuration_name: 'observability_configuration_name',
-          trace_configuration: Stubs::TraceConfiguration.default(visited),
+          trace_configuration: TraceConfiguration.default(visited),
           observability_configuration_revision: 1,
           latest: false,
           status: 'status',
@@ -262,7 +262,7 @@ module AWS::SDK::AppRunner
     class CreateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
           operation_id: 'operation_id',
         }
       end
@@ -290,13 +290,13 @@ module AWS::SDK::AppRunner
           updated_at: Time.now,
           deleted_at: Time.now,
           status: 'status',
-          source_configuration: Stubs::SourceConfiguration.default(visited),
-          instance_configuration: Stubs::InstanceConfiguration.default(visited),
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
-          health_check_configuration: Stubs::HealthCheckConfiguration.default(visited),
-          auto_scaling_configuration_summary: Stubs::AutoScalingConfigurationSummary.default(visited),
-          network_configuration: Stubs::NetworkConfiguration.default(visited),
-          observability_configuration: Stubs::ServiceObservabilityConfiguration.default(visited),
+          source_configuration: SourceConfiguration.default(visited),
+          instance_configuration: InstanceConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          health_check_configuration: HealthCheckConfiguration.default(visited),
+          auto_scaling_configuration_summary: AutoScalingConfigurationSummary.default(visited),
+          network_configuration: NetworkConfiguration.default(visited),
+          observability_configuration: ServiceObservabilityConfiguration.default(visited),
         }
       end
 
@@ -348,7 +348,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('NetworkConfiguration')
         visited = visited + ['NetworkConfiguration']
         {
-          egress_configuration: Stubs::EgressConfiguration.default(visited),
+          egress_configuration: EgressConfiguration.default(visited),
         }
       end
 
@@ -476,10 +476,10 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('SourceConfiguration')
         visited = visited + ['SourceConfiguration']
         {
-          code_repository: Stubs::CodeRepository.default(visited),
-          image_repository: Stubs::ImageRepository.default(visited),
+          code_repository: CodeRepository.default(visited),
+          image_repository: ImageRepository.default(visited),
           auto_deployments_enabled: false,
-          authentication_configuration: Stubs::AuthenticationConfiguration.default(visited),
+          authentication_configuration: AuthenticationConfiguration.default(visited),
         }
       end
 
@@ -521,7 +521,7 @@ module AWS::SDK::AppRunner
         visited = visited + ['ImageRepository']
         {
           image_identifier: 'image_identifier',
-          image_configuration: Stubs::ImageConfiguration.default(visited),
+          image_configuration: ImageConfiguration.default(visited),
           image_repository_type: 'image_repository_type',
         }
       end
@@ -542,7 +542,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('ImageConfiguration')
         visited = visited + ['ImageConfiguration']
         {
-          runtime_environment_variables: Stubs::RuntimeEnvironmentVariables.default(visited),
+          runtime_environment_variables: RuntimeEnvironmentVariables.default(visited),
           start_command: 'start_command',
           port: 'port',
         }
@@ -585,8 +585,8 @@ module AWS::SDK::AppRunner
         visited = visited + ['CodeRepository']
         {
           repository_url: 'repository_url',
-          source_code_version: Stubs::SourceCodeVersion.default(visited),
-          code_configuration: Stubs::CodeConfiguration.default(visited),
+          source_code_version: SourceCodeVersion.default(visited),
+          code_configuration: CodeConfiguration.default(visited),
         }
       end
 
@@ -607,7 +607,7 @@ module AWS::SDK::AppRunner
         visited = visited + ['CodeConfiguration']
         {
           configuration_source: 'configuration_source',
-          code_configuration_values: Stubs::CodeConfigurationValues.default(visited),
+          code_configuration_values: CodeConfigurationValues.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::AppRunner
           build_command: 'build_command',
           start_command: 'start_command',
           port: 'port',
-          runtime_environment_variables: Stubs::RuntimeEnvironmentVariables.default(visited),
+          runtime_environment_variables: RuntimeEnvironmentVariables.default(visited),
         }
       end
 
@@ -670,7 +670,7 @@ module AWS::SDK::AppRunner
     class CreateVpcConnector
       def self.default(visited=[])
         {
-          vpc_connector: Stubs::VpcConnector.default(visited),
+          vpc_connector: VpcConnector.default(visited),
         }
       end
 
@@ -691,8 +691,8 @@ module AWS::SDK::AppRunner
           vpc_connector_name: 'vpc_connector_name',
           vpc_connector_arn: 'vpc_connector_arn',
           vpc_connector_revision: 1,
-          subnets: Stubs::StringList.default(visited),
-          security_groups: Stubs::StringList.default(visited),
+          subnets: StringList.default(visited),
+          security_groups: StringList.default(visited),
           status: 'status',
           created_at: Time.now,
           deleted_at: Time.now,
@@ -738,7 +738,7 @@ module AWS::SDK::AppRunner
     class DeleteAutoScalingConfiguration
       def self.default(visited=[])
         {
-          auto_scaling_configuration: Stubs::AutoScalingConfiguration.default(visited),
+          auto_scaling_configuration: AutoScalingConfiguration.default(visited),
         }
       end
 
@@ -754,7 +754,7 @@ module AWS::SDK::AppRunner
     class DeleteConnection
       def self.default(visited=[])
         {
-          connection: Stubs::Connection.default(visited),
+          connection: Connection.default(visited),
         }
       end
 
@@ -770,7 +770,7 @@ module AWS::SDK::AppRunner
     class DeleteObservabilityConfiguration
       def self.default(visited=[])
         {
-          observability_configuration: Stubs::ObservabilityConfiguration.default(visited),
+          observability_configuration: ObservabilityConfiguration.default(visited),
         }
       end
 
@@ -786,7 +786,7 @@ module AWS::SDK::AppRunner
     class DeleteService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
           operation_id: 'operation_id',
         }
       end
@@ -804,7 +804,7 @@ module AWS::SDK::AppRunner
     class DeleteVpcConnector
       def self.default(visited=[])
         {
-          vpc_connector: Stubs::VpcConnector.default(visited),
+          vpc_connector: VpcConnector.default(visited),
         }
       end
 
@@ -820,7 +820,7 @@ module AWS::SDK::AppRunner
     class DescribeAutoScalingConfiguration
       def self.default(visited=[])
         {
-          auto_scaling_configuration: Stubs::AutoScalingConfiguration.default(visited),
+          auto_scaling_configuration: AutoScalingConfiguration.default(visited),
         }
       end
 
@@ -838,7 +838,7 @@ module AWS::SDK::AppRunner
         {
           dns_target: 'dns_target',
           service_arn: 'service_arn',
-          custom_domains: Stubs::CustomDomainList.default(visited),
+          custom_domains: CustomDomainList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -860,7 +860,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('CustomDomainList')
         visited = visited + ['CustomDomainList']
         [
-          Stubs::CustomDomain.default(visited)
+          CustomDomain.default(visited)
         ]
       end
 
@@ -878,7 +878,7 @@ module AWS::SDK::AppRunner
     class DescribeObservabilityConfiguration
       def self.default(visited=[])
         {
-          observability_configuration: Stubs::ObservabilityConfiguration.default(visited),
+          observability_configuration: ObservabilityConfiguration.default(visited),
         }
       end
 
@@ -894,7 +894,7 @@ module AWS::SDK::AppRunner
     class DescribeService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
         }
       end
 
@@ -910,7 +910,7 @@ module AWS::SDK::AppRunner
     class DescribeVpcConnector
       def self.default(visited=[])
         {
-          vpc_connector: Stubs::VpcConnector.default(visited),
+          vpc_connector: VpcConnector.default(visited),
         }
       end
 
@@ -928,7 +928,7 @@ module AWS::SDK::AppRunner
         {
           dns_target: 'dns_target',
           service_arn: 'service_arn',
-          custom_domain: Stubs::CustomDomain.default(visited),
+          custom_domain: CustomDomain.default(visited),
         }
       end
 
@@ -946,7 +946,7 @@ module AWS::SDK::AppRunner
     class ListAutoScalingConfigurations
       def self.default(visited=[])
         {
-          auto_scaling_configuration_summary_list: Stubs::AutoScalingConfigurationSummaryList.default(visited),
+          auto_scaling_configuration_summary_list: AutoScalingConfigurationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -966,7 +966,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('AutoScalingConfigurationSummaryList')
         visited = visited + ['AutoScalingConfigurationSummaryList']
         [
-          Stubs::AutoScalingConfigurationSummary.default(visited)
+          AutoScalingConfigurationSummary.default(visited)
         ]
       end
 
@@ -984,7 +984,7 @@ module AWS::SDK::AppRunner
     class ListConnections
       def self.default(visited=[])
         {
-          connection_summary_list: Stubs::ConnectionSummaryList.default(visited),
+          connection_summary_list: ConnectionSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1004,7 +1004,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('ConnectionSummaryList')
         visited = visited + ['ConnectionSummaryList']
         [
-          Stubs::ConnectionSummary.default(visited)
+          ConnectionSummary.default(visited)
         ]
       end
 
@@ -1048,7 +1048,7 @@ module AWS::SDK::AppRunner
     class ListObservabilityConfigurations
       def self.default(visited=[])
         {
-          observability_configuration_summary_list: Stubs::ObservabilityConfigurationSummaryList.default(visited),
+          observability_configuration_summary_list: ObservabilityConfigurationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1068,7 +1068,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('ObservabilityConfigurationSummaryList')
         visited = visited + ['ObservabilityConfigurationSummaryList']
         [
-          Stubs::ObservabilityConfigurationSummary.default(visited)
+          ObservabilityConfigurationSummary.default(visited)
         ]
       end
 
@@ -1108,7 +1108,7 @@ module AWS::SDK::AppRunner
     class ListOperations
       def self.default(visited=[])
         {
-          operation_summary_list: Stubs::OperationSummaryList.default(visited),
+          operation_summary_list: OperationSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1128,7 +1128,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('OperationSummaryList')
         visited = visited + ['OperationSummaryList']
         [
-          Stubs::OperationSummary.default(visited)
+          OperationSummary.default(visited)
         ]
       end
 
@@ -1176,7 +1176,7 @@ module AWS::SDK::AppRunner
     class ListServices
       def self.default(visited=[])
         {
-          service_summary_list: Stubs::ServiceSummaryList.default(visited),
+          service_summary_list: ServiceSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1196,7 +1196,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('ServiceSummaryList')
         visited = visited + ['ServiceSummaryList']
         [
-          Stubs::ServiceSummary.default(visited)
+          ServiceSummary.default(visited)
         ]
       end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::AppRunner
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1262,7 +1262,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::AppRunner
     class ListVpcConnectors
       def self.default(visited=[])
         {
-          vpc_connectors: Stubs::VpcConnectors.default(visited),
+          vpc_connectors: VpcConnectors.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1320,7 +1320,7 @@ module AWS::SDK::AppRunner
         return nil if visited.include?('VpcConnectors')
         visited = visited + ['VpcConnectors']
         [
-          Stubs::VpcConnector.default(visited)
+          VpcConnector.default(visited)
         ]
       end
 
@@ -1338,7 +1338,7 @@ module AWS::SDK::AppRunner
     class PauseService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
           operation_id: 'operation_id',
         }
       end
@@ -1356,7 +1356,7 @@ module AWS::SDK::AppRunner
     class ResumeService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
           operation_id: 'operation_id',
         }
       end
@@ -1418,7 +1418,7 @@ module AWS::SDK::AppRunner
     class UpdateService
       def self.default(visited=[])
         {
-          service: Stubs::Service.default(visited),
+          service: Service.default(visited),
           operation_id: 'operation_id',
         }
       end

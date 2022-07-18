@@ -1286,7 +1286,7 @@ module AWS::SDK::SSM
         type.duration = params[:duration]
         type.cutoff = params[:cutoff]
         type.allow_unassociated_targets = params[:allow_unassociated_targets]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::SSM
         type.rejected_patches_action = params[:rejected_patches_action]
         type.description = params[:description]
         type.sources = PatchSourceList.build(params[:sources], context: "#{context}[:sources]") unless params[:sources].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -1475,7 +1475,7 @@ module AWS::SDK::SSM
         type.type_name = params[:type_name]
         type.schema_delete_option = params[:schema_delete_option]
         type.dry_run = params[:dry_run]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -6726,7 +6726,7 @@ module AWS::SDK::SSM
         type.owner_information = params[:owner_information]
         type.name = params[:name]
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -6757,7 +6757,7 @@ module AWS::SDK::SSM
         type.logging_info = LoggingInfo.build(params[:logging_info], context: "#{context}[:logging_info]") unless params[:logging_info].nil?
         type.name = params[:name]
         type.description = params[:description]
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.cutoff_behavior = params[:cutoff_behavior]
         type
       end

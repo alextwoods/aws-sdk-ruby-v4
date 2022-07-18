@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::IoTEventsData
@@ -74,7 +76,7 @@ module AWS::SDK::IoTEventsData
     def batch_acknowledge_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchAcknowledgeAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchAcknowledgeAlarmInput,
         validate_input: @config.validate_input
@@ -153,7 +155,7 @@ module AWS::SDK::IoTEventsData
     def batch_delete_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteDetectorInput,
         validate_input: @config.validate_input
@@ -234,7 +236,7 @@ module AWS::SDK::IoTEventsData
     def batch_disable_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDisableAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDisableAlarmInput,
         validate_input: @config.validate_input
@@ -315,7 +317,7 @@ module AWS::SDK::IoTEventsData
     def batch_enable_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchEnableAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchEnableAlarmInput,
         validate_input: @config.validate_input
@@ -403,7 +405,7 @@ module AWS::SDK::IoTEventsData
     def batch_put_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchPutMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchPutMessageInput,
         validate_input: @config.validate_input
@@ -484,7 +486,7 @@ module AWS::SDK::IoTEventsData
     def batch_reset_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchResetAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchResetAlarmInput,
         validate_input: @config.validate_input
@@ -566,7 +568,7 @@ module AWS::SDK::IoTEventsData
     def batch_snooze_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchSnoozeAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchSnoozeAlarmInput,
         validate_input: @config.validate_input
@@ -661,7 +663,7 @@ module AWS::SDK::IoTEventsData
     def batch_update_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchUpdateDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchUpdateDetectorInput,
         validate_input: @config.validate_input
@@ -765,7 +767,7 @@ module AWS::SDK::IoTEventsData
     def describe_alarm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlarmInput,
         validate_input: @config.validate_input
@@ -854,7 +856,7 @@ module AWS::SDK::IoTEventsData
     def describe_detector(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDetectorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDetectorInput,
         validate_input: @config.validate_input
@@ -939,7 +941,7 @@ module AWS::SDK::IoTEventsData
     def list_alarms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAlarmsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAlarmsInput,
         validate_input: @config.validate_input
@@ -1028,7 +1030,7 @@ module AWS::SDK::IoTEventsData
     def list_detectors(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDetectorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDetectorsInput,
         validate_input: @config.validate_input

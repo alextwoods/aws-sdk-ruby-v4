@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ComprehendMedical
   module Validators
 
@@ -22,7 +24,7 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
         Hearth::Validator.validate!(input[:category], ::String, context: "#{context}[:category]")
-        Validators::TraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        TraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Attribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Attribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -62,8 +64,8 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:submit_time], ::Time, context: "#{context}[:submit_time]")
         Hearth::Validator.validate!(input[:end_time], ::Time, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:expiration_time], ::Time, context: "#{context}[:expiration_time]")
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:manifest_file_path], ::String, context: "#{context}[:manifest_file_path]")
@@ -76,7 +78,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ComprehendMedicalAsyncJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ComprehendMedicalAsyncJobProperties.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeEntitiesDetectionV2JobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeEntitiesDetectionV2JobOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
+        ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeICD10CMInferenceJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeICD10CMInferenceJobOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
+        ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::ComprehendMedical
     class DescribePHIDetectionJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribePHIDetectionJobOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
+        ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeRxNormInferenceJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeRxNormInferenceJobOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
+        ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
       end
     end
 
@@ -147,7 +149,7 @@ module AWS::SDK::ComprehendMedical
     class DescribeSNOMEDCTInferenceJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeSNOMEDCTInferenceJobOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
+        ComprehendMedicalAsyncJobProperties.validate!(input[:comprehend_medical_async_job_properties], context: "#{context}[:comprehend_medical_async_job_properties]") unless input[:comprehend_medical_async_job_properties].nil?
       end
     end
 
@@ -161,8 +163,8 @@ module AWS::SDK::ComprehendMedical
     class DetectEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectEntitiesOutput, context: context)
-        Validators::EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
-        Validators::UnmappedAttributeList.validate!(input[:unmapped_attributes], context: "#{context}[:unmapped_attributes]") unless input[:unmapped_attributes].nil?
+        EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        UnmappedAttributeList.validate!(input[:unmapped_attributes], context: "#{context}[:unmapped_attributes]") unless input[:unmapped_attributes].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
       end
@@ -178,8 +180,8 @@ module AWS::SDK::ComprehendMedical
     class DetectEntitiesV2Output
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectEntitiesV2Output, context: context)
-        Validators::EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
-        Validators::UnmappedAttributeList.validate!(input[:unmapped_attributes], context: "#{context}[:unmapped_attributes]") unless input[:unmapped_attributes].nil?
+        EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        UnmappedAttributeList.validate!(input[:unmapped_attributes], context: "#{context}[:unmapped_attributes]") unless input[:unmapped_attributes].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
       end
@@ -195,7 +197,7 @@ module AWS::SDK::ComprehendMedical
     class DetectPHIOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DetectPHIOutput, context: context)
-        Validators::EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        EntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
       end
@@ -211,8 +213,8 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
         Hearth::Validator.validate!(input[:category], ::String, context: "#{context}[:category]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::TraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
-        Validators::AttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        TraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        AttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Entity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Entity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:begin_offset], ::Integer, context: "#{context}[:begin_offset]")
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::ICD10CMTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        ICD10CMTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
         Hearth::Validator.validate!(input[:category], ::String, context: "#{context}[:category]")
         Hearth::Validator.validate!(input[:relationship_type], ::String, context: "#{context}[:relationship_type]")
       end
@@ -245,7 +247,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ICD10CMAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ICD10CMAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -263,7 +265,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ICD10CMConcept.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ICD10CMConcept.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -278,9 +280,9 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:score], ::Float, context: "#{context}[:score]")
         Hearth::Validator.validate!(input[:begin_offset], ::Integer, context: "#{context}[:begin_offset]")
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
-        Validators::ICD10CMAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::ICD10CMTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
-        Validators::ICD10CMConceptList.validate!(input[:icd10_cm_concepts], context: "#{context}[:icd10_cm_concepts]") unless input[:icd10_cm_concepts].nil?
+        ICD10CMAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        ICD10CMTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        ICD10CMConceptList.validate!(input[:icd10_cm_concepts], context: "#{context}[:icd10_cm_concepts]") unless input[:icd10_cm_concepts].nil?
       end
     end
 
@@ -288,7 +290,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ICD10CMEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ICD10CMEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ICD10CMTrait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ICD10CMTrait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -320,7 +322,7 @@ module AWS::SDK::ComprehendMedical
     class InferICD10CMOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InferICD10CMOutput, context: context)
-        Validators::ICD10CMEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        ICD10CMEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
       end
@@ -336,7 +338,7 @@ module AWS::SDK::ComprehendMedical
     class InferRxNormOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InferRxNormOutput, context: context)
-        Validators::RxNormEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        RxNormEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
       end
@@ -352,11 +354,11 @@ module AWS::SDK::ComprehendMedical
     class InferSNOMEDCTOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InferSNOMEDCTOutput, context: context)
-        Validators::SNOMEDCTEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
+        SNOMEDCTEntityList.validate!(input[:entities], context: "#{context}[:entities]") unless input[:entities].nil?
         Hearth::Validator.validate!(input[:pagination_token], ::String, context: "#{context}[:pagination_token]")
         Hearth::Validator.validate!(input[:model_version], ::String, context: "#{context}[:model_version]")
-        Validators::SNOMEDCTDetails.validate!(input[:snomedct_details], context: "#{context}[:snomedct_details]") unless input[:snomedct_details].nil?
-        Validators::Characters.validate!(input[:characters], context: "#{context}[:characters]") unless input[:characters].nil?
+        SNOMEDCTDetails.validate!(input[:snomedct_details], context: "#{context}[:snomedct_details]") unless input[:snomedct_details].nil?
+        Characters.validate!(input[:characters], context: "#{context}[:characters]") unless input[:characters].nil?
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::ComprehendMedical
     class ListEntitiesDetectionV2JobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitiesDetectionV2JobsInput, context: context)
-        Validators::ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -401,7 +403,7 @@ module AWS::SDK::ComprehendMedical
     class ListEntitiesDetectionV2JobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitiesDetectionV2JobsOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
+        ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -409,7 +411,7 @@ module AWS::SDK::ComprehendMedical
     class ListICD10CMInferenceJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListICD10CMInferenceJobsInput, context: context)
-        Validators::ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -418,7 +420,7 @@ module AWS::SDK::ComprehendMedical
     class ListICD10CMInferenceJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListICD10CMInferenceJobsOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
+        ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -426,7 +428,7 @@ module AWS::SDK::ComprehendMedical
     class ListPHIDetectionJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPHIDetectionJobsInput, context: context)
-        Validators::ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -435,7 +437,7 @@ module AWS::SDK::ComprehendMedical
     class ListPHIDetectionJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListPHIDetectionJobsOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
+        ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::ComprehendMedical
     class ListRxNormInferenceJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRxNormInferenceJobsInput, context: context)
-        Validators::ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -452,7 +454,7 @@ module AWS::SDK::ComprehendMedical
     class ListRxNormInferenceJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRxNormInferenceJobsOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
+        ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -460,7 +462,7 @@ module AWS::SDK::ComprehendMedical
     class ListSNOMEDCTInferenceJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSNOMEDCTInferenceJobsInput, context: context)
-        Validators::ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
+        ComprehendMedicalAsyncJobFilter.validate!(input[:filter], context: "#{context}[:filter]") unless input[:filter].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -469,7 +471,7 @@ module AWS::SDK::ComprehendMedical
     class ListSNOMEDCTInferenceJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSNOMEDCTInferenceJobsOutput, context: context)
-        Validators::ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
+        ComprehendMedicalAsyncJobPropertiesList.validate!(input[:comprehend_medical_async_job_properties_list], context: "#{context}[:comprehend_medical_async_job_properties_list]") unless input[:comprehend_medical_async_job_properties_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:begin_offset], ::Integer, context: "#{context}[:begin_offset]")
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::RxNormTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        RxNormTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
       end
     end
 
@@ -507,7 +509,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RxNormAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RxNormAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RxNormConcept.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RxNormConcept.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -540,9 +542,9 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:score], ::Float, context: "#{context}[:score]")
         Hearth::Validator.validate!(input[:begin_offset], ::Integer, context: "#{context}[:begin_offset]")
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
-        Validators::RxNormAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::RxNormTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
-        Validators::RxNormConceptList.validate!(input[:rx_norm_concepts], context: "#{context}[:rx_norm_concepts]") unless input[:rx_norm_concepts].nil?
+        RxNormAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        RxNormTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        RxNormConceptList.validate!(input[:rx_norm_concepts], context: "#{context}[:rx_norm_concepts]") unless input[:rx_norm_concepts].nil?
       end
     end
 
@@ -550,7 +552,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RxNormEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RxNormEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -567,7 +569,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RxNormTrait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RxNormTrait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -584,8 +586,8 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:begin_offset], ::Integer, context: "#{context}[:begin_offset]")
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
-        Validators::SNOMEDCTTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
-        Validators::SNOMEDCTConceptList.validate!(input[:snomedct_concepts], context: "#{context}[:snomedct_concepts]") unless input[:snomedct_concepts].nil?
+        SNOMEDCTTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        SNOMEDCTConceptList.validate!(input[:snomedct_concepts], context: "#{context}[:snomedct_concepts]") unless input[:snomedct_concepts].nil?
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SNOMEDCTAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SNOMEDCTAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SNOMEDCTConcept.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SNOMEDCTConcept.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -635,9 +637,9 @@ module AWS::SDK::ComprehendMedical
         Hearth::Validator.validate!(input[:score], ::Float, context: "#{context}[:score]")
         Hearth::Validator.validate!(input[:begin_offset], ::Integer, context: "#{context}[:begin_offset]")
         Hearth::Validator.validate!(input[:end_offset], ::Integer, context: "#{context}[:end_offset]")
-        Validators::SNOMEDCTAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
-        Validators::SNOMEDCTTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
-        Validators::SNOMEDCTConceptList.validate!(input[:snomedct_concepts], context: "#{context}[:snomedct_concepts]") unless input[:snomedct_concepts].nil?
+        SNOMEDCTAttributeList.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        SNOMEDCTTraitList.validate!(input[:traits], context: "#{context}[:traits]") unless input[:traits].nil?
+        SNOMEDCTConceptList.validate!(input[:snomedct_concepts], context: "#{context}[:snomedct_concepts]") unless input[:snomedct_concepts].nil?
       end
     end
 
@@ -645,7 +647,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SNOMEDCTEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SNOMEDCTEntity.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SNOMEDCTTrait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SNOMEDCTTrait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -677,8 +679,8 @@ module AWS::SDK::ComprehendMedical
     class StartEntitiesDetectionV2JobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartEntitiesDetectionV2JobInput, context: context)
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -697,8 +699,8 @@ module AWS::SDK::ComprehendMedical
     class StartICD10CMInferenceJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartICD10CMInferenceJobInput, context: context)
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -717,8 +719,8 @@ module AWS::SDK::ComprehendMedical
     class StartPHIDetectionJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartPHIDetectionJobInput, context: context)
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -737,8 +739,8 @@ module AWS::SDK::ComprehendMedical
     class StartRxNormInferenceJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartRxNormInferenceJobInput, context: context)
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -757,8 +759,8 @@ module AWS::SDK::ComprehendMedical
     class StartSNOMEDCTInferenceJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartSNOMEDCTInferenceJobInput, context: context)
-        Validators::InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
-        Validators::OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
+        InputDataConfig.validate!(input[:input_data_config], context: "#{context}[:input_data_config]") unless input[:input_data_config].nil?
+        OutputDataConfig.validate!(input[:output_data_config], context: "#{context}[:output_data_config]") unless input[:output_data_config].nil?
         Hearth::Validator.validate!(input[:data_access_role_arn], ::String, context: "#{context}[:data_access_role_arn]")
         Hearth::Validator.validate!(input[:job_name], ::String, context: "#{context}[:job_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
@@ -870,7 +872,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Trait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Trait.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -879,7 +881,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UnmappedAttribute, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::Attribute.validate!(input[:attribute], context: "#{context}[:attribute]") unless input[:attribute].nil?
+        Attribute.validate!(input[:attribute], context: "#{context}[:attribute]") unless input[:attribute].nil?
       end
     end
 
@@ -887,7 +889,7 @@ module AWS::SDK::ComprehendMedical
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UnmappedAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UnmappedAttribute.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

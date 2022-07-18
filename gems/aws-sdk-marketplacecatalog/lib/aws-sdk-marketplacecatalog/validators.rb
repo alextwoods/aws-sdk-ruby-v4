@@ -37,7 +37,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Change, context: context)
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
-        Validators::Entity.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
+        Entity.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
         Hearth::Validator.validate!(input[:details], ::String, context: "#{context}[:details]")
         Hearth::Validator.validate!(input[:change_name], ::String, context: "#{context}[:change_name]")
       end
@@ -47,7 +47,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangeSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -56,7 +56,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ChangeSetSummaryListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ChangeSetSummaryListItem.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -70,7 +70,7 @@ module AWS::SDK::MarketplaceCatalog
         Hearth::Validator.validate!(input[:start_time], ::String, context: "#{context}[:start_time]")
         Hearth::Validator.validate!(input[:end_time], ::String, context: "#{context}[:end_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ResourceIdList.validate!(input[:entity_id_list], context: "#{context}[:entity_id_list]") unless input[:entity_id_list].nil?
+        ResourceIdList.validate!(input[:entity_id_list], context: "#{context}[:entity_id_list]") unless input[:entity_id_list].nil?
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
       end
     end
@@ -79,9 +79,9 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ChangeSummary, context: context)
         Hearth::Validator.validate!(input[:change_type], ::String, context: "#{context}[:change_type]")
-        Validators::Entity.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
+        Entity.validate!(input[:entity], context: "#{context}[:entity]") unless input[:entity].nil?
         Hearth::Validator.validate!(input[:details], ::String, context: "#{context}[:details]")
-        Validators::ErrorDetailList.validate!(input[:error_detail_list], context: "#{context}[:error_detail_list]") unless input[:error_detail_list].nil?
+        ErrorDetailList.validate!(input[:error_detail_list], context: "#{context}[:error_detail_list]") unless input[:error_detail_list].nil?
         Hearth::Validator.validate!(input[:change_name], ::String, context: "#{context}[:change_name]")
       end
     end
@@ -105,7 +105,7 @@ module AWS::SDK::MarketplaceCatalog
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_description], ::String, context: "#{context}[:failure_description]")
-        Validators::ChangeSetDescription.validate!(input[:change_set], context: "#{context}[:change_set]") unless input[:change_set].nil?
+        ChangeSetDescription.validate!(input[:change_set], context: "#{context}[:change_set]") unless input[:change_set].nil?
       end
     end
 
@@ -152,7 +152,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EntitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EntitySummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -169,7 +169,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ErrorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ErrorDetail.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -178,7 +178,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::ValueList.validate!(input[:value_list], context: "#{context}[:value_list]") unless input[:value_list].nil?
+        ValueList.validate!(input[:value_list], context: "#{context}[:value_list]") unless input[:value_list].nil?
       end
     end
 
@@ -186,7 +186,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -202,8 +202,8 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChangeSetsInput, context: context)
         Hearth::Validator.validate!(input[:catalog], ::String, context: "#{context}[:catalog]")
-        Validators::FilterList.validate!(input[:filter_list], context: "#{context}[:filter_list]") unless input[:filter_list].nil?
-        Validators::Sort.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
+        FilterList.validate!(input[:filter_list], context: "#{context}[:filter_list]") unless input[:filter_list].nil?
+        Sort.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
@@ -212,7 +212,7 @@ module AWS::SDK::MarketplaceCatalog
     class ListChangeSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListChangeSetsOutput, context: context)
-        Validators::ChangeSetSummaryList.validate!(input[:change_set_summary_list], context: "#{context}[:change_set_summary_list]") unless input[:change_set_summary_list].nil?
+        ChangeSetSummaryList.validate!(input[:change_set_summary_list], context: "#{context}[:change_set_summary_list]") unless input[:change_set_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -222,8 +222,8 @@ module AWS::SDK::MarketplaceCatalog
         Hearth::Validator.validate!(input, Types::ListEntitiesInput, context: context)
         Hearth::Validator.validate!(input[:catalog], ::String, context: "#{context}[:catalog]")
         Hearth::Validator.validate!(input[:entity_type], ::String, context: "#{context}[:entity_type]")
-        Validators::FilterList.validate!(input[:filter_list], context: "#{context}[:filter_list]") unless input[:filter_list].nil?
-        Validators::Sort.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
+        FilterList.validate!(input[:filter_list], context: "#{context}[:filter_list]") unless input[:filter_list].nil?
+        Sort.validate!(input[:sort], context: "#{context}[:sort]") unless input[:sort].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -232,7 +232,7 @@ module AWS::SDK::MarketplaceCatalog
     class ListEntitiesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListEntitiesOutput, context: context)
-        Validators::EntitySummaryList.validate!(input[:entity_summary_list], context: "#{context}[:entity_summary_list]") unless input[:entity_summary_list].nil?
+        EntitySummaryList.validate!(input[:entity_summary_list], context: "#{context}[:entity_summary_list]") unless input[:entity_summary_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -241,7 +241,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Change.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Change.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartChangeSetInput, context: context)
         Hearth::Validator.validate!(input[:catalog], ::String, context: "#{context}[:catalog]")
-        Validators::RequestedChangeList.validate!(input[:change_set], context: "#{context}[:change_set]") unless input[:change_set].nil?
+        RequestedChangeList.validate!(input[:change_set], context: "#{context}[:change_set]") unless input[:change_set].nil?
         Hearth::Validator.validate!(input[:change_set_name], ::String, context: "#{context}[:change_set_name]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
       end

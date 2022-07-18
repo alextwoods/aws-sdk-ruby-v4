@@ -40,7 +40,7 @@ module AWS::SDK::IoTSiteWise
     class BatchAssociateProjectAssets
       def self.default(visited=[])
         {
-          errors: Stubs::BatchAssociateProjectAssetsErrors.default(visited),
+          errors: BatchAssociateProjectAssetsErrors.default(visited),
         }
       end
 
@@ -59,7 +59,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchAssociateProjectAssetsErrors')
         visited = visited + ['BatchAssociateProjectAssetsErrors']
         [
-          Stubs::AssetErrorDetails.default(visited)
+          AssetErrorDetails.default(visited)
         ]
       end
 
@@ -99,7 +99,7 @@ module AWS::SDK::IoTSiteWise
     class BatchDisassociateProjectAssets
       def self.default(visited=[])
         {
-          errors: Stubs::BatchDisassociateProjectAssetsErrors.default(visited),
+          errors: BatchDisassociateProjectAssetsErrors.default(visited),
         }
       end
 
@@ -118,7 +118,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchDisassociateProjectAssetsErrors')
         visited = visited + ['BatchDisassociateProjectAssetsErrors']
         [
-          Stubs::AssetErrorDetails.default(visited)
+          AssetErrorDetails.default(visited)
         ]
       end
 
@@ -136,9 +136,9 @@ module AWS::SDK::IoTSiteWise
     class BatchGetAssetPropertyAggregates
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchGetAssetPropertyAggregatesErrorEntries.default(visited),
-          success_entries: Stubs::BatchGetAssetPropertyAggregatesSuccessEntries.default(visited),
-          skipped_entries: Stubs::BatchGetAssetPropertyAggregatesSkippedEntries.default(visited),
+          error_entries: BatchGetAssetPropertyAggregatesErrorEntries.default(visited),
+          success_entries: BatchGetAssetPropertyAggregatesSuccessEntries.default(visited),
+          skipped_entries: BatchGetAssetPropertyAggregatesSkippedEntries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -161,7 +161,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyAggregatesSkippedEntries')
         visited = visited + ['BatchGetAssetPropertyAggregatesSkippedEntries']
         [
-          Stubs::BatchGetAssetPropertyAggregatesSkippedEntry.default(visited)
+          BatchGetAssetPropertyAggregatesSkippedEntry.default(visited)
         ]
       end
 
@@ -183,7 +183,7 @@ module AWS::SDK::IoTSiteWise
         {
           entry_id: 'entry_id',
           completion_status: 'completion_status',
-          error_info: Stubs::BatchGetAssetPropertyAggregatesErrorInfo.default(visited),
+          error_info: BatchGetAssetPropertyAggregatesErrorInfo.default(visited),
         }
       end
 
@@ -223,7 +223,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyAggregatesSuccessEntries')
         visited = visited + ['BatchGetAssetPropertyAggregatesSuccessEntries']
         [
-          Stubs::BatchGetAssetPropertyAggregatesSuccessEntry.default(visited)
+          BatchGetAssetPropertyAggregatesSuccessEntry.default(visited)
         ]
       end
 
@@ -244,7 +244,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['BatchGetAssetPropertyAggregatesSuccessEntry']
         {
           entry_id: 'entry_id',
-          aggregated_values: Stubs::AggregatedValues.default(visited),
+          aggregated_values: AggregatedValues.default(visited),
         }
       end
 
@@ -263,7 +263,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AggregatedValues')
         visited = visited + ['AggregatedValues']
         [
-          Stubs::AggregatedValue.default(visited)
+          AggregatedValue.default(visited)
         ]
       end
 
@@ -285,7 +285,7 @@ module AWS::SDK::IoTSiteWise
         {
           timestamp: Time.now,
           quality: 'quality',
-          value: Stubs::Aggregates.default(visited),
+          value: Aggregates.default(visited),
         }
       end
 
@@ -333,7 +333,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyAggregatesErrorEntries')
         visited = visited + ['BatchGetAssetPropertyAggregatesErrorEntries']
         [
-          Stubs::BatchGetAssetPropertyAggregatesErrorEntry.default(visited)
+          BatchGetAssetPropertyAggregatesErrorEntry.default(visited)
         ]
       end
 
@@ -373,9 +373,9 @@ module AWS::SDK::IoTSiteWise
     class BatchGetAssetPropertyValue
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchGetAssetPropertyValueErrorEntries.default(visited),
-          success_entries: Stubs::BatchGetAssetPropertyValueSuccessEntries.default(visited),
-          skipped_entries: Stubs::BatchGetAssetPropertyValueSkippedEntries.default(visited),
+          error_entries: BatchGetAssetPropertyValueErrorEntries.default(visited),
+          success_entries: BatchGetAssetPropertyValueSuccessEntries.default(visited),
+          skipped_entries: BatchGetAssetPropertyValueSkippedEntries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -398,7 +398,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyValueSkippedEntries')
         visited = visited + ['BatchGetAssetPropertyValueSkippedEntries']
         [
-          Stubs::BatchGetAssetPropertyValueSkippedEntry.default(visited)
+          BatchGetAssetPropertyValueSkippedEntry.default(visited)
         ]
       end
 
@@ -420,7 +420,7 @@ module AWS::SDK::IoTSiteWise
         {
           entry_id: 'entry_id',
           completion_status: 'completion_status',
-          error_info: Stubs::BatchGetAssetPropertyValueErrorInfo.default(visited),
+          error_info: BatchGetAssetPropertyValueErrorInfo.default(visited),
         }
       end
 
@@ -460,7 +460,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyValueSuccessEntries')
         visited = visited + ['BatchGetAssetPropertyValueSuccessEntries']
         [
-          Stubs::BatchGetAssetPropertyValueSuccessEntry.default(visited)
+          BatchGetAssetPropertyValueSuccessEntry.default(visited)
         ]
       end
 
@@ -481,7 +481,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['BatchGetAssetPropertyValueSuccessEntry']
         {
           entry_id: 'entry_id',
-          asset_property_value: Stubs::AssetPropertyValue.default(visited),
+          asset_property_value: AssetPropertyValue.default(visited),
         }
       end
 
@@ -500,8 +500,8 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetPropertyValue')
         visited = visited + ['AssetPropertyValue']
         {
-          value: Stubs::Variant.default(visited),
-          timestamp: Stubs::TimeInNanos.default(visited),
+          value: Variant.default(visited),
+          timestamp: TimeInNanos.default(visited),
           quality: 'quality',
         }
       end
@@ -566,7 +566,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyValueErrorEntries')
         visited = visited + ['BatchGetAssetPropertyValueErrorEntries']
         [
-          Stubs::BatchGetAssetPropertyValueErrorEntry.default(visited)
+          BatchGetAssetPropertyValueErrorEntry.default(visited)
         ]
       end
 
@@ -606,9 +606,9 @@ module AWS::SDK::IoTSiteWise
     class BatchGetAssetPropertyValueHistory
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchGetAssetPropertyValueHistoryErrorEntries.default(visited),
-          success_entries: Stubs::BatchGetAssetPropertyValueHistorySuccessEntries.default(visited),
-          skipped_entries: Stubs::BatchGetAssetPropertyValueHistorySkippedEntries.default(visited),
+          error_entries: BatchGetAssetPropertyValueHistoryErrorEntries.default(visited),
+          success_entries: BatchGetAssetPropertyValueHistorySuccessEntries.default(visited),
+          skipped_entries: BatchGetAssetPropertyValueHistorySkippedEntries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -631,7 +631,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyValueHistorySkippedEntries')
         visited = visited + ['BatchGetAssetPropertyValueHistorySkippedEntries']
         [
-          Stubs::BatchGetAssetPropertyValueHistorySkippedEntry.default(visited)
+          BatchGetAssetPropertyValueHistorySkippedEntry.default(visited)
         ]
       end
 
@@ -653,7 +653,7 @@ module AWS::SDK::IoTSiteWise
         {
           entry_id: 'entry_id',
           completion_status: 'completion_status',
-          error_info: Stubs::BatchGetAssetPropertyValueHistoryErrorInfo.default(visited),
+          error_info: BatchGetAssetPropertyValueHistoryErrorInfo.default(visited),
         }
       end
 
@@ -693,7 +693,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyValueHistorySuccessEntries')
         visited = visited + ['BatchGetAssetPropertyValueHistorySuccessEntries']
         [
-          Stubs::BatchGetAssetPropertyValueHistorySuccessEntry.default(visited)
+          BatchGetAssetPropertyValueHistorySuccessEntry.default(visited)
         ]
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['BatchGetAssetPropertyValueHistorySuccessEntry']
         {
           entry_id: 'entry_id',
-          asset_property_value_history: Stubs::AssetPropertyValueHistory.default(visited),
+          asset_property_value_history: AssetPropertyValueHistory.default(visited),
         }
       end
 
@@ -733,7 +733,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetPropertyValueHistory')
         visited = visited + ['AssetPropertyValueHistory']
         [
-          Stubs::AssetPropertyValue.default(visited)
+          AssetPropertyValue.default(visited)
         ]
       end
 
@@ -753,7 +753,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchGetAssetPropertyValueHistoryErrorEntries')
         visited = visited + ['BatchGetAssetPropertyValueHistoryErrorEntries']
         [
-          Stubs::BatchGetAssetPropertyValueHistoryErrorEntry.default(visited)
+          BatchGetAssetPropertyValueHistoryErrorEntry.default(visited)
         ]
       end
 
@@ -793,7 +793,7 @@ module AWS::SDK::IoTSiteWise
     class BatchPutAssetPropertyValue
       def self.default(visited=[])
         {
-          error_entries: Stubs::BatchPutAssetPropertyErrorEntries.default(visited),
+          error_entries: BatchPutAssetPropertyErrorEntries.default(visited),
         }
       end
 
@@ -812,7 +812,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchPutAssetPropertyErrorEntries')
         visited = visited + ['BatchPutAssetPropertyErrorEntries']
         [
-          Stubs::BatchPutAssetPropertyErrorEntry.default(visited)
+          BatchPutAssetPropertyErrorEntry.default(visited)
         ]
       end
 
@@ -833,7 +833,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['BatchPutAssetPropertyErrorEntry']
         {
           entry_id: 'entry_id',
-          errors: Stubs::BatchPutAssetPropertyErrors.default(visited),
+          errors: BatchPutAssetPropertyErrors.default(visited),
         }
       end
 
@@ -852,7 +852,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('BatchPutAssetPropertyErrors')
         visited = visited + ['BatchPutAssetPropertyErrors']
         [
-          Stubs::BatchPutAssetPropertyError.default(visited)
+          BatchPutAssetPropertyError.default(visited)
         ]
       end
 
@@ -874,7 +874,7 @@ module AWS::SDK::IoTSiteWise
         {
           error_code: 'error_code',
           error_message: 'error_message',
-          timestamps: Stubs::Timestamps.default(visited),
+          timestamps: Timestamps.default(visited),
         }
       end
 
@@ -894,7 +894,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('Timestamps')
         visited = visited + ['Timestamps']
         [
-          Stubs::TimeInNanos.default(visited)
+          TimeInNanos.default(visited)
         ]
       end
 
@@ -933,7 +933,7 @@ module AWS::SDK::IoTSiteWise
         {
           asset_id: 'asset_id',
           asset_arn: 'asset_arn',
-          asset_status: Stubs::AssetStatus.default(visited),
+          asset_status: AssetStatus.default(visited),
         }
       end
 
@@ -955,7 +955,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['AssetStatus']
         {
           state: 'state',
-          error: Stubs::ErrorDetails.default(visited),
+          error: ErrorDetails.default(visited),
         }
       end
 
@@ -976,7 +976,7 @@ module AWS::SDK::IoTSiteWise
         {
           code: 'code',
           message: 'message',
-          details: Stubs::DetailedErrors.default(visited),
+          details: DetailedErrors.default(visited),
         }
       end
 
@@ -996,7 +996,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('DetailedErrors')
         visited = visited + ['DetailedErrors']
         [
-          Stubs::DetailedError.default(visited)
+          DetailedError.default(visited)
         ]
       end
 
@@ -1036,7 +1036,7 @@ module AWS::SDK::IoTSiteWise
         {
           asset_model_id: 'asset_model_id',
           asset_model_arn: 'asset_model_arn',
-          asset_model_status: Stubs::AssetModelStatus.default(visited),
+          asset_model_status: AssetModelStatus.default(visited),
         }
       end
 
@@ -1058,7 +1058,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['AssetModelStatus']
         {
           state: 'state',
-          error: Stubs::ErrorDetails.default(visited),
+          error: ErrorDetails.default(visited),
         }
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::IoTSiteWise
           portal_id: 'portal_id',
           portal_arn: 'portal_arn',
           portal_start_url: 'portal_start_url',
-          portal_status: Stubs::PortalStatus.default(visited),
+          portal_status: PortalStatus.default(visited),
           sso_application_id: 'sso_application_id',
         }
       end
@@ -1141,7 +1141,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['PortalStatus']
         {
           state: 'state',
-          error: Stubs::MonitorErrorDetails.default(visited),
+          error: MonitorErrorDetails.default(visited),
         }
       end
 
@@ -1210,7 +1210,7 @@ module AWS::SDK::IoTSiteWise
     class DeleteAsset
       def self.default(visited=[])
         {
-          asset_status: Stubs::AssetStatus.default(visited),
+          asset_status: AssetStatus.default(visited),
         }
       end
 
@@ -1227,7 +1227,7 @@ module AWS::SDK::IoTSiteWise
     class DeleteAssetModel
       def self.default(visited=[])
         {
-          asset_model_status: Stubs::AssetModelStatus.default(visited),
+          asset_model_status: AssetModelStatus.default(visited),
         }
       end
 
@@ -1270,7 +1270,7 @@ module AWS::SDK::IoTSiteWise
     class DeletePortal
       def self.default(visited=[])
         {
-          portal_status: Stubs::PortalStatus.default(visited),
+          portal_status: PortalStatus.default(visited),
         }
       end
 
@@ -1315,8 +1315,8 @@ module AWS::SDK::IoTSiteWise
         {
           access_policy_id: 'access_policy_id',
           access_policy_arn: 'access_policy_arn',
-          access_policy_identity: Stubs::Identity.default(visited),
-          access_policy_resource: Stubs::Resource.default(visited),
+          access_policy_identity: Identity.default(visited),
+          access_policy_resource: Resource.default(visited),
           access_policy_permission: 'access_policy_permission',
           access_policy_creation_date: Time.now,
           access_policy_last_update_date: Time.now,
@@ -1344,8 +1344,8 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('Resource')
         visited = visited + ['Resource']
         {
-          portal: Stubs::PortalResource.default(visited),
-          project: Stubs::ProjectResource.default(visited),
+          portal: PortalResource.default(visited),
+          project: ProjectResource.default(visited),
         }
       end
 
@@ -1400,10 +1400,10 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('Identity')
         visited = visited + ['Identity']
         {
-          user: Stubs::UserIdentity.default(visited),
-          group: Stubs::GroupIdentity.default(visited),
-          iam_user: Stubs::IAMUserIdentity.default(visited),
-          iam_role: Stubs::IAMRoleIdentity.default(visited),
+          user: UserIdentity.default(visited),
+          group: GroupIdentity.default(visited),
+          iam_user: IAMUserIdentity.default(visited),
+          iam_role: IAMRoleIdentity.default(visited),
         }
       end
 
@@ -1498,12 +1498,12 @@ module AWS::SDK::IoTSiteWise
           asset_arn: 'asset_arn',
           asset_name: 'asset_name',
           asset_model_id: 'asset_model_id',
-          asset_properties: Stubs::AssetProperties.default(visited),
-          asset_hierarchies: Stubs::AssetHierarchies.default(visited),
-          asset_composite_models: Stubs::AssetCompositeModels.default(visited),
+          asset_properties: AssetProperties.default(visited),
+          asset_hierarchies: AssetHierarchies.default(visited),
+          asset_composite_models: AssetCompositeModels.default(visited),
           asset_creation_date: Time.now,
           asset_last_update_date: Time.now,
-          asset_status: Stubs::AssetStatus.default(visited),
+          asset_status: AssetStatus.default(visited),
           asset_description: 'asset_description',
         }
       end
@@ -1533,7 +1533,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetCompositeModels')
         visited = visited + ['AssetCompositeModels']
         [
-          Stubs::AssetCompositeModel.default(visited)
+          AssetCompositeModel.default(visited)
         ]
       end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::IoTSiteWise
           name: 'name',
           description: 'description',
           type: 'type',
-          properties: Stubs::AssetProperties.default(visited),
+          properties: AssetProperties.default(visited),
         }
       end
 
@@ -1577,7 +1577,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetProperties')
         visited = visited + ['AssetProperties']
         [
-          Stubs::AssetProperty.default(visited)
+          AssetProperty.default(visited)
         ]
       end
 
@@ -1600,7 +1600,7 @@ module AWS::SDK::IoTSiteWise
           id: 'id',
           name: 'name',
           alias: 'alias',
-          notification: Stubs::PropertyNotification.default(visited),
+          notification: PropertyNotification.default(visited),
           data_type: 'data_type',
           data_type_spec: 'data_type_spec',
           unit: 'unit',
@@ -1647,7 +1647,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetHierarchies')
         visited = visited + ['AssetHierarchies']
         [
-          Stubs::AssetHierarchy.default(visited)
+          AssetHierarchy.default(visited)
         ]
       end
 
@@ -1689,12 +1689,12 @@ module AWS::SDK::IoTSiteWise
           asset_model_arn: 'asset_model_arn',
           asset_model_name: 'asset_model_name',
           asset_model_description: 'asset_model_description',
-          asset_model_properties: Stubs::AssetModelProperties.default(visited),
-          asset_model_hierarchies: Stubs::AssetModelHierarchies.default(visited),
-          asset_model_composite_models: Stubs::AssetModelCompositeModels.default(visited),
+          asset_model_properties: AssetModelProperties.default(visited),
+          asset_model_hierarchies: AssetModelHierarchies.default(visited),
+          asset_model_composite_models: AssetModelCompositeModels.default(visited),
           asset_model_creation_date: Time.now,
           asset_model_last_update_date: Time.now,
-          asset_model_status: Stubs::AssetModelStatus.default(visited),
+          asset_model_status: AssetModelStatus.default(visited),
         }
       end
 
@@ -1722,7 +1722,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetModelCompositeModels')
         visited = visited + ['AssetModelCompositeModels']
         [
-          Stubs::AssetModelCompositeModel.default(visited)
+          AssetModelCompositeModel.default(visited)
         ]
       end
 
@@ -1745,7 +1745,7 @@ module AWS::SDK::IoTSiteWise
           name: 'name',
           description: 'description',
           type: 'type',
-          properties: Stubs::AssetModelProperties.default(visited),
+          properties: AssetModelProperties.default(visited),
         }
       end
 
@@ -1766,7 +1766,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetModelProperties')
         visited = visited + ['AssetModelProperties']
         [
-          Stubs::AssetModelProperty.default(visited)
+          AssetModelProperty.default(visited)
         ]
       end
 
@@ -1791,7 +1791,7 @@ module AWS::SDK::IoTSiteWise
           data_type: 'data_type',
           data_type_spec: 'data_type_spec',
           unit: 'unit',
-          type: Stubs::PropertyType.default(visited),
+          type: PropertyType.default(visited),
         }
       end
 
@@ -1814,10 +1814,10 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('PropertyType')
         visited = visited + ['PropertyType']
         {
-          attribute: Stubs::Attribute.default(visited),
-          measurement: Stubs::Measurement.default(visited),
-          transform: Stubs::Transform.default(visited),
-          metric: Stubs::Metric.default(visited),
+          attribute: Attribute.default(visited),
+          measurement: Measurement.default(visited),
+          transform: Transform.default(visited),
+          metric: Metric.default(visited),
         }
       end
 
@@ -1839,9 +1839,9 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['Metric']
         {
           expression: 'expression',
-          variables: Stubs::ExpressionVariables.default(visited),
-          window: Stubs::MetricWindow.default(visited),
-          processing_config: Stubs::MetricProcessingConfig.default(visited),
+          variables: ExpressionVariables.default(visited),
+          window: MetricWindow.default(visited),
+          processing_config: MetricProcessingConfig.default(visited),
         }
       end
 
@@ -1880,7 +1880,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('MetricWindow')
         visited = visited + ['MetricWindow']
         {
-          tumbling: Stubs::TumblingWindow.default(visited),
+          tumbling: TumblingWindow.default(visited),
         }
       end
 
@@ -1918,7 +1918,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('ExpressionVariables')
         visited = visited + ['ExpressionVariables']
         [
-          Stubs::ExpressionVariable.default(visited)
+          ExpressionVariable.default(visited)
         ]
       end
 
@@ -1939,7 +1939,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['ExpressionVariable']
         {
           name: 'name',
-          value: Stubs::VariableValue.default(visited),
+          value: VariableValue.default(visited),
         }
       end
 
@@ -1979,8 +1979,8 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['Transform']
         {
           expression: 'expression',
-          variables: Stubs::ExpressionVariables.default(visited),
-          processing_config: Stubs::TransformProcessingConfig.default(visited),
+          variables: ExpressionVariables.default(visited),
+          processing_config: TransformProcessingConfig.default(visited),
         }
       end
 
@@ -2001,7 +2001,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['TransformProcessingConfig']
         {
           compute_location: 'compute_location',
-          forwarding_config: Stubs::ForwardingConfig.default(visited),
+          forwarding_config: ForwardingConfig.default(visited),
         }
       end
 
@@ -2038,7 +2038,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('Measurement')
         visited = visited + ['Measurement']
         {
-          processing_config: Stubs::MeasurementProcessingConfig.default(visited),
+          processing_config: MeasurementProcessingConfig.default(visited),
         }
       end
 
@@ -2056,7 +2056,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('MeasurementProcessingConfig')
         visited = visited + ['MeasurementProcessingConfig']
         {
-          forwarding_config: Stubs::ForwardingConfig.default(visited),
+          forwarding_config: ForwardingConfig.default(visited),
         }
       end
 
@@ -2092,7 +2092,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetModelHierarchies')
         visited = visited + ['AssetModelHierarchies']
         [
-          Stubs::AssetModelHierarchy.default(visited)
+          AssetModelHierarchy.default(visited)
         ]
       end
 
@@ -2135,8 +2135,8 @@ module AWS::SDK::IoTSiteWise
           asset_id: 'asset_id',
           asset_name: 'asset_name',
           asset_model_id: 'asset_model_id',
-          asset_property: Stubs::Property.default(visited),
-          composite_model: Stubs::CompositeModelProperty.default(visited),
+          asset_property: Property.default(visited),
+          composite_model: CompositeModelProperty.default(visited),
         }
       end
 
@@ -2161,7 +2161,7 @@ module AWS::SDK::IoTSiteWise
         {
           name: 'name',
           type: 'type',
-          asset_property: Stubs::Property.default(visited),
+          asset_property: Property.default(visited),
         }
       end
 
@@ -2184,10 +2184,10 @@ module AWS::SDK::IoTSiteWise
           id: 'id',
           name: 'name',
           alias: 'alias',
-          notification: Stubs::PropertyNotification.default(visited),
+          notification: PropertyNotification.default(visited),
           data_type: 'data_type',
           unit: 'unit',
-          type: Stubs::PropertyType.default(visited),
+          type: PropertyType.default(visited),
         }
       end
 
@@ -2242,7 +2242,7 @@ module AWS::SDK::IoTSiteWise
         {
           encryption_type: 'encryption_type',
           kms_key_arn: 'kms_key_arn',
-          configuration_status: Stubs::ConfigurationStatus.default(visited),
+          configuration_status: ConfigurationStatus.default(visited),
         }
       end
 
@@ -2264,7 +2264,7 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['ConfigurationStatus']
         {
           state: 'state',
-          error: Stubs::ConfigurationErrorDetails.default(visited),
+          error: ConfigurationErrorDetails.default(visited),
         }
       end
 
@@ -2304,8 +2304,8 @@ module AWS::SDK::IoTSiteWise
           gateway_id: 'gateway_id',
           gateway_name: 'gateway_name',
           gateway_arn: 'gateway_arn',
-          gateway_platform: Stubs::GatewayPlatform.default(visited),
-          gateway_capability_summaries: Stubs::GatewayCapabilitySummaries.default(visited),
+          gateway_platform: GatewayPlatform.default(visited),
+          gateway_capability_summaries: GatewayCapabilitySummaries.default(visited),
           creation_date: Time.now,
           last_update_date: Time.now,
         }
@@ -2332,7 +2332,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('GatewayCapabilitySummaries')
         visited = visited + ['GatewayCapabilitySummaries']
         [
-          Stubs::GatewayCapabilitySummary.default(visited)
+          GatewayCapabilitySummary.default(visited)
         ]
       end
 
@@ -2372,8 +2372,8 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('GatewayPlatform')
         visited = visited + ['GatewayPlatform']
         {
-          greengrass: Stubs::Greengrass.default(visited),
-          greengrass_v2: Stubs::GreengrassV2.default(visited),
+          greengrass: Greengrass.default(visited),
+          greengrass_v2: GreengrassV2.default(visited),
         }
       end
 
@@ -2449,7 +2449,7 @@ module AWS::SDK::IoTSiteWise
     class DescribeLoggingOptions
       def self.default(visited=[])
         {
-          logging_options: Stubs::LoggingOptions.default(visited),
+          logging_options: LoggingOptions.default(visited),
         }
       end
 
@@ -2491,14 +2491,14 @@ module AWS::SDK::IoTSiteWise
           portal_client_id: 'portal_client_id',
           portal_start_url: 'portal_start_url',
           portal_contact_email: 'portal_contact_email',
-          portal_status: Stubs::PortalStatus.default(visited),
+          portal_status: PortalStatus.default(visited),
           portal_creation_date: Time.now,
           portal_last_update_date: Time.now,
-          portal_logo_image_location: Stubs::ImageLocation.default(visited),
+          portal_logo_image_location: ImageLocation.default(visited),
           role_arn: 'role_arn',
           portal_auth_mode: 'portal_auth_mode',
           notification_sender_email: 'notification_sender_email',
-          alarms: Stubs::Alarms.default(visited),
+          alarms: Alarms.default(visited),
         }
       end
 
@@ -2599,10 +2599,10 @@ module AWS::SDK::IoTSiteWise
       def self.default(visited=[])
         {
           storage_type: 'storage_type',
-          multi_layer_storage: Stubs::MultiLayerStorage.default(visited),
+          multi_layer_storage: MultiLayerStorage.default(visited),
           disassociated_data_storage: 'disassociated_data_storage',
-          retention_period: Stubs::RetentionPeriod.default(visited),
-          configuration_status: Stubs::ConfigurationStatus.default(visited),
+          retention_period: RetentionPeriod.default(visited),
+          configuration_status: ConfigurationStatus.default(visited),
           last_update_date: Time.now,
         }
       end
@@ -2647,7 +2647,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('MultiLayerStorage')
         visited = visited + ['MultiLayerStorage']
         {
-          customer_managed_s3_storage: Stubs::CustomerManagedS3Storage.default(visited),
+          customer_managed_s3_storage: CustomerManagedS3Storage.default(visited),
         }
       end
 
@@ -2740,7 +2740,7 @@ module AWS::SDK::IoTSiteWise
     class GetAssetPropertyAggregates
       def self.default(visited=[])
         {
-          aggregated_values: Stubs::AggregatedValues.default(visited),
+          aggregated_values: AggregatedValues.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2759,7 +2759,7 @@ module AWS::SDK::IoTSiteWise
     class GetAssetPropertyValue
       def self.default(visited=[])
         {
-          property_value: Stubs::AssetPropertyValue.default(visited),
+          property_value: AssetPropertyValue.default(visited),
         }
       end
 
@@ -2776,7 +2776,7 @@ module AWS::SDK::IoTSiteWise
     class GetAssetPropertyValueHistory
       def self.default(visited=[])
         {
-          asset_property_value_history: Stubs::AssetPropertyValueHistory.default(visited),
+          asset_property_value_history: AssetPropertyValueHistory.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2795,7 +2795,7 @@ module AWS::SDK::IoTSiteWise
     class GetInterpolatedAssetPropertyValues
       def self.default(visited=[])
         {
-          interpolated_asset_property_values: Stubs::InterpolatedAssetPropertyValues.default(visited),
+          interpolated_asset_property_values: InterpolatedAssetPropertyValues.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2816,7 +2816,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('InterpolatedAssetPropertyValues')
         visited = visited + ['InterpolatedAssetPropertyValues']
         [
-          Stubs::InterpolatedAssetPropertyValue.default(visited)
+          InterpolatedAssetPropertyValue.default(visited)
         ]
       end
 
@@ -2836,8 +2836,8 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('InterpolatedAssetPropertyValue')
         visited = visited + ['InterpolatedAssetPropertyValue']
         {
-          timestamp: Stubs::TimeInNanos.default(visited),
-          value: Stubs::Variant.default(visited),
+          timestamp: TimeInNanos.default(visited),
+          value: Variant.default(visited),
         }
       end
 
@@ -2854,7 +2854,7 @@ module AWS::SDK::IoTSiteWise
     class ListAccessPolicies
       def self.default(visited=[])
         {
-          access_policy_summaries: Stubs::AccessPolicySummaries.default(visited),
+          access_policy_summaries: AccessPolicySummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2875,7 +2875,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AccessPolicySummaries')
         visited = visited + ['AccessPolicySummaries']
         [
-          Stubs::AccessPolicySummary.default(visited)
+          AccessPolicySummary.default(visited)
         ]
       end
 
@@ -2896,8 +2896,8 @@ module AWS::SDK::IoTSiteWise
         visited = visited + ['AccessPolicySummary']
         {
           id: 'id',
-          identity: Stubs::Identity.default(visited),
-          resource: Stubs::Resource.default(visited),
+          identity: Identity.default(visited),
+          resource: Resource.default(visited),
           permission: 'permission',
           creation_date: Time.now,
           last_update_date: Time.now,
@@ -2921,7 +2921,7 @@ module AWS::SDK::IoTSiteWise
     class ListAssetModels
       def self.default(visited=[])
         {
-          asset_model_summaries: Stubs::AssetModelSummaries.default(visited),
+          asset_model_summaries: AssetModelSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2942,7 +2942,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetModelSummaries')
         visited = visited + ['AssetModelSummaries']
         [
-          Stubs::AssetModelSummary.default(visited)
+          AssetModelSummary.default(visited)
         ]
       end
 
@@ -2968,7 +2968,7 @@ module AWS::SDK::IoTSiteWise
           description: 'description',
           creation_date: Time.now,
           last_update_date: Time.now,
-          status: Stubs::AssetModelStatus.default(visited),
+          status: AssetModelStatus.default(visited),
         }
       end
 
@@ -2990,7 +2990,7 @@ module AWS::SDK::IoTSiteWise
     class ListAssetRelationships
       def self.default(visited=[])
         {
-          asset_relationship_summaries: Stubs::AssetRelationshipSummaries.default(visited),
+          asset_relationship_summaries: AssetRelationshipSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3011,7 +3011,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetRelationshipSummaries')
         visited = visited + ['AssetRelationshipSummaries']
         [
-          Stubs::AssetRelationshipSummary.default(visited)
+          AssetRelationshipSummary.default(visited)
         ]
       end
 
@@ -3031,7 +3031,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetRelationshipSummary')
         visited = visited + ['AssetRelationshipSummary']
         {
-          hierarchy_info: Stubs::AssetHierarchyInfo.default(visited),
+          hierarchy_info: AssetHierarchyInfo.default(visited),
           relationship_type: 'relationship_type',
         }
       end
@@ -3069,7 +3069,7 @@ module AWS::SDK::IoTSiteWise
     class ListAssets
       def self.default(visited=[])
         {
-          asset_summaries: Stubs::AssetSummaries.default(visited),
+          asset_summaries: AssetSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3090,7 +3090,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssetSummaries')
         visited = visited + ['AssetSummaries']
         [
-          Stubs::AssetSummary.default(visited)
+          AssetSummary.default(visited)
         ]
       end
 
@@ -3116,8 +3116,8 @@ module AWS::SDK::IoTSiteWise
           asset_model_id: 'asset_model_id',
           creation_date: Time.now,
           last_update_date: Time.now,
-          status: Stubs::AssetStatus.default(visited),
-          hierarchies: Stubs::AssetHierarchies.default(visited),
+          status: AssetStatus.default(visited),
+          hierarchies: AssetHierarchies.default(visited),
           description: 'description',
         }
       end
@@ -3142,7 +3142,7 @@ module AWS::SDK::IoTSiteWise
     class ListAssociatedAssets
       def self.default(visited=[])
         {
-          asset_summaries: Stubs::AssociatedAssetsSummaries.default(visited),
+          asset_summaries: AssociatedAssetsSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3163,7 +3163,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('AssociatedAssetsSummaries')
         visited = visited + ['AssociatedAssetsSummaries']
         [
-          Stubs::AssociatedAssetsSummary.default(visited)
+          AssociatedAssetsSummary.default(visited)
         ]
       end
 
@@ -3189,8 +3189,8 @@ module AWS::SDK::IoTSiteWise
           asset_model_id: 'asset_model_id',
           creation_date: Time.now,
           last_update_date: Time.now,
-          status: Stubs::AssetStatus.default(visited),
-          hierarchies: Stubs::AssetHierarchies.default(visited),
+          status: AssetStatus.default(visited),
+          hierarchies: AssetHierarchies.default(visited),
           description: 'description',
         }
       end
@@ -3215,7 +3215,7 @@ module AWS::SDK::IoTSiteWise
     class ListDashboards
       def self.default(visited=[])
         {
-          dashboard_summaries: Stubs::DashboardSummaries.default(visited),
+          dashboard_summaries: DashboardSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3236,7 +3236,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('DashboardSummaries')
         visited = visited + ['DashboardSummaries']
         [
-          Stubs::DashboardSummary.default(visited)
+          DashboardSummary.default(visited)
         ]
       end
 
@@ -3280,7 +3280,7 @@ module AWS::SDK::IoTSiteWise
     class ListGateways
       def self.default(visited=[])
         {
-          gateway_summaries: Stubs::GatewaySummaries.default(visited),
+          gateway_summaries: GatewaySummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3301,7 +3301,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('GatewaySummaries')
         visited = visited + ['GatewaySummaries']
         [
-          Stubs::GatewaySummary.default(visited)
+          GatewaySummary.default(visited)
         ]
       end
 
@@ -3323,8 +3323,8 @@ module AWS::SDK::IoTSiteWise
         {
           gateway_id: 'gateway_id',
           gateway_name: 'gateway_name',
-          gateway_platform: Stubs::GatewayPlatform.default(visited),
-          gateway_capability_summaries: Stubs::GatewayCapabilitySummaries.default(visited),
+          gateway_platform: GatewayPlatform.default(visited),
+          gateway_capability_summaries: GatewayCapabilitySummaries.default(visited),
           creation_date: Time.now,
           last_update_date: Time.now,
         }
@@ -3347,7 +3347,7 @@ module AWS::SDK::IoTSiteWise
     class ListPortals
       def self.default(visited=[])
         {
-          portal_summaries: Stubs::PortalSummaries.default(visited),
+          portal_summaries: PortalSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3368,7 +3368,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('PortalSummaries')
         visited = visited + ['PortalSummaries']
         [
-          Stubs::PortalSummary.default(visited)
+          PortalSummary.default(visited)
         ]
       end
 
@@ -3395,7 +3395,7 @@ module AWS::SDK::IoTSiteWise
           creation_date: Time.now,
           last_update_date: Time.now,
           role_arn: 'role_arn',
-          status: Stubs::PortalStatus.default(visited),
+          status: PortalStatus.default(visited),
         }
       end
 
@@ -3418,7 +3418,7 @@ module AWS::SDK::IoTSiteWise
     class ListProjectAssets
       def self.default(visited=[])
         {
-          asset_ids: Stubs::AssetIDs.default(visited),
+          asset_ids: AssetIDs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3457,7 +3457,7 @@ module AWS::SDK::IoTSiteWise
     class ListProjects
       def self.default(visited=[])
         {
-          project_summaries: Stubs::ProjectSummaries.default(visited),
+          project_summaries: ProjectSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3478,7 +3478,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('ProjectSummaries')
         visited = visited + ['ProjectSummaries']
         [
-          Stubs::ProjectSummary.default(visited)
+          ProjectSummary.default(visited)
         ]
       end
 
@@ -3522,7 +3522,7 @@ module AWS::SDK::IoTSiteWise
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagMap.default(visited),
+          tags: TagMap.default(visited),
         }
       end
 
@@ -3559,7 +3559,7 @@ module AWS::SDK::IoTSiteWise
     class ListTimeSeries
       def self.default(visited=[])
         {
-          time_series_summaries: Stubs::TimeSeriesSummaries.default(visited),
+          time_series_summaries: TimeSeriesSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3580,7 +3580,7 @@ module AWS::SDK::IoTSiteWise
         return nil if visited.include?('TimeSeriesSummaries')
         visited = visited + ['TimeSeriesSummaries']
         [
-          Stubs::TimeSeriesSummary.default(visited)
+          TimeSeriesSummary.default(visited)
         ]
       end
 
@@ -3632,7 +3632,7 @@ module AWS::SDK::IoTSiteWise
         {
           encryption_type: 'encryption_type',
           kms_key_arn: 'kms_key_arn',
-          configuration_status: Stubs::ConfigurationStatus.default(visited),
+          configuration_status: ConfigurationStatus.default(visited),
         }
       end
 
@@ -3665,10 +3665,10 @@ module AWS::SDK::IoTSiteWise
       def self.default(visited=[])
         {
           storage_type: 'storage_type',
-          multi_layer_storage: Stubs::MultiLayerStorage.default(visited),
+          multi_layer_storage: MultiLayerStorage.default(visited),
           disassociated_data_storage: 'disassociated_data_storage',
-          retention_period: Stubs::RetentionPeriod.default(visited),
-          configuration_status: Stubs::ConfigurationStatus.default(visited),
+          retention_period: RetentionPeriod.default(visited),
+          configuration_status: ConfigurationStatus.default(visited),
         }
       end
 
@@ -3728,7 +3728,7 @@ module AWS::SDK::IoTSiteWise
     class UpdateAsset
       def self.default(visited=[])
         {
-          asset_status: Stubs::AssetStatus.default(visited),
+          asset_status: AssetStatus.default(visited),
         }
       end
 
@@ -3745,7 +3745,7 @@ module AWS::SDK::IoTSiteWise
     class UpdateAssetModel
       def self.default(visited=[])
         {
-          asset_model_status: Stubs::AssetModelStatus.default(visited),
+          asset_model_status: AssetModelStatus.default(visited),
         }
       end
 
@@ -3820,7 +3820,7 @@ module AWS::SDK::IoTSiteWise
     class UpdatePortal
       def self.default(visited=[])
         {
-          portal_status: Stubs::PortalStatus.default(visited),
+          portal_status: PortalStatus.default(visited),
         }
       end
 

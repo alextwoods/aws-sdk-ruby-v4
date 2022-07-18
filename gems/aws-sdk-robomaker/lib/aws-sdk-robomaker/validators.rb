@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::RoboMaker
   module Validators
 
@@ -22,29 +24,29 @@ module AWS::SDK::RoboMaker
     class BatchDeleteWorldsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteWorldsInput, context: context)
-        Validators::Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
+        Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
       end
     end
 
     class BatchDeleteWorldsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDeleteWorldsOutput, context: context)
-        Validators::Arns.validate!(input[:unprocessed_worlds], context: "#{context}[:unprocessed_worlds]") unless input[:unprocessed_worlds].nil?
+        Arns.validate!(input[:unprocessed_worlds], context: "#{context}[:unprocessed_worlds]") unless input[:unprocessed_worlds].nil?
       end
     end
 
     class BatchDescribeSimulationJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDescribeSimulationJobInput, context: context)
-        Validators::Arns.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        Arns.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
       end
     end
 
     class BatchDescribeSimulationJobOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BatchDescribeSimulationJobOutput, context: context)
-        Validators::SimulationJobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
-        Validators::Arns.validate!(input[:unprocessed_jobs], context: "#{context}[:unprocessed_jobs]") unless input[:unprocessed_jobs].nil?
+        SimulationJobs.validate!(input[:jobs], context: "#{context}[:jobs]") unless input[:jobs].nil?
+        Arns.validate!(input[:unprocessed_jobs], context: "#{context}[:unprocessed_jobs]") unless input[:unprocessed_jobs].nil?
       end
     end
 
@@ -158,11 +160,11 @@ module AWS::SDK::RoboMaker
     class CreateDeploymentJobInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateDeploymentJobInput, context: context)
-        Validators::DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
+        DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:fleet], ::String, context: "#{context}[:fleet]")
-        Validators::DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -172,12 +174,12 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:fleet], ::String, context: "#{context}[:fleet]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
+        DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFleetInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -195,7 +197,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -203,10 +205,10 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateRobotApplicationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -216,12 +218,12 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -230,7 +232,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::CreateRobotApplicationVersionInput, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
         Hearth::Validator.validate!(input[:current_revision_id], ::String, context: "#{context}[:current_revision_id]")
-        Validators::S3Etags.validate!(input[:s3_etags], context: "#{context}[:s3_etags]") unless input[:s3_etags].nil?
+        S3Etags.validate!(input[:s3_etags], context: "#{context}[:s3_etags]") unless input[:s3_etags].nil?
         Hearth::Validator.validate!(input[:image_digest], ::String, context: "#{context}[:image_digest]")
       end
     end
@@ -241,11 +243,11 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -255,7 +257,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:architecture], ::String, context: "#{context}[:architecture]")
         Hearth::Validator.validate!(input[:greengrass_group_id], ::String, context: "#{context}[:greengrass_group_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:greengrass_group_id], ::String, context: "#{context}[:greengrass_group_id]")
         Hearth::Validator.validate!(input[:architecture], ::String, context: "#{context}[:architecture]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -275,12 +277,12 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSimulationApplicationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -290,14 +292,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::CreateSimulationApplicationVersionInput, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
         Hearth::Validator.validate!(input[:current_revision_id], ::String, context: "#{context}[:current_revision_id]")
-        Validators::S3Etags.validate!(input[:s3_etags], context: "#{context}[:s3_etags]") unless input[:s3_etags].nil?
+        S3Etags.validate!(input[:s3_etags], context: "#{context}[:s3_etags]") unless input[:s3_etags].nil?
         Hearth::Validator.validate!(input[:image_digest], ::String, context: "#{context}[:image_digest]")
       end
     end
@@ -317,13 +319,13 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -331,17 +333,17 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateSimulationJobInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
         Hearth::Validator.validate!(input[:max_job_duration_in_seconds], ::Integer, context: "#{context}[:max_job_duration_in_seconds]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:failure_behavior], ::String, context: "#{context}[:failure_behavior]")
-        Validators::RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
-        Validators::SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
-        Validators::DataSourceConfigs.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VPCConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::Compute.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
+        RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
+        SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
+        DataSourceConfigs.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VPCConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        Compute.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
       end
     end
 
@@ -355,17 +357,17 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:failure_behavior], ::String, context: "#{context}[:failure_behavior]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
         Hearth::Validator.validate!(input[:max_job_duration_in_seconds], ::Integer, context: "#{context}[:max_job_duration_in_seconds]")
         Hearth::Validator.validate!(input[:simulation_time_millis], ::Integer, context: "#{context}[:simulation_time_millis]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
-        Validators::RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
-        Validators::SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
-        Validators::DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VPCConfigResponse.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::ComputeResponse.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
+        RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
+        SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
+        DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VPCConfigResponse.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        ComputeResponse.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
       end
     end
 
@@ -373,7 +375,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimulationJobRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimulationJobRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -382,10 +384,10 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateWorldExportJobInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -397,9 +399,9 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -408,9 +410,9 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::CreateWorldGenerationJobInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:template], ::String, context: "#{context}[:template]")
-        Validators::WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TagMap.validate!(input[:world_tags], context: "#{context}[:world_tags]") unless input[:world_tags].nil?
+        WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:world_tags], context: "#{context}[:world_tags]") unless input[:world_tags].nil?
       end
     end
 
@@ -423,9 +425,9 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:template], ::String, context: "#{context}[:template]")
-        Validators::WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TagMap.validate!(input[:world_tags], context: "#{context}[:world_tags]") unless input[:world_tags].nil?
+        WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:world_tags], context: "#{context}[:world_tags]") unless input[:world_tags].nil?
       end
     end
 
@@ -435,8 +437,8 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:template_body], ::String, context: "#{context}[:template_body]")
-        Validators::TemplateLocation.validate!(input[:template_location], context: "#{context}[:template_location]") unless input[:template_location].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TemplateLocation.validate!(input[:template_location], context: "#{context}[:template_location]") unless input[:template_location].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -447,7 +449,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -456,7 +458,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::DataSource, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:s3_bucket], ::String, context: "#{context}[:s3_bucket]")
-        Validators::S3KeyOutputs.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
+        S3KeyOutputs.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
       end
@@ -467,7 +469,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::DataSourceConfig, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:s3_bucket], ::String, context: "#{context}[:s3_bucket]")
-        Validators::S3KeysOrPrefixes.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
+        S3KeysOrPrefixes.validate!(input[:s3_keys], context: "#{context}[:s3_keys]") unless input[:s3_keys].nil?
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:destination], ::String, context: "#{context}[:destination]")
       end
@@ -477,7 +479,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSourceConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSourceConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DataSource.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -572,7 +574,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::DeploymentApplicationConfig, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
         Hearth::Validator.validate!(input[:application_version], ::String, context: "#{context}[:application_version]")
-        Validators::DeploymentLaunchConfig.validate!(input[:launch_config], context: "#{context}[:launch_config]") unless input[:launch_config].nil?
+        DeploymentLaunchConfig.validate!(input[:launch_config], context: "#{context}[:launch_config]") unless input[:launch_config].nil?
       end
     end
 
@@ -580,7 +582,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeploymentApplicationConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeploymentApplicationConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:concurrent_deployment_percentage], ::Integer, context: "#{context}[:concurrent_deployment_percentage]")
         Hearth::Validator.validate!(input[:failure_threshold_percentage], ::Integer, context: "#{context}[:failure_threshold_percentage]")
         Hearth::Validator.validate!(input[:robot_deployment_timeout_in_seconds], ::Integer, context: "#{context}[:robot_deployment_timeout_in_seconds]")
-        Validators::S3Object.validate!(input[:download_condition_file], context: "#{context}[:download_condition_file]") unless input[:download_condition_file].nil?
+        S3Object.validate!(input[:download_condition_file], context: "#{context}[:download_condition_file]") unless input[:download_condition_file].nil?
       end
     end
 
@@ -601,8 +603,8 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:fleet], ::String, context: "#{context}[:fleet]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
-        Validators::DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
+        DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
+        DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
@@ -613,7 +615,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DeploymentJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DeploymentJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -625,7 +627,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:pre_launch_file], ::String, context: "#{context}[:pre_launch_file]")
         Hearth::Validator.validate!(input[:launch_file], ::String, context: "#{context}[:launch_file]")
         Hearth::Validator.validate!(input[:post_launch_file], ::String, context: "#{context}[:post_launch_file]")
-        Validators::EnvironmentVariableMap.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        EnvironmentVariableMap.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
       end
     end
 
@@ -658,13 +660,13 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:fleet], ::String, context: "#{context}[:fleet]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
-        Validators::DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
+        DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
+        DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::RobotDeploymentSummary.validate!(input[:robot_deployment_summary], context: "#{context}[:robot_deployment_summary]") unless input[:robot_deployment_summary].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RobotDeploymentSummary.validate!(input[:robot_deployment_summary], context: "#{context}[:robot_deployment_summary]") unless input[:robot_deployment_summary].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -680,12 +682,12 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::DescribeFleetOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Validators::Robots.validate!(input[:robots], context: "#{context}[:robots]") unless input[:robots].nil?
+        Robots.validate!(input[:robots], context: "#{context}[:robots]") unless input[:robots].nil?
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_deployment_status], ::String, context: "#{context}[:last_deployment_status]")
         Hearth::Validator.validate!(input[:last_deployment_job], ::String, context: "#{context}[:last_deployment_job]")
         Hearth::Validator.validate!(input[:last_deployment_time], ::Time, context: "#{context}[:last_deployment_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -703,12 +705,12 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:image_digest], ::String, context: "#{context}[:image_digest]")
       end
     end
@@ -732,7 +734,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:architecture], ::String, context: "#{context}[:architecture]")
         Hearth::Validator.validate!(input[:last_deployment_job], ::String, context: "#{context}[:last_deployment_job]")
         Hearth::Validator.validate!(input[:last_deployment_time], ::Time, context: "#{context}[:last_deployment_time]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -750,14 +752,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
         Hearth::Validator.validate!(input[:image_digest], ::String, context: "#{context}[:image_digest]")
       end
     end
@@ -777,13 +779,13 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::BatchPolicy.validate!(input[:batch_policy], context: "#{context}[:batch_policy]") unless input[:batch_policy].nil?
+        BatchPolicy.validate!(input[:batch_policy], context: "#{context}[:batch_policy]") unless input[:batch_policy].nil?
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
-        Validators::FailedCreateSimulationJobRequests.validate!(input[:failed_requests], context: "#{context}[:failed_requests]") unless input[:failed_requests].nil?
-        Validators::CreateSimulationJobRequests.validate!(input[:pending_requests], context: "#{context}[:pending_requests]") unless input[:pending_requests].nil?
-        Validators::SimulationJobSummaries.validate!(input[:created_requests], context: "#{context}[:created_requests]") unless input[:created_requests].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FailedCreateSimulationJobRequests.validate!(input[:failed_requests], context: "#{context}[:failed_requests]") unless input[:failed_requests].nil?
+        CreateSimulationJobRequests.validate!(input[:pending_requests], context: "#{context}[:pending_requests]") unless input[:pending_requests].nil?
+        SimulationJobSummaries.validate!(input[:created_requests], context: "#{context}[:created_requests]") unless input[:created_requests].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -806,18 +808,18 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
         Hearth::Validator.validate!(input[:max_job_duration_in_seconds], ::Integer, context: "#{context}[:max_job_duration_in_seconds]")
         Hearth::Validator.validate!(input[:simulation_time_millis], ::Integer, context: "#{context}[:simulation_time_millis]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
-        Validators::RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
-        Validators::SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
-        Validators::DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VPCConfigResponse.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::NetworkInterface.validate!(input[:network_interface], context: "#{context}[:network_interface]") unless input[:network_interface].nil?
-        Validators::ComputeResponse.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
+        RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
+        SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
+        DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VPCConfigResponse.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        NetworkInterface.validate!(input[:network_interface], context: "#{context}[:network_interface]") unless input[:network_interface].nil?
+        ComputeResponse.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
       end
     end
 
@@ -837,10 +839,10 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -861,10 +863,10 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
         Hearth::Validator.validate!(input[:template], ::String, context: "#{context}[:template]")
-        Validators::WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
-        Validators::FinishedWorldsSummary.validate!(input[:finished_worlds_summary], context: "#{context}[:finished_worlds_summary]") unless input[:finished_worlds_summary].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::TagMap.validate!(input[:world_tags], context: "#{context}[:world_tags]") unless input[:world_tags].nil?
+        WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
+        FinishedWorldsSummary.validate!(input[:finished_worlds_summary], context: "#{context}[:finished_worlds_summary]") unless input[:finished_worlds_summary].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:world_tags], context: "#{context}[:world_tags]") unless input[:world_tags].nil?
       end
     end
 
@@ -882,7 +884,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:generation_job], ::String, context: "#{context}[:generation_job]")
         Hearth::Validator.validate!(input[:template], ::String, context: "#{context}[:template]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:world_description_body], ::String, context: "#{context}[:world_description_body]")
       end
     end
@@ -902,7 +904,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
       end
     end
@@ -927,7 +929,7 @@ module AWS::SDK::RoboMaker
     class FailedCreateSimulationJobRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailedCreateSimulationJobRequest, context: context)
-        Validators::SimulationJobRequest.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
+        SimulationJobRequest.validate!(input[:request], context: "#{context}[:request]") unless input[:request].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failed_at], ::Time, context: "#{context}[:failed_at]")
@@ -938,7 +940,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::FailedCreateSimulationJobRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          FailedCreateSimulationJobRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -947,7 +949,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FailureSummary, context: context)
         Hearth::Validator.validate!(input[:total_failure_count], ::Integer, context: "#{context}[:total_failure_count]")
-        Validators::WorldFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
+        WorldFailures.validate!(input[:failures], context: "#{context}[:failures]") unless input[:failures].nil?
       end
     end
 
@@ -955,7 +957,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
+        FilterValues.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
 
@@ -972,7 +974,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -981,8 +983,8 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FinishedWorldsSummary, context: context)
         Hearth::Validator.validate!(input[:finished_count], ::Integer, context: "#{context}[:finished_count]")
-        Validators::Arns.validate!(input[:succeeded_worlds], context: "#{context}[:succeeded_worlds]") unless input[:succeeded_worlds].nil?
-        Validators::FailureSummary.validate!(input[:failure_summary], context: "#{context}[:failure_summary]") unless input[:failure_summary].nil?
+        Arns.validate!(input[:succeeded_worlds], context: "#{context}[:succeeded_worlds]") unless input[:succeeded_worlds].nil?
+        FailureSummary.validate!(input[:failure_summary], context: "#{context}[:failure_summary]") unless input[:failure_summary].nil?
       end
     end
 
@@ -1002,7 +1004,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Fleet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Fleet.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1048,10 +1050,10 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::LaunchConfig, context: context)
         Hearth::Validator.validate!(input[:package_name], ::String, context: "#{context}[:package_name]")
         Hearth::Validator.validate!(input[:launch_file], ::String, context: "#{context}[:launch_file]")
-        Validators::EnvironmentVariableMap.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
-        Validators::PortForwardingConfig.validate!(input[:port_forwarding_config], context: "#{context}[:port_forwarding_config]") unless input[:port_forwarding_config].nil?
+        EnvironmentVariableMap.validate!(input[:environment_variables], context: "#{context}[:environment_variables]") unless input[:environment_variables].nil?
+        PortForwardingConfig.validate!(input[:port_forwarding_config], context: "#{context}[:port_forwarding_config]") unless input[:port_forwarding_config].nil?
         Hearth::Validator.validate!(input[:stream_ui], ::TrueClass, ::FalseClass, context: "#{context}[:stream_ui]")
-        Validators::CommandList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
+        CommandList.validate!(input[:command], context: "#{context}[:command]") unless input[:command].nil?
       end
     end
 
@@ -1065,7 +1067,7 @@ module AWS::SDK::RoboMaker
     class ListDeploymentJobsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentJobsInput, context: context)
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -1074,7 +1076,7 @@ module AWS::SDK::RoboMaker
     class ListDeploymentJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListDeploymentJobsOutput, context: context)
-        Validators::DeploymentJobs.validate!(input[:deployment_jobs], context: "#{context}[:deployment_jobs]") unless input[:deployment_jobs].nil?
+        DeploymentJobs.validate!(input[:deployment_jobs], context: "#{context}[:deployment_jobs]") unless input[:deployment_jobs].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1084,14 +1086,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListFleetsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListFleetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFleetsOutput, context: context)
-        Validators::Fleets.validate!(input[:fleet_details], context: "#{context}[:fleet_details]") unless input[:fleet_details].nil?
+        Fleets.validate!(input[:fleet_details], context: "#{context}[:fleet_details]") unless input[:fleet_details].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1102,14 +1104,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:version_qualifier], ::String, context: "#{context}[:version_qualifier]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListRobotApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRobotApplicationsOutput, context: context)
-        Validators::RobotApplicationSummaries.validate!(input[:robot_application_summaries], context: "#{context}[:robot_application_summaries]") unless input[:robot_application_summaries].nil?
+        RobotApplicationSummaries.validate!(input[:robot_application_summaries], context: "#{context}[:robot_application_summaries]") unless input[:robot_application_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1119,14 +1121,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListRobotsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListRobotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListRobotsOutput, context: context)
-        Validators::Robots.validate!(input[:robots], context: "#{context}[:robots]") unless input[:robots].nil?
+        Robots.validate!(input[:robots], context: "#{context}[:robots]") unless input[:robots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1137,14 +1139,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:version_qualifier], ::String, context: "#{context}[:version_qualifier]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListSimulationApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSimulationApplicationsOutput, context: context)
-        Validators::SimulationApplicationSummaries.validate!(input[:simulation_application_summaries], context: "#{context}[:simulation_application_summaries]") unless input[:simulation_application_summaries].nil?
+        SimulationApplicationSummaries.validate!(input[:simulation_application_summaries], context: "#{context}[:simulation_application_summaries]") unless input[:simulation_application_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1154,14 +1156,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListSimulationJobBatchesInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListSimulationJobBatchesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSimulationJobBatchesOutput, context: context)
-        Validators::SimulationJobBatchSummaries.validate!(input[:simulation_job_batch_summaries], context: "#{context}[:simulation_job_batch_summaries]") unless input[:simulation_job_batch_summaries].nil?
+        SimulationJobBatchSummaries.validate!(input[:simulation_job_batch_summaries], context: "#{context}[:simulation_job_batch_summaries]") unless input[:simulation_job_batch_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1171,14 +1173,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListSimulationJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListSimulationJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSimulationJobsOutput, context: context)
-        Validators::SimulationJobSummaries.validate!(input[:simulation_job_summaries], context: "#{context}[:simulation_job_summaries]") unless input[:simulation_job_summaries].nil?
+        SimulationJobSummaries.validate!(input[:simulation_job_summaries], context: "#{context}[:simulation_job_summaries]") unless input[:simulation_job_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1193,7 +1195,7 @@ module AWS::SDK::RoboMaker
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1202,14 +1204,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListWorldExportJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListWorldExportJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorldExportJobsOutput, context: context)
-        Validators::WorldExportJobSummaries.validate!(input[:world_export_job_summaries], context: "#{context}[:world_export_job_summaries]") unless input[:world_export_job_summaries].nil?
+        WorldExportJobSummaries.validate!(input[:world_export_job_summaries], context: "#{context}[:world_export_job_summaries]") unless input[:world_export_job_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1219,14 +1221,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListWorldGenerationJobsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListWorldGenerationJobsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorldGenerationJobsOutput, context: context)
-        Validators::WorldGenerationJobSummaries.validate!(input[:world_generation_job_summaries], context: "#{context}[:world_generation_job_summaries]") unless input[:world_generation_job_summaries].nil?
+        WorldGenerationJobSummaries.validate!(input[:world_generation_job_summaries], context: "#{context}[:world_generation_job_summaries]") unless input[:world_generation_job_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1242,7 +1244,7 @@ module AWS::SDK::RoboMaker
     class ListWorldTemplatesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorldTemplatesOutput, context: context)
-        Validators::TemplateSummaries.validate!(input[:template_summaries], context: "#{context}[:template_summaries]") unless input[:template_summaries].nil?
+        TemplateSummaries.validate!(input[:template_summaries], context: "#{context}[:template_summaries]") unless input[:template_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1252,14 +1254,14 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::ListWorldsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
       end
     end
 
     class ListWorldsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListWorldsOutput, context: context)
-        Validators::WorldSummaries.validate!(input[:world_summaries], context: "#{context}[:world_summaries]") unless input[:world_summaries].nil?
+        WorldSummaries.validate!(input[:world_summaries], context: "#{context}[:world_summaries]") unless input[:world_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -1291,7 +1293,7 @@ module AWS::SDK::RoboMaker
     class PortForwardingConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PortForwardingConfig, context: context)
-        Validators::PortMappingList.validate!(input[:port_mappings], context: "#{context}[:port_mappings]") unless input[:port_mappings].nil?
+        PortMappingList.validate!(input[:port_mappings], context: "#{context}[:port_mappings]") unless input[:port_mappings].nil?
       end
     end
 
@@ -1308,7 +1310,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::PortMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          PortMapping.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1394,10 +1396,10 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::RobotApplicationConfig, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
         Hearth::Validator.validate!(input[:application_version], ::String, context: "#{context}[:application_version]")
-        Validators::LaunchConfig.validate!(input[:launch_config], context: "#{context}[:launch_config]") unless input[:launch_config].nil?
-        Validators::UploadConfigurations.validate!(input[:upload_configurations], context: "#{context}[:upload_configurations]") unless input[:upload_configurations].nil?
+        LaunchConfig.validate!(input[:launch_config], context: "#{context}[:launch_config]") unless input[:launch_config].nil?
+        UploadConfigurations.validate!(input[:upload_configurations], context: "#{context}[:upload_configurations]") unless input[:upload_configurations].nil?
         Hearth::Validator.validate!(input[:use_default_upload_configurations], ::TrueClass, ::FalseClass, context: "#{context}[:use_default_upload_configurations]")
-        Validators::Tools.validate!(input[:tools], context: "#{context}[:tools]") unless input[:tools].nil?
+        Tools.validate!(input[:tools], context: "#{context}[:tools]") unless input[:tools].nil?
         Hearth::Validator.validate!(input[:use_default_tools], ::TrueClass, ::FalseClass, context: "#{context}[:use_default_tools]")
       end
     end
@@ -1406,7 +1408,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RobotApplicationConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RobotApplicationConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1424,7 +1426,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RobotApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RobotApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1436,7 +1438,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
       end
     end
 
@@ -1447,7 +1449,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:deployment_start_time], ::Time, context: "#{context}[:deployment_start_time]")
         Hearth::Validator.validate!(input[:deployment_finish_time], ::Time, context: "#{context}[:deployment_finish_time]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::ProgressDetail.validate!(input[:progress_detail], context: "#{context}[:progress_detail]") unless input[:progress_detail].nil?
+        ProgressDetail.validate!(input[:progress_detail], context: "#{context}[:progress_detail]") unless input[:progress_detail].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
       end
@@ -1457,7 +1459,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::RobotDeployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          RobotDeployment.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1474,7 +1476,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Robot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Robot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1500,7 +1502,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::S3KeyOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          S3KeyOutput.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1544,11 +1546,11 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input, Types::SimulationApplicationConfig, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
         Hearth::Validator.validate!(input[:application_version], ::String, context: "#{context}[:application_version]")
-        Validators::LaunchConfig.validate!(input[:launch_config], context: "#{context}[:launch_config]") unless input[:launch_config].nil?
-        Validators::UploadConfigurations.validate!(input[:upload_configurations], context: "#{context}[:upload_configurations]") unless input[:upload_configurations].nil?
-        Validators::WorldConfigs.validate!(input[:world_configs], context: "#{context}[:world_configs]") unless input[:world_configs].nil?
+        LaunchConfig.validate!(input[:launch_config], context: "#{context}[:launch_config]") unless input[:launch_config].nil?
+        UploadConfigurations.validate!(input[:upload_configurations], context: "#{context}[:upload_configurations]") unless input[:upload_configurations].nil?
+        WorldConfigs.validate!(input[:world_configs], context: "#{context}[:world_configs]") unless input[:world_configs].nil?
         Hearth::Validator.validate!(input[:use_default_upload_configurations], ::TrueClass, ::FalseClass, context: "#{context}[:use_default_upload_configurations]")
-        Validators::Tools.validate!(input[:tools], context: "#{context}[:tools]") unless input[:tools].nil?
+        Tools.validate!(input[:tools], context: "#{context}[:tools]") unless input[:tools].nil?
         Hearth::Validator.validate!(input[:use_default_tools], ::TrueClass, ::FalseClass, context: "#{context}[:use_default_tools]")
       end
     end
@@ -1557,7 +1559,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimulationApplicationConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimulationApplicationConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1575,7 +1577,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimulationApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimulationApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1587,8 +1589,8 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
       end
     end
 
@@ -1604,18 +1606,18 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
         Hearth::Validator.validate!(input[:max_job_duration_in_seconds], ::Integer, context: "#{context}[:max_job_duration_in_seconds]")
         Hearth::Validator.validate!(input[:simulation_time_millis], ::Integer, context: "#{context}[:simulation_time_millis]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
-        Validators::RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
-        Validators::SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
-        Validators::DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::VPCConfigResponse.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::NetworkInterface.validate!(input[:network_interface], context: "#{context}[:network_interface]") unless input[:network_interface].nil?
-        Validators::ComputeResponse.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
+        RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
+        SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
+        DataSources.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VPCConfigResponse.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        NetworkInterface.validate!(input[:network_interface], context: "#{context}[:network_interface]") unless input[:network_interface].nil?
+        ComputeResponse.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
       end
     end
 
@@ -1623,7 +1625,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimulationJobBatchSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimulationJobBatchSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1644,18 +1646,18 @@ module AWS::SDK::RoboMaker
     class SimulationJobRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SimulationJobRequest, context: context)
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
-        Validators::LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        LoggingConfig.validate!(input[:logging_config], context: "#{context}[:logging_config]") unless input[:logging_config].nil?
         Hearth::Validator.validate!(input[:max_job_duration_in_seconds], ::Integer, context: "#{context}[:max_job_duration_in_seconds]")
         Hearth::Validator.validate!(input[:iam_role], ::String, context: "#{context}[:iam_role]")
         Hearth::Validator.validate!(input[:failure_behavior], ::String, context: "#{context}[:failure_behavior]")
         Hearth::Validator.validate!(input[:use_default_applications], ::TrueClass, ::FalseClass, context: "#{context}[:use_default_applications]")
-        Validators::RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
-        Validators::SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
-        Validators::DataSourceConfigs.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
-        Validators::VPCConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
-        Validators::Compute.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        RobotApplicationConfigs.validate!(input[:robot_applications], context: "#{context}[:robot_applications]") unless input[:robot_applications].nil?
+        SimulationApplicationConfigs.validate!(input[:simulation_applications], context: "#{context}[:simulation_applications]") unless input[:simulation_applications].nil?
+        DataSourceConfigs.validate!(input[:data_sources], context: "#{context}[:data_sources]") unless input[:data_sources].nil?
+        VPCConfig.validate!(input[:vpc_config], context: "#{context}[:vpc_config]") unless input[:vpc_config].nil?
+        Compute.validate!(input[:compute], context: "#{context}[:compute]") unless input[:compute].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1663,7 +1665,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimulationJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimulationJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1675,9 +1677,9 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::SimulationApplicationNames.validate!(input[:simulation_application_names], context: "#{context}[:simulation_application_names]") unless input[:simulation_application_names].nil?
-        Validators::RobotApplicationNames.validate!(input[:robot_application_names], context: "#{context}[:robot_application_names]") unless input[:robot_application_names].nil?
-        Validators::DataSourceNames.validate!(input[:data_source_names], context: "#{context}[:data_source_names]") unless input[:data_source_names].nil?
+        SimulationApplicationNames.validate!(input[:simulation_application_names], context: "#{context}[:simulation_application_names]") unless input[:simulation_application_names].nil?
+        RobotApplicationNames.validate!(input[:robot_application_names], context: "#{context}[:robot_application_names]") unless input[:robot_application_names].nil?
+        DataSourceNames.validate!(input[:data_source_names], context: "#{context}[:data_source_names]") unless input[:data_source_names].nil?
         Hearth::Validator.validate!(input[:compute_type], ::String, context: "#{context}[:compute_type]")
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SimulationJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SimulationJob.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SourceConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SourceConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1731,7 +1733,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Source.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Source.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1740,9 +1742,9 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartSimulationJobBatchInput, context: context)
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::BatchPolicy.validate!(input[:batch_policy], context: "#{context}[:batch_policy]") unless input[:batch_policy].nil?
-        Validators::CreateSimulationJobRequests.validate!(input[:create_simulation_job_requests], context: "#{context}[:create_simulation_job_requests]") unless input[:create_simulation_job_requests].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        BatchPolicy.validate!(input[:batch_policy], context: "#{context}[:batch_policy]") unless input[:batch_policy].nil?
+        CreateSimulationJobRequests.validate!(input[:create_simulation_job_requests], context: "#{context}[:create_simulation_job_requests]") unless input[:create_simulation_job_requests].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1753,13 +1755,13 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:client_request_token], ::String, context: "#{context}[:client_request_token]")
-        Validators::BatchPolicy.validate!(input[:batch_policy], context: "#{context}[:batch_policy]") unless input[:batch_policy].nil?
+        BatchPolicy.validate!(input[:batch_policy], context: "#{context}[:batch_policy]") unless input[:batch_policy].nil?
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
-        Validators::FailedCreateSimulationJobRequests.validate!(input[:failed_requests], context: "#{context}[:failed_requests]") unless input[:failed_requests].nil?
-        Validators::CreateSimulationJobRequests.validate!(input[:pending_requests], context: "#{context}[:pending_requests]") unless input[:pending_requests].nil?
-        Validators::SimulationJobSummaries.validate!(input[:created_requests], context: "#{context}[:created_requests]") unless input[:created_requests].nil?
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        FailedCreateSimulationJobRequests.validate!(input[:failed_requests], context: "#{context}[:failed_requests]") unless input[:failed_requests].nil?
+        CreateSimulationJobRequests.validate!(input[:pending_requests], context: "#{context}[:pending_requests]") unless input[:pending_requests].nil?
+        SimulationJobSummaries.validate!(input[:created_requests], context: "#{context}[:created_requests]") unless input[:created_requests].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1786,8 +1788,8 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:fleet], ::String, context: "#{context}[:fleet]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
-        Validators::DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
+        DeploymentConfig.validate!(input[:deployment_config], context: "#{context}[:deployment_config]") unless input[:deployment_config].nil?
+        DeploymentApplicationConfigs.validate!(input[:deployment_application_configs], context: "#{context}[:deployment_application_configs]") unless input[:deployment_application_configs].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:failure_code], ::String, context: "#{context}[:failure_code]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
@@ -1817,7 +1819,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagMap.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1839,7 +1841,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::TemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          TemplateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tool.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tool.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1886,7 +1888,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1900,10 +1902,10 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateRobotApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
-        Validators::SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
         Hearth::Validator.validate!(input[:current_revision_id], ::String, context: "#{context}[:current_revision_id]")
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -1913,11 +1915,11 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -1925,12 +1927,12 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateSimulationApplicationInput, context: context)
         Hearth::Validator.validate!(input[:application], ::String, context: "#{context}[:application]")
-        Validators::SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
+        SourceConfigs.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
         Hearth::Validator.validate!(input[:current_revision_id], ::String, context: "#{context}[:current_revision_id]")
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -1940,13 +1942,13 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
-        Validators::Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
-        Validators::SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
-        Validators::RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
-        Validators::RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
+        Sources.validate!(input[:sources], context: "#{context}[:sources]") unless input[:sources].nil?
+        SimulationSoftwareSuite.validate!(input[:simulation_software_suite], context: "#{context}[:simulation_software_suite]") unless input[:simulation_software_suite].nil?
+        RobotSoftwareSuite.validate!(input[:robot_software_suite], context: "#{context}[:robot_software_suite]") unless input[:robot_software_suite].nil?
+        RenderingEngine.validate!(input[:rendering_engine], context: "#{context}[:rendering_engine]") unless input[:rendering_engine].nil?
         Hearth::Validator.validate!(input[:last_updated_at], ::Time, context: "#{context}[:last_updated_at]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
-        Validators::Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
+        Environment.validate!(input[:environment], context: "#{context}[:environment]") unless input[:environment].nil?
       end
     end
 
@@ -1956,7 +1958,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:template], ::String, context: "#{context}[:template]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:template_body], ::String, context: "#{context}[:template_body]")
-        Validators::TemplateLocation.validate!(input[:template_location], context: "#{context}[:template_location]") unless input[:template_location].nil?
+        TemplateLocation.validate!(input[:template_location], context: "#{context}[:template_location]") unless input[:template_location].nil?
       end
     end
 
@@ -1983,7 +1985,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UploadConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UploadConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1991,8 +1993,8 @@ module AWS::SDK::RoboMaker
     class VPCConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VPCConfig, context: context)
-        Validators::Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:assign_public_ip], ::TrueClass, ::FalseClass, context: "#{context}[:assign_public_ip]")
       end
     end
@@ -2000,8 +2002,8 @@ module AWS::SDK::RoboMaker
     class VPCConfigResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VPCConfigResponse, context: context)
-        Validators::Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
-        Validators::SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        Subnets.validate!(input[:subnets], context: "#{context}[:subnets]") unless input[:subnets].nil?
+        SecurityGroups.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate!(input[:assign_public_ip], ::TrueClass, ::FalseClass, context: "#{context}[:assign_public_ip]")
       end
@@ -2018,7 +2020,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorldConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorldConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2035,7 +2037,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorldExportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorldExportJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2046,8 +2048,8 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
-        Validators::Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
-        Validators::OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
+        Arns.validate!(input[:worlds], context: "#{context}[:worlds]") unless input[:worlds].nil?
+        OutputLocation.validate!(input[:output_location], context: "#{context}[:output_location]") unless input[:output_location].nil?
       end
     end
 
@@ -2064,7 +2066,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorldFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorldFailure.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2073,7 +2075,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorldGenerationJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorldGenerationJobSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -2085,7 +2087,7 @@ module AWS::SDK::RoboMaker
         Hearth::Validator.validate!(input[:template], ::String, context: "#{context}[:template]")
         Hearth::Validator.validate!(input[:created_at], ::Time, context: "#{context}[:created_at]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
-        Validators::WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
+        WorldCount.validate!(input[:world_count], context: "#{context}[:world_count]") unless input[:world_count].nil?
         Hearth::Validator.validate!(input[:succeeded_world_count], ::Integer, context: "#{context}[:succeeded_world_count]")
         Hearth::Validator.validate!(input[:failed_world_count], ::Integer, context: "#{context}[:failed_world_count]")
       end
@@ -2095,7 +2097,7 @@ module AWS::SDK::RoboMaker
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::WorldSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          WorldSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

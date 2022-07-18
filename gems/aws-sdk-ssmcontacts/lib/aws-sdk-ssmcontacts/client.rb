@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSMContacts
@@ -91,7 +93,7 @@ module AWS::SDK::SSMContacts
     def accept_page(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptPageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptPageInput,
         validate_input: @config.validate_input
@@ -164,7 +166,7 @@ module AWS::SDK::SSMContacts
     def activate_contact_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ActivateContactChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ActivateContactChannelInput,
         validate_input: @config.validate_input
@@ -283,7 +285,7 @@ module AWS::SDK::SSMContacts
     def create_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContactInput,
         validate_input: @config.validate_input
@@ -406,7 +408,7 @@ module AWS::SDK::SSMContacts
     def create_contact_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContactChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContactChannelInput,
         validate_input: @config.validate_input
@@ -475,7 +477,7 @@ module AWS::SDK::SSMContacts
     def deactivate_contact_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeactivateContactChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeactivateContactChannelInput,
         validate_input: @config.validate_input
@@ -546,7 +548,7 @@ module AWS::SDK::SSMContacts
     def delete_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContactInput,
         validate_input: @config.validate_input
@@ -617,7 +619,7 @@ module AWS::SDK::SSMContacts
     def delete_contact_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContactChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContactChannelInput,
         validate_input: @config.validate_input
@@ -696,7 +698,7 @@ module AWS::SDK::SSMContacts
     def describe_engagement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEngagementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEngagementInput,
         validate_input: @config.validate_input
@@ -776,7 +778,7 @@ module AWS::SDK::SSMContacts
     def describe_page(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePageInput,
         validate_input: @config.validate_input
@@ -860,7 +862,7 @@ module AWS::SDK::SSMContacts
     def get_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactInput,
         validate_input: @config.validate_input
@@ -935,7 +937,7 @@ module AWS::SDK::SSMContacts
     def get_contact_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactChannelInput,
         validate_input: @config.validate_input
@@ -1006,7 +1008,7 @@ module AWS::SDK::SSMContacts
     def get_contact_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetContactPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetContactPolicyInput,
         validate_input: @config.validate_input
@@ -1092,7 +1094,7 @@ module AWS::SDK::SSMContacts
     def list_contact_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContactChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContactChannelsInput,
         validate_input: @config.validate_input
@@ -1180,7 +1182,7 @@ module AWS::SDK::SSMContacts
     def list_contacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContactsInput,
         validate_input: @config.validate_input
@@ -1272,7 +1274,7 @@ module AWS::SDK::SSMContacts
     def list_engagements(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEngagementsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEngagementsInput,
         validate_input: @config.validate_input
@@ -1355,7 +1357,7 @@ module AWS::SDK::SSMContacts
     def list_page_receipts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPageReceiptsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPageReceiptsInput,
         validate_input: @config.validate_input
@@ -1442,7 +1444,7 @@ module AWS::SDK::SSMContacts
     def list_pages_by_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPagesByContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPagesByContactInput,
         validate_input: @config.validate_input
@@ -1530,7 +1532,7 @@ module AWS::SDK::SSMContacts
     def list_pages_by_engagement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPagesByEngagementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPagesByEngagementInput,
         validate_input: @config.validate_input
@@ -1602,7 +1604,7 @@ module AWS::SDK::SSMContacts
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1676,7 +1678,7 @@ module AWS::SDK::SSMContacts
     def put_contact_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutContactPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutContactPolicyInput,
         validate_input: @config.validate_input
@@ -1746,7 +1748,7 @@ module AWS::SDK::SSMContacts
     def send_activation_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendActivationCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendActivationCodeInput,
         validate_input: @config.validate_input
@@ -1849,7 +1851,7 @@ module AWS::SDK::SSMContacts
     def start_engagement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartEngagementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartEngagementInput,
         validate_input: @config.validate_input
@@ -1922,7 +1924,7 @@ module AWS::SDK::SSMContacts
     def stop_engagement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopEngagementInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopEngagementInput,
         validate_input: @config.validate_input
@@ -2000,7 +2002,7 @@ module AWS::SDK::SSMContacts
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2074,7 +2076,7 @@ module AWS::SDK::SSMContacts
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2169,7 +2171,7 @@ module AWS::SDK::SSMContacts
     def update_contact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactInput,
         validate_input: @config.validate_input
@@ -2247,7 +2249,7 @@ module AWS::SDK::SSMContacts
     def update_contact_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContactChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContactChannelInput,
         validate_input: @config.validate_input

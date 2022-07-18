@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ACM
   module Validators
 
@@ -21,7 +23,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AddTagsToCertificateInput, context: context)
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -36,8 +38,8 @@ module AWS::SDK::ACM
         Hearth::Validator.validate!(input, Types::CertificateDetail, context: context)
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::DomainList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
-        Validators::DomainValidationList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
+        DomainList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        DomainValidationList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
         Hearth::Validator.validate!(input[:serial], ::String, context: "#{context}[:serial]")
         Hearth::Validator.validate!(input[:subject], ::String, context: "#{context}[:subject]")
         Hearth::Validator.validate!(input[:issuer], ::String, context: "#{context}[:issuer]")
@@ -51,15 +53,15 @@ module AWS::SDK::ACM
         Hearth::Validator.validate!(input[:not_after], ::Time, context: "#{context}[:not_after]")
         Hearth::Validator.validate!(input[:key_algorithm], ::String, context: "#{context}[:key_algorithm]")
         Hearth::Validator.validate!(input[:signature_algorithm], ::String, context: "#{context}[:signature_algorithm]")
-        Validators::InUseList.validate!(input[:in_use_by], context: "#{context}[:in_use_by]") unless input[:in_use_by].nil?
+        InUseList.validate!(input[:in_use_by], context: "#{context}[:in_use_by]") unless input[:in_use_by].nil?
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::RenewalSummary.validate!(input[:renewal_summary], context: "#{context}[:renewal_summary]") unless input[:renewal_summary].nil?
-        Validators::KeyUsageList.validate!(input[:key_usages], context: "#{context}[:key_usages]") unless input[:key_usages].nil?
-        Validators::ExtendedKeyUsageList.validate!(input[:extended_key_usages], context: "#{context}[:extended_key_usages]") unless input[:extended_key_usages].nil?
+        RenewalSummary.validate!(input[:renewal_summary], context: "#{context}[:renewal_summary]") unless input[:renewal_summary].nil?
+        KeyUsageList.validate!(input[:key_usages], context: "#{context}[:key_usages]") unless input[:key_usages].nil?
+        ExtendedKeyUsageList.validate!(input[:extended_key_usages], context: "#{context}[:extended_key_usages]") unless input[:extended_key_usages].nil?
         Hearth::Validator.validate!(input[:certificate_authority_arn], ::String, context: "#{context}[:certificate_authority_arn]")
         Hearth::Validator.validate!(input[:renewal_eligibility], ::String, context: "#{context}[:renewal_eligibility]")
-        Validators::CertificateOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        CertificateOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 
@@ -91,7 +93,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::CertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          CertificateSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -126,7 +128,7 @@ module AWS::SDK::ACM
     class DescribeCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeCertificateOutput, context: context)
-        Validators::CertificateDetail.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
+        CertificateDetail.validate!(input[:certificate], context: "#{context}[:certificate]") unless input[:certificate].nil?
       end
     end
 
@@ -143,10 +145,10 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DomainValidation, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
-        Validators::ValidationEmailList.validate!(input[:validation_emails], context: "#{context}[:validation_emails]") unless input[:validation_emails].nil?
+        ValidationEmailList.validate!(input[:validation_emails], context: "#{context}[:validation_emails]") unless input[:validation_emails].nil?
         Hearth::Validator.validate!(input[:validation_domain], ::String, context: "#{context}[:validation_domain]")
         Hearth::Validator.validate!(input[:validation_status], ::String, context: "#{context}[:validation_status]")
-        Validators::ResourceRecord.validate!(input[:resource_record], context: "#{context}[:resource_record]") unless input[:resource_record].nil?
+        ResourceRecord.validate!(input[:resource_record], context: "#{context}[:resource_record]") unless input[:resource_record].nil?
         Hearth::Validator.validate!(input[:validation_method], ::String, context: "#{context}[:validation_method]")
       end
     end
@@ -155,7 +157,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainValidation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainValidation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -172,7 +174,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::DomainValidationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          DomainValidationOption.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -222,7 +224,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ExtendedKeyUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ExtendedKeyUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -230,9 +232,9 @@ module AWS::SDK::ACM
     class Filters
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filters, context: context)
-        Validators::ExtendedKeyUsageFilterList.validate!(input[:extended_key_usage], context: "#{context}[:extended_key_usage]") unless input[:extended_key_usage].nil?
-        Validators::KeyUsageFilterList.validate!(input[:key_usage], context: "#{context}[:key_usage]") unless input[:key_usage].nil?
-        Validators::KeyAlgorithmList.validate!(input[:key_types], context: "#{context}[:key_types]") unless input[:key_types].nil?
+        ExtendedKeyUsageFilterList.validate!(input[:extended_key_usage], context: "#{context}[:extended_key_usage]") unless input[:extended_key_usage].nil?
+        KeyUsageFilterList.validate!(input[:key_usage], context: "#{context}[:key_usage]") unless input[:key_usage].nil?
+        KeyAlgorithmList.validate!(input[:key_types], context: "#{context}[:key_types]") unless input[:key_types].nil?
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::ACM
     class GetAccountConfigurationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAccountConfigurationOutput, context: context)
-        Validators::ExpiryEventsConfiguration.validate!(input[:expiry_events], context: "#{context}[:expiry_events]") unless input[:expiry_events].nil?
+        ExpiryEventsConfiguration.validate!(input[:expiry_events], context: "#{context}[:expiry_events]") unless input[:expiry_events].nil?
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::ACM
         Hearth::Validator.validate!(input[:certificate], ::String, context: "#{context}[:certificate]")
         Hearth::Validator.validate!(input[:private_key], ::String, context: "#{context}[:private_key]")
         Hearth::Validator.validate!(input[:certificate_chain], ::String, context: "#{context}[:certificate_chain]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -362,7 +364,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::KeyUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          KeyUsage.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -377,8 +379,8 @@ module AWS::SDK::ACM
     class ListCertificatesInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCertificatesInput, context: context)
-        Validators::CertificateStatuses.validate!(input[:certificate_statuses], context: "#{context}[:certificate_statuses]") unless input[:certificate_statuses].nil?
-        Validators::Filters.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
+        CertificateStatuses.validate!(input[:certificate_statuses], context: "#{context}[:certificate_statuses]") unless input[:certificate_statuses].nil?
+        Filters.validate!(input[:includes], context: "#{context}[:includes]") unless input[:includes].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
       end
@@ -388,7 +390,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListCertificatesOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::CertificateSummaryList.validate!(input[:certificate_summary_list], context: "#{context}[:certificate_summary_list]") unless input[:certificate_summary_list].nil?
+        CertificateSummaryList.validate!(input[:certificate_summary_list], context: "#{context}[:certificate_summary_list]") unless input[:certificate_summary_list].nil?
       end
     end
 
@@ -402,14 +404,14 @@ module AWS::SDK::ACM
     class ListTagsForCertificateOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForCertificateOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class PutAccountConfigurationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutAccountConfigurationInput, context: context)
-        Validators::ExpiryEventsConfiguration.validate!(input[:expiry_events], context: "#{context}[:expiry_events]") unless input[:expiry_events].nil?
+        ExpiryEventsConfiguration.validate!(input[:expiry_events], context: "#{context}[:expiry_events]") unless input[:expiry_events].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
       end
     end
@@ -424,7 +426,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RemoveTagsFromCertificateInput, context: context)
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -451,7 +453,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RenewalSummary, context: context)
         Hearth::Validator.validate!(input[:renewal_status], ::String, context: "#{context}[:renewal_status]")
-        Validators::DomainValidationList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
+        DomainValidationList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
         Hearth::Validator.validate!(input[:renewal_status_reason], ::String, context: "#{context}[:renewal_status_reason]")
         Hearth::Validator.validate!(input[:updated_at], ::Time, context: "#{context}[:updated_at]")
       end
@@ -462,12 +464,12 @@ module AWS::SDK::ACM
         Hearth::Validator.validate!(input, Types::RequestCertificateInput, context: context)
         Hearth::Validator.validate!(input[:domain_name], ::String, context: "#{context}[:domain_name]")
         Hearth::Validator.validate!(input[:validation_method], ::String, context: "#{context}[:validation_method]")
-        Validators::DomainList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
+        DomainList.validate!(input[:subject_alternative_names], context: "#{context}[:subject_alternative_names]") unless input[:subject_alternative_names].nil?
         Hearth::Validator.validate!(input[:idempotency_token], ::String, context: "#{context}[:idempotency_token]")
-        Validators::DomainValidationOptionList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
-        Validators::CertificateOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        DomainValidationOptionList.validate!(input[:domain_validation_options], context: "#{context}[:domain_validation_options]") unless input[:domain_validation_options].nil?
+        CertificateOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
         Hearth::Validator.validate!(input[:certificate_authority_arn], ::String, context: "#{context}[:certificate_authority_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -535,7 +537,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -565,7 +567,7 @@ module AWS::SDK::ACM
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateCertificateOptionsInput, context: context)
         Hearth::Validator.validate!(input[:certificate_arn], ::String, context: "#{context}[:certificate_arn]")
-        Validators::CertificateOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
+        CertificateOptions.validate!(input[:options], context: "#{context}[:options]") unless input[:options].nil?
       end
     end
 

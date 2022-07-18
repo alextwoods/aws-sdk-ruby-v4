@@ -216,11 +216,11 @@ module AWS::SDK::AutoScaling
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progress ||= 0
       end
-
     end
 
     # <p>Describes a policy adjustment type.</p>

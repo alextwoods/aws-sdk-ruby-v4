@@ -189,6 +189,7 @@ module AWS::SDK::CodestarNotifications
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force_unsubscribe_all ||= false

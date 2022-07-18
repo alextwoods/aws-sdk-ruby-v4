@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::PersonalizeRuntime
@@ -108,7 +110,7 @@ module AWS::SDK::PersonalizeRuntime
     def get_personalized_ranking(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPersonalizedRankingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPersonalizedRankingInput,
         validate_input: @config.validate_input
@@ -246,7 +248,7 @@ module AWS::SDK::PersonalizeRuntime
     def get_recommendations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRecommendationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRecommendationsInput,
         validate_input: @config.validate_input

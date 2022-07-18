@@ -14,7 +14,7 @@ module AWS::SDK::GlobalAccelerator
     class AddCustomRoutingEndpoints
       def self.default(visited=[])
         {
-          endpoint_descriptions: Stubs::CustomRoutingEndpointDescriptions.default(visited),
+          endpoint_descriptions: CustomRoutingEndpointDescriptions.default(visited),
           endpoint_group_arn: 'endpoint_group_arn',
         }
       end
@@ -34,7 +34,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('CustomRoutingEndpointDescriptions')
         visited = visited + ['CustomRoutingEndpointDescriptions']
         [
-          Stubs::CustomRoutingEndpointDescription.default(visited)
+          CustomRoutingEndpointDescription.default(visited)
         ]
       end
 
@@ -70,7 +70,7 @@ module AWS::SDK::GlobalAccelerator
     class AdvertiseByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::GlobalAccelerator
         {
           cidr: 'cidr',
           state: 'state',
-          events: Stubs::ByoipCidrEvents.default(visited),
+          events: ByoipCidrEvents.default(visited),
         }
       end
 
@@ -110,7 +110,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('ByoipCidrEvents')
         visited = visited + ['ByoipCidrEvents']
         [
-          Stubs::ByoipCidrEvent.default(visited)
+          ByoipCidrEvent.default(visited)
         ]
       end
 
@@ -162,7 +162,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateAccelerator
       def self.default(visited=[])
         {
-          accelerator: Stubs::Accelerator.default(visited),
+          accelerator: Accelerator.default(visited),
         }
       end
 
@@ -184,7 +184,7 @@ module AWS::SDK::GlobalAccelerator
           name: 'name',
           ip_address_type: 'ip_address_type',
           enabled: false,
-          ip_sets: Stubs::IpSets.default(visited),
+          ip_sets: IpSets.default(visited),
           dns_name: 'dns_name',
           status: 'status',
           created_time: Time.now,
@@ -214,7 +214,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('IpSets')
         visited = visited + ['IpSets']
         [
-          Stubs::IpSet.default(visited)
+          IpSet.default(visited)
         ]
       end
 
@@ -235,7 +235,7 @@ module AWS::SDK::GlobalAccelerator
         visited = visited + ['IpSet']
         {
           ip_family: 'ip_family',
-          ip_addresses: Stubs::IpAddresses.default(visited),
+          ip_addresses: IpAddresses.default(visited),
         }
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateCustomRoutingAccelerator
       def self.default(visited=[])
         {
-          accelerator: Stubs::CustomRoutingAccelerator.default(visited),
+          accelerator: CustomRoutingAccelerator.default(visited),
         }
       end
 
@@ -294,7 +294,7 @@ module AWS::SDK::GlobalAccelerator
           name: 'name',
           ip_address_type: 'ip_address_type',
           enabled: false,
-          ip_sets: Stubs::IpSets.default(visited),
+          ip_sets: IpSets.default(visited),
           dns_name: 'dns_name',
           status: 'status',
           created_time: Time.now,
@@ -322,7 +322,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateCustomRoutingEndpointGroup
       def self.default(visited=[])
         {
-          endpoint_group: Stubs::CustomRoutingEndpointGroup.default(visited),
+          endpoint_group: CustomRoutingEndpointGroup.default(visited),
         }
       end
 
@@ -342,8 +342,8 @@ module AWS::SDK::GlobalAccelerator
         {
           endpoint_group_arn: 'endpoint_group_arn',
           endpoint_group_region: 'endpoint_group_region',
-          destination_descriptions: Stubs::CustomRoutingDestinationDescriptions.default(visited),
-          endpoint_descriptions: Stubs::CustomRoutingEndpointDescriptions.default(visited),
+          destination_descriptions: CustomRoutingDestinationDescriptions.default(visited),
+          endpoint_descriptions: CustomRoutingEndpointDescriptions.default(visited),
         }
       end
 
@@ -364,7 +364,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('CustomRoutingDestinationDescriptions')
         visited = visited + ['CustomRoutingDestinationDescriptions']
         [
-          Stubs::CustomRoutingDestinationDescription.default(visited)
+          CustomRoutingDestinationDescription.default(visited)
         ]
       end
 
@@ -386,7 +386,7 @@ module AWS::SDK::GlobalAccelerator
         {
           from_port: 1,
           to_port: 1,
-          protocols: Stubs::Protocols.default(visited),
+          protocols: Protocols.default(visited),
         }
       end
 
@@ -424,7 +424,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateCustomRoutingListener
       def self.default(visited=[])
         {
-          listener: Stubs::CustomRoutingListener.default(visited),
+          listener: CustomRoutingListener.default(visited),
         }
       end
 
@@ -443,7 +443,7 @@ module AWS::SDK::GlobalAccelerator
         visited = visited + ['CustomRoutingListener']
         {
           listener_arn: 'listener_arn',
-          port_ranges: Stubs::PortRanges.default(visited),
+          port_ranges: PortRanges.default(visited),
         }
       end
 
@@ -462,7 +462,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('PortRanges')
         visited = visited + ['PortRanges']
         [
-          Stubs::PortRange.default(visited)
+          PortRange.default(visited)
         ]
       end
 
@@ -500,7 +500,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateEndpointGroup
       def self.default(visited=[])
         {
-          endpoint_group: Stubs::EndpointGroup.default(visited),
+          endpoint_group: EndpointGroup.default(visited),
         }
       end
 
@@ -520,14 +520,14 @@ module AWS::SDK::GlobalAccelerator
         {
           endpoint_group_arn: 'endpoint_group_arn',
           endpoint_group_region: 'endpoint_group_region',
-          endpoint_descriptions: Stubs::EndpointDescriptions.default(visited),
+          endpoint_descriptions: EndpointDescriptions.default(visited),
           traffic_dial_percentage: 1.0,
           health_check_port: 1,
           health_check_protocol: 'health_check_protocol',
           health_check_path: 'health_check_path',
           health_check_interval_seconds: 1,
           threshold_count: 1,
-          port_overrides: Stubs::PortOverrides.default(visited),
+          port_overrides: PortOverrides.default(visited),
         }
       end
 
@@ -554,7 +554,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('PortOverrides')
         visited = visited + ['PortOverrides']
         [
-          Stubs::PortOverride.default(visited)
+          PortOverride.default(visited)
         ]
       end
 
@@ -594,7 +594,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('EndpointDescriptions')
         visited = visited + ['EndpointDescriptions']
         [
-          Stubs::EndpointDescription.default(visited)
+          EndpointDescription.default(visited)
         ]
       end
 
@@ -638,7 +638,7 @@ module AWS::SDK::GlobalAccelerator
     class CreateListener
       def self.default(visited=[])
         {
-          listener: Stubs::Listener.default(visited),
+          listener: Listener.default(visited),
         }
       end
 
@@ -657,7 +657,7 @@ module AWS::SDK::GlobalAccelerator
         visited = visited + ['Listener']
         {
           listener_arn: 'listener_arn',
-          port_ranges: Stubs::PortRanges.default(visited),
+          port_ranges: PortRanges.default(visited),
           protocol: 'protocol',
           client_affinity: 'client_affinity',
         }
@@ -776,7 +776,7 @@ module AWS::SDK::GlobalAccelerator
     class DeprovisionByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -792,7 +792,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeAccelerator
       def self.default(visited=[])
         {
-          accelerator: Stubs::Accelerator.default(visited),
+          accelerator: Accelerator.default(visited),
         }
       end
 
@@ -808,7 +808,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeAcceleratorAttributes
       def self.default(visited=[])
         {
-          accelerator_attributes: Stubs::AcceleratorAttributes.default(visited),
+          accelerator_attributes: AcceleratorAttributes.default(visited),
         }
       end
 
@@ -846,7 +846,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingAccelerator
       def self.default(visited=[])
         {
-          accelerator: Stubs::CustomRoutingAccelerator.default(visited),
+          accelerator: CustomRoutingAccelerator.default(visited),
         }
       end
 
@@ -862,7 +862,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingAcceleratorAttributes
       def self.default(visited=[])
         {
-          accelerator_attributes: Stubs::CustomRoutingAcceleratorAttributes.default(visited),
+          accelerator_attributes: CustomRoutingAcceleratorAttributes.default(visited),
         }
       end
 
@@ -900,7 +900,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingEndpointGroup
       def self.default(visited=[])
         {
-          endpoint_group: Stubs::CustomRoutingEndpointGroup.default(visited),
+          endpoint_group: CustomRoutingEndpointGroup.default(visited),
         }
       end
 
@@ -916,7 +916,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeCustomRoutingListener
       def self.default(visited=[])
         {
-          listener: Stubs::CustomRoutingListener.default(visited),
+          listener: CustomRoutingListener.default(visited),
         }
       end
 
@@ -932,7 +932,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeEndpointGroup
       def self.default(visited=[])
         {
-          endpoint_group: Stubs::EndpointGroup.default(visited),
+          endpoint_group: EndpointGroup.default(visited),
         }
       end
 
@@ -948,7 +948,7 @@ module AWS::SDK::GlobalAccelerator
     class DescribeListener
       def self.default(visited=[])
         {
-          listener: Stubs::Listener.default(visited),
+          listener: Listener.default(visited),
         }
       end
 
@@ -964,7 +964,7 @@ module AWS::SDK::GlobalAccelerator
     class ListAccelerators
       def self.default(visited=[])
         {
-          accelerators: Stubs::Accelerators.default(visited),
+          accelerators: Accelerators.default(visited),
           next_token: 'next_token',
         }
       end
@@ -984,7 +984,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('Accelerators')
         visited = visited + ['Accelerators']
         [
-          Stubs::Accelerator.default(visited)
+          Accelerator.default(visited)
         ]
       end
 
@@ -1002,7 +1002,7 @@ module AWS::SDK::GlobalAccelerator
     class ListByoipCidrs
       def self.default(visited=[])
         {
-          byoip_cidrs: Stubs::ByoipCidrs.default(visited),
+          byoip_cidrs: ByoipCidrs.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('ByoipCidrs')
         visited = visited + ['ByoipCidrs']
         [
-          Stubs::ByoipCidr.default(visited)
+          ByoipCidr.default(visited)
         ]
       end
 
@@ -1040,7 +1040,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingAccelerators
       def self.default(visited=[])
         {
-          accelerators: Stubs::CustomRoutingAccelerators.default(visited),
+          accelerators: CustomRoutingAccelerators.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1060,7 +1060,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('CustomRoutingAccelerators')
         visited = visited + ['CustomRoutingAccelerators']
         [
-          Stubs::CustomRoutingAccelerator.default(visited)
+          CustomRoutingAccelerator.default(visited)
         ]
       end
 
@@ -1078,7 +1078,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingEndpointGroups
       def self.default(visited=[])
         {
-          endpoint_groups: Stubs::CustomRoutingEndpointGroups.default(visited),
+          endpoint_groups: CustomRoutingEndpointGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1098,7 +1098,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('CustomRoutingEndpointGroups')
         visited = visited + ['CustomRoutingEndpointGroups']
         [
-          Stubs::CustomRoutingEndpointGroup.default(visited)
+          CustomRoutingEndpointGroup.default(visited)
         ]
       end
 
@@ -1116,7 +1116,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingListeners
       def self.default(visited=[])
         {
-          listeners: Stubs::CustomRoutingListeners.default(visited),
+          listeners: CustomRoutingListeners.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1136,7 +1136,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('CustomRoutingListeners')
         visited = visited + ['CustomRoutingListeners']
         [
-          Stubs::CustomRoutingListener.default(visited)
+          CustomRoutingListener.default(visited)
         ]
       end
 
@@ -1154,7 +1154,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingPortMappings
       def self.default(visited=[])
         {
-          port_mappings: Stubs::PortMappings.default(visited),
+          port_mappings: PortMappings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1174,7 +1174,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('PortMappings')
         visited = visited + ['PortMappings']
         [
-          Stubs::PortMapping.default(visited)
+          PortMapping.default(visited)
         ]
       end
 
@@ -1197,8 +1197,8 @@ module AWS::SDK::GlobalAccelerator
           accelerator_port: 1,
           endpoint_group_arn: 'endpoint_group_arn',
           endpoint_id: 'endpoint_id',
-          destination_socket_address: Stubs::SocketAddress.default(visited),
-          protocols: Stubs::CustomRoutingProtocols.default(visited),
+          destination_socket_address: SocketAddress.default(visited),
+          protocols: CustomRoutingProtocols.default(visited),
           destination_traffic_state: 'destination_traffic_state',
         }
       end
@@ -1260,7 +1260,7 @@ module AWS::SDK::GlobalAccelerator
     class ListCustomRoutingPortMappingsByDestination
       def self.default(visited=[])
         {
-          destination_port_mappings: Stubs::DestinationPortMappings.default(visited),
+          destination_port_mappings: DestinationPortMappings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1280,7 +1280,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('DestinationPortMappings')
         visited = visited + ['DestinationPortMappings']
         [
-          Stubs::DestinationPortMapping.default(visited)
+          DestinationPortMapping.default(visited)
         ]
       end
 
@@ -1301,11 +1301,11 @@ module AWS::SDK::GlobalAccelerator
         visited = visited + ['DestinationPortMapping']
         {
           accelerator_arn: 'accelerator_arn',
-          accelerator_socket_addresses: Stubs::SocketAddresses.default(visited),
+          accelerator_socket_addresses: SocketAddresses.default(visited),
           endpoint_group_arn: 'endpoint_group_arn',
           endpoint_id: 'endpoint_id',
           endpoint_group_region: 'endpoint_group_region',
-          destination_socket_address: Stubs::SocketAddress.default(visited),
+          destination_socket_address: SocketAddress.default(visited),
           ip_address_type: 'ip_address_type',
           destination_traffic_state: 'destination_traffic_state',
         }
@@ -1332,7 +1332,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('SocketAddresses')
         visited = visited + ['SocketAddresses']
         [
-          Stubs::SocketAddress.default(visited)
+          SocketAddress.default(visited)
         ]
       end
 
@@ -1350,7 +1350,7 @@ module AWS::SDK::GlobalAccelerator
     class ListEndpointGroups
       def self.default(visited=[])
         {
-          endpoint_groups: Stubs::EndpointGroups.default(visited),
+          endpoint_groups: EndpointGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1370,7 +1370,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('EndpointGroups')
         visited = visited + ['EndpointGroups']
         [
-          Stubs::EndpointGroup.default(visited)
+          EndpointGroup.default(visited)
         ]
       end
 
@@ -1388,7 +1388,7 @@ module AWS::SDK::GlobalAccelerator
     class ListListeners
       def self.default(visited=[])
         {
-          listeners: Stubs::Listeners.default(visited),
+          listeners: Listeners.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1408,7 +1408,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('Listeners')
         visited = visited + ['Listeners']
         [
-          Stubs::Listener.default(visited)
+          Listener.default(visited)
         ]
       end
 
@@ -1426,7 +1426,7 @@ module AWS::SDK::GlobalAccelerator
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -1444,7 +1444,7 @@ module AWS::SDK::GlobalAccelerator
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -1482,7 +1482,7 @@ module AWS::SDK::GlobalAccelerator
     class ProvisionByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 
@@ -1540,7 +1540,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateAccelerator
       def self.default(visited=[])
         {
-          accelerator: Stubs::Accelerator.default(visited),
+          accelerator: Accelerator.default(visited),
         }
       end
 
@@ -1556,7 +1556,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateAcceleratorAttributes
       def self.default(visited=[])
         {
-          accelerator_attributes: Stubs::AcceleratorAttributes.default(visited),
+          accelerator_attributes: AcceleratorAttributes.default(visited),
         }
       end
 
@@ -1572,7 +1572,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateCustomRoutingAccelerator
       def self.default(visited=[])
         {
-          accelerator: Stubs::CustomRoutingAccelerator.default(visited),
+          accelerator: CustomRoutingAccelerator.default(visited),
         }
       end
 
@@ -1588,7 +1588,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateCustomRoutingAcceleratorAttributes
       def self.default(visited=[])
         {
-          accelerator_attributes: Stubs::CustomRoutingAcceleratorAttributes.default(visited),
+          accelerator_attributes: CustomRoutingAcceleratorAttributes.default(visited),
         }
       end
 
@@ -1604,7 +1604,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateCustomRoutingListener
       def self.default(visited=[])
         {
-          listener: Stubs::CustomRoutingListener.default(visited),
+          listener: CustomRoutingListener.default(visited),
         }
       end
 
@@ -1620,7 +1620,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateEndpointGroup
       def self.default(visited=[])
         {
-          endpoint_group: Stubs::EndpointGroup.default(visited),
+          endpoint_group: EndpointGroup.default(visited),
         }
       end
 
@@ -1636,7 +1636,7 @@ module AWS::SDK::GlobalAccelerator
     class UpdateListener
       def self.default(visited=[])
         {
-          listener: Stubs::Listener.default(visited),
+          listener: Listener.default(visited),
         }
       end
 
@@ -1652,7 +1652,7 @@ module AWS::SDK::GlobalAccelerator
     class WithdrawByoipCidr
       def self.default(visited=[])
         {
-          byoip_cidr: Stubs::ByoipCidr.default(visited),
+          byoip_cidr: ByoipCidr.default(visited),
         }
       end
 

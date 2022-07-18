@@ -31,12 +31,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
@@ -62,12 +62,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for AcceleratorManufacturer
@@ -142,12 +142,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -170,12 +170,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for AcceleratorType
@@ -222,11 +222,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>The result of the exchange and whether it was <code>successful</code>.</p>
@@ -273,11 +273,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute associations
@@ -310,11 +310,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -347,11 +347,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -390,11 +390,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute unsuccessful
@@ -429,11 +429,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpc_peering_connection
@@ -860,11 +860,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute byoip_cidr
@@ -952,11 +952,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute public_ip
@@ -1106,11 +1106,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.quantity ||= 0
       end
-
     end
 
     # <p>Contains the output of AllocateHosts.</p>
@@ -1200,13 +1200,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.netmask_length ||= 0
         self.preview_next_cidr ||= false
       end
-
     end
 
     # @!attribute ipam_pool_allocation
@@ -1365,12 +1365,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.egress ||= false
         self.rule_number ||= 0
       end
-
     end
 
     # <p>Describes a path component.</p>
@@ -1417,12 +1417,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.load_balancer_port ||= 0
         self.instance_port ||= 0
       end
-
     end
 
     # <p>Describes a load balancer target.</p>
@@ -1455,11 +1455,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.port ||= 0
       end
-
     end
 
     # <p>Describes a header. Reflects any changes made by a component as traffic passes through.
@@ -1689,11 +1689,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute security_group_ids
@@ -1788,12 +1788,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ipv6_address_count ||= 0
         self.ipv6_prefix_count ||= 0
       end
-
     end
 
     # @!attribute assigned_ipv6_addresses
@@ -1864,13 +1864,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_reassignment ||= false
         self.secondary_private_ip_address_count ||= 0
         self.ipv4_prefix_count ||= 0
       end
-
     end
 
     # @!attribute network_interface_id
@@ -1964,12 +1964,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_reassociation ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -2012,11 +2012,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -2062,11 +2062,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     AssociateDhcpOptionsOutput = ::Struct.new(
@@ -2099,11 +2099,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute certificate_s3_bucket_name
@@ -2185,11 +2185,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_event_window
@@ -2234,11 +2234,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -2327,11 +2327,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute associations
@@ -2370,11 +2370,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute association
@@ -2433,13 +2433,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan_id ||= 0
         self.gre_key ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute interface_association
@@ -2531,11 +2531,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amazon_provided_ipv6_cidr_block ||= false
       end
-
     end
 
     # @!attribute ipv6_cidr_block_association
@@ -2736,11 +2736,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -2753,11 +2753,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -2784,11 +2784,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     AttachInternetGatewayOutput = ::Struct.new(
@@ -2838,13 +2838,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.device_index ||= 0
         self.dry_run ||= false
         self.network_card_index ||= 0
       end
-
     end
 
     # <p>Contains the output of AttachNetworkInterface.</p>
@@ -2865,11 +2865,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_card_index ||= 0
       end
-
     end
 
     # @!attribute device
@@ -2903,11 +2903,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes volume attachment details.</p>
@@ -2954,11 +2954,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # <p>Contains the parameters for AttachVpnGateway.</p>
@@ -2988,11 +2988,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of AttachVpnGateway.</p>
@@ -3041,11 +3041,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= false
       end
-
     end
 
     # <p>Describes a value for a resource attribute that is a String.</p>
@@ -3104,11 +3104,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.access_all ||= false
       end
-
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -3159,12 +3159,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.authorize_all_groups ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute status
@@ -3249,13 +3249,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # @!attribute return
@@ -3274,11 +3274,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute cidr_ip
@@ -3377,13 +3377,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -3402,11 +3402,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # Includes enum constants for AutoAcceptSharedAssociationsValue
@@ -3605,11 +3605,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.available_v_cpus ||= 0
       end
-
     end
 
     # Includes enum constants for BareMetal
@@ -3650,12 +3650,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
@@ -3680,12 +3680,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for BatchState
@@ -3841,11 +3841,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of BundleInstance.</p>
@@ -4099,11 +4099,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CancelBundleTask.</p>
@@ -4156,11 +4156,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute successful_fleet_cancellations
@@ -4197,11 +4197,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -4214,11 +4214,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute conversion_task_id
@@ -4245,11 +4245,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     CancelConversionTaskOutput = ::Struct.new(
@@ -4302,11 +4302,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute import_task_id
@@ -4431,12 +4431,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.terminate_instances ||= false
       end
-
     end
 
     # <p>Contains the output of CancelSpotFleetRequests.</p>
@@ -4534,11 +4534,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CancelSpotInstanceRequests.</p>
@@ -4800,6 +4800,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_instance_count ||= 0
@@ -4807,7 +4808,6 @@ module AWS::SDK::EC2
         self.ebs_optimized ||= false
         self.ephemeral_storage ||= false
       end
-
     end
 
     # <p>Information about a Capacity Reservation Fleet.</p>
@@ -4969,12 +4969,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_target_capacity ||= 0
         self.total_fulfilled_capacity ||= 0
       end
-
     end
 
     # <p>Describes a Capacity Reservation Fleet that was successfully cancelled.</p>
@@ -5516,11 +5516,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.classic_link_dns_supported ||= false
       end
-
     end
 
     # <p>Describes a linked EC2-Classic instance.</p>
@@ -5636,11 +5636,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>The options for managing connection authorization for new client connections.</p>
@@ -5667,11 +5667,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes the client-specific data.</p>
@@ -5704,11 +5704,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.upload_size ||= 0
       end
-
     end
 
     # <p>Options for enabling a customizable text banner that will be displayed on
@@ -5737,11 +5737,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Current state of options for customizable text banner that will be displayed on
@@ -5767,11 +5767,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
@@ -6196,13 +6196,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.split_tunnel ||= false
         self.vpn_port ||= 0
         self.session_timeout_hours ||= 0
       end
-
     end
 
     # <p>Describes the status of the Client VPN endpoint attribute.</p>
@@ -6492,11 +6492,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute owner_id
@@ -6517,11 +6517,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # <p>Describes the client connection logging options for the Client VPN endpoint.</p>
@@ -6548,11 +6548,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Information about the client connection logging options for a Client VPN endpoint.</p>
@@ -6579,11 +6579,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes a connection notification for a VPC endpoint or VPC endpoint
@@ -6798,11 +6798,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute fpga_image_id
@@ -6913,12 +6913,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CopyImage.</p>
@@ -7050,12 +7050,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshot_id
@@ -7118,12 +7118,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.core_count ||= 0
         self.threads_per_core ||= 0
       end
-
     end
 
     # <p>The CPU options for the instance. Both the core count and threads per core must be
@@ -7147,12 +7147,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.core_count ||= 0
         self.threads_per_core ||= 0
       end
-
     end
 
     # @!attribute allocation_strategy
@@ -7253,12 +7253,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_target_capacity ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute capacity_reservation_fleet_id
@@ -7337,12 +7337,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_target_capacity ||= 0
         self.total_fulfilled_capacity ||= 0
       end
-
     end
 
     # @!attribute client_token
@@ -7512,6 +7512,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
@@ -7519,7 +7520,6 @@ module AWS::SDK::EC2
         self.ephemeral_storage ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute capacity_reservation
@@ -7566,11 +7566,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute carrier_gateway
@@ -7735,6 +7735,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vpn_port ||= 0
@@ -7742,7 +7743,6 @@ module AWS::SDK::EC2
         self.dry_run ||= false
         self.session_timeout_hours ||= 0
       end
-
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -7826,11 +7826,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute status
@@ -7902,12 +7902,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bgp_asn ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CreateCustomerGateway.</p>
@@ -7949,12 +7949,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.ipv6_native ||= false
       end
-
     end
 
     # @!attribute subnet
@@ -7981,11 +7981,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpc
@@ -8024,11 +8024,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute dhcp_options
@@ -8075,11 +8075,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute client_token
@@ -8270,13 +8270,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.terminate_instances_with_expiration ||= false
         self.replace_unhealthy_instances ||= false
       end
-
     end
 
     # <p>Describes the instances that were launched by the fleet.</p>
@@ -8478,12 +8478,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_aggregation_interval ||= 0
       end
-
     end
 
     # @!attribute client_token
@@ -8560,11 +8560,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute fpga_image_id
@@ -8661,12 +8661,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.no_reboot ||= false
       end
-
     end
 
     # @!attribute image_id
@@ -8747,11 +8747,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_event_window
@@ -8834,11 +8834,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute internet_gateway
@@ -8893,11 +8893,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam
@@ -9024,6 +9024,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
@@ -9033,7 +9034,6 @@ module AWS::SDK::EC2
         self.allocation_max_netmask_length ||= 0
         self.allocation_default_netmask_length ||= 0
       end
-
     end
 
     # @!attribute ipam_pool
@@ -9085,11 +9085,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam_scope
@@ -9149,11 +9149,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes a key pair.</p>
@@ -9256,11 +9256,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute launch_template
@@ -9341,11 +9341,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute launch_template_version
@@ -9399,11 +9399,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute route
@@ -9448,11 +9448,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_route_table_vpc_association
@@ -9521,12 +9521,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_entries ||= 0
       end
-
     end
 
     # @!attribute prefix_list
@@ -9591,11 +9591,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute client_token
@@ -9694,13 +9694,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.egress ||= false
         self.rule_number ||= 0
       end
-
     end
 
     CreateNetworkAclEntryOutput = ::Struct.new(
@@ -9734,11 +9734,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_acl
@@ -9790,11 +9790,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope
@@ -9878,12 +9878,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.destination_port ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_path
@@ -10019,6 +10019,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
@@ -10027,7 +10028,6 @@ module AWS::SDK::EC2
         self.ipv4_prefix_count ||= 0
         self.ipv6_prefix_count ||= 0
       end
-
     end
 
     # <p>Contains the output of CreateNetworkInterface.</p>
@@ -10090,11 +10090,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CreateNetworkInterfacePermission.</p>
@@ -10152,12 +10152,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.partition_count ||= 0
       end
-
     end
 
     # @!attribute placement_group
@@ -10191,11 +10191,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute pool_id
@@ -10249,11 +10249,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute replace_root_volume_task
@@ -10300,11 +10300,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Contains the output of CreateReservedInstancesListing.</p>
@@ -10370,11 +10370,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute image_id
@@ -10493,11 +10493,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -10510,11 +10510,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -10541,11 +10541,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute route_table
@@ -10603,11 +10603,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute group_id
@@ -10682,11 +10682,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes a snapshot.</p>
@@ -10817,12 +10817,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.volume_size ||= 0
       end
-
     end
 
     # @!attribute description
@@ -10889,11 +10889,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshots
@@ -10937,11 +10937,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CreateSpotDatafeedSubscription.</p>
@@ -10990,11 +10990,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute object_key
@@ -11074,11 +11074,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute subnet_cidr_reservation
@@ -11166,12 +11166,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.ipv6_native ||= false
       end
-
     end
 
     # @!attribute subnet
@@ -11212,11 +11212,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     CreateTagsOutput = ::Struct.new(
@@ -11256,11 +11256,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_filter
@@ -11365,13 +11365,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rule_number ||= 0
         self.protocol ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_filter_rule
@@ -11467,6 +11467,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.packet_length ||= 0
@@ -11474,7 +11475,6 @@ module AWS::SDK::EC2
         self.virtual_network_id ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_session
@@ -11543,11 +11543,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_target
@@ -11598,11 +11598,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_connect
@@ -11671,11 +11671,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_connect_peer
@@ -11736,11 +11736,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_id
@@ -11773,11 +11773,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_multicast_domain
@@ -11878,11 +11878,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -11933,12 +11933,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blackhole ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -11990,12 +11990,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blackhole ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute route
@@ -12034,11 +12034,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_route_table
@@ -12097,11 +12097,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -12339,6 +12339,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
@@ -12348,7 +12349,6 @@ module AWS::SDK::EC2
         self.multi_attach_enabled ||= false
         self.throughput ||= 0
       end
-
     end
 
     # <p>Describes a volume.</p>
@@ -12460,6 +12460,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
@@ -12469,7 +12470,6 @@ module AWS::SDK::EC2
         self.multi_attach_enabled ||= false
         self.throughput ||= 0
       end
-
     end
 
     # <p>Describes the user or group to be added or removed from the list of create volume
@@ -12561,11 +12561,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute connection_notification
@@ -12697,12 +12697,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.private_dns_enabled ||= false
       end
-
     end
 
     # <p>Contains the output of CreateVpcEndpoint.</p>
@@ -12784,12 +12784,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.acceptance_required ||= false
       end
-
     end
 
     # @!attribute service_configuration
@@ -12905,12 +12905,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amazon_provided_ipv6_cidr_block ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpc
@@ -12972,11 +12972,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpc_peering_connection
@@ -13044,11 +13044,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CreateVpnConnection.</p>
@@ -13136,12 +13136,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amazon_side_asn ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of CreateVpnGateway.</p>
@@ -13321,11 +13321,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute carrier_gateway
@@ -13356,11 +13356,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute status
@@ -13403,11 +13403,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute status
@@ -13443,11 +13443,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteCustomerGatewayOutput = ::Struct.new(
@@ -13475,11 +13475,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteDhcpOptionsOutput = ::Struct.new(
@@ -13507,11 +13507,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_code
@@ -13524,11 +13524,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_code ||= false
       end
-
     end
 
     # <p>Describes an EC2 Fleet error.</p>
@@ -13653,12 +13653,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.terminate_instances ||= false
       end
-
     end
 
     # @!attribute successful_fleet_deletions
@@ -13698,11 +13698,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute unsuccessful
@@ -13735,11 +13735,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -13752,11 +13752,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -13784,12 +13784,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.force_delete ||= false
       end
-
     end
 
     # @!attribute instance_event_window_state
@@ -13822,11 +13822,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteInternetGatewayOutput = ::Struct.new(
@@ -13881,12 +13881,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.cascade ||= false
       end
-
     end
 
     # @!attribute ipam
@@ -13919,11 +13919,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam_pool
@@ -13956,11 +13956,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam_scope
@@ -13999,11 +13999,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteKeyPairOutput = ::Struct.new(
@@ -14040,11 +14040,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute launch_template
@@ -14092,11 +14092,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute successfully_deleted_launch_template_versions
@@ -14147,11 +14147,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # <p>Describes a launch template version that was successfully deleted.</p>
@@ -14178,11 +14178,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
       end
-
     end
 
     # @!attribute destination_cidr_block
@@ -14209,11 +14209,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute route
@@ -14246,11 +14246,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_route_table_vpc_association
@@ -14283,11 +14283,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute prefix_list
@@ -14320,11 +14320,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute nat_gateway_id
@@ -14369,13 +14369,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.egress ||= false
         self.rule_number ||= 0
       end
-
     end
 
     DeleteNetworkAclEntryOutput = ::Struct.new(
@@ -14403,11 +14403,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteNetworkAclOutput = ::Struct.new(
@@ -14435,11 +14435,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -14472,11 +14472,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope_id
@@ -14509,11 +14509,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_analysis_id
@@ -14546,11 +14546,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_path_id
@@ -14585,11 +14585,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteNetworkInterfaceOutput = ::Struct.new(
@@ -14626,12 +14626,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output for DeleteNetworkInterfacePermission.</p>
@@ -14646,11 +14646,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -14671,11 +14671,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeletePlacementGroupOutput = ::Struct.new(
@@ -14703,11 +14703,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_value
@@ -14720,11 +14720,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
@@ -14783,11 +14783,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute successful_queued_purchase_deletions
@@ -14844,11 +14844,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteRouteOutput = ::Struct.new(
@@ -14876,11 +14876,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteRouteTableOutput = ::Struct.new(
@@ -14914,11 +14914,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteSecurityGroupOutput = ::Struct.new(
@@ -14946,11 +14946,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteSnapshotOutput = ::Struct.new(
@@ -14975,11 +14975,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteSpotDatafeedSubscriptionOutput = ::Struct.new(
@@ -15007,11 +15007,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute deleted_subnet_cidr_reservation
@@ -15044,11 +15044,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteSubnetOutput = ::Struct.new(
@@ -15090,11 +15090,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteTagsOutput = ::Struct.new(
@@ -15122,11 +15122,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_filter_id
@@ -15159,11 +15159,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_filter_rule_id
@@ -15196,11 +15196,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_session_id
@@ -15233,11 +15233,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_target_id
@@ -15270,11 +15270,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_connect
@@ -15307,11 +15307,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_connect_peer
@@ -15344,11 +15344,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -15369,11 +15369,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_multicast_domain
@@ -15418,11 +15418,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -15461,11 +15461,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -15504,11 +15504,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute route
@@ -15541,11 +15541,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_route_table
@@ -15578,11 +15578,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -15615,11 +15615,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteVolumeOutput = ::Struct.new(
@@ -15647,11 +15647,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute unsuccessful
@@ -15685,11 +15685,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute unsuccessful
@@ -15725,11 +15725,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of DeleteVpcEndpoints.</p>
@@ -15764,11 +15764,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteVpcOutput = ::Struct.new(
@@ -15796,11 +15796,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -15813,11 +15813,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # <p>Contains the parameters for DeleteVpnConnection.</p>
@@ -15841,11 +15841,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteVpnConnectionOutput = ::Struct.new(
@@ -15903,11 +15903,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeleteVpnGatewayOutput = ::Struct.new(
@@ -15936,11 +15936,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute byoip_cidr
@@ -15979,11 +15979,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam_pool_cidr
@@ -16022,11 +16022,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute pool_id
@@ -16067,11 +16067,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DeregisterImageOutput = ::Struct.new(
@@ -16099,11 +16099,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_tag_attribute
@@ -16139,11 +16139,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_all_tags_of_instance ||= false
       end
-
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -16176,11 +16176,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute deregistered_multicast_group_members
@@ -16225,11 +16225,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute deregistered_multicast_group_sources
@@ -16262,11 +16262,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute account_attributes
@@ -16319,12 +16319,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute addresses
@@ -16425,11 +16425,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute addresses
@@ -16456,11 +16456,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute use_long_ids_aggregated
@@ -16481,11 +16481,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_long_ids_aggregated ||= false
       end
-
     end
 
     # @!attribute filters
@@ -16584,12 +16584,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.all_availability_zones ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute availability_zones
@@ -16672,11 +16672,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute bundle_tasks
@@ -16716,12 +16716,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute byoip_cidrs
@@ -16796,12 +16796,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute capacity_reservation_fleets
@@ -16968,12 +16968,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute next_token
@@ -17059,12 +17059,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute carrier_gateways
@@ -17152,12 +17152,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute instances
@@ -17227,12 +17227,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute authorization_rules
@@ -17298,12 +17298,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute connections
@@ -17369,12 +17369,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute client_vpn_endpoints
@@ -17443,12 +17443,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute routes
@@ -17523,12 +17523,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute client_vpn_target_networks
@@ -17596,12 +17596,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute coip_pools
@@ -17640,11 +17640,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute conversion_tasks
@@ -17723,11 +17723,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of DescribeCustomerGateways.</p>
@@ -17809,12 +17809,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute dhcp_options
@@ -17883,12 +17883,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute egress_only_internet_gateways
@@ -17974,12 +17974,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute elastic_gpu_set
@@ -18007,11 +18007,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute dry_run
@@ -18051,12 +18051,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute export_image_tasks
@@ -18164,11 +18164,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute fast_launch_images
@@ -18259,11 +18259,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parallel_launches ||= 0
       end
-
     end
 
     # <p>Describes fast snapshot restores for a snapshot.</p>
@@ -18408,11 +18408,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute fast_snapshot_restores
@@ -18517,12 +18517,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute history_records
@@ -18610,12 +18610,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute active_instances
@@ -18716,12 +18716,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Describes the instances that were launched by the fleet.</p>
@@ -18865,12 +18865,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute flow_logs
@@ -18917,11 +18917,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute fpga_image_attribute
@@ -19027,12 +19027,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute fpga_images
@@ -19111,13 +19111,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_duration ||= 0
         self.max_results ||= 0
         self.min_duration ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -19193,11 +19193,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute host_reservation_set
@@ -19286,11 +19286,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute hosts
@@ -19351,11 +19351,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute iam_instance_profile_associations
@@ -19488,11 +19488,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes an image attribute.</p>
@@ -19807,12 +19807,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_deprecated ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute images
@@ -19864,12 +19864,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute import_image_tasks
@@ -19929,12 +19929,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute import_snapshot_tasks
@@ -19984,11 +19984,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes an instance attribute.</p>
@@ -20159,12 +20159,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute instance_credit_specifications
@@ -20198,11 +20198,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_tag_attribute
@@ -20310,12 +20310,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute instance_event_windows
@@ -20462,13 +20462,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
         self.include_all_instances ||= false
       end
-
     end
 
     # @!attribute instance_statuses
@@ -20541,11 +20541,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_type_offerings
@@ -20827,11 +20827,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_types
@@ -21360,12 +21360,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute reservations
@@ -21453,12 +21453,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute internet_gateways
@@ -21515,12 +21515,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -21577,12 +21577,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -21639,12 +21639,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -21713,12 +21713,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipv6_pools
@@ -21801,12 +21801,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.include_public_key ||= false
       end
-
     end
 
     # @!attribute key_pairs
@@ -21967,12 +21967,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute launch_template_versions
@@ -22058,12 +22058,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute launch_templates
@@ -22154,12 +22154,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_route_table_virtual_interface_group_associations
@@ -22249,12 +22249,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_route_table_vpc_associations
@@ -22339,12 +22339,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_route_tables
@@ -22420,12 +22420,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_virtual_interface_groups
@@ -22518,12 +22518,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateway_virtual_interfaces
@@ -22599,12 +22599,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute local_gateways
@@ -22676,12 +22676,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -22749,12 +22749,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute moving_address_statuses
@@ -22840,12 +22840,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute nat_gateways
@@ -22980,12 +22980,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute network_acls
@@ -23061,12 +23061,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope_analyses
@@ -23124,12 +23124,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scopes
@@ -23213,12 +23213,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_analyses
@@ -23293,12 +23293,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_paths
@@ -23347,11 +23347,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
@@ -23449,11 +23449,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
@@ -23680,12 +23680,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeNetworkInterfaces.</p>
@@ -23772,11 +23772,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute placement_groups
@@ -23838,12 +23838,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -23908,12 +23908,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute principals
@@ -23974,11 +23974,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute public_ipv4_pools
@@ -24044,12 +24044,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.all_regions ||= false
       end
-
     end
 
     # @!attribute regions
@@ -24107,12 +24107,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute replace_root_volume_tasks
@@ -24244,11 +24244,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the parameters for DescribeReservedInstancesListings.</p>
@@ -24594,6 +24594,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_marketplace ||= false
@@ -24603,7 +24604,6 @@ module AWS::SDK::EC2
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeReservedInstancesOfferings.</p>
@@ -24780,12 +24780,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeRouteTables.</p>
@@ -24886,6 +24886,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
@@ -24893,7 +24894,6 @@ module AWS::SDK::EC2
         self.max_slot_duration_in_hours ||= 0
         self.min_slot_duration_in_hours ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
@@ -24981,12 +24981,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeScheduledInstances.</p>
@@ -25027,11 +25027,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute security_group_reference_set
@@ -25100,12 +25100,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute security_group_rules
@@ -25297,12 +25297,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute security_groups
@@ -25349,11 +25349,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute create_volume_permissions
@@ -25428,11 +25428,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshot_tier_statuses
@@ -25578,12 +25578,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshots
@@ -25622,11 +25622,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
@@ -25678,12 +25678,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeSpotFleetInstances.</p>
@@ -25764,12 +25764,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
@@ -25851,12 +25851,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeSpotFleetRequests.</p>
@@ -26115,12 +26115,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeSpotInstanceRequests.</p>
@@ -26247,12 +26247,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeSpotPriceHistory.</p>
@@ -26306,12 +26306,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -26383,12 +26383,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute store_image_task_results
@@ -26530,12 +26530,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute subnets
@@ -26612,12 +26612,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -26686,12 +26686,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute traffic_mirror_filters
@@ -26787,12 +26787,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute traffic_mirror_sessions
@@ -26872,12 +26872,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute traffic_mirror_targets
@@ -26976,12 +26976,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_attachments
@@ -27055,12 +27055,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_connect_peers
@@ -27146,12 +27146,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_connects
@@ -27223,12 +27223,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_multicast_domains
@@ -27317,12 +27317,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_peering_attachments
@@ -27404,12 +27404,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_route_tables
@@ -27485,12 +27485,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_vpc_attachments
@@ -27596,12 +27596,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateways
@@ -27669,12 +27669,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute interface_associations
@@ -27721,11 +27721,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute auto_enable_io
@@ -27860,12 +27860,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute next_token
@@ -28019,12 +28019,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute dry_run
@@ -28113,12 +28113,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute volumes_modifications
@@ -28186,11 +28186,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpc_id
@@ -28245,11 +28245,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -28310,11 +28310,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpcs
@@ -28396,12 +28396,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute connection_notification_set
@@ -28483,12 +28483,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute vpc_endpoint_connections
@@ -28577,12 +28577,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute service_configurations
@@ -28655,12 +28655,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute allowed_principals
@@ -28743,12 +28743,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeVpcEndpointServices.</p>
@@ -28853,12 +28853,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # <p>Contains the output of DescribeVpcEndpoints.</p>
@@ -28980,12 +28980,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute vpc_peering_connections
@@ -29116,12 +29116,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute vpcs
@@ -29232,11 +29232,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of DescribeVpnConnections.</p>
@@ -29327,11 +29327,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of DescribeVpnGateways.</p>
@@ -29388,12 +29388,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.hive_compatible_partitions ||= false
         self.per_hour_partition ||= false
       end
-
     end
 
     # <p>Describes the destination options for a flow log.</p>
@@ -29422,12 +29422,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.hive_compatible_partitions ||= false
         self.per_hour_partition ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -29454,11 +29454,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -29471,11 +29471,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -29502,11 +29502,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DetachInternetGatewayOutput = ::Struct.new(
@@ -29559,12 +29559,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.force ||= false
       end
-
     end
 
     DetachNetworkInterfaceOutput = ::Struct.new(
@@ -29615,12 +29615,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes volume attachment details.</p>
@@ -29667,11 +29667,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # <p>Contains the parameters for DetachVpnGateway.</p>
@@ -29701,11 +29701,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DetachVpnGatewayOutput = ::Struct.new(
@@ -29819,11 +29819,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ebs_encryption_by_default
@@ -29836,11 +29836,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_encryption_by_default ||= false
       end
-
     end
 
     # @!attribute image_id
@@ -29868,12 +29868,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.force ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute image_id
@@ -29940,11 +29940,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parallel_launches ||= 0
       end
-
     end
 
     # <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
@@ -30119,11 +30119,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute successful
@@ -30162,11 +30162,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -30179,11 +30179,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -30204,11 +30204,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute success
@@ -30221,11 +30221,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -30238,11 +30238,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute serial_console_access_enabled
@@ -30257,11 +30257,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.serial_console_access_enabled ||= false
       end
-
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -30288,11 +30288,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute propagation
@@ -30334,11 +30334,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DisableVgwRoutePropagationOutput = ::Struct.new(
@@ -30370,11 +30370,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -30395,11 +30395,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -30412,11 +30412,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -30443,11 +30443,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DisassociateAddressOutput = ::Struct.new(
@@ -30479,11 +30479,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -30526,11 +30526,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -30543,11 +30543,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -30598,11 +30598,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_event_window
@@ -30635,11 +30635,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     DisassociateRouteTableOutput = ::Struct.new(
@@ -30709,11 +30709,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute associations
@@ -30752,11 +30752,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute association
@@ -30797,11 +30797,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -30822,11 +30822,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute association_id
@@ -30926,11 +30926,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Describes a disk image.</p>
@@ -30963,11 +30963,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes ||= 0
       end
-
     end
 
     # Includes enum constants for DiskImageFormat
@@ -31004,11 +31004,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Describes a disk.</p>
@@ -31160,11 +31160,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for DnsSupportValue
@@ -31318,6 +31318,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
@@ -31326,7 +31327,6 @@ module AWS::SDK::EC2
         self.throughput ||= 0
         self.encrypted ||= false
       end
-
     end
 
     # Includes enum constants for EbsEncryptionSupport
@@ -31412,11 +31412,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # <p>Describes information used to set up an EBS volume specified in a block device
@@ -31438,11 +31438,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # Includes enum constants for EbsNvmeSupport
@@ -31737,11 +31737,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>
@@ -31814,11 +31814,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ebs_encryption_by_default
@@ -31831,11 +31831,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_encryption_by_default ||= false
       end
-
     end
 
     # @!attribute image_id
@@ -31885,12 +31885,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parallel_launches ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute image_id
@@ -31957,11 +31957,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_parallel_launches ||= 0
       end
-
     end
 
     # <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
@@ -32137,11 +32137,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute successful
@@ -32191,11 +32191,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -32208,11 +32208,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -32233,11 +32233,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute success
@@ -32250,11 +32250,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -32267,11 +32267,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute serial_console_access_enabled
@@ -32286,11 +32286,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.serial_console_access_enabled ||= false
       end
-
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -32317,11 +32317,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute propagation
@@ -32366,11 +32366,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     EnableVgwRoutePropagationOutput = ::Struct.new(
@@ -32398,11 +32398,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     EnableVolumeIOOutput = ::Struct.new(
@@ -32434,11 +32434,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -32459,11 +32459,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -32476,11 +32476,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro
@@ -32497,11 +32497,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
@@ -32520,11 +32520,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for EndDateType
@@ -33076,13 +33076,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.load_balancer_listener_port ||= 0
         self.load_balancer_target_port ||= 0
         self.port ||= 0
       end
-
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -33101,11 +33101,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute certificate_revocation_list
@@ -33142,11 +33142,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute client_configuration
@@ -33235,11 +33235,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute description
@@ -33627,11 +33627,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute s3_location
@@ -33763,11 +33763,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_resource_count ||= 0
       end
-
     end
 
     # <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
@@ -33782,11 +33782,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_resource_count ||= 0
       end
-
     end
 
     # Includes enum constants for FastLaunchStateCode
@@ -34024,13 +34024,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_instance_count ||= 0
         self.fulfilled_capacity ||= 0
         self.ebs_optimized ||= false
       end
-
     end
 
     # Includes enum constants for FleetCapacityReservationTenancy
@@ -34217,6 +34217,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fulfilled_capacity ||= 0
@@ -34224,7 +34225,6 @@ module AWS::SDK::EC2
         self.terminate_instances_with_expiration ||= false
         self.replace_unhealthy_instances ||= false
       end
-
     end
 
     # Includes enum constants for FleetEventType
@@ -34384,12 +34384,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weighted_capacity ||= 0
         self.priority ||= 0
       end
-
     end
 
     # <p>Describes overrides for a launch template.</p>
@@ -34468,12 +34468,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weighted_capacity ||= 0
         self.priority ||= 0
       end
-
     end
 
     # <p>Describes the Amazon EC2 launch template and the launch template version that can be used
@@ -34604,11 +34604,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.termination_delay ||= 0
       end
-
     end
 
     # <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
@@ -34649,11 +34649,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.termination_delay ||= 0
       end
-
     end
 
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -34850,11 +34850,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_aggregation_interval ||= 0
       end
-
     end
 
     # Includes enum constants for FlowLogsResourceType
@@ -35015,12 +35015,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public ||= false
         self.data_retention_support ||= false
       end
-
     end
 
     # <p>Describes an Amazon FPGA image (AFI) attribute.</p>
@@ -35206,11 +35206,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute associated_roles
@@ -35256,12 +35256,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipv6_cidr_associations
@@ -35311,12 +35311,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute next_token
@@ -35394,12 +35394,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_instance_count ||= 0
         self.available_instance_count ||= 0
       end
-
     end
 
     # @!attribute pool_id
@@ -35457,12 +35457,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute coip_pool_id
@@ -35514,12 +35514,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.latest ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -35572,12 +35572,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.wake_up ||= false
       end
-
     end
 
     # @!attribute image_data
@@ -35618,11 +35618,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_family_credit_specification
@@ -35649,11 +35649,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute kms_key_id
@@ -35680,11 +35680,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ebs_encryption_by_default
@@ -35697,11 +35697,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_encryption_by_default ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -35734,11 +35734,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute result
@@ -35781,12 +35781,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute next_token
@@ -35904,12 +35904,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute instance_types
@@ -35948,11 +35948,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -36028,12 +36028,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute history_records
@@ -36096,12 +36096,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute ipam_pool_allocations
@@ -36158,12 +36158,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute ipam_pool_cidrs
@@ -36252,12 +36252,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute next_token
@@ -36297,11 +36297,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute launch_template_data
@@ -36347,12 +36347,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute prefix_list_associations
@@ -36410,13 +36410,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.target_version ||= 0
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute entries
@@ -36468,12 +36468,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -36526,11 +36526,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope_content
@@ -36563,11 +36563,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -36622,11 +36622,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
@@ -36689,11 +36689,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_valid_exchange ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -36706,11 +36706,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute serial_console_access_enabled
@@ -36725,11 +36725,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.serial_console_access_enabled ||= false
       end
-
     end
 
     # @!attribute instance_types
@@ -36809,6 +36809,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_capacity ||= 0
@@ -36816,7 +36817,6 @@ module AWS::SDK::EC2
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute spot_placement_scores
@@ -36909,12 +36909,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.max_results ||= 0
       end
-
     end
 
     # @!attribute subnet_ipv4_cidr_reservations
@@ -36984,12 +36984,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_attachment_propagations
@@ -37073,12 +37073,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute multicast_domain_associations
@@ -37168,12 +37168,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_prefix_list_references
@@ -37247,12 +37247,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute associations
@@ -37326,12 +37326,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_route_table_propagations
@@ -37386,11 +37386,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpn_connection_device_sample_configuration
@@ -37446,11 +37446,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpn_connection_device_types
@@ -37578,11 +37578,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.configured ||= false
       end
-
     end
 
     # <p>Indicates whether your instance is configured for hibernation. This parameter is valid
@@ -37603,11 +37603,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.configured ||= false
       end
-
     end
 
     # <p>Describes an event in the history of the Spot Fleet request.</p>
@@ -37815,11 +37815,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.member_of_service_linked_resource_group ||= false
       end
-
     end
 
     # <p>Describes an instance running on a Dedicated Host.</p>
@@ -37901,11 +37901,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # <p>Describes the properties of a Dedicated Host.</p>
@@ -37946,13 +37946,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.cores ||= 0
         self.sockets ||= 0
         self.total_v_cpus ||= 0
       end
-
     end
 
     # Includes enum constants for HostRecovery
@@ -38070,12 +38070,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.duration ||= 0
       end
-
     end
 
     # Includes enum constants for HostTenancy
@@ -38272,12 +38272,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
         self.type ||= 0
       end
-
     end
 
     # <p>Describes the ID format for a resource.</p>
@@ -38304,11 +38304,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_long_ids ||= false
       end
-
     end
 
     # Includes enum constants for Igmpv2SupportValue
@@ -38538,12 +38538,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.public ||= false
         self.ena_support ||= false
       end
-
     end
 
     # Includes enum constants for ImageAttributeName
@@ -38750,11 +38750,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -38767,11 +38767,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute architecture
@@ -38914,12 +38914,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.encrypted ||= false
       end
-
     end
 
     # <p>The request information of license configurations.</p>
@@ -39050,11 +39050,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
       end
-
     end
 
     # <p>Describes an import image task.</p>
@@ -39171,11 +39171,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
       end
-
     end
 
     # @!attribute description
@@ -39216,11 +39216,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Describes the launch specification for VM import.</p>
@@ -39303,6 +39303,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.monitoring ||= false
@@ -39418,11 +39419,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes_converted ||= 0
       end
-
     end
 
     # @!attribute dry_run
@@ -39455,11 +39456,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute key_fingerprint
@@ -39583,12 +39584,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.encrypted ||= false
       end
-
     end
 
     # @!attribute description
@@ -39689,11 +39690,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute conversion_task
@@ -39744,11 +39745,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.bytes_converted ||= 0
       end
-
     end
 
     # <p>Describes the Inference accelerators for the instance type.</p>
@@ -40179,6 +40180,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ami_launch_index ||= 0
@@ -40186,7 +40188,6 @@ module AWS::SDK::EC2
         self.ena_support ||= false
         self.source_dest_check ||= false
       end
-
     end
 
     # Includes enum constants for InstanceAttributeName
@@ -40350,12 +40351,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.available_capacity ||= 0
         self.total_capacity ||= 0
       end
-
     end
 
     # <p>Describes a Reserved Instance listing state.</p>
@@ -40378,11 +40379,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
@@ -40642,12 +40643,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_hour ||= 0
         self.end_hour ||= 0
       end
-
     end
 
     # <p>The start day and time and the end day and time of the time range, in UTC.</p>
@@ -40684,12 +40685,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_hour ||= 0
         self.end_hour ||= 0
       end
-
     end
 
     # <p>Describes an instance to export.</p>
@@ -41004,11 +41005,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.http_put_response_hop_limit ||= 0
       end
-
     end
 
     # <p>The metadata options for the instance.</p>
@@ -41088,11 +41089,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.http_put_response_hop_limit ||= 0
       end
-
     end
 
     # Includes enum constants for InstanceMetadataOptionsState
@@ -41270,11 +41271,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.source_dest_check ||= false
       end
-
     end
 
     # <p>Describes association information for an Elastic IP address (IPv4).</p>
@@ -41359,13 +41360,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
         self.device_index ||= 0
         self.network_card_index ||= 0
       end
-
     end
 
     # <p>Describes a network interface.</p>
@@ -41520,6 +41521,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associate_public_ip_address ||= false
@@ -41532,7 +41534,6 @@ module AWS::SDK::EC2
         self.ipv4_prefix_count ||= 0
         self.ipv6_prefix_count ||= 0
       end
-
     end
 
     # <p>Describes a private IPv4 address.</p>
@@ -41565,11 +41566,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.primary ||= false
       end
-
     end
 
     # <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -41898,13 +41899,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.spot_max_price_percentage_over_lowest_price ||= 0
         self.on_demand_max_price_percentage_over_lowest_price ||= 0
         self.require_hibernate_support ||= false
       end
-
     end
 
     # <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -42232,13 +42233,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.spot_max_price_percentage_over_lowest_price ||= 0
         self.on_demand_max_price_percentage_over_lowest_price ||= 0
         self.require_hibernate_support ||= false
       end
-
     end
 
     # <p>The architecture type, virtualization type, and other attributes for the instance types.
@@ -42290,11 +42291,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.exclude_boot_volume ||= false
       end
-
     end
 
     # <p>Describes the current state of an instance.</p>
@@ -42358,11 +42359,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.code ||= 0
       end
-
     end
 
     # <p>Describes an instance state change.</p>
@@ -42641,11 +42642,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_all_tags_of_instance ||= false
       end
-
     end
 
     # Includes enum constants for InstanceType
@@ -44984,11 +44985,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.used_instance_count ||= 0
       end
-
     end
 
     # <p>Describes service integrations with VPC Flow logs.</p>
@@ -45161,12 +45162,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Describes an IPv4 range.</p>
@@ -45270,11 +45271,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.scope_count ||= 0
       end
-
     end
 
     # <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
@@ -45626,6 +45627,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.pool_depth ||= 0
@@ -45635,7 +45637,6 @@ module AWS::SDK::EC2
         self.allocation_max_netmask_length ||= 0
         self.allocation_default_netmask_length ||= 0
       end
-
     end
 
     # <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
@@ -46095,12 +46096,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
         self.pool_count ||= 0
       end
-
     end
 
     # Includes enum constants for IpamScopeState
@@ -46686,11 +46687,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
       end
-
     end
 
     # <p>Describes a launch template.</p>
@@ -46741,12 +46742,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_version_number ||= 0
         self.latest_version_number ||= 0
       end
-
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -46968,12 +46969,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.core_count ||= 0
         self.threads_per_core ||= 0
       end
-
     end
 
     # <p>The CPU options for the instance. Both the core count and threads per core must be
@@ -46996,12 +46997,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.core_count ||= 0
         self.threads_per_core ||= 0
       end
-
     end
 
     # <p>Describes a block device for an EBS volume.</p>
@@ -47060,6 +47061,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
@@ -47068,7 +47070,6 @@ module AWS::SDK::EC2
         self.volume_size ||= 0
         self.throughput ||= 0
       end
-
     end
 
     # <p>The parameters for a block device for an EBS volume.</p>
@@ -47176,6 +47177,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
@@ -47184,7 +47186,6 @@ module AWS::SDK::EC2
         self.volume_size ||= 0
         self.throughput ||= 0
       end
-
     end
 
     # <p> Describes an elastic inference accelerator. </p>
@@ -47207,11 +47208,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p> Describes an elastic inference accelerator. </p>
@@ -47234,11 +47235,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
       end
-
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
@@ -47254,11 +47255,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more
@@ -47276,11 +47277,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # Includes enum constants for LaunchTemplateErrorCode
@@ -47324,11 +47325,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.configured ||= false
       end
-
     end
 
     # <p>Indicates whether the instance is configured for hibernation. This parameter is valid
@@ -47348,11 +47349,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.configured ||= false
       end
-
     end
 
     # Includes enum constants for LaunchTemplateHttpTokensState
@@ -47581,11 +47582,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.http_put_response_hop_limit ||= 0
       end
-
     end
 
     # <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -47658,11 +47659,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.http_put_response_hop_limit ||= 0
       end
-
     end
 
     # Includes enum constants for LaunchTemplateInstanceMetadataOptionsState
@@ -47830,6 +47831,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associate_carrier_ip_address ||= false
@@ -47842,7 +47844,6 @@ module AWS::SDK::EC2
         self.ipv4_prefix_count ||= 0
         self.ipv6_prefix_count ||= 0
       end
-
     end
 
     # <p>The parameters for a network interface.</p>
@@ -47986,6 +47987,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associate_carrier_ip_address ||= false
@@ -47998,7 +48000,6 @@ module AWS::SDK::EC2
         self.ipv4_prefix_count ||= 0
         self.ipv6_prefix_count ||= 0
       end
-
     end
 
     # <p>Describes a license configuration.</p>
@@ -48098,12 +48099,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.weighted_capacity ||= 0
         self.priority ||= 0
       end
-
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -48164,11 +48165,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.partition_number ||= 0
       end
-
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -48231,11 +48232,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.partition_number ||= 0
       end
-
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -48266,12 +48267,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_resource_name_dns_a_record ||= false
         self.enable_resource_name_dns_aaaa_record ||= false
       end
-
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -48305,12 +48306,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_resource_name_dns_a_record ||= false
         self.enable_resource_name_dns_aaaa_record ||= false
       end
-
     end
 
     # <p>The launch template to use. You must specify either the launch template ID or launch
@@ -48385,11 +48386,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_duration_minutes ||= 0
       end
-
     end
 
     # <p>The options for Spot Instances.</p>
@@ -48437,11 +48438,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_duration_minutes ||= 0
       end
-
     end
 
     # <p>The tag specification for the launch template.</p>
@@ -48545,12 +48546,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.version_number ||= 0
         self.default_version ||= false
       end
-
     end
 
     # <p>Describes the monitoring for the instance.</p>
@@ -48566,11 +48567,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes the monitoring for the instance.</p>
@@ -48586,11 +48587,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes a license configuration.</p>
@@ -48657,11 +48658,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute images
@@ -48714,11 +48715,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshots
@@ -49214,13 +49215,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan ||= 0
         self.local_bgp_asn ||= 0
         self.peer_bgp_asn ||= 0
       end
-
     end
 
     # <p>Describes a local gateway virtual interface group.</p>
@@ -49385,12 +49386,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_entries ||= 0
         self.version ||= 0
       end
-
     end
 
     # Includes enum constants for MarketType
@@ -49434,12 +49435,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -49462,12 +49463,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>Describes the memory for the instance type.</p>
@@ -49504,12 +49505,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum amount of memory, in MiB.</p>
@@ -49532,12 +49533,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # @!attribute allocation_id
@@ -49564,11 +49565,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute address
@@ -49611,11 +49612,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -49628,11 +49629,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # Includes enum constants for ModifyAvailabilityZoneOptInStatus
@@ -49696,13 +49697,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_target_capacity ||= 0
         self.dry_run ||= false
         self.remove_end_date ||= false
       end
-
     end
 
     # @!attribute return
@@ -49715,11 +49716,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute capacity_reservation_id
@@ -49793,13 +49794,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
         self.accept ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -49812,11 +49813,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -49938,6 +49939,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vpn_port ||= 0
@@ -49945,7 +49947,6 @@ module AWS::SDK::EC2
         self.dry_run ||= false
         self.session_timeout_hours ||= 0
       end
-
     end
 
     # @!attribute return
@@ -49958,11 +49959,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -49993,11 +49994,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_family_credit_specification
@@ -50050,11 +50051,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute kms_key_id
@@ -50114,11 +50115,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -50132,11 +50133,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -50210,11 +50211,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute fpga_image_attribute
@@ -50330,11 +50331,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_long_ids ||= false
       end
-
     end
 
     ModifyIdFormatOutput = ::Struct.new(
@@ -50379,11 +50380,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_long_ids ||= false
       end
-
     end
 
     ModifyIdentityIdFormatOutput = ::Struct.new(
@@ -50481,11 +50482,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ModifyImageAttributeOutput = ::Struct.new(
@@ -50642,11 +50643,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ModifyInstanceAttributeOutput = ::Struct.new(
@@ -50678,11 +50679,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -50695,11 +50696,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -50728,11 +50729,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute successful_instance_credit_specifications
@@ -50785,11 +50786,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute event
@@ -50868,11 +50869,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_event_window
@@ -50915,11 +50916,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -51021,12 +51022,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.http_put_response_hop_limit ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_id
@@ -51110,11 +51111,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.partition_number ||= 0
       end
-
     end
 
     # @!attribute return
@@ -51127,11 +51128,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -51172,11 +51173,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam
@@ -51268,6 +51269,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
@@ -51277,7 +51279,6 @@ module AWS::SDK::EC2
         self.allocation_default_netmask_length ||= 0
         self.clear_allocation_default_netmask_length ||= false
       end
-
     end
 
     # @!attribute ipam_pool
@@ -51340,12 +51341,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.monitored ||= false
       end
-
     end
 
     # @!attribute ipam_resource_cidr
@@ -51384,11 +51385,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam_scope
@@ -51445,11 +51446,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute launch_template
@@ -51516,13 +51517,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.current_version ||= 0
         self.max_entries ||= 0
       end
-
     end
 
     # @!attribute prefix_list
@@ -51586,11 +51587,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ModifyNetworkInterfaceAttributeOutput = ::Struct.new(
@@ -51644,13 +51645,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.enable_resource_name_dns_a_record ||= false
         self.enable_resource_name_dns_aaaa_record ||= false
       end
-
     end
 
     # @!attribute return
@@ -51664,11 +51665,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # <p>Contains the parameters for ModifyReservedInstances.</p>
@@ -51736,11 +51737,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -51753,11 +51754,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute attribute
@@ -51812,11 +51813,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ModifySnapshotAttributeOutput = ::Struct.new(
@@ -51852,11 +51853,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshot_id
@@ -51925,12 +51926,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_capacity ||= 0
         self.on_demand_target_capacity ||= 0
       end
-
     end
 
     # <p>Contains the output of ModifySpotFleetRequest.</p>
@@ -51946,11 +51947,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute assign_ipv6_address_on_creation
@@ -52046,11 +52047,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_lni_at_device_index ||= 0
       end
-
     end
 
     ModifySubnetAttributeOutput = ::Struct.new(
@@ -52090,11 +52091,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_filter
@@ -52193,13 +52194,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rule_number ||= 0
         self.protocol ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_filter_rule
@@ -52276,6 +52277,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.packet_length ||= 0
@@ -52283,7 +52285,6 @@ module AWS::SDK::EC2
         self.virtual_network_id ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute traffic_mirror_session
@@ -52328,11 +52329,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>The transit gateway options.</p>
@@ -52455,12 +52456,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blackhole ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -52511,11 +52512,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -52586,11 +52587,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ModifyVolumeAttributeOutput = ::Struct.new(
@@ -52698,6 +52699,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
@@ -52706,7 +52708,6 @@ module AWS::SDK::EC2
         self.throughput ||= 0
         self.multi_attach_enabled ||= false
       end
-
     end
 
     # @!attribute volume_modification
@@ -52789,11 +52790,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_value
@@ -52806,11 +52807,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # <p>Contains the parameters for ModifyVpcEndpoint.</p>
@@ -52904,13 +52905,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.reset_policy ||= false
         self.private_dns_enabled ||= false
       end
-
     end
 
     # @!attribute return
@@ -52923,11 +52924,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -53006,13 +53007,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.remove_private_dns_name ||= false
         self.acceptance_required ||= false
       end
-
     end
 
     # @!attribute return
@@ -53025,11 +53026,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -53060,11 +53061,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_value
@@ -53077,11 +53078,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -53117,11 +53118,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_value
@@ -53134,11 +53135,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # @!attribute accepter_peering_connection_options
@@ -53171,11 +53172,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute accepter_peering_connection_options
@@ -53222,11 +53223,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_value
@@ -53240,11 +53241,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # @!attribute vpn_connection_id
@@ -53285,11 +53286,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpn_connection_id
@@ -53340,11 +53341,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpn_connection
@@ -53396,11 +53397,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpn_connection
@@ -53446,11 +53447,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute vpn_connection
@@ -53689,6 +53690,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.phase1_lifetime_seconds ||= 0
@@ -53698,7 +53700,6 @@ module AWS::SDK::EC2
         self.replay_window_size ||= 0
         self.dpd_timeout_seconds ||= 0
       end
-
     end
 
     # @!attribute instance_ids
@@ -53719,11 +53720,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_monitorings
@@ -53793,11 +53794,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute allocation_id
@@ -53850,11 +53851,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute byoip_cidr
@@ -54155,11 +54156,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>Describes an association between a network ACL and a subnet.</p>
@@ -54244,12 +54245,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.egress ||= false
         self.rule_number ||= 0
       end
-
     end
 
     # <p>Describes the network card support of the instance type.</p>
@@ -54474,11 +54475,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.analyzed_eni_count ||= 0
       end
-
     end
 
     # <p>Describes the Network Access Scope content.</p>
@@ -54599,11 +54600,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.network_path_found ||= false
       end
-
     end
 
     # <p>Describes a path.</p>
@@ -54674,11 +54675,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.destination_port ||= 0
       end
-
     end
 
     # <p>Describes a network interface.</p>
@@ -54851,6 +54852,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.requester_managed ||= false
@@ -54858,7 +54860,6 @@ module AWS::SDK::EC2
         self.deny_all_igw_traffic ||= false
         self.ipv6_native ||= false
       end
-
     end
 
     # <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
@@ -54971,13 +54972,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
         self.device_index ||= 0
         self.network_card_index ||= 0
       end
-
     end
 
     # <p>Describes an attachment change.</p>
@@ -54998,11 +54999,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # Includes enum constants for NetworkInterfaceAttribute
@@ -55045,12 +55046,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum number of network interfaces.</p>
@@ -55073,12 +55074,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for NetworkInterfaceCreationType
@@ -55229,11 +55230,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.primary ||= false
       end
-
     end
 
     # Includes enum constants for NetworkInterfaceStatus
@@ -55467,13 +55468,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.single_instance_type ||= false
         self.single_availability_zone ||= false
         self.min_target_capacity ||= 0
       end
-
     end
 
     # <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
@@ -55539,13 +55540,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.single_instance_type ||= false
         self.single_availability_zone ||= false
         self.min_target_capacity ||= 0
       end
-
     end
 
     # Includes enum constants for OperationType
@@ -55776,11 +55777,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.sequence_number ||= 0
       end
-
     end
 
     # <p>Describes a path statement.</p>
@@ -55926,13 +55927,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_dns_resolution_from_remote_vpc ||= false
         self.allow_egress_from_local_classic_link_to_remote_vpc ||= false
         self.allow_egress_from_local_vpc_to_remote_classic_link ||= false
       end
-
     end
 
     # <p>The VPC peering connection options.</p>
@@ -55961,13 +55962,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_dns_resolution_from_remote_vpc ||= false
         self.allow_egress_from_local_classic_link_to_remote_vpc ||= false
         self.allow_egress_from_local_vpc_to_remote_classic_link ||= false
       end
-
     end
 
     # <p>Information about the transit gateway in the peering attachment.</p>
@@ -56016,11 +56017,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
@@ -56036,11 +56037,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>The encryption algorithm for phase 1 IKE negotiations.</p>
@@ -56113,11 +56114,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
@@ -56133,11 +56134,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.value ||= 0
       end
-
     end
 
     # <p>The encryption algorithm for phase 2 IKE negotiations.</p>
@@ -56276,11 +56277,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.partition_number ||= 0
       end
-
     end
 
     # <p>Describes a placement group.</p>
@@ -56336,11 +56337,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.partition_count ||= 0
       end
-
     end
 
     # <p>Describes the placement group support of the instance type.</p>
@@ -56463,12 +56464,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from ||= 0
         self.to ||= 0
       end
-
     end
 
     # <p>Describes prefixes for Amazon Web Services services.</p>
@@ -56645,13 +56646,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.active ||= false
         self.price ||= 0
         self.term ||= 0
       end
-
     end
 
     # <p>Describes the price for a Reserved Instance.</p>
@@ -56681,12 +56682,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.price ||= 0
         self.term ||= 0
       end
-
     end
 
     # <p>Describes a Reserved Instance offering.</p>
@@ -56707,12 +56708,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.count ||= 0
         self.price ||= 0
       end
-
     end
 
     # <p>PrincipalIdFormat description</p>
@@ -56845,12 +56846,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_resource_name_dns_a_record ||= false
         self.enable_resource_name_dns_aaaa_record ||= false
       end
-
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -56884,12 +56885,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_resource_name_dns_a_record ||= false
         self.enable_resource_name_dns_aaaa_record ||= false
       end
-
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -56920,12 +56921,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_resource_name_dns_a_record ||= false
         self.enable_resource_name_dns_aaaa_record ||= false
       end
-
     end
 
     # <p>Describes a secondary private IPv4 address for a network interface.</p>
@@ -56947,11 +56948,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.primary ||= false
       end
-
     end
 
     # <p>Describes the processor used by the instance type.</p>
@@ -57095,13 +57096,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.publicly_advertisable ||= false
         self.dry_run ||= false
         self.multi_region ||= false
       end
-
     end
 
     # @!attribute byoip_cidr
@@ -57146,11 +57147,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute ipam_pool_cidr
@@ -57195,12 +57196,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.netmask_length ||= 0
       end
-
     end
 
     # @!attribute pool_id
@@ -57335,12 +57336,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_address_count ||= 0
         self.total_available_address_count ||= 0
       end
-
     end
 
     # <p>Describes an address range of an IPv4 address pool.</p>
@@ -57373,12 +57374,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.address_count ||= 0
         self.available_address_count ||= 0
       end
-
     end
 
     # <p>Describes the result of the purchase.</p>
@@ -57442,11 +57443,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
       end
-
     end
 
     # @!attribute client_token
@@ -57558,11 +57559,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
@@ -57603,12 +57604,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of PurchaseReservedInstancesOffering.</p>
@@ -57654,11 +57655,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of PurchaseScheduledInstances.</p>
@@ -57693,11 +57694,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     RebootInstancesOutput = ::Struct.new(
@@ -57727,11 +57728,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # Includes enum constants for RecurringChargeFrequency
@@ -57940,12 +57941,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.ena_support ||= false
       end
-
     end
 
     # <p>Contains the output of RegisterImage.</p>
@@ -57980,11 +57981,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_tag_attribute
@@ -58020,11 +58021,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_all_tags_of_instance ||= false
       end
-
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -58057,11 +58058,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute registered_multicast_group_members
@@ -58106,11 +58107,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute registered_multicast_group_sources
@@ -58155,11 +58156,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute associations
@@ -58192,11 +58193,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -58229,11 +58230,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -58272,11 +58273,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute unsuccessful
@@ -58309,11 +58310,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -58326,11 +58327,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute allocation_id
@@ -58367,11 +58368,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ReleaseAddressOutput = ::Struct.new(
@@ -58442,11 +58443,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute success
@@ -58459,11 +58460,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.success ||= false
       end
-
     end
 
     # <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
@@ -58551,11 +58552,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute new_association_id
@@ -58648,13 +58649,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.egress ||= false
         self.rule_number ||= 0
       end
-
     end
 
     ReplaceNetworkAclEntryOutput = ::Struct.new(
@@ -58883,12 +58884,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.local_target ||= false
       end
-
     end
 
     ReplaceRouteOutput = ::Struct.new(
@@ -58922,11 +58923,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute new_association_id
@@ -58983,12 +58984,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blackhole ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute route
@@ -59149,11 +59150,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ReportInstanceStatusOutput = ::Struct.new(
@@ -59452,13 +59453,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
         self.disable_api_termination ||= false
         self.disable_api_stop ||= false
       end
-
     end
 
     # <p>Contains the parameters for RequestSpotFleet.</p>
@@ -59482,11 +59483,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # <p>Contains the output of RequestSpotFleet.</p>
@@ -59638,13 +59639,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_duration_minutes ||= 0
         self.dry_run ||= false
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Contains the output of RequestSpotInstances.</p>
@@ -59771,11 +59772,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
       end
-
     end
 
     # <p>Describes a launch request for one or more instances, and includes owner, requester,
@@ -59885,11 +59886,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
       end
-
     end
 
     # Includes enum constants for ReservationState
@@ -59959,11 +59960,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amount ||= 0
       end
-
     end
 
     # <p>The total value of the Convertible Reserved Instance.</p>
@@ -60145,6 +60146,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -60152,7 +60154,6 @@ module AWS::SDK::EC2
         self.instance_count ||= 0
         self.usage_price ||= 0
       end
-
     end
 
     # <p>Describes the configuration settings for the modified Reserved Instances.</p>
@@ -60198,11 +60199,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Describes the ID of a Reserved Instance.</p>
@@ -60490,6 +60491,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.duration ||= 0
@@ -60497,7 +60499,6 @@ module AWS::SDK::EC2
         self.usage_price ||= 0
         self.marketplace ||= false
       end
-
     end
 
     # @!attribute allocation_id
@@ -60526,11 +60527,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute address
@@ -60557,11 +60558,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute kms_key_id
@@ -60602,11 +60603,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # Includes enum constants for ResetFpgaImageAttributeName
@@ -60627,11 +60628,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # <p>Contains the parameters for ResetImageAttribute.</p>
@@ -60662,11 +60663,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # Includes enum constants for ResetImageAttributeName
@@ -60714,11 +60715,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ResetInstanceAttributeOutput = ::Struct.new(
@@ -60754,11 +60755,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ResetNetworkInterfaceAttributeOutput = ::Struct.new(
@@ -60795,11 +60796,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     ResetSnapshotAttributeOutput = ::Struct.new(
@@ -61354,13 +61355,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
         self.disable_api_termination ||= false
         self.disable_api_stop ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -61381,11 +61382,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute public_ip
@@ -61426,11 +61427,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -61443,11 +61444,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -61480,13 +61481,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.previous_version ||= 0
         self.current_version ||= 0
       end
-
     end
 
     # @!attribute prefix_list
@@ -61519,11 +61520,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshot_id
@@ -61593,12 +61594,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.volume_size ||= 0
       end
-
     end
 
     # @!attribute snapshot_id
@@ -61638,12 +61639,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.permanent_restore ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute snapshot_id
@@ -61676,12 +61677,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.restore_duration ||= 0
         self.is_permanent_restore ||= false
       end
-
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -61718,12 +61719,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.revoke_all_groups ||= false
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute status
@@ -61807,13 +61808,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # @!attribute return
@@ -61834,11 +61835,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute cidr_ip
@@ -61920,13 +61921,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -61947,11 +61948,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # Includes enum constants for RootDeviceType
@@ -62210,11 +62211,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.main ||= false
       end
-
     end
 
     # <p>Describes the state of an association between a route table and a subnet or gateway.</p>
@@ -62652,6 +62653,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ipv6_address_count ||= 0
@@ -62721,11 +62723,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes a launch request for one or more instances, and includes owner, requester,
@@ -62810,12 +62812,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Contains the output of RunScheduledInstances.</p>
@@ -62993,13 +62995,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
         self.slot_duration_in_hours ||= 0
         self.total_scheduled_instance_hours ||= 0
       end
-
     end
 
     # <p>Describes a schedule that is available for your Scheduled Instances.</p>
@@ -63086,6 +63088,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.available_instance_count ||= 0
@@ -63094,7 +63097,6 @@ module AWS::SDK::EC2
         self.slot_duration_in_hours ||= 0
         self.total_scheduled_instance_hours ||= 0
       end
-
     end
 
     # <p>Describes the recurring schedule for a Scheduled Instance.</p>
@@ -63134,12 +63136,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
         self.occurrence_relative_to_end ||= false
       end
-
     end
 
     # <p>Describes the recurring schedule for a Scheduled Instance.</p>
@@ -63182,12 +63184,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.interval ||= 0
         self.occurrence_relative_to_end ||= false
       end
-
     end
 
     # <p>Describes a block device mapping for a Scheduled Instance.</p>
@@ -63282,6 +63284,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
@@ -63289,7 +63292,6 @@ module AWS::SDK::EC2
         self.iops ||= 0
         self.volume_size ||= 0
       end
-
     end
 
     # <p>Describes an IAM instance profile for a Scheduled Instance.</p>
@@ -63420,11 +63422,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
       end
-
     end
 
     # <p>Describes whether monitoring is enabled for a Scheduled Instance.</p>
@@ -63439,11 +63441,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes a network interface for a Scheduled Instance.</p>
@@ -63528,6 +63530,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.associate_public_ip_address ||= false
@@ -63536,7 +63539,6 @@ module AWS::SDK::EC2
         self.ipv6_address_count ||= 0
         self.secondary_private_ip_address_count ||= 0
       end
-
     end
 
     # <p>Describes the placement for a Scheduled Instance.</p>
@@ -63577,11 +63579,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.primary ||= false
       end
-
     end
 
     # @!attribute local_gateway_route_table_id
@@ -63649,11 +63651,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute routes
@@ -63749,12 +63751,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute multicast_groups
@@ -63850,12 +63852,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute routes
@@ -63874,11 +63876,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.additional_routes_available ||= false
       end
-
     end
 
     # <p>Describes a security group.</p>
@@ -64071,13 +64073,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_egress ||= false
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Describes the description of a security group rule.</p>
@@ -64175,12 +64177,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Describes an update to a security group rule.</p>
@@ -64233,11 +64235,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     SendDiagnosticInterruptOutput = ::Struct.new(
@@ -64348,12 +64350,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.acceptance_required ||= false
         self.manages_vpc_endpoints ||= false
       end
-
     end
 
     # Includes enum constants for ServiceConnectivityType
@@ -64470,13 +64472,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vpc_endpoint_policy_supported ||= false
         self.acceptance_required ||= false
         self.manages_vpc_endpoints ||= false
       end
-
     end
 
     # Includes enum constants for ServiceState
@@ -64715,12 +64717,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.volume_size ||= 0
       end
-
     end
 
     # Includes enum constants for SnapshotAttributeName
@@ -64801,11 +64803,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disk_image_size ||= 0
       end
-
     end
 
     # <p>The disk container object for the import snapshot request.</p>
@@ -64920,12 +64922,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
         self.volume_size ||= 0
       end
-
     end
 
     # <p>Information about a snapshot that is currently in the Recycle Bin.</p>
@@ -65062,12 +65064,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disk_image_size ||= 0
         self.encrypted ||= false
       end
-
     end
 
     # <p>Provides information about a snapshot's storage tier.</p>
@@ -65158,11 +65160,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.last_tiering_progress ||= 0
       end
-
     end
 
     # Includes enum constants for SpotAllocationStrategy
@@ -65223,11 +65225,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.termination_delay ||= 0
       end
-
     end
 
     # <p>Describes the data feed for a Spot Instance.</p>
@@ -65416,12 +65418,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.ebs_optimized ||= false
         self.weighted_capacity ||= 0
       end
-
     end
 
     # <p>Describes whether monitoring is enabled.</p>
@@ -65438,11 +65440,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Describes a Spot Fleet request.</p>
@@ -65771,6 +65773,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.fulfilled_capacity ||= 0
@@ -65781,7 +65784,6 @@ module AWS::SDK::EC2
         self.replace_unhealthy_instances ||= false
         self.instance_pools_to_use_count ||= 0
       end
-
     end
 
     # <p>The tags for a Spot Fleet resource.</p>
@@ -65971,11 +65973,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_duration_minutes ||= 0
       end
-
     end
 
     # Includes enum constants for SpotInstanceState
@@ -66135,11 +66137,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.block_duration_minutes ||= 0
       end
-
     end
 
     # <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
@@ -66242,6 +66244,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_pools_to_use_count ||= 0
@@ -66249,7 +66252,6 @@ module AWS::SDK::EC2
         self.single_availability_zone ||= false
         self.min_target_capacity ||= 0
       end
-
     end
 
     # <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
@@ -66352,6 +66354,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_pools_to_use_count ||= 0
@@ -66359,7 +66362,6 @@ module AWS::SDK::EC2
         self.single_availability_zone ||= false
         self.min_target_capacity ||= 0
       end
-
     end
 
     # <p>Describes Spot Instance placement.</p>
@@ -66423,11 +66425,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # <p>Describes the maximum price per hour that you are willing to pay for a Spot
@@ -66518,12 +66520,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Describes a stale security group (a security group that contains stale rules).</p>
@@ -66594,11 +66596,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute starting_instances
@@ -66644,11 +66646,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_access_scope_analysis
@@ -66700,11 +66702,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute network_insights_analysis
@@ -66737,11 +66739,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return_value
@@ -66754,11 +66756,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return_value ||= false
       end
-
     end
 
     # Includes enum constants for State
@@ -66980,13 +66982,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.hibernate ||= false
         self.dry_run ||= false
         self.force ||= false
       end
-
     end
 
     # @!attribute stopping_instances
@@ -67097,11 +67099,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.progress_percentage ||= 0
       end
-
     end
 
     # <p>Describes a subnet.</p>
@@ -67247,6 +67249,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.available_ip_address_count ||= 0
@@ -67258,7 +67261,6 @@ module AWS::SDK::EC2
         self.enable_dns64 ||= false
         self.ipv6_native ||= false
       end
-
     end
 
     # <p>Describes the subnet association with the transit gateway multicast domain.</p>
@@ -67624,13 +67626,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_target_capacity ||= 0
         self.on_demand_target_capacity ||= 0
         self.spot_target_capacity ||= 0
       end
-
     end
 
     # <p>The number of units to request. You can choose to set the target capacity as the number of
@@ -67687,13 +67689,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.total_target_capacity ||= 0
         self.on_demand_target_capacity ||= 0
         self.spot_target_capacity ||= 0
       end
-
     end
 
     # Includes enum constants for TargetCapacityUnitType
@@ -67731,11 +67733,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Details about the target configuration.</p>
@@ -67757,11 +67759,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.instance_count ||= 0
       end
-
     end
 
     # <p>Describes a load balancer target group.</p>
@@ -67923,11 +67925,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -68000,11 +68002,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute terminating_instances
@@ -68107,12 +68109,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -68135,12 +68137,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # Includes enum constants for TpmSupportValues
@@ -68283,12 +68285,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.rule_number ||= 0
         self.protocol ||= 0
       end
-
     end
 
     # Includes enum constants for TrafficMirrorFilterRuleField
@@ -68337,12 +68339,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # <p>Information about the Traffic Mirror filter rule port range.</p>
@@ -68363,12 +68365,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.from_port ||= 0
         self.to_port ||= 0
       end
-
     end
 
     # Includes enum constants for TrafficMirrorRuleAction
@@ -68450,13 +68452,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.packet_length ||= 0
         self.session_number ||= 0
         self.virtual_network_id ||= 0
       end
-
     end
 
     # Includes enum constants for TrafficMirrorSessionField
@@ -68817,12 +68819,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.transit_gateway_asn ||= 0
         self.peer_asn ||= 0
       end
-
     end
 
     # <p>Describes a propagation route table.</p>
@@ -69117,11 +69119,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.peer_asn ||= 0
       end
-
     end
 
     # Includes enum constants for TransitGatewayMulitcastDomainAssociationState
@@ -69482,12 +69484,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.group_member ||= false
         self.group_source ||= false
       end
-
     end
 
     # <p>Describes the registered  transit gateway multicast group members.</p>
@@ -69621,11 +69623,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amazon_side_asn ||= 0
       end
-
     end
 
     # <p>Describes the transit gateway peering attachment.</p>
@@ -69752,11 +69754,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.blackhole ||= false
       end
-
     end
 
     # Includes enum constants for TransitGatewayPrefixListReferenceState
@@ -69908,11 +69910,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amazon_side_asn ||= 0
       end
-
     end
 
     # <p>Describes a route for a transit gateway route table.</p>
@@ -70059,12 +70061,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.default_association_route_table ||= false
         self.default_propagation_route_table ||= false
       end
-
     end
 
     # <p>Describes an association between a route table and a resource attachment.</p>
@@ -70415,12 +70417,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.vlan_id ||= 0
         self.gre_key ||= 0
       end
-
     end
 
     # Includes enum constants for TunnelInsideIpVersion
@@ -70564,6 +70566,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.phase1_lifetime_seconds ||= 0
@@ -70573,7 +70576,6 @@ module AWS::SDK::EC2
         self.replay_window_size ||= 0
         self.dpd_timeout_seconds ||= 0
       end
-
     end
 
     # @!attribute ipv6_addresses
@@ -70695,11 +70697,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute instance_monitorings
@@ -70860,11 +70862,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -70877,11 +70879,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # @!attribute dry_run
@@ -70925,11 +70927,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute return
@@ -70942,11 +70944,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.return ||= false
       end
-
     end
 
     # Includes enum constants for UsageClassType
@@ -71105,12 +71107,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>The minimum and maximum number of vCPUs.</p>
@@ -71131,12 +71133,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.min ||= 0
         self.max ||= 0
       end
-
     end
 
     # <p>Describes the vCPU configurations for the instance type.</p>
@@ -71264,11 +71266,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.accepted_route_count ||= 0
       end
-
     end
 
     # Includes enum constants for VirtualizationType
@@ -71392,6 +71394,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.encrypted ||= false
@@ -71401,7 +71404,6 @@ module AWS::SDK::EC2
         self.multi_attach_enabled ||= false
         self.throughput ||= 0
       end
-
     end
 
     # <p>Describes volume attachment details.</p>
@@ -71448,11 +71450,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.delete_on_termination ||= false
       end
-
     end
 
     # Includes enum constants for VolumeAttachmentState
@@ -71503,11 +71505,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.size ||= 0
       end
-
     end
 
     # <p>Describes the modification status of an EBS volume.</p>
@@ -71620,6 +71622,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_size ||= 0
@@ -71632,7 +71635,6 @@ module AWS::SDK::EC2
         self.original_multi_attach_enabled ||= false
         self.progress ||= 0
       end
-
     end
 
     # Includes enum constants for VolumeModificationState
@@ -72003,11 +72005,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.is_default ||= false
       end
-
     end
 
     # <p>Describes an attachment between a virtual private gateway and a VPC.</p>
@@ -72144,11 +72146,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.classic_link_enabled ||= false
       end
-
     end
 
     # <p>Describes a VPC endpoint.</p>
@@ -72278,12 +72280,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.private_dns_enabled ||= false
         self.requester_managed ||= false
       end
-
     end
 
     # <p>Describes a VPC endpoint connection to a service.</p>
@@ -72475,13 +72477,13 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.allow_dns_resolution_from_remote_vpc ||= false
         self.allow_egress_from_local_classic_link_to_remote_vpc ||= false
         self.allow_egress_from_local_vpc_to_remote_classic_link ||= false
       end
-
     end
 
     # <p>Describes the status of a VPC peering connection.</p>
@@ -72817,12 +72819,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_acceleration ||= false
         self.static_routes_only ||= false
       end
-
     end
 
     # <p>Describes VPN connection options.</p>
@@ -72897,12 +72899,12 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enable_acceleration ||= false
         self.static_routes_only ||= false
       end
-
     end
 
     # Includes enum constants for VpnEcmpSupportValue
@@ -72971,11 +72973,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.amazon_side_asn ||= 0
       end
-
     end
 
     # Includes enum constants for VpnProtocol
@@ -73268,6 +73270,7 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.phase1_lifetime_seconds ||= 0
@@ -73277,7 +73280,6 @@ module AWS::SDK::EC2
         self.replay_window_size ||= 0
         self.dpd_timeout_seconds ||= 0
       end
-
     end
 
     # Includes enum constants for WeekDay
@@ -73330,11 +73332,11 @@ module AWS::SDK::EC2
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.dry_run ||= false
       end
-
     end
 
     # @!attribute byoip_cidr

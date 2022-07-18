@@ -59,7 +59,7 @@ module AWS::SDK::Translate
         type.description = params[:description]
         type.parallel_data_config = ParallelDataConfig.build(params[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless params[:parallel_data_config].nil?
         type.encryption_key = EncryptionKey.build(params[:encryption_key], context: "#{context}[:encryption_key]") unless params[:encryption_key].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::Translate
         type.target_language_codes = TargetLanguageCodeStringList.build(params[:target_language_codes], context: "#{context}[:target_language_codes]") unless params[:target_language_codes].nil?
         type.terminology_names = ResourceNameList.build(params[:terminology_names], context: "#{context}[:terminology_names]") unless params[:terminology_names].nil?
         type.parallel_data_names = ResourceNameList.build(params[:parallel_data_names], context: "#{context}[:parallel_data_names]") unless params[:parallel_data_names].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.settings = TranslationSettings.build(params[:settings], context: "#{context}[:settings]") unless params[:settings].nil?
         type
       end
@@ -697,7 +697,7 @@ module AWS::SDK::Translate
         type.name = params[:name]
         type.description = params[:description]
         type.parallel_data_config = ParallelDataConfig.build(params[:parallel_data_config], context: "#{context}[:parallel_data_config]") unless params[:parallel_data_config].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end

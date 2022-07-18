@@ -14,8 +14,8 @@ module AWS::SDK::ECRPUBLIC
     class BatchCheckLayerAvailability
       def self.default(visited=[])
         {
-          layers: Stubs::LayerList.default(visited),
-          failures: Stubs::LayerFailureList.default(visited),
+          layers: LayerList.default(visited),
+          failures: LayerFailureList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('LayerFailureList')
         visited = visited + ['LayerFailureList']
         [
-          Stubs::LayerFailure.default(visited)
+          LayerFailure.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('LayerList')
         visited = visited + ['LayerList']
         [
-          Stubs::Layer.default(visited)
+          Layer.default(visited)
         ]
       end
 
@@ -118,8 +118,8 @@ module AWS::SDK::ECRPUBLIC
     class BatchDeleteImage
       def self.default(visited=[])
         {
-          image_ids: Stubs::ImageIdentifierList.default(visited),
-          failures: Stubs::ImageFailureList.default(visited),
+          image_ids: ImageIdentifierList.default(visited),
+          failures: ImageFailureList.default(visited),
         }
       end
 
@@ -138,7 +138,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('ImageFailureList')
         visited = visited + ['ImageFailureList']
         [
-          Stubs::ImageFailure.default(visited)
+          ImageFailure.default(visited)
         ]
       end
 
@@ -158,7 +158,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('ImageFailure')
         visited = visited + ['ImageFailure']
         {
-          image_id: Stubs::ImageIdentifier.default(visited),
+          image_id: ImageIdentifier.default(visited),
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
         }
@@ -200,7 +200,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('ImageIdentifierList')
         visited = visited + ['ImageIdentifierList']
         [
-          Stubs::ImageIdentifier.default(visited)
+          ImageIdentifier.default(visited)
         ]
       end
 
@@ -240,8 +240,8 @@ module AWS::SDK::ECRPUBLIC
     class CreateRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
-          catalog_data: Stubs::RepositoryCatalogData.default(visited),
+          repository: Repository.default(visited),
+          catalog_data: RepositoryCatalogData.default(visited),
         }
       end
 
@@ -261,8 +261,8 @@ module AWS::SDK::ECRPUBLIC
         visited = visited + ['RepositoryCatalogData']
         {
           description: 'description',
-          architectures: Stubs::ArchitectureList.default(visited),
-          operating_systems: Stubs::OperatingSystemList.default(visited),
+          architectures: ArchitectureList.default(visited),
+          operating_systems: OperatingSystemList.default(visited),
           logo_url: 'logo_url',
           about_text: 'about_text',
           usage_text: 'usage_text',
@@ -354,7 +354,7 @@ module AWS::SDK::ECRPUBLIC
     class DeleteRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
+          repository: Repository.default(visited),
         }
       end
 
@@ -390,7 +390,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeImageTags
       def self.default(visited=[])
         {
-          image_tag_details: Stubs::ImageTagDetailList.default(visited),
+          image_tag_details: ImageTagDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -410,7 +410,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('ImageTagDetailList')
         visited = visited + ['ImageTagDetailList']
         [
-          Stubs::ImageTagDetail.default(visited)
+          ImageTagDetail.default(visited)
         ]
       end
 
@@ -432,7 +432,7 @@ module AWS::SDK::ECRPUBLIC
         {
           image_tag: 'image_tag',
           created_at: Time.now,
-          image_detail: Stubs::ReferencedImageDetail.default(visited),
+          image_detail: ReferencedImageDetail.default(visited),
         }
       end
 
@@ -476,7 +476,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeImages
       def self.default(visited=[])
         {
-          image_details: Stubs::ImageDetailList.default(visited),
+          image_details: ImageDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -496,7 +496,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('ImageDetailList')
         visited = visited + ['ImageDetailList']
         [
-          Stubs::ImageDetail.default(visited)
+          ImageDetail.default(visited)
         ]
       end
 
@@ -519,7 +519,7 @@ module AWS::SDK::ECRPUBLIC
           registry_id: 'registry_id',
           repository_name: 'repository_name',
           image_digest: 'image_digest',
-          image_tags: Stubs::ImageTagList.default(visited),
+          image_tags: ImageTagList.default(visited),
           image_size_in_bytes: 1,
           image_pushed_at: Time.now,
           image_manifest_media_type: 'image_manifest_media_type',
@@ -566,7 +566,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeRegistries
       def self.default(visited=[])
         {
-          registries: Stubs::RegistryList.default(visited),
+          registries: RegistryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -586,7 +586,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('RegistryList')
         visited = visited + ['RegistryList']
         [
-          Stubs::Registry.default(visited)
+          Registry.default(visited)
         ]
       end
 
@@ -610,7 +610,7 @@ module AWS::SDK::ECRPUBLIC
           registry_arn: 'registry_arn',
           registry_uri: 'registry_uri',
           verified: false,
-          aliases: Stubs::RegistryAliasList.default(visited),
+          aliases: RegistryAliasList.default(visited),
         }
       end
 
@@ -632,7 +632,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('RegistryAliasList')
         visited = visited + ['RegistryAliasList']
         [
-          Stubs::RegistryAlias.default(visited)
+          RegistryAlias.default(visited)
         ]
       end
 
@@ -674,7 +674,7 @@ module AWS::SDK::ECRPUBLIC
     class DescribeRepositories
       def self.default(visited=[])
         {
-          repositories: Stubs::RepositoryList.default(visited),
+          repositories: RepositoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -694,7 +694,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('RepositoryList')
         visited = visited + ['RepositoryList']
         [
-          Stubs::Repository.default(visited)
+          Repository.default(visited)
         ]
       end
 
@@ -712,7 +712,7 @@ module AWS::SDK::ECRPUBLIC
     class GetAuthorizationToken
       def self.default(visited=[])
         {
-          authorization_data: Stubs::AuthorizationData.default(visited),
+          authorization_data: AuthorizationData.default(visited),
         }
       end
 
@@ -748,7 +748,7 @@ module AWS::SDK::ECRPUBLIC
     class GetRegistryCatalogData
       def self.default(visited=[])
         {
-          registry_catalog_data: Stubs::RegistryCatalogData.default(visited),
+          registry_catalog_data: RegistryCatalogData.default(visited),
         }
       end
 
@@ -782,7 +782,7 @@ module AWS::SDK::ECRPUBLIC
     class GetRepositoryCatalogData
       def self.default(visited=[])
         {
-          catalog_data: Stubs::RepositoryCatalogData.default(visited),
+          catalog_data: RepositoryCatalogData.default(visited),
         }
       end
 
@@ -836,7 +836,7 @@ module AWS::SDK::ECRPUBLIC
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -854,7 +854,7 @@ module AWS::SDK::ECRPUBLIC
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -892,7 +892,7 @@ module AWS::SDK::ECRPUBLIC
     class PutImage
       def self.default(visited=[])
         {
-          image: Stubs::Image.default(visited),
+          image: Image.default(visited),
         }
       end
 
@@ -912,7 +912,7 @@ module AWS::SDK::ECRPUBLIC
         {
           registry_id: 'registry_id',
           repository_name: 'repository_name',
-          image_id: Stubs::ImageIdentifier.default(visited),
+          image_id: ImageIdentifier.default(visited),
           image_manifest: 'image_manifest',
           image_manifest_media_type: 'image_manifest_media_type',
         }
@@ -934,7 +934,7 @@ module AWS::SDK::ECRPUBLIC
     class PutRegistryCatalogData
       def self.default(visited=[])
         {
-          registry_catalog_data: Stubs::RegistryCatalogData.default(visited),
+          registry_catalog_data: RegistryCatalogData.default(visited),
         }
       end
 
@@ -950,7 +950,7 @@ module AWS::SDK::ECRPUBLIC
     class PutRepositoryCatalogData
       def self.default(visited=[])
         {
-          catalog_data: Stubs::RepositoryCatalogData.default(visited),
+          catalog_data: RepositoryCatalogData.default(visited),
         }
       end
 

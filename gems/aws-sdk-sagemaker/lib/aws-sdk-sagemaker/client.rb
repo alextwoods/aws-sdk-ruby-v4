@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SageMaker
@@ -106,7 +108,7 @@ module AWS::SDK::SageMaker
     def add_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddAssociationInput,
         validate_input: @config.validate_input
@@ -215,7 +217,7 @@ module AWS::SDK::SageMaker
     def add_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddTagsInput,
         validate_input: @config.validate_input
@@ -290,7 +292,7 @@ module AWS::SDK::SageMaker
     def associate_trial_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateTrialComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateTrialComponentInput,
         validate_input: @config.validate_input
@@ -396,7 +398,7 @@ module AWS::SDK::SageMaker
     def batch_describe_model_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDescribeModelPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDescribeModelPackageInput,
         validate_input: @config.validate_input
@@ -513,7 +515,7 @@ module AWS::SDK::SageMaker
     def create_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateActionInput,
         validate_input: @config.validate_input
@@ -833,7 +835,7 @@ module AWS::SDK::SageMaker
     def create_algorithm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAlgorithmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAlgorithmInput,
         validate_input: @config.validate_input
@@ -937,7 +939,7 @@ module AWS::SDK::SageMaker
     def create_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppInput,
         validate_input: @config.validate_input
@@ -1033,7 +1035,7 @@ module AWS::SDK::SageMaker
     def create_app_image_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAppImageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAppImageConfigInput,
         validate_input: @config.validate_input
@@ -1146,7 +1148,7 @@ module AWS::SDK::SageMaker
     def create_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateArtifactInput,
         validate_input: @config.validate_input
@@ -1316,7 +1318,7 @@ module AWS::SDK::SageMaker
     def create_auto_ml_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAutoMLJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAutoMLJobInput,
         validate_input: @config.validate_input
@@ -1413,7 +1415,7 @@ module AWS::SDK::SageMaker
     def create_code_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCodeRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCodeRepositoryInput,
         validate_input: @config.validate_input
@@ -1606,7 +1608,7 @@ module AWS::SDK::SageMaker
     def create_compilation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCompilationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCompilationJobInput,
         validate_input: @config.validate_input
@@ -1710,7 +1712,7 @@ module AWS::SDK::SageMaker
     def create_context(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateContextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateContextInput,
         validate_input: @config.validate_input
@@ -1889,7 +1891,7 @@ module AWS::SDK::SageMaker
     def create_data_quality_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDataQualityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDataQualityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -1991,7 +1993,7 @@ module AWS::SDK::SageMaker
     def create_device_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDeviceFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDeviceFleetInput,
         validate_input: @config.validate_input
@@ -2227,7 +2229,7 @@ module AWS::SDK::SageMaker
     def create_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDomainInput,
         validate_input: @config.validate_input
@@ -2333,7 +2335,7 @@ module AWS::SDK::SageMaker
     def create_edge_packaging_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEdgePackagingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEdgePackagingJobInput,
         validate_input: @config.validate_input
@@ -2521,7 +2523,7 @@ module AWS::SDK::SageMaker
     def create_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointInput,
         validate_input: @config.validate_input
@@ -2736,7 +2738,7 @@ module AWS::SDK::SageMaker
     def create_endpoint_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointConfigInput,
         validate_input: @config.validate_input
@@ -2842,7 +2844,7 @@ module AWS::SDK::SageMaker
     def create_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateExperimentInput,
         validate_input: @config.validate_input
@@ -3062,7 +3064,7 @@ module AWS::SDK::SageMaker
     def create_feature_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFeatureGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFeatureGroupInput,
         validate_input: @config.validate_input
@@ -3188,7 +3190,7 @@ module AWS::SDK::SageMaker
     def create_flow_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFlowDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFlowDefinitionInput,
         validate_input: @config.validate_input
@@ -3272,7 +3274,7 @@ module AWS::SDK::SageMaker
     def create_human_task_ui(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHumanTaskUiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHumanTaskUiInput,
         validate_input: @config.validate_input
@@ -3523,7 +3525,7 @@ module AWS::SDK::SageMaker
     def create_hyper_parameter_tuning_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHyperParameterTuningJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHyperParameterTuningJobInput,
         validate_input: @config.validate_input
@@ -3615,7 +3617,7 @@ module AWS::SDK::SageMaker
     def create_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageInput,
         validate_input: @config.validate_input
@@ -3698,7 +3700,7 @@ module AWS::SDK::SageMaker
     def create_image_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateImageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateImageVersionInput,
         validate_input: @config.validate_input
@@ -3859,7 +3861,7 @@ module AWS::SDK::SageMaker
     def create_inference_recommendations_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInferenceRecommendationsJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInferenceRecommendationsJobInput,
         validate_input: @config.validate_input
@@ -4192,7 +4194,7 @@ module AWS::SDK::SageMaker
     def create_labeling_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateLabelingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateLabelingJobInput,
         validate_input: @config.validate_input
@@ -4361,7 +4363,7 @@ module AWS::SDK::SageMaker
     def create_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelInput,
         validate_input: @config.validate_input
@@ -4532,7 +4534,7 @@ module AWS::SDK::SageMaker
     def create_model_bias_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelBiasJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelBiasJobDefinitionInput,
         validate_input: @config.validate_input
@@ -4701,7 +4703,7 @@ module AWS::SDK::SageMaker
     def create_model_explainability_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelExplainabilityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelExplainabilityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -5017,7 +5019,7 @@ module AWS::SDK::SageMaker
     def create_model_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelPackageInput,
         validate_input: @config.validate_input
@@ -5101,7 +5103,7 @@ module AWS::SDK::SageMaker
     def create_model_package_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelPackageGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelPackageGroupInput,
         validate_input: @config.validate_input
@@ -5280,7 +5282,7 @@ module AWS::SDK::SageMaker
     def create_model_quality_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelQualityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelQualityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -5449,7 +5451,7 @@ module AWS::SDK::SageMaker
     def create_monitoring_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMonitoringScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMonitoringScheduleInput,
         validate_input: @config.validate_input
@@ -5671,7 +5673,7 @@ module AWS::SDK::SageMaker
     def create_notebook_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNotebookInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNotebookInstanceInput,
         validate_input: @config.validate_input
@@ -5766,7 +5768,7 @@ module AWS::SDK::SageMaker
     def create_notebook_instance_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNotebookInstanceLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNotebookInstanceLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -5881,7 +5883,7 @@ module AWS::SDK::SageMaker
     def create_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePipelineInput,
         validate_input: @config.validate_input
@@ -5979,7 +5981,7 @@ module AWS::SDK::SageMaker
     def create_presigned_domain_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePresignedDomainUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePresignedDomainUrlInput,
         validate_input: @config.validate_input
@@ -6069,7 +6071,7 @@ module AWS::SDK::SageMaker
     def create_presigned_notebook_instance_url(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePresignedNotebookInstanceUrlInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePresignedNotebookInstanceUrlInput,
         validate_input: @config.validate_input
@@ -6298,7 +6300,7 @@ module AWS::SDK::SageMaker
     def create_processing_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProcessingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProcessingJobInput,
         validate_input: @config.validate_input
@@ -6400,7 +6402,7 @@ module AWS::SDK::SageMaker
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -6486,7 +6488,7 @@ module AWS::SDK::SageMaker
     def create_studio_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStudioLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStudioLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -6920,7 +6922,7 @@ module AWS::SDK::SageMaker
     def create_training_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrainingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrainingJobInput,
         validate_input: @config.validate_input
@@ -7177,7 +7179,7 @@ module AWS::SDK::SageMaker
     def create_transform_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTransformJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTransformJobInput,
         validate_input: @config.validate_input
@@ -7285,7 +7287,7 @@ module AWS::SDK::SageMaker
     def create_trial(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrialInput,
         validate_input: @config.validate_input
@@ -7439,7 +7441,7 @@ module AWS::SDK::SageMaker
     def create_trial_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTrialComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTrialComponentInput,
         validate_input: @config.validate_input
@@ -7584,7 +7586,7 @@ module AWS::SDK::SageMaker
     def create_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserProfileInput,
         validate_input: @config.validate_input
@@ -7722,7 +7724,7 @@ module AWS::SDK::SageMaker
     def create_workforce(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkforceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkforceInput,
         validate_input: @config.validate_input
@@ -7854,7 +7856,7 @@ module AWS::SDK::SageMaker
     def create_workteam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWorkteamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWorkteamInput,
         validate_input: @config.validate_input
@@ -7923,7 +7925,7 @@ module AWS::SDK::SageMaker
     def delete_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteActionInput,
         validate_input: @config.validate_input
@@ -7991,7 +7993,7 @@ module AWS::SDK::SageMaker
     def delete_algorithm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlgorithmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAlgorithmInput,
         validate_input: @config.validate_input
@@ -8071,7 +8073,7 @@ module AWS::SDK::SageMaker
     def delete_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppInput,
         validate_input: @config.validate_input
@@ -8139,7 +8141,7 @@ module AWS::SDK::SageMaker
     def delete_app_image_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAppImageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAppImageConfigInput,
         validate_input: @config.validate_input
@@ -8221,7 +8223,7 @@ module AWS::SDK::SageMaker
     def delete_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteArtifactInput,
         validate_input: @config.validate_input
@@ -8295,7 +8297,7 @@ module AWS::SDK::SageMaker
     def delete_association(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAssociationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAssociationInput,
         validate_input: @config.validate_input
@@ -8363,7 +8365,7 @@ module AWS::SDK::SageMaker
     def delete_code_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCodeRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCodeRepositoryInput,
         validate_input: @config.validate_input
@@ -8432,7 +8434,7 @@ module AWS::SDK::SageMaker
     def delete_context(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteContextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteContextInput,
         validate_input: @config.validate_input
@@ -8500,7 +8502,7 @@ module AWS::SDK::SageMaker
     def delete_data_quality_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDataQualityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDataQualityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -8568,7 +8570,7 @@ module AWS::SDK::SageMaker
     def delete_device_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeviceFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeviceFleetInput,
         validate_input: @config.validate_input
@@ -8648,7 +8650,7 @@ module AWS::SDK::SageMaker
     def delete_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDomainInput,
         validate_input: @config.validate_input
@@ -8726,7 +8728,7 @@ module AWS::SDK::SageMaker
     def delete_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointInput,
         validate_input: @config.validate_input
@@ -8802,7 +8804,7 @@ module AWS::SDK::SageMaker
     def delete_endpoint_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointConfigInput,
         validate_input: @config.validate_input
@@ -8873,7 +8875,7 @@ module AWS::SDK::SageMaker
     def delete_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteExperimentInput,
         validate_input: @config.validate_input
@@ -8947,7 +8949,7 @@ module AWS::SDK::SageMaker
     def delete_feature_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFeatureGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFeatureGroupInput,
         validate_input: @config.validate_input
@@ -9015,7 +9017,7 @@ module AWS::SDK::SageMaker
     def delete_flow_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFlowDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFlowDefinitionInput,
         validate_input: @config.validate_input
@@ -9087,7 +9089,7 @@ module AWS::SDK::SageMaker
     def delete_human_task_ui(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHumanTaskUiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHumanTaskUiInput,
         validate_input: @config.validate_input
@@ -9156,7 +9158,7 @@ module AWS::SDK::SageMaker
     def delete_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImageInput,
         validate_input: @config.validate_input
@@ -9229,7 +9231,7 @@ module AWS::SDK::SageMaker
     def delete_image_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImageVersionInput,
         validate_input: @config.validate_input
@@ -9300,7 +9302,7 @@ module AWS::SDK::SageMaker
     def delete_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelInput,
         validate_input: @config.validate_input
@@ -9368,7 +9370,7 @@ module AWS::SDK::SageMaker
     def delete_model_bias_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelBiasJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelBiasJobDefinitionInput,
         validate_input: @config.validate_input
@@ -9436,7 +9438,7 @@ module AWS::SDK::SageMaker
     def delete_model_explainability_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelExplainabilityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelExplainabilityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -9508,7 +9510,7 @@ module AWS::SDK::SageMaker
     def delete_model_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelPackageInput,
         validate_input: @config.validate_input
@@ -9576,7 +9578,7 @@ module AWS::SDK::SageMaker
     def delete_model_package_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelPackageGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelPackageGroupInput,
         validate_input: @config.validate_input
@@ -9644,7 +9646,7 @@ module AWS::SDK::SageMaker
     def delete_model_package_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelPackageGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelPackageGroupPolicyInput,
         validate_input: @config.validate_input
@@ -9712,7 +9714,7 @@ module AWS::SDK::SageMaker
     def delete_model_quality_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelQualityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelQualityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -9781,7 +9783,7 @@ module AWS::SDK::SageMaker
     def delete_monitoring_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMonitoringScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMonitoringScheduleInput,
         validate_input: @config.validate_input
@@ -9855,7 +9857,7 @@ module AWS::SDK::SageMaker
     def delete_notebook_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotebookInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotebookInstanceInput,
         validate_input: @config.validate_input
@@ -9923,7 +9925,7 @@ module AWS::SDK::SageMaker
     def delete_notebook_instance_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNotebookInstanceLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNotebookInstanceLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -10000,7 +10002,7 @@ module AWS::SDK::SageMaker
     def delete_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePipelineInput,
         validate_input: @config.validate_input
@@ -10068,7 +10070,7 @@ module AWS::SDK::SageMaker
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -10136,7 +10138,7 @@ module AWS::SDK::SageMaker
     def delete_studio_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStudioLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStudioLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -10222,7 +10224,7 @@ module AWS::SDK::SageMaker
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -10293,7 +10295,7 @@ module AWS::SDK::SageMaker
     def delete_trial(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrialInput,
         validate_input: @config.validate_input
@@ -10364,7 +10366,7 @@ module AWS::SDK::SageMaker
     def delete_trial_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTrialComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTrialComponentInput,
         validate_input: @config.validate_input
@@ -10437,7 +10439,7 @@ module AWS::SDK::SageMaker
     def delete_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserProfileInput,
         validate_input: @config.validate_input
@@ -10517,7 +10519,7 @@ module AWS::SDK::SageMaker
     def delete_workforce(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkforceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkforceInput,
         validate_input: @config.validate_input
@@ -10586,7 +10588,7 @@ module AWS::SDK::SageMaker
     def delete_workteam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWorkteamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWorkteamInput,
         validate_input: @config.validate_input
@@ -10660,7 +10662,7 @@ module AWS::SDK::SageMaker
     def deregister_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeregisterDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeregisterDevicesInput,
         validate_input: @config.validate_input
@@ -10752,7 +10754,7 @@ module AWS::SDK::SageMaker
     def describe_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeActionInput,
         validate_input: @config.validate_input
@@ -10963,7 +10965,7 @@ module AWS::SDK::SageMaker
     def describe_algorithm(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlgorithmInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAlgorithmInput,
         validate_input: @config.validate_input
@@ -11058,7 +11060,7 @@ module AWS::SDK::SageMaker
     def describe_app(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppInput,
         validate_input: @config.validate_input
@@ -11139,7 +11141,7 @@ module AWS::SDK::SageMaker
     def describe_app_image_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAppImageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAppImageConfigInput,
         validate_input: @config.validate_input
@@ -11231,7 +11233,7 @@ module AWS::SDK::SageMaker
     def describe_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeArtifactInput,
         validate_input: @config.validate_input
@@ -11390,7 +11392,7 @@ module AWS::SDK::SageMaker
     def describe_auto_ml_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAutoMLJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAutoMLJobInput,
         validate_input: @config.validate_input
@@ -11466,7 +11468,7 @@ module AWS::SDK::SageMaker
     def describe_code_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCodeRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCodeRepositoryInput,
         validate_input: @config.validate_input
@@ -11573,7 +11575,7 @@ module AWS::SDK::SageMaker
     def describe_compilation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCompilationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCompilationJobInput,
         validate_input: @config.validate_input
@@ -11659,7 +11661,7 @@ module AWS::SDK::SageMaker
     def describe_context(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContextInput,
         validate_input: @config.validate_input
@@ -11783,7 +11785,7 @@ module AWS::SDK::SageMaker
     def describe_data_quality_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataQualityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataQualityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -11875,7 +11877,7 @@ module AWS::SDK::SageMaker
     def describe_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceInput,
         validate_input: @config.validate_input
@@ -11955,7 +11957,7 @@ module AWS::SDK::SageMaker
     def describe_device_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeviceFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeviceFleetInput,
         validate_input: @config.validate_input
@@ -12082,7 +12084,7 @@ module AWS::SDK::SageMaker
     def describe_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDomainInput,
         validate_input: @config.validate_input
@@ -12173,7 +12175,7 @@ module AWS::SDK::SageMaker
     def describe_edge_packaging_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEdgePackagingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEdgePackagingJobInput,
         validate_input: @config.validate_input
@@ -12315,7 +12317,7 @@ module AWS::SDK::SageMaker
     def describe_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointInput,
         validate_input: @config.validate_input
@@ -12424,7 +12426,7 @@ module AWS::SDK::SageMaker
     def describe_endpoint_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointConfigInput,
         validate_input: @config.validate_input
@@ -12506,7 +12508,7 @@ module AWS::SDK::SageMaker
     def describe_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExperimentInput,
         validate_input: @config.validate_input
@@ -12613,7 +12615,7 @@ module AWS::SDK::SageMaker
     def describe_feature_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFeatureGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFeatureGroupInput,
         validate_input: @config.validate_input
@@ -12710,7 +12712,7 @@ module AWS::SDK::SageMaker
     def describe_flow_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFlowDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFlowDefinitionInput,
         validate_input: @config.validate_input
@@ -12786,7 +12788,7 @@ module AWS::SDK::SageMaker
     def describe_human_task_ui(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHumanTaskUiInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHumanTaskUiInput,
         validate_input: @config.validate_input
@@ -12984,7 +12986,7 @@ module AWS::SDK::SageMaker
     def describe_hyper_parameter_tuning_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHyperParameterTuningJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHyperParameterTuningJobInput,
         validate_input: @config.validate_input
@@ -13061,7 +13063,7 @@ module AWS::SDK::SageMaker
     def describe_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageInput,
         validate_input: @config.validate_input
@@ -13142,7 +13144,7 @@ module AWS::SDK::SageMaker
     def describe_image_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImageVersionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImageVersionInput,
         validate_input: @config.validate_input
@@ -13271,7 +13273,7 @@ module AWS::SDK::SageMaker
     def describe_inference_recommendations_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInferenceRecommendationsJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInferenceRecommendationsJobInput,
         validate_input: @config.validate_input
@@ -13404,7 +13406,7 @@ module AWS::SDK::SageMaker
     def describe_labeling_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLabelingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLabelingJobInput,
         validate_input: @config.validate_input
@@ -13485,7 +13487,7 @@ module AWS::SDK::SageMaker
     def describe_lineage_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLineageGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLineageGroupInput,
         validate_input: @config.validate_input
@@ -13582,7 +13584,7 @@ module AWS::SDK::SageMaker
     def describe_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelInput,
         validate_input: @config.validate_input
@@ -13702,7 +13704,7 @@ module AWS::SDK::SageMaker
     def describe_model_bias_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelBiasJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelBiasJobDefinitionInput,
         validate_input: @config.validate_input
@@ -13820,7 +13822,7 @@ module AWS::SDK::SageMaker
     def describe_model_explainability_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelExplainabilityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelExplainabilityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -14024,7 +14026,7 @@ module AWS::SDK::SageMaker
     def describe_model_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelPackageInput,
         validate_input: @config.validate_input
@@ -14101,7 +14103,7 @@ module AWS::SDK::SageMaker
     def describe_model_package_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelPackageGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelPackageGroupInput,
         validate_input: @config.validate_input
@@ -14227,7 +14229,7 @@ module AWS::SDK::SageMaker
     def describe_model_quality_job_definition(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelQualityJobDefinitionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelQualityJobDefinitionInput,
         validate_input: @config.validate_input
@@ -14374,7 +14376,7 @@ module AWS::SDK::SageMaker
     def describe_monitoring_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeMonitoringScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeMonitoringScheduleInput,
         validate_input: @config.validate_input
@@ -14468,7 +14470,7 @@ module AWS::SDK::SageMaker
     def describe_notebook_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotebookInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotebookInstanceInput,
         validate_input: @config.validate_input
@@ -14546,7 +14548,7 @@ module AWS::SDK::SageMaker
     def describe_notebook_instance_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNotebookInstanceLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNotebookInstanceLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -14631,7 +14633,7 @@ module AWS::SDK::SageMaker
     def describe_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePipelineInput,
         validate_input: @config.validate_input
@@ -14701,7 +14703,7 @@ module AWS::SDK::SageMaker
     def describe_pipeline_definition_for_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePipelineDefinitionForExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePipelineDefinitionForExecutionInput,
         validate_input: @config.validate_input
@@ -14787,7 +14789,7 @@ module AWS::SDK::SageMaker
     def describe_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePipelineExecutionInput,
         validate_input: @config.validate_input
@@ -14943,7 +14945,7 @@ module AWS::SDK::SageMaker
     def describe_processing_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProcessingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProcessingJobInput,
         validate_input: @config.validate_input
@@ -15034,7 +15036,7 @@ module AWS::SDK::SageMaker
     def describe_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeProjectInput,
         validate_input: @config.validate_input
@@ -15108,7 +15110,7 @@ module AWS::SDK::SageMaker
     def describe_studio_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStudioLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStudioLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -15183,7 +15185,7 @@ module AWS::SDK::SageMaker
     def describe_subscribed_workteam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSubscribedWorkteamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSubscribedWorkteamInput,
         validate_input: @config.validate_input
@@ -15399,7 +15401,7 @@ module AWS::SDK::SageMaker
     def describe_training_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrainingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrainingJobInput,
         validate_input: @config.validate_input
@@ -15510,7 +15512,7 @@ module AWS::SDK::SageMaker
     def describe_transform_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTransformJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTransformJobInput,
         validate_input: @config.validate_input
@@ -15597,7 +15599,7 @@ module AWS::SDK::SageMaker
     def describe_trial(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrialInput,
         validate_input: @config.validate_input
@@ -15680,7 +15682,9 @@ module AWS::SDK::SageMaker
     #   resp.data.last_modified_time #=> Time
     #   resp.data.last_modified_by #=> Types::UserContext
     #   resp.data.parameters #=> Hash<String, TrialComponentParameterValue>
-    #   resp.data.parameters['key'] #=> TrialComponentParameterValue
+    #   resp.data.parameters['key'] #=> Types::TrialComponentParameterValue, one of [StringValue, NumberValue]
+    #   resp.data.parameters['key'].string_value #=> String
+    #   resp.data.parameters['key'].number_value #=> Float
     #   resp.data.input_artifacts #=> Hash<String, TrialComponentArtifact>
     #   resp.data.input_artifacts['key'] #=> Types::TrialComponentArtifact
     #   resp.data.input_artifacts['key'].media_type #=> String
@@ -15707,7 +15711,7 @@ module AWS::SDK::SageMaker
     def describe_trial_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTrialComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTrialComponentInput,
         validate_input: @config.validate_input
@@ -15821,7 +15825,7 @@ module AWS::SDK::SageMaker
     def describe_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserProfileInput,
         validate_input: @config.validate_input
@@ -15916,7 +15920,7 @@ module AWS::SDK::SageMaker
     def describe_workforce(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkforceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkforceInput,
         validate_input: @config.validate_input
@@ -16007,7 +16011,7 @@ module AWS::SDK::SageMaker
     def describe_workteam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeWorkteamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeWorkteamInput,
         validate_input: @config.validate_input
@@ -16071,7 +16075,7 @@ module AWS::SDK::SageMaker
     def disable_sagemaker_servicecatalog_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableSagemakerServicecatalogPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableSagemakerServicecatalogPortfolioInput,
         validate_input: @config.validate_input
@@ -16150,7 +16154,7 @@ module AWS::SDK::SageMaker
     def disassociate_trial_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateTrialComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateTrialComponentInput,
         validate_input: @config.validate_input
@@ -16214,7 +16218,7 @@ module AWS::SDK::SageMaker
     def enable_sagemaker_servicecatalog_portfolio(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableSagemakerServicecatalogPortfolioInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableSagemakerServicecatalogPortfolioInput,
         validate_input: @config.validate_input
@@ -16306,7 +16310,7 @@ module AWS::SDK::SageMaker
     def get_device_fleet_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceFleetReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceFleetReportInput,
         validate_input: @config.validate_input
@@ -16376,7 +16380,7 @@ module AWS::SDK::SageMaker
     def get_lineage_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLineageGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLineageGroupPolicyInput,
         validate_input: @config.validate_input
@@ -16448,7 +16452,7 @@ module AWS::SDK::SageMaker
     def get_model_package_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetModelPackageGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetModelPackageGroupPolicyInput,
         validate_input: @config.validate_input
@@ -16513,7 +16517,7 @@ module AWS::SDK::SageMaker
     def get_sagemaker_servicecatalog_portfolio_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSagemakerServicecatalogPortfolioStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSagemakerServicecatalogPortfolioStatusInput,
         validate_input: @config.validate_input
@@ -16595,7 +16599,7 @@ module AWS::SDK::SageMaker
     def get_search_suggestions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSearchSuggestionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSearchSuggestionsInput,
         validate_input: @config.validate_input
@@ -16705,7 +16709,7 @@ module AWS::SDK::SageMaker
     def list_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListActionsInput,
         validate_input: @config.validate_input
@@ -16811,7 +16815,7 @@ module AWS::SDK::SageMaker
     def list_algorithms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAlgorithmsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAlgorithmsInput,
         validate_input: @config.validate_input
@@ -16931,7 +16935,7 @@ module AWS::SDK::SageMaker
     def list_app_image_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppImageConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppImageConfigsInput,
         validate_input: @config.validate_input
@@ -17029,7 +17033,7 @@ module AWS::SDK::SageMaker
     def list_apps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAppsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAppsInput,
         validate_input: @config.validate_input
@@ -17140,7 +17144,7 @@ module AWS::SDK::SageMaker
     def list_artifacts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListArtifactsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListArtifactsInput,
         validate_input: @config.validate_input
@@ -17264,7 +17268,7 @@ module AWS::SDK::SageMaker
     def list_associations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAssociationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAssociationsInput,
         validate_input: @config.validate_input
@@ -17383,7 +17387,7 @@ module AWS::SDK::SageMaker
     def list_auto_ml_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAutoMLJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAutoMLJobsInput,
         validate_input: @config.validate_input
@@ -17512,7 +17516,7 @@ module AWS::SDK::SageMaker
     def list_candidates_for_auto_ml_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCandidatesForAutoMLJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCandidatesForAutoMLJobInput,
         validate_input: @config.validate_input
@@ -17630,7 +17634,7 @@ module AWS::SDK::SageMaker
     def list_code_repositories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCodeRepositoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCodeRepositoriesInput,
         validate_input: @config.validate_input
@@ -17757,7 +17761,7 @@ module AWS::SDK::SageMaker
     def list_compilation_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCompilationJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCompilationJobsInput,
         validate_input: @config.validate_input
@@ -17866,7 +17870,7 @@ module AWS::SDK::SageMaker
     def list_contexts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContextsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContextsInput,
         validate_input: @config.validate_input
@@ -17976,7 +17980,7 @@ module AWS::SDK::SageMaker
     def list_data_quality_job_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataQualityJobDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataQualityJobDefinitionsInput,
         validate_input: @config.validate_input
@@ -18083,7 +18087,7 @@ module AWS::SDK::SageMaker
     def list_device_fleets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDeviceFleetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeviceFleetsInput,
         validate_input: @config.validate_input
@@ -18182,7 +18186,7 @@ module AWS::SDK::SageMaker
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -18265,7 +18269,7 @@ module AWS::SDK::SageMaker
     def list_domains(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDomainsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDomainsInput,
         validate_input: @config.validate_input
@@ -18384,7 +18388,7 @@ module AWS::SDK::SageMaker
     def list_edge_packaging_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEdgePackagingJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEdgePackagingJobsInput,
         validate_input: @config.validate_input
@@ -18487,7 +18491,7 @@ module AWS::SDK::SageMaker
     def list_endpoint_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEndpointConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEndpointConfigsInput,
         validate_input: @config.validate_input
@@ -18607,7 +18611,7 @@ module AWS::SDK::SageMaker
     def list_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEndpointsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEndpointsInput,
         validate_input: @config.validate_input
@@ -18710,7 +18714,7 @@ module AWS::SDK::SageMaker
     def list_experiments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExperimentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExperimentsInput,
         validate_input: @config.validate_input
@@ -18823,7 +18827,7 @@ module AWS::SDK::SageMaker
     def list_feature_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFeatureGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFeatureGroupsInput,
         validate_input: @config.validate_input
@@ -18915,7 +18919,7 @@ module AWS::SDK::SageMaker
     def list_flow_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFlowDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFlowDefinitionsInput,
         validate_input: @config.validate_input
@@ -19005,7 +19009,7 @@ module AWS::SDK::SageMaker
     def list_human_task_uis(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHumanTaskUisInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHumanTaskUisInput,
         validate_input: @config.validate_input
@@ -19143,7 +19147,7 @@ module AWS::SDK::SageMaker
     def list_hyper_parameter_tuning_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListHyperParameterTuningJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListHyperParameterTuningJobsInput,
         validate_input: @config.validate_input
@@ -19255,7 +19259,7 @@ module AWS::SDK::SageMaker
     def list_image_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImageVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImageVersionsInput,
         validate_input: @config.validate_input
@@ -19368,7 +19372,7 @@ module AWS::SDK::SageMaker
     def list_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImagesInput,
         validate_input: @config.validate_input
@@ -19487,7 +19491,7 @@ module AWS::SDK::SageMaker
     def list_inference_recommendations_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInferenceRecommendationsJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInferenceRecommendationsJobsInput,
         validate_input: @config.validate_input
@@ -19628,7 +19632,7 @@ module AWS::SDK::SageMaker
     def list_labeling_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLabelingJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLabelingJobsInput,
         validate_input: @config.validate_input
@@ -19742,7 +19746,7 @@ module AWS::SDK::SageMaker
     def list_labeling_jobs_for_workteam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLabelingJobsForWorkteamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLabelingJobsForWorkteamInput,
         validate_input: @config.validate_input
@@ -19843,7 +19847,7 @@ module AWS::SDK::SageMaker
     def list_lineage_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLineageGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLineageGroupsInput,
         validate_input: @config.validate_input
@@ -19950,7 +19954,7 @@ module AWS::SDK::SageMaker
     def list_model_bias_job_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelBiasJobDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelBiasJobDefinitionsInput,
         validate_input: @config.validate_input
@@ -20058,7 +20062,7 @@ module AWS::SDK::SageMaker
     def list_model_explainability_job_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelExplainabilityJobDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelExplainabilityJobDefinitionsInput,
         validate_input: @config.validate_input
@@ -20155,7 +20159,7 @@ module AWS::SDK::SageMaker
     def list_model_metadata(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelMetadataInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelMetadataInput,
         validate_input: @config.validate_input
@@ -20258,7 +20262,7 @@ module AWS::SDK::SageMaker
     def list_model_package_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelPackageGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelPackageGroupsInput,
         validate_input: @config.validate_input
@@ -20396,7 +20400,7 @@ module AWS::SDK::SageMaker
     def list_model_packages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelPackagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelPackagesInput,
         validate_input: @config.validate_input
@@ -20506,7 +20510,7 @@ module AWS::SDK::SageMaker
     def list_model_quality_job_definitions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelQualityJobDefinitionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelQualityJobDefinitionsInput,
         validate_input: @config.validate_input
@@ -20609,7 +20613,7 @@ module AWS::SDK::SageMaker
     def list_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelsInput,
         validate_input: @config.validate_input
@@ -20751,7 +20755,7 @@ module AWS::SDK::SageMaker
     def list_monitoring_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMonitoringExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMonitoringExecutionsInput,
         validate_input: @config.validate_input
@@ -20883,7 +20887,7 @@ module AWS::SDK::SageMaker
     def list_monitoring_schedules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMonitoringSchedulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMonitoringSchedulesInput,
         validate_input: @config.validate_input
@@ -20997,7 +21001,7 @@ module AWS::SDK::SageMaker
     def list_notebook_instance_lifecycle_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotebookInstanceLifecycleConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotebookInstanceLifecycleConfigsInput,
         validate_input: @config.validate_input
@@ -21146,7 +21150,7 @@ module AWS::SDK::SageMaker
     def list_notebook_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNotebookInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNotebookInstancesInput,
         validate_input: @config.validate_input
@@ -21292,7 +21296,7 @@ module AWS::SDK::SageMaker
     def list_pipeline_execution_steps(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelineExecutionStepsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelineExecutionStepsInput,
         validate_input: @config.validate_input
@@ -21396,7 +21400,7 @@ module AWS::SDK::SageMaker
     def list_pipeline_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelineExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelineExecutionsInput,
         validate_input: @config.validate_input
@@ -21478,7 +21482,7 @@ module AWS::SDK::SageMaker
     def list_pipeline_parameters_for_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelineParametersForExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelineParametersForExecutionInput,
         validate_input: @config.validate_input
@@ -21584,7 +21588,7 @@ module AWS::SDK::SageMaker
     def list_pipelines(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPipelinesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPipelinesInput,
         validate_input: @config.validate_input
@@ -21702,7 +21706,7 @@ module AWS::SDK::SageMaker
     def list_processing_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProcessingJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProcessingJobsInput,
         validate_input: @config.validate_input
@@ -21807,7 +21811,7 @@ module AWS::SDK::SageMaker
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -21919,7 +21923,7 @@ module AWS::SDK::SageMaker
     def list_studio_lifecycle_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStudioLifecycleConfigsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStudioLifecycleConfigsInput,
         validate_input: @config.validate_input
@@ -22008,7 +22012,7 @@ module AWS::SDK::SageMaker
     def list_subscribed_workteams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSubscribedWorkteamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSubscribedWorkteamsInput,
         validate_input: @config.validate_input
@@ -22092,7 +22096,7 @@ module AWS::SDK::SageMaker
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: @config.validate_input
@@ -22232,7 +22236,7 @@ module AWS::SDK::SageMaker
     def list_training_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrainingJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrainingJobsInput,
         validate_input: @config.validate_input
@@ -22344,7 +22348,7 @@ module AWS::SDK::SageMaker
     def list_training_jobs_for_hyper_parameter_tuning_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrainingJobsForHyperParameterTuningJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrainingJobsForHyperParameterTuningJobInput,
         validate_input: @config.validate_input
@@ -22461,7 +22465,7 @@ module AWS::SDK::SageMaker
     def list_transform_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTransformJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTransformJobsInput,
         validate_input: @config.validate_input
@@ -22609,7 +22613,7 @@ module AWS::SDK::SageMaker
     def list_trial_components(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrialComponentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrialComponentsInput,
         validate_input: @config.validate_input
@@ -22722,7 +22726,7 @@ module AWS::SDK::SageMaker
     def list_trials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTrialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTrialsInput,
         validate_input: @config.validate_input
@@ -22819,7 +22823,7 @@ module AWS::SDK::SageMaker
     def list_user_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserProfilesInput,
         validate_input: @config.validate_input
@@ -22926,7 +22930,7 @@ module AWS::SDK::SageMaker
     def list_workforces(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkforcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkforcesInput,
         validate_input: @config.validate_input
@@ -23038,7 +23042,7 @@ module AWS::SDK::SageMaker
     def list_workteams(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListWorkteamsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListWorkteamsInput,
         validate_input: @config.validate_input
@@ -23113,7 +23117,7 @@ module AWS::SDK::SageMaker
     def put_model_package_group_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutModelPackageGroupPolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutModelPackageGroupPolicyInput,
         validate_input: @config.validate_input
@@ -23256,7 +23260,7 @@ module AWS::SDK::SageMaker
     def query_lineage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryLineageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryLineageInput,
         validate_input: @config.validate_input
@@ -23343,7 +23347,7 @@ module AWS::SDK::SageMaker
     def register_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RegisterDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RegisterDevicesInput,
         validate_input: @config.validate_input
@@ -23437,7 +23441,7 @@ module AWS::SDK::SageMaker
     def render_ui_template(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RenderUiTemplateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RenderUiTemplateInput,
         validate_input: @config.validate_input
@@ -23518,7 +23522,7 @@ module AWS::SDK::SageMaker
     def retry_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetryPipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetryPipelineExecutionInput,
         validate_input: @config.validate_input
@@ -23814,7 +23818,9 @@ module AWS::SDK::SageMaker
     #   resp.data.results[0].trial_component.last_modified_time #=> Time
     #   resp.data.results[0].trial_component.last_modified_by #=> Types::UserContext
     #   resp.data.results[0].trial_component.parameters #=> Hash<String, TrialComponentParameterValue>
-    #   resp.data.results[0].trial_component.parameters['key'] #=> TrialComponentParameterValue
+    #   resp.data.results[0].trial_component.parameters['key'] #=> Types::TrialComponentParameterValue, one of [StringValue, NumberValue]
+    #   resp.data.results[0].trial_component.parameters['key'].string_value #=> String
+    #   resp.data.results[0].trial_component.parameters['key'].number_value #=> Float
     #   resp.data.results[0].trial_component.input_artifacts #=> Hash<String, TrialComponentArtifact>
     #   resp.data.results[0].trial_component.input_artifacts['key'] #=> Types::TrialComponentArtifact
     #   resp.data.results[0].trial_component.input_artifacts['key'].media_type #=> String
@@ -24287,7 +24293,7 @@ module AWS::SDK::SageMaker
     def search(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SearchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SearchInput,
         validate_input: @config.validate_input
@@ -24367,7 +24373,7 @@ module AWS::SDK::SageMaker
     def send_pipeline_execution_step_failure(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendPipelineExecutionStepFailureInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendPipelineExecutionStepFailureInput,
         validate_input: @config.validate_input
@@ -24452,7 +24458,7 @@ module AWS::SDK::SageMaker
     def send_pipeline_execution_step_success(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendPipelineExecutionStepSuccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendPipelineExecutionStepSuccessInput,
         validate_input: @config.validate_input
@@ -24524,7 +24530,7 @@ module AWS::SDK::SageMaker
     def start_monitoring_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartMonitoringScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartMonitoringScheduleInput,
         validate_input: @config.validate_input
@@ -24595,7 +24601,7 @@ module AWS::SDK::SageMaker
     def start_notebook_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartNotebookInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartNotebookInstanceInput,
         validate_input: @config.validate_input
@@ -24693,7 +24699,7 @@ module AWS::SDK::SageMaker
     def start_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartPipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartPipelineExecutionInput,
         validate_input: @config.validate_input
@@ -24761,7 +24767,7 @@ module AWS::SDK::SageMaker
     def stop_auto_ml_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopAutoMLJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopAutoMLJobInput,
         validate_input: @config.validate_input
@@ -24834,7 +24840,7 @@ module AWS::SDK::SageMaker
     def stop_compilation_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopCompilationJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopCompilationJobInput,
         validate_input: @config.validate_input
@@ -24902,7 +24908,7 @@ module AWS::SDK::SageMaker
     def stop_edge_packaging_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopEdgePackagingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopEdgePackagingJobInput,
         validate_input: @config.validate_input
@@ -24976,7 +24982,7 @@ module AWS::SDK::SageMaker
     def stop_hyper_parameter_tuning_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopHyperParameterTuningJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopHyperParameterTuningJobInput,
         validate_input: @config.validate_input
@@ -25044,7 +25050,7 @@ module AWS::SDK::SageMaker
     def stop_inference_recommendations_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopInferenceRecommendationsJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopInferenceRecommendationsJobInput,
         validate_input: @config.validate_input
@@ -25113,7 +25119,7 @@ module AWS::SDK::SageMaker
     def stop_labeling_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopLabelingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopLabelingJobInput,
         validate_input: @config.validate_input
@@ -25181,7 +25187,7 @@ module AWS::SDK::SageMaker
     def stop_monitoring_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopMonitoringScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopMonitoringScheduleInput,
         validate_input: @config.validate_input
@@ -25257,7 +25263,7 @@ module AWS::SDK::SageMaker
     def stop_notebook_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopNotebookInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopNotebookInstanceInput,
         validate_input: @config.validate_input
@@ -25355,7 +25361,7 @@ module AWS::SDK::SageMaker
     def stop_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopPipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopPipelineExecutionInput,
         validate_input: @config.validate_input
@@ -25423,7 +25429,7 @@ module AWS::SDK::SageMaker
     def stop_processing_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopProcessingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopProcessingJobInput,
         validate_input: @config.validate_input
@@ -25497,7 +25503,7 @@ module AWS::SDK::SageMaker
     def stop_training_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTrainingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTrainingJobInput,
         validate_input: @config.validate_input
@@ -25570,7 +25576,7 @@ module AWS::SDK::SageMaker
     def stop_transform_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopTransformJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopTransformJobInput,
         validate_input: @config.validate_input
@@ -25659,7 +25665,7 @@ module AWS::SDK::SageMaker
     def update_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateActionInput,
         validate_input: @config.validate_input
@@ -25744,7 +25750,7 @@ module AWS::SDK::SageMaker
     def update_app_image_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAppImageConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAppImageConfigInput,
         validate_input: @config.validate_input
@@ -25829,7 +25835,7 @@ module AWS::SDK::SageMaker
     def update_artifact(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateArtifactInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateArtifactInput,
         validate_input: @config.validate_input
@@ -25911,7 +25917,7 @@ module AWS::SDK::SageMaker
     def update_code_repository(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCodeRepositoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCodeRepositoryInput,
         validate_input: @config.validate_input
@@ -25996,7 +26002,7 @@ module AWS::SDK::SageMaker
     def update_context(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContextInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContextInput,
         validate_input: @config.validate_input
@@ -26089,7 +26095,7 @@ module AWS::SDK::SageMaker
     def update_device_fleet(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceFleetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceFleetInput,
         validate_input: @config.validate_input
@@ -26167,7 +26173,7 @@ module AWS::SDK::SageMaker
     def update_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDevicesInput,
         validate_input: @config.validate_input
@@ -26286,7 +26292,7 @@ module AWS::SDK::SageMaker
     def update_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDomainInput,
         validate_input: @config.validate_input
@@ -26426,7 +26432,7 @@ module AWS::SDK::SageMaker
     def update_endpoint(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointInput,
         validate_input: @config.validate_input
@@ -26509,7 +26515,7 @@ module AWS::SDK::SageMaker
     def update_endpoint_weights_and_capacities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEndpointWeightsAndCapacitiesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEndpointWeightsAndCapacitiesInput,
         validate_input: @config.validate_input
@@ -26588,7 +26594,7 @@ module AWS::SDK::SageMaker
     def update_experiment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateExperimentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateExperimentInput,
         validate_input: @config.validate_input
@@ -26677,7 +26683,7 @@ module AWS::SDK::SageMaker
     def update_image(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateImageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateImageInput,
         validate_input: @config.validate_input
@@ -26809,7 +26815,7 @@ module AWS::SDK::SageMaker
     def update_model_package(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateModelPackageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateModelPackageInput,
         validate_input: @config.validate_input
@@ -26967,7 +26973,7 @@ module AWS::SDK::SageMaker
     def update_monitoring_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMonitoringScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMonitoringScheduleInput,
         validate_input: @config.validate_input
@@ -27137,7 +27143,7 @@ module AWS::SDK::SageMaker
     def update_notebook_instance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNotebookInstanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNotebookInstanceInput,
         validate_input: @config.validate_input
@@ -27219,7 +27225,7 @@ module AWS::SDK::SageMaker
     def update_notebook_instance_lifecycle_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNotebookInstanceLifecycleConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNotebookInstanceLifecycleConfigInput,
         validate_input: @config.validate_input
@@ -27319,7 +27325,7 @@ module AWS::SDK::SageMaker
     def update_pipeline(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineInput,
         validate_input: @config.validate_input
@@ -27403,7 +27409,7 @@ module AWS::SDK::SageMaker
     def update_pipeline_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePipelineExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePipelineExecutionInput,
         validate_input: @config.validate_input
@@ -27510,7 +27516,7 @@ module AWS::SDK::SageMaker
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input
@@ -27608,7 +27614,7 @@ module AWS::SDK::SageMaker
     def update_training_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrainingJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrainingJobInput,
         validate_input: @config.validate_input
@@ -27682,7 +27688,7 @@ module AWS::SDK::SageMaker
     def update_trial(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrialInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrialInput,
         validate_input: @config.validate_input
@@ -27806,7 +27812,7 @@ module AWS::SDK::SageMaker
     def update_trial_component(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTrialComponentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTrialComponentInput,
         validate_input: @config.validate_input
@@ -27921,7 +27927,7 @@ module AWS::SDK::SageMaker
     def update_user_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserProfileInput,
         validate_input: @config.validate_input
@@ -28055,7 +28061,7 @@ module AWS::SDK::SageMaker
     def update_workforce(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkforceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkforceInput,
         validate_input: @config.validate_input
@@ -28190,7 +28196,7 @@ module AWS::SDK::SageMaker
     def update_workteam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWorkteamInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWorkteamInput,
         validate_input: @config.validate_input

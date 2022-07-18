@@ -14,8 +14,8 @@ module AWS::SDK::ChimeSDKMeetings
     class BatchCreateAttendee
       def self.default(visited=[])
         {
-          attendees: Stubs::AttendeeList.default(visited),
-          errors: Stubs::BatchCreateAttendeeErrorList.default(visited),
+          attendees: AttendeeList.default(visited),
+          errors: BatchCreateAttendeeErrorList.default(visited),
         }
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::ChimeSDKMeetings
         return nil if visited.include?('BatchCreateAttendeeErrorList')
         visited = visited + ['BatchCreateAttendeeErrorList']
         [
-          Stubs::CreateAttendeeError.default(visited)
+          CreateAttendeeError.default(visited)
         ]
       end
 
@@ -77,7 +77,7 @@ module AWS::SDK::ChimeSDKMeetings
         return nil if visited.include?('AttendeeList')
         visited = visited + ['AttendeeList']
         [
-          Stubs::Attendee.default(visited)
+          Attendee.default(visited)
         ]
       end
 
@@ -100,7 +100,7 @@ module AWS::SDK::ChimeSDKMeetings
           external_user_id: 'external_user_id',
           attendee_id: 'attendee_id',
           join_token: 'join_token',
-          capabilities: Stubs::AttendeeCapabilities.default(visited),
+          capabilities: AttendeeCapabilities.default(visited),
         }
       end
 
@@ -154,7 +154,7 @@ module AWS::SDK::ChimeSDKMeetings
     class CreateAttendee
       def self.default(visited=[])
         {
-          attendee: Stubs::Attendee.default(visited),
+          attendee: Attendee.default(visited),
         }
       end
 
@@ -171,7 +171,7 @@ module AWS::SDK::ChimeSDKMeetings
     class CreateMeeting
       def self.default(visited=[])
         {
-          meeting: Stubs::Meeting.default(visited),
+          meeting: Meeting.default(visited),
         }
       end
 
@@ -194,8 +194,8 @@ module AWS::SDK::ChimeSDKMeetings
           meeting_host_id: 'meeting_host_id',
           external_meeting_id: 'external_meeting_id',
           media_region: 'media_region',
-          media_placement: Stubs::MediaPlacement.default(visited),
-          meeting_features: Stubs::MeetingFeaturesConfiguration.default(visited),
+          media_placement: MediaPlacement.default(visited),
+          meeting_features: MeetingFeaturesConfiguration.default(visited),
           primary_meeting_id: 'primary_meeting_id',
         }
       end
@@ -220,7 +220,7 @@ module AWS::SDK::ChimeSDKMeetings
         return nil if visited.include?('MeetingFeaturesConfiguration')
         visited = visited + ['MeetingFeaturesConfiguration']
         {
-          audio: Stubs::AudioFeatures.default(visited),
+          audio: AudioFeatures.default(visited),
         }
       end
 
@@ -286,9 +286,9 @@ module AWS::SDK::ChimeSDKMeetings
     class CreateMeetingWithAttendees
       def self.default(visited=[])
         {
-          meeting: Stubs::Meeting.default(visited),
-          attendees: Stubs::AttendeeList.default(visited),
-          errors: Stubs::BatchCreateAttendeeErrorList.default(visited),
+          meeting: Meeting.default(visited),
+          attendees: AttendeeList.default(visited),
+          errors: BatchCreateAttendeeErrorList.default(visited),
         }
       end
 
@@ -333,7 +333,7 @@ module AWS::SDK::ChimeSDKMeetings
     class GetAttendee
       def self.default(visited=[])
         {
-          attendee: Stubs::Attendee.default(visited),
+          attendee: Attendee.default(visited),
         }
       end
 
@@ -350,7 +350,7 @@ module AWS::SDK::ChimeSDKMeetings
     class GetMeeting
       def self.default(visited=[])
         {
-          meeting: Stubs::Meeting.default(visited),
+          meeting: Meeting.default(visited),
         }
       end
 
@@ -367,7 +367,7 @@ module AWS::SDK::ChimeSDKMeetings
     class ListAttendees
       def self.default(visited=[])
         {
-          attendees: Stubs::AttendeeList.default(visited),
+          attendees: AttendeeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -412,7 +412,7 @@ module AWS::SDK::ChimeSDKMeetings
     class UpdateAttendeeCapabilities
       def self.default(visited=[])
         {
-          attendee: Stubs::Attendee.default(visited),
+          attendee: Attendee.default(visited),
         }
       end
 

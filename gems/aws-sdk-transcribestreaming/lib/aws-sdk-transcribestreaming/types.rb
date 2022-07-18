@@ -176,12 +176,12 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_time ||= 0
         self.end_time ||= 0
       end
-
     end
 
     # <p>A problem occurred while processing the audio. Amazon Transcribe or Amazon Transcribe Medical terminated processing. Try
@@ -263,13 +263,13 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_time ||= 0
         self.end_time ||= 0
         self.vocabulary_filter_match ||= false
       end
-
     end
 
     # Includes enum constants for ItemType
@@ -360,11 +360,11 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.score ||= 0
       end
-
     end
 
     # <p>You have exceeded the maximum number of concurrent transcription streams, are starting
@@ -473,12 +473,12 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_time ||= 0
         self.end_time ||= 0
       end
-
     end
 
     # <p>A word, phrase, or punctuation mark that is transcribed from the input audio.</p>
@@ -536,12 +536,12 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_time ||= 0
         self.end_time ||= 0
       end
-
     end
 
     # <p>The results of transcribing a portion of the input audio stream.</p>
@@ -597,13 +597,13 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_time ||= 0
         self.end_time ||= 0
         self.is_partial ||= false
       end
-
     end
 
     # <p>The medical transcript in a <a>MedicalTranscriptEvent</a>.</p>
@@ -819,13 +819,13 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.start_time ||= 0
         self.end_time ||= 0
         self.is_partial ||= false
       end
-
     end
 
     # <p>Service is currently unavailable. Try your request later.</p>
@@ -970,12 +970,12 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.show_speaker_label ||= false
         self.enable_channel_identification ||= false
       end
-
     end
 
     # @!attribute request_id
@@ -1073,12 +1073,12 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.show_speaker_label ||= false
         self.enable_channel_identification ||= false
       end
-
     end
 
     # @!attribute language_code
@@ -1302,6 +1302,7 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.show_speaker_label ||= false
@@ -1309,7 +1310,6 @@ module AWS::SDK::TranscribeStreaming
         self.enable_partial_results_stabilization ||= false
         self.identify_language ||= false
       end
-
     end
 
     # @!attribute request_id
@@ -1470,6 +1470,7 @@ module AWS::SDK::TranscribeStreaming
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.show_speaker_label ||= false
@@ -1477,7 +1478,6 @@ module AWS::SDK::TranscribeStreaming
         self.enable_partial_results_stabilization ||= false
         self.identify_language ||= false
       end
-
     end
 
     # <p>The transcription in a <a>TranscriptEvent</a>.</p>

@@ -56,7 +56,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminCreateUser
       def self.default(visited=[])
         {
-          user: Stubs::UserType.default(visited),
+          user: UserType.default(visited),
         }
       end
 
@@ -75,12 +75,12 @@ module AWS::SDK::CognitoIdentityProvider
         visited = visited + ['UserType']
         {
           username: 'username',
-          attributes: Stubs::AttributeListType.default(visited),
+          attributes: AttributeListType.default(visited),
           user_create_date: Time.now,
           user_last_modified_date: Time.now,
           enabled: false,
           user_status: 'user_status',
-          mfa_options: Stubs::MFAOptionListType.default(visited),
+          mfa_options: MFAOptionListType.default(visited),
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('MFAOptionListType')
         visited = visited + ['MFAOptionListType']
         [
-          Stubs::MFAOptionType.default(visited)
+          MFAOptionType.default(visited)
         ]
       end
 
@@ -144,7 +144,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('AttributeListType')
         visited = visited + ['AttributeListType']
         [
-          Stubs::AttributeType.default(visited)
+          AttributeType.default(visited)
         ]
       end
 
@@ -266,7 +266,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminGetDevice
       def self.default(visited=[])
         {
-          device: Stubs::DeviceType.default(visited),
+          device: DeviceType.default(visited),
         }
       end
 
@@ -285,7 +285,7 @@ module AWS::SDK::CognitoIdentityProvider
         visited = visited + ['DeviceType']
         {
           device_key: 'device_key',
-          device_attributes: Stubs::AttributeListType.default(visited),
+          device_attributes: AttributeListType.default(visited),
           device_create_date: Time.now,
           device_last_modified_date: Time.now,
           device_last_authenticated_date: Time.now,
@@ -309,14 +309,14 @@ module AWS::SDK::CognitoIdentityProvider
       def self.default(visited=[])
         {
           username: 'username',
-          user_attributes: Stubs::AttributeListType.default(visited),
+          user_attributes: AttributeListType.default(visited),
           user_create_date: Time.now,
           user_last_modified_date: Time.now,
           enabled: false,
           user_status: 'user_status',
-          mfa_options: Stubs::MFAOptionListType.default(visited),
+          mfa_options: MFAOptionListType.default(visited),
           preferred_mfa_setting: 'preferred_mfa_setting',
-          user_mfa_setting_list: Stubs::UserMFASettingListType.default(visited),
+          user_mfa_setting_list: UserMFASettingListType.default(visited),
         }
       end
 
@@ -362,8 +362,8 @@ module AWS::SDK::CognitoIdentityProvider
         {
           challenge_name: 'challenge_name',
           session: 'session',
-          challenge_parameters: Stubs::ChallengeParametersType.default(visited),
-          authentication_result: Stubs::AuthenticationResultType.default(visited),
+          challenge_parameters: ChallengeParametersType.default(visited),
+          authentication_result: AuthenticationResultType.default(visited),
         }
       end
 
@@ -389,7 +389,7 @@ module AWS::SDK::CognitoIdentityProvider
           token_type: 'token_type',
           refresh_token: 'refresh_token',
           id_token: 'id_token',
-          new_device_metadata: Stubs::NewDeviceMetadataType.default(visited),
+          new_device_metadata: NewDeviceMetadataType.default(visited),
         }
       end
 
@@ -464,7 +464,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceListType.default(visited),
+          devices: DeviceListType.default(visited),
           pagination_token: 'pagination_token',
         }
       end
@@ -484,7 +484,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('DeviceListType')
         visited = visited + ['DeviceListType']
         [
-          Stubs::DeviceType.default(visited)
+          DeviceType.default(visited)
         ]
       end
 
@@ -502,7 +502,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminListGroupsForUser
       def self.default(visited=[])
         {
-          groups: Stubs::GroupListType.default(visited),
+          groups: GroupListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -522,7 +522,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('GroupListType')
         visited = visited + ['GroupListType']
         [
-          Stubs::GroupType.default(visited)
+          GroupType.default(visited)
         ]
       end
 
@@ -570,7 +570,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AdminListUserAuthEvents
       def self.default(visited=[])
         {
-          auth_events: Stubs::AuthEventsType.default(visited),
+          auth_events: AuthEventsType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -590,7 +590,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('AuthEventsType')
         visited = visited + ['AuthEventsType']
         [
-          Stubs::AuthEventType.default(visited)
+          AuthEventType.default(visited)
         ]
       end
 
@@ -614,10 +614,10 @@ module AWS::SDK::CognitoIdentityProvider
           event_type: 'event_type',
           creation_date: Time.now,
           event_response: 'event_response',
-          event_risk: Stubs::EventRiskType.default(visited),
-          challenge_responses: Stubs::ChallengeResponseListType.default(visited),
-          event_context_data: Stubs::EventContextDataType.default(visited),
-          event_feedback: Stubs::EventFeedbackType.default(visited),
+          event_risk: EventRiskType.default(visited),
+          challenge_responses: ChallengeResponseListType.default(visited),
+          event_context_data: EventContextDataType.default(visited),
+          event_feedback: EventFeedbackType.default(visited),
         }
       end
 
@@ -690,7 +690,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('ChallengeResponseListType')
         visited = visited + ['ChallengeResponseListType']
         [
-          Stubs::ChallengeResponseType.default(visited)
+          ChallengeResponseType.default(visited)
         ]
       end
 
@@ -780,8 +780,8 @@ module AWS::SDK::CognitoIdentityProvider
         {
           challenge_name: 'challenge_name',
           session: 'session',
-          challenge_parameters: Stubs::ChallengeParametersType.default(visited),
-          authentication_result: Stubs::AuthenticationResultType.default(visited),
+          challenge_parameters: ChallengeParametersType.default(visited),
+          authentication_result: AuthenticationResultType.default(visited),
         }
       end
 
@@ -974,7 +974,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateGroup
       def self.default(visited=[])
         {
-          group: Stubs::GroupType.default(visited),
+          group: GroupType.default(visited),
         }
       end
 
@@ -990,7 +990,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateIdentityProvider
       def self.default(visited=[])
         {
-          identity_provider: Stubs::IdentityProviderType.default(visited),
+          identity_provider: IdentityProviderType.default(visited),
         }
       end
 
@@ -1011,9 +1011,9 @@ module AWS::SDK::CognitoIdentityProvider
           user_pool_id: 'user_pool_id',
           provider_name: 'provider_name',
           provider_type: 'provider_type',
-          provider_details: Stubs::ProviderDetailsType.default(visited),
-          attribute_mapping: Stubs::AttributeMappingType.default(visited),
-          idp_identifiers: Stubs::IdpIdentifiersListType.default(visited),
+          provider_details: ProviderDetailsType.default(visited),
+          attribute_mapping: AttributeMappingType.default(visited),
+          idp_identifiers: IdpIdentifiersListType.default(visited),
           last_modified_date: Time.now,
           creation_date: Time.now,
         }
@@ -1098,7 +1098,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateResourceServer
       def self.default(visited=[])
         {
-          resource_server: Stubs::ResourceServerType.default(visited),
+          resource_server: ResourceServerType.default(visited),
         }
       end
 
@@ -1119,7 +1119,7 @@ module AWS::SDK::CognitoIdentityProvider
           user_pool_id: 'user_pool_id',
           identifier: 'identifier',
           name: 'name',
-          scopes: Stubs::ResourceServerScopeListType.default(visited),
+          scopes: ResourceServerScopeListType.default(visited),
         }
       end
 
@@ -1140,7 +1140,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('ResourceServerScopeListType')
         visited = visited + ['ResourceServerScopeListType']
         [
-          Stubs::ResourceServerScopeType.default(visited)
+          ResourceServerScopeType.default(visited)
         ]
       end
 
@@ -1178,7 +1178,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateUserImportJob
       def self.default(visited=[])
         {
-          user_import_job: Stubs::UserImportJobType.default(visited),
+          user_import_job: UserImportJobType.default(visited),
         }
       end
 
@@ -1236,7 +1236,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateUserPool
       def self.default(visited=[])
         {
-          user_pool: Stubs::UserPoolType.default(visited),
+          user_pool: UserPoolType.default(visited),
         }
       end
 
@@ -1256,36 +1256,36 @@ module AWS::SDK::CognitoIdentityProvider
         {
           id: 'id',
           name: 'name',
-          policies: Stubs::UserPoolPolicyType.default(visited),
-          lambda_config: Stubs::LambdaConfigType.default(visited),
+          policies: UserPoolPolicyType.default(visited),
+          lambda_config: LambdaConfigType.default(visited),
           status: 'status',
           last_modified_date: Time.now,
           creation_date: Time.now,
-          schema_attributes: Stubs::SchemaAttributesListType.default(visited),
-          auto_verified_attributes: Stubs::VerifiedAttributesListType.default(visited),
-          alias_attributes: Stubs::AliasAttributesListType.default(visited),
-          username_attributes: Stubs::UsernameAttributesListType.default(visited),
+          schema_attributes: SchemaAttributesListType.default(visited),
+          auto_verified_attributes: VerifiedAttributesListType.default(visited),
+          alias_attributes: AliasAttributesListType.default(visited),
+          username_attributes: UsernameAttributesListType.default(visited),
           sms_verification_message: 'sms_verification_message',
           email_verification_message: 'email_verification_message',
           email_verification_subject: 'email_verification_subject',
-          verification_message_template: Stubs::VerificationMessageTemplateType.default(visited),
+          verification_message_template: VerificationMessageTemplateType.default(visited),
           sms_authentication_message: 'sms_authentication_message',
-          user_attribute_update_settings: Stubs::UserAttributeUpdateSettingsType.default(visited),
+          user_attribute_update_settings: UserAttributeUpdateSettingsType.default(visited),
           mfa_configuration: 'mfa_configuration',
-          device_configuration: Stubs::DeviceConfigurationType.default(visited),
+          device_configuration: DeviceConfigurationType.default(visited),
           estimated_number_of_users: 1,
-          email_configuration: Stubs::EmailConfigurationType.default(visited),
-          sms_configuration: Stubs::SmsConfigurationType.default(visited),
-          user_pool_tags: Stubs::UserPoolTagsType.default(visited),
+          email_configuration: EmailConfigurationType.default(visited),
+          sms_configuration: SmsConfigurationType.default(visited),
+          user_pool_tags: UserPoolTagsType.default(visited),
           sms_configuration_failure: 'sms_configuration_failure',
           email_configuration_failure: 'email_configuration_failure',
           domain: 'domain',
           custom_domain: 'custom_domain',
-          admin_create_user_config: Stubs::AdminCreateUserConfigType.default(visited),
-          user_pool_add_ons: Stubs::UserPoolAddOnsType.default(visited),
-          username_configuration: Stubs::UsernameConfigurationType.default(visited),
+          admin_create_user_config: AdminCreateUserConfigType.default(visited),
+          user_pool_add_ons: UserPoolAddOnsType.default(visited),
+          username_configuration: UsernameConfigurationType.default(visited),
           arn: 'arn',
-          account_recovery_setting: Stubs::AccountRecoverySettingType.default(visited),
+          account_recovery_setting: AccountRecoverySettingType.default(visited),
         }
       end
 
@@ -1334,7 +1334,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('AccountRecoverySettingType')
         visited = visited + ['AccountRecoverySettingType']
         {
-          recovery_mechanisms: Stubs::RecoveryMechanismsType.default(visited),
+          recovery_mechanisms: RecoveryMechanismsType.default(visited),
         }
       end
 
@@ -1352,7 +1352,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('RecoveryMechanismsType')
         visited = visited + ['RecoveryMechanismsType']
         [
-          Stubs::RecoveryOptionType.default(visited)
+          RecoveryOptionType.default(visited)
         ]
       end
 
@@ -1430,7 +1430,7 @@ module AWS::SDK::CognitoIdentityProvider
         {
           allow_admin_create_user_only: false,
           unused_account_validity_days: 1,
-          invite_message_template: Stubs::MessageTemplateType.default(visited),
+          invite_message_template: MessageTemplateType.default(visited),
         }
       end
 
@@ -1560,7 +1560,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('UserAttributeUpdateSettingsType')
         visited = visited + ['UserAttributeUpdateSettingsType']
         {
-          attributes_require_verification_before_update: Stubs::AttributesRequireVerificationBeforeUpdateType.default(visited),
+          attributes_require_verification_before_update: AttributesRequireVerificationBeforeUpdateType.default(visited),
         }
       end
 
@@ -1686,7 +1686,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('SchemaAttributesListType')
         visited = visited + ['SchemaAttributesListType']
         [
-          Stubs::SchemaAttributeType.default(visited)
+          SchemaAttributeType.default(visited)
         ]
       end
 
@@ -1711,8 +1711,8 @@ module AWS::SDK::CognitoIdentityProvider
           developer_only_attribute: false,
           mutable: false,
           required: false,
-          number_attribute_constraints: Stubs::NumberAttributeConstraintsType.default(visited),
-          string_attribute_constraints: Stubs::StringAttributeConstraintsType.default(visited),
+          number_attribute_constraints: NumberAttributeConstraintsType.default(visited),
+          string_attribute_constraints: StringAttributeConstraintsType.default(visited),
         }
       end
 
@@ -1786,8 +1786,8 @@ module AWS::SDK::CognitoIdentityProvider
           verify_auth_challenge_response: 'verify_auth_challenge_response',
           pre_token_generation: 'pre_token_generation',
           user_migration: 'user_migration',
-          custom_sms_sender: Stubs::CustomSMSLambdaVersionConfigType.default(visited),
-          custom_email_sender: Stubs::CustomEmailLambdaVersionConfigType.default(visited),
+          custom_sms_sender: CustomSMSLambdaVersionConfigType.default(visited),
+          custom_email_sender: CustomEmailLambdaVersionConfigType.default(visited),
           kms_key_id: 'kms_key_id',
         }
       end
@@ -1858,7 +1858,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('UserPoolPolicyType')
         visited = visited + ['UserPoolPolicyType']
         {
-          password_policy: Stubs::PasswordPolicyType.default(visited),
+          password_policy: PasswordPolicyType.default(visited),
         }
       end
 
@@ -1902,7 +1902,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CreateUserPoolClient
       def self.default(visited=[])
         {
-          user_pool_client: Stubs::UserPoolClientType.default(visited),
+          user_pool_client: UserPoolClientType.default(visited),
         }
       end
 
@@ -1929,18 +1929,18 @@ module AWS::SDK::CognitoIdentityProvider
           refresh_token_validity: 1,
           access_token_validity: 1,
           id_token_validity: 1,
-          token_validity_units: Stubs::TokenValidityUnitsType.default(visited),
-          read_attributes: Stubs::ClientPermissionListType.default(visited),
-          write_attributes: Stubs::ClientPermissionListType.default(visited),
-          explicit_auth_flows: Stubs::ExplicitAuthFlowsListType.default(visited),
-          supported_identity_providers: Stubs::SupportedIdentityProvidersListType.default(visited),
-          callback_ur_ls: Stubs::CallbackURLsListType.default(visited),
-          logout_ur_ls: Stubs::LogoutURLsListType.default(visited),
+          token_validity_units: TokenValidityUnitsType.default(visited),
+          read_attributes: ClientPermissionListType.default(visited),
+          write_attributes: ClientPermissionListType.default(visited),
+          explicit_auth_flows: ExplicitAuthFlowsListType.default(visited),
+          supported_identity_providers: SupportedIdentityProvidersListType.default(visited),
+          callback_ur_ls: CallbackURLsListType.default(visited),
+          logout_ur_ls: LogoutURLsListType.default(visited),
           default_redirect_uri: 'default_redirect_uri',
-          allowed_o_auth_flows: Stubs::OAuthFlowsType.default(visited),
-          allowed_o_auth_scopes: Stubs::ScopeListType.default(visited),
+          allowed_o_auth_flows: OAuthFlowsType.default(visited),
+          allowed_o_auth_scopes: ScopeListType.default(visited),
           allowed_o_auth_flows_user_pool_client: false,
-          analytics_configuration: Stubs::AnalyticsConfigurationType.default(visited),
+          analytics_configuration: AnalyticsConfigurationType.default(visited),
           prevent_user_existence_errors: 'prevent_user_existence_errors',
           enable_token_revocation: false,
           enable_propagate_additional_user_context_data: false,
@@ -2298,7 +2298,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeIdentityProvider
       def self.default(visited=[])
         {
-          identity_provider: Stubs::IdentityProviderType.default(visited),
+          identity_provider: IdentityProviderType.default(visited),
         }
       end
 
@@ -2314,7 +2314,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeResourceServer
       def self.default(visited=[])
         {
-          resource_server: Stubs::ResourceServerType.default(visited),
+          resource_server: ResourceServerType.default(visited),
         }
       end
 
@@ -2330,7 +2330,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeRiskConfiguration
       def self.default(visited=[])
         {
-          risk_configuration: Stubs::RiskConfigurationType.default(visited),
+          risk_configuration: RiskConfigurationType.default(visited),
         }
       end
 
@@ -2350,9 +2350,9 @@ module AWS::SDK::CognitoIdentityProvider
         {
           user_pool_id: 'user_pool_id',
           client_id: 'client_id',
-          compromised_credentials_risk_configuration: Stubs::CompromisedCredentialsRiskConfigurationType.default(visited),
-          account_takeover_risk_configuration: Stubs::AccountTakeoverRiskConfigurationType.default(visited),
-          risk_exception_configuration: Stubs::RiskExceptionConfigurationType.default(visited),
+          compromised_credentials_risk_configuration: CompromisedCredentialsRiskConfigurationType.default(visited),
+          account_takeover_risk_configuration: AccountTakeoverRiskConfigurationType.default(visited),
+          risk_exception_configuration: RiskExceptionConfigurationType.default(visited),
           last_modified_date: Time.now,
         }
       end
@@ -2376,8 +2376,8 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('RiskExceptionConfigurationType')
         visited = visited + ['RiskExceptionConfigurationType']
         {
-          blocked_ip_range_list: Stubs::BlockedIPRangeListType.default(visited),
-          skipped_ip_range_list: Stubs::SkippedIPRangeListType.default(visited),
+          blocked_ip_range_list: BlockedIPRangeListType.default(visited),
+          skipped_ip_range_list: SkippedIPRangeListType.default(visited),
         }
       end
 
@@ -2436,8 +2436,8 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('AccountTakeoverRiskConfigurationType')
         visited = visited + ['AccountTakeoverRiskConfigurationType']
         {
-          notify_configuration: Stubs::NotifyConfigurationType.default(visited),
-          actions: Stubs::AccountTakeoverActionsType.default(visited),
+          notify_configuration: NotifyConfigurationType.default(visited),
+          actions: AccountTakeoverActionsType.default(visited),
         }
       end
 
@@ -2456,9 +2456,9 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('AccountTakeoverActionsType')
         visited = visited + ['AccountTakeoverActionsType']
         {
-          low_action: Stubs::AccountTakeoverActionType.default(visited),
-          medium_action: Stubs::AccountTakeoverActionType.default(visited),
-          high_action: Stubs::AccountTakeoverActionType.default(visited),
+          low_action: AccountTakeoverActionType.default(visited),
+          medium_action: AccountTakeoverActionType.default(visited),
+          high_action: AccountTakeoverActionType.default(visited),
         }
       end
 
@@ -2501,9 +2501,9 @@ module AWS::SDK::CognitoIdentityProvider
           from: 'from',
           reply_to: 'reply_to',
           source_arn: 'source_arn',
-          block_email: Stubs::NotifyEmailType.default(visited),
-          no_action_email: Stubs::NotifyEmailType.default(visited),
-          mfa_email: Stubs::NotifyEmailType.default(visited),
+          block_email: NotifyEmailType.default(visited),
+          no_action_email: NotifyEmailType.default(visited),
+          mfa_email: NotifyEmailType.default(visited),
         }
       end
 
@@ -2548,8 +2548,8 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('CompromisedCredentialsRiskConfigurationType')
         visited = visited + ['CompromisedCredentialsRiskConfigurationType']
         {
-          event_filter: Stubs::EventFiltersType.default(visited),
-          actions: Stubs::CompromisedCredentialsActionsType.default(visited),
+          event_filter: EventFiltersType.default(visited),
+          actions: CompromisedCredentialsActionsType.default(visited),
         }
       end
 
@@ -2604,7 +2604,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserImportJob
       def self.default(visited=[])
         {
-          user_import_job: Stubs::UserImportJobType.default(visited),
+          user_import_job: UserImportJobType.default(visited),
         }
       end
 
@@ -2620,7 +2620,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserPool
       def self.default(visited=[])
         {
-          user_pool: Stubs::UserPoolType.default(visited),
+          user_pool: UserPoolType.default(visited),
         }
       end
 
@@ -2636,7 +2636,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserPoolClient
       def self.default(visited=[])
         {
-          user_pool_client: Stubs::UserPoolClientType.default(visited),
+          user_pool_client: UserPoolClientType.default(visited),
         }
       end
 
@@ -2652,7 +2652,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DescribeUserPoolDomain
       def self.default(visited=[])
         {
-          domain_description: Stubs::DomainDescriptionType.default(visited),
+          domain_description: DomainDescriptionType.default(visited),
         }
       end
 
@@ -2677,7 +2677,7 @@ module AWS::SDK::CognitoIdentityProvider
           cloud_front_distribution: 'cloud_front_distribution',
           version: 'version',
           status: 'status',
-          custom_domain_config: Stubs::CustomDomainConfigType.default(visited),
+          custom_domain_config: CustomDomainConfigType.default(visited),
         }
       end
 
@@ -2732,7 +2732,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ForgotPassword
       def self.default(visited=[])
         {
-          code_delivery_details: Stubs::CodeDeliveryDetailsType.default(visited),
+          code_delivery_details: CodeDeliveryDetailsType.default(visited),
         }
       end
 
@@ -2771,7 +2771,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.default(visited=[])
         {
           user_pool_id: 'user_pool_id',
-          csv_header: Stubs::ListOfStringTypes.default(visited),
+          csv_header: ListOfStringTypes.default(visited),
         }
       end
 
@@ -2808,7 +2808,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetDevice
       def self.default(visited=[])
         {
-          device: Stubs::DeviceType.default(visited),
+          device: DeviceType.default(visited),
         }
       end
 
@@ -2824,7 +2824,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetGroup
       def self.default(visited=[])
         {
-          group: Stubs::GroupType.default(visited),
+          group: GroupType.default(visited),
         }
       end
 
@@ -2840,7 +2840,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetIdentityProviderByIdentifier
       def self.default(visited=[])
         {
-          identity_provider: Stubs::IdentityProviderType.default(visited),
+          identity_provider: IdentityProviderType.default(visited),
         }
       end
 
@@ -2872,7 +2872,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetUICustomization
       def self.default(visited=[])
         {
-          ui_customization: Stubs::UICustomizationType.default(visited),
+          ui_customization: UICustomizationType.default(visited),
         }
       end
 
@@ -2919,10 +2919,10 @@ module AWS::SDK::CognitoIdentityProvider
       def self.default(visited=[])
         {
           username: 'username',
-          user_attributes: Stubs::AttributeListType.default(visited),
-          mfa_options: Stubs::MFAOptionListType.default(visited),
+          user_attributes: AttributeListType.default(visited),
+          mfa_options: MFAOptionListType.default(visited),
           preferred_mfa_setting: 'preferred_mfa_setting',
-          user_mfa_setting_list: Stubs::UserMFASettingListType.default(visited),
+          user_mfa_setting_list: UserMFASettingListType.default(visited),
         }
       end
 
@@ -2942,7 +2942,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GetUserAttributeVerificationCode
       def self.default(visited=[])
         {
-          code_delivery_details: Stubs::CodeDeliveryDetailsType.default(visited),
+          code_delivery_details: CodeDeliveryDetailsType.default(visited),
         }
       end
 
@@ -2958,8 +2958,8 @@ module AWS::SDK::CognitoIdentityProvider
     class GetUserPoolMfaConfig
       def self.default(visited=[])
         {
-          sms_mfa_configuration: Stubs::SmsMfaConfigType.default(visited),
-          software_token_mfa_configuration: Stubs::SoftwareTokenMfaConfigType.default(visited),
+          sms_mfa_configuration: SmsMfaConfigType.default(visited),
+          software_token_mfa_configuration: SoftwareTokenMfaConfigType.default(visited),
           mfa_configuration: 'mfa_configuration',
         }
       end
@@ -2999,7 +2999,7 @@ module AWS::SDK::CognitoIdentityProvider
         visited = visited + ['SmsMfaConfigType']
         {
           sms_authentication_message: 'sms_authentication_message',
-          sms_configuration: Stubs::SmsConfigurationType.default(visited),
+          sms_configuration: SmsConfigurationType.default(visited),
         }
       end
 
@@ -3032,8 +3032,8 @@ module AWS::SDK::CognitoIdentityProvider
         {
           challenge_name: 'challenge_name',
           session: 'session',
-          challenge_parameters: Stubs::ChallengeParametersType.default(visited),
-          authentication_result: Stubs::AuthenticationResultType.default(visited),
+          challenge_parameters: ChallengeParametersType.default(visited),
+          authentication_result: AuthenticationResultType.default(visited),
         }
       end
 
@@ -3052,7 +3052,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListDevices
       def self.default(visited=[])
         {
-          devices: Stubs::DeviceListType.default(visited),
+          devices: DeviceListType.default(visited),
           pagination_token: 'pagination_token',
         }
       end
@@ -3070,7 +3070,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListGroups
       def self.default(visited=[])
         {
-          groups: Stubs::GroupListType.default(visited),
+          groups: GroupListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3088,7 +3088,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListIdentityProviders
       def self.default(visited=[])
         {
-          providers: Stubs::ProvidersListType.default(visited),
+          providers: ProvidersListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3108,7 +3108,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('ProvidersListType')
         visited = visited + ['ProvidersListType']
         [
-          Stubs::ProviderDescription.default(visited)
+          ProviderDescription.default(visited)
         ]
       end
 
@@ -3150,7 +3150,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListResourceServers
       def self.default(visited=[])
         {
-          resource_servers: Stubs::ResourceServersListType.default(visited),
+          resource_servers: ResourceServersListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3170,7 +3170,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('ResourceServersListType')
         visited = visited + ['ResourceServersListType']
         [
-          Stubs::ResourceServerType.default(visited)
+          ResourceServerType.default(visited)
         ]
       end
 
@@ -3188,7 +3188,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::UserPoolTagsType.default(visited),
+          tags: UserPoolTagsType.default(visited),
         }
       end
 
@@ -3204,7 +3204,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUserImportJobs
       def self.default(visited=[])
         {
-          user_import_jobs: Stubs::UserImportJobsListType.default(visited),
+          user_import_jobs: UserImportJobsListType.default(visited),
           pagination_token: 'pagination_token',
         }
       end
@@ -3224,7 +3224,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('UserImportJobsListType')
         visited = visited + ['UserImportJobsListType']
         [
-          Stubs::UserImportJobType.default(visited)
+          UserImportJobType.default(visited)
         ]
       end
 
@@ -3242,7 +3242,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUserPoolClients
       def self.default(visited=[])
         {
-          user_pool_clients: Stubs::UserPoolClientListType.default(visited),
+          user_pool_clients: UserPoolClientListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3262,7 +3262,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('UserPoolClientListType')
         visited = visited + ['UserPoolClientListType']
         [
-          Stubs::UserPoolClientDescription.default(visited)
+          UserPoolClientDescription.default(visited)
         ]
       end
 
@@ -3302,7 +3302,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUserPools
       def self.default(visited=[])
         {
-          user_pools: Stubs::UserPoolListType.default(visited),
+          user_pools: UserPoolListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3322,7 +3322,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('UserPoolListType')
         visited = visited + ['UserPoolListType']
         [
-          Stubs::UserPoolDescriptionType.default(visited)
+          UserPoolDescriptionType.default(visited)
         ]
       end
 
@@ -3344,7 +3344,7 @@ module AWS::SDK::CognitoIdentityProvider
         {
           id: 'id',
           name: 'name',
-          lambda_config: Stubs::LambdaConfigType.default(visited),
+          lambda_config: LambdaConfigType.default(visited),
           status: 'status',
           last_modified_date: Time.now,
           creation_date: Time.now,
@@ -3368,7 +3368,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUsers
       def self.default(visited=[])
         {
-          users: Stubs::UsersListType.default(visited),
+          users: UsersListType.default(visited),
           pagination_token: 'pagination_token',
         }
       end
@@ -3388,7 +3388,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('UsersListType')
         visited = visited + ['UsersListType']
         [
-          Stubs::UserType.default(visited)
+          UserType.default(visited)
         ]
       end
 
@@ -3406,7 +3406,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ListUsersInGroup
       def self.default(visited=[])
         {
-          users: Stubs::UsersListType.default(visited),
+          users: UsersListType.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3424,7 +3424,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ResendConfirmationCode
       def self.default(visited=[])
         {
-          code_delivery_details: Stubs::CodeDeliveryDetailsType.default(visited),
+          code_delivery_details: CodeDeliveryDetailsType.default(visited),
         }
       end
 
@@ -3442,8 +3442,8 @@ module AWS::SDK::CognitoIdentityProvider
         {
           challenge_name: 'challenge_name',
           session: 'session',
-          challenge_parameters: Stubs::ChallengeParametersType.default(visited),
-          authentication_result: Stubs::AuthenticationResultType.default(visited),
+          challenge_parameters: ChallengeParametersType.default(visited),
+          authentication_result: AuthenticationResultType.default(visited),
         }
       end
 
@@ -3476,7 +3476,7 @@ module AWS::SDK::CognitoIdentityProvider
     class SetRiskConfiguration
       def self.default(visited=[])
         {
-          risk_configuration: Stubs::RiskConfigurationType.default(visited),
+          risk_configuration: RiskConfigurationType.default(visited),
         }
       end
 
@@ -3492,7 +3492,7 @@ module AWS::SDK::CognitoIdentityProvider
     class SetUICustomization
       def self.default(visited=[])
         {
-          ui_customization: Stubs::UICustomizationType.default(visited),
+          ui_customization: UICustomizationType.default(visited),
         }
       end
 
@@ -3522,8 +3522,8 @@ module AWS::SDK::CognitoIdentityProvider
     class SetUserPoolMfaConfig
       def self.default(visited=[])
         {
-          sms_mfa_configuration: Stubs::SmsMfaConfigType.default(visited),
-          software_token_mfa_configuration: Stubs::SoftwareTokenMfaConfigType.default(visited),
+          sms_mfa_configuration: SmsMfaConfigType.default(visited),
+          software_token_mfa_configuration: SoftwareTokenMfaConfigType.default(visited),
           mfa_configuration: 'mfa_configuration',
         }
       end
@@ -3557,7 +3557,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.default(visited=[])
         {
           user_confirmed: false,
-          code_delivery_details: Stubs::CodeDeliveryDetailsType.default(visited),
+          code_delivery_details: CodeDeliveryDetailsType.default(visited),
           user_sub: 'user_sub',
         }
       end
@@ -3576,7 +3576,7 @@ module AWS::SDK::CognitoIdentityProvider
     class StartUserImportJob
       def self.default(visited=[])
         {
-          user_import_job: Stubs::UserImportJobType.default(visited),
+          user_import_job: UserImportJobType.default(visited),
         }
       end
 
@@ -3592,7 +3592,7 @@ module AWS::SDK::CognitoIdentityProvider
     class StopUserImportJob
       def self.default(visited=[])
         {
-          user_import_job: Stubs::UserImportJobType.default(visited),
+          user_import_job: UserImportJobType.default(visited),
         }
       end
 
@@ -3664,7 +3664,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateGroup
       def self.default(visited=[])
         {
-          group: Stubs::GroupType.default(visited),
+          group: GroupType.default(visited),
         }
       end
 
@@ -3680,7 +3680,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateIdentityProvider
       def self.default(visited=[])
         {
-          identity_provider: Stubs::IdentityProviderType.default(visited),
+          identity_provider: IdentityProviderType.default(visited),
         }
       end
 
@@ -3696,7 +3696,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateResourceServer
       def self.default(visited=[])
         {
-          resource_server: Stubs::ResourceServerType.default(visited),
+          resource_server: ResourceServerType.default(visited),
         }
       end
 
@@ -3712,7 +3712,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateUserAttributes
       def self.default(visited=[])
         {
-          code_delivery_details_list: Stubs::CodeDeliveryDetailsListType.default(visited),
+          code_delivery_details_list: CodeDeliveryDetailsListType.default(visited),
         }
       end
 
@@ -3730,7 +3730,7 @@ module AWS::SDK::CognitoIdentityProvider
         return nil if visited.include?('CodeDeliveryDetailsListType')
         visited = visited + ['CodeDeliveryDetailsListType']
         [
-          Stubs::CodeDeliveryDetailsType.default(visited)
+          CodeDeliveryDetailsType.default(visited)
         ]
       end
 
@@ -3762,7 +3762,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UpdateUserPoolClient
       def self.default(visited=[])
         {
-          user_pool_client: Stubs::UserPoolClientType.default(visited),
+          user_pool_client: UserPoolClientType.default(visited),
         }
       end
 

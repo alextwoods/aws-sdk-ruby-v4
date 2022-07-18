@@ -35,7 +35,7 @@ module AWS::SDK::SSOOIDC
         Hearth::Validator.validate!(input[:device_code], ::String, context: "#{context}[:device_code]")
         Hearth::Validator.validate!(input[:code], ::String, context: "#{context}[:code]")
         Hearth::Validator.validate!(input[:refresh_token], ::String, context: "#{context}[:refresh_token]")
-        Validators::Scopes.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
+        Scopes.validate!(input[:scope], context: "#{context}[:scope]") unless input[:scope].nil?
         Hearth::Validator.validate!(input[:redirect_uri], ::String, context: "#{context}[:redirect_uri]")
       end
     end
@@ -112,7 +112,7 @@ module AWS::SDK::SSOOIDC
         Hearth::Validator.validate!(input, Types::RegisterClientInput, context: context)
         Hearth::Validator.validate!(input[:client_name], ::String, context: "#{context}[:client_name]")
         Hearth::Validator.validate!(input[:client_type], ::String, context: "#{context}[:client_type]")
-        Validators::Scopes.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
+        Scopes.validate!(input[:scopes], context: "#{context}[:scopes]") unless input[:scopes].nil?
       end
     end
 

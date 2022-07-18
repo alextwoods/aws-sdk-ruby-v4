@@ -183,10 +183,10 @@ module AWS::SDK::LexRuntimeService
         data = Types::PostContentOutput.new
         data.content_type = http_resp.headers['Content-Type']
         data.intent_name = http_resp.headers['x-amz-lex-intent-name']
-        data.nlu_intent_confidence = Base64::decode64(http_resp.headers['x-amz-lex-nlu-intent-confidence']).strip unless http_resp.headers['x-amz-lex-nlu-intent-confidence'].nil?
-        data.alternative_intents = Base64::decode64(http_resp.headers['x-amz-lex-alternative-intents']).strip unless http_resp.headers['x-amz-lex-alternative-intents'].nil?
-        data.slots = Base64::decode64(http_resp.headers['x-amz-lex-slots']).strip unless http_resp.headers['x-amz-lex-slots'].nil?
-        data.session_attributes = Base64::decode64(http_resp.headers['x-amz-lex-session-attributes']).strip unless http_resp.headers['x-amz-lex-session-attributes'].nil?
+        data.nlu_intent_confidence = ::Base64::decode64(http_resp.headers['x-amz-lex-nlu-intent-confidence']).strip unless http_resp.headers['x-amz-lex-nlu-intent-confidence'].nil?
+        data.alternative_intents = ::Base64::decode64(http_resp.headers['x-amz-lex-alternative-intents']).strip unless http_resp.headers['x-amz-lex-alternative-intents'].nil?
+        data.slots = ::Base64::decode64(http_resp.headers['x-amz-lex-slots']).strip unless http_resp.headers['x-amz-lex-slots'].nil?
+        data.session_attributes = ::Base64::decode64(http_resp.headers['x-amz-lex-session-attributes']).strip unless http_resp.headers['x-amz-lex-session-attributes'].nil?
         data.sentiment_response = http_resp.headers['x-amz-lex-sentiment']
         data.message = http_resp.headers['x-amz-lex-message']
         data.encoded_message = http_resp.headers['x-amz-lex-encoded-message']
@@ -197,7 +197,7 @@ module AWS::SDK::LexRuntimeService
         data.encoded_input_transcript = http_resp.headers['x-amz-lex-encoded-input-transcript']
         data.bot_version = http_resp.headers['x-amz-lex-bot-version']
         data.session_id = http_resp.headers['x-amz-lex-session-id']
-        data.active_contexts = Base64::decode64(http_resp.headers['x-amz-lex-active-contexts']).strip unless http_resp.headers['x-amz-lex-active-contexts'].nil?
+        data.active_contexts = ::Base64::decode64(http_resp.headers['x-amz-lex-active-contexts']).strip unless http_resp.headers['x-amz-lex-active-contexts'].nil?
         data.audio_stream = http_resp.body
         data
       end
@@ -380,15 +380,15 @@ module AWS::SDK::LexRuntimeService
         data = Types::PutSessionOutput.new
         data.content_type = http_resp.headers['Content-Type']
         data.intent_name = http_resp.headers['x-amz-lex-intent-name']
-        data.slots = Base64::decode64(http_resp.headers['x-amz-lex-slots']).strip unless http_resp.headers['x-amz-lex-slots'].nil?
-        data.session_attributes = Base64::decode64(http_resp.headers['x-amz-lex-session-attributes']).strip unless http_resp.headers['x-amz-lex-session-attributes'].nil?
+        data.slots = ::Base64::decode64(http_resp.headers['x-amz-lex-slots']).strip unless http_resp.headers['x-amz-lex-slots'].nil?
+        data.session_attributes = ::Base64::decode64(http_resp.headers['x-amz-lex-session-attributes']).strip unless http_resp.headers['x-amz-lex-session-attributes'].nil?
         data.message = http_resp.headers['x-amz-lex-message']
         data.encoded_message = http_resp.headers['x-amz-lex-encoded-message']
         data.message_format = http_resp.headers['x-amz-lex-message-format']
         data.dialog_state = http_resp.headers['x-amz-lex-dialog-state']
         data.slot_to_elicit = http_resp.headers['x-amz-lex-slot-to-elicit']
         data.session_id = http_resp.headers['x-amz-lex-session-id']
-        data.active_contexts = Base64::decode64(http_resp.headers['x-amz-lex-active-contexts']).strip unless http_resp.headers['x-amz-lex-active-contexts'].nil?
+        data.active_contexts = ::Base64::decode64(http_resp.headers['x-amz-lex-active-contexts']).strip unless http_resp.headers['x-amz-lex-active-contexts'].nil?
         data.audio_stream = http_resp.body
         data
       end

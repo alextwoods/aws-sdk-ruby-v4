@@ -52,7 +52,7 @@ module AWS::SDK::PinpointSMSVoice
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateConfigurationSetEventDestinationInput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestinationDefinition.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
+        EventDestinationDefinition.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
         Hearth::Validator.validate!(input[:event_destination_name], ::String, context: "#{context}[:event_destination_name]")
       end
     end
@@ -106,23 +106,23 @@ module AWS::SDK::PinpointSMSVoice
     class EventDestination
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventDestination, context: context)
-        Validators::CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
+        CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
-        Validators::EventTypes.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
+        KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
+        EventTypes.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
+        SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
       end
     end
 
     class EventDestinationDefinition
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventDestinationDefinition, context: context)
-        Validators::CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
+        CloudWatchLogsDestination.validate!(input[:cloud_watch_logs_destination], context: "#{context}[:cloud_watch_logs_destination]") unless input[:cloud_watch_logs_destination].nil?
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
-        Validators::KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
-        Validators::EventTypes.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
-        Validators::SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
+        KinesisFirehoseDestination.validate!(input[:kinesis_firehose_destination], context: "#{context}[:kinesis_firehose_destination]") unless input[:kinesis_firehose_destination].nil?
+        EventTypes.validate!(input[:matching_event_types], context: "#{context}[:matching_event_types]") unless input[:matching_event_types].nil?
+        SnsDestination.validate!(input[:sns_destination], context: "#{context}[:sns_destination]") unless input[:sns_destination].nil?
       end
     end
 
@@ -130,7 +130,7 @@ module AWS::SDK::PinpointSMSVoice
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EventDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EventDestination.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -154,7 +154,7 @@ module AWS::SDK::PinpointSMSVoice
     class GetConfigurationSetEventDestinationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetConfigurationSetEventDestinationsOutput, context: context)
-        Validators::EventDestinations.validate!(input[:event_destinations], context: "#{context}[:event_destinations]") unless input[:event_destinations].nil?
+        EventDestinations.validate!(input[:event_destinations], context: "#{context}[:event_destinations]") unless input[:event_destinations].nil?
       end
     end
 
@@ -191,7 +191,7 @@ module AWS::SDK::PinpointSMSVoice
     class ListConfigurationSetsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListConfigurationSetsOutput, context: context)
-        Validators::ConfigurationSets.validate!(input[:configuration_sets], context: "#{context}[:configuration_sets]") unless input[:configuration_sets].nil?
+        ConfigurationSets.validate!(input[:configuration_sets], context: "#{context}[:configuration_sets]") unless input[:configuration_sets].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::PinpointSMSVoice
         Hearth::Validator.validate!(input, Types::SendVoiceMessageInput, context: context)
         Hearth::Validator.validate!(input[:caller_id], ::String, context: "#{context}[:caller_id]")
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::VoiceMessageContent.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
+        VoiceMessageContent.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
         Hearth::Validator.validate!(input[:destination_phone_number], ::String, context: "#{context}[:destination_phone_number]")
         Hearth::Validator.validate!(input[:origination_phone_number], ::String, context: "#{context}[:origination_phone_number]")
       end
@@ -257,7 +257,7 @@ module AWS::SDK::PinpointSMSVoice
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateConfigurationSetEventDestinationInput, context: context)
         Hearth::Validator.validate!(input[:configuration_set_name], ::String, context: "#{context}[:configuration_set_name]")
-        Validators::EventDestinationDefinition.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
+        EventDestinationDefinition.validate!(input[:event_destination], context: "#{context}[:event_destination]") unless input[:event_destination].nil?
         Hearth::Validator.validate!(input[:event_destination_name], ::String, context: "#{context}[:event_destination_name]")
       end
     end
@@ -271,9 +271,9 @@ module AWS::SDK::PinpointSMSVoice
     class VoiceMessageContent
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VoiceMessageContent, context: context)
-        Validators::CallInstructionsMessageType.validate!(input[:call_instructions_message], context: "#{context}[:call_instructions_message]") unless input[:call_instructions_message].nil?
-        Validators::PlainTextMessageType.validate!(input[:plain_text_message], context: "#{context}[:plain_text_message]") unless input[:plain_text_message].nil?
-        Validators::SSMLMessageType.validate!(input[:ssml_message], context: "#{context}[:ssml_message]") unless input[:ssml_message].nil?
+        CallInstructionsMessageType.validate!(input[:call_instructions_message], context: "#{context}[:call_instructions_message]") unless input[:call_instructions_message].nil?
+        PlainTextMessageType.validate!(input[:plain_text_message], context: "#{context}[:plain_text_message]") unless input[:plain_text_message].nil?
+        SSMLMessageType.validate!(input[:ssml_message], context: "#{context}[:ssml_message]") unless input[:ssml_message].nil?
       end
     end
 

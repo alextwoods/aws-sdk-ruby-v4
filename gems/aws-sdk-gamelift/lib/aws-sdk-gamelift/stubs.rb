@@ -28,7 +28,7 @@ module AWS::SDK::GameLift
     class ClaimGameServer
       def self.default(visited=[])
         {
-          game_server: Stubs::GameServer.default(visited),
+          game_server: GameServer.default(visited),
         }
       end
 
@@ -82,7 +82,7 @@ module AWS::SDK::GameLift
     class CreateAlias
       def self.default(visited=[])
         {
-          alias: Stubs::Alias.default(visited),
+          alias: Alias.default(visited),
         }
       end
 
@@ -104,7 +104,7 @@ module AWS::SDK::GameLift
           name: 'name',
           alias_arn: 'alias_arn',
           description: 'description',
-          routing_strategy: Stubs::RoutingStrategy.default(visited),
+          routing_strategy: RoutingStrategy.default(visited),
           creation_time: Time.now,
           last_updated_time: Time.now,
         }
@@ -150,9 +150,9 @@ module AWS::SDK::GameLift
     class CreateBuild
       def self.default(visited=[])
         {
-          build: Stubs::Build.default(visited),
-          upload_credentials: Stubs::AwsCredentials.default(visited),
-          storage_location: Stubs::S3Location.default(visited),
+          build: Build.default(visited),
+          upload_credentials: AwsCredentials.default(visited),
+          storage_location: S3Location.default(visited),
         }
       end
 
@@ -248,8 +248,8 @@ module AWS::SDK::GameLift
     class CreateFleet
       def self.default(visited=[])
         {
-          fleet_attributes: Stubs::FleetAttributes.default(visited),
-          location_states: Stubs::LocationStateList.default(visited),
+          fleet_attributes: FleetAttributes.default(visited),
+          location_states: LocationStateList.default(visited),
         }
       end
 
@@ -268,7 +268,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('LocationStateList')
         visited = visited + ['LocationStateList']
         [
-          Stubs::LocationState.default(visited)
+          LocationState.default(visited)
         ]
       end
 
@@ -323,14 +323,14 @@ module AWS::SDK::GameLift
           script_arn: 'script_arn',
           server_launch_path: 'server_launch_path',
           server_launch_parameters: 'server_launch_parameters',
-          log_paths: Stubs::StringList.default(visited),
+          log_paths: StringList.default(visited),
           new_game_session_protection_policy: 'new_game_session_protection_policy',
           operating_system: 'operating_system',
-          resource_creation_limit_policy: Stubs::ResourceCreationLimitPolicy.default(visited),
-          metric_groups: Stubs::MetricGroupList.default(visited),
-          stopped_actions: Stubs::FleetActionList.default(visited),
+          resource_creation_limit_policy: ResourceCreationLimitPolicy.default(visited),
+          metric_groups: MetricGroupList.default(visited),
+          stopped_actions: FleetActionList.default(visited),
           instance_role_arn: 'instance_role_arn',
-          certificate_configuration: Stubs::CertificateConfiguration.default(visited),
+          certificate_configuration: CertificateConfiguration.default(visited),
         }
       end
 
@@ -468,7 +468,7 @@ module AWS::SDK::GameLift
         {
           fleet_id: 'fleet_id',
           fleet_arn: 'fleet_arn',
-          location_states: Stubs::LocationStateList.default(visited),
+          location_states: LocationStateList.default(visited),
         }
       end
 
@@ -486,7 +486,7 @@ module AWS::SDK::GameLift
     class CreateGameServerGroup
       def self.default(visited=[])
         {
-          game_server_group: Stubs::GameServerGroup.default(visited),
+          game_server_group: GameServerGroup.default(visited),
         }
       end
 
@@ -507,13 +507,13 @@ module AWS::SDK::GameLift
           game_server_group_name: 'game_server_group_name',
           game_server_group_arn: 'game_server_group_arn',
           role_arn: 'role_arn',
-          instance_definitions: Stubs::InstanceDefinitions.default(visited),
+          instance_definitions: InstanceDefinitions.default(visited),
           balancing_strategy: 'balancing_strategy',
           game_server_protection_policy: 'game_server_protection_policy',
           auto_scaling_group_arn: 'auto_scaling_group_arn',
           status: 'status',
           status_reason: 'status_reason',
-          suspended_actions: Stubs::GameServerGroupActions.default(visited),
+          suspended_actions: GameServerGroupActions.default(visited),
           creation_time: Time.now,
           last_updated_time: Time.now,
         }
@@ -564,7 +564,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('InstanceDefinitions')
         visited = visited + ['InstanceDefinitions']
         [
-          Stubs::InstanceDefinition.default(visited)
+          InstanceDefinition.default(visited)
         ]
       end
 
@@ -602,7 +602,7 @@ module AWS::SDK::GameLift
     class CreateGameSession
       def self.default(visited=[])
         {
-          game_session: Stubs::GameSession.default(visited),
+          game_session: GameSession.default(visited),
         }
       end
 
@@ -630,7 +630,7 @@ module AWS::SDK::GameLift
           maximum_player_session_count: 1,
           status: 'status',
           status_reason: 'status_reason',
-          game_properties: Stubs::GamePropertyList.default(visited),
+          game_properties: GamePropertyList.default(visited),
           ip_address: 'ip_address',
           dns_name: 'dns_name',
           port: 1,
@@ -674,7 +674,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GamePropertyList')
         visited = visited + ['GamePropertyList']
         [
-          Stubs::GameProperty.default(visited)
+          GameProperty.default(visited)
         ]
       end
 
@@ -712,7 +712,7 @@ module AWS::SDK::GameLift
     class CreateGameSessionQueue
       def self.default(visited=[])
         {
-          game_session_queue: Stubs::GameSessionQueue.default(visited),
+          game_session_queue: GameSessionQueue.default(visited),
         }
       end
 
@@ -733,10 +733,10 @@ module AWS::SDK::GameLift
           name: 'name',
           game_session_queue_arn: 'game_session_queue_arn',
           timeout_in_seconds: 1,
-          player_latency_policies: Stubs::PlayerLatencyPolicyList.default(visited),
-          destinations: Stubs::GameSessionQueueDestinationList.default(visited),
-          filter_configuration: Stubs::FilterConfiguration.default(visited),
-          priority_configuration: Stubs::PriorityConfiguration.default(visited),
+          player_latency_policies: PlayerLatencyPolicyList.default(visited),
+          destinations: GameSessionQueueDestinationList.default(visited),
+          filter_configuration: FilterConfiguration.default(visited),
+          priority_configuration: PriorityConfiguration.default(visited),
           custom_event_data: 'custom_event_data',
           notification_target: 'notification_target',
         }
@@ -764,8 +764,8 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PriorityConfiguration')
         visited = visited + ['PriorityConfiguration']
         {
-          priority_order: Stubs::PriorityTypeList.default(visited),
-          location_order: Stubs::LocationList.default(visited),
+          priority_order: PriorityTypeList.default(visited),
+          location_order: LocationList.default(visited),
         }
       end
 
@@ -824,7 +824,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('FilterConfiguration')
         visited = visited + ['FilterConfiguration']
         {
-          allowed_locations: Stubs::LocationList.default(visited),
+          allowed_locations: LocationList.default(visited),
         }
       end
 
@@ -842,7 +842,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameSessionQueueDestinationList')
         visited = visited + ['GameSessionQueueDestinationList']
         [
-          Stubs::GameSessionQueueDestination.default(visited)
+          GameSessionQueueDestination.default(visited)
         ]
       end
 
@@ -880,7 +880,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PlayerLatencyPolicyList')
         visited = visited + ['PlayerLatencyPolicyList']
         [
-          Stubs::PlayerLatencyPolicy.default(visited)
+          PlayerLatencyPolicy.default(visited)
         ]
       end
 
@@ -918,7 +918,7 @@ module AWS::SDK::GameLift
     class CreateMatchmakingConfiguration
       def self.default(visited=[])
         {
-          configuration: Stubs::MatchmakingConfiguration.default(visited),
+          configuration: MatchmakingConfiguration.default(visited),
         }
       end
 
@@ -939,7 +939,7 @@ module AWS::SDK::GameLift
           name: 'name',
           configuration_arn: 'configuration_arn',
           description: 'description',
-          game_session_queue_arns: Stubs::QueueArnsList.default(visited),
+          game_session_queue_arns: QueueArnsList.default(visited),
           request_timeout_seconds: 1,
           acceptance_timeout_seconds: 1,
           acceptance_required: false,
@@ -949,7 +949,7 @@ module AWS::SDK::GameLift
           additional_player_count: 1,
           custom_event_data: 'custom_event_data',
           creation_time: Time.now,
-          game_properties: Stubs::GamePropertyList.default(visited),
+          game_properties: GamePropertyList.default(visited),
           game_session_data: 'game_session_data',
           backfill_mode: 'backfill_mode',
           flex_match_mode: 'flex_match_mode',
@@ -1004,7 +1004,7 @@ module AWS::SDK::GameLift
     class CreateMatchmakingRuleSet
       def self.default(visited=[])
         {
-          rule_set: Stubs::MatchmakingRuleSet.default(visited),
+          rule_set: MatchmakingRuleSet.default(visited),
         }
       end
 
@@ -1044,7 +1044,7 @@ module AWS::SDK::GameLift
     class CreatePlayerSession
       def self.default(visited=[])
         {
-          player_session: Stubs::PlayerSession.default(visited),
+          player_session: PlayerSession.default(visited),
         }
       end
 
@@ -1100,7 +1100,7 @@ module AWS::SDK::GameLift
     class CreatePlayerSessions
       def self.default(visited=[])
         {
-          player_sessions: Stubs::PlayerSessionList.default(visited),
+          player_sessions: PlayerSessionList.default(visited),
         }
       end
 
@@ -1118,7 +1118,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PlayerSessionList')
         visited = visited + ['PlayerSessionList']
         [
-          Stubs::PlayerSession.default(visited)
+          PlayerSession.default(visited)
         ]
       end
 
@@ -1136,7 +1136,7 @@ module AWS::SDK::GameLift
     class CreateScript
       def self.default(visited=[])
         {
-          script: Stubs::Script.default(visited),
+          script: Script.default(visited),
         }
       end
 
@@ -1160,7 +1160,7 @@ module AWS::SDK::GameLift
           version: 'version',
           size_on_disk: 1,
           creation_time: Time.now,
-          storage_location: Stubs::S3Location.default(visited),
+          storage_location: S3Location.default(visited),
         }
       end
 
@@ -1182,7 +1182,7 @@ module AWS::SDK::GameLift
     class CreateVpcPeeringAuthorization
       def self.default(visited=[])
         {
-          vpc_peering_authorization: Stubs::VpcPeeringAuthorization.default(visited),
+          vpc_peering_authorization: VpcPeeringAuthorization.default(visited),
         }
       end
 
@@ -1282,7 +1282,7 @@ module AWS::SDK::GameLift
         {
           fleet_id: 'fleet_id',
           fleet_arn: 'fleet_arn',
-          location_states: Stubs::LocationStateList.default(visited),
+          location_states: LocationStateList.default(visited),
         }
       end
 
@@ -1300,7 +1300,7 @@ module AWS::SDK::GameLift
     class DeleteGameServerGroup
       def self.default(visited=[])
         {
-          game_server_group: Stubs::GameServerGroup.default(visited),
+          game_server_group: GameServerGroup.default(visited),
         }
       end
 
@@ -1428,7 +1428,7 @@ module AWS::SDK::GameLift
     class DescribeAlias
       def self.default(visited=[])
         {
-          alias: Stubs::Alias.default(visited),
+          alias: Alias.default(visited),
         }
       end
 
@@ -1444,7 +1444,7 @@ module AWS::SDK::GameLift
     class DescribeBuild
       def self.default(visited=[])
         {
-          build: Stubs::Build.default(visited),
+          build: Build.default(visited),
         }
       end
 
@@ -1460,7 +1460,7 @@ module AWS::SDK::GameLift
     class DescribeEC2InstanceLimits
       def self.default(visited=[])
         {
-          ec2_instance_limits: Stubs::EC2InstanceLimitList.default(visited),
+          ec2_instance_limits: EC2InstanceLimitList.default(visited),
         }
       end
 
@@ -1478,7 +1478,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('EC2InstanceLimitList')
         visited = visited + ['EC2InstanceLimitList']
         [
-          Stubs::EC2InstanceLimit.default(visited)
+          EC2InstanceLimit.default(visited)
         ]
       end
 
@@ -1520,7 +1520,7 @@ module AWS::SDK::GameLift
     class DescribeFleetAttributes
       def self.default(visited=[])
         {
-          fleet_attributes: Stubs::FleetAttributesList.default(visited),
+          fleet_attributes: FleetAttributesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1540,7 +1540,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('FleetAttributesList')
         visited = visited + ['FleetAttributesList']
         [
-          Stubs::FleetAttributes.default(visited)
+          FleetAttributes.default(visited)
         ]
       end
 
@@ -1558,7 +1558,7 @@ module AWS::SDK::GameLift
     class DescribeFleetCapacity
       def self.default(visited=[])
         {
-          fleet_capacity: Stubs::FleetCapacityList.default(visited),
+          fleet_capacity: FleetCapacityList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1578,7 +1578,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('FleetCapacityList')
         visited = visited + ['FleetCapacityList']
         [
-          Stubs::FleetCapacity.default(visited)
+          FleetCapacity.default(visited)
         ]
       end
 
@@ -1601,7 +1601,7 @@ module AWS::SDK::GameLift
           fleet_id: 'fleet_id',
           fleet_arn: 'fleet_arn',
           instance_type: 'instance_type',
-          instance_counts: Stubs::EC2InstanceCounts.default(visited),
+          instance_counts: EC2InstanceCounts.default(visited),
           location: 'location',
         }
       end
@@ -1652,7 +1652,7 @@ module AWS::SDK::GameLift
     class DescribeFleetEvents
       def self.default(visited=[])
         {
-          events: Stubs::EventList.default(visited),
+          events: EventList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1672,7 +1672,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
-          Stubs::Event.default(visited)
+          Event.default(visited)
         ]
       end
 
@@ -1720,7 +1720,7 @@ module AWS::SDK::GameLift
         {
           fleet_id: 'fleet_id',
           fleet_arn: 'fleet_arn',
-          location_attributes: Stubs::LocationAttributesList.default(visited),
+          location_attributes: LocationAttributesList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1742,7 +1742,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('LocationAttributesList')
         visited = visited + ['LocationAttributesList']
         [
-          Stubs::LocationAttributes.default(visited)
+          LocationAttributes.default(visited)
         ]
       end
 
@@ -1762,8 +1762,8 @@ module AWS::SDK::GameLift
         return nil if visited.include?('LocationAttributes')
         visited = visited + ['LocationAttributes']
         {
-          location_state: Stubs::LocationState.default(visited),
-          stopped_actions: Stubs::FleetActionList.default(visited),
+          location_state: LocationState.default(visited),
+          stopped_actions: FleetActionList.default(visited),
           update_status: 'update_status',
         }
       end
@@ -1782,7 +1782,7 @@ module AWS::SDK::GameLift
     class DescribeFleetLocationCapacity
       def self.default(visited=[])
         {
-          fleet_capacity: Stubs::FleetCapacity.default(visited),
+          fleet_capacity: FleetCapacity.default(visited),
         }
       end
 
@@ -1798,7 +1798,7 @@ module AWS::SDK::GameLift
     class DescribeFleetLocationUtilization
       def self.default(visited=[])
         {
-          fleet_utilization: Stubs::FleetUtilization.default(visited),
+          fleet_utilization: FleetUtilization.default(visited),
         }
       end
 
@@ -1846,7 +1846,7 @@ module AWS::SDK::GameLift
         {
           fleet_id: 'fleet_id',
           fleet_arn: 'fleet_arn',
-          inbound_permissions: Stubs::IpPermissionsList.default(visited),
+          inbound_permissions: IpPermissionsList.default(visited),
           update_status: 'update_status',
           location: 'location',
         }
@@ -1870,7 +1870,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('IpPermissionsList')
         visited = visited + ['IpPermissionsList']
         [
-          Stubs::IpPermission.default(visited)
+          IpPermission.default(visited)
         ]
       end
 
@@ -1912,7 +1912,7 @@ module AWS::SDK::GameLift
     class DescribeFleetUtilization
       def self.default(visited=[])
         {
-          fleet_utilization: Stubs::FleetUtilizationList.default(visited),
+          fleet_utilization: FleetUtilizationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1932,7 +1932,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('FleetUtilizationList')
         visited = visited + ['FleetUtilizationList']
         [
-          Stubs::FleetUtilization.default(visited)
+          FleetUtilization.default(visited)
         ]
       end
 
@@ -1950,7 +1950,7 @@ module AWS::SDK::GameLift
     class DescribeGameServer
       def self.default(visited=[])
         {
-          game_server: Stubs::GameServer.default(visited),
+          game_server: GameServer.default(visited),
         }
       end
 
@@ -1966,7 +1966,7 @@ module AWS::SDK::GameLift
     class DescribeGameServerGroup
       def self.default(visited=[])
         {
-          game_server_group: Stubs::GameServerGroup.default(visited),
+          game_server_group: GameServerGroup.default(visited),
         }
       end
 
@@ -1982,7 +1982,7 @@ module AWS::SDK::GameLift
     class DescribeGameServerInstances
       def self.default(visited=[])
         {
-          game_server_instances: Stubs::GameServerInstances.default(visited),
+          game_server_instances: GameServerInstances.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2002,7 +2002,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameServerInstances')
         visited = visited + ['GameServerInstances']
         [
-          Stubs::GameServerInstance.default(visited)
+          GameServerInstance.default(visited)
         ]
       end
 
@@ -2044,7 +2044,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessionDetails
       def self.default(visited=[])
         {
-          game_session_details: Stubs::GameSessionDetailList.default(visited),
+          game_session_details: GameSessionDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2064,7 +2064,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameSessionDetailList')
         visited = visited + ['GameSessionDetailList']
         [
-          Stubs::GameSessionDetail.default(visited)
+          GameSessionDetail.default(visited)
         ]
       end
 
@@ -2084,7 +2084,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameSessionDetail')
         visited = visited + ['GameSessionDetail']
         {
-          game_session: Stubs::GameSession.default(visited),
+          game_session: GameSession.default(visited),
           protection_policy: 'protection_policy',
         }
       end
@@ -2102,7 +2102,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessionPlacement
       def self.default(visited=[])
         {
-          game_session_placement: Stubs::GameSessionPlacement.default(visited),
+          game_session_placement: GameSessionPlacement.default(visited),
         }
       end
 
@@ -2123,19 +2123,19 @@ module AWS::SDK::GameLift
           placement_id: 'placement_id',
           game_session_queue_name: 'game_session_queue_name',
           status: 'status',
-          game_properties: Stubs::GamePropertyList.default(visited),
+          game_properties: GamePropertyList.default(visited),
           maximum_player_session_count: 1,
           game_session_name: 'game_session_name',
           game_session_id: 'game_session_id',
           game_session_arn: 'game_session_arn',
           game_session_region: 'game_session_region',
-          player_latencies: Stubs::PlayerLatencyList.default(visited),
+          player_latencies: PlayerLatencyList.default(visited),
           start_time: Time.now,
           end_time: Time.now,
           ip_address: 'ip_address',
           dns_name: 'dns_name',
           port: 1,
-          placed_player_sessions: Stubs::PlacedPlayerSessionList.default(visited),
+          placed_player_sessions: PlacedPlayerSessionList.default(visited),
           game_session_data: 'game_session_data',
           matchmaker_data: 'matchmaker_data',
         }
@@ -2172,7 +2172,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PlacedPlayerSessionList')
         visited = visited + ['PlacedPlayerSessionList']
         [
-          Stubs::PlacedPlayerSession.default(visited)
+          PlacedPlayerSession.default(visited)
         ]
       end
 
@@ -2212,7 +2212,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PlayerLatencyList')
         visited = visited + ['PlayerLatencyList']
         [
-          Stubs::PlayerLatency.default(visited)
+          PlayerLatency.default(visited)
         ]
       end
 
@@ -2252,7 +2252,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessionQueues
       def self.default(visited=[])
         {
-          game_session_queues: Stubs::GameSessionQueueList.default(visited),
+          game_session_queues: GameSessionQueueList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2272,7 +2272,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameSessionQueueList')
         visited = visited + ['GameSessionQueueList']
         [
-          Stubs::GameSessionQueue.default(visited)
+          GameSessionQueue.default(visited)
         ]
       end
 
@@ -2290,7 +2290,7 @@ module AWS::SDK::GameLift
     class DescribeGameSessions
       def self.default(visited=[])
         {
-          game_sessions: Stubs::GameSessionList.default(visited),
+          game_sessions: GameSessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2310,7 +2310,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameSessionList')
         visited = visited + ['GameSessionList']
         [
-          Stubs::GameSession.default(visited)
+          GameSession.default(visited)
         ]
       end
 
@@ -2328,7 +2328,7 @@ module AWS::SDK::GameLift
     class DescribeInstances
       def self.default(visited=[])
         {
-          instances: Stubs::InstanceList.default(visited),
+          instances: InstanceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2348,7 +2348,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('InstanceList')
         visited = visited + ['InstanceList']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -2402,7 +2402,7 @@ module AWS::SDK::GameLift
     class DescribeMatchmaking
       def self.default(visited=[])
         {
-          ticket_list: Stubs::MatchmakingTicketList.default(visited),
+          ticket_list: MatchmakingTicketList.default(visited),
         }
       end
 
@@ -2420,7 +2420,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('MatchmakingTicketList')
         visited = visited + ['MatchmakingTicketList']
         [
-          Stubs::MatchmakingTicket.default(visited)
+          MatchmakingTicket.default(visited)
         ]
       end
 
@@ -2448,8 +2448,8 @@ module AWS::SDK::GameLift
           status_message: 'status_message',
           start_time: Time.now,
           end_time: Time.now,
-          players: Stubs::PlayerList.default(visited),
-          game_session_connection_info: Stubs::GameSessionConnectionInfo.default(visited),
+          players: PlayerList.default(visited),
+          game_session_connection_info: GameSessionConnectionInfo.default(visited),
           estimated_wait_time: 1,
         }
       end
@@ -2482,7 +2482,7 @@ module AWS::SDK::GameLift
           ip_address: 'ip_address',
           dns_name: 'dns_name',
           port: 1,
-          matched_player_sessions: Stubs::MatchedPlayerSessionList.default(visited),
+          matched_player_sessions: MatchedPlayerSessionList.default(visited),
         }
       end
 
@@ -2504,7 +2504,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('MatchedPlayerSessionList')
         visited = visited + ['MatchedPlayerSessionList']
         [
-          Stubs::MatchedPlayerSession.default(visited)
+          MatchedPlayerSession.default(visited)
         ]
       end
 
@@ -2544,7 +2544,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PlayerList')
         visited = visited + ['PlayerList']
         [
-          Stubs::Player.default(visited)
+          Player.default(visited)
         ]
       end
 
@@ -2565,9 +2565,9 @@ module AWS::SDK::GameLift
         visited = visited + ['Player']
         {
           player_id: 'player_id',
-          player_attributes: Stubs::PlayerAttributeMap.default(visited),
+          player_attributes: PlayerAttributeMap.default(visited),
           team: 'team',
-          latency_in_ms: Stubs::LatencyMap.default(visited),
+          latency_in_ms: LatencyMap.default(visited),
         }
       end
 
@@ -2608,7 +2608,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('PlayerAttributeMap')
         visited = visited + ['PlayerAttributeMap']
         {
-          test_key: Stubs::AttributeValue.default(visited)
+          test_key: AttributeValue.default(visited)
         }
       end
 
@@ -2630,8 +2630,8 @@ module AWS::SDK::GameLift
         {
           s: 's',
           n: 1.0,
-          sl: Stubs::StringList.default(visited),
-          sdm: Stubs::StringDoubleMap.default(visited),
+          sl: StringList.default(visited),
+          sdm: StringDoubleMap.default(visited),
         }
       end
 
@@ -2670,7 +2670,7 @@ module AWS::SDK::GameLift
     class DescribeMatchmakingConfigurations
       def self.default(visited=[])
         {
-          configurations: Stubs::MatchmakingConfigurationList.default(visited),
+          configurations: MatchmakingConfigurationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2690,7 +2690,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('MatchmakingConfigurationList')
         visited = visited + ['MatchmakingConfigurationList']
         [
-          Stubs::MatchmakingConfiguration.default(visited)
+          MatchmakingConfiguration.default(visited)
         ]
       end
 
@@ -2708,7 +2708,7 @@ module AWS::SDK::GameLift
     class DescribeMatchmakingRuleSets
       def self.default(visited=[])
         {
-          rule_sets: Stubs::MatchmakingRuleSetList.default(visited),
+          rule_sets: MatchmakingRuleSetList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2728,7 +2728,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('MatchmakingRuleSetList')
         visited = visited + ['MatchmakingRuleSetList']
         [
-          Stubs::MatchmakingRuleSet.default(visited)
+          MatchmakingRuleSet.default(visited)
         ]
       end
 
@@ -2746,7 +2746,7 @@ module AWS::SDK::GameLift
     class DescribePlayerSessions
       def self.default(visited=[])
         {
-          player_sessions: Stubs::PlayerSessionList.default(visited),
+          player_sessions: PlayerSessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2764,7 +2764,7 @@ module AWS::SDK::GameLift
     class DescribeRuntimeConfiguration
       def self.default(visited=[])
         {
-          runtime_configuration: Stubs::RuntimeConfiguration.default(visited),
+          runtime_configuration: RuntimeConfiguration.default(visited),
         }
       end
 
@@ -2782,7 +2782,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('RuntimeConfiguration')
         visited = visited + ['RuntimeConfiguration']
         {
-          server_processes: Stubs::ServerProcessList.default(visited),
+          server_processes: ServerProcessList.default(visited),
           max_concurrent_game_session_activations: 1,
           game_session_activation_timeout_seconds: 1,
         }
@@ -2804,7 +2804,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('ServerProcessList')
         visited = visited + ['ServerProcessList']
         [
-          Stubs::ServerProcess.default(visited)
+          ServerProcess.default(visited)
         ]
       end
 
@@ -2844,7 +2844,7 @@ module AWS::SDK::GameLift
     class DescribeScalingPolicies
       def self.default(visited=[])
         {
-          scaling_policies: Stubs::ScalingPolicyList.default(visited),
+          scaling_policies: ScalingPolicyList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2864,7 +2864,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('ScalingPolicyList')
         visited = visited + ['ScalingPolicyList']
         [
-          Stubs::ScalingPolicy.default(visited)
+          ScalingPolicy.default(visited)
         ]
       end
 
@@ -2895,7 +2895,7 @@ module AWS::SDK::GameLift
           evaluation_periods: 1,
           metric_name: 'metric_name',
           policy_type: 'policy_type',
-          target_configuration: Stubs::TargetConfiguration.default(visited),
+          target_configuration: TargetConfiguration.default(visited),
           update_status: 'update_status',
           location: 'location',
         }
@@ -2944,7 +2944,7 @@ module AWS::SDK::GameLift
     class DescribeScript
       def self.default(visited=[])
         {
-          script: Stubs::Script.default(visited),
+          script: Script.default(visited),
         }
       end
 
@@ -2960,7 +2960,7 @@ module AWS::SDK::GameLift
     class DescribeVpcPeeringAuthorizations
       def self.default(visited=[])
         {
-          vpc_peering_authorizations: Stubs::VpcPeeringAuthorizationList.default(visited),
+          vpc_peering_authorizations: VpcPeeringAuthorizationList.default(visited),
         }
       end
 
@@ -2978,7 +2978,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('VpcPeeringAuthorizationList')
         visited = visited + ['VpcPeeringAuthorizationList']
         [
-          Stubs::VpcPeeringAuthorization.default(visited)
+          VpcPeeringAuthorization.default(visited)
         ]
       end
 
@@ -2996,7 +2996,7 @@ module AWS::SDK::GameLift
     class DescribeVpcPeeringConnections
       def self.default(visited=[])
         {
-          vpc_peering_connections: Stubs::VpcPeeringConnectionList.default(visited),
+          vpc_peering_connections: VpcPeeringConnectionList.default(visited),
         }
       end
 
@@ -3014,7 +3014,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('VpcPeeringConnectionList')
         visited = visited + ['VpcPeeringConnectionList']
         [
-          Stubs::VpcPeeringConnection.default(visited)
+          VpcPeeringConnection.default(visited)
         ]
       end
 
@@ -3038,7 +3038,7 @@ module AWS::SDK::GameLift
           fleet_arn: 'fleet_arn',
           ip_v4_cidr_block: 'ip_v4_cidr_block',
           vpc_peering_connection_id: 'vpc_peering_connection_id',
-          status: Stubs::VpcPeeringConnectionStatus.default(visited),
+          status: VpcPeeringConnectionStatus.default(visited),
           peer_vpc_id: 'peer_vpc_id',
           game_lift_vpc_id: 'game_lift_vpc_id',
         }
@@ -3098,7 +3098,7 @@ module AWS::SDK::GameLift
     class GetInstanceAccess
       def self.default(visited=[])
         {
-          instance_access: Stubs::InstanceAccess.default(visited),
+          instance_access: InstanceAccess.default(visited),
         }
       end
 
@@ -3120,7 +3120,7 @@ module AWS::SDK::GameLift
           instance_id: 'instance_id',
           ip_address: 'ip_address',
           operating_system: 'operating_system',
-          credentials: Stubs::InstanceCredentials.default(visited),
+          credentials: InstanceCredentials.default(visited),
         }
       end
 
@@ -3160,7 +3160,7 @@ module AWS::SDK::GameLift
     class ListAliases
       def self.default(visited=[])
         {
-          aliases: Stubs::AliasList.default(visited),
+          aliases: AliasList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3180,7 +3180,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('AliasList')
         visited = visited + ['AliasList']
         [
-          Stubs::Alias.default(visited)
+          Alias.default(visited)
         ]
       end
 
@@ -3198,7 +3198,7 @@ module AWS::SDK::GameLift
     class ListBuilds
       def self.default(visited=[])
         {
-          builds: Stubs::BuildList.default(visited),
+          builds: BuildList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3218,7 +3218,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('BuildList')
         visited = visited + ['BuildList']
         [
-          Stubs::Build.default(visited)
+          Build.default(visited)
         ]
       end
 
@@ -3236,7 +3236,7 @@ module AWS::SDK::GameLift
     class ListFleets
       def self.default(visited=[])
         {
-          fleet_ids: Stubs::FleetIdList.default(visited),
+          fleet_ids: FleetIdList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3274,7 +3274,7 @@ module AWS::SDK::GameLift
     class ListGameServerGroups
       def self.default(visited=[])
         {
-          game_server_groups: Stubs::GameServerGroups.default(visited),
+          game_server_groups: GameServerGroups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3294,7 +3294,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameServerGroups')
         visited = visited + ['GameServerGroups']
         [
-          Stubs::GameServerGroup.default(visited)
+          GameServerGroup.default(visited)
         ]
       end
 
@@ -3312,7 +3312,7 @@ module AWS::SDK::GameLift
     class ListGameServers
       def self.default(visited=[])
         {
-          game_servers: Stubs::GameServers.default(visited),
+          game_servers: GameServers.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3332,7 +3332,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('GameServers')
         visited = visited + ['GameServers']
         [
-          Stubs::GameServer.default(visited)
+          GameServer.default(visited)
         ]
       end
 
@@ -3350,7 +3350,7 @@ module AWS::SDK::GameLift
     class ListScripts
       def self.default(visited=[])
         {
-          scripts: Stubs::ScriptList.default(visited),
+          scripts: ScriptList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3370,7 +3370,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('ScriptList')
         visited = visited + ['ScriptList']
         [
-          Stubs::Script.default(visited)
+          Script.default(visited)
         ]
       end
 
@@ -3388,7 +3388,7 @@ module AWS::SDK::GameLift
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -3406,7 +3406,7 @@ module AWS::SDK::GameLift
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -3460,7 +3460,7 @@ module AWS::SDK::GameLift
     class RegisterGameServer
       def self.default(visited=[])
         {
-          game_server: Stubs::GameServer.default(visited),
+          game_server: GameServer.default(visited),
         }
       end
 
@@ -3476,8 +3476,8 @@ module AWS::SDK::GameLift
     class RequestUploadCredentials
       def self.default(visited=[])
         {
-          upload_credentials: Stubs::AwsCredentials.default(visited),
-          storage_location: Stubs::S3Location.default(visited),
+          upload_credentials: AwsCredentials.default(visited),
+          storage_location: S3Location.default(visited),
         }
       end
 
@@ -3512,7 +3512,7 @@ module AWS::SDK::GameLift
     class ResumeGameServerGroup
       def self.default(visited=[])
         {
-          game_server_group: Stubs::GameServerGroup.default(visited),
+          game_server_group: GameServerGroup.default(visited),
         }
       end
 
@@ -3528,7 +3528,7 @@ module AWS::SDK::GameLift
     class SearchGameSessions
       def self.default(visited=[])
         {
-          game_sessions: Stubs::GameSessionList.default(visited),
+          game_sessions: GameSessionList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3564,7 +3564,7 @@ module AWS::SDK::GameLift
     class StartGameSessionPlacement
       def self.default(visited=[])
         {
-          game_session_placement: Stubs::GameSessionPlacement.default(visited),
+          game_session_placement: GameSessionPlacement.default(visited),
         }
       end
 
@@ -3580,7 +3580,7 @@ module AWS::SDK::GameLift
     class StartMatchBackfill
       def self.default(visited=[])
         {
-          matchmaking_ticket: Stubs::MatchmakingTicket.default(visited),
+          matchmaking_ticket: MatchmakingTicket.default(visited),
         }
       end
 
@@ -3596,7 +3596,7 @@ module AWS::SDK::GameLift
     class StartMatchmaking
       def self.default(visited=[])
         {
-          matchmaking_ticket: Stubs::MatchmakingTicket.default(visited),
+          matchmaking_ticket: MatchmakingTicket.default(visited),
         }
       end
 
@@ -3630,7 +3630,7 @@ module AWS::SDK::GameLift
     class StopGameSessionPlacement
       def self.default(visited=[])
         {
-          game_session_placement: Stubs::GameSessionPlacement.default(visited),
+          game_session_placement: GameSessionPlacement.default(visited),
         }
       end
 
@@ -3660,7 +3660,7 @@ module AWS::SDK::GameLift
     class SuspendGameServerGroup
       def self.default(visited=[])
         {
-          game_server_group: Stubs::GameServerGroup.default(visited),
+          game_server_group: GameServerGroup.default(visited),
         }
       end
 
@@ -3704,7 +3704,7 @@ module AWS::SDK::GameLift
     class UpdateAlias
       def self.default(visited=[])
         {
-          alias: Stubs::Alias.default(visited),
+          alias: Alias.default(visited),
         }
       end
 
@@ -3720,7 +3720,7 @@ module AWS::SDK::GameLift
     class UpdateBuild
       def self.default(visited=[])
         {
-          build: Stubs::Build.default(visited),
+          build: Build.default(visited),
         }
       end
 
@@ -3788,7 +3788,7 @@ module AWS::SDK::GameLift
     class UpdateGameServer
       def self.default(visited=[])
         {
-          game_server: Stubs::GameServer.default(visited),
+          game_server: GameServer.default(visited),
         }
       end
 
@@ -3804,7 +3804,7 @@ module AWS::SDK::GameLift
     class UpdateGameServerGroup
       def self.default(visited=[])
         {
-          game_server_group: Stubs::GameServerGroup.default(visited),
+          game_server_group: GameServerGroup.default(visited),
         }
       end
 
@@ -3820,7 +3820,7 @@ module AWS::SDK::GameLift
     class UpdateGameSession
       def self.default(visited=[])
         {
-          game_session: Stubs::GameSession.default(visited),
+          game_session: GameSession.default(visited),
         }
       end
 
@@ -3836,7 +3836,7 @@ module AWS::SDK::GameLift
     class UpdateGameSessionQueue
       def self.default(visited=[])
         {
-          game_session_queue: Stubs::GameSessionQueue.default(visited),
+          game_session_queue: GameSessionQueue.default(visited),
         }
       end
 
@@ -3852,7 +3852,7 @@ module AWS::SDK::GameLift
     class UpdateMatchmakingConfiguration
       def self.default(visited=[])
         {
-          configuration: Stubs::MatchmakingConfiguration.default(visited),
+          configuration: MatchmakingConfiguration.default(visited),
         }
       end
 
@@ -3868,7 +3868,7 @@ module AWS::SDK::GameLift
     class UpdateRuntimeConfiguration
       def self.default(visited=[])
         {
-          runtime_configuration: Stubs::RuntimeConfiguration.default(visited),
+          runtime_configuration: RuntimeConfiguration.default(visited),
         }
       end
 
@@ -3884,7 +3884,7 @@ module AWS::SDK::GameLift
     class UpdateScript
       def self.default(visited=[])
         {
-          script: Stubs::Script.default(visited),
+          script: Script.default(visited),
         }
       end
 

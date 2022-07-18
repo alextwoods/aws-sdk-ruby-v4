@@ -117,11 +117,11 @@ module AWS::SDK::Route53RecoveryCluster
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # @!attribute control_panel_arn
@@ -300,11 +300,11 @@ module AWS::SDK::Route53RecoveryCluster
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.retry_after_seconds ||= 0
       end
-
     end
 
     # <p>A routing control state entry.</p>

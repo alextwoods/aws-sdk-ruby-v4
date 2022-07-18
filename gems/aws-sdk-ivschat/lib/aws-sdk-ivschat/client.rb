@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Ivschat
@@ -254,7 +256,7 @@ module AWS::SDK::Ivschat
     def create_chat_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateChatTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateChatTokenInput,
         validate_input: @config.validate_input
@@ -359,7 +361,7 @@ module AWS::SDK::Ivschat
     def create_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRoomInput,
         validate_input: @config.validate_input
@@ -442,7 +444,7 @@ module AWS::SDK::Ivschat
     def delete_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMessageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMessageInput,
         validate_input: @config.validate_input
@@ -510,7 +512,7 @@ module AWS::SDK::Ivschat
     def delete_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRoomInput,
         validate_input: @config.validate_input
@@ -589,7 +591,7 @@ module AWS::SDK::Ivschat
     def disconnect_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectUserInput,
         validate_input: @config.validate_input
@@ -670,7 +672,7 @@ module AWS::SDK::Ivschat
     def get_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoomInput,
         validate_input: @config.validate_input
@@ -765,7 +767,7 @@ module AWS::SDK::Ivschat
     def list_rooms(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRoomsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRoomsInput,
         validate_input: @config.validate_input
@@ -835,7 +837,7 @@ module AWS::SDK::Ivschat
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -917,7 +919,7 @@ module AWS::SDK::Ivschat
     def send_event(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SendEventInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendEventInput,
         validate_input: @config.validate_input
@@ -991,7 +993,7 @@ module AWS::SDK::Ivschat
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1065,7 +1067,7 @@ module AWS::SDK::Ivschat
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1168,7 +1170,7 @@ module AWS::SDK::Ivschat
     def update_room(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRoomInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRoomInput,
         validate_input: @config.validate_input

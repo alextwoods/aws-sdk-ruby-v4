@@ -35,7 +35,7 @@ module AWS::SDK::EMR
       def self.default(visited=[])
         {
           job_flow_id: 'job_flow_id',
-          instance_group_ids: Stubs::InstanceGroupIdsList.default(visited),
+          instance_group_ids: InstanceGroupIdsList.default(visited),
           cluster_arn: 'cluster_arn',
         }
       end
@@ -74,7 +74,7 @@ module AWS::SDK::EMR
     class AddJobFlowSteps
       def self.default(visited=[])
         {
-          step_ids: Stubs::StepIdsList.default(visited),
+          step_ids: StepIdsList.default(visited),
         }
       end
 
@@ -124,7 +124,7 @@ module AWS::SDK::EMR
     class CancelSteps
       def self.default(visited=[])
         {
-          cancel_steps_info_list: Stubs::CancelStepsInfoList.default(visited),
+          cancel_steps_info_list: CancelStepsInfoList.default(visited),
         }
       end
 
@@ -142,7 +142,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('CancelStepsInfoList')
         visited = visited + ['CancelStepsInfoList']
         [
-          Stubs::CancelStepsInfo.default(visited)
+          CancelStepsInfo.default(visited)
         ]
       end
 
@@ -274,7 +274,7 @@ module AWS::SDK::EMR
     class DescribeCluster
       def self.default(visited=[])
         {
-          cluster: Stubs::Cluster.default(visited),
+          cluster: Cluster.default(visited),
         }
       end
 
@@ -294,8 +294,8 @@ module AWS::SDK::EMR
         {
           id: 'id',
           name: 'name',
-          status: Stubs::ClusterStatus.default(visited),
-          ec2_instance_attributes: Stubs::Ec2InstanceAttributes.default(visited),
+          status: ClusterStatus.default(visited),
+          ec2_instance_attributes: Ec2InstanceAttributes.default(visited),
           instance_collection_type: 'instance_collection_type',
           log_uri: 'log_uri',
           log_encryption_kms_key_id: 'log_encryption_kms_key_id',
@@ -305,23 +305,23 @@ module AWS::SDK::EMR
           auto_terminate: false,
           termination_protected: false,
           visible_to_all_users: false,
-          applications: Stubs::ApplicationList.default(visited),
-          tags: Stubs::TagList.default(visited),
+          applications: ApplicationList.default(visited),
+          tags: TagList.default(visited),
           service_role: 'service_role',
           normalized_instance_hours: 1,
           master_public_dns_name: 'master_public_dns_name',
-          configurations: Stubs::ConfigurationList.default(visited),
+          configurations: ConfigurationList.default(visited),
           security_configuration: 'security_configuration',
           auto_scaling_role: 'auto_scaling_role',
           scale_down_behavior: 'scale_down_behavior',
           custom_ami_id: 'custom_ami_id',
           ebs_root_volume_size: 1,
           repo_upgrade_on_boot: 'repo_upgrade_on_boot',
-          kerberos_attributes: Stubs::KerberosAttributes.default(visited),
+          kerberos_attributes: KerberosAttributes.default(visited),
           cluster_arn: 'cluster_arn',
           outpost_arn: 'outpost_arn',
           step_concurrency_level: 1,
-          placement_groups: Stubs::PlacementGroupConfigList.default(visited),
+          placement_groups: PlacementGroupConfigList.default(visited),
           os_release_label: 'os_release_label',
         }
       end
@@ -370,7 +370,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('PlacementGroupConfigList')
         visited = visited + ['PlacementGroupConfigList']
         [
-          Stubs::PlacementGroupConfig.default(visited)
+          PlacementGroupConfig.default(visited)
         ]
       end
 
@@ -436,7 +436,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('ConfigurationList')
         visited = visited + ['ConfigurationList']
         [
-          Stubs::Configuration.default(visited)
+          Configuration.default(visited)
         ]
       end
 
@@ -457,8 +457,8 @@ module AWS::SDK::EMR
         visited = visited + ['Configuration']
         {
           classification: 'classification',
-          configurations: Stubs::ConfigurationList.default(visited),
-          properties: Stubs::StringMap.default(visited),
+          configurations: ConfigurationList.default(visited),
+          properties: StringMap.default(visited),
         }
       end
 
@@ -498,7 +498,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -538,7 +538,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('ApplicationList')
         visited = visited + ['ApplicationList']
         [
-          Stubs::Application.default(visited)
+          Application.default(visited)
         ]
       end
 
@@ -560,8 +560,8 @@ module AWS::SDK::EMR
         {
           name: 'name',
           version: 'version',
-          args: Stubs::StringList.default(visited),
-          additional_info: Stubs::StringMap.default(visited),
+          args: StringList.default(visited),
+          additional_info: StringMap.default(visited),
         }
       end
 
@@ -604,15 +604,15 @@ module AWS::SDK::EMR
         {
           ec2_key_name: 'ec2_key_name',
           ec2_subnet_id: 'ec2_subnet_id',
-          requested_ec2_subnet_ids: Stubs::XmlStringMaxLen256List.default(visited),
+          requested_ec2_subnet_ids: XmlStringMaxLen256List.default(visited),
           ec2_availability_zone: 'ec2_availability_zone',
-          requested_ec2_availability_zones: Stubs::XmlStringMaxLen256List.default(visited),
+          requested_ec2_availability_zones: XmlStringMaxLen256List.default(visited),
           iam_instance_profile: 'iam_instance_profile',
           emr_managed_master_security_group: 'emr_managed_master_security_group',
           emr_managed_slave_security_group: 'emr_managed_slave_security_group',
           service_access_security_group: 'service_access_security_group',
-          additional_master_security_groups: Stubs::StringList.default(visited),
-          additional_slave_security_groups: Stubs::StringList.default(visited),
+          additional_master_security_groups: StringList.default(visited),
+          additional_slave_security_groups: StringList.default(visited),
         }
       end
 
@@ -661,8 +661,8 @@ module AWS::SDK::EMR
         visited = visited + ['ClusterStatus']
         {
           state: 'state',
-          state_change_reason: Stubs::ClusterStateChangeReason.default(visited),
-          timeline: Stubs::ClusterTimeline.default(visited),
+          state_change_reason: ClusterStateChangeReason.default(visited),
+          timeline: ClusterTimeline.default(visited),
         }
       end
 
@@ -722,7 +722,7 @@ module AWS::SDK::EMR
     class DescribeJobFlows
       def self.default(visited=[])
         {
-          job_flows: Stubs::JobFlowDetailList.default(visited),
+          job_flows: JobFlowDetailList.default(visited),
         }
       end
 
@@ -740,7 +740,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('JobFlowDetailList')
         visited = visited + ['JobFlowDetailList']
         [
-          Stubs::JobFlowDetail.default(visited)
+          JobFlowDetail.default(visited)
         ]
       end
 
@@ -765,11 +765,11 @@ module AWS::SDK::EMR
           log_uri: 'log_uri',
           log_encryption_kms_key_id: 'log_encryption_kms_key_id',
           ami_version: 'ami_version',
-          execution_status_detail: Stubs::JobFlowExecutionStatusDetail.default(visited),
-          instances: Stubs::JobFlowInstancesDetail.default(visited),
-          steps: Stubs::StepDetailList.default(visited),
-          bootstrap_actions: Stubs::BootstrapActionDetailList.default(visited),
-          supported_products: Stubs::SupportedProductsList.default(visited),
+          execution_status_detail: JobFlowExecutionStatusDetail.default(visited),
+          instances: JobFlowInstancesDetail.default(visited),
+          steps: StepDetailList.default(visited),
+          bootstrap_actions: BootstrapActionDetailList.default(visited),
+          supported_products: SupportedProductsList.default(visited),
           visible_to_all_users: false,
           job_flow_role: 'job_flow_role',
           service_role: 'service_role',
@@ -826,7 +826,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('BootstrapActionDetailList')
         visited = visited + ['BootstrapActionDetailList']
         [
-          Stubs::BootstrapActionDetail.default(visited)
+          BootstrapActionDetail.default(visited)
         ]
       end
 
@@ -846,7 +846,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('BootstrapActionDetail')
         visited = visited + ['BootstrapActionDetail']
         {
-          bootstrap_action_config: Stubs::BootstrapActionConfig.default(visited),
+          bootstrap_action_config: BootstrapActionConfig.default(visited),
         }
       end
 
@@ -865,7 +865,7 @@ module AWS::SDK::EMR
         visited = visited + ['BootstrapActionConfig']
         {
           name: 'name',
-          script_bootstrap_action: Stubs::ScriptBootstrapActionConfig.default(visited),
+          script_bootstrap_action: ScriptBootstrapActionConfig.default(visited),
         }
       end
 
@@ -885,7 +885,7 @@ module AWS::SDK::EMR
         visited = visited + ['ScriptBootstrapActionConfig']
         {
           path: 'path',
-          args: Stubs::XmlStringList.default(visited),
+          args: XmlStringList.default(visited),
         }
       end
 
@@ -924,7 +924,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('StepDetailList')
         visited = visited + ['StepDetailList']
         [
-          Stubs::StepDetail.default(visited)
+          StepDetail.default(visited)
         ]
       end
 
@@ -944,8 +944,8 @@ module AWS::SDK::EMR
         return nil if visited.include?('StepDetail')
         visited = visited + ['StepDetail']
         {
-          step_config: Stubs::StepConfig.default(visited),
-          execution_status_detail: Stubs::StepExecutionStatusDetail.default(visited),
+          step_config: StepConfig.default(visited),
+          execution_status_detail: StepExecutionStatusDetail.default(visited),
         }
       end
 
@@ -992,7 +992,7 @@ module AWS::SDK::EMR
         {
           name: 'name',
           action_on_failure: 'action_on_failure',
-          hadoop_jar_step: Stubs::HadoopJarStepConfig.default(visited),
+          hadoop_jar_step: HadoopJarStepConfig.default(visited),
         }
       end
 
@@ -1012,10 +1012,10 @@ module AWS::SDK::EMR
         return nil if visited.include?('HadoopJarStepConfig')
         visited = visited + ['HadoopJarStepConfig']
         {
-          properties: Stubs::KeyValueList.default(visited),
+          properties: KeyValueList.default(visited),
           jar: 'jar',
           main_class: 'main_class',
-          args: Stubs::XmlStringList.default(visited),
+          args: XmlStringList.default(visited),
         }
       end
 
@@ -1036,7 +1036,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('KeyValueList')
         visited = visited + ['KeyValueList']
         [
-          Stubs::KeyValue.default(visited)
+          KeyValue.default(visited)
         ]
       end
 
@@ -1081,11 +1081,11 @@ module AWS::SDK::EMR
           master_instance_id: 'master_instance_id',
           slave_instance_type: 'slave_instance_type',
           instance_count: 1,
-          instance_groups: Stubs::InstanceGroupDetailList.default(visited),
+          instance_groups: InstanceGroupDetailList.default(visited),
           normalized_instance_hours: 1,
           ec2_key_name: 'ec2_key_name',
           ec2_subnet_id: 'ec2_subnet_id',
-          placement: Stubs::PlacementType.default(visited),
+          placement: PlacementType.default(visited),
           keep_job_flow_alive_when_no_steps: false,
           termination_protected: false,
           hadoop_version: 'hadoop_version',
@@ -1119,7 +1119,7 @@ module AWS::SDK::EMR
         visited = visited + ['PlacementType']
         {
           availability_zone: 'availability_zone',
-          availability_zones: Stubs::XmlStringMaxLen256List.default(visited),
+          availability_zones: XmlStringMaxLen256List.default(visited),
         }
       end
 
@@ -1138,7 +1138,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceGroupDetailList')
         visited = visited + ['InstanceGroupDetailList']
         [
-          Stubs::InstanceGroupDetail.default(visited)
+          InstanceGroupDetail.default(visited)
         ]
       end
 
@@ -1230,7 +1230,7 @@ module AWS::SDK::EMR
     class DescribeNotebookExecution
       def self.default(visited=[])
         {
-          notebook_execution: Stubs::NotebookExecution.default(visited),
+          notebook_execution: NotebookExecution.default(visited),
         }
       end
 
@@ -1250,7 +1250,7 @@ module AWS::SDK::EMR
         {
           notebook_execution_id: 'notebook_execution_id',
           editor_id: 'editor_id',
-          execution_engine: Stubs::ExecutionEngineConfig.default(visited),
+          execution_engine: ExecutionEngineConfig.default(visited),
           notebook_execution_name: 'notebook_execution_name',
           notebook_params: 'notebook_params',
           status: 'status',
@@ -1260,7 +1260,7 @@ module AWS::SDK::EMR
           output_notebook_uri: 'output_notebook_uri',
           last_state_change_reason: 'last_state_change_reason',
           notebook_instance_security_group_id: 'notebook_instance_security_group_id',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1311,9 +1311,9 @@ module AWS::SDK::EMR
       def self.default(visited=[])
         {
           release_label: 'release_label',
-          applications: Stubs::SimplifiedApplicationList.default(visited),
+          applications: SimplifiedApplicationList.default(visited),
           next_token: 'next_token',
-          available_os_releases: Stubs::OSReleaseList.default(visited),
+          available_os_releases: OSReleaseList.default(visited),
         }
       end
 
@@ -1334,7 +1334,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('OSReleaseList')
         visited = visited + ['OSReleaseList']
         [
-          Stubs::OSRelease.default(visited)
+          OSRelease.default(visited)
         ]
       end
 
@@ -1372,7 +1372,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('SimplifiedApplicationList')
         visited = visited + ['SimplifiedApplicationList']
         [
-          Stubs::SimplifiedApplication.default(visited)
+          SimplifiedApplication.default(visited)
         ]
       end
 
@@ -1430,7 +1430,7 @@ module AWS::SDK::EMR
     class DescribeStep
       def self.default(visited=[])
         {
-          step: Stubs::Step.default(visited),
+          step: Step.default(visited),
         }
       end
 
@@ -1450,9 +1450,9 @@ module AWS::SDK::EMR
         {
           id: 'id',
           name: 'name',
-          config: Stubs::HadoopStepConfig.default(visited),
+          config: HadoopStepConfig.default(visited),
           action_on_failure: 'action_on_failure',
-          status: Stubs::StepStatus.default(visited),
+          status: StepStatus.default(visited),
         }
       end
 
@@ -1475,9 +1475,9 @@ module AWS::SDK::EMR
         visited = visited + ['StepStatus']
         {
           state: 'state',
-          state_change_reason: Stubs::StepStateChangeReason.default(visited),
-          failure_details: Stubs::FailureDetails.default(visited),
-          timeline: Stubs::StepTimeline.default(visited),
+          state_change_reason: StepStateChangeReason.default(visited),
+          failure_details: FailureDetails.default(visited),
+          timeline: StepTimeline.default(visited),
         }
       end
 
@@ -1563,9 +1563,9 @@ module AWS::SDK::EMR
         visited = visited + ['HadoopStepConfig']
         {
           jar: 'jar',
-          properties: Stubs::StringMap.default(visited),
+          properties: StringMap.default(visited),
           main_class: 'main_class',
-          args: Stubs::StringList.default(visited),
+          args: StringList.default(visited),
         }
       end
 
@@ -1584,7 +1584,7 @@ module AWS::SDK::EMR
     class DescribeStudio
       def self.default(visited=[])
         {
-          studio: Stubs::Studio.default(visited),
+          studio: Studio.default(visited),
         }
       end
 
@@ -1608,7 +1608,7 @@ module AWS::SDK::EMR
           description: 'description',
           auth_mode: 'auth_mode',
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIdList.default(visited),
+          subnet_ids: SubnetIdList.default(visited),
           service_role: 'service_role',
           user_role: 'user_role',
           workspace_security_group_id: 'workspace_security_group_id',
@@ -1618,7 +1618,7 @@ module AWS::SDK::EMR
           default_s3_location: 'default_s3_location',
           idp_auth_url: 'idp_auth_url',
           idp_relay_state_parameter_name: 'idp_relay_state_parameter_name',
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -1670,7 +1670,7 @@ module AWS::SDK::EMR
     class GetAutoTerminationPolicy
       def self.default(visited=[])
         {
-          auto_termination_policy: Stubs::AutoTerminationPolicy.default(visited),
+          auto_termination_policy: AutoTerminationPolicy.default(visited),
         }
       end
 
@@ -1704,8 +1704,8 @@ module AWS::SDK::EMR
     class GetBlockPublicAccessConfiguration
       def self.default(visited=[])
         {
-          block_public_access_configuration: Stubs::BlockPublicAccessConfiguration.default(visited),
-          block_public_access_configuration_metadata: Stubs::BlockPublicAccessConfigurationMetadata.default(visited),
+          block_public_access_configuration: BlockPublicAccessConfiguration.default(visited),
+          block_public_access_configuration_metadata: BlockPublicAccessConfigurationMetadata.default(visited),
         }
       end
 
@@ -1745,10 +1745,10 @@ module AWS::SDK::EMR
         visited = visited + ['BlockPublicAccessConfiguration']
         {
           block_public_security_group_rules: false,
-          permitted_public_security_group_rule_ranges: Stubs::PortRanges.default(visited),
+          permitted_public_security_group_rule_ranges: PortRanges.default(visited),
           classification: 'classification',
-          configurations: Stubs::ConfigurationList.default(visited),
-          properties: Stubs::StringMap.default(visited),
+          configurations: ConfigurationList.default(visited),
+          properties: StringMap.default(visited),
         }
       end
 
@@ -1770,7 +1770,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('PortRanges')
         visited = visited + ['PortRanges']
         [
-          Stubs::PortRange.default(visited)
+          PortRange.default(visited)
         ]
       end
 
@@ -1808,7 +1808,7 @@ module AWS::SDK::EMR
     class GetManagedScalingPolicy
       def self.default(visited=[])
         {
-          managed_scaling_policy: Stubs::ManagedScalingPolicy.default(visited),
+          managed_scaling_policy: ManagedScalingPolicy.default(visited),
         }
       end
 
@@ -1826,7 +1826,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('ManagedScalingPolicy')
         visited = visited + ['ManagedScalingPolicy']
         {
-          compute_limits: Stubs::ComputeLimits.default(visited),
+          compute_limits: ComputeLimits.default(visited),
         }
       end
 
@@ -1868,7 +1868,7 @@ module AWS::SDK::EMR
     class GetStudioSessionMapping
       def self.default(visited=[])
         {
-          session_mapping: Stubs::SessionMappingDetail.default(visited),
+          session_mapping: SessionMappingDetail.default(visited),
         }
       end
 
@@ -1914,7 +1914,7 @@ module AWS::SDK::EMR
     class ListBootstrapActions
       def self.default(visited=[])
         {
-          bootstrap_actions: Stubs::CommandList.default(visited),
+          bootstrap_actions: CommandList.default(visited),
           marker: 'marker',
         }
       end
@@ -1934,7 +1934,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('CommandList')
         visited = visited + ['CommandList']
         [
-          Stubs::Command.default(visited)
+          Command.default(visited)
         ]
       end
 
@@ -1956,7 +1956,7 @@ module AWS::SDK::EMR
         {
           name: 'name',
           script_path: 'script_path',
-          args: Stubs::StringList.default(visited),
+          args: StringList.default(visited),
         }
       end
 
@@ -1974,7 +1974,7 @@ module AWS::SDK::EMR
     class ListClusters
       def self.default(visited=[])
         {
-          clusters: Stubs::ClusterSummaryList.default(visited),
+          clusters: ClusterSummaryList.default(visited),
           marker: 'marker',
         }
       end
@@ -1994,7 +1994,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('ClusterSummaryList')
         visited = visited + ['ClusterSummaryList']
         [
-          Stubs::ClusterSummary.default(visited)
+          ClusterSummary.default(visited)
         ]
       end
 
@@ -2016,7 +2016,7 @@ module AWS::SDK::EMR
         {
           id: 'id',
           name: 'name',
-          status: Stubs::ClusterStatus.default(visited),
+          status: ClusterStatus.default(visited),
           normalized_instance_hours: 1,
           cluster_arn: 'cluster_arn',
           outpost_arn: 'outpost_arn',
@@ -2040,7 +2040,7 @@ module AWS::SDK::EMR
     class ListInstanceFleets
       def self.default(visited=[])
         {
-          instance_fleets: Stubs::InstanceFleetList.default(visited),
+          instance_fleets: InstanceFleetList.default(visited),
           marker: 'marker',
         }
       end
@@ -2060,7 +2060,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceFleetList')
         visited = visited + ['InstanceFleetList']
         [
-          Stubs::InstanceFleet.default(visited)
+          InstanceFleet.default(visited)
         ]
       end
 
@@ -2082,14 +2082,14 @@ module AWS::SDK::EMR
         {
           id: 'id',
           name: 'name',
-          status: Stubs::InstanceFleetStatus.default(visited),
+          status: InstanceFleetStatus.default(visited),
           instance_fleet_type: 'instance_fleet_type',
           target_on_demand_capacity: 1,
           target_spot_capacity: 1,
           provisioned_on_demand_capacity: 1,
           provisioned_spot_capacity: 1,
-          instance_type_specifications: Stubs::InstanceTypeSpecificationList.default(visited),
-          launch_specifications: Stubs::InstanceFleetProvisioningSpecifications.default(visited),
+          instance_type_specifications: InstanceTypeSpecificationList.default(visited),
+          launch_specifications: InstanceFleetProvisioningSpecifications.default(visited),
         }
       end
 
@@ -2116,8 +2116,8 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceFleetProvisioningSpecifications')
         visited = visited + ['InstanceFleetProvisioningSpecifications']
         {
-          spot_specification: Stubs::SpotProvisioningSpecification.default(visited),
-          on_demand_specification: Stubs::OnDemandProvisioningSpecification.default(visited),
+          spot_specification: SpotProvisioningSpecification.default(visited),
+          on_demand_specification: OnDemandProvisioningSpecification.default(visited),
         }
       end
 
@@ -2137,7 +2137,7 @@ module AWS::SDK::EMR
         visited = visited + ['OnDemandProvisioningSpecification']
         {
           allocation_strategy: 'allocation_strategy',
-          capacity_reservation_options: Stubs::OnDemandCapacityReservationOptions.default(visited),
+          capacity_reservation_options: OnDemandCapacityReservationOptions.default(visited),
         }
       end
 
@@ -2202,7 +2202,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceTypeSpecificationList')
         visited = visited + ['InstanceTypeSpecificationList']
         [
-          Stubs::InstanceTypeSpecification.default(visited)
+          InstanceTypeSpecification.default(visited)
         ]
       end
 
@@ -2226,8 +2226,8 @@ module AWS::SDK::EMR
           weighted_capacity: 1,
           bid_price: 'bid_price',
           bid_price_as_percentage_of_on_demand_price: 1.0,
-          configurations: Stubs::ConfigurationList.default(visited),
-          ebs_block_devices: Stubs::EbsBlockDeviceList.default(visited),
+          configurations: ConfigurationList.default(visited),
+          ebs_block_devices: EbsBlockDeviceList.default(visited),
           ebs_optimized: false,
           custom_ami_id: 'custom_ami_id',
         }
@@ -2254,7 +2254,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('EbsBlockDeviceList')
         visited = visited + ['EbsBlockDeviceList']
         [
-          Stubs::EbsBlockDevice.default(visited)
+          EbsBlockDevice.default(visited)
         ]
       end
 
@@ -2274,7 +2274,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('EbsBlockDevice')
         visited = visited + ['EbsBlockDevice']
         {
-          volume_specification: Stubs::VolumeSpecification.default(visited),
+          volume_specification: VolumeSpecification.default(visited),
           device: 'device',
         }
       end
@@ -2317,8 +2317,8 @@ module AWS::SDK::EMR
         visited = visited + ['InstanceFleetStatus']
         {
           state: 'state',
-          state_change_reason: Stubs::InstanceFleetStateChangeReason.default(visited),
-          timeline: Stubs::InstanceFleetTimeline.default(visited),
+          state_change_reason: InstanceFleetStateChangeReason.default(visited),
+          timeline: InstanceFleetTimeline.default(visited),
         }
       end
 
@@ -2378,7 +2378,7 @@ module AWS::SDK::EMR
     class ListInstanceGroups
       def self.default(visited=[])
         {
-          instance_groups: Stubs::InstanceGroupList.default(visited),
+          instance_groups: InstanceGroupList.default(visited),
           marker: 'marker',
         }
       end
@@ -2398,7 +2398,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceGroupList')
         visited = visited + ['InstanceGroupList']
         [
-          Stubs::InstanceGroup.default(visited)
+          InstanceGroup.default(visited)
         ]
       end
 
@@ -2426,15 +2426,15 @@ module AWS::SDK::EMR
           instance_type: 'instance_type',
           requested_instance_count: 1,
           running_instance_count: 1,
-          status: Stubs::InstanceGroupStatus.default(visited),
-          configurations: Stubs::ConfigurationList.default(visited),
+          status: InstanceGroupStatus.default(visited),
+          configurations: ConfigurationList.default(visited),
           configurations_version: 1,
-          last_successfully_applied_configurations: Stubs::ConfigurationList.default(visited),
+          last_successfully_applied_configurations: ConfigurationList.default(visited),
           last_successfully_applied_configurations_version: 1,
-          ebs_block_devices: Stubs::EbsBlockDeviceList.default(visited),
+          ebs_block_devices: EbsBlockDeviceList.default(visited),
           ebs_optimized: false,
-          shrink_policy: Stubs::ShrinkPolicy.default(visited),
-          auto_scaling_policy: Stubs::AutoScalingPolicyDescription.default(visited),
+          shrink_policy: ShrinkPolicy.default(visited),
+          auto_scaling_policy: AutoScalingPolicyDescription.default(visited),
           custom_ami_id: 'custom_ami_id',
         }
       end
@@ -2470,9 +2470,9 @@ module AWS::SDK::EMR
         return nil if visited.include?('AutoScalingPolicyDescription')
         visited = visited + ['AutoScalingPolicyDescription']
         {
-          status: Stubs::AutoScalingPolicyStatus.default(visited),
-          constraints: Stubs::ScalingConstraints.default(visited),
-          rules: Stubs::ScalingRuleList.default(visited),
+          status: AutoScalingPolicyStatus.default(visited),
+          constraints: ScalingConstraints.default(visited),
+          rules: ScalingRuleList.default(visited),
         }
       end
 
@@ -2492,7 +2492,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('ScalingRuleList')
         visited = visited + ['ScalingRuleList']
         [
-          Stubs::ScalingRule.default(visited)
+          ScalingRule.default(visited)
         ]
       end
 
@@ -2514,8 +2514,8 @@ module AWS::SDK::EMR
         {
           name: 'name',
           description: 'description',
-          action: Stubs::ScalingAction.default(visited),
-          trigger: Stubs::ScalingTrigger.default(visited),
+          action: ScalingAction.default(visited),
+          trigger: ScalingTrigger.default(visited),
         }
       end
 
@@ -2536,7 +2536,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('ScalingTrigger')
         visited = visited + ['ScalingTrigger']
         {
-          cloud_watch_alarm_definition: Stubs::CloudWatchAlarmDefinition.default(visited),
+          cloud_watch_alarm_definition: CloudWatchAlarmDefinition.default(visited),
         }
       end
 
@@ -2562,7 +2562,7 @@ module AWS::SDK::EMR
           statistic: 'statistic',
           threshold: 1.0,
           unit: 'unit',
-          dimensions: Stubs::MetricDimensionList.default(visited),
+          dimensions: MetricDimensionList.default(visited),
         }
       end
 
@@ -2588,7 +2588,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('MetricDimensionList')
         visited = visited + ['MetricDimensionList']
         [
-          Stubs::MetricDimension.default(visited)
+          MetricDimension.default(visited)
         ]
       end
 
@@ -2629,7 +2629,7 @@ module AWS::SDK::EMR
         visited = visited + ['ScalingAction']
         {
           market: 'market',
-          simple_scaling_policy_configuration: Stubs::SimpleScalingPolicyConfiguration.default(visited),
+          simple_scaling_policy_configuration: SimpleScalingPolicyConfiguration.default(visited),
         }
       end
 
@@ -2691,7 +2691,7 @@ module AWS::SDK::EMR
         visited = visited + ['AutoScalingPolicyStatus']
         {
           state: 'state',
-          state_change_reason: Stubs::AutoScalingPolicyStateChangeReason.default(visited),
+          state_change_reason: AutoScalingPolicyStateChangeReason.default(visited),
         }
       end
 
@@ -2731,7 +2731,7 @@ module AWS::SDK::EMR
         visited = visited + ['ShrinkPolicy']
         {
           decommission_timeout: 1,
-          instance_resize_policy: Stubs::InstanceResizePolicy.default(visited),
+          instance_resize_policy: InstanceResizePolicy.default(visited),
         }
       end
 
@@ -2750,8 +2750,8 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceResizePolicy')
         visited = visited + ['InstanceResizePolicy']
         {
-          instances_to_terminate: Stubs::EC2InstanceIdsList.default(visited),
-          instances_to_protect: Stubs::EC2InstanceIdsList.default(visited),
+          instances_to_terminate: EC2InstanceIdsList.default(visited),
+          instances_to_protect: EC2InstanceIdsList.default(visited),
           instance_termination_timeout: 1,
         }
       end
@@ -2793,8 +2793,8 @@ module AWS::SDK::EMR
         visited = visited + ['InstanceGroupStatus']
         {
           state: 'state',
-          state_change_reason: Stubs::InstanceGroupStateChangeReason.default(visited),
-          timeline: Stubs::InstanceGroupTimeline.default(visited),
+          state_change_reason: InstanceGroupStateChangeReason.default(visited),
+          timeline: InstanceGroupTimeline.default(visited),
         }
       end
 
@@ -2854,7 +2854,7 @@ module AWS::SDK::EMR
     class ListInstances
       def self.default(visited=[])
         {
-          instances: Stubs::InstanceList.default(visited),
+          instances: InstanceList.default(visited),
           marker: 'marker',
         }
       end
@@ -2874,7 +2874,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('InstanceList')
         visited = visited + ['InstanceList']
         [
-          Stubs::Instance.default(visited)
+          Instance.default(visited)
         ]
       end
 
@@ -2900,12 +2900,12 @@ module AWS::SDK::EMR
           public_ip_address: 'public_ip_address',
           private_dns_name: 'private_dns_name',
           private_ip_address: 'private_ip_address',
-          status: Stubs::InstanceStatus.default(visited),
+          status: InstanceStatus.default(visited),
           instance_group_id: 'instance_group_id',
           instance_fleet_id: 'instance_fleet_id',
           market: 'market',
           instance_type: 'instance_type',
-          ebs_volumes: Stubs::EbsVolumeList.default(visited),
+          ebs_volumes: EbsVolumeList.default(visited),
         }
       end
 
@@ -2934,7 +2934,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('EbsVolumeList')
         visited = visited + ['EbsVolumeList']
         [
-          Stubs::EbsVolume.default(visited)
+          EbsVolume.default(visited)
         ]
       end
 
@@ -2975,8 +2975,8 @@ module AWS::SDK::EMR
         visited = visited + ['InstanceStatus']
         {
           state: 'state',
-          state_change_reason: Stubs::InstanceStateChangeReason.default(visited),
-          timeline: Stubs::InstanceTimeline.default(visited),
+          state_change_reason: InstanceStateChangeReason.default(visited),
+          timeline: InstanceTimeline.default(visited),
         }
       end
 
@@ -3036,7 +3036,7 @@ module AWS::SDK::EMR
     class ListNotebookExecutions
       def self.default(visited=[])
         {
-          notebook_executions: Stubs::NotebookExecutionSummaryList.default(visited),
+          notebook_executions: NotebookExecutionSummaryList.default(visited),
           marker: 'marker',
         }
       end
@@ -3056,7 +3056,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('NotebookExecutionSummaryList')
         visited = visited + ['NotebookExecutionSummaryList']
         [
-          Stubs::NotebookExecutionSummary.default(visited)
+          NotebookExecutionSummary.default(visited)
         ]
       end
 
@@ -3102,7 +3102,7 @@ module AWS::SDK::EMR
     class ListReleaseLabels
       def self.default(visited=[])
         {
-          release_labels: Stubs::StringList.default(visited),
+          release_labels: StringList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -3120,7 +3120,7 @@ module AWS::SDK::EMR
     class ListSecurityConfigurations
       def self.default(visited=[])
         {
-          security_configurations: Stubs::SecurityConfigurationList.default(visited),
+          security_configurations: SecurityConfigurationList.default(visited),
           marker: 'marker',
         }
       end
@@ -3140,7 +3140,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('SecurityConfigurationList')
         visited = visited + ['SecurityConfigurationList']
         [
-          Stubs::SecurityConfigurationSummary.default(visited)
+          SecurityConfigurationSummary.default(visited)
         ]
       end
 
@@ -3178,7 +3178,7 @@ module AWS::SDK::EMR
     class ListSteps
       def self.default(visited=[])
         {
-          steps: Stubs::StepSummaryList.default(visited),
+          steps: StepSummaryList.default(visited),
           marker: 'marker',
         }
       end
@@ -3198,7 +3198,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('StepSummaryList')
         visited = visited + ['StepSummaryList']
         [
-          Stubs::StepSummary.default(visited)
+          StepSummary.default(visited)
         ]
       end
 
@@ -3220,9 +3220,9 @@ module AWS::SDK::EMR
         {
           id: 'id',
           name: 'name',
-          config: Stubs::HadoopStepConfig.default(visited),
+          config: HadoopStepConfig.default(visited),
           action_on_failure: 'action_on_failure',
-          status: Stubs::StepStatus.default(visited),
+          status: StepStatus.default(visited),
         }
       end
 
@@ -3242,7 +3242,7 @@ module AWS::SDK::EMR
     class ListStudioSessionMappings
       def self.default(visited=[])
         {
-          session_mappings: Stubs::SessionMappingSummaryList.default(visited),
+          session_mappings: SessionMappingSummaryList.default(visited),
           marker: 'marker',
         }
       end
@@ -3262,7 +3262,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('SessionMappingSummaryList')
         visited = visited + ['SessionMappingSummaryList']
         [
-          Stubs::SessionMappingSummary.default(visited)
+          SessionMappingSummary.default(visited)
         ]
       end
 
@@ -3308,7 +3308,7 @@ module AWS::SDK::EMR
     class ListStudios
       def self.default(visited=[])
         {
-          studios: Stubs::StudioSummaryList.default(visited),
+          studios: StudioSummaryList.default(visited),
           marker: 'marker',
         }
       end
@@ -3328,7 +3328,7 @@ module AWS::SDK::EMR
         return nil if visited.include?('StudioSummaryList')
         visited = visited + ['StudioSummaryList']
         [
-          Stubs::StudioSummary.default(visited)
+          StudioSummary.default(visited)
         ]
       end
 
@@ -3422,7 +3422,7 @@ module AWS::SDK::EMR
         {
           cluster_id: 'cluster_id',
           instance_group_id: 'instance_group_id',
-          auto_scaling_policy: Stubs::AutoScalingPolicyDescription.default(visited),
+          auto_scaling_policy: AutoScalingPolicyDescription.default(visited),
           cluster_arn: 'cluster_arn',
         }
       end

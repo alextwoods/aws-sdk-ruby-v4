@@ -28,7 +28,7 @@ module AWS::SDK::IoTSecureTunneling
     class DescribeTunnel
       def self.default(visited=[])
         {
-          tunnel: Stubs::Tunnel.default(visited),
+          tunnel: Tunnel.default(visited),
         }
       end
 
@@ -49,12 +49,12 @@ module AWS::SDK::IoTSecureTunneling
           tunnel_id: 'tunnel_id',
           tunnel_arn: 'tunnel_arn',
           status: 'status',
-          source_connection_state: Stubs::ConnectionState.default(visited),
-          destination_connection_state: Stubs::ConnectionState.default(visited),
+          source_connection_state: ConnectionState.default(visited),
+          destination_connection_state: ConnectionState.default(visited),
           description: 'description',
-          destination_config: Stubs::DestinationConfig.default(visited),
-          timeout_config: Stubs::TimeoutConfig.default(visited),
-          tags: Stubs::TagList.default(visited),
+          destination_config: DestinationConfig.default(visited),
+          timeout_config: TimeoutConfig.default(visited),
+          tags: TagList.default(visited),
           created_at: Time.now,
           last_updated_at: Time.now,
         }
@@ -84,7 +84,7 @@ module AWS::SDK::IoTSecureTunneling
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -143,7 +143,7 @@ module AWS::SDK::IoTSecureTunneling
         visited = visited + ['DestinationConfig']
         {
           thing_name: 'thing_name',
-          services: Stubs::ServiceList.default(visited),
+          services: ServiceList.default(visited),
         }
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::IoTSecureTunneling
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -216,7 +216,7 @@ module AWS::SDK::IoTSecureTunneling
     class ListTunnels
       def self.default(visited=[])
         {
-          tunnel_summaries: Stubs::TunnelSummaryList.default(visited),
+          tunnel_summaries: TunnelSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -236,7 +236,7 @@ module AWS::SDK::IoTSecureTunneling
         return nil if visited.include?('TunnelSummaryList')
         visited = visited + ['TunnelSummaryList']
         [
-          Stubs::TunnelSummary.default(visited)
+          TunnelSummary.default(visited)
         ]
       end
 

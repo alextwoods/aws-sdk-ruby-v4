@@ -96,7 +96,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateClusterInput, context: context)
         type = Types::CreateClusterInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.cluster_name = params[:cluster_name]
         type.tags = Map____mapOf__stringMin0Max256PatternS.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -116,7 +116,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateControlPanelInput, context: context)
         type = Types::CreateControlPanelInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.cluster_arn = params[:cluster_arn]
         type.control_panel_name = params[:control_panel_name]
         type.tags = Map____mapOf__stringMin0Max256PatternS.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -137,7 +137,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateRoutingControlInput, context: context)
         type = Types::CreateRoutingControlInput.new
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.cluster_arn = params[:cluster_arn]
         type.control_panel_arn = params[:control_panel_arn]
         type.routing_control_name = params[:routing_control_name]
@@ -159,7 +159,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         Hearth::Validator.validate!(params, ::Hash, Types::CreateSafetyRuleInput, context: context)
         type = Types::CreateSafetyRuleInput.new
         type.assertion_rule = NewAssertionRule.build(params[:assertion_rule], context: "#{context}[:assertion_rule]") unless params[:assertion_rule].nil?
-        type.client_token = params[:client_token] || SecureRandom.uuid
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.gating_rule = NewGatingRule.build(params[:gating_rule], context: "#{context}[:gating_rule]") unless params[:gating_rule].nil?
         type.tags = Map____mapOf__stringMin0Max256PatternS.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type

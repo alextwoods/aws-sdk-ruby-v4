@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::Redshift
@@ -104,7 +106,7 @@ module AWS::SDK::Redshift
     def accept_reserved_node_exchange(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AcceptReservedNodeExchangeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AcceptReservedNodeExchangeInput,
         validate_input: @config.validate_input
@@ -188,7 +190,7 @@ module AWS::SDK::Redshift
     def add_partner(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddPartnerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPartnerInput,
         validate_input: @config.validate_input
@@ -282,7 +284,7 @@ module AWS::SDK::Redshift
     def associate_data_share_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateDataShareConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateDataShareConsumerInput,
         validate_input: @config.validate_input
@@ -399,7 +401,7 @@ module AWS::SDK::Redshift
     def authorize_cluster_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeClusterSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeClusterSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -485,7 +487,7 @@ module AWS::SDK::Redshift
     def authorize_data_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeDataShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeDataShareInput,
         validate_input: @config.validate_input
@@ -573,7 +575,7 @@ module AWS::SDK::Redshift
     def authorize_endpoint_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeEndpointAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeEndpointAccessInput,
         validate_input: @config.validate_input
@@ -700,7 +702,7 @@ module AWS::SDK::Redshift
     def authorize_snapshot_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AuthorizeSnapshotAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AuthorizeSnapshotAccessInput,
         validate_input: @config.validate_input
@@ -781,7 +783,7 @@ module AWS::SDK::Redshift
     def batch_delete_cluster_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteClusterSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteClusterSnapshotsInput,
         validate_input: @config.validate_input
@@ -873,7 +875,7 @@ module AWS::SDK::Redshift
     def batch_modify_cluster_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchModifyClusterSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchModifyClusterSnapshotsInput,
         validate_input: @config.validate_input
@@ -961,7 +963,7 @@ module AWS::SDK::Redshift
     def cancel_resize(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelResizeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelResizeInput,
         validate_input: @config.validate_input
@@ -1130,7 +1132,7 @@ module AWS::SDK::Redshift
     def copy_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CopyClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -1205,7 +1207,7 @@ module AWS::SDK::Redshift
     def create_authentication_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAuthenticationProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAuthenticationProfileInput,
         validate_input: @config.validate_input
@@ -1770,7 +1772,7 @@ module AWS::SDK::Redshift
     def create_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterInput,
         validate_input: @config.validate_input
@@ -1895,7 +1897,7 @@ module AWS::SDK::Redshift
     def create_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -2014,7 +2016,7 @@ module AWS::SDK::Redshift
     def create_cluster_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterSecurityGroupInput,
         validate_input: @config.validate_input
@@ -2169,7 +2171,7 @@ module AWS::SDK::Redshift
     def create_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -2296,7 +2298,7 @@ module AWS::SDK::Redshift
     def create_cluster_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateClusterSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateClusterSubnetGroupInput,
         validate_input: @config.validate_input
@@ -2407,7 +2409,7 @@ module AWS::SDK::Redshift
     def create_endpoint_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEndpointAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEndpointAccessInput,
         validate_input: @config.validate_input
@@ -2577,7 +2579,7 @@ module AWS::SDK::Redshift
     def create_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -2669,7 +2671,7 @@ module AWS::SDK::Redshift
     def create_hsm_client_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHsmClientCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHsmClientCertificateInput,
         validate_input: @config.validate_input
@@ -2783,7 +2785,7 @@ module AWS::SDK::Redshift
     def create_hsm_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateHsmConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateHsmConfigurationInput,
         validate_input: @config.validate_input
@@ -2928,7 +2930,7 @@ module AWS::SDK::Redshift
     def create_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateScheduledActionInput,
         validate_input: @config.validate_input
@@ -3043,7 +3045,7 @@ module AWS::SDK::Redshift
     def create_snapshot_copy_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotCopyGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotCopyGrantInput,
         validate_input: @config.validate_input
@@ -3155,7 +3157,7 @@ module AWS::SDK::Redshift
     def create_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateSnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateSnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -3242,7 +3244,7 @@ module AWS::SDK::Redshift
     def create_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTagsInput,
         validate_input: @config.validate_input
@@ -3359,7 +3361,7 @@ module AWS::SDK::Redshift
     def create_usage_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUsageLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUsageLimitInput,
         validate_input: @config.validate_input
@@ -3443,7 +3445,7 @@ module AWS::SDK::Redshift
     def deauthorize_data_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeauthorizeDataShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeauthorizeDataShareInput,
         validate_input: @config.validate_input
@@ -3512,7 +3514,7 @@ module AWS::SDK::Redshift
     def delete_authentication_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAuthenticationProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAuthenticationProfileInput,
         validate_input: @config.validate_input
@@ -3788,7 +3790,7 @@ module AWS::SDK::Redshift
     def delete_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterInput,
         validate_input: @config.validate_input
@@ -3869,7 +3871,7 @@ module AWS::SDK::Redshift
     def delete_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -3945,7 +3947,7 @@ module AWS::SDK::Redshift
     def delete_cluster_security_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterSecurityGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterSecurityGroupInput,
         validate_input: @config.validate_input
@@ -4071,7 +4073,7 @@ module AWS::SDK::Redshift
     def delete_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -4139,7 +4141,7 @@ module AWS::SDK::Redshift
     def delete_cluster_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteClusterSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteClusterSubnetGroupInput,
         validate_input: @config.validate_input
@@ -4228,7 +4230,7 @@ module AWS::SDK::Redshift
     def delete_endpoint_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEndpointAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEndpointAccessInput,
         validate_input: @config.validate_input
@@ -4296,7 +4298,7 @@ module AWS::SDK::Redshift
     def delete_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -4364,7 +4366,7 @@ module AWS::SDK::Redshift
     def delete_hsm_client_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHsmClientCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHsmClientCertificateInput,
         validate_input: @config.validate_input
@@ -4432,7 +4434,7 @@ module AWS::SDK::Redshift
     def delete_hsm_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteHsmConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteHsmConfigurationInput,
         validate_input: @config.validate_input
@@ -4514,7 +4516,7 @@ module AWS::SDK::Redshift
     def delete_partner(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePartnerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePartnerInput,
         validate_input: @config.validate_input
@@ -4583,7 +4585,7 @@ module AWS::SDK::Redshift
     def delete_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteScheduledActionInput,
         validate_input: @config.validate_input
@@ -4651,7 +4653,7 @@ module AWS::SDK::Redshift
     def delete_snapshot_copy_grant(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotCopyGrantInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotCopyGrantInput,
         validate_input: @config.validate_input
@@ -4719,7 +4721,7 @@ module AWS::SDK::Redshift
     def delete_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -4795,7 +4797,7 @@ module AWS::SDK::Redshift
     def delete_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTagsInput,
         validate_input: @config.validate_input
@@ -4863,7 +4865,7 @@ module AWS::SDK::Redshift
     def delete_usage_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUsageLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUsageLimitInput,
         validate_input: @config.validate_input
@@ -4939,7 +4941,7 @@ module AWS::SDK::Redshift
     def describe_account_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAttributesInput,
         validate_input: @config.validate_input
@@ -5011,7 +5013,7 @@ module AWS::SDK::Redshift
     def describe_authentication_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAuthenticationProfilesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAuthenticationProfilesInput,
         validate_input: @config.validate_input
@@ -5113,7 +5115,7 @@ module AWS::SDK::Redshift
     def describe_cluster_db_revisions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterDbRevisionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterDbRevisionsInput,
         validate_input: @config.validate_input
@@ -5250,7 +5252,7 @@ module AWS::SDK::Redshift
     def describe_cluster_parameter_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterParameterGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterParameterGroupsInput,
         validate_input: @config.validate_input
@@ -5369,7 +5371,7 @@ module AWS::SDK::Redshift
     def describe_cluster_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterParametersInput,
         validate_input: @config.validate_input
@@ -5516,7 +5518,7 @@ module AWS::SDK::Redshift
     def describe_cluster_security_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterSecurityGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterSecurityGroupsInput,
         validate_input: @config.validate_input
@@ -5755,7 +5757,7 @@ module AWS::SDK::Redshift
     def describe_cluster_snapshots(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterSnapshotsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterSnapshotsInput,
         validate_input: @config.validate_input
@@ -5894,7 +5896,7 @@ module AWS::SDK::Redshift
     def describe_cluster_subnet_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterSubnetGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterSubnetGroupsInput,
         validate_input: @config.validate_input
@@ -5987,7 +5989,7 @@ module AWS::SDK::Redshift
     def describe_cluster_tracks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterTracksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterTracksInput,
         validate_input: @config.validate_input
@@ -6104,7 +6106,7 @@ module AWS::SDK::Redshift
     def describe_cluster_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClusterVersionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClusterVersionsInput,
         validate_input: @config.validate_input
@@ -6368,7 +6370,7 @@ module AWS::SDK::Redshift
     def describe_clusters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeClustersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeClustersInput,
         validate_input: @config.validate_input
@@ -6462,7 +6464,7 @@ module AWS::SDK::Redshift
     def describe_data_shares(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSharesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSharesInput,
         validate_input: @config.validate_input
@@ -6565,7 +6567,7 @@ module AWS::SDK::Redshift
     def describe_data_shares_for_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSharesForConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSharesForConsumerInput,
         validate_input: @config.validate_input
@@ -6668,7 +6670,7 @@ module AWS::SDK::Redshift
     def describe_data_shares_for_producer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataSharesForProducerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataSharesForProducerInput,
         validate_input: @config.validate_input
@@ -6774,7 +6776,7 @@ module AWS::SDK::Redshift
     def describe_default_cluster_parameters(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDefaultClusterParametersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDefaultClusterParametersInput,
         validate_input: @config.validate_input
@@ -6891,7 +6893,7 @@ module AWS::SDK::Redshift
     def describe_endpoint_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointAccessInput,
         validate_input: @config.validate_input
@@ -6996,7 +6998,7 @@ module AWS::SDK::Redshift
     def describe_endpoint_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointAuthorizationInput,
         validate_input: @config.validate_input
@@ -7078,7 +7080,7 @@ module AWS::SDK::Redshift
     def describe_event_categories(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventCategoriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventCategoriesInput,
         validate_input: @config.validate_input
@@ -7217,7 +7219,7 @@ module AWS::SDK::Redshift
     def describe_event_subscriptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventSubscriptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventSubscriptionsInput,
         validate_input: @config.validate_input
@@ -7393,7 +7395,7 @@ module AWS::SDK::Redshift
     def describe_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEventsInput,
         validate_input: @config.validate_input
@@ -7522,7 +7524,7 @@ module AWS::SDK::Redshift
     def describe_hsm_client_certificates(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHsmClientCertificatesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHsmClientCertificatesInput,
         validate_input: @config.validate_input
@@ -7654,7 +7656,7 @@ module AWS::SDK::Redshift
     def describe_hsm_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeHsmConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeHsmConfigurationsInput,
         validate_input: @config.validate_input
@@ -7734,7 +7736,7 @@ module AWS::SDK::Redshift
     def describe_logging_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLoggingStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLoggingStatusInput,
         validate_input: @config.validate_input
@@ -7859,7 +7861,7 @@ module AWS::SDK::Redshift
     def describe_node_configuration_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeNodeConfigurationOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeNodeConfigurationOptionsInput,
         validate_input: @config.validate_input
@@ -7974,7 +7976,7 @@ module AWS::SDK::Redshift
     def describe_orderable_cluster_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrderableClusterOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrderableClusterOptionsInput,
         validate_input: @config.validate_input
@@ -8062,7 +8064,7 @@ module AWS::SDK::Redshift
     def describe_partners(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePartnersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePartnersInput,
         validate_input: @config.validate_input
@@ -8162,7 +8164,7 @@ module AWS::SDK::Redshift
     def describe_reserved_node_exchange_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedNodeExchangeStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedNodeExchangeStatusInput,
         validate_input: @config.validate_input
@@ -8273,7 +8275,7 @@ module AWS::SDK::Redshift
     def describe_reserved_node_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedNodeOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedNodeOfferingsInput,
         validate_input: @config.validate_input
@@ -8379,7 +8381,7 @@ module AWS::SDK::Redshift
     def describe_reserved_nodes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeReservedNodesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeReservedNodesInput,
         validate_input: @config.validate_input
@@ -8474,7 +8476,7 @@ module AWS::SDK::Redshift
     def describe_resize(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResizeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResizeInput,
         validate_input: @config.validate_input
@@ -8617,7 +8619,7 @@ module AWS::SDK::Redshift
     def describe_scheduled_actions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeScheduledActionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeScheduledActionsInput,
         validate_input: @config.validate_input
@@ -8740,7 +8742,7 @@ module AWS::SDK::Redshift
     def describe_snapshot_copy_grants(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotCopyGrantsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotCopyGrantsInput,
         validate_input: @config.validate_input
@@ -8859,7 +8861,7 @@ module AWS::SDK::Redshift
     def describe_snapshot_schedules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeSnapshotSchedulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeSnapshotSchedulesInput,
         validate_input: @config.validate_input
@@ -8924,7 +8926,7 @@ module AWS::SDK::Redshift
     def describe_storage(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeStorageInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeStorageInput,
         validate_input: @config.validate_input
@@ -9034,7 +9036,7 @@ module AWS::SDK::Redshift
     def describe_table_restore_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableRestoreStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableRestoreStatusInput,
         validate_input: @config.validate_input
@@ -9210,7 +9212,7 @@ module AWS::SDK::Redshift
     def describe_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTagsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTagsInput,
         validate_input: @config.validate_input
@@ -9360,7 +9362,7 @@ module AWS::SDK::Redshift
     def describe_usage_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUsageLimitsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUsageLimitsInput,
         validate_input: @config.validate_input
@@ -9440,7 +9442,7 @@ module AWS::SDK::Redshift
     def disable_logging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableLoggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableLoggingInput,
         validate_input: @config.validate_input
@@ -9654,7 +9656,7 @@ module AWS::SDK::Redshift
     def disable_snapshot_copy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableSnapshotCopyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableSnapshotCopyInput,
         validate_input: @config.validate_input
@@ -9748,7 +9750,7 @@ module AWS::SDK::Redshift
     def disassociate_data_share_consumer(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisassociateDataShareConsumerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisassociateDataShareConsumerInput,
         validate_input: @config.validate_input
@@ -9882,7 +9884,7 @@ module AWS::SDK::Redshift
     def enable_logging(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableLoggingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableLoggingInput,
         validate_input: @config.validate_input
@@ -10118,7 +10120,7 @@ module AWS::SDK::Redshift
     def enable_snapshot_copy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableSnapshotCopyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableSnapshotCopyInput,
         validate_input: @config.validate_input
@@ -10310,7 +10312,7 @@ module AWS::SDK::Redshift
     def get_cluster_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetClusterCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetClusterCredentialsInput,
         validate_input: @config.validate_input
@@ -10403,7 +10405,7 @@ module AWS::SDK::Redshift
     def get_cluster_credentials_with_iam(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetClusterCredentialsWithIAMInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetClusterCredentialsWithIAMInput,
         validate_input: @config.validate_input
@@ -10527,7 +10529,7 @@ module AWS::SDK::Redshift
     def get_reserved_node_exchange_configuration_options(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReservedNodeExchangeConfigurationOptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReservedNodeExchangeConfigurationOptionsInput,
         validate_input: @config.validate_input
@@ -10622,7 +10624,7 @@ module AWS::SDK::Redshift
     def get_reserved_node_exchange_offerings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReservedNodeExchangeOfferingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReservedNodeExchangeOfferingsInput,
         validate_input: @config.validate_input
@@ -10708,7 +10710,7 @@ module AWS::SDK::Redshift
     def modify_aqua_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyAquaConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyAquaConfigurationInput,
         validate_input: @config.validate_input
@@ -10783,7 +10785,7 @@ module AWS::SDK::Redshift
     def modify_authentication_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyAuthenticationProfileInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyAuthenticationProfileInput,
         validate_input: @config.validate_input
@@ -11250,7 +11252,7 @@ module AWS::SDK::Redshift
     def modify_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterInput,
         validate_input: @config.validate_input
@@ -11465,7 +11467,7 @@ module AWS::SDK::Redshift
     def modify_cluster_db_revision(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterDbRevisionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterDbRevisionInput,
         validate_input: @config.validate_input
@@ -11691,7 +11693,7 @@ module AWS::SDK::Redshift
     def modify_cluster_iam_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterIamRolesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterIamRolesInput,
         validate_input: @config.validate_input
@@ -11920,7 +11922,7 @@ module AWS::SDK::Redshift
     def modify_cluster_maintenance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterMaintenanceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterMaintenanceInput,
         validate_input: @config.validate_input
@@ -12015,7 +12017,7 @@ module AWS::SDK::Redshift
     def modify_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -12139,7 +12141,7 @@ module AWS::SDK::Redshift
     def modify_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -12218,7 +12220,7 @@ module AWS::SDK::Redshift
     def modify_cluster_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterSnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterSnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -12316,7 +12318,7 @@ module AWS::SDK::Redshift
     def modify_cluster_subnet_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyClusterSubnetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyClusterSubnetGroupInput,
         validate_input: @config.validate_input
@@ -12411,7 +12413,7 @@ module AWS::SDK::Redshift
     def modify_endpoint_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyEndpointAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyEndpointAccessInput,
         validate_input: @config.validate_input
@@ -12540,7 +12542,7 @@ module AWS::SDK::Redshift
     def modify_event_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyEventSubscriptionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyEventSubscriptionInput,
         validate_input: @config.validate_input
@@ -12680,7 +12682,7 @@ module AWS::SDK::Redshift
     def modify_scheduled_action(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyScheduledActionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyScheduledActionInput,
         validate_input: @config.validate_input
@@ -12918,7 +12920,7 @@ module AWS::SDK::Redshift
     def modify_snapshot_copy_retention_period(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySnapshotCopyRetentionPeriodInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySnapshotCopyRetentionPeriodInput,
         validate_input: @config.validate_input
@@ -13009,7 +13011,7 @@ module AWS::SDK::Redshift
     def modify_snapshot_schedule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifySnapshotScheduleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifySnapshotScheduleInput,
         validate_input: @config.validate_input
@@ -13099,7 +13101,7 @@ module AWS::SDK::Redshift
     def modify_usage_limit(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ModifyUsageLimitInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ModifyUsageLimitInput,
         validate_input: @config.validate_input
@@ -13306,7 +13308,7 @@ module AWS::SDK::Redshift
     def pause_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PauseClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PauseClusterInput,
         validate_input: @config.validate_input
@@ -13405,7 +13407,7 @@ module AWS::SDK::Redshift
     def purchase_reserved_node_offering(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PurchaseReservedNodeOfferingInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurchaseReservedNodeOfferingInput,
         validate_input: @config.validate_input
@@ -13619,7 +13621,7 @@ module AWS::SDK::Redshift
     def reboot_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RebootClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RebootClusterInput,
         validate_input: @config.validate_input
@@ -13698,7 +13700,7 @@ module AWS::SDK::Redshift
     def reject_data_share(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectDataShareInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectDataShareInput,
         validate_input: @config.validate_input
@@ -13797,7 +13799,7 @@ module AWS::SDK::Redshift
     def reset_cluster_parameter_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResetClusterParameterGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResetClusterParameterGroupInput,
         validate_input: @config.validate_input
@@ -14072,7 +14074,7 @@ module AWS::SDK::Redshift
     def resize_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResizeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResizeClusterInput,
         validate_input: @config.validate_input
@@ -14536,7 +14538,7 @@ module AWS::SDK::Redshift
     def restore_from_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreFromClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreFromClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -14668,7 +14670,7 @@ module AWS::SDK::Redshift
     def restore_table_from_cluster_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableFromClusterSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableFromClusterSnapshotInput,
         validate_input: @config.validate_input
@@ -14875,7 +14877,7 @@ module AWS::SDK::Redshift
     def resume_cluster(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResumeClusterInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResumeClusterInput,
         validate_input: @config.validate_input
@@ -14988,7 +14990,7 @@ module AWS::SDK::Redshift
     def revoke_cluster_security_group_ingress(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeClusterSecurityGroupIngressInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeClusterSecurityGroupIngressInput,
         validate_input: @config.validate_input
@@ -15081,7 +15083,7 @@ module AWS::SDK::Redshift
     def revoke_endpoint_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeEndpointAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeEndpointAccessInput,
         validate_input: @config.validate_input
@@ -15208,7 +15210,7 @@ module AWS::SDK::Redshift
     def revoke_snapshot_access(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeSnapshotAccessInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeSnapshotAccessInput,
         validate_input: @config.validate_input
@@ -15418,7 +15420,7 @@ module AWS::SDK::Redshift
     def rotate_encryption_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RotateEncryptionKeyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RotateEncryptionKeyInput,
         validate_input: @config.validate_input
@@ -15508,7 +15510,7 @@ module AWS::SDK::Redshift
     def update_partner_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePartnerStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePartnerStatusInput,
         validate_input: @config.validate_input

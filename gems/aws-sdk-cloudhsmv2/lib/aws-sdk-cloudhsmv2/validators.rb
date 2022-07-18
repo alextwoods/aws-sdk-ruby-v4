@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::CloudHSMV2
   module Validators
 
@@ -23,7 +25,7 @@ module AWS::SDK::CloudHSMV2
         Hearth::Validator.validate!(input[:source_backup], ::String, context: "#{context}[:source_backup]")
         Hearth::Validator.validate!(input[:source_cluster], ::String, context: "#{context}[:source_cluster]")
         Hearth::Validator.validate!(input[:delete_timestamp], ::Time, context: "#{context}[:delete_timestamp]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -39,7 +41,7 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Backup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Backup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -101,20 +103,20 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Cluster, context: context)
         Hearth::Validator.validate!(input[:backup_policy], ::String, context: "#{context}[:backup_policy]")
-        Validators::BackupRetentionPolicy.validate!(input[:backup_retention_policy], context: "#{context}[:backup_retention_policy]") unless input[:backup_retention_policy].nil?
+        BackupRetentionPolicy.validate!(input[:backup_retention_policy], context: "#{context}[:backup_retention_policy]") unless input[:backup_retention_policy].nil?
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
         Hearth::Validator.validate!(input[:create_timestamp], ::Time, context: "#{context}[:create_timestamp]")
-        Validators::Hsms.validate!(input[:hsms], context: "#{context}[:hsms]") unless input[:hsms].nil?
+        Hsms.validate!(input[:hsms], context: "#{context}[:hsms]") unless input[:hsms].nil?
         Hearth::Validator.validate!(input[:hsm_type], ::String, context: "#{context}[:hsm_type]")
         Hearth::Validator.validate!(input[:pre_co_password], ::String, context: "#{context}[:pre_co_password]")
         Hearth::Validator.validate!(input[:security_group], ::String, context: "#{context}[:security_group]")
         Hearth::Validator.validate!(input[:source_backup_id], ::String, context: "#{context}[:source_backup_id]")
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:state_message], ::String, context: "#{context}[:state_message]")
-        Validators::ExternalSubnetMapping.validate!(input[:subnet_mapping], context: "#{context}[:subnet_mapping]") unless input[:subnet_mapping].nil?
+        ExternalSubnetMapping.validate!(input[:subnet_mapping], context: "#{context}[:subnet_mapping]") unless input[:subnet_mapping].nil?
         Hearth::Validator.validate!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
-        Validators::Certificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        Certificates.validate!(input[:certificates], context: "#{context}[:certificates]") unless input[:certificates].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Cluster.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -132,32 +134,32 @@ module AWS::SDK::CloudHSMV2
         Hearth::Validator.validate!(input, Types::CopyBackupToRegionInput, context: context)
         Hearth::Validator.validate!(input[:destination_region], ::String, context: "#{context}[:destination_region]")
         Hearth::Validator.validate!(input[:backup_id], ::String, context: "#{context}[:backup_id]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
     class CopyBackupToRegionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CopyBackupToRegionOutput, context: context)
-        Validators::DestinationBackup.validate!(input[:destination_backup], context: "#{context}[:destination_backup]") unless input[:destination_backup].nil?
+        DestinationBackup.validate!(input[:destination_backup], context: "#{context}[:destination_backup]") unless input[:destination_backup].nil?
       end
     end
 
     class CreateClusterInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterInput, context: context)
-        Validators::BackupRetentionPolicy.validate!(input[:backup_retention_policy], context: "#{context}[:backup_retention_policy]") unless input[:backup_retention_policy].nil?
+        BackupRetentionPolicy.validate!(input[:backup_retention_policy], context: "#{context}[:backup_retention_policy]") unless input[:backup_retention_policy].nil?
         Hearth::Validator.validate!(input[:hsm_type], ::String, context: "#{context}[:hsm_type]")
         Hearth::Validator.validate!(input[:source_backup_id], ::String, context: "#{context}[:source_backup_id]")
-        Validators::SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        SubnetIds.validate!(input[:subnet_ids], context: "#{context}[:subnet_ids]") unless input[:subnet_ids].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
     class CreateClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::CloudHSMV2
     class CreateHsmOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateHsmOutput, context: context)
-        Validators::Hsm.validate!(input[:hsm], context: "#{context}[:hsm]") unless input[:hsm].nil?
+        Hsm.validate!(input[:hsm], context: "#{context}[:hsm]") unless input[:hsm].nil?
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::CloudHSMV2
     class DeleteBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteBackupOutput, context: context)
-        Validators::Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
+        Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::CloudHSMV2
     class DeleteClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -227,7 +229,7 @@ module AWS::SDK::CloudHSMV2
         Hearth::Validator.validate!(input, Types::DescribeBackupsInput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:sort_ascending], ::TrueClass, ::FalseClass, context: "#{context}[:sort_ascending]")
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::CloudHSMV2
     class DescribeBackupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeBackupsOutput, context: context)
-        Validators::Backups.validate!(input[:backups], context: "#{context}[:backups]") unless input[:backups].nil?
+        Backups.validate!(input[:backups], context: "#{context}[:backups]") unless input[:backups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -243,7 +245,7 @@ module AWS::SDK::CloudHSMV2
     class DescribeClustersInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClustersInput, context: context)
-        Validators::Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Filters.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
       end
@@ -252,7 +254,7 @@ module AWS::SDK::CloudHSMV2
     class DescribeClustersOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeClustersOutput, context: context)
-        Validators::Clusters.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
+        Clusters.validate!(input[:clusters], context: "#{context}[:clusters]") unless input[:clusters].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -282,7 +284,7 @@ module AWS::SDK::CloudHSMV2
         Hearth::Validator.validate!(input, ::Hash, context: context)
         input.each do |key, value|
           Hearth::Validator.validate!(key, ::String, ::Symbol, context: "#{context}.keys")
-          Validators::Strings.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
+          Strings.validate!(value, context: "#{context}[:#{key}]") unless value.nil?
         end
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Hsm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Hsm.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::CloudHSMV2
     class ListTagsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsOutput, context: context)
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -355,14 +357,14 @@ module AWS::SDK::CloudHSMV2
     class ModifyBackupAttributesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyBackupAttributesOutput, context: context)
-        Validators::Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
+        Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
       end
     end
 
     class ModifyClusterInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterInput, context: context)
-        Validators::BackupRetentionPolicy.validate!(input[:backup_retention_policy], context: "#{context}[:backup_retention_policy]") unless input[:backup_retention_policy].nil?
+        BackupRetentionPolicy.validate!(input[:backup_retention_policy], context: "#{context}[:backup_retention_policy]") unless input[:backup_retention_policy].nil?
         Hearth::Validator.validate!(input[:cluster_id], ::String, context: "#{context}[:cluster_id]")
       end
     end
@@ -370,7 +372,7 @@ module AWS::SDK::CloudHSMV2
     class ModifyClusterOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyClusterOutput, context: context)
-        Validators::Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
+        Cluster.validate!(input[:cluster], context: "#{context}[:cluster]") unless input[:cluster].nil?
       end
     end
 
@@ -384,7 +386,7 @@ module AWS::SDK::CloudHSMV2
     class RestoreBackupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RestoreBackupOutput, context: context)
-        Validators::Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
+        Backup.validate!(input[:backup], context: "#{context}[:backup]") unless input[:backup].nil?
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -436,7 +438,7 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
+        TagList.validate!(input[:tag_list], context: "#{context}[:tag_list]") unless input[:tag_list].nil?
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::CloudHSMV2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
-        Validators::TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
+        TagKeyList.validate!(input[:tag_key_list], context: "#{context}[:tag_key_list]") unless input[:tag_key_list].nil?
       end
     end
 

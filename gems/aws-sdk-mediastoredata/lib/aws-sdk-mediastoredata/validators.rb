@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::MediaStoreData
   module Validators
 
@@ -95,7 +97,7 @@ module AWS::SDK::MediaStoreData
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -112,7 +114,7 @@ module AWS::SDK::MediaStoreData
     class ListItemsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListItemsOutput, context: context)
-        Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end

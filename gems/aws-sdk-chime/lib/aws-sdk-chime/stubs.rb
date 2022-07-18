@@ -27,7 +27,7 @@ module AWS::SDK::Chime
     class AssociatePhoneNumbersWithVoiceConnector
       def self.default(visited=[])
         {
-          phone_number_errors: Stubs::PhoneNumberErrorList.default(visited),
+          phone_number_errors: PhoneNumberErrorList.default(visited),
         }
       end
 
@@ -46,7 +46,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('PhoneNumberErrorList')
         visited = visited + ['PhoneNumberErrorList']
         [
-          Stubs::PhoneNumberError.default(visited)
+          PhoneNumberError.default(visited)
         ]
       end
 
@@ -86,7 +86,7 @@ module AWS::SDK::Chime
     class AssociatePhoneNumbersWithVoiceConnectorGroup
       def self.default(visited=[])
         {
-          phone_number_errors: Stubs::PhoneNumberErrorList.default(visited),
+          phone_number_errors: PhoneNumberErrorList.default(visited),
         }
       end
 
@@ -116,8 +116,8 @@ module AWS::SDK::Chime
     class BatchCreateAttendee
       def self.default(visited=[])
         {
-          attendees: Stubs::AttendeeList.default(visited),
-          errors: Stubs::BatchCreateAttendeeErrorList.default(visited),
+          attendees: AttendeeList.default(visited),
+          errors: BatchCreateAttendeeErrorList.default(visited),
         }
       end
 
@@ -137,7 +137,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('BatchCreateAttendeeErrorList')
         visited = visited + ['BatchCreateAttendeeErrorList']
         [
-          Stubs::CreateAttendeeError.default(visited)
+          CreateAttendeeError.default(visited)
         ]
       end
 
@@ -179,7 +179,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AttendeeList')
         visited = visited + ['AttendeeList']
         [
-          Stubs::Attendee.default(visited)
+          Attendee.default(visited)
         ]
       end
 
@@ -219,8 +219,8 @@ module AWS::SDK::Chime
     class BatchCreateChannelMembership
       def self.default(visited=[])
         {
-          batch_channel_memberships: Stubs::BatchChannelMemberships.default(visited),
-          errors: Stubs::BatchCreateChannelMembershipErrors.default(visited),
+          batch_channel_memberships: BatchChannelMemberships.default(visited),
+          errors: BatchCreateChannelMembershipErrors.default(visited),
         }
       end
 
@@ -240,7 +240,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('BatchCreateChannelMembershipErrors')
         visited = visited + ['BatchCreateChannelMembershipErrors']
         [
-          Stubs::BatchCreateChannelMembershipError.default(visited)
+          BatchCreateChannelMembershipError.default(visited)
         ]
       end
 
@@ -282,9 +282,9 @@ module AWS::SDK::Chime
         return nil if visited.include?('BatchChannelMemberships')
         visited = visited + ['BatchChannelMemberships']
         {
-          invited_by: Stubs::Identity.default(visited),
+          invited_by: Identity.default(visited),
           type: 'type',
-          members: Stubs::Members.default(visited),
+          members: Members.default(visited),
           channel_arn: 'channel_arn',
         }
       end
@@ -306,7 +306,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('Members')
         visited = visited + ['Members']
         [
-          Stubs::Identity.default(visited)
+          Identity.default(visited)
         ]
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::Chime
     class BatchCreateRoomMembership
       def self.default(visited=[])
         {
-          errors: Stubs::MemberErrorList.default(visited),
+          errors: MemberErrorList.default(visited),
         }
       end
 
@@ -363,7 +363,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('MemberErrorList')
         visited = visited + ['MemberErrorList']
         [
-          Stubs::MemberError.default(visited)
+          MemberError.default(visited)
         ]
       end
 
@@ -403,7 +403,7 @@ module AWS::SDK::Chime
     class BatchDeletePhoneNumber
       def self.default(visited=[])
         {
-          phone_number_errors: Stubs::PhoneNumberErrorList.default(visited),
+          phone_number_errors: PhoneNumberErrorList.default(visited),
         }
       end
 
@@ -420,7 +420,7 @@ module AWS::SDK::Chime
     class BatchSuspendUser
       def self.default(visited=[])
         {
-          user_errors: Stubs::UserErrorList.default(visited),
+          user_errors: UserErrorList.default(visited),
         }
       end
 
@@ -439,7 +439,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('UserErrorList')
         visited = visited + ['UserErrorList']
         [
-          Stubs::UserError.default(visited)
+          UserError.default(visited)
         ]
       end
 
@@ -479,7 +479,7 @@ module AWS::SDK::Chime
     class BatchUnsuspendUser
       def self.default(visited=[])
         {
-          user_errors: Stubs::UserErrorList.default(visited),
+          user_errors: UserErrorList.default(visited),
         }
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::Chime
     class BatchUpdatePhoneNumber
       def self.default(visited=[])
         {
-          phone_number_errors: Stubs::PhoneNumberErrorList.default(visited),
+          phone_number_errors: PhoneNumberErrorList.default(visited),
         }
       end
 
@@ -513,7 +513,7 @@ module AWS::SDK::Chime
     class BatchUpdateUser
       def self.default(visited=[])
         {
-          user_errors: Stubs::UserErrorList.default(visited),
+          user_errors: UserErrorList.default(visited),
         }
       end
 
@@ -530,7 +530,7 @@ module AWS::SDK::Chime
     class CreateAccount
       def self.default(visited=[])
         {
-          account: Stubs::Account.default(visited),
+          account: Account.default(visited),
         }
       end
 
@@ -555,9 +555,9 @@ module AWS::SDK::Chime
           account_type: 'account_type',
           created_timestamp: Time.now,
           default_license: 'default_license',
-          supported_licenses: Stubs::LicenseList.default(visited),
+          supported_licenses: LicenseList.default(visited),
           account_status: 'account_status',
-          signin_delegate_groups: Stubs::SigninDelegateGroupList.default(visited),
+          signin_delegate_groups: SigninDelegateGroupList.default(visited),
         }
       end
 
@@ -583,7 +583,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('SigninDelegateGroupList')
         visited = visited + ['SigninDelegateGroupList']
         [
-          Stubs::SigninDelegateGroup.default(visited)
+          SigninDelegateGroup.default(visited)
         ]
       end
 
@@ -656,7 +656,7 @@ module AWS::SDK::Chime
     class CreateAppInstanceAdmin
       def self.default(visited=[])
         {
-          app_instance_admin: Stubs::Identity.default(visited),
+          app_instance_admin: Identity.default(visited),
           app_instance_arn: 'app_instance_arn',
         }
       end
@@ -692,7 +692,7 @@ module AWS::SDK::Chime
     class CreateAttendee
       def self.default(visited=[])
         {
-          attendee: Stubs::Attendee.default(visited),
+          attendee: Attendee.default(visited),
         }
       end
 
@@ -709,7 +709,7 @@ module AWS::SDK::Chime
     class CreateBot
       def self.default(visited=[])
         {
-          bot: Stubs::Bot.default(visited),
+          bot: Bot.default(visited),
         }
       end
 
@@ -778,7 +778,7 @@ module AWS::SDK::Chime
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -797,7 +797,7 @@ module AWS::SDK::Chime
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -816,7 +816,7 @@ module AWS::SDK::Chime
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          channel_moderator: Stubs::Identity.default(visited),
+          channel_moderator: Identity.default(visited),
         }
       end
 
@@ -834,7 +834,7 @@ module AWS::SDK::Chime
     class CreateMediaCapturePipeline
       def self.default(visited=[])
         {
-          media_capture_pipeline: Stubs::MediaCapturePipeline.default(visited),
+          media_capture_pipeline: MediaCapturePipeline.default(visited),
         }
       end
 
@@ -861,7 +861,7 @@ module AWS::SDK::Chime
           sink_arn: 'sink_arn',
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
-          chime_sdk_meeting_configuration: Stubs::ChimeSdkMeetingConfiguration.default(visited),
+          chime_sdk_meeting_configuration: ChimeSdkMeetingConfiguration.default(visited),
         }
       end
 
@@ -887,8 +887,8 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChimeSdkMeetingConfiguration')
         visited = visited + ['ChimeSdkMeetingConfiguration']
         {
-          source_configuration: Stubs::SourceConfiguration.default(visited),
-          artifacts_configuration: Stubs::ArtifactsConfiguration.default(visited),
+          source_configuration: SourceConfiguration.default(visited),
+          artifacts_configuration: ArtifactsConfiguration.default(visited),
         }
       end
 
@@ -907,9 +907,9 @@ module AWS::SDK::Chime
         return nil if visited.include?('ArtifactsConfiguration')
         visited = visited + ['ArtifactsConfiguration']
         {
-          audio: Stubs::AudioArtifactsConfiguration.default(visited),
-          video: Stubs::VideoArtifactsConfiguration.default(visited),
-          content: Stubs::ContentArtifactsConfiguration.default(visited),
+          audio: AudioArtifactsConfiguration.default(visited),
+          video: VideoArtifactsConfiguration.default(visited),
+          content: ContentArtifactsConfiguration.default(visited),
         }
       end
 
@@ -987,7 +987,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('SourceConfiguration')
         visited = visited + ['SourceConfiguration']
         {
-          selected_video_streams: Stubs::SelectedVideoStreams.default(visited),
+          selected_video_streams: SelectedVideoStreams.default(visited),
         }
       end
 
@@ -1005,8 +1005,8 @@ module AWS::SDK::Chime
         return nil if visited.include?('SelectedVideoStreams')
         visited = visited + ['SelectedVideoStreams']
         {
-          attendee_ids: Stubs::AttendeeIdList.default(visited),
-          external_user_ids: Stubs::ExternalUserIdList.default(visited),
+          attendee_ids: AttendeeIdList.default(visited),
+          external_user_ids: ExternalUserIdList.default(visited),
         }
       end
 
@@ -1063,7 +1063,7 @@ module AWS::SDK::Chime
     class CreateMeeting
       def self.default(visited=[])
         {
-          meeting: Stubs::Meeting.default(visited),
+          meeting: Meeting.default(visited),
         }
       end
 
@@ -1084,7 +1084,7 @@ module AWS::SDK::Chime
         {
           meeting_id: 'meeting_id',
           external_meeting_id: 'external_meeting_id',
-          media_placement: Stubs::MediaPlacement.default(visited),
+          media_placement: MediaPlacement.default(visited),
           media_region: 'media_region',
         }
       end
@@ -1153,9 +1153,9 @@ module AWS::SDK::Chime
     class CreateMeetingWithAttendees
       def self.default(visited=[])
         {
-          meeting: Stubs::Meeting.default(visited),
-          attendees: Stubs::AttendeeList.default(visited),
-          errors: Stubs::BatchCreateAttendeeErrorList.default(visited),
+          meeting: Meeting.default(visited),
+          attendees: AttendeeList.default(visited),
+          errors: BatchCreateAttendeeErrorList.default(visited),
         }
       end
 
@@ -1174,7 +1174,7 @@ module AWS::SDK::Chime
     class CreatePhoneNumberOrder
       def self.default(visited=[])
         {
-          phone_number_order: Stubs::PhoneNumberOrder.default(visited),
+          phone_number_order: PhoneNumberOrder.default(visited),
         }
       end
 
@@ -1196,7 +1196,7 @@ module AWS::SDK::Chime
           phone_number_order_id: 'phone_number_order_id',
           product_type: 'product_type',
           status: 'status',
-          ordered_phone_numbers: Stubs::OrderedPhoneNumberList.default(visited),
+          ordered_phone_numbers: OrderedPhoneNumberList.default(visited),
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
         }
@@ -1221,7 +1221,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('OrderedPhoneNumberList')
         visited = visited + ['OrderedPhoneNumberList']
         [
-          Stubs::OrderedPhoneNumber.default(visited)
+          OrderedPhoneNumber.default(visited)
         ]
       end
 
@@ -1259,7 +1259,7 @@ module AWS::SDK::Chime
     class CreateProxySession
       def self.default(visited=[])
         {
-          proxy_session: Stubs::ProxySession.default(visited),
+          proxy_session: ProxySession.default(visited),
         }
       end
 
@@ -1283,14 +1283,14 @@ module AWS::SDK::Chime
           name: 'name',
           status: 'status',
           expiry_minutes: 1,
-          capabilities: Stubs::CapabilityList.default(visited),
+          capabilities: CapabilityList.default(visited),
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
           ended_timestamp: Time.now,
-          participants: Stubs::Participants.default(visited),
+          participants: Participants.default(visited),
           number_selection_behavior: 'number_selection_behavior',
           geo_match_level: 'geo_match_level',
-          geo_match_params: Stubs::GeoMatchParams.default(visited),
+          geo_match_params: GeoMatchParams.default(visited),
         }
       end
 
@@ -1340,7 +1340,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('Participants')
         visited = visited + ['Participants']
         [
-          Stubs::Participant.default(visited)
+          Participant.default(visited)
         ]
       end
 
@@ -1398,7 +1398,7 @@ module AWS::SDK::Chime
     class CreateRoom
       def self.default(visited=[])
         {
-          room: Stubs::Room.default(visited),
+          room: Room.default(visited),
         }
       end
 
@@ -1443,7 +1443,7 @@ module AWS::SDK::Chime
     class CreateRoomMembership
       def self.default(visited=[])
         {
-          room_membership: Stubs::RoomMembership.default(visited),
+          room_membership: RoomMembership.default(visited),
         }
       end
 
@@ -1463,7 +1463,7 @@ module AWS::SDK::Chime
         visited = visited + ['RoomMembership']
         {
           room_id: 'room_id',
-          member: Stubs::Member.default(visited),
+          member: Member.default(visited),
           role: 'role',
           invited_by: 'invited_by',
           updated_timestamp: Time.now,
@@ -1512,7 +1512,7 @@ module AWS::SDK::Chime
     class CreateSipMediaApplication
       def self.default(visited=[])
         {
-          sip_media_application: Stubs::SipMediaApplication.default(visited),
+          sip_media_application: SipMediaApplication.default(visited),
         }
       end
 
@@ -1534,7 +1534,7 @@ module AWS::SDK::Chime
           sip_media_application_id: 'sip_media_application_id',
           aws_region: 'aws_region',
           name: 'name',
-          endpoints: Stubs::SipMediaApplicationEndpointList.default(visited),
+          endpoints: SipMediaApplicationEndpointList.default(visited),
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
         }
@@ -1559,7 +1559,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('SipMediaApplicationEndpointList')
         visited = visited + ['SipMediaApplicationEndpointList']
         [
-          Stubs::SipMediaApplicationEndpoint.default(visited)
+          SipMediaApplicationEndpoint.default(visited)
         ]
       end
 
@@ -1595,7 +1595,7 @@ module AWS::SDK::Chime
     class CreateSipMediaApplicationCall
       def self.default(visited=[])
         {
-          sip_media_application_call: Stubs::SipMediaApplicationCall.default(visited),
+          sip_media_application_call: SipMediaApplicationCall.default(visited),
         }
       end
 
@@ -1630,7 +1630,7 @@ module AWS::SDK::Chime
     class CreateSipRule
       def self.default(visited=[])
         {
-          sip_rule: Stubs::SipRule.default(visited),
+          sip_rule: SipRule.default(visited),
         }
       end
 
@@ -1654,7 +1654,7 @@ module AWS::SDK::Chime
           disabled: false,
           trigger_type: 'trigger_type',
           trigger_value: 'trigger_value',
-          target_applications: Stubs::SipRuleTargetApplicationList.default(visited),
+          target_applications: SipRuleTargetApplicationList.default(visited),
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
         }
@@ -1681,7 +1681,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('SipRuleTargetApplicationList')
         visited = visited + ['SipRuleTargetApplicationList']
         [
-          Stubs::SipRuleTargetApplication.default(visited)
+          SipRuleTargetApplication.default(visited)
         ]
       end
 
@@ -1721,7 +1721,7 @@ module AWS::SDK::Chime
     class CreateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -1751,7 +1751,7 @@ module AWS::SDK::Chime
           user_invitation_status: 'user_invitation_status',
           registered_on: Time.now,
           invited_on: Time.now,
-          alexa_for_business_metadata: Stubs::AlexaForBusinessMetadata.default(visited),
+          alexa_for_business_metadata: AlexaForBusinessMetadata.default(visited),
           personal_pin: 'personal_pin',
         }
       end
@@ -1800,7 +1800,7 @@ module AWS::SDK::Chime
     class CreateVoiceConnector
       def self.default(visited=[])
         {
-          voice_connector: Stubs::VoiceConnector.default(visited),
+          voice_connector: VoiceConnector.default(visited),
         }
       end
 
@@ -1849,7 +1849,7 @@ module AWS::SDK::Chime
     class CreateVoiceConnectorGroup
       def self.default(visited=[])
         {
-          voice_connector_group: Stubs::VoiceConnectorGroup.default(visited),
+          voice_connector_group: VoiceConnectorGroup.default(visited),
         }
       end
 
@@ -1870,7 +1870,7 @@ module AWS::SDK::Chime
         {
           voice_connector_group_id: 'voice_connector_group_id',
           name: 'name',
-          voice_connector_items: Stubs::VoiceConnectorItemList.default(visited),
+          voice_connector_items: VoiceConnectorItemList.default(visited),
           created_timestamp: Time.now,
           updated_timestamp: Time.now,
           voice_connector_group_arn: 'voice_connector_group_arn',
@@ -1896,7 +1896,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('VoiceConnectorItemList')
         visited = visited + ['VoiceConnectorItemList']
         [
-          Stubs::VoiceConnectorItem.default(visited)
+          VoiceConnectorItem.default(visited)
         ]
       end
 
@@ -2298,7 +2298,7 @@ module AWS::SDK::Chime
     class DescribeAppInstance
       def self.default(visited=[])
         {
-          app_instance: Stubs::AppInstance.default(visited),
+          app_instance: AppInstance.default(visited),
         }
       end
 
@@ -2341,7 +2341,7 @@ module AWS::SDK::Chime
     class DescribeAppInstanceAdmin
       def self.default(visited=[])
         {
-          app_instance_admin: Stubs::AppInstanceAdmin.default(visited),
+          app_instance_admin: AppInstanceAdmin.default(visited),
         }
       end
 
@@ -2360,7 +2360,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceAdmin')
         visited = visited + ['AppInstanceAdmin']
         {
-          admin: Stubs::Identity.default(visited),
+          admin: Identity.default(visited),
           app_instance_arn: 'app_instance_arn',
           created_timestamp: Time.now,
         }
@@ -2380,7 +2380,7 @@ module AWS::SDK::Chime
     class DescribeAppInstanceUser
       def self.default(visited=[])
         {
-          app_instance_user: Stubs::AppInstanceUser.default(visited),
+          app_instance_user: AppInstanceUser.default(visited),
         }
       end
 
@@ -2423,7 +2423,7 @@ module AWS::SDK::Chime
     class DescribeChannel
       def self.default(visited=[])
         {
-          channel: Stubs::Channel.default(visited),
+          channel: Channel.default(visited),
         }
       end
 
@@ -2447,7 +2447,7 @@ module AWS::SDK::Chime
           mode: 'mode',
           privacy: 'privacy',
           metadata: 'metadata',
-          created_by: Stubs::Identity.default(visited),
+          created_by: Identity.default(visited),
           created_timestamp: Time.now,
           last_message_timestamp: Time.now,
           last_updated_timestamp: Time.now,
@@ -2474,7 +2474,7 @@ module AWS::SDK::Chime
     class DescribeChannelBan
       def self.default(visited=[])
         {
-          channel_ban: Stubs::ChannelBan.default(visited),
+          channel_ban: ChannelBan.default(visited),
         }
       end
 
@@ -2493,10 +2493,10 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelBan')
         visited = visited + ['ChannelBan']
         {
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
           channel_arn: 'channel_arn',
           created_timestamp: Time.now,
-          created_by: Stubs::Identity.default(visited),
+          created_by: Identity.default(visited),
         }
       end
 
@@ -2515,7 +2515,7 @@ module AWS::SDK::Chime
     class DescribeChannelMembership
       def self.default(visited=[])
         {
-          channel_membership: Stubs::ChannelMembership.default(visited),
+          channel_membership: ChannelMembership.default(visited),
         }
       end
 
@@ -2534,9 +2534,9 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelMembership')
         visited = visited + ['ChannelMembership']
         {
-          invited_by: Stubs::Identity.default(visited),
+          invited_by: Identity.default(visited),
           type: 'type',
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
           channel_arn: 'channel_arn',
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
@@ -2560,7 +2560,7 @@ module AWS::SDK::Chime
     class DescribeChannelMembershipForAppInstanceUser
       def self.default(visited=[])
         {
-          channel_membership: Stubs::ChannelMembershipForAppInstanceUserSummary.default(visited),
+          channel_membership: ChannelMembershipForAppInstanceUserSummary.default(visited),
         }
       end
 
@@ -2579,8 +2579,8 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelMembershipForAppInstanceUserSummary')
         visited = visited + ['ChannelMembershipForAppInstanceUserSummary']
         {
-          channel_summary: Stubs::ChannelSummary.default(visited),
-          app_instance_user_membership_summary: Stubs::AppInstanceUserMembershipSummary.default(visited),
+          channel_summary: ChannelSummary.default(visited),
+          app_instance_user_membership_summary: AppInstanceUserMembershipSummary.default(visited),
         }
       end
 
@@ -2645,7 +2645,7 @@ module AWS::SDK::Chime
     class DescribeChannelModeratedByAppInstanceUser
       def self.default(visited=[])
         {
-          channel: Stubs::ChannelModeratedByAppInstanceUserSummary.default(visited),
+          channel: ChannelModeratedByAppInstanceUserSummary.default(visited),
         }
       end
 
@@ -2664,7 +2664,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelModeratedByAppInstanceUserSummary')
         visited = visited + ['ChannelModeratedByAppInstanceUserSummary']
         {
-          channel_summary: Stubs::ChannelSummary.default(visited),
+          channel_summary: ChannelSummary.default(visited),
         }
       end
 
@@ -2680,7 +2680,7 @@ module AWS::SDK::Chime
     class DescribeChannelModerator
       def self.default(visited=[])
         {
-          channel_moderator: Stubs::ChannelModerator.default(visited),
+          channel_moderator: ChannelModerator.default(visited),
         }
       end
 
@@ -2699,10 +2699,10 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelModerator')
         visited = visited + ['ChannelModerator']
         {
-          moderator: Stubs::Identity.default(visited),
+          moderator: Identity.default(visited),
           channel_arn: 'channel_arn',
           created_timestamp: Time.now,
-          created_by: Stubs::Identity.default(visited),
+          created_by: Identity.default(visited),
         }
       end
 
@@ -2734,7 +2734,7 @@ module AWS::SDK::Chime
     class DisassociatePhoneNumbersFromVoiceConnector
       def self.default(visited=[])
         {
-          phone_number_errors: Stubs::PhoneNumberErrorList.default(visited),
+          phone_number_errors: PhoneNumberErrorList.default(visited),
         }
       end
 
@@ -2751,7 +2751,7 @@ module AWS::SDK::Chime
     class DisassociatePhoneNumbersFromVoiceConnectorGroup
       def self.default(visited=[])
         {
-          phone_number_errors: Stubs::PhoneNumberErrorList.default(visited),
+          phone_number_errors: PhoneNumberErrorList.default(visited),
         }
       end
 
@@ -2781,7 +2781,7 @@ module AWS::SDK::Chime
     class GetAccount
       def self.default(visited=[])
         {
-          account: Stubs::Account.default(visited),
+          account: Account.default(visited),
         }
       end
 
@@ -2798,7 +2798,7 @@ module AWS::SDK::Chime
     class GetAccountSettings
       def self.default(visited=[])
         {
-          account_settings: Stubs::AccountSettings.default(visited),
+          account_settings: AccountSettings.default(visited),
         }
       end
 
@@ -2835,7 +2835,7 @@ module AWS::SDK::Chime
     class GetAppInstanceRetentionSettings
       def self.default(visited=[])
         {
-          app_instance_retention_settings: Stubs::AppInstanceRetentionSettings.default(visited),
+          app_instance_retention_settings: AppInstanceRetentionSettings.default(visited),
           initiate_deletion_timestamp: Time.now,
         }
       end
@@ -2856,7 +2856,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceRetentionSettings')
         visited = visited + ['AppInstanceRetentionSettings']
         {
-          channel_retention_settings: Stubs::ChannelRetentionSettings.default(visited),
+          channel_retention_settings: ChannelRetentionSettings.default(visited),
         }
       end
 
@@ -2890,7 +2890,7 @@ module AWS::SDK::Chime
     class GetAppInstanceStreamingConfigurations
       def self.default(visited=[])
         {
-          app_instance_streaming_configurations: Stubs::AppInstanceStreamingConfigurationList.default(visited),
+          app_instance_streaming_configurations: AppInstanceStreamingConfigurationList.default(visited),
         }
       end
 
@@ -2909,7 +2909,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceStreamingConfigurationList')
         visited = visited + ['AppInstanceStreamingConfigurationList']
         [
-          Stubs::AppInstanceStreamingConfiguration.default(visited)
+          AppInstanceStreamingConfiguration.default(visited)
         ]
       end
 
@@ -2947,7 +2947,7 @@ module AWS::SDK::Chime
     class GetAttendee
       def self.default(visited=[])
         {
-          attendee: Stubs::Attendee.default(visited),
+          attendee: Attendee.default(visited),
         }
       end
 
@@ -2964,7 +2964,7 @@ module AWS::SDK::Chime
     class GetBot
       def self.default(visited=[])
         {
-          bot: Stubs::Bot.default(visited),
+          bot: Bot.default(visited),
         }
       end
 
@@ -2981,7 +2981,7 @@ module AWS::SDK::Chime
     class GetChannelMessage
       def self.default(visited=[])
         {
-          channel_message: Stubs::ChannelMessage.default(visited),
+          channel_message: ChannelMessage.default(visited),
         }
       end
 
@@ -3008,7 +3008,7 @@ module AWS::SDK::Chime
           created_timestamp: Time.now,
           last_edited_timestamp: Time.now,
           last_updated_timestamp: Time.now,
-          sender: Stubs::Identity.default(visited),
+          sender: Identity.default(visited),
           redacted: false,
           persistence: 'persistence',
         }
@@ -3036,7 +3036,7 @@ module AWS::SDK::Chime
     class GetEventsConfiguration
       def self.default(visited=[])
         {
-          events_configuration: Stubs::EventsConfiguration.default(visited),
+          events_configuration: EventsConfiguration.default(visited),
         }
       end
 
@@ -3075,8 +3075,8 @@ module AWS::SDK::Chime
     class GetGlobalSettings
       def self.default(visited=[])
         {
-          business_calling: Stubs::BusinessCallingSettings.default(visited),
-          voice_connector: Stubs::VoiceConnectorSettings.default(visited),
+          business_calling: BusinessCallingSettings.default(visited),
+          voice_connector: VoiceConnectorSettings.default(visited),
         }
       end
 
@@ -3130,7 +3130,7 @@ module AWS::SDK::Chime
     class GetMediaCapturePipeline
       def self.default(visited=[])
         {
-          media_capture_pipeline: Stubs::MediaCapturePipeline.default(visited),
+          media_capture_pipeline: MediaCapturePipeline.default(visited),
         }
       end
 
@@ -3147,7 +3147,7 @@ module AWS::SDK::Chime
     class GetMeeting
       def self.default(visited=[])
         {
-          meeting: Stubs::Meeting.default(visited),
+          meeting: Meeting.default(visited),
         }
       end
 
@@ -3164,7 +3164,7 @@ module AWS::SDK::Chime
     class GetMessagingSessionEndpoint
       def self.default(visited=[])
         {
-          endpoint: Stubs::MessagingSessionEndpoint.default(visited),
+          endpoint: MessagingSessionEndpoint.default(visited),
         }
       end
 
@@ -3199,7 +3199,7 @@ module AWS::SDK::Chime
     class GetPhoneNumber
       def self.default(visited=[])
         {
-          phone_number: Stubs::PhoneNumber.default(visited),
+          phone_number: PhoneNumber.default(visited),
         }
       end
 
@@ -3224,8 +3224,8 @@ module AWS::SDK::Chime
           type: 'type',
           product_type: 'product_type',
           status: 'status',
-          capabilities: Stubs::PhoneNumberCapabilities.default(visited),
-          associations: Stubs::PhoneNumberAssociationList.default(visited),
+          capabilities: PhoneNumberCapabilities.default(visited),
+          associations: PhoneNumberAssociationList.default(visited),
           calling_name: 'calling_name',
           calling_name_status: 'calling_name_status',
           created_timestamp: Time.now,
@@ -3260,7 +3260,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('PhoneNumberAssociationList')
         visited = visited + ['PhoneNumberAssociationList']
         [
-          Stubs::PhoneNumberAssociation.default(visited)
+          PhoneNumberAssociation.default(visited)
         ]
       end
 
@@ -3328,7 +3328,7 @@ module AWS::SDK::Chime
     class GetPhoneNumberOrder
       def self.default(visited=[])
         {
-          phone_number_order: Stubs::PhoneNumberOrder.default(visited),
+          phone_number_order: PhoneNumberOrder.default(visited),
         }
       end
 
@@ -3364,7 +3364,7 @@ module AWS::SDK::Chime
     class GetProxySession
       def self.default(visited=[])
         {
-          proxy_session: Stubs::ProxySession.default(visited),
+          proxy_session: ProxySession.default(visited),
         }
       end
 
@@ -3381,7 +3381,7 @@ module AWS::SDK::Chime
     class GetRetentionSettings
       def self.default(visited=[])
         {
-          retention_settings: Stubs::RetentionSettings.default(visited),
+          retention_settings: RetentionSettings.default(visited),
           initiate_deletion_timestamp: Time.now,
         }
       end
@@ -3402,8 +3402,8 @@ module AWS::SDK::Chime
         return nil if visited.include?('RetentionSettings')
         visited = visited + ['RetentionSettings']
         {
-          room_retention_settings: Stubs::RoomRetentionSettings.default(visited),
-          conversation_retention_settings: Stubs::ConversationRetentionSettings.default(visited),
+          room_retention_settings: RoomRetentionSettings.default(visited),
+          conversation_retention_settings: ConversationRetentionSettings.default(visited),
         }
       end
 
@@ -3456,7 +3456,7 @@ module AWS::SDK::Chime
     class GetRoom
       def self.default(visited=[])
         {
-          room: Stubs::Room.default(visited),
+          room: Room.default(visited),
         }
       end
 
@@ -3473,7 +3473,7 @@ module AWS::SDK::Chime
     class GetSipMediaApplication
       def self.default(visited=[])
         {
-          sip_media_application: Stubs::SipMediaApplication.default(visited),
+          sip_media_application: SipMediaApplication.default(visited),
         }
       end
 
@@ -3490,7 +3490,7 @@ module AWS::SDK::Chime
     class GetSipMediaApplicationLoggingConfiguration
       def self.default(visited=[])
         {
-          sip_media_application_logging_configuration: Stubs::SipMediaApplicationLoggingConfiguration.default(visited),
+          sip_media_application_logging_configuration: SipMediaApplicationLoggingConfiguration.default(visited),
         }
       end
 
@@ -3525,7 +3525,7 @@ module AWS::SDK::Chime
     class GetSipRule
       def self.default(visited=[])
         {
-          sip_rule: Stubs::SipRule.default(visited),
+          sip_rule: SipRule.default(visited),
         }
       end
 
@@ -3542,7 +3542,7 @@ module AWS::SDK::Chime
     class GetUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -3559,7 +3559,7 @@ module AWS::SDK::Chime
     class GetUserSettings
       def self.default(visited=[])
         {
-          user_settings: Stubs::UserSettings.default(visited),
+          user_settings: UserSettings.default(visited),
         }
       end
 
@@ -3578,7 +3578,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('UserSettings')
         visited = visited + ['UserSettings']
         {
-          telephony: Stubs::TelephonySettings.default(visited),
+          telephony: TelephonySettings.default(visited),
         }
       end
 
@@ -3616,7 +3616,7 @@ module AWS::SDK::Chime
     class GetVoiceConnector
       def self.default(visited=[])
         {
-          voice_connector: Stubs::VoiceConnector.default(visited),
+          voice_connector: VoiceConnector.default(visited),
         }
       end
 
@@ -3633,7 +3633,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorEmergencyCallingConfiguration
       def self.default(visited=[])
         {
-          emergency_calling_configuration: Stubs::EmergencyCallingConfiguration.default(visited),
+          emergency_calling_configuration: EmergencyCallingConfiguration.default(visited),
         }
       end
 
@@ -3652,7 +3652,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('EmergencyCallingConfiguration')
         visited = visited + ['EmergencyCallingConfiguration']
         {
-          dnis: Stubs::DNISEmergencyCallingConfigurationList.default(visited),
+          dnis: DNISEmergencyCallingConfigurationList.default(visited),
         }
       end
 
@@ -3670,7 +3670,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('DNISEmergencyCallingConfigurationList')
         visited = visited + ['DNISEmergencyCallingConfigurationList']
         [
-          Stubs::DNISEmergencyCallingConfiguration.default(visited)
+          DNISEmergencyCallingConfiguration.default(visited)
         ]
       end
 
@@ -3710,7 +3710,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorGroup
       def self.default(visited=[])
         {
-          voice_connector_group: Stubs::VoiceConnectorGroup.default(visited),
+          voice_connector_group: VoiceConnectorGroup.default(visited),
         }
       end
 
@@ -3727,7 +3727,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorLoggingConfiguration
       def self.default(visited=[])
         {
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 
@@ -3764,7 +3764,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorOrigination
       def self.default(visited=[])
         {
-          origination: Stubs::Origination.default(visited),
+          origination: Origination.default(visited),
         }
       end
 
@@ -3783,7 +3783,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('Origination')
         visited = visited + ['Origination']
         {
-          routes: Stubs::OriginationRouteList.default(visited),
+          routes: OriginationRouteList.default(visited),
           disabled: false,
         }
       end
@@ -3803,7 +3803,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('OriginationRouteList')
         visited = visited + ['OriginationRouteList']
         [
-          Stubs::OriginationRoute.default(visited)
+          OriginationRoute.default(visited)
         ]
       end
 
@@ -3847,7 +3847,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorProxy
       def self.default(visited=[])
         {
-          proxy: Stubs::Proxy.default(visited),
+          proxy: Proxy.default(visited),
         }
       end
 
@@ -3869,7 +3869,7 @@ module AWS::SDK::Chime
           default_session_expiry_minutes: 1,
           disabled: false,
           fall_back_phone_number: 'fall_back_phone_number',
-          phone_number_countries: Stubs::StringList.default(visited),
+          phone_number_countries: StringList.default(visited),
         }
       end
 
@@ -3908,7 +3908,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorStreamingConfiguration
       def self.default(visited=[])
         {
-          streaming_configuration: Stubs::StreamingConfiguration.default(visited),
+          streaming_configuration: StreamingConfiguration.default(visited),
         }
       end
 
@@ -3929,7 +3929,7 @@ module AWS::SDK::Chime
         {
           data_retention_in_hours: 1,
           disabled: false,
-          streaming_notification_targets: Stubs::StreamingNotificationTargetList.default(visited),
+          streaming_notification_targets: StreamingNotificationTargetList.default(visited),
         }
       end
 
@@ -3949,7 +3949,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('StreamingNotificationTargetList')
         visited = visited + ['StreamingNotificationTargetList']
         [
-          Stubs::StreamingNotificationTarget.default(visited)
+          StreamingNotificationTarget.default(visited)
         ]
       end
 
@@ -3985,7 +3985,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorTermination
       def self.default(visited=[])
         {
-          termination: Stubs::Termination.default(visited),
+          termination: Termination.default(visited),
         }
       end
 
@@ -4006,8 +4006,8 @@ module AWS::SDK::Chime
         {
           cps_limit: 1,
           default_phone_number: 'default_phone_number',
-          calling_regions: Stubs::CallingRegionList.default(visited),
-          cidr_allowed_list: Stubs::StringList.default(visited),
+          calling_regions: CallingRegionList.default(visited),
+          cidr_allowed_list: StringList.default(visited),
           disabled: false,
         }
       end
@@ -4048,7 +4048,7 @@ module AWS::SDK::Chime
     class GetVoiceConnectorTerminationHealth
       def self.default(visited=[])
         {
-          termination_health: Stubs::TerminationHealth.default(visited),
+          termination_health: TerminationHealth.default(visited),
         }
       end
 
@@ -4085,7 +4085,7 @@ module AWS::SDK::Chime
     class InviteUsers
       def self.default(visited=[])
         {
-          invites: Stubs::InviteList.default(visited),
+          invites: InviteList.default(visited),
         }
       end
 
@@ -4104,7 +4104,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('InviteList')
         visited = visited + ['InviteList']
         [
-          Stubs::Invite.default(visited)
+          Invite.default(visited)
         ]
       end
 
@@ -4146,7 +4146,7 @@ module AWS::SDK::Chime
     class ListAccounts
       def self.default(visited=[])
         {
-          accounts: Stubs::AccountList.default(visited),
+          accounts: AccountList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4167,7 +4167,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AccountList')
         visited = visited + ['AccountList']
         [
-          Stubs::Account.default(visited)
+          Account.default(visited)
         ]
       end
 
@@ -4186,7 +4186,7 @@ module AWS::SDK::Chime
       def self.default(visited=[])
         {
           app_instance_arn: 'app_instance_arn',
-          app_instance_admins: Stubs::AppInstanceAdminList.default(visited),
+          app_instance_admins: AppInstanceAdminList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4208,7 +4208,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceAdminList')
         visited = visited + ['AppInstanceAdminList']
         [
-          Stubs::AppInstanceAdminSummary.default(visited)
+          AppInstanceAdminSummary.default(visited)
         ]
       end
 
@@ -4228,7 +4228,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceAdminSummary')
         visited = visited + ['AppInstanceAdminSummary']
         {
-          admin: Stubs::Identity.default(visited),
+          admin: Identity.default(visited),
         }
       end
 
@@ -4245,7 +4245,7 @@ module AWS::SDK::Chime
       def self.default(visited=[])
         {
           app_instance_arn: 'app_instance_arn',
-          app_instance_users: Stubs::AppInstanceUserList.default(visited),
+          app_instance_users: AppInstanceUserList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4267,7 +4267,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceUserList')
         visited = visited + ['AppInstanceUserList']
         [
-          Stubs::AppInstanceUserSummary.default(visited)
+          AppInstanceUserSummary.default(visited)
         ]
       end
 
@@ -4307,7 +4307,7 @@ module AWS::SDK::Chime
     class ListAppInstances
       def self.default(visited=[])
         {
-          app_instances: Stubs::AppInstanceList.default(visited),
+          app_instances: AppInstanceList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4328,7 +4328,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('AppInstanceList')
         visited = visited + ['AppInstanceList']
         [
-          Stubs::AppInstanceSummary.default(visited)
+          AppInstanceSummary.default(visited)
         ]
       end
 
@@ -4368,7 +4368,7 @@ module AWS::SDK::Chime
     class ListAttendeeTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4387,7 +4387,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -4425,7 +4425,7 @@ module AWS::SDK::Chime
     class ListAttendees
       def self.default(visited=[])
         {
-          attendees: Stubs::AttendeeList.default(visited),
+          attendees: AttendeeList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4444,7 +4444,7 @@ module AWS::SDK::Chime
     class ListBots
       def self.default(visited=[])
         {
-          bots: Stubs::BotList.default(visited),
+          bots: BotList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4465,7 +4465,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('BotList')
         visited = visited + ['BotList']
         [
-          Stubs::Bot.default(visited)
+          Bot.default(visited)
         ]
       end
 
@@ -4485,7 +4485,7 @@ module AWS::SDK::Chime
         {
           channel_arn: 'channel_arn',
           next_token: 'next_token',
-          channel_bans: Stubs::ChannelBanSummaryList.default(visited),
+          channel_bans: ChannelBanSummaryList.default(visited),
         }
       end
 
@@ -4506,7 +4506,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelBanSummaryList')
         visited = visited + ['ChannelBanSummaryList']
         [
-          Stubs::ChannelBanSummary.default(visited)
+          ChannelBanSummary.default(visited)
         ]
       end
 
@@ -4526,7 +4526,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelBanSummary')
         visited = visited + ['ChannelBanSummary']
         {
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -4543,7 +4543,7 @@ module AWS::SDK::Chime
       def self.default(visited=[])
         {
           channel_arn: 'channel_arn',
-          channel_memberships: Stubs::ChannelMembershipSummaryList.default(visited),
+          channel_memberships: ChannelMembershipSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4565,7 +4565,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelMembershipSummaryList')
         visited = visited + ['ChannelMembershipSummaryList']
         [
-          Stubs::ChannelMembershipSummary.default(visited)
+          ChannelMembershipSummary.default(visited)
         ]
       end
 
@@ -4585,7 +4585,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelMembershipSummary')
         visited = visited + ['ChannelMembershipSummary']
         {
-          member: Stubs::Identity.default(visited),
+          member: Identity.default(visited),
         }
       end
 
@@ -4601,7 +4601,7 @@ module AWS::SDK::Chime
     class ListChannelMembershipsForAppInstanceUser
       def self.default(visited=[])
         {
-          channel_memberships: Stubs::ChannelMembershipForAppInstanceUserSummaryList.default(visited),
+          channel_memberships: ChannelMembershipForAppInstanceUserSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4622,7 +4622,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelMembershipForAppInstanceUserSummaryList')
         visited = visited + ['ChannelMembershipForAppInstanceUserSummaryList']
         [
-          Stubs::ChannelMembershipForAppInstanceUserSummary.default(visited)
+          ChannelMembershipForAppInstanceUserSummary.default(visited)
         ]
       end
 
@@ -4642,7 +4642,7 @@ module AWS::SDK::Chime
         {
           channel_arn: 'channel_arn',
           next_token: 'next_token',
-          channel_messages: Stubs::ChannelMessageSummaryList.default(visited),
+          channel_messages: ChannelMessageSummaryList.default(visited),
         }
       end
 
@@ -4663,7 +4663,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelMessageSummaryList')
         visited = visited + ['ChannelMessageSummaryList']
         [
-          Stubs::ChannelMessageSummary.default(visited)
+          ChannelMessageSummary.default(visited)
         ]
       end
 
@@ -4690,7 +4690,7 @@ module AWS::SDK::Chime
           created_timestamp: Time.now,
           last_updated_timestamp: Time.now,
           last_edited_timestamp: Time.now,
-          sender: Stubs::Identity.default(visited),
+          sender: Identity.default(visited),
           redacted: false,
         }
       end
@@ -4717,7 +4717,7 @@ module AWS::SDK::Chime
         {
           channel_arn: 'channel_arn',
           next_token: 'next_token',
-          channel_moderators: Stubs::ChannelModeratorSummaryList.default(visited),
+          channel_moderators: ChannelModeratorSummaryList.default(visited),
         }
       end
 
@@ -4738,7 +4738,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelModeratorSummaryList')
         visited = visited + ['ChannelModeratorSummaryList']
         [
-          Stubs::ChannelModeratorSummary.default(visited)
+          ChannelModeratorSummary.default(visited)
         ]
       end
 
@@ -4758,7 +4758,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelModeratorSummary')
         visited = visited + ['ChannelModeratorSummary']
         {
-          moderator: Stubs::Identity.default(visited),
+          moderator: Identity.default(visited),
         }
       end
 
@@ -4774,7 +4774,7 @@ module AWS::SDK::Chime
     class ListChannels
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelSummaryList.default(visited),
+          channels: ChannelSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4795,7 +4795,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelSummaryList')
         visited = visited + ['ChannelSummaryList']
         [
-          Stubs::ChannelSummary.default(visited)
+          ChannelSummary.default(visited)
         ]
       end
 
@@ -4813,7 +4813,7 @@ module AWS::SDK::Chime
     class ListChannelsModeratedByAppInstanceUser
       def self.default(visited=[])
         {
-          channels: Stubs::ChannelModeratedByAppInstanceUserSummaryList.default(visited),
+          channels: ChannelModeratedByAppInstanceUserSummaryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4834,7 +4834,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ChannelModeratedByAppInstanceUserSummaryList')
         visited = visited + ['ChannelModeratedByAppInstanceUserSummaryList']
         [
-          Stubs::ChannelModeratedByAppInstanceUserSummary.default(visited)
+          ChannelModeratedByAppInstanceUserSummary.default(visited)
         ]
       end
 
@@ -4852,7 +4852,7 @@ module AWS::SDK::Chime
     class ListMediaCapturePipelines
       def self.default(visited=[])
         {
-          media_capture_pipelines: Stubs::MediaCapturePipelineList.default(visited),
+          media_capture_pipelines: MediaCapturePipelineList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4873,7 +4873,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('MediaCapturePipelineList')
         visited = visited + ['MediaCapturePipelineList']
         [
-          Stubs::MediaCapturePipeline.default(visited)
+          MediaCapturePipeline.default(visited)
         ]
       end
 
@@ -4891,7 +4891,7 @@ module AWS::SDK::Chime
     class ListMeetingTags
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -4908,7 +4908,7 @@ module AWS::SDK::Chime
     class ListMeetings
       def self.default(visited=[])
         {
-          meetings: Stubs::MeetingList.default(visited),
+          meetings: MeetingList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4929,7 +4929,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('MeetingList')
         visited = visited + ['MeetingList']
         [
-          Stubs::Meeting.default(visited)
+          Meeting.default(visited)
         ]
       end
 
@@ -4947,7 +4947,7 @@ module AWS::SDK::Chime
     class ListPhoneNumberOrders
       def self.default(visited=[])
         {
-          phone_number_orders: Stubs::PhoneNumberOrderList.default(visited),
+          phone_number_orders: PhoneNumberOrderList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -4968,7 +4968,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('PhoneNumberOrderList')
         visited = visited + ['PhoneNumberOrderList']
         [
-          Stubs::PhoneNumberOrder.default(visited)
+          PhoneNumberOrder.default(visited)
         ]
       end
 
@@ -4986,7 +4986,7 @@ module AWS::SDK::Chime
     class ListPhoneNumbers
       def self.default(visited=[])
         {
-          phone_numbers: Stubs::PhoneNumberList.default(visited),
+          phone_numbers: PhoneNumberList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5007,7 +5007,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('PhoneNumberList')
         visited = visited + ['PhoneNumberList']
         [
-          Stubs::PhoneNumber.default(visited)
+          PhoneNumber.default(visited)
         ]
       end
 
@@ -5025,7 +5025,7 @@ module AWS::SDK::Chime
     class ListProxySessions
       def self.default(visited=[])
         {
-          proxy_sessions: Stubs::ProxySessions.default(visited),
+          proxy_sessions: ProxySessions.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5046,7 +5046,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('ProxySessions')
         visited = visited + ['ProxySessions']
         [
-          Stubs::ProxySession.default(visited)
+          ProxySession.default(visited)
         ]
       end
 
@@ -5064,7 +5064,7 @@ module AWS::SDK::Chime
     class ListRoomMemberships
       def self.default(visited=[])
         {
-          room_memberships: Stubs::RoomMembershipList.default(visited),
+          room_memberships: RoomMembershipList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5085,7 +5085,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('RoomMembershipList')
         visited = visited + ['RoomMembershipList']
         [
-          Stubs::RoomMembership.default(visited)
+          RoomMembership.default(visited)
         ]
       end
 
@@ -5103,7 +5103,7 @@ module AWS::SDK::Chime
     class ListRooms
       def self.default(visited=[])
         {
-          rooms: Stubs::RoomList.default(visited),
+          rooms: RoomList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5124,7 +5124,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('RoomList')
         visited = visited + ['RoomList']
         [
-          Stubs::Room.default(visited)
+          Room.default(visited)
         ]
       end
 
@@ -5142,7 +5142,7 @@ module AWS::SDK::Chime
     class ListSipMediaApplications
       def self.default(visited=[])
         {
-          sip_media_applications: Stubs::SipMediaApplicationList.default(visited),
+          sip_media_applications: SipMediaApplicationList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5163,7 +5163,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('SipMediaApplicationList')
         visited = visited + ['SipMediaApplicationList']
         [
-          Stubs::SipMediaApplication.default(visited)
+          SipMediaApplication.default(visited)
         ]
       end
 
@@ -5181,7 +5181,7 @@ module AWS::SDK::Chime
     class ListSipRules
       def self.default(visited=[])
         {
-          sip_rules: Stubs::SipRuleList.default(visited),
+          sip_rules: SipRuleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5202,7 +5202,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('SipRuleList')
         visited = visited + ['SipRuleList']
         [
-          Stubs::SipRule.default(visited)
+          SipRule.default(visited)
         ]
       end
 
@@ -5220,7 +5220,7 @@ module AWS::SDK::Chime
     class ListSupportedPhoneNumberCountries
       def self.default(visited=[])
         {
-          phone_number_countries: Stubs::PhoneNumberCountriesList.default(visited),
+          phone_number_countries: PhoneNumberCountriesList.default(visited),
         }
       end
 
@@ -5239,7 +5239,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('PhoneNumberCountriesList')
         visited = visited + ['PhoneNumberCountriesList']
         [
-          Stubs::PhoneNumberCountry.default(visited)
+          PhoneNumberCountry.default(visited)
         ]
       end
 
@@ -5260,7 +5260,7 @@ module AWS::SDK::Chime
         visited = visited + ['PhoneNumberCountry']
         {
           country_code: 'country_code',
-          supported_phone_number_types: Stubs::PhoneNumberTypeList.default(visited),
+          supported_phone_number_types: PhoneNumberTypeList.default(visited),
         }
       end
 
@@ -5297,7 +5297,7 @@ module AWS::SDK::Chime
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -5314,7 +5314,7 @@ module AWS::SDK::Chime
     class ListUsers
       def self.default(visited=[])
         {
-          users: Stubs::UserList.default(visited),
+          users: UserList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5335,7 +5335,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('UserList')
         visited = visited + ['UserList']
         [
-          Stubs::User.default(visited)
+          User.default(visited)
         ]
       end
 
@@ -5353,7 +5353,7 @@ module AWS::SDK::Chime
     class ListVoiceConnectorGroups
       def self.default(visited=[])
         {
-          voice_connector_groups: Stubs::VoiceConnectorGroupList.default(visited),
+          voice_connector_groups: VoiceConnectorGroupList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5374,7 +5374,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('VoiceConnectorGroupList')
         visited = visited + ['VoiceConnectorGroupList']
         [
-          Stubs::VoiceConnectorGroup.default(visited)
+          VoiceConnectorGroup.default(visited)
         ]
       end
 
@@ -5392,7 +5392,7 @@ module AWS::SDK::Chime
     class ListVoiceConnectorTerminationCredentials
       def self.default(visited=[])
         {
-          usernames: Stubs::SensitiveStringList.default(visited),
+          usernames: SensitiveStringList.default(visited),
         }
       end
 
@@ -5429,7 +5429,7 @@ module AWS::SDK::Chime
     class ListVoiceConnectors
       def self.default(visited=[])
         {
-          voice_connectors: Stubs::VoiceConnectorList.default(visited),
+          voice_connectors: VoiceConnectorList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5450,7 +5450,7 @@ module AWS::SDK::Chime
         return nil if visited.include?('VoiceConnectorList')
         visited = visited + ['VoiceConnectorList']
         [
-          Stubs::VoiceConnector.default(visited)
+          VoiceConnector.default(visited)
         ]
       end
 
@@ -5481,7 +5481,7 @@ module AWS::SDK::Chime
     class PutAppInstanceRetentionSettings
       def self.default(visited=[])
         {
-          app_instance_retention_settings: Stubs::AppInstanceRetentionSettings.default(visited),
+          app_instance_retention_settings: AppInstanceRetentionSettings.default(visited),
           initiate_deletion_timestamp: Time.now,
         }
       end
@@ -5500,7 +5500,7 @@ module AWS::SDK::Chime
     class PutAppInstanceStreamingConfigurations
       def self.default(visited=[])
         {
-          app_instance_streaming_configurations: Stubs::AppInstanceStreamingConfigurationList.default(visited),
+          app_instance_streaming_configurations: AppInstanceStreamingConfigurationList.default(visited),
         }
       end
 
@@ -5517,7 +5517,7 @@ module AWS::SDK::Chime
     class PutEventsConfiguration
       def self.default(visited=[])
         {
-          events_configuration: Stubs::EventsConfiguration.default(visited),
+          events_configuration: EventsConfiguration.default(visited),
         }
       end
 
@@ -5534,7 +5534,7 @@ module AWS::SDK::Chime
     class PutRetentionSettings
       def self.default(visited=[])
         {
-          retention_settings: Stubs::RetentionSettings.default(visited),
+          retention_settings: RetentionSettings.default(visited),
           initiate_deletion_timestamp: Time.now,
         }
       end
@@ -5553,7 +5553,7 @@ module AWS::SDK::Chime
     class PutSipMediaApplicationLoggingConfiguration
       def self.default(visited=[])
         {
-          sip_media_application_logging_configuration: Stubs::SipMediaApplicationLoggingConfiguration.default(visited),
+          sip_media_application_logging_configuration: SipMediaApplicationLoggingConfiguration.default(visited),
         }
       end
 
@@ -5570,7 +5570,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorEmergencyCallingConfiguration
       def self.default(visited=[])
         {
-          emergency_calling_configuration: Stubs::EmergencyCallingConfiguration.default(visited),
+          emergency_calling_configuration: EmergencyCallingConfiguration.default(visited),
         }
       end
 
@@ -5587,7 +5587,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorLoggingConfiguration
       def self.default(visited=[])
         {
-          logging_configuration: Stubs::LoggingConfiguration.default(visited),
+          logging_configuration: LoggingConfiguration.default(visited),
         }
       end
 
@@ -5604,7 +5604,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorOrigination
       def self.default(visited=[])
         {
-          origination: Stubs::Origination.default(visited),
+          origination: Origination.default(visited),
         }
       end
 
@@ -5621,7 +5621,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorProxy
       def self.default(visited=[])
         {
-          proxy: Stubs::Proxy.default(visited),
+          proxy: Proxy.default(visited),
         }
       end
 
@@ -5638,7 +5638,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorStreamingConfiguration
       def self.default(visited=[])
         {
-          streaming_configuration: Stubs::StreamingConfiguration.default(visited),
+          streaming_configuration: StreamingConfiguration.default(visited),
         }
       end
 
@@ -5655,7 +5655,7 @@ module AWS::SDK::Chime
     class PutVoiceConnectorTermination
       def self.default(visited=[])
         {
-          termination: Stubs::Termination.default(visited),
+          termination: Termination.default(visited),
         }
       end
 
@@ -5730,7 +5730,7 @@ module AWS::SDK::Chime
     class RegenerateSecurityToken
       def self.default(visited=[])
         {
-          bot: Stubs::Bot.default(visited),
+          bot: Bot.default(visited),
         }
       end
 
@@ -5747,7 +5747,7 @@ module AWS::SDK::Chime
     class ResetPersonalPIN
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -5764,7 +5764,7 @@ module AWS::SDK::Chime
     class RestorePhoneNumber
       def self.default(visited=[])
         {
-          phone_number: Stubs::PhoneNumber.default(visited),
+          phone_number: PhoneNumber.default(visited),
         }
       end
 
@@ -5781,7 +5781,7 @@ module AWS::SDK::Chime
     class SearchAvailablePhoneNumbers
       def self.default(visited=[])
         {
-          e164_phone_numbers: Stubs::E164PhoneNumberList.default(visited),
+          e164_phone_numbers: E164PhoneNumberList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -5943,7 +5943,7 @@ module AWS::SDK::Chime
     class UpdateAccount
       def self.default(visited=[])
         {
-          account: Stubs::Account.default(visited),
+          account: Account.default(visited),
         }
       end
 
@@ -6007,7 +6007,7 @@ module AWS::SDK::Chime
     class UpdateBot
       def self.default(visited=[])
         {
-          bot: Stubs::Bot.default(visited),
+          bot: Bot.default(visited),
         }
       end
 
@@ -6090,7 +6090,7 @@ module AWS::SDK::Chime
     class UpdatePhoneNumber
       def self.default(visited=[])
         {
-          phone_number: Stubs::PhoneNumber.default(visited),
+          phone_number: PhoneNumber.default(visited),
         }
       end
 
@@ -6120,7 +6120,7 @@ module AWS::SDK::Chime
     class UpdateProxySession
       def self.default(visited=[])
         {
-          proxy_session: Stubs::ProxySession.default(visited),
+          proxy_session: ProxySession.default(visited),
         }
       end
 
@@ -6137,7 +6137,7 @@ module AWS::SDK::Chime
     class UpdateRoom
       def self.default(visited=[])
         {
-          room: Stubs::Room.default(visited),
+          room: Room.default(visited),
         }
       end
 
@@ -6154,7 +6154,7 @@ module AWS::SDK::Chime
     class UpdateRoomMembership
       def self.default(visited=[])
         {
-          room_membership: Stubs::RoomMembership.default(visited),
+          room_membership: RoomMembership.default(visited),
         }
       end
 
@@ -6171,7 +6171,7 @@ module AWS::SDK::Chime
     class UpdateSipMediaApplication
       def self.default(visited=[])
         {
-          sip_media_application: Stubs::SipMediaApplication.default(visited),
+          sip_media_application: SipMediaApplication.default(visited),
         }
       end
 
@@ -6188,7 +6188,7 @@ module AWS::SDK::Chime
     class UpdateSipMediaApplicationCall
       def self.default(visited=[])
         {
-          sip_media_application_call: Stubs::SipMediaApplicationCall.default(visited),
+          sip_media_application_call: SipMediaApplicationCall.default(visited),
         }
       end
 
@@ -6205,7 +6205,7 @@ module AWS::SDK::Chime
     class UpdateSipRule
       def self.default(visited=[])
         {
-          sip_rule: Stubs::SipRule.default(visited),
+          sip_rule: SipRule.default(visited),
         }
       end
 
@@ -6222,7 +6222,7 @@ module AWS::SDK::Chime
     class UpdateUser
       def self.default(visited=[])
         {
-          user: Stubs::User.default(visited),
+          user: User.default(visited),
         }
       end
 
@@ -6252,7 +6252,7 @@ module AWS::SDK::Chime
     class UpdateVoiceConnector
       def self.default(visited=[])
         {
-          voice_connector: Stubs::VoiceConnector.default(visited),
+          voice_connector: VoiceConnector.default(visited),
         }
       end
 
@@ -6269,7 +6269,7 @@ module AWS::SDK::Chime
     class UpdateVoiceConnectorGroup
       def self.default(visited=[])
         {
-          voice_connector_group: Stubs::VoiceConnectorGroup.default(visited),
+          voice_connector_group: VoiceConnectorGroup.default(visited),
         }
       end
 

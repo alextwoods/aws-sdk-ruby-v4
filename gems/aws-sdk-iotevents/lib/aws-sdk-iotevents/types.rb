@@ -2893,11 +2893,11 @@ module AWS::SDK::IoTEvents
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.enabled ||= false
       end
-
     end
 
     # <p>Contains the notification settings of an alarm model.

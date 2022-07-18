@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::SSOAdmin
@@ -82,7 +84,7 @@ module AWS::SDK::SSOAdmin
     def attach_managed_policy_to_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AttachManagedPolicyToPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AttachManagedPolicyToPermissionSetInput,
         validate_input: @config.validate_input
@@ -196,7 +198,7 @@ module AWS::SDK::SSOAdmin
     def create_account_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAccountAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAccountAssignmentInput,
         validate_input: @config.validate_input
@@ -286,7 +288,7 @@ module AWS::SDK::SSOAdmin
     def create_instance_access_control_attribute_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInstanceAccessControlAttributeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInstanceAccessControlAttributeConfigurationInput,
         validate_input: @config.validate_input
@@ -394,7 +396,7 @@ module AWS::SDK::SSOAdmin
     def create_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePermissionSetInput,
         validate_input: @config.validate_input
@@ -494,7 +496,7 @@ module AWS::SDK::SSOAdmin
     def delete_account_assignment(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAccountAssignmentInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAccountAssignmentInput,
         validate_input: @config.validate_input
@@ -567,7 +569,7 @@ module AWS::SDK::SSOAdmin
     def delete_inline_policy_from_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInlinePolicyFromPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInlinePolicyFromPermissionSetInput,
         validate_input: @config.validate_input
@@ -638,7 +640,7 @@ module AWS::SDK::SSOAdmin
     def delete_instance_access_control_attribute_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInstanceAccessControlAttributeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInstanceAccessControlAttributeConfigurationInput,
         validate_input: @config.validate_input
@@ -711,7 +713,7 @@ module AWS::SDK::SSOAdmin
     def delete_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePermissionSetInput,
         validate_input: @config.validate_input
@@ -794,7 +796,7 @@ module AWS::SDK::SSOAdmin
     def describe_account_assignment_creation_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAssignmentCreationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAssignmentCreationStatusInput,
         validate_input: @config.validate_input
@@ -877,7 +879,7 @@ module AWS::SDK::SSOAdmin
     def describe_account_assignment_deletion_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAccountAssignmentDeletionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAccountAssignmentDeletionStatusInput,
         validate_input: @config.validate_input
@@ -957,7 +959,7 @@ module AWS::SDK::SSOAdmin
     def describe_instance_access_control_attribute_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInstanceAccessControlAttributeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInstanceAccessControlAttributeConfigurationInput,
         validate_input: @config.validate_input
@@ -1037,7 +1039,7 @@ module AWS::SDK::SSOAdmin
     def describe_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePermissionSetInput,
         validate_input: @config.validate_input
@@ -1118,7 +1120,7 @@ module AWS::SDK::SSOAdmin
     def describe_permission_set_provisioning_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePermissionSetProvisioningStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePermissionSetProvisioningStatusInput,
         validate_input: @config.validate_input
@@ -1196,7 +1198,7 @@ module AWS::SDK::SSOAdmin
     def detach_managed_policy_from_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DetachManagedPolicyFromPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DetachManagedPolicyFromPermissionSetInput,
         validate_input: @config.validate_input
@@ -1270,7 +1272,7 @@ module AWS::SDK::SSOAdmin
     def get_inline_policy_for_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInlinePolicyForPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInlinePolicyForPermissionSetInput,
         validate_input: @config.validate_input
@@ -1360,7 +1362,7 @@ module AWS::SDK::SSOAdmin
     def list_account_assignment_creation_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountAssignmentCreationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountAssignmentCreationStatusInput,
         validate_input: @config.validate_input
@@ -1450,7 +1452,7 @@ module AWS::SDK::SSOAdmin
     def list_account_assignment_deletion_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountAssignmentDeletionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountAssignmentDeletionStatusInput,
         validate_input: @config.validate_input
@@ -1543,7 +1545,7 @@ module AWS::SDK::SSOAdmin
     def list_account_assignments(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountAssignmentsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountAssignmentsInput,
         validate_input: @config.validate_input
@@ -1632,7 +1634,7 @@ module AWS::SDK::SSOAdmin
     def list_accounts_for_provisioned_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsForProvisionedPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsForProvisionedPermissionSetInput,
         validate_input: @config.validate_input
@@ -1709,7 +1711,7 @@ module AWS::SDK::SSOAdmin
     def list_instances(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInstancesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInstancesInput,
         validate_input: @config.validate_input
@@ -1796,7 +1798,7 @@ module AWS::SDK::SSOAdmin
     def list_managed_policies_in_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedPoliciesInPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListManagedPoliciesInPermissionSetInput,
         validate_input: @config.validate_input
@@ -1886,7 +1888,7 @@ module AWS::SDK::SSOAdmin
     def list_permission_set_provisioning_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionSetProvisioningStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionSetProvisioningStatusInput,
         validate_input: @config.validate_input
@@ -1966,7 +1968,7 @@ module AWS::SDK::SSOAdmin
     def list_permission_sets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionSetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionSetsInput,
         validate_input: @config.validate_input
@@ -2054,7 +2056,7 @@ module AWS::SDK::SSOAdmin
     def list_permission_sets_provisioned_to_account(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPermissionSetsProvisionedToAccountInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPermissionSetsProvisionedToAccountInput,
         validate_input: @config.validate_input
@@ -2136,7 +2138,7 @@ module AWS::SDK::SSOAdmin
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -2225,7 +2227,7 @@ module AWS::SDK::SSOAdmin
     def provision_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ProvisionPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ProvisionPermissionSetInput,
         validate_input: @config.validate_input
@@ -2309,7 +2311,7 @@ module AWS::SDK::SSOAdmin
     def put_inline_policy_to_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutInlinePolicyToPermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutInlinePolicyToPermissionSetInput,
         validate_input: @config.validate_input
@@ -2391,7 +2393,7 @@ module AWS::SDK::SSOAdmin
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2470,7 +2472,7 @@ module AWS::SDK::SSOAdmin
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2558,7 +2560,7 @@ module AWS::SDK::SSOAdmin
     def update_instance_access_control_attribute_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInstanceAccessControlAttributeConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInstanceAccessControlAttributeConfigurationInput,
         validate_input: @config.validate_input
@@ -2645,7 +2647,7 @@ module AWS::SDK::SSOAdmin
     def update_permission_set(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePermissionSetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePermissionSetInput,
         validate_input: @config.validate_input

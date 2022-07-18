@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::ServiceCatalogAppRegistry
   module Validators
 
@@ -19,7 +21,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -27,7 +29,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ApplicationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -103,7 +105,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::AttributeGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          AttributeGroupSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -132,7 +134,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input, Types::CreateApplicationInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -140,7 +142,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class CreateApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateApplicationOutput, context: context)
-        Validators::Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:attributes], ::String, context: "#{context}[:attributes]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class CreateAttributeGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAttributeGroupOutput, context: context)
-        Validators::AttributeGroup.validate!(input[:attribute_group], context: "#{context}[:attribute_group]") unless input[:attribute_group].nil?
+        AttributeGroup.validate!(input[:attribute_group], context: "#{context}[:attribute_group]") unless input[:attribute_group].nil?
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class DeleteApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteApplicationOutput, context: context)
-        Validators::ApplicationSummary.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        ApplicationSummary.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class DeleteAttributeGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAttributeGroupOutput, context: context)
-        Validators::AttributeGroupSummary.validate!(input[:attribute_group], context: "#{context}[:attribute_group]") unless input[:attribute_group].nil?
+        AttributeGroupSummary.validate!(input[:attribute_group], context: "#{context}[:attribute_group]") unless input[:attribute_group].nil?
       end
     end
 
@@ -240,8 +242,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
         Hearth::Validator.validate!(input[:associated_resource_count], ::Integer, context: "#{context}[:associated_resource_count]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
-        Validators::Integrations.validate!(input[:integrations], context: "#{context}[:integrations]") unless input[:integrations].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Integrations.validate!(input[:integrations], context: "#{context}[:integrations]") unless input[:integrations].nil?
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class GetAssociatedResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAssociatedResourceOutput, context: context)
-        Validators::Resource.validate!(input[:resource], context: "#{context}[:resource]") unless input[:resource].nil?
+        Resource.validate!(input[:resource], context: "#{context}[:resource]") unless input[:resource].nil?
       end
     end
 
@@ -278,14 +280,14 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input[:attributes], ::String, context: "#{context}[:attributes]")
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:last_update_time], ::Time, context: "#{context}[:last_update_time]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
     class Integrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Integrations, context: context)
-        Validators::ResourceGroup.validate!(input[:resource_group], context: "#{context}[:resource_group]") unless input[:resource_group].nil?
+        ResourceGroup.validate!(input[:resource_group], context: "#{context}[:resource_group]") unless input[:resource_group].nil?
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListApplicationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListApplicationsOutput, context: context)
-        Validators::ApplicationSummaries.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
+        ApplicationSummaries.validate!(input[:applications], context: "#{context}[:applications]") unless input[:applications].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListAssociatedAttributeGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssociatedAttributeGroupsOutput, context: context)
-        Validators::AttributeGroupIds.validate!(input[:attribute_groups], context: "#{context}[:attribute_groups]") unless input[:attribute_groups].nil?
+        AttributeGroupIds.validate!(input[:attribute_groups], context: "#{context}[:attribute_groups]") unless input[:attribute_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -341,7 +343,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListAssociatedResourcesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAssociatedResourcesOutput, context: context)
-        Validators::Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
+        Resources.validate!(input[:resources], context: "#{context}[:resources]") unless input[:resources].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -357,7 +359,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListAttributeGroupsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListAttributeGroupsOutput, context: context)
-        Validators::AttributeGroupSummaries.validate!(input[:attribute_groups], context: "#{context}[:attribute_groups]") unless input[:attribute_groups].nil?
+        AttributeGroupSummaries.validate!(input[:attribute_groups], context: "#{context}[:attribute_groups]") unless input[:attribute_groups].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:association_time], ::Time, context: "#{context}[:association_time]")
-        Validators::ResourceIntegrations.validate!(input[:integrations], context: "#{context}[:integrations]") unless input[:integrations].nil?
+        ResourceIntegrations.validate!(input[:integrations], context: "#{context}[:integrations]") unless input[:integrations].nil?
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ResourceIntegrations
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceIntegrations, context: context)
-        Validators::ResourceGroup.validate!(input[:resource_group], context: "#{context}[:resource_group]") unless input[:resource_group].nil?
+        ResourceGroup.validate!(input[:resource_group], context: "#{context}[:resource_group]") unless input[:resource_group].nil?
       end
     end
 
@@ -421,7 +423,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::ResourceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          ResourceInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Tags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -487,7 +489,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeys.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -509,7 +511,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class UpdateApplicationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateApplicationOutput, context: context)
-        Validators::Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
+        Application.validate!(input[:application], context: "#{context}[:application]") unless input[:application].nil?
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class UpdateAttributeGroupOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAttributeGroupOutput, context: context)
-        Validators::AttributeGroup.validate!(input[:attribute_group], context: "#{context}[:attribute_group]") unless input[:attribute_group].nil?
+        AttributeGroup.validate!(input[:attribute_group], context: "#{context}[:attribute_group]") unless input[:attribute_group].nil?
       end
     end
 

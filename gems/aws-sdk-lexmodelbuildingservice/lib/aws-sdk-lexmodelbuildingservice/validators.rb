@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::LexModelBuildingService
   module Validators
 
@@ -34,7 +36,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
-        Validators::ConversationLogsResponse.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
+        ConversationLogsResponse.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BotAliasMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BotAliasMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -56,7 +58,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:bot_name], ::String, context: "#{context}[:bot_name]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ChannelConfigurationMap.validate!(input[:bot_configuration], context: "#{context}[:bot_configuration]") unless input[:bot_configuration].nil?
+        ChannelConfigurationMap.validate!(input[:bot_configuration], context: "#{context}[:bot_configuration]") unless input[:bot_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
       end
@@ -66,7 +68,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BotChannelAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BotChannelAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -87,7 +89,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BotMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BotMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BuiltinIntentMetadata, context: context)
         Hearth::Validator.validate!(input[:signature], ::String, context: "#{context}[:signature]")
-        Validators::LocaleList.validate!(input[:supported_locales], context: "#{context}[:supported_locales]") unless input[:supported_locales].nil?
+        LocaleList.validate!(input[:supported_locales], context: "#{context}[:supported_locales]") unless input[:supported_locales].nil?
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuiltinIntentMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuiltinIntentMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuiltinIntentSlot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuiltinIntentSlot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -138,7 +140,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::BuiltinSlotTypeMetadata, context: context)
         Hearth::Validator.validate!(input[:signature], ::String, context: "#{context}[:signature]")
-        Validators::LocaleList.validate!(input[:supported_locales], context: "#{context}[:supported_locales]") unless input[:supported_locales].nil?
+        LocaleList.validate!(input[:supported_locales], context: "#{context}[:supported_locales]") unless input[:supported_locales].nil?
       end
     end
 
@@ -146,7 +148,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::BuiltinSlotTypeMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          BuiltinSlotTypeMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::LexModelBuildingService
     class ConversationLogsRequest
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConversationLogsRequest, context: context)
-        Validators::LogSettingsRequestList.validate!(input[:log_settings], context: "#{context}[:log_settings]") unless input[:log_settings].nil?
+        LogSettingsRequestList.validate!(input[:log_settings], context: "#{context}[:log_settings]") unless input[:log_settings].nil?
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
       end
     end
@@ -187,7 +189,7 @@ module AWS::SDK::LexModelBuildingService
     class ConversationLogsResponse
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ConversationLogsResponse, context: context)
-        Validators::LogSettingsResponseList.validate!(input[:log_settings], context: "#{context}[:log_settings]") unless input[:log_settings].nil?
+        LogSettingsResponseList.validate!(input[:log_settings], context: "#{context}[:log_settings]") unless input[:log_settings].nil?
         Hearth::Validator.validate!(input[:iam_role_arn], ::String, context: "#{context}[:iam_role_arn]")
       end
     end
@@ -205,9 +207,9 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::CreateBotVersionOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
-        Validators::Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
-        Validators::Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
+        IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
+        Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
@@ -236,22 +238,22 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::CreateIntentVersionOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
-        Validators::IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
-        Validators::Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
-        Validators::Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
-        Validators::FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
-        Validators::Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
-        Validators::CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
-        Validators::FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
+        SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
+        IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
+        Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
+        Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
+        FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
+        Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
+        CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
+        FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
         Hearth::Validator.validate!(input[:parent_intent_signature], ::String, context: "#{context}[:parent_intent_signature]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
-        Validators::KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
-        Validators::InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
-        Validators::OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
+        KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
+        InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
+        OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
       end
     end
 
@@ -268,14 +270,14 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::CreateSlotTypeVersionOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
+        EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
         Hearth::Validator.validate!(input[:value_selection_strategy], ::String, context: "#{context}[:value_selection_strategy]")
         Hearth::Validator.validate!(input[:parent_slot_type_signature], ::String, context: "#{context}[:parent_slot_type_signature]")
-        Validators::SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
+        SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
       end
     end
 
@@ -407,7 +409,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EnumerationValue, context: context)
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Validators::SynonymList.validate!(input[:synonyms], context: "#{context}[:synonyms]") unless input[:synonyms].nil?
+        SynonymList.validate!(input[:synonyms], context: "#{context}[:synonyms]") unless input[:synonyms].nil?
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::EnumerationValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          EnumerationValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -423,8 +425,8 @@ module AWS::SDK::LexModelBuildingService
     class FollowUpPrompt
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FollowUpPrompt, context: context)
-        Validators::Prompt.validate!(input[:prompt], context: "#{context}[:prompt]") unless input[:prompt].nil?
-        Validators::Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
+        Prompt.validate!(input[:prompt], context: "#{context}[:prompt]") unless input[:prompt].nil?
+        Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
       end
     end
 
@@ -432,7 +434,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FulfillmentActivity, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::CodeHook.validate!(input[:code_hook], context: "#{context}[:code_hook]") unless input[:code_hook].nil?
+        CodeHook.validate!(input[:code_hook], context: "#{context}[:code_hook]") unless input[:code_hook].nil?
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
-        Validators::ConversationLogsResponse.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
+        ConversationLogsResponse.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotAliasesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBotAliasesOutput, context: context)
-        Validators::BotAliasMetadataList.validate!(input[:bot_aliases], context: "#{context}[:bot_aliases]") unless input[:bot_aliases].nil?
+        BotAliasMetadataList.validate!(input[:bot_aliases], context: "#{context}[:bot_aliases]") unless input[:bot_aliases].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -494,7 +496,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:bot_name], ::String, context: "#{context}[:bot_name]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
-        Validators::ChannelConfigurationMap.validate!(input[:bot_configuration], context: "#{context}[:bot_configuration]") unless input[:bot_configuration].nil?
+        ChannelConfigurationMap.validate!(input[:bot_configuration], context: "#{context}[:bot_configuration]") unless input[:bot_configuration].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
       end
@@ -514,7 +516,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotChannelAssociationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBotChannelAssociationsOutput, context: context)
-        Validators::BotChannelAssociationList.validate!(input[:bot_channel_associations], context: "#{context}[:bot_channel_associations]") unless input[:bot_channel_associations].nil?
+        BotChannelAssociationList.validate!(input[:bot_channel_associations], context: "#{context}[:bot_channel_associations]") unless input[:bot_channel_associations].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -532,11 +534,11 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::GetBotOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
         Hearth::Validator.validate!(input[:enable_model_improvements], ::TrueClass, ::FalseClass, context: "#{context}[:enable_model_improvements]")
         Hearth::Validator.validate!(input[:nlu_intent_confidence_threshold], ::Float, context: "#{context}[:nlu_intent_confidence_threshold]")
-        Validators::Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
-        Validators::Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
+        Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
+        Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
@@ -563,7 +565,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBotVersionsOutput, context: context)
-        Validators::BotMetadataList.validate!(input[:bots], context: "#{context}[:bots]") unless input[:bots].nil?
+        BotMetadataList.validate!(input[:bots], context: "#{context}[:bots]") unless input[:bots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -580,7 +582,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBotsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBotsOutput, context: context)
-        Validators::BotMetadataList.validate!(input[:bots], context: "#{context}[:bots]") unless input[:bots].nil?
+        BotMetadataList.validate!(input[:bots], context: "#{context}[:bots]") unless input[:bots].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -596,8 +598,8 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBuiltinIntentOutput, context: context)
         Hearth::Validator.validate!(input[:signature], ::String, context: "#{context}[:signature]")
-        Validators::LocaleList.validate!(input[:supported_locales], context: "#{context}[:supported_locales]") unless input[:supported_locales].nil?
-        Validators::BuiltinIntentSlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
+        LocaleList.validate!(input[:supported_locales], context: "#{context}[:supported_locales]") unless input[:supported_locales].nil?
+        BuiltinIntentSlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
       end
     end
 
@@ -614,7 +616,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBuiltinIntentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBuiltinIntentsOutput, context: context)
-        Validators::BuiltinIntentMetadataList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        BuiltinIntentMetadataList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -632,7 +634,7 @@ module AWS::SDK::LexModelBuildingService
     class GetBuiltinSlotTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetBuiltinSlotTypesOutput, context: context)
-        Validators::BuiltinSlotTypeMetadataList.validate!(input[:slot_types], context: "#{context}[:slot_types]") unless input[:slot_types].nil?
+        BuiltinSlotTypeMetadataList.validate!(input[:slot_types], context: "#{context}[:slot_types]") unless input[:slot_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -675,7 +677,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:merge_strategy], ::String, context: "#{context}[:merge_strategy]")
         Hearth::Validator.validate!(input[:import_id], ::String, context: "#{context}[:import_id]")
         Hearth::Validator.validate!(input[:import_status], ::String, context: "#{context}[:import_status]")
-        Validators::StringList.validate!(input[:failure_reason], context: "#{context}[:failure_reason]") unless input[:failure_reason].nil?
+        StringList.validate!(input[:failure_reason], context: "#{context}[:failure_reason]") unless input[:failure_reason].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
       end
     end
@@ -693,22 +695,22 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::GetIntentOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
-        Validators::IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
-        Validators::Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
-        Validators::Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
-        Validators::FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
-        Validators::Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
-        Validators::CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
-        Validators::FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
+        SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
+        IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
+        Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
+        Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
+        FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
+        Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
+        CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
+        FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
         Hearth::Validator.validate!(input[:parent_intent_signature], ::String, context: "#{context}[:parent_intent_signature]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
-        Validators::KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
-        Validators::InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
-        Validators::OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
+        KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
+        InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
+        OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
       end
     end
 
@@ -724,7 +726,7 @@ module AWS::SDK::LexModelBuildingService
     class GetIntentVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIntentVersionsOutput, context: context)
-        Validators::IntentMetadataList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        IntentMetadataList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -741,7 +743,7 @@ module AWS::SDK::LexModelBuildingService
     class GetIntentsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetIntentsOutput, context: context)
-        Validators::IntentMetadataList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        IntentMetadataList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -765,7 +767,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:migration_status], ::String, context: "#{context}[:migration_status]")
         Hearth::Validator.validate!(input[:migration_strategy], ::String, context: "#{context}[:migration_strategy]")
         Hearth::Validator.validate!(input[:migration_timestamp], ::Time, context: "#{context}[:migration_timestamp]")
-        Validators::MigrationAlerts.validate!(input[:alerts], context: "#{context}[:alerts]") unless input[:alerts].nil?
+        MigrationAlerts.validate!(input[:alerts], context: "#{context}[:alerts]") unless input[:alerts].nil?
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::LexModelBuildingService
     class GetMigrationsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetMigrationsOutput, context: context)
-        Validators::MigrationSummaryList.validate!(input[:migration_summaries], context: "#{context}[:migration_summaries]") unless input[:migration_summaries].nil?
+        MigrationSummaryList.validate!(input[:migration_summaries], context: "#{context}[:migration_summaries]") unless input[:migration_summaries].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -802,14 +804,14 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::GetSlotTypeOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
+        EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
         Hearth::Validator.validate!(input[:value_selection_strategy], ::String, context: "#{context}[:value_selection_strategy]")
         Hearth::Validator.validate!(input[:parent_slot_type_signature], ::String, context: "#{context}[:parent_slot_type_signature]")
-        Validators::SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
+        SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
       end
     end
 
@@ -825,7 +827,7 @@ module AWS::SDK::LexModelBuildingService
     class GetSlotTypeVersionsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSlotTypeVersionsOutput, context: context)
-        Validators::SlotTypeMetadataList.validate!(input[:slot_types], context: "#{context}[:slot_types]") unless input[:slot_types].nil?
+        SlotTypeMetadataList.validate!(input[:slot_types], context: "#{context}[:slot_types]") unless input[:slot_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -842,7 +844,7 @@ module AWS::SDK::LexModelBuildingService
     class GetSlotTypesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSlotTypesOutput, context: context)
-        Validators::SlotTypeMetadataList.validate!(input[:slot_types], context: "#{context}[:slot_types]") unless input[:slot_types].nil?
+        SlotTypeMetadataList.validate!(input[:slot_types], context: "#{context}[:slot_types]") unless input[:slot_types].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -851,7 +853,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUtterancesViewInput, context: context)
         Hearth::Validator.validate!(input[:bot_name], ::String, context: "#{context}[:bot_name]")
-        Validators::BotVersions.validate!(input[:bot_versions], context: "#{context}[:bot_versions]") unless input[:bot_versions].nil?
+        BotVersions.validate!(input[:bot_versions], context: "#{context}[:bot_versions]") unless input[:bot_versions].nil?
         Hearth::Validator.validate!(input[:status_type], ::String, context: "#{context}[:status_type]")
       end
     end
@@ -860,7 +862,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetUtterancesViewOutput, context: context)
         Hearth::Validator.validate!(input[:bot_name], ::String, context: "#{context}[:bot_name]")
-        Validators::ListsOfUtterances.validate!(input[:utterances], context: "#{context}[:utterances]") unless input[:utterances].nil?
+        ListsOfUtterances.validate!(input[:utterances], context: "#{context}[:utterances]") unless input[:utterances].nil?
       end
     end
 
@@ -875,7 +877,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::InputContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          InputContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -892,7 +894,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Intent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Intent.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -912,7 +914,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::IntentMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          IntentMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -954,7 +956,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UtteranceData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UtteranceData.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -969,7 +971,7 @@ module AWS::SDK::LexModelBuildingService
     class ListTagsForResourceOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListTagsForResourceOutput, context: context)
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -977,7 +979,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::UtteranceList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          UtteranceList.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1005,7 +1007,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogSettingsRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogSettingsRequest.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1025,7 +1027,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LogSettingsResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LogSettingsResponse.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1043,7 +1045,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Message.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1053,8 +1055,8 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::MigrationAlert, context: context)
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
-        Validators::MigrationAlertDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
-        Validators::MigrationAlertReferenceURLs.validate!(input[:reference_ur_ls], context: "#{context}[:reference_ur_ls]") unless input[:reference_ur_ls].nil?
+        MigrationAlertDetails.validate!(input[:details], context: "#{context}[:details]") unless input[:details].nil?
+        MigrationAlertReferenceURLs.validate!(input[:reference_ur_ls], context: "#{context}[:reference_ur_ls]") unless input[:reference_ur_ls].nil?
       end
     end
 
@@ -1080,7 +1082,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MigrationAlert.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MigrationAlert.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1104,7 +1106,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::MigrationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          MigrationSummary.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1129,7 +1131,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::OutputContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          OutputContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1144,7 +1146,7 @@ module AWS::SDK::LexModelBuildingService
     class Prompt
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Prompt, context: context)
-        Validators::MessageList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        MessageList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
         Hearth::Validator.validate!(input[:max_attempts], ::Integer, context: "#{context}[:max_attempts]")
         Hearth::Validator.validate!(input[:response_card], ::String, context: "#{context}[:response_card]")
       end
@@ -1158,8 +1160,8 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:bot_version], ::String, context: "#{context}[:bot_version]")
         Hearth::Validator.validate!(input[:bot_name], ::String, context: "#{context}[:bot_name]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
-        Validators::ConversationLogsRequest.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConversationLogsRequest.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1173,8 +1175,8 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
-        Validators::ConversationLogsResponse.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        ConversationLogsResponse.validate!(input[:conversation_logs], context: "#{context}[:conversation_logs]") unless input[:conversation_logs].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1183,11 +1185,11 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::PutBotInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
         Hearth::Validator.validate!(input[:enable_model_improvements], ::TrueClass, ::FalseClass, context: "#{context}[:enable_model_improvements]")
         Hearth::Validator.validate!(input[:nlu_intent_confidence_threshold], ::Float, context: "#{context}[:nlu_intent_confidence_threshold]")
-        Validators::Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
-        Validators::Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
+        Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
+        Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
         Hearth::Validator.validate!(input[:idle_session_ttl_in_seconds], ::Integer, context: "#{context}[:idle_session_ttl_in_seconds]")
         Hearth::Validator.validate!(input[:voice_id], ::String, context: "#{context}[:voice_id]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
@@ -1196,7 +1198,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:child_directed], ::TrueClass, ::FalseClass, context: "#{context}[:child_directed]")
         Hearth::Validator.validate!(input[:detect_sentiment], ::TrueClass, ::FalseClass, context: "#{context}[:detect_sentiment]")
         Hearth::Validator.validate!(input[:create_version], ::TrueClass, ::FalseClass, context: "#{context}[:create_version]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1205,11 +1207,11 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::PutBotOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
+        IntentList.validate!(input[:intents], context: "#{context}[:intents]") unless input[:intents].nil?
         Hearth::Validator.validate!(input[:enable_model_improvements], ::TrueClass, ::FalseClass, context: "#{context}[:enable_model_improvements]")
         Hearth::Validator.validate!(input[:nlu_intent_confidence_threshold], ::Float, context: "#{context}[:nlu_intent_confidence_threshold]")
-        Validators::Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
-        Validators::Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
+        Prompt.validate!(input[:clarification_prompt], context: "#{context}[:clarification_prompt]") unless input[:clarification_prompt].nil?
+        Statement.validate!(input[:abort_statement], context: "#{context}[:abort_statement]") unless input[:abort_statement].nil?
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:failure_reason], ::String, context: "#{context}[:failure_reason]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
@@ -1222,7 +1224,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:child_directed], ::TrueClass, ::FalseClass, context: "#{context}[:child_directed]")
         Hearth::Validator.validate!(input[:create_version], ::TrueClass, ::FalseClass, context: "#{context}[:create_version]")
         Hearth::Validator.validate!(input[:detect_sentiment], ::TrueClass, ::FalseClass, context: "#{context}[:detect_sentiment]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1231,20 +1233,20 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::PutIntentInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
-        Validators::IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
-        Validators::Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
-        Validators::Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
-        Validators::FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
-        Validators::Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
-        Validators::CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
-        Validators::FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
+        SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
+        IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
+        Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
+        Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
+        FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
+        Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
+        CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
+        FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
         Hearth::Validator.validate!(input[:parent_intent_signature], ::String, context: "#{context}[:parent_intent_signature]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
         Hearth::Validator.validate!(input[:create_version], ::TrueClass, ::FalseClass, context: "#{context}[:create_version]")
-        Validators::KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
-        Validators::InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
-        Validators::OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
+        KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
+        InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
+        OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
       end
     end
 
@@ -1253,23 +1255,23 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::PutIntentOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
-        Validators::IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
-        Validators::Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
-        Validators::Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
-        Validators::FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
-        Validators::Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
-        Validators::CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
-        Validators::FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
+        SlotList.validate!(input[:slots], context: "#{context}[:slots]") unless input[:slots].nil?
+        IntentUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
+        Prompt.validate!(input[:confirmation_prompt], context: "#{context}[:confirmation_prompt]") unless input[:confirmation_prompt].nil?
+        Statement.validate!(input[:rejection_statement], context: "#{context}[:rejection_statement]") unless input[:rejection_statement].nil?
+        FollowUpPrompt.validate!(input[:follow_up_prompt], context: "#{context}[:follow_up_prompt]") unless input[:follow_up_prompt].nil?
+        Statement.validate!(input[:conclusion_statement], context: "#{context}[:conclusion_statement]") unless input[:conclusion_statement].nil?
+        CodeHook.validate!(input[:dialog_code_hook], context: "#{context}[:dialog_code_hook]") unless input[:dialog_code_hook].nil?
+        FulfillmentActivity.validate!(input[:fulfillment_activity], context: "#{context}[:fulfillment_activity]") unless input[:fulfillment_activity].nil?
         Hearth::Validator.validate!(input[:parent_intent_signature], ::String, context: "#{context}[:parent_intent_signature]")
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
         Hearth::Validator.validate!(input[:create_version], ::TrueClass, ::FalseClass, context: "#{context}[:create_version]")
-        Validators::KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
-        Validators::InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
-        Validators::OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
+        KendraConfiguration.validate!(input[:kendra_configuration], context: "#{context}[:kendra_configuration]") unless input[:kendra_configuration].nil?
+        InputContextList.validate!(input[:input_contexts], context: "#{context}[:input_contexts]") unless input[:input_contexts].nil?
+        OutputContextList.validate!(input[:output_contexts], context: "#{context}[:output_contexts]") unless input[:output_contexts].nil?
       end
     end
 
@@ -1278,12 +1280,12 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::PutSlotTypeInput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
+        EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
         Hearth::Validator.validate!(input[:checksum], ::String, context: "#{context}[:checksum]")
         Hearth::Validator.validate!(input[:value_selection_strategy], ::String, context: "#{context}[:value_selection_strategy]")
         Hearth::Validator.validate!(input[:create_version], ::TrueClass, ::FalseClass, context: "#{context}[:create_version]")
         Hearth::Validator.validate!(input[:parent_slot_type_signature], ::String, context: "#{context}[:parent_slot_type_signature]")
-        Validators::SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
+        SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
       end
     end
 
@@ -1292,7 +1294,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input, Types::PutSlotTypeOutput, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Validators::EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
+        EnumerationValues.validate!(input[:enumeration_values], context: "#{context}[:enumeration_values]") unless input[:enumeration_values].nil?
         Hearth::Validator.validate!(input[:last_updated_date], ::Time, context: "#{context}[:last_updated_date]")
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
         Hearth::Validator.validate!(input[:version], ::String, context: "#{context}[:version]")
@@ -1300,7 +1302,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:value_selection_strategy], ::String, context: "#{context}[:value_selection_strategy]")
         Hearth::Validator.validate!(input[:create_version], ::TrueClass, ::FalseClass, context: "#{context}[:create_version]")
         Hearth::Validator.validate!(input[:parent_slot_type_signature], ::String, context: "#{context}[:parent_slot_type_signature]")
-        Validators::SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
+        SlotTypeConfigurations.validate!(input[:slot_type_configurations], context: "#{context}[:slot_type_configurations]") unless input[:slot_type_configurations].nil?
       end
     end
 
@@ -1308,7 +1310,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResourceInUseException, context: context)
         Hearth::Validator.validate!(input[:reference_type], ::String, context: "#{context}[:reference_type]")
-        Validators::ResourceReference.validate!(input[:example_reference], context: "#{context}[:example_reference]") unless input[:example_reference].nil?
+        ResourceReference.validate!(input[:example_reference], context: "#{context}[:example_reference]") unless input[:example_reference].nil?
       end
     end
 
@@ -1328,12 +1330,12 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:slot_constraint], ::String, context: "#{context}[:slot_constraint]")
         Hearth::Validator.validate!(input[:slot_type], ::String, context: "#{context}[:slot_type]")
         Hearth::Validator.validate!(input[:slot_type_version], ::String, context: "#{context}[:slot_type_version]")
-        Validators::Prompt.validate!(input[:value_elicitation_prompt], context: "#{context}[:value_elicitation_prompt]") unless input[:value_elicitation_prompt].nil?
+        Prompt.validate!(input[:value_elicitation_prompt], context: "#{context}[:value_elicitation_prompt]") unless input[:value_elicitation_prompt].nil?
         Hearth::Validator.validate!(input[:priority], ::Integer, context: "#{context}[:priority]")
-        Validators::SlotUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
+        SlotUtteranceList.validate!(input[:sample_utterances], context: "#{context}[:sample_utterances]") unless input[:sample_utterances].nil?
         Hearth::Validator.validate!(input[:response_card], ::String, context: "#{context}[:response_card]")
         Hearth::Validator.validate!(input[:obfuscation_setting], ::String, context: "#{context}[:obfuscation_setting]")
-        Validators::SlotDefaultValueSpec.validate!(input[:default_value_spec], context: "#{context}[:default_value_spec]") unless input[:default_value_spec].nil?
+        SlotDefaultValueSpec.validate!(input[:default_value_spec], context: "#{context}[:default_value_spec]") unless input[:default_value_spec].nil?
       end
     end
 
@@ -1348,7 +1350,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SlotDefaultValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SlotDefaultValue.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1356,7 +1358,7 @@ module AWS::SDK::LexModelBuildingService
     class SlotDefaultValueSpec
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SlotDefaultValueSpec, context: context)
-        Validators::SlotDefaultValueList.validate!(input[:default_value_list], context: "#{context}[:default_value_list]") unless input[:default_value_list].nil?
+        SlotDefaultValueList.validate!(input[:default_value_list], context: "#{context}[:default_value_list]") unless input[:default_value_list].nil?
       end
     end
 
@@ -1364,7 +1366,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Slot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Slot.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1372,7 +1374,7 @@ module AWS::SDK::LexModelBuildingService
     class SlotTypeConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::SlotTypeConfiguration, context: context)
-        Validators::SlotTypeRegexConfiguration.validate!(input[:regex_configuration], context: "#{context}[:regex_configuration]") unless input[:regex_configuration].nil?
+        SlotTypeRegexConfiguration.validate!(input[:regex_configuration], context: "#{context}[:regex_configuration]") unless input[:regex_configuration].nil?
       end
     end
 
@@ -1380,7 +1382,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SlotTypeConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SlotTypeConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1400,7 +1402,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SlotTypeMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SlotTypeMetadata.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1427,7 +1429,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:payload], ::String, context: "#{context}[:payload]")
         Hearth::Validator.validate!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate!(input[:merge_strategy], ::String, context: "#{context}[:merge_strategy]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1439,7 +1441,7 @@ module AWS::SDK::LexModelBuildingService
         Hearth::Validator.validate!(input[:merge_strategy], ::String, context: "#{context}[:merge_strategy]")
         Hearth::Validator.validate!(input[:import_id], ::String, context: "#{context}[:import_id]")
         Hearth::Validator.validate!(input[:import_status], ::String, context: "#{context}[:import_status]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate!(input[:created_date], ::Time, context: "#{context}[:created_date]")
       end
     end
@@ -1472,7 +1474,7 @@ module AWS::SDK::LexModelBuildingService
     class Statement
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Statement, context: context)
-        Validators::MessageList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
+        MessageList.validate!(input[:messages], context: "#{context}[:messages]") unless input[:messages].nil?
         Hearth::Validator.validate!(input[:response_card], ::String, context: "#{context}[:response_card]")
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Tag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -1525,7 +1527,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
       end
     end
 
@@ -1539,7 +1541,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UntagResourceInput, context: context)
         Hearth::Validator.validate!(input[:resource_arn], ::String, context: "#{context}[:resource_arn]")
-        Validators::TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
+        TagKeyList.validate!(input[:tag_keys], context: "#{context}[:tag_keys]") unless input[:tag_keys].nil?
       end
     end
 
@@ -1564,7 +1566,7 @@ module AWS::SDK::LexModelBuildingService
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UtteranceList, context: context)
         Hearth::Validator.validate!(input[:bot_version], ::String, context: "#{context}[:bot_version]")
-        Validators::ListOfUtterance.validate!(input[:utterances], context: "#{context}[:utterances]") unless input[:utterances].nil?
+        ListOfUtterance.validate!(input[:utterances], context: "#{context}[:utterances]") unless input[:utterances].nil?
       end
     end
 

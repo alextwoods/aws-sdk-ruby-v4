@@ -14,7 +14,7 @@ module AWS::SDK::TimestreamWrite
     class CreateDatabase
       def self.default(visited=[])
         {
-          database: Stubs::Database.default(visited),
+          database: Database.default(visited),
         }
       end
 
@@ -58,7 +58,7 @@ module AWS::SDK::TimestreamWrite
     class CreateTable
       def self.default(visited=[])
         {
-          table: Stubs::Table.default(visited),
+          table: Table.default(visited),
         }
       end
 
@@ -80,10 +80,10 @@ module AWS::SDK::TimestreamWrite
           table_name: 'table_name',
           database_name: 'database_name',
           table_status: 'table_status',
-          retention_properties: Stubs::RetentionProperties.default(visited),
+          retention_properties: RetentionProperties.default(visited),
           creation_time: Time.now,
           last_updated_time: Time.now,
-          magnetic_store_write_properties: Stubs::MagneticStoreWriteProperties.default(visited),
+          magnetic_store_write_properties: MagneticStoreWriteProperties.default(visited),
         }
       end
 
@@ -109,7 +109,7 @@ module AWS::SDK::TimestreamWrite
         visited = visited + ['MagneticStoreWriteProperties']
         {
           enable_magnetic_store_writes: false,
-          magnetic_store_rejected_data_location: Stubs::MagneticStoreRejectedDataLocation.default(visited),
+          magnetic_store_rejected_data_location: MagneticStoreRejectedDataLocation.default(visited),
         }
       end
 
@@ -128,7 +128,7 @@ module AWS::SDK::TimestreamWrite
         return nil if visited.include?('MagneticStoreRejectedDataLocation')
         visited = visited + ['MagneticStoreRejectedDataLocation']
         {
-          s3_configuration: Stubs::S3Configuration.default(visited),
+          s3_configuration: S3Configuration.default(visited),
         }
       end
 
@@ -216,7 +216,7 @@ module AWS::SDK::TimestreamWrite
     class DescribeDatabase
       def self.default(visited=[])
         {
-          database: Stubs::Database.default(visited),
+          database: Database.default(visited),
         }
       end
 
@@ -232,7 +232,7 @@ module AWS::SDK::TimestreamWrite
     class DescribeEndpoints
       def self.default(visited=[])
         {
-          endpoints: Stubs::Endpoints.default(visited),
+          endpoints: Endpoints.default(visited),
         }
       end
 
@@ -250,7 +250,7 @@ module AWS::SDK::TimestreamWrite
         return nil if visited.include?('Endpoints')
         visited = visited + ['Endpoints']
         [
-          Stubs::Endpoint.default(visited)
+          Endpoint.default(visited)
         ]
       end
 
@@ -288,7 +288,7 @@ module AWS::SDK::TimestreamWrite
     class DescribeTable
       def self.default(visited=[])
         {
-          table: Stubs::Table.default(visited),
+          table: Table.default(visited),
         }
       end
 
@@ -304,7 +304,7 @@ module AWS::SDK::TimestreamWrite
     class ListDatabases
       def self.default(visited=[])
         {
-          databases: Stubs::DatabaseList.default(visited),
+          databases: DatabaseList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -324,7 +324,7 @@ module AWS::SDK::TimestreamWrite
         return nil if visited.include?('DatabaseList')
         visited = visited + ['DatabaseList']
         [
-          Stubs::Database.default(visited)
+          Database.default(visited)
         ]
       end
 
@@ -342,7 +342,7 @@ module AWS::SDK::TimestreamWrite
     class ListTables
       def self.default(visited=[])
         {
-          tables: Stubs::TableList.default(visited),
+          tables: TableList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -362,7 +362,7 @@ module AWS::SDK::TimestreamWrite
         return nil if visited.include?('TableList')
         visited = visited + ['TableList']
         [
-          Stubs::Table.default(visited)
+          Table.default(visited)
         ]
       end
 
@@ -380,7 +380,7 @@ module AWS::SDK::TimestreamWrite
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -398,7 +398,7 @@ module AWS::SDK::TimestreamWrite
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -464,7 +464,7 @@ module AWS::SDK::TimestreamWrite
     class UpdateDatabase
       def self.default(visited=[])
         {
-          database: Stubs::Database.default(visited),
+          database: Database.default(visited),
         }
       end
 
@@ -480,7 +480,7 @@ module AWS::SDK::TimestreamWrite
     class UpdateTable
       def self.default(visited=[])
         {
-          table: Stubs::Table.default(visited),
+          table: Table.default(visited),
         }
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::TimestreamWrite
     class WriteRecords
       def self.default(visited=[])
         {
-          records_ingested: Stubs::RecordsIngested.default(visited),
+          records_ingested: RecordsIngested.default(visited),
         }
       end
 

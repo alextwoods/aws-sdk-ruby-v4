@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CodeBuild
@@ -75,7 +77,7 @@ module AWS::SDK::CodeBuild
     def batch_delete_builds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchDeleteBuildsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchDeleteBuildsInput,
         validate_input: @config.validate_input
@@ -275,7 +277,7 @@ module AWS::SDK::CodeBuild
     def batch_get_build_batches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetBuildBatchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetBuildBatchesInput,
         validate_input: @config.validate_input
@@ -468,7 +470,7 @@ module AWS::SDK::CodeBuild
     def batch_get_builds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetBuildsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetBuildsInput,
         validate_input: @config.validate_input
@@ -663,7 +665,7 @@ module AWS::SDK::CodeBuild
     def batch_get_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetProjectsInput,
         validate_input: @config.validate_input
@@ -760,7 +762,7 @@ module AWS::SDK::CodeBuild
     def batch_get_report_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetReportGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetReportGroupsInput,
         validate_input: @config.validate_input
@@ -868,7 +870,7 @@ module AWS::SDK::CodeBuild
     def batch_get_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetReportsInput,
         validate_input: @config.validate_input
@@ -1292,7 +1294,7 @@ module AWS::SDK::CodeBuild
     def create_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProjectInput,
         validate_input: @config.validate_input
@@ -1419,7 +1421,7 @@ module AWS::SDK::CodeBuild
     def create_report_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateReportGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateReportGroupInput,
         validate_input: @config.validate_input
@@ -1541,7 +1543,7 @@ module AWS::SDK::CodeBuild
     def create_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateWebhookInput,
         validate_input: @config.validate_input
@@ -1616,7 +1618,7 @@ module AWS::SDK::CodeBuild
     def delete_build_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBuildBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBuildBatchInput,
         validate_input: @config.validate_input
@@ -1685,7 +1687,7 @@ module AWS::SDK::CodeBuild
     def delete_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProjectInput,
         validate_input: @config.validate_input
@@ -1757,7 +1759,7 @@ module AWS::SDK::CodeBuild
     def delete_report(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReportInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReportInput,
         validate_input: @config.validate_input
@@ -1833,7 +1835,7 @@ module AWS::SDK::CodeBuild
     def delete_report_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteReportGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteReportGroupInput,
         validate_input: @config.validate_input
@@ -1901,7 +1903,7 @@ module AWS::SDK::CodeBuild
     def delete_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourcePolicyInput,
         validate_input: @config.validate_input
@@ -1970,7 +1972,7 @@ module AWS::SDK::CodeBuild
     def delete_source_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteSourceCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteSourceCredentialsInput,
         validate_input: @config.validate_input
@@ -2040,7 +2042,7 @@ module AWS::SDK::CodeBuild
     def delete_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteWebhookInput,
         validate_input: @config.validate_input
@@ -2159,7 +2161,7 @@ module AWS::SDK::CodeBuild
     def describe_code_coverages(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCodeCoveragesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCodeCoveragesInput,
         validate_input: @config.validate_input
@@ -2268,7 +2270,7 @@ module AWS::SDK::CodeBuild
     def describe_test_cases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTestCasesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTestCasesInput,
         validate_input: @config.validate_input
@@ -2413,7 +2415,7 @@ module AWS::SDK::CodeBuild
     def get_report_group_trend(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetReportGroupTrendInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetReportGroupTrendInput,
         validate_input: @config.validate_input
@@ -2482,7 +2484,7 @@ module AWS::SDK::CodeBuild
     def get_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourcePolicyInput,
         validate_input: @config.validate_input
@@ -2574,7 +2576,7 @@ module AWS::SDK::CodeBuild
     def import_source_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportSourceCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportSourceCredentialsInput,
         validate_input: @config.validate_input
@@ -2642,7 +2644,7 @@ module AWS::SDK::CodeBuild
     def invalidate_project_cache(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvalidateProjectCacheInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvalidateProjectCacheInput,
         validate_input: @config.validate_input
@@ -2739,7 +2741,7 @@ module AWS::SDK::CodeBuild
     def list_build_batches(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuildBatchesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuildBatchesInput,
         validate_input: @config.validate_input
@@ -2842,7 +2844,7 @@ module AWS::SDK::CodeBuild
     def list_build_batches_for_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuildBatchesForProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuildBatchesForProjectInput,
         validate_input: @config.validate_input
@@ -2934,7 +2936,7 @@ module AWS::SDK::CodeBuild
     def list_builds(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuildsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuildsInput,
         validate_input: @config.validate_input
@@ -3033,7 +3035,7 @@ module AWS::SDK::CodeBuild
     def list_builds_for_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBuildsForProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBuildsForProjectInput,
         validate_input: @config.validate_input
@@ -3108,7 +3110,7 @@ module AWS::SDK::CodeBuild
     def list_curated_environment_images(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCuratedEnvironmentImagesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCuratedEnvironmentImagesInput,
         validate_input: @config.validate_input
@@ -3223,7 +3225,7 @@ module AWS::SDK::CodeBuild
     def list_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProjectsInput,
         validate_input: @config.validate_input
@@ -3337,7 +3339,7 @@ module AWS::SDK::CodeBuild
     def list_report_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReportGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReportGroupsInput,
         validate_input: @config.validate_input
@@ -3449,7 +3451,7 @@ module AWS::SDK::CodeBuild
     def list_reports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReportsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReportsInput,
         validate_input: @config.validate_input
@@ -3555,7 +3557,7 @@ module AWS::SDK::CodeBuild
     def list_reports_for_report_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListReportsForReportGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListReportsForReportGroupInput,
         validate_input: @config.validate_input
@@ -3667,7 +3669,7 @@ module AWS::SDK::CodeBuild
     def list_shared_projects(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSharedProjectsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSharedProjectsInput,
         validate_input: @config.validate_input
@@ -3780,7 +3782,7 @@ module AWS::SDK::CodeBuild
     def list_shared_report_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSharedReportGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSharedReportGroupsInput,
         validate_input: @config.validate_input
@@ -3848,7 +3850,7 @@ module AWS::SDK::CodeBuild
     def list_source_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSourceCredentialsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSourceCredentialsInput,
         validate_input: @config.validate_input
@@ -3925,7 +3927,7 @@ module AWS::SDK::CodeBuild
     def put_resource_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourcePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourcePolicyInput,
         validate_input: @config.validate_input
@@ -4121,7 +4123,7 @@ module AWS::SDK::CodeBuild
     def retry_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetryBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetryBuildInput,
         validate_input: @config.validate_input
@@ -4328,7 +4330,7 @@ module AWS::SDK::CodeBuild
     def retry_build_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetryBuildBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetryBuildBatchInput,
         validate_input: @config.validate_input
@@ -4795,7 +4797,7 @@ module AWS::SDK::CodeBuild
     def start_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBuildInput,
         validate_input: @config.validate_input
@@ -5279,7 +5281,7 @@ module AWS::SDK::CodeBuild
     def start_build_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartBuildBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartBuildBatchInput,
         validate_input: @config.validate_input
@@ -5467,7 +5469,7 @@ module AWS::SDK::CodeBuild
     def stop_build(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopBuildInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopBuildInput,
         validate_input: @config.validate_input
@@ -5662,7 +5664,7 @@ module AWS::SDK::CodeBuild
     def stop_build_batch(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopBuildBatchInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopBuildBatchInput,
         validate_input: @config.validate_input
@@ -6089,7 +6091,7 @@ module AWS::SDK::CodeBuild
     def update_project(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectInput,
         validate_input: @config.validate_input
@@ -6217,7 +6219,7 @@ module AWS::SDK::CodeBuild
     def update_project_visibility(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateProjectVisibilityInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateProjectVisibilityInput,
         validate_input: @config.validate_input
@@ -6350,7 +6352,7 @@ module AWS::SDK::CodeBuild
     def update_report_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateReportGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateReportGroupInput,
         validate_input: @config.validate_input
@@ -6470,7 +6472,7 @@ module AWS::SDK::CodeBuild
     def update_webhook(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateWebhookInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateWebhookInput,
         validate_input: @config.validate_input

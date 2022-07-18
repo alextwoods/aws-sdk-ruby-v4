@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ConfigService
@@ -127,7 +129,7 @@ module AWS::SDK::ConfigService
     def batch_get_aggregate_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetAggregateResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetAggregateResourceConfigInput,
         validate_input: @config.validate_input
@@ -241,7 +243,7 @@ module AWS::SDK::ConfigService
     def batch_get_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetResourceConfigInput,
         validate_input: @config.validate_input
@@ -315,7 +317,7 @@ module AWS::SDK::ConfigService
     def delete_aggregation_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAggregationAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAggregationAuthorizationInput,
         validate_input: @config.validate_input
@@ -392,7 +394,7 @@ module AWS::SDK::ConfigService
     def delete_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigRuleInput,
         validate_input: @config.validate_input
@@ -461,7 +463,7 @@ module AWS::SDK::ConfigService
     def delete_configuration_aggregator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationAggregatorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationAggregatorInput,
         validate_input: @config.validate_input
@@ -540,7 +542,7 @@ module AWS::SDK::ConfigService
     def delete_configuration_recorder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConfigurationRecorderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConfigurationRecorderInput,
         validate_input: @config.validate_input
@@ -611,7 +613,7 @@ module AWS::SDK::ConfigService
     def delete_conformance_pack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteConformancePackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteConformancePackInput,
         validate_input: @config.validate_input
@@ -681,7 +683,7 @@ module AWS::SDK::ConfigService
     def delete_delivery_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDeliveryChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDeliveryChannelInput,
         validate_input: @config.validate_input
@@ -753,7 +755,7 @@ module AWS::SDK::ConfigService
     def delete_evaluation_results(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEvaluationResultsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEvaluationResultsInput,
         validate_input: @config.validate_input
@@ -826,7 +828,7 @@ module AWS::SDK::ConfigService
     def delete_organization_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOrganizationConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOrganizationConfigRuleInput,
         validate_input: @config.validate_input
@@ -900,7 +902,7 @@ module AWS::SDK::ConfigService
     def delete_organization_conformance_pack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOrganizationConformancePackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOrganizationConformancePackInput,
         validate_input: @config.validate_input
@@ -974,7 +976,7 @@ module AWS::SDK::ConfigService
     def delete_pending_aggregation_request(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePendingAggregationRequestInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePendingAggregationRequestInput,
         validate_input: @config.validate_input
@@ -1046,7 +1048,7 @@ module AWS::SDK::ConfigService
     def delete_remediation_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRemediationConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRemediationConfigurationInput,
         validate_input: @config.validate_input
@@ -1134,7 +1136,7 @@ module AWS::SDK::ConfigService
     def delete_remediation_exceptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRemediationExceptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRemediationExceptionsInput,
         validate_input: @config.validate_input
@@ -1207,7 +1209,7 @@ module AWS::SDK::ConfigService
     def delete_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceConfigInput,
         validate_input: @config.validate_input
@@ -1275,7 +1277,7 @@ module AWS::SDK::ConfigService
     def delete_retention_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRetentionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRetentionConfigurationInput,
         validate_input: @config.validate_input
@@ -1343,7 +1345,7 @@ module AWS::SDK::ConfigService
     def delete_stored_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStoredQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStoredQueryInput,
         validate_input: @config.validate_input
@@ -1429,7 +1431,7 @@ module AWS::SDK::ConfigService
     def deliver_config_snapshot(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeliverConfigSnapshotInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeliverConfigSnapshotInput,
         validate_input: @config.validate_input
@@ -1537,7 +1539,7 @@ module AWS::SDK::ConfigService
     def describe_aggregate_compliance_by_config_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAggregateComplianceByConfigRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAggregateComplianceByConfigRulesInput,
         validate_input: @config.validate_input
@@ -1637,7 +1639,7 @@ module AWS::SDK::ConfigService
     def describe_aggregate_compliance_by_conformance_packs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAggregateComplianceByConformancePacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAggregateComplianceByConformancePacksInput,
         validate_input: @config.validate_input
@@ -1720,7 +1722,7 @@ module AWS::SDK::ConfigService
     def describe_aggregation_authorizations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAggregationAuthorizationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeAggregationAuthorizationsInput,
         validate_input: @config.validate_input
@@ -1845,7 +1847,7 @@ module AWS::SDK::ConfigService
     def describe_compliance_by_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeComplianceByConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeComplianceByConfigRuleInput,
         validate_input: @config.validate_input
@@ -1984,7 +1986,7 @@ module AWS::SDK::ConfigService
     def describe_compliance_by_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeComplianceByResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeComplianceByResourceInput,
         validate_input: @config.validate_input
@@ -2093,7 +2095,7 @@ module AWS::SDK::ConfigService
     def describe_config_rule_evaluation_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigRuleEvaluationStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigRuleEvaluationStatusInput,
         validate_input: @config.validate_input
@@ -2200,7 +2202,7 @@ module AWS::SDK::ConfigService
     def describe_config_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigRulesInput,
         validate_input: @config.validate_input
@@ -2310,7 +2312,7 @@ module AWS::SDK::ConfigService
     def describe_configuration_aggregator_sources_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationAggregatorSourcesStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationAggregatorSourcesStatusInput,
         validate_input: @config.validate_input
@@ -2413,7 +2415,7 @@ module AWS::SDK::ConfigService
     def describe_configuration_aggregators(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationAggregatorsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationAggregatorsInput,
         validate_input: @config.validate_input
@@ -2502,7 +2504,7 @@ module AWS::SDK::ConfigService
     def describe_configuration_recorder_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationRecorderStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationRecorderStatusInput,
         validate_input: @config.validate_input
@@ -2588,7 +2590,7 @@ module AWS::SDK::ConfigService
     def describe_configuration_recorders(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConfigurationRecordersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConfigurationRecordersInput,
         validate_input: @config.validate_input
@@ -2684,7 +2686,7 @@ module AWS::SDK::ConfigService
     def describe_conformance_pack_compliance(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConformancePackComplianceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConformancePackComplianceInput,
         validate_input: @config.validate_input
@@ -2776,7 +2778,7 @@ module AWS::SDK::ConfigService
     def describe_conformance_pack_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConformancePackStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConformancePackStatusInput,
         validate_input: @config.validate_input
@@ -2868,7 +2870,7 @@ module AWS::SDK::ConfigService
     def describe_conformance_packs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeConformancePacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeConformancePacksInput,
         validate_input: @config.validate_input
@@ -2961,7 +2963,7 @@ module AWS::SDK::ConfigService
     def describe_delivery_channel_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeliveryChannelStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeliveryChannelStatusInput,
         validate_input: @config.validate_input
@@ -3046,7 +3048,7 @@ module AWS::SDK::ConfigService
     def describe_delivery_channels(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDeliveryChannelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDeliveryChannelsInput,
         validate_input: @config.validate_input
@@ -3140,7 +3142,7 @@ module AWS::SDK::ConfigService
     def describe_organization_config_rule_statuses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConfigRuleStatusesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConfigRuleStatusesInput,
         validate_input: @config.validate_input
@@ -3266,7 +3268,7 @@ module AWS::SDK::ConfigService
     def describe_organization_config_rules(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConfigRulesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConfigRulesInput,
         validate_input: @config.validate_input
@@ -3361,7 +3363,7 @@ module AWS::SDK::ConfigService
     def describe_organization_conformance_pack_statuses(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConformancePackStatusesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConformancePackStatusesInput,
         validate_input: @config.validate_input
@@ -3460,7 +3462,7 @@ module AWS::SDK::ConfigService
     def describe_organization_conformance_packs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeOrganizationConformancePacksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeOrganizationConformancePacksInput,
         validate_input: @config.validate_input
@@ -3540,7 +3542,7 @@ module AWS::SDK::ConfigService
     def describe_pending_aggregation_requests(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribePendingAggregationRequestsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribePendingAggregationRequestsInput,
         validate_input: @config.validate_input
@@ -3633,7 +3635,7 @@ module AWS::SDK::ConfigService
     def describe_remediation_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRemediationConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRemediationConfigurationsInput,
         validate_input: @config.validate_input
@@ -3733,7 +3735,7 @@ module AWS::SDK::ConfigService
     def describe_remediation_exceptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRemediationExceptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRemediationExceptionsInput,
         validate_input: @config.validate_input
@@ -3835,7 +3837,7 @@ module AWS::SDK::ConfigService
     def describe_remediation_execution_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRemediationExecutionStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRemediationExecutionStatusInput,
         validate_input: @config.validate_input
@@ -3929,7 +3931,7 @@ module AWS::SDK::ConfigService
     def describe_retention_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRetentionConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRetentionConfigurationsInput,
         validate_input: @config.validate_input
@@ -4056,7 +4058,7 @@ module AWS::SDK::ConfigService
     def get_aggregate_compliance_details_by_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAggregateComplianceDetailsByConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAggregateComplianceDetailsByConfigRuleInput,
         validate_input: @config.validate_input
@@ -4164,7 +4166,7 @@ module AWS::SDK::ConfigService
     def get_aggregate_config_rule_compliance_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAggregateConfigRuleComplianceSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAggregateConfigRuleComplianceSummaryInput,
         validate_input: @config.validate_input
@@ -4262,7 +4264,7 @@ module AWS::SDK::ConfigService
     def get_aggregate_conformance_pack_compliance_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAggregateConformancePackComplianceSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAggregateConformancePackComplianceSummaryInput,
         validate_input: @config.validate_input
@@ -4359,7 +4361,7 @@ module AWS::SDK::ConfigService
     def get_aggregate_discovered_resource_counts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAggregateDiscoveredResourceCountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAggregateDiscoveredResourceCountsInput,
         validate_input: @config.validate_input
@@ -4464,7 +4466,7 @@ module AWS::SDK::ConfigService
     def get_aggregate_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAggregateResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAggregateResourceConfigInput,
         validate_input: @config.validate_input
@@ -4571,7 +4573,7 @@ module AWS::SDK::ConfigService
     def get_compliance_details_by_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComplianceDetailsByConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComplianceDetailsByConfigRuleInput,
         validate_input: @config.validate_input
@@ -4677,7 +4679,7 @@ module AWS::SDK::ConfigService
     def get_compliance_details_by_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComplianceDetailsByResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComplianceDetailsByResourceInput,
         validate_input: @config.validate_input
@@ -4747,7 +4749,7 @@ module AWS::SDK::ConfigService
     def get_compliance_summary_by_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComplianceSummaryByConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComplianceSummaryByConfigRuleInput,
         validate_input: @config.validate_input
@@ -4835,7 +4837,7 @@ module AWS::SDK::ConfigService
     def get_compliance_summary_by_resource_type(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetComplianceSummaryByResourceTypeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetComplianceSummaryByResourceTypeInput,
         validate_input: @config.validate_input
@@ -4938,7 +4940,7 @@ module AWS::SDK::ConfigService
     def get_conformance_pack_compliance_details(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConformancePackComplianceDetailsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConformancePackComplianceDetailsInput,
         validate_input: @config.validate_input
@@ -5021,7 +5023,7 @@ module AWS::SDK::ConfigService
     def get_conformance_pack_compliance_summary(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetConformancePackComplianceSummaryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetConformancePackComplianceSummaryInput,
         validate_input: @config.validate_input
@@ -5090,7 +5092,7 @@ module AWS::SDK::ConfigService
     def get_custom_rule_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCustomRulePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCustomRulePolicyInput,
         validate_input: @config.validate_input
@@ -5255,7 +5257,7 @@ module AWS::SDK::ConfigService
     def get_discovered_resource_counts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDiscoveredResourceCountsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDiscoveredResourceCountsInput,
         validate_input: @config.validate_input
@@ -5347,7 +5349,7 @@ module AWS::SDK::ConfigService
     def get_organization_config_rule_detailed_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOrganizationConfigRuleDetailedStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOrganizationConfigRuleDetailedStatusInput,
         validate_input: @config.validate_input
@@ -5440,7 +5442,7 @@ module AWS::SDK::ConfigService
     def get_organization_conformance_pack_detailed_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOrganizationConformancePackDetailedStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOrganizationConformancePackDetailedStatusInput,
         validate_input: @config.validate_input
@@ -5509,7 +5511,7 @@ module AWS::SDK::ConfigService
     def get_organization_custom_rule_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOrganizationCustomRulePolicyInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOrganizationCustomRulePolicyInput,
         validate_input: @config.validate_input
@@ -5660,7 +5662,7 @@ module AWS::SDK::ConfigService
     def get_resource_config_history(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResourceConfigHistoryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResourceConfigHistoryInput,
         validate_input: @config.validate_input
@@ -5734,7 +5736,7 @@ module AWS::SDK::ConfigService
     def get_stored_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStoredQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStoredQueryInput,
         validate_input: @config.validate_input
@@ -5834,7 +5836,7 @@ module AWS::SDK::ConfigService
     def list_aggregate_discovered_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAggregateDiscoveredResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAggregateDiscoveredResourcesInput,
         validate_input: @config.validate_input
@@ -5957,7 +5959,7 @@ module AWS::SDK::ConfigService
     def list_discovered_resources(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDiscoveredResourcesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDiscoveredResourcesInput,
         validate_input: @config.validate_input
@@ -6036,7 +6038,7 @@ module AWS::SDK::ConfigService
     def list_stored_queries(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStoredQueriesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStoredQueriesInput,
         validate_input: @config.validate_input
@@ -6117,7 +6119,7 @@ module AWS::SDK::ConfigService
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -6204,7 +6206,7 @@ module AWS::SDK::ConfigService
     def put_aggregation_authorization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutAggregationAuthorizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutAggregationAuthorizationInput,
         validate_input: @config.validate_input
@@ -6348,7 +6350,7 @@ module AWS::SDK::ConfigService
     def put_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigRuleInput,
         validate_input: @config.validate_input
@@ -6480,7 +6482,7 @@ module AWS::SDK::ConfigService
     def put_configuration_aggregator(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationAggregatorInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationAggregatorInput,
         validate_input: @config.validate_input
@@ -6572,7 +6574,7 @@ module AWS::SDK::ConfigService
     def put_configuration_recorder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConfigurationRecorderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConfigurationRecorderInput,
         validate_input: @config.validate_input
@@ -6684,7 +6686,7 @@ module AWS::SDK::ConfigService
     def put_conformance_pack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutConformancePackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutConformancePackInput,
         validate_input: @config.validate_input
@@ -6779,7 +6781,7 @@ module AWS::SDK::ConfigService
     def put_delivery_channel(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutDeliveryChannelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutDeliveryChannelInput,
         validate_input: @config.validate_input
@@ -6886,7 +6888,7 @@ module AWS::SDK::ConfigService
     def put_evaluations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutEvaluationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutEvaluationsInput,
         validate_input: @config.validate_input
@@ -6965,7 +6967,7 @@ module AWS::SDK::ConfigService
     def put_external_evaluation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutExternalEvaluationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutExternalEvaluationInput,
         validate_input: @config.validate_input
@@ -7112,7 +7114,7 @@ module AWS::SDK::ConfigService
     def put_organization_config_rule(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutOrganizationConfigRuleInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutOrganizationConfigRuleInput,
         validate_input: @config.validate_input
@@ -7243,7 +7245,7 @@ module AWS::SDK::ConfigService
     def put_organization_conformance_pack(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutOrganizationConformancePackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutOrganizationConformancePackInput,
         validate_input: @config.validate_input
@@ -7378,7 +7380,7 @@ module AWS::SDK::ConfigService
     def put_remediation_configurations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRemediationConfigurationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRemediationConfigurationsInput,
         validate_input: @config.validate_input
@@ -7478,7 +7480,7 @@ module AWS::SDK::ConfigService
     def put_remediation_exceptions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRemediationExceptionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRemediationExceptionsInput,
         validate_input: @config.validate_input
@@ -7583,7 +7585,7 @@ module AWS::SDK::ConfigService
     def put_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutResourceConfigInput,
         validate_input: @config.validate_input
@@ -7669,7 +7671,7 @@ module AWS::SDK::ConfigService
     def put_retention_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutRetentionConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutRetentionConfigurationInput,
         validate_input: @config.validate_input
@@ -7759,7 +7761,7 @@ module AWS::SDK::ConfigService
     def put_stored_query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutStoredQueryInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutStoredQueryInput,
         validate_input: @config.validate_input
@@ -7863,7 +7865,7 @@ module AWS::SDK::ConfigService
     def select_aggregate_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SelectAggregateResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SelectAggregateResourceConfigInput,
         validate_input: @config.validate_input
@@ -7950,7 +7952,7 @@ module AWS::SDK::ConfigService
     def select_resource_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SelectResourceConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SelectResourceConfigInput,
         validate_input: @config.validate_input
@@ -8068,7 +8070,7 @@ module AWS::SDK::ConfigService
     def start_config_rules_evaluation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartConfigRulesEvaluationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartConfigRulesEvaluationInput,
         validate_input: @config.validate_input
@@ -8140,7 +8142,7 @@ module AWS::SDK::ConfigService
     def start_configuration_recorder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartConfigurationRecorderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartConfigurationRecorderInput,
         validate_input: @config.validate_input
@@ -8223,7 +8225,7 @@ module AWS::SDK::ConfigService
     def start_remediation_execution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartRemediationExecutionInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartRemediationExecutionInput,
         validate_input: @config.validate_input
@@ -8291,7 +8293,7 @@ module AWS::SDK::ConfigService
     def stop_configuration_recorder(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopConfigurationRecorderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopConfigurationRecorderInput,
         validate_input: @config.validate_input
@@ -8369,7 +8371,7 @@ module AWS::SDK::ConfigService
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -8443,7 +8445,7 @@ module AWS::SDK::ConfigService
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input

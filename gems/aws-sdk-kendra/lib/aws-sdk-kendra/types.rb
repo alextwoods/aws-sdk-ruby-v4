@@ -747,6 +747,7 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_change_log ||= false
@@ -754,7 +755,6 @@ module AWS::SDK::Kendra
         self.crawl_tasks ||= false
         self.crawl_web_links ||= false
       end
-
     end
 
     # <p>Specifies additional capacity units configured for your
@@ -966,11 +966,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_attachments ||= false
       end
-
     end
 
     # Includes enum constants for ConfluenceAttachmentFieldName
@@ -1423,12 +1423,12 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_personal_spaces ||= false
         self.crawl_archived_spaces ||= false
       end
-
     end
 
     # Includes enum constants for ConfluenceSpaceFieldName
@@ -1573,11 +1573,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.direct_put_content ||= false
       end
-
     end
 
     # Includes enum constants for ContentType
@@ -4186,11 +4186,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.target_document_attribute_value_deletion ||= false
       end
-
     end
 
     # <p>The value of a document attribute. You can only provide one
@@ -4774,11 +4774,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.max_results ||= 0
       end
-
     end
 
     # <p>The facet values for the documents in the response.</p>
@@ -4866,11 +4866,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.indexed_question_answers_count ||= 0
       end
-
     end
 
     # Includes enum constants for FaqStatus
@@ -5437,11 +5437,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_change_log ||= false
       end
-
     end
 
     # <p>Provides the configuration information to include certain types of GitHub content. You can
@@ -5501,6 +5501,7 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_repository_documents ||= false
@@ -5511,7 +5512,6 @@ module AWS::SDK::Kendra
         self.crawl_pull_request_comment ||= false
         self.crawl_pull_request_comment_attachment ||= false
       end
-
     end
 
     # <p>Provides the configuration information to connect to
@@ -5764,11 +5764,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.top_answer ||= false
       end
-
     end
 
     # Includes enum constants for HighlightType
@@ -5972,11 +5972,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.document_content_deletion ||= false
       end
-
     end
 
     # <p></p>
@@ -6208,11 +6208,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_change_log ||= false
       end
-
     end
 
     # <p>Provides the configuration information for the JSON token type.</p>
@@ -7019,11 +7019,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.disable_local_groups ||= false
       end
-
     end
 
     # <p>User accounts whose documents should be indexed.</p>
@@ -7810,13 +7810,13 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_file_comments ||= false
         self.crawl_chat_rooms ||= false
         self.crawl_attachments ||= false
       end
-
     end
 
     # Includes enum constants for ReadAccessType
@@ -8300,11 +8300,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_attachments ||= false
       end
-
     end
 
     # <p>Provides the configuration information for indexing Salesforce custom
@@ -8645,6 +8645,7 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.facetable ||= false
@@ -8652,7 +8653,6 @@ module AWS::SDK::Kendra
         self.displayable ||= false
         self.sortable ||= false
       end
-
     end
 
     # <p>Provides the configuration information for the seed or starting point URLs to crawl.</p>
@@ -8894,11 +8894,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_attachments ||= false
       end
-
     end
 
     # <p>Provides the configuration information for crawling service catalog
@@ -8961,11 +8961,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_attachments ||= false
       end
-
     end
 
     # <p></p>
@@ -9099,13 +9099,13 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_attachments ||= false
         self.use_change_log ||= false
         self.disable_local_groups ||= false
       end
-
     end
 
     # Includes enum constants for SharePointVersion
@@ -9283,13 +9283,13 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.use_change_log ||= false
         self.crawl_bot_message ||= false
         self.exclude_archived ||= false
       end
-
     end
 
     # Includes enum constants for SlackEntity
@@ -9429,11 +9429,11 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.include_query_spell_check_suggestions ||= false
       end
-
     end
 
     # <p>Provides the configuration information to use a SQL
@@ -9747,12 +9747,12 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.indexed_text_documents_count ||= 0
         self.indexed_text_bytes ||= 0
       end
-
     end
 
     # <p>Provides text and information about where to highlight the
@@ -10747,12 +10747,12 @@ module AWS::SDK::Kendra
       keyword_init: true
     ) do
       include Hearth::Structure
+
       def initialize(*)
         super
         self.crawl_comments ||= false
         self.use_change_log ||= false
       end
-
     end
 
   end

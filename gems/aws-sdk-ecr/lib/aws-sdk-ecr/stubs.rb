@@ -14,8 +14,8 @@ module AWS::SDK::ECR
     class BatchCheckLayerAvailability
       def self.default(visited=[])
         {
-          layers: Stubs::LayerList.default(visited),
-          failures: Stubs::LayerFailureList.default(visited),
+          layers: LayerList.default(visited),
+          failures: LayerFailureList.default(visited),
         }
       end
 
@@ -34,7 +34,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('LayerFailureList')
         visited = visited + ['LayerFailureList']
         [
-          Stubs::LayerFailure.default(visited)
+          LayerFailure.default(visited)
         ]
       end
 
@@ -76,7 +76,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('LayerList')
         visited = visited + ['LayerList']
         [
-          Stubs::Layer.default(visited)
+          Layer.default(visited)
         ]
       end
 
@@ -118,8 +118,8 @@ module AWS::SDK::ECR
     class BatchDeleteImage
       def self.default(visited=[])
         {
-          image_ids: Stubs::ImageIdentifierList.default(visited),
-          failures: Stubs::ImageFailureList.default(visited),
+          image_ids: ImageIdentifierList.default(visited),
+          failures: ImageFailureList.default(visited),
         }
       end
 
@@ -138,7 +138,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageFailureList')
         visited = visited + ['ImageFailureList']
         [
-          Stubs::ImageFailure.default(visited)
+          ImageFailure.default(visited)
         ]
       end
 
@@ -158,7 +158,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageFailure')
         visited = visited + ['ImageFailure']
         {
-          image_id: Stubs::ImageIdentifier.default(visited),
+          image_id: ImageIdentifier.default(visited),
           failure_code: 'failure_code',
           failure_reason: 'failure_reason',
         }
@@ -200,7 +200,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageIdentifierList')
         visited = visited + ['ImageIdentifierList']
         [
-          Stubs::ImageIdentifier.default(visited)
+          ImageIdentifier.default(visited)
         ]
       end
 
@@ -218,8 +218,8 @@ module AWS::SDK::ECR
     class BatchGetImage
       def self.default(visited=[])
         {
-          images: Stubs::ImageList.default(visited),
-          failures: Stubs::ImageFailureList.default(visited),
+          images: ImageList.default(visited),
+          failures: ImageFailureList.default(visited),
         }
       end
 
@@ -238,7 +238,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageList')
         visited = visited + ['ImageList']
         [
-          Stubs::Image.default(visited)
+          Image.default(visited)
         ]
       end
 
@@ -260,7 +260,7 @@ module AWS::SDK::ECR
         {
           registry_id: 'registry_id',
           repository_name: 'repository_name',
-          image_id: Stubs::ImageIdentifier.default(visited),
+          image_id: ImageIdentifier.default(visited),
           image_manifest: 'image_manifest',
           image_manifest_media_type: 'image_manifest_media_type',
         }
@@ -282,8 +282,8 @@ module AWS::SDK::ECR
     class BatchGetRepositoryScanningConfiguration
       def self.default(visited=[])
         {
-          scanning_configurations: Stubs::RepositoryScanningConfigurationList.default(visited),
-          failures: Stubs::RepositoryScanningConfigurationFailureList.default(visited),
+          scanning_configurations: RepositoryScanningConfigurationList.default(visited),
+          failures: RepositoryScanningConfigurationFailureList.default(visited),
         }
       end
 
@@ -302,7 +302,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('RepositoryScanningConfigurationFailureList')
         visited = visited + ['RepositoryScanningConfigurationFailureList']
         [
-          Stubs::RepositoryScanningConfigurationFailure.default(visited)
+          RepositoryScanningConfigurationFailure.default(visited)
         ]
       end
 
@@ -344,7 +344,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('RepositoryScanningConfigurationList')
         visited = visited + ['RepositoryScanningConfigurationList']
         [
-          Stubs::RepositoryScanningConfiguration.default(visited)
+          RepositoryScanningConfiguration.default(visited)
         ]
       end
 
@@ -368,7 +368,7 @@ module AWS::SDK::ECR
           repository_name: 'repository_name',
           scan_on_push: false,
           scan_frequency: 'scan_frequency',
-          applied_scan_filters: Stubs::ScanningRepositoryFilterList.default(visited),
+          applied_scan_filters: ScanningRepositoryFilterList.default(visited),
         }
       end
 
@@ -390,7 +390,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ScanningRepositoryFilterList')
         visited = visited + ['ScanningRepositoryFilterList']
         [
-          Stubs::ScanningRepositoryFilter.default(visited)
+          ScanningRepositoryFilter.default(visited)
         ]
       end
 
@@ -472,7 +472,7 @@ module AWS::SDK::ECR
     class CreateRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
+          repository: Repository.default(visited),
         }
       end
 
@@ -496,8 +496,8 @@ module AWS::SDK::ECR
           repository_uri: 'repository_uri',
           created_at: Time.now,
           image_tag_mutability: 'image_tag_mutability',
-          image_scanning_configuration: Stubs::ImageScanningConfiguration.default(visited),
-          encryption_configuration: Stubs::EncryptionConfiguration.default(visited),
+          image_scanning_configuration: ImageScanningConfiguration.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
         }
       end
 
@@ -620,7 +620,7 @@ module AWS::SDK::ECR
     class DeleteRepository
       def self.default(visited=[])
         {
-          repository: Stubs::Repository.default(visited),
+          repository: Repository.default(visited),
         }
       end
 
@@ -657,8 +657,8 @@ module AWS::SDK::ECR
       def self.default(visited=[])
         {
           repository_name: 'repository_name',
-          image_id: Stubs::ImageIdentifier.default(visited),
-          replication_statuses: Stubs::ImageReplicationStatusList.default(visited),
+          image_id: ImageIdentifier.default(visited),
+          replication_statuses: ImageReplicationStatusList.default(visited),
         }
       end
 
@@ -678,7 +678,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageReplicationStatusList')
         visited = visited + ['ImageReplicationStatusList']
         [
-          Stubs::ImageReplicationStatus.default(visited)
+          ImageReplicationStatus.default(visited)
         ]
       end
 
@@ -722,9 +722,9 @@ module AWS::SDK::ECR
         {
           registry_id: 'registry_id',
           repository_name: 'repository_name',
-          image_id: Stubs::ImageIdentifier.default(visited),
-          image_scan_status: Stubs::ImageScanStatus.default(visited),
-          image_scan_findings: Stubs::ImageScanFindings.default(visited),
+          image_id: ImageIdentifier.default(visited),
+          image_scan_status: ImageScanStatus.default(visited),
+          image_scan_findings: ImageScanFindings.default(visited),
           next_token: 'next_token',
         }
       end
@@ -750,9 +750,9 @@ module AWS::SDK::ECR
         {
           image_scan_completed_at: Time.now,
           vulnerability_source_updated_at: Time.now,
-          finding_severity_counts: Stubs::FindingSeverityCounts.default(visited),
-          findings: Stubs::ImageScanFindingList.default(visited),
-          enhanced_findings: Stubs::EnhancedImageScanFindingList.default(visited),
+          finding_severity_counts: FindingSeverityCounts.default(visited),
+          findings: ImageScanFindingList.default(visited),
+          enhanced_findings: EnhancedImageScanFindingList.default(visited),
         }
       end
 
@@ -774,7 +774,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('EnhancedImageScanFindingList')
         visited = visited + ['EnhancedImageScanFindingList']
         [
-          Stubs::EnhancedImageScanFinding.default(visited)
+          EnhancedImageScanFinding.default(visited)
         ]
       end
 
@@ -799,11 +799,11 @@ module AWS::SDK::ECR
           finding_arn: 'finding_arn',
           first_observed_at: Time.now,
           last_observed_at: Time.now,
-          package_vulnerability_details: Stubs::PackageVulnerabilityDetails.default(visited),
-          remediation: Stubs::Remediation.default(visited),
-          resources: Stubs::ResourceList.default(visited),
+          package_vulnerability_details: PackageVulnerabilityDetails.default(visited),
+          remediation: Remediation.default(visited),
+          resources: ResourceList.default(visited),
           score: 1.0,
-          score_details: Stubs::ScoreDetails.default(visited),
+          score_details: ScoreDetails.default(visited),
           severity: 'severity',
           status: 'status',
           title: 'title',
@@ -840,7 +840,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ScoreDetails')
         visited = visited + ['ScoreDetails']
         {
-          cvss: Stubs::CvssScoreDetails.default(visited),
+          cvss: CvssScoreDetails.default(visited),
         }
       end
 
@@ -858,7 +858,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('CvssScoreDetails')
         visited = visited + ['CvssScoreDetails']
         {
-          adjustments: Stubs::CvssScoreAdjustmentList.default(visited),
+          adjustments: CvssScoreAdjustmentList.default(visited),
           score: 1.0,
           score_source: 'score_source',
           scoring_vector: 'scoring_vector',
@@ -884,7 +884,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('CvssScoreAdjustmentList')
         visited = visited + ['CvssScoreAdjustmentList']
         [
-          Stubs::CvssScoreAdjustment.default(visited)
+          CvssScoreAdjustment.default(visited)
         ]
       end
 
@@ -924,7 +924,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ResourceList')
         visited = visited + ['ResourceList']
         [
-          Stubs::Resource.default(visited)
+          Resource.default(visited)
         ]
       end
 
@@ -944,9 +944,9 @@ module AWS::SDK::ECR
         return nil if visited.include?('Resource')
         visited = visited + ['Resource']
         {
-          details: Stubs::ResourceDetails.default(visited),
+          details: ResourceDetails.default(visited),
           id: 'id',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           type: 'type',
         }
       end
@@ -988,7 +988,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ResourceDetails')
         visited = visited + ['ResourceDetails']
         {
-          aws_ecr_container_image: Stubs::AwsEcrContainerImageDetails.default(visited),
+          aws_ecr_container_image: AwsEcrContainerImageDetails.default(visited),
         }
       end
 
@@ -1009,7 +1009,7 @@ module AWS::SDK::ECR
           architecture: 'architecture',
           author: 'author',
           image_hash: 'image_hash',
-          image_tags: Stubs::ImageTagsList.default(visited),
+          image_tags: ImageTagsList.default(visited),
           platform: 'platform',
           pushed_at: Time.now,
           registry: 'registry',
@@ -1058,7 +1058,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('Remediation')
         visited = visited + ['Remediation']
         {
-          recommendation: Stubs::Recommendation.default(visited),
+          recommendation: Recommendation.default(visited),
         }
       end
 
@@ -1096,16 +1096,16 @@ module AWS::SDK::ECR
         return nil if visited.include?('PackageVulnerabilityDetails')
         visited = visited + ['PackageVulnerabilityDetails']
         {
-          cvss: Stubs::CvssScoreList.default(visited),
-          reference_urls: Stubs::ReferenceUrlsList.default(visited),
-          related_vulnerabilities: Stubs::RelatedVulnerabilitiesList.default(visited),
+          cvss: CvssScoreList.default(visited),
+          reference_urls: ReferenceUrlsList.default(visited),
+          related_vulnerabilities: RelatedVulnerabilitiesList.default(visited),
           source: 'source',
           source_url: 'source_url',
           vendor_created_at: Time.now,
           vendor_severity: 'vendor_severity',
           vendor_updated_at: Time.now,
           vulnerability_id: 'vulnerability_id',
-          vulnerable_packages: Stubs::VulnerablePackagesList.default(visited),
+          vulnerable_packages: VulnerablePackagesList.default(visited),
         }
       end
 
@@ -1132,7 +1132,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('VulnerablePackagesList')
         visited = visited + ['VulnerablePackagesList']
         [
-          Stubs::VulnerablePackage.default(visited)
+          VulnerablePackage.default(visited)
         ]
       end
 
@@ -1224,7 +1224,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('CvssScoreList')
         visited = visited + ['CvssScoreList']
         [
-          Stubs::CvssScore.default(visited)
+          CvssScore.default(visited)
         ]
       end
 
@@ -1268,7 +1268,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageScanFindingList')
         visited = visited + ['ImageScanFindingList']
         [
-          Stubs::ImageScanFinding.default(visited)
+          ImageScanFinding.default(visited)
         ]
       end
 
@@ -1292,7 +1292,7 @@ module AWS::SDK::ECR
           description: 'description',
           uri: 'uri',
           severity: 'severity',
-          attributes: Stubs::AttributeList.default(visited),
+          attributes: AttributeList.default(visited),
         }
       end
 
@@ -1314,7 +1314,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('AttributeList')
         visited = visited + ['AttributeList']
         [
-          Stubs::Attribute.default(visited)
+          Attribute.default(visited)
         ]
       end
 
@@ -1392,7 +1392,7 @@ module AWS::SDK::ECR
     class DescribeImages
       def self.default(visited=[])
         {
-          image_details: Stubs::ImageDetailList.default(visited),
+          image_details: ImageDetailList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1412,7 +1412,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ImageDetailList')
         visited = visited + ['ImageDetailList']
         [
-          Stubs::ImageDetail.default(visited)
+          ImageDetail.default(visited)
         ]
       end
 
@@ -1435,11 +1435,11 @@ module AWS::SDK::ECR
           registry_id: 'registry_id',
           repository_name: 'repository_name',
           image_digest: 'image_digest',
-          image_tags: Stubs::ImageTagList.default(visited),
+          image_tags: ImageTagList.default(visited),
           image_size_in_bytes: 1,
           image_pushed_at: Time.now,
-          image_scan_status: Stubs::ImageScanStatus.default(visited),
-          image_scan_findings_summary: Stubs::ImageScanFindingsSummary.default(visited),
+          image_scan_status: ImageScanStatus.default(visited),
+          image_scan_findings_summary: ImageScanFindingsSummary.default(visited),
           image_manifest_media_type: 'image_manifest_media_type',
           artifact_media_type: 'artifact_media_type',
           last_recorded_pull_time: Time.now,
@@ -1472,7 +1472,7 @@ module AWS::SDK::ECR
         {
           image_scan_completed_at: Time.now,
           vulnerability_source_updated_at: Time.now,
-          finding_severity_counts: Stubs::FindingSeverityCounts.default(visited),
+          finding_severity_counts: FindingSeverityCounts.default(visited),
         }
       end
 
@@ -1510,7 +1510,7 @@ module AWS::SDK::ECR
     class DescribePullThroughCacheRules
       def self.default(visited=[])
         {
-          pull_through_cache_rules: Stubs::PullThroughCacheRuleList.default(visited),
+          pull_through_cache_rules: PullThroughCacheRuleList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1530,7 +1530,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('PullThroughCacheRuleList')
         visited = visited + ['PullThroughCacheRuleList']
         [
-          Stubs::PullThroughCacheRule.default(visited)
+          PullThroughCacheRule.default(visited)
         ]
       end
 
@@ -1573,7 +1573,7 @@ module AWS::SDK::ECR
       def self.default(visited=[])
         {
           registry_id: 'registry_id',
-          replication_configuration: Stubs::ReplicationConfiguration.default(visited),
+          replication_configuration: ReplicationConfiguration.default(visited),
         }
       end
 
@@ -1592,7 +1592,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ReplicationConfiguration')
         visited = visited + ['ReplicationConfiguration']
         {
-          rules: Stubs::ReplicationRuleList.default(visited),
+          rules: ReplicationRuleList.default(visited),
         }
       end
 
@@ -1610,7 +1610,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ReplicationRuleList')
         visited = visited + ['ReplicationRuleList']
         [
-          Stubs::ReplicationRule.default(visited)
+          ReplicationRule.default(visited)
         ]
       end
 
@@ -1630,8 +1630,8 @@ module AWS::SDK::ECR
         return nil if visited.include?('ReplicationRule')
         visited = visited + ['ReplicationRule']
         {
-          destinations: Stubs::ReplicationDestinationList.default(visited),
-          repository_filters: Stubs::RepositoryFilterList.default(visited),
+          destinations: ReplicationDestinationList.default(visited),
+          repository_filters: RepositoryFilterList.default(visited),
         }
       end
 
@@ -1650,7 +1650,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('RepositoryFilterList')
         visited = visited + ['RepositoryFilterList']
         [
-          Stubs::RepositoryFilter.default(visited)
+          RepositoryFilter.default(visited)
         ]
       end
 
@@ -1690,7 +1690,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('ReplicationDestinationList')
         visited = visited + ['ReplicationDestinationList']
         [
-          Stubs::ReplicationDestination.default(visited)
+          ReplicationDestination.default(visited)
         ]
       end
 
@@ -1728,7 +1728,7 @@ module AWS::SDK::ECR
     class DescribeRepositories
       def self.default(visited=[])
         {
-          repositories: Stubs::RepositoryList.default(visited),
+          repositories: RepositoryList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1748,7 +1748,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('RepositoryList')
         visited = visited + ['RepositoryList']
         [
-          Stubs::Repository.default(visited)
+          Repository.default(visited)
         ]
       end
 
@@ -1766,7 +1766,7 @@ module AWS::SDK::ECR
     class GetAuthorizationToken
       def self.default(visited=[])
         {
-          authorization_data: Stubs::AuthorizationDataList.default(visited),
+          authorization_data: AuthorizationDataList.default(visited),
         }
       end
 
@@ -1784,7 +1784,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('AuthorizationDataList')
         visited = visited + ['AuthorizationDataList']
         [
-          Stubs::AuthorizationData.default(visited)
+          AuthorizationData.default(visited)
         ]
       end
 
@@ -1869,8 +1869,8 @@ module AWS::SDK::ECR
           lifecycle_policy_text: 'lifecycle_policy_text',
           status: 'status',
           next_token: 'next_token',
-          preview_results: Stubs::LifecyclePolicyPreviewResultList.default(visited),
-          summary: Stubs::LifecyclePolicyPreviewSummary.default(visited),
+          preview_results: LifecyclePolicyPreviewResultList.default(visited),
+          summary: LifecyclePolicyPreviewSummary.default(visited),
         }
       end
 
@@ -1912,7 +1912,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('LifecyclePolicyPreviewResultList')
         visited = visited + ['LifecyclePolicyPreviewResultList']
         [
-          Stubs::LifecyclePolicyPreviewResult.default(visited)
+          LifecyclePolicyPreviewResult.default(visited)
         ]
       end
 
@@ -1932,10 +1932,10 @@ module AWS::SDK::ECR
         return nil if visited.include?('LifecyclePolicyPreviewResult')
         visited = visited + ['LifecyclePolicyPreviewResult']
         {
-          image_tags: Stubs::ImageTagList.default(visited),
+          image_tags: ImageTagList.default(visited),
           image_digest: 'image_digest',
           image_pushed_at: Time.now,
-          action: Stubs::LifecyclePolicyRuleAction.default(visited),
+          action: LifecyclePolicyRuleAction.default(visited),
           applied_rule_priority: 1,
         }
       end
@@ -1993,7 +1993,7 @@ module AWS::SDK::ECR
       def self.default(visited=[])
         {
           registry_id: 'registry_id',
-          scanning_configuration: Stubs::RegistryScanningConfiguration.default(visited),
+          scanning_configuration: RegistryScanningConfiguration.default(visited),
         }
       end
 
@@ -2013,7 +2013,7 @@ module AWS::SDK::ECR
         visited = visited + ['RegistryScanningConfiguration']
         {
           scan_type: 'scan_type',
-          rules: Stubs::RegistryScanningRuleList.default(visited),
+          rules: RegistryScanningRuleList.default(visited),
         }
       end
 
@@ -2032,7 +2032,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('RegistryScanningRuleList')
         visited = visited + ['RegistryScanningRuleList']
         [
-          Stubs::RegistryScanningRule.default(visited)
+          RegistryScanningRule.default(visited)
         ]
       end
 
@@ -2053,7 +2053,7 @@ module AWS::SDK::ECR
         visited = visited + ['RegistryScanningRule']
         {
           scan_frequency: 'scan_frequency',
-          repository_filters: Stubs::ScanningRepositoryFilterList.default(visited),
+          repository_filters: ScanningRepositoryFilterList.default(visited),
         }
       end
 
@@ -2108,7 +2108,7 @@ module AWS::SDK::ECR
     class ListImages
       def self.default(visited=[])
         {
-          image_ids: Stubs::ImageIdentifierList.default(visited),
+          image_ids: ImageIdentifierList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2126,7 +2126,7 @@ module AWS::SDK::ECR
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::TagList.default(visited),
+          tags: TagList.default(visited),
         }
       end
 
@@ -2144,7 +2144,7 @@ module AWS::SDK::ECR
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -2182,7 +2182,7 @@ module AWS::SDK::ECR
     class PutImage
       def self.default(visited=[])
         {
-          image: Stubs::Image.default(visited),
+          image: Image.default(visited),
         }
       end
 
@@ -2200,7 +2200,7 @@ module AWS::SDK::ECR
         {
           registry_id: 'registry_id',
           repository_name: 'repository_name',
-          image_scanning_configuration: Stubs::ImageScanningConfiguration.default(visited),
+          image_scanning_configuration: ImageScanningConfiguration.default(visited),
         }
       end
 
@@ -2276,7 +2276,7 @@ module AWS::SDK::ECR
     class PutRegistryScanningConfiguration
       def self.default(visited=[])
         {
-          registry_scanning_configuration: Stubs::RegistryScanningConfiguration.default(visited),
+          registry_scanning_configuration: RegistryScanningConfiguration.default(visited),
         }
       end
 
@@ -2292,7 +2292,7 @@ module AWS::SDK::ECR
     class PutReplicationConfiguration
       def self.default(visited=[])
         {
-          replication_configuration: Stubs::ReplicationConfiguration.default(visited),
+          replication_configuration: ReplicationConfiguration.default(visited),
         }
       end
 
@@ -2330,8 +2330,8 @@ module AWS::SDK::ECR
         {
           registry_id: 'registry_id',
           repository_name: 'repository_name',
-          image_id: Stubs::ImageIdentifier.default(visited),
-          image_scan_status: Stubs::ImageScanStatus.default(visited),
+          image_id: ImageIdentifier.default(visited),
+          image_scan_status: ImageScanStatus.default(visited),
         }
       end
 

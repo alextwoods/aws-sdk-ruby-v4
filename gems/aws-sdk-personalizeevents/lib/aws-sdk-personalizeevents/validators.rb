@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::PersonalizeEvents
   module Validators
 
@@ -20,7 +22,7 @@ module AWS::SDK::PersonalizeEvents
         Hearth::Validator.validate!(input[:properties], ::String, context: "#{context}[:properties]")
         Hearth::Validator.validate!(input[:sent_at], ::Time, context: "#{context}[:sent_at]")
         Hearth::Validator.validate!(input[:recommendation_id], ::String, context: "#{context}[:recommendation_id]")
-        Validators::Impression.validate!(input[:impression], context: "#{context}[:impression]") unless input[:impression].nil?
+        Impression.validate!(input[:impression], context: "#{context}[:impression]") unless input[:impression].nil?
       end
     end
 
@@ -28,7 +30,7 @@ module AWS::SDK::PersonalizeEvents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Event.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::PersonalizeEvents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Item.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -72,7 +74,7 @@ module AWS::SDK::PersonalizeEvents
         Hearth::Validator.validate!(input[:tracking_id], ::String, context: "#{context}[:tracking_id]")
         Hearth::Validator.validate!(input[:user_id], ::String, context: "#{context}[:user_id]")
         Hearth::Validator.validate!(input[:session_id], ::String, context: "#{context}[:session_id]")
-        Validators::EventList.validate!(input[:event_list], context: "#{context}[:event_list]") unless input[:event_list].nil?
+        EventList.validate!(input[:event_list], context: "#{context}[:event_list]") unless input[:event_list].nil?
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::PersonalizeEvents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutItemsInput, context: context)
         Hearth::Validator.validate!(input[:dataset_arn], ::String, context: "#{context}[:dataset_arn]")
-        Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
+        ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::PersonalizeEvents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PutUsersInput, context: context)
         Hearth::Validator.validate!(input[:dataset_arn], ::String, context: "#{context}[:dataset_arn]")
-        Validators::UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
+        UserList.validate!(input[:users], context: "#{context}[:users]") unless input[:users].nil?
       end
     end
 
@@ -136,7 +138,7 @@ module AWS::SDK::PersonalizeEvents
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          User.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

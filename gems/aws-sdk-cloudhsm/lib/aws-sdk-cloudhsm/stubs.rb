@@ -128,12 +128,12 @@ module AWS::SDK::CloudHSM
         {
           hapg_arn: 'hapg_arn',
           hapg_serial: 'hapg_serial',
-          hsms_last_action_failed: Stubs::HsmList.default(visited),
-          hsms_pending_deletion: Stubs::HsmList.default(visited),
-          hsms_pending_registration: Stubs::HsmList.default(visited),
+          hsms_last_action_failed: HsmList.default(visited),
+          hsms_pending_deletion: HsmList.default(visited),
+          hsms_pending_registration: HsmList.default(visited),
           label: 'label',
           last_modified_timestamp: 'last_modified_timestamp',
-          partition_serial_list: Stubs::PartitionSerialList.default(visited),
+          partition_serial_list: PartitionSerialList.default(visited),
           state: 'state',
         }
       end
@@ -218,7 +218,7 @@ module AWS::SDK::CloudHSM
           ssh_key_last_updated: 'ssh_key_last_updated',
           server_cert_uri: 'server_cert_uri',
           server_cert_last_updated: 'server_cert_last_updated',
-          partitions: Stubs::PartitionList.default(visited),
+          partitions: PartitionList.default(visited),
         }
       end
 
@@ -318,7 +318,7 @@ module AWS::SDK::CloudHSM
     class ListAvailableZones
       def self.default(visited=[])
         {
-          az_list: Stubs::AZList.default(visited),
+          az_list: AZList.default(visited),
         }
       end
 
@@ -354,7 +354,7 @@ module AWS::SDK::CloudHSM
     class ListHapgs
       def self.default(visited=[])
         {
-          hapg_list: Stubs::HapgList.default(visited),
+          hapg_list: HapgList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -392,7 +392,7 @@ module AWS::SDK::CloudHSM
     class ListHsms
       def self.default(visited=[])
         {
-          hsm_list: Stubs::HsmList.default(visited),
+          hsm_list: HsmList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -410,7 +410,7 @@ module AWS::SDK::CloudHSM
     class ListLunaClients
       def self.default(visited=[])
         {
-          client_list: Stubs::ClientList.default(visited),
+          client_list: ClientList.default(visited),
           next_token: 'next_token',
         }
       end
@@ -448,7 +448,7 @@ module AWS::SDK::CloudHSM
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tag_list: Stubs::TagList.default(visited),
+          tag_list: TagList.default(visited),
         }
       end
 
@@ -466,7 +466,7 @@ module AWS::SDK::CloudHSM
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 

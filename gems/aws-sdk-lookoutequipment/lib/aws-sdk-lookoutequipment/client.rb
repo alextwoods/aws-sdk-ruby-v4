@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::LookoutEquipment
@@ -89,7 +91,7 @@ module AWS::SDK::LookoutEquipment
     def create_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDatasetInput,
         validate_input: @config.validate_input
@@ -235,7 +237,7 @@ module AWS::SDK::LookoutEquipment
     def create_inference_scheduler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInferenceSchedulerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInferenceSchedulerInput,
         validate_input: @config.validate_input
@@ -396,7 +398,7 @@ module AWS::SDK::LookoutEquipment
     def create_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateModelInput,
         validate_input: @config.validate_input
@@ -468,7 +470,7 @@ module AWS::SDK::LookoutEquipment
     def delete_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDatasetInput,
         validate_input: @config.validate_input
@@ -537,7 +539,7 @@ module AWS::SDK::LookoutEquipment
     def delete_inference_scheduler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInferenceSchedulerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteInferenceSchedulerInput,
         validate_input: @config.validate_input
@@ -606,7 +608,7 @@ module AWS::SDK::LookoutEquipment
     def delete_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteModelInput,
         validate_input: @config.validate_input
@@ -713,7 +715,7 @@ module AWS::SDK::LookoutEquipment
     def describe_data_ingestion_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDataIngestionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDataIngestionJobInput,
         validate_input: @config.validate_input
@@ -819,7 +821,7 @@ module AWS::SDK::LookoutEquipment
     def describe_dataset(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeDatasetInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeDatasetInput,
         validate_input: @config.validate_input
@@ -912,7 +914,7 @@ module AWS::SDK::LookoutEquipment
     def describe_inference_scheduler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInferenceSchedulerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeInferenceSchedulerInput,
         validate_input: @config.validate_input
@@ -1006,7 +1008,7 @@ module AWS::SDK::LookoutEquipment
     def describe_model(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeModelInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeModelInput,
         validate_input: @config.validate_input
@@ -1100,7 +1102,7 @@ module AWS::SDK::LookoutEquipment
     def list_data_ingestion_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDataIngestionJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDataIngestionJobsInput,
         validate_input: @config.validate_input
@@ -1185,7 +1187,7 @@ module AWS::SDK::LookoutEquipment
     def list_datasets(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDatasetsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDatasetsInput,
         validate_input: @config.validate_input
@@ -1305,7 +1307,7 @@ module AWS::SDK::LookoutEquipment
     def list_inference_executions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInferenceExecutionsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInferenceExecutionsInput,
         validate_input: @config.validate_input
@@ -1397,7 +1399,7 @@ module AWS::SDK::LookoutEquipment
     def list_inference_schedulers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInferenceSchedulersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInferenceSchedulersInput,
         validate_input: @config.validate_input
@@ -1492,7 +1494,7 @@ module AWS::SDK::LookoutEquipment
     def list_models(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListModelsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListModelsInput,
         validate_input: @config.validate_input
@@ -1608,7 +1610,7 @@ module AWS::SDK::LookoutEquipment
     def list_sensor_statistics(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListSensorStatisticsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListSensorStatisticsInput,
         validate_input: @config.validate_input
@@ -1681,7 +1683,7 @@ module AWS::SDK::LookoutEquipment
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1772,7 +1774,7 @@ module AWS::SDK::LookoutEquipment
     def start_data_ingestion_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartDataIngestionJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartDataIngestionJobInput,
         validate_input: @config.validate_input
@@ -1845,7 +1847,7 @@ module AWS::SDK::LookoutEquipment
     def start_inference_scheduler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartInferenceSchedulerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartInferenceSchedulerInput,
         validate_input: @config.validate_input
@@ -1918,7 +1920,7 @@ module AWS::SDK::LookoutEquipment
     def stop_inference_scheduler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopInferenceSchedulerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopInferenceSchedulerInput,
         validate_input: @config.validate_input
@@ -2001,7 +2003,7 @@ module AWS::SDK::LookoutEquipment
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -2076,7 +2078,7 @@ module AWS::SDK::LookoutEquipment
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -2191,7 +2193,7 @@ module AWS::SDK::LookoutEquipment
     def update_inference_scheduler(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateInferenceSchedulerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateInferenceSchedulerInput,
         validate_input: @config.validate_input

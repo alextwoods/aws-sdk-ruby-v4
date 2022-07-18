@@ -14,7 +14,7 @@ module AWS::SDK::FSx
     class AssociateFileSystemAliases
       def self.default(visited=[])
         {
-          aliases: Stubs::Aliases.default(visited),
+          aliases: Aliases.default(visited),
         }
       end
 
@@ -32,7 +32,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('Aliases')
         visited = visited + ['Aliases']
         [
-          Stubs::Alias.default(visited)
+          Alias.default(visited)
         ]
       end
 
@@ -88,7 +88,7 @@ module AWS::SDK::FSx
     class CopyBackup
       def self.default(visited=[])
         {
-          backup: Stubs::Backup.default(visited),
+          backup: Backup.default(visited),
         }
       end
 
@@ -108,20 +108,20 @@ module AWS::SDK::FSx
         {
           backup_id: 'backup_id',
           lifecycle: 'lifecycle',
-          failure_details: Stubs::BackupFailureDetails.default(visited),
+          failure_details: BackupFailureDetails.default(visited),
           type: 'type',
           progress_percent: 1,
           creation_time: Time.now,
           kms_key_id: 'kms_key_id',
           resource_arn: 'resource_arn',
-          tags: Stubs::Tags.default(visited),
-          file_system: Stubs::FileSystem.default(visited),
-          directory_information: Stubs::ActiveDirectoryBackupAttributes.default(visited),
+          tags: Tags.default(visited),
+          file_system: FileSystem.default(visited),
+          directory_information: ActiveDirectoryBackupAttributes.default(visited),
           owner_id: 'owner_id',
           source_backup_id: 'source_backup_id',
           source_backup_region: 'source_backup_region',
           resource_type: 'resource_type',
-          volume: Stubs::Volume.default(visited),
+          volume: Volume.default(visited),
         }
       end
 
@@ -158,14 +158,14 @@ module AWS::SDK::FSx
           file_system_id: 'file_system_id',
           lifecycle: 'lifecycle',
           name: 'name',
-          ontap_configuration: Stubs::OntapVolumeConfiguration.default(visited),
+          ontap_configuration: OntapVolumeConfiguration.default(visited),
           resource_arn: 'resource_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           volume_id: 'volume_id',
           volume_type: 'volume_type',
-          lifecycle_transition_reason: Stubs::LifecycleTransitionReason.default(visited),
-          administrative_actions: Stubs::AdministrativeActions.default(visited),
-          open_zfs_configuration: Stubs::OpenZFSVolumeConfiguration.default(visited),
+          lifecycle_transition_reason: LifecycleTransitionReason.default(visited),
+          administrative_actions: AdministrativeActions.default(visited),
+          open_zfs_configuration: OpenZFSVolumeConfiguration.default(visited),
         }
       end
 
@@ -201,10 +201,10 @@ module AWS::SDK::FSx
           record_size_ki_b: 1,
           data_compression_type: 'data_compression_type',
           copy_tags_to_snapshots: false,
-          origin_snapshot: Stubs::OpenZFSOriginSnapshotConfiguration.default(visited),
+          origin_snapshot: OpenZFSOriginSnapshotConfiguration.default(visited),
           read_only: false,
-          nfs_exports: Stubs::OpenZFSNfsExports.default(visited),
-          user_and_group_quotas: Stubs::OpenZFSUserAndGroupQuotas.default(visited),
+          nfs_exports: OpenZFSNfsExports.default(visited),
+          user_and_group_quotas: OpenZFSUserAndGroupQuotas.default(visited),
         }
       end
 
@@ -232,7 +232,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('OpenZFSUserAndGroupQuotas')
         visited = visited + ['OpenZFSUserAndGroupQuotas']
         [
-          Stubs::OpenZFSUserOrGroupQuota.default(visited)
+          OpenZFSUserOrGroupQuota.default(visited)
         ]
       end
 
@@ -274,7 +274,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('OpenZFSNfsExports')
         visited = visited + ['OpenZFSNfsExports']
         [
-          Stubs::OpenZFSNfsExport.default(visited)
+          OpenZFSNfsExport.default(visited)
         ]
       end
 
@@ -294,7 +294,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('OpenZFSNfsExport')
         visited = visited + ['OpenZFSNfsExport']
         {
-          client_configurations: Stubs::OpenZFSClientConfigurations.default(visited),
+          client_configurations: OpenZFSClientConfigurations.default(visited),
         }
       end
 
@@ -312,7 +312,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('OpenZFSClientConfigurations')
         visited = visited + ['OpenZFSClientConfigurations']
         [
-          Stubs::OpenZFSClientConfiguration.default(visited)
+          OpenZFSClientConfiguration.default(visited)
         ]
       end
 
@@ -333,7 +333,7 @@ module AWS::SDK::FSx
         visited = visited + ['OpenZFSClientConfiguration']
         {
           clients: 'clients',
-          options: Stubs::OpenZFSNfsExportOptions.default(visited),
+          options: OpenZFSNfsExportOptions.default(visited),
         }
       end
 
@@ -392,7 +392,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('AdministrativeActions')
         visited = visited + ['AdministrativeActions']
         [
-          Stubs::AdministrativeAction.default(visited)
+          AdministrativeAction.default(visited)
         ]
       end
 
@@ -416,10 +416,10 @@ module AWS::SDK::FSx
           progress_percent: 1,
           request_time: Time.now,
           status: 'status',
-          target_file_system_values: Stubs::FileSystem.default(visited),
-          failure_details: Stubs::AdministrativeActionFailureDetails.default(visited),
-          target_volume_values: Stubs::Volume.default(visited),
-          target_snapshot_values: Stubs::Snapshot.default(visited),
+          target_file_system_values: FileSystem.default(visited),
+          failure_details: AdministrativeActionFailureDetails.default(visited),
+          target_volume_values: Volume.default(visited),
+          target_snapshot_values: Snapshot.default(visited),
         }
       end
 
@@ -450,9 +450,9 @@ module AWS::SDK::FSx
           volume_id: 'volume_id',
           creation_time: Time.now,
           lifecycle: 'lifecycle',
-          lifecycle_transition_reason: Stubs::LifecycleTransitionReason.default(visited),
-          tags: Stubs::Tags.default(visited),
-          administrative_actions: Stubs::AdministrativeActions.default(visited),
+          lifecycle_transition_reason: LifecycleTransitionReason.default(visited),
+          tags: Tags.default(visited),
+          administrative_actions: AdministrativeActions.default(visited),
         }
       end
 
@@ -478,7 +478,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
         [
-          Stubs::Tag.default(visited)
+          Tag.default(visited)
         ]
       end
 
@@ -559,22 +559,22 @@ module AWS::SDK::FSx
           file_system_id: 'file_system_id',
           file_system_type: 'file_system_type',
           lifecycle: 'lifecycle',
-          failure_details: Stubs::FileSystemFailureDetails.default(visited),
+          failure_details: FileSystemFailureDetails.default(visited),
           storage_capacity: 1,
           storage_type: 'storage_type',
           vpc_id: 'vpc_id',
-          subnet_ids: Stubs::SubnetIds.default(visited),
-          network_interface_ids: Stubs::NetworkInterfaceIds.default(visited),
+          subnet_ids: SubnetIds.default(visited),
+          network_interface_ids: NetworkInterfaceIds.default(visited),
           dns_name: 'dns_name',
           kms_key_id: 'kms_key_id',
           resource_arn: 'resource_arn',
-          tags: Stubs::Tags.default(visited),
-          windows_configuration: Stubs::WindowsFileSystemConfiguration.default(visited),
-          lustre_configuration: Stubs::LustreFileSystemConfiguration.default(visited),
-          administrative_actions: Stubs::AdministrativeActions.default(visited),
-          ontap_configuration: Stubs::OntapFileSystemConfiguration.default(visited),
+          tags: Tags.default(visited),
+          windows_configuration: WindowsFileSystemConfiguration.default(visited),
+          lustre_configuration: LustreFileSystemConfiguration.default(visited),
+          administrative_actions: AdministrativeActions.default(visited),
+          ontap_configuration: OntapFileSystemConfiguration.default(visited),
           file_system_type_version: 'file_system_type_version',
-          open_zfs_configuration: Stubs::OpenZFSFileSystemConfiguration.default(visited),
+          open_zfs_configuration: OpenZFSFileSystemConfiguration.default(visited),
         }
       end
 
@@ -619,7 +619,7 @@ module AWS::SDK::FSx
           deployment_type: 'deployment_type',
           throughput_capacity: 1,
           weekly_maintenance_start_time: 'weekly_maintenance_start_time',
-          disk_iops_configuration: Stubs::DiskIopsConfiguration.default(visited),
+          disk_iops_configuration: DiskIopsConfiguration.default(visited),
           root_volume_id: 'root_volume_id',
         }
       end
@@ -670,10 +670,10 @@ module AWS::SDK::FSx
           daily_automatic_backup_start_time: 'daily_automatic_backup_start_time',
           deployment_type: 'deployment_type',
           endpoint_ip_address_range: 'endpoint_ip_address_range',
-          endpoints: Stubs::FileSystemEndpoints.default(visited),
-          disk_iops_configuration: Stubs::DiskIopsConfiguration.default(visited),
+          endpoints: FileSystemEndpoints.default(visited),
+          disk_iops_configuration: DiskIopsConfiguration.default(visited),
           preferred_subnet_id: 'preferred_subnet_id',
-          route_table_ids: Stubs::RouteTableIds.default(visited),
+          route_table_ids: RouteTableIds.default(visited),
           throughput_capacity: 1,
           weekly_maintenance_start_time: 'weekly_maintenance_start_time',
         }
@@ -722,8 +722,8 @@ module AWS::SDK::FSx
         return nil if visited.include?('FileSystemEndpoints')
         visited = visited + ['FileSystemEndpoints']
         {
-          intercluster: Stubs::FileSystemEndpoint.default(visited),
-          management: Stubs::FileSystemEndpoint.default(visited),
+          intercluster: FileSystemEndpoint.default(visited),
+          management: FileSystemEndpoint.default(visited),
         }
       end
 
@@ -743,7 +743,7 @@ module AWS::SDK::FSx
         visited = visited + ['FileSystemEndpoint']
         {
           dns_name: 'dns_name',
-          ip_addresses: Stubs::OntapEndpointIpAddresses.default(visited),
+          ip_addresses: OntapEndpointIpAddresses.default(visited),
         }
       end
 
@@ -783,7 +783,7 @@ module AWS::SDK::FSx
         visited = visited + ['LustreFileSystemConfiguration']
         {
           weekly_maintenance_start_time: 'weekly_maintenance_start_time',
-          data_repository_configuration: Stubs::DataRepositoryConfiguration.default(visited),
+          data_repository_configuration: DataRepositoryConfiguration.default(visited),
           deployment_type: 'deployment_type',
           per_unit_storage_throughput: 1,
           mount_name: 'mount_name',
@@ -792,8 +792,8 @@ module AWS::SDK::FSx
           copy_tags_to_backups: false,
           drive_cache_type: 'drive_cache_type',
           data_compression_type: 'data_compression_type',
-          log_configuration: Stubs::LustreLogConfiguration.default(visited),
-          root_squash_configuration: Stubs::LustreRootSquashConfiguration.default(visited),
+          log_configuration: LustreLogConfiguration.default(visited),
+          root_squash_configuration: LustreRootSquashConfiguration.default(visited),
         }
       end
 
@@ -823,7 +823,7 @@ module AWS::SDK::FSx
         visited = visited + ['LustreRootSquashConfiguration']
         {
           root_squash: 'root_squash',
-          no_squash_nids: Stubs::LustreNoSquashNids.default(visited),
+          no_squash_nids: LustreNoSquashNids.default(visited),
         }
       end
 
@@ -887,7 +887,7 @@ module AWS::SDK::FSx
           export_path: 'export_path',
           imported_file_chunk_size: 1,
           auto_import_policy: 'auto_import_policy',
-          failure_details: Stubs::DataRepositoryFailureDetails.default(visited),
+          failure_details: DataRepositoryFailureDetails.default(visited),
         }
       end
 
@@ -929,19 +929,19 @@ module AWS::SDK::FSx
         visited = visited + ['WindowsFileSystemConfiguration']
         {
           active_directory_id: 'active_directory_id',
-          self_managed_active_directory_configuration: Stubs::SelfManagedActiveDirectoryAttributes.default(visited),
+          self_managed_active_directory_configuration: SelfManagedActiveDirectoryAttributes.default(visited),
           deployment_type: 'deployment_type',
           remote_administration_endpoint: 'remote_administration_endpoint',
           preferred_subnet_id: 'preferred_subnet_id',
           preferred_file_server_ip: 'preferred_file_server_ip',
           throughput_capacity: 1,
-          maintenance_operations_in_progress: Stubs::FileSystemMaintenanceOperations.default(visited),
+          maintenance_operations_in_progress: FileSystemMaintenanceOperations.default(visited),
           weekly_maintenance_start_time: 'weekly_maintenance_start_time',
           daily_automatic_backup_start_time: 'daily_automatic_backup_start_time',
           automatic_backup_retention_days: 1,
           copy_tags_to_backups: false,
-          aliases: Stubs::Aliases.default(visited),
-          audit_log_configuration: Stubs::WindowsAuditLogConfiguration.default(visited),
+          aliases: Aliases.default(visited),
+          audit_log_configuration: WindowsAuditLogConfiguration.default(visited),
         }
       end
 
@@ -1018,7 +1018,7 @@ module AWS::SDK::FSx
           organizational_unit_distinguished_name: 'organizational_unit_distinguished_name',
           file_system_administrators_group: 'file_system_administrators_group',
           user_name: 'user_name',
-          dns_ips: Stubs::DnsIps.default(visited),
+          dns_ips: DnsIps.default(visited),
         }
       end
 
@@ -1125,7 +1125,7 @@ module AWS::SDK::FSx
           storage_efficiency_enabled: false,
           storage_virtual_machine_id: 'storage_virtual_machine_id',
           storage_virtual_machine_root: false,
-          tiering_policy: Stubs::TieringPolicy.default(visited),
+          tiering_policy: TieringPolicy.default(visited),
           uuid: 'uuid',
           ontap_volume_type: 'ontap_volume_type',
         }
@@ -1212,7 +1212,7 @@ module AWS::SDK::FSx
     class CreateBackup
       def self.default(visited=[])
         {
-          backup: Stubs::Backup.default(visited),
+          backup: Backup.default(visited),
         }
       end
 
@@ -1228,7 +1228,7 @@ module AWS::SDK::FSx
     class CreateDataRepositoryAssociation
       def self.default(visited=[])
         {
-          association: Stubs::DataRepositoryAssociation.default(visited),
+          association: DataRepositoryAssociation.default(visited),
         }
       end
 
@@ -1250,13 +1250,13 @@ module AWS::SDK::FSx
           resource_arn: 'resource_arn',
           file_system_id: 'file_system_id',
           lifecycle: 'lifecycle',
-          failure_details: Stubs::DataRepositoryFailureDetails.default(visited),
+          failure_details: DataRepositoryFailureDetails.default(visited),
           file_system_path: 'file_system_path',
           data_repository_path: 'data_repository_path',
           batch_import_meta_data_on_create: false,
           imported_file_chunk_size: 1,
-          s3: Stubs::S3DataRepositoryConfiguration.default(visited),
-          tags: Stubs::Tags.default(visited),
+          s3: S3DataRepositoryConfiguration.default(visited),
+          tags: Tags.default(visited),
           creation_time: Time.now,
         }
       end
@@ -1286,8 +1286,8 @@ module AWS::SDK::FSx
         return nil if visited.include?('S3DataRepositoryConfiguration')
         visited = visited + ['S3DataRepositoryConfiguration']
         {
-          auto_import_policy: Stubs::AutoImportPolicy.default(visited),
-          auto_export_policy: Stubs::AutoExportPolicy.default(visited),
+          auto_import_policy: AutoImportPolicy.default(visited),
+          auto_export_policy: AutoExportPolicy.default(visited),
         }
       end
 
@@ -1306,7 +1306,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('AutoExportPolicy')
         visited = visited + ['AutoExportPolicy']
         {
-          events: Stubs::EventTypes.default(visited),
+          events: EventTypes.default(visited),
         }
       end
 
@@ -1344,7 +1344,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('AutoImportPolicy')
         visited = visited + ['AutoImportPolicy']
         {
-          events: Stubs::EventTypes.default(visited),
+          events: EventTypes.default(visited),
         }
       end
 
@@ -1360,7 +1360,7 @@ module AWS::SDK::FSx
     class CreateDataRepositoryTask
       def self.default(visited=[])
         {
-          data_repository_task: Stubs::DataRepositoryTask.default(visited),
+          data_repository_task: DataRepositoryTask.default(visited),
         }
       end
 
@@ -1385,12 +1385,12 @@ module AWS::SDK::FSx
           start_time: Time.now,
           end_time: Time.now,
           resource_arn: 'resource_arn',
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           file_system_id: 'file_system_id',
-          paths: Stubs::DataRepositoryTaskPaths.default(visited),
-          failure_details: Stubs::DataRepositoryTaskFailureDetails.default(visited),
-          status: Stubs::DataRepositoryTaskStatus.default(visited),
-          report: Stubs::CompletionReport.default(visited),
+          paths: DataRepositoryTaskPaths.default(visited),
+          failure_details: DataRepositoryTaskFailureDetails.default(visited),
+          status: DataRepositoryTaskStatus.default(visited),
+          report: CompletionReport.default(visited),
         }
       end
 
@@ -1504,7 +1504,7 @@ module AWS::SDK::FSx
     class CreateFileSystem
       def self.default(visited=[])
         {
-          file_system: Stubs::FileSystem.default(visited),
+          file_system: FileSystem.default(visited),
         }
       end
 
@@ -1520,7 +1520,7 @@ module AWS::SDK::FSx
     class CreateFileSystemFromBackup
       def self.default(visited=[])
         {
-          file_system: Stubs::FileSystem.default(visited),
+          file_system: FileSystem.default(visited),
         }
       end
 
@@ -1536,7 +1536,7 @@ module AWS::SDK::FSx
     class CreateSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -1552,7 +1552,7 @@ module AWS::SDK::FSx
     class CreateStorageVirtualMachine
       def self.default(visited=[])
         {
-          storage_virtual_machine: Stubs::StorageVirtualMachine.default(visited),
+          storage_virtual_machine: StorageVirtualMachine.default(visited),
         }
       end
 
@@ -1570,9 +1570,9 @@ module AWS::SDK::FSx
         return nil if visited.include?('StorageVirtualMachine')
         visited = visited + ['StorageVirtualMachine']
         {
-          active_directory_configuration: Stubs::SvmActiveDirectoryConfiguration.default(visited),
+          active_directory_configuration: SvmActiveDirectoryConfiguration.default(visited),
           creation_time: Time.now,
-          endpoints: Stubs::SvmEndpoints.default(visited),
+          endpoints: SvmEndpoints.default(visited),
           file_system_id: 'file_system_id',
           lifecycle: 'lifecycle',
           name: 'name',
@@ -1580,8 +1580,8 @@ module AWS::SDK::FSx
           storage_virtual_machine_id: 'storage_virtual_machine_id',
           subtype: 'subtype',
           uuid: 'uuid',
-          tags: Stubs::Tags.default(visited),
-          lifecycle_transition_reason: Stubs::LifecycleTransitionReason.default(visited),
+          tags: Tags.default(visited),
+          lifecycle_transition_reason: LifecycleTransitionReason.default(visited),
           root_volume_security_style: 'root_volume_security_style',
         }
       end
@@ -1612,10 +1612,10 @@ module AWS::SDK::FSx
         return nil if visited.include?('SvmEndpoints')
         visited = visited + ['SvmEndpoints']
         {
-          iscsi: Stubs::SvmEndpoint.default(visited),
-          management: Stubs::SvmEndpoint.default(visited),
-          nfs: Stubs::SvmEndpoint.default(visited),
-          smb: Stubs::SvmEndpoint.default(visited),
+          iscsi: SvmEndpoint.default(visited),
+          management: SvmEndpoint.default(visited),
+          nfs: SvmEndpoint.default(visited),
+          smb: SvmEndpoint.default(visited),
         }
       end
 
@@ -1637,7 +1637,7 @@ module AWS::SDK::FSx
         visited = visited + ['SvmEndpoint']
         {
           dns_name: 'dns_name',
-          ip_addresses: Stubs::OntapEndpointIpAddresses.default(visited),
+          ip_addresses: OntapEndpointIpAddresses.default(visited),
         }
       end
 
@@ -1657,7 +1657,7 @@ module AWS::SDK::FSx
         visited = visited + ['SvmActiveDirectoryConfiguration']
         {
           net_bios_name: 'net_bios_name',
-          self_managed_active_directory_configuration: Stubs::SelfManagedActiveDirectoryAttributes.default(visited),
+          self_managed_active_directory_configuration: SelfManagedActiveDirectoryAttributes.default(visited),
         }
       end
 
@@ -1674,7 +1674,7 @@ module AWS::SDK::FSx
     class CreateVolume
       def self.default(visited=[])
         {
-          volume: Stubs::Volume.default(visited),
+          volume: Volume.default(visited),
         }
       end
 
@@ -1690,7 +1690,7 @@ module AWS::SDK::FSx
     class CreateVolumeFromBackup
       def self.default(visited=[])
         {
-          volume: Stubs::Volume.default(visited),
+          volume: Volume.default(visited),
         }
       end
 
@@ -1746,9 +1746,9 @@ module AWS::SDK::FSx
         {
           file_system_id: 'file_system_id',
           lifecycle: 'lifecycle',
-          windows_response: Stubs::DeleteFileSystemWindowsResponse.default(visited),
-          lustre_response: Stubs::DeleteFileSystemLustreResponse.default(visited),
-          open_zfs_response: Stubs::DeleteFileSystemOpenZFSResponse.default(visited),
+          windows_response: DeleteFileSystemWindowsResponse.default(visited),
+          lustre_response: DeleteFileSystemLustreResponse.default(visited),
+          open_zfs_response: DeleteFileSystemOpenZFSResponse.default(visited),
         }
       end
 
@@ -1771,7 +1771,7 @@ module AWS::SDK::FSx
         visited = visited + ['DeleteFileSystemOpenZFSResponse']
         {
           final_backup_id: 'final_backup_id',
-          final_backup_tags: Stubs::Tags.default(visited),
+          final_backup_tags: Tags.default(visited),
         }
       end
 
@@ -1791,7 +1791,7 @@ module AWS::SDK::FSx
         visited = visited + ['DeleteFileSystemLustreResponse']
         {
           final_backup_id: 'final_backup_id',
-          final_backup_tags: Stubs::Tags.default(visited),
+          final_backup_tags: Tags.default(visited),
         }
       end
 
@@ -1811,7 +1811,7 @@ module AWS::SDK::FSx
         visited = visited + ['DeleteFileSystemWindowsResponse']
         {
           final_backup_id: 'final_backup_id',
-          final_backup_tags: Stubs::Tags.default(visited),
+          final_backup_tags: Tags.default(visited),
         }
       end
 
@@ -1866,7 +1866,7 @@ module AWS::SDK::FSx
         {
           volume_id: 'volume_id',
           lifecycle: 'lifecycle',
-          ontap_response: Stubs::DeleteVolumeOntapResponse.default(visited),
+          ontap_response: DeleteVolumeOntapResponse.default(visited),
         }
       end
 
@@ -1887,7 +1887,7 @@ module AWS::SDK::FSx
         visited = visited + ['DeleteVolumeOntapResponse']
         {
           final_backup_id: 'final_backup_id',
-          final_backup_tags: Stubs::Tags.default(visited),
+          final_backup_tags: Tags.default(visited),
         }
       end
 
@@ -1904,7 +1904,7 @@ module AWS::SDK::FSx
     class DescribeBackups
       def self.default(visited=[])
         {
-          backups: Stubs::Backups.default(visited),
+          backups: Backups.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1924,7 +1924,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('Backups')
         visited = visited + ['Backups']
         [
-          Stubs::Backup.default(visited)
+          Backup.default(visited)
         ]
       end
 
@@ -1942,7 +1942,7 @@ module AWS::SDK::FSx
     class DescribeDataRepositoryAssociations
       def self.default(visited=[])
         {
-          associations: Stubs::DataRepositoryAssociations.default(visited),
+          associations: DataRepositoryAssociations.default(visited),
           next_token: 'next_token',
         }
       end
@@ -1962,7 +1962,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('DataRepositoryAssociations')
         visited = visited + ['DataRepositoryAssociations']
         [
-          Stubs::DataRepositoryAssociation.default(visited)
+          DataRepositoryAssociation.default(visited)
         ]
       end
 
@@ -1980,7 +1980,7 @@ module AWS::SDK::FSx
     class DescribeDataRepositoryTasks
       def self.default(visited=[])
         {
-          data_repository_tasks: Stubs::DataRepositoryTasks.default(visited),
+          data_repository_tasks: DataRepositoryTasks.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2000,7 +2000,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('DataRepositoryTasks')
         visited = visited + ['DataRepositoryTasks']
         [
-          Stubs::DataRepositoryTask.default(visited)
+          DataRepositoryTask.default(visited)
         ]
       end
 
@@ -2018,7 +2018,7 @@ module AWS::SDK::FSx
     class DescribeFileSystemAliases
       def self.default(visited=[])
         {
-          aliases: Stubs::Aliases.default(visited),
+          aliases: Aliases.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2036,7 +2036,7 @@ module AWS::SDK::FSx
     class DescribeFileSystems
       def self.default(visited=[])
         {
-          file_systems: Stubs::FileSystems.default(visited),
+          file_systems: FileSystems.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2056,7 +2056,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('FileSystems')
         visited = visited + ['FileSystems']
         [
-          Stubs::FileSystem.default(visited)
+          FileSystem.default(visited)
         ]
       end
 
@@ -2074,7 +2074,7 @@ module AWS::SDK::FSx
     class DescribeSnapshots
       def self.default(visited=[])
         {
-          snapshots: Stubs::Snapshots.default(visited),
+          snapshots: Snapshots.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2094,7 +2094,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('Snapshots')
         visited = visited + ['Snapshots']
         [
-          Stubs::Snapshot.default(visited)
+          Snapshot.default(visited)
         ]
       end
 
@@ -2112,7 +2112,7 @@ module AWS::SDK::FSx
     class DescribeStorageVirtualMachines
       def self.default(visited=[])
         {
-          storage_virtual_machines: Stubs::StorageVirtualMachines.default(visited),
+          storage_virtual_machines: StorageVirtualMachines.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2132,7 +2132,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('StorageVirtualMachines')
         visited = visited + ['StorageVirtualMachines']
         [
-          Stubs::StorageVirtualMachine.default(visited)
+          StorageVirtualMachine.default(visited)
         ]
       end
 
@@ -2150,7 +2150,7 @@ module AWS::SDK::FSx
     class DescribeVolumes
       def self.default(visited=[])
         {
-          volumes: Stubs::Volumes.default(visited),
+          volumes: Volumes.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2170,7 +2170,7 @@ module AWS::SDK::FSx
         return nil if visited.include?('Volumes')
         visited = visited + ['Volumes']
         [
-          Stubs::Volume.default(visited)
+          Volume.default(visited)
         ]
       end
 
@@ -2188,7 +2188,7 @@ module AWS::SDK::FSx
     class DisassociateFileSystemAliases
       def self.default(visited=[])
         {
-          aliases: Stubs::Aliases.default(visited),
+          aliases: Aliases.default(visited),
         }
       end
 
@@ -2204,7 +2204,7 @@ module AWS::SDK::FSx
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
           next_token: 'next_token',
         }
       end
@@ -2222,7 +2222,7 @@ module AWS::SDK::FSx
     class ReleaseFileSystemNfsV3Locks
       def self.default(visited=[])
         {
-          file_system: Stubs::FileSystem.default(visited),
+          file_system: FileSystem.default(visited),
         }
       end
 
@@ -2284,7 +2284,7 @@ module AWS::SDK::FSx
     class UpdateDataRepositoryAssociation
       def self.default(visited=[])
         {
-          association: Stubs::DataRepositoryAssociation.default(visited),
+          association: DataRepositoryAssociation.default(visited),
         }
       end
 
@@ -2300,7 +2300,7 @@ module AWS::SDK::FSx
     class UpdateFileSystem
       def self.default(visited=[])
         {
-          file_system: Stubs::FileSystem.default(visited),
+          file_system: FileSystem.default(visited),
         }
       end
 
@@ -2316,7 +2316,7 @@ module AWS::SDK::FSx
     class UpdateSnapshot
       def self.default(visited=[])
         {
-          snapshot: Stubs::Snapshot.default(visited),
+          snapshot: Snapshot.default(visited),
         }
       end
 
@@ -2332,7 +2332,7 @@ module AWS::SDK::FSx
     class UpdateStorageVirtualMachine
       def self.default(visited=[])
         {
-          storage_virtual_machine: Stubs::StorageVirtualMachine.default(visited),
+          storage_virtual_machine: StorageVirtualMachine.default(visited),
         }
       end
 
@@ -2348,7 +2348,7 @@ module AWS::SDK::FSx
     class UpdateVolume
       def self.default(visited=[])
         {
-          volume: Stubs::Volume.default(visited),
+          volume: Volume.default(visited),
         }
       end
 

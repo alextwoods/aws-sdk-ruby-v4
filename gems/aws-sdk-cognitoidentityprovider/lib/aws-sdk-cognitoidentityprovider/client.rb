@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CognitoIdentityProvider
@@ -82,7 +84,7 @@ module AWS::SDK::CognitoIdentityProvider
     def add_custom_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddCustomAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddCustomAttributesInput,
         validate_input: @config.validate_input
@@ -159,7 +161,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_add_user_to_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminAddUserToGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminAddUserToGroupInput,
         validate_input: @config.validate_input
@@ -271,7 +273,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_confirm_sign_up(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminConfirmSignUpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminConfirmSignUpInput,
         validate_input: @config.validate_input
@@ -521,7 +523,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_create_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminCreateUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminCreateUserInput,
         validate_input: @config.validate_input
@@ -594,7 +596,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminDeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminDeleteUserInput,
         validate_input: @config.validate_input
@@ -676,7 +678,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_delete_user_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminDeleteUserAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminDeleteUserAttributesInput,
         validate_input: @config.validate_input
@@ -779,7 +781,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_disable_provider_for_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminDisableProviderForUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminDisableProviderForUserInput,
         validate_input: @config.validate_input
@@ -852,7 +854,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_disable_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminDisableUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminDisableUserInput,
         validate_input: @config.validate_input
@@ -925,7 +927,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_enable_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminEnableUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminEnableUserInput,
         validate_input: @config.validate_input
@@ -1002,7 +1004,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_forget_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminForgetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminForgetDeviceInput,
         validate_input: @config.validate_input
@@ -1088,7 +1090,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_get_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminGetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminGetDeviceInput,
         validate_input: @config.validate_input
@@ -1179,7 +1181,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_get_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminGetUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminGetUserInput,
         validate_input: @config.validate_input
@@ -1467,7 +1469,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_initiate_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminInitiateAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminInitiateAuthInput,
         validate_input: @config.validate_input
@@ -1599,7 +1601,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_link_provider_for_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminLinkProviderForUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminLinkProviderForUserInput,
         validate_input: @config.validate_input
@@ -1691,7 +1693,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminListDevicesInput,
         validate_input: @config.validate_input
@@ -1783,7 +1785,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_list_groups_for_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminListGroupsForUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminListGroupsForUserInput,
         validate_input: @config.validate_input
@@ -1889,7 +1891,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_list_user_auth_events(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminListUserAuthEventsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminListUserAuthEventsInput,
         validate_input: @config.validate_input
@@ -1966,7 +1968,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_remove_user_from_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminRemoveUserFromGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminRemoveUserFromGroupInput,
         validate_input: @config.validate_input
@@ -2105,7 +2107,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_reset_user_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminResetUserPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminResetUserPasswordInput,
         validate_input: @config.validate_input
@@ -2373,7 +2375,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_respond_to_auth_challenge(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminRespondToAuthChallengeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminRespondToAuthChallengeInput,
         validate_input: @config.validate_input
@@ -2463,7 +2465,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_set_user_mfa_preference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminSetUserMFAPreferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminSetUserMFAPreferenceInput,
         validate_input: @config.validate_input
@@ -2554,7 +2556,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_set_user_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminSetUserPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminSetUserPasswordInput,
         validate_input: @config.validate_input
@@ -2639,7 +2641,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_set_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminSetUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminSetUserSettingsInput,
         validate_input: @config.validate_input
@@ -2721,7 +2723,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_update_auth_event_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminUpdateAuthEventFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminUpdateAuthEventFeedbackInput,
         validate_input: @config.validate_input
@@ -2802,7 +2804,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_update_device_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminUpdateDeviceStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminUpdateDeviceStatusInput,
         validate_input: @config.validate_input
@@ -2960,7 +2962,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_update_user_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminUpdateUserAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminUpdateUserAttributesInput,
         validate_input: @config.validate_input
@@ -3038,7 +3040,7 @@ module AWS::SDK::CognitoIdentityProvider
     def admin_user_global_sign_out(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AdminUserGlobalSignOutInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AdminUserGlobalSignOutInput,
         validate_input: @config.validate_input
@@ -3130,7 +3132,7 @@ module AWS::SDK::CognitoIdentityProvider
     def associate_software_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateSoftwareTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateSoftwareTokenInput,
         validate_input: @config.validate_input
@@ -3207,7 +3209,7 @@ module AWS::SDK::CognitoIdentityProvider
     def change_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ChangePasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangePasswordInput,
         validate_input: @config.validate_input
@@ -3293,7 +3295,7 @@ module AWS::SDK::CognitoIdentityProvider
     def confirm_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmDeviceInput,
         validate_input: @config.validate_input
@@ -3434,7 +3436,7 @@ module AWS::SDK::CognitoIdentityProvider
     def confirm_forgot_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmForgotPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmForgotPasswordInput,
         validate_input: @config.validate_input
@@ -3578,7 +3580,7 @@ module AWS::SDK::CognitoIdentityProvider
     def confirm_sign_up(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConfirmSignUpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConfirmSignUpInput,
         validate_input: @config.validate_input
@@ -3685,7 +3687,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGroupInput,
         validate_input: @config.validate_input
@@ -3904,7 +3906,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateIdentityProviderInput,
         validate_input: @config.validate_input
@@ -4000,7 +4002,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_resource_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResourceServerInput,
         validate_input: @config.validate_input
@@ -4090,7 +4092,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_user_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserImportJobInput,
         validate_input: @config.validate_input
@@ -4495,7 +4497,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_user_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserPoolInput,
         validate_input: @config.validate_input
@@ -4875,7 +4877,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_user_pool_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserPoolClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserPoolClientInput,
         validate_input: @config.validate_input
@@ -4961,7 +4963,7 @@ module AWS::SDK::CognitoIdentityProvider
     def create_user_pool_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateUserPoolDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateUserPoolDomainInput,
         validate_input: @config.validate_input
@@ -5034,7 +5036,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteGroupInput,
         validate_input: @config.validate_input
@@ -5106,7 +5108,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteIdentityProviderInput,
         validate_input: @config.validate_input
@@ -5178,7 +5180,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_resource_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResourceServerInput,
         validate_input: @config.validate_input
@@ -5247,7 +5249,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserInput,
         validate_input: @config.validate_input
@@ -5324,7 +5326,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_user_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserAttributesInput,
         validate_input: @config.validate_input
@@ -5392,7 +5394,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_user_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserPoolInput,
         validate_input: @config.validate_input
@@ -5464,7 +5466,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_user_pool_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserPoolClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserPoolClientInput,
         validate_input: @config.validate_input
@@ -5538,7 +5540,7 @@ module AWS::SDK::CognitoIdentityProvider
     def delete_user_pool_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteUserPoolDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteUserPoolDomainInput,
         validate_input: @config.validate_input
@@ -5622,7 +5624,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeIdentityProviderInput,
         validate_input: @config.validate_input
@@ -5702,7 +5704,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_resource_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeResourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeResourceServerInput,
         validate_input: @config.validate_input
@@ -5805,7 +5807,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_risk_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeRiskConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeRiskConfigurationInput,
         validate_input: @config.validate_input
@@ -5891,7 +5893,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_user_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserImportJobInput,
         validate_input: @config.validate_input
@@ -6062,7 +6064,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_user_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserPoolInput,
         validate_input: @config.validate_input
@@ -6175,7 +6177,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_user_pool_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserPoolClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserPoolClientInput,
         validate_input: @config.validate_input
@@ -6255,7 +6257,7 @@ module AWS::SDK::CognitoIdentityProvider
     def describe_user_pool_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeUserPoolDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeUserPoolDomainInput,
         validate_input: @config.validate_input
@@ -6328,7 +6330,7 @@ module AWS::SDK::CognitoIdentityProvider
     def forget_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ForgetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ForgetDeviceInput,
         validate_input: @config.validate_input
@@ -6491,7 +6493,7 @@ module AWS::SDK::CognitoIdentityProvider
     def forgot_password(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ForgotPasswordInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ForgotPasswordInput,
         validate_input: @config.validate_input
@@ -6563,7 +6565,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_csv_header(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCSVHeaderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCSVHeaderInput,
         validate_input: @config.validate_input
@@ -6645,7 +6647,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_device(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDeviceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDeviceInput,
         validate_input: @config.validate_input
@@ -6726,7 +6728,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetGroupInput,
         validate_input: @config.validate_input
@@ -6810,7 +6812,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_identity_provider_by_identifier(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetIdentityProviderByIdentifierInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetIdentityProviderByIdentifierInput,
         validate_input: @config.validate_input
@@ -6879,7 +6881,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_signing_certificate(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSigningCertificateInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSigningCertificateInput,
         validate_input: @config.validate_input
@@ -6963,7 +6965,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_ui_customization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUICustomizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUICustomizationInput,
         validate_input: @config.validate_input
@@ -7043,7 +7045,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_user(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserInput,
         validate_input: @config.validate_input
@@ -7179,7 +7181,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_user_attribute_verification_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserAttributeVerificationCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserAttributeVerificationCodeInput,
         validate_input: @config.validate_input
@@ -7256,7 +7258,7 @@ module AWS::SDK::CognitoIdentityProvider
     def get_user_pool_mfa_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetUserPoolMfaConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetUserPoolMfaConfigInput,
         validate_input: @config.validate_input
@@ -7328,7 +7330,7 @@ module AWS::SDK::CognitoIdentityProvider
     def global_sign_out(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GlobalSignOutInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GlobalSignOutInput,
         validate_input: @config.validate_input
@@ -7594,7 +7596,7 @@ module AWS::SDK::CognitoIdentityProvider
     def initiate_auth(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InitiateAuthInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InitiateAuthInput,
         validate_input: @config.validate_input
@@ -7682,7 +7684,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_devices(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDevicesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDevicesInput,
         validate_input: @config.validate_input
@@ -7770,7 +7772,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGroupsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGroupsInput,
         validate_input: @config.validate_input
@@ -7853,7 +7855,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_identity_providers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListIdentityProvidersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListIdentityProvidersInput,
         validate_input: @config.validate_input
@@ -7939,7 +7941,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_resource_servers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceServersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceServersInput,
         validate_input: @config.validate_input
@@ -8012,7 +8014,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -8106,7 +8108,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_user_import_jobs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserImportJobsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserImportJobsInput,
         validate_input: @config.validate_input
@@ -8190,7 +8192,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_user_pool_clients(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserPoolClientsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserPoolClientsInput,
         validate_input: @config.validate_input
@@ -8290,7 +8292,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_user_pools(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUserPoolsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUserPoolsInput,
         validate_input: @config.validate_input
@@ -8484,7 +8486,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_users(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInput,
         validate_input: @config.validate_input
@@ -8582,7 +8584,7 @@ module AWS::SDK::CognitoIdentityProvider
     def list_users_in_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListUsersInGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListUsersInGroupInput,
         validate_input: @config.validate_input
@@ -8737,7 +8739,7 @@ module AWS::SDK::CognitoIdentityProvider
     def resend_confirmation_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ResendConfirmationCodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ResendConfirmationCodeInput,
         validate_input: @config.validate_input
@@ -8978,7 +8980,7 @@ module AWS::SDK::CognitoIdentityProvider
     def respond_to_auth_challenge(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RespondToAuthChallengeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RespondToAuthChallengeInput,
         validate_input: @config.validate_input
@@ -9057,7 +9059,7 @@ module AWS::SDK::CognitoIdentityProvider
     def revoke_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeTokenInput,
         validate_input: @config.validate_input
@@ -9212,7 +9214,7 @@ module AWS::SDK::CognitoIdentityProvider
     def set_risk_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetRiskConfigurationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetRiskConfigurationInput,
         validate_input: @config.validate_input
@@ -9312,7 +9314,7 @@ module AWS::SDK::CognitoIdentityProvider
     def set_ui_customization(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetUICustomizationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetUICustomizationInput,
         validate_input: @config.validate_input
@@ -9403,7 +9405,7 @@ module AWS::SDK::CognitoIdentityProvider
     def set_user_mfa_preference(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetUserMFAPreferenceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetUserMFAPreferenceInput,
         validate_input: @config.validate_input
@@ -9536,7 +9538,7 @@ module AWS::SDK::CognitoIdentityProvider
     def set_user_pool_mfa_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetUserPoolMfaConfigInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetUserPoolMfaConfigInput,
         validate_input: @config.validate_input
@@ -9618,7 +9620,7 @@ module AWS::SDK::CognitoIdentityProvider
     def set_user_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SetUserSettingsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetUserSettingsInput,
         validate_input: @config.validate_input
@@ -9793,7 +9795,7 @@ module AWS::SDK::CognitoIdentityProvider
     def sign_up(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::SignUpInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SignUpInput,
         validate_input: @config.validate_input
@@ -9879,7 +9881,7 @@ module AWS::SDK::CognitoIdentityProvider
     def start_user_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StartUserImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StartUserImportJobInput,
         validate_input: @config.validate_input
@@ -9965,7 +9967,7 @@ module AWS::SDK::CognitoIdentityProvider
     def stop_user_import_job(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::StopUserImportJobInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::StopUserImportJobInput,
         validate_input: @config.validate_input
@@ -10052,7 +10054,7 @@ module AWS::SDK::CognitoIdentityProvider
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -10127,7 +10129,7 @@ module AWS::SDK::CognitoIdentityProvider
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -10213,7 +10215,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_auth_event_feedback(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAuthEventFeedbackInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAuthEventFeedbackInput,
         validate_input: @config.validate_input
@@ -10290,7 +10292,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_device_status(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDeviceStatusInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDeviceStatusInput,
         validate_input: @config.validate_input
@@ -10386,7 +10388,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGroupInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGroupInput,
         validate_input: @config.validate_input
@@ -10489,7 +10491,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_identity_provider(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateIdentityProviderInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateIdentityProviderInput,
         validate_input: @config.validate_input
@@ -10586,7 +10588,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_resource_server(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResourceServerInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResourceServerInput,
         validate_input: @config.validate_input
@@ -10732,7 +10734,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_user_attributes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserAttributesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserAttributesInput,
         validate_input: @config.validate_input
@@ -10999,7 +11001,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_user_pool(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserPoolInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserPoolInput,
         validate_input: @config.validate_input
@@ -11369,7 +11371,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_user_pool_client(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserPoolClientInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserPoolClientInput,
         validate_input: @config.validate_input
@@ -11472,7 +11474,7 @@ module AWS::SDK::CognitoIdentityProvider
     def update_user_pool_domain(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateUserPoolDomainInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateUserPoolDomainInput,
         validate_input: @config.validate_input
@@ -11558,7 +11560,7 @@ module AWS::SDK::CognitoIdentityProvider
     def verify_software_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifySoftwareTokenInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifySoftwareTokenInput,
         validate_input: @config.validate_input
@@ -11641,7 +11643,7 @@ module AWS::SDK::CognitoIdentityProvider
     def verify_user_attribute(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyUserAttributeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyUserAttributeInput,
         validate_input: @config.validate_input

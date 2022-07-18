@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'time'
+
 module AWS::SDK::Polly
   module Validators
 
@@ -36,7 +38,7 @@ module AWS::SDK::Polly
     class DescribeVoicesOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeVoicesOutput, context: context)
-        Validators::VoiceList.validate!(input[:voices], context: "#{context}[:voices]") unless input[:voices].nil?
+        VoiceList.validate!(input[:voices], context: "#{context}[:voices]") unless input[:voices].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -67,8 +69,8 @@ module AWS::SDK::Polly
     class GetLexiconOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLexiconOutput, context: context)
-        Validators::Lexicon.validate!(input[:lexicon], context: "#{context}[:lexicon]") unless input[:lexicon].nil?
-        Validators::LexiconAttributes.validate!(input[:lexicon_attributes], context: "#{context}[:lexicon_attributes]") unless input[:lexicon_attributes].nil?
+        Lexicon.validate!(input[:lexicon], context: "#{context}[:lexicon]") unless input[:lexicon].nil?
+        LexiconAttributes.validate!(input[:lexicon_attributes], context: "#{context}[:lexicon_attributes]") unless input[:lexicon_attributes].nil?
       end
     end
 
@@ -82,7 +84,7 @@ module AWS::SDK::Polly
     class GetSpeechSynthesisTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetSpeechSynthesisTaskOutput, context: context)
-        Validators::SynthesisTask.validate!(input[:synthesis_task], context: "#{context}[:synthesis_task]") unless input[:synthesis_task].nil?
+        SynthesisTask.validate!(input[:synthesis_task], context: "#{context}[:synthesis_task]") unless input[:synthesis_task].nil?
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::Polly
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LexiconDescription, context: context)
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LexiconAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
+        LexiconAttributes.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
       end
     end
 
@@ -190,7 +192,7 @@ module AWS::SDK::Polly
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::LexiconDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          LexiconDescription.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -228,7 +230,7 @@ module AWS::SDK::Polly
     class ListLexiconsOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListLexiconsOutput, context: context)
-        Validators::LexiconDescriptionList.validate!(input[:lexicons], context: "#{context}[:lexicons]") unless input[:lexicons].nil?
+        LexiconDescriptionList.validate!(input[:lexicons], context: "#{context}[:lexicons]") unless input[:lexicons].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -246,7 +248,7 @@ module AWS::SDK::Polly
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListSpeechSynthesisTasksOutput, context: context)
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
-        Validators::SynthesisTasks.validate!(input[:synthesis_tasks], context: "#{context}[:synthesis_tasks]") unless input[:synthesis_tasks].nil?
+        SynthesisTasks.validate!(input[:synthesis_tasks], context: "#{context}[:synthesis_tasks]") unless input[:synthesis_tasks].nil?
       end
     end
 
@@ -313,13 +315,13 @@ module AWS::SDK::Polly
         Hearth::Validator.validate!(input, Types::StartSpeechSynthesisTaskInput, context: context)
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
-        Validators::LexiconNameList.validate!(input[:lexicon_names], context: "#{context}[:lexicon_names]") unless input[:lexicon_names].nil?
+        LexiconNameList.validate!(input[:lexicon_names], context: "#{context}[:lexicon_names]") unless input[:lexicon_names].nil?
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
         Hearth::Validator.validate!(input[:output_s3_bucket_name], ::String, context: "#{context}[:output_s3_bucket_name]")
         Hearth::Validator.validate!(input[:output_s3_key_prefix], ::String, context: "#{context}[:output_s3_key_prefix]")
         Hearth::Validator.validate!(input[:sample_rate], ::String, context: "#{context}[:sample_rate]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::SpeechMarkTypeList.validate!(input[:speech_mark_types], context: "#{context}[:speech_mark_types]") unless input[:speech_mark_types].nil?
+        SpeechMarkTypeList.validate!(input[:speech_mark_types], context: "#{context}[:speech_mark_types]") unless input[:speech_mark_types].nil?
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
         Hearth::Validator.validate!(input[:text_type], ::String, context: "#{context}[:text_type]")
         Hearth::Validator.validate!(input[:voice_id], ::String, context: "#{context}[:voice_id]")
@@ -329,7 +331,7 @@ module AWS::SDK::Polly
     class StartSpeechSynthesisTaskOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::StartSpeechSynthesisTaskOutput, context: context)
-        Validators::SynthesisTask.validate!(input[:synthesis_task], context: "#{context}[:synthesis_task]") unless input[:synthesis_task].nil?
+        SynthesisTask.validate!(input[:synthesis_task], context: "#{context}[:synthesis_task]") unless input[:synthesis_task].nil?
       end
     end
 
@@ -344,10 +346,10 @@ module AWS::SDK::Polly
         Hearth::Validator.validate!(input[:creation_time], ::Time, context: "#{context}[:creation_time]")
         Hearth::Validator.validate!(input[:request_characters], ::Integer, context: "#{context}[:request_characters]")
         Hearth::Validator.validate!(input[:sns_topic_arn], ::String, context: "#{context}[:sns_topic_arn]")
-        Validators::LexiconNameList.validate!(input[:lexicon_names], context: "#{context}[:lexicon_names]") unless input[:lexicon_names].nil?
+        LexiconNameList.validate!(input[:lexicon_names], context: "#{context}[:lexicon_names]") unless input[:lexicon_names].nil?
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
         Hearth::Validator.validate!(input[:sample_rate], ::String, context: "#{context}[:sample_rate]")
-        Validators::SpeechMarkTypeList.validate!(input[:speech_mark_types], context: "#{context}[:speech_mark_types]") unless input[:speech_mark_types].nil?
+        SpeechMarkTypeList.validate!(input[:speech_mark_types], context: "#{context}[:speech_mark_types]") unless input[:speech_mark_types].nil?
         Hearth::Validator.validate!(input[:text_type], ::String, context: "#{context}[:text_type]")
         Hearth::Validator.validate!(input[:voice_id], ::String, context: "#{context}[:voice_id]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
@@ -365,7 +367,7 @@ module AWS::SDK::Polly
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::SynthesisTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          SynthesisTask.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -375,10 +377,10 @@ module AWS::SDK::Polly
         Hearth::Validator.validate!(input, Types::SynthesizeSpeechInput, context: context)
         Hearth::Validator.validate!(input[:engine], ::String, context: "#{context}[:engine]")
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
-        Validators::LexiconNameList.validate!(input[:lexicon_names], context: "#{context}[:lexicon_names]") unless input[:lexicon_names].nil?
+        LexiconNameList.validate!(input[:lexicon_names], context: "#{context}[:lexicon_names]") unless input[:lexicon_names].nil?
         Hearth::Validator.validate!(input[:output_format], ::String, context: "#{context}[:output_format]")
         Hearth::Validator.validate!(input[:sample_rate], ::String, context: "#{context}[:sample_rate]")
-        Validators::SpeechMarkTypeList.validate!(input[:speech_mark_types], context: "#{context}[:speech_mark_types]") unless input[:speech_mark_types].nil?
+        SpeechMarkTypeList.validate!(input[:speech_mark_types], context: "#{context}[:speech_mark_types]") unless input[:speech_mark_types].nil?
         Hearth::Validator.validate!(input[:text], ::String, context: "#{context}[:text]")
         Hearth::Validator.validate!(input[:text_type], ::String, context: "#{context}[:text_type]")
         Hearth::Validator.validate!(input[:voice_id], ::String, context: "#{context}[:voice_id]")
@@ -425,8 +427,8 @@ module AWS::SDK::Polly
         Hearth::Validator.validate!(input[:language_code], ::String, context: "#{context}[:language_code]")
         Hearth::Validator.validate!(input[:language_name], ::String, context: "#{context}[:language_name]")
         Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
-        Validators::LanguageCodeList.validate!(input[:additional_language_codes], context: "#{context}[:additional_language_codes]") unless input[:additional_language_codes].nil?
-        Validators::EngineList.validate!(input[:supported_engines], context: "#{context}[:supported_engines]") unless input[:supported_engines].nil?
+        LanguageCodeList.validate!(input[:additional_language_codes], context: "#{context}[:additional_language_codes]") unless input[:additional_language_codes].nil?
+        EngineList.validate!(input[:supported_engines], context: "#{context}[:supported_engines]") unless input[:supported_engines].nil?
       end
     end
 
@@ -434,7 +436,7 @@ module AWS::SDK::Polly
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
-          Validators::Voice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+          Voice.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end

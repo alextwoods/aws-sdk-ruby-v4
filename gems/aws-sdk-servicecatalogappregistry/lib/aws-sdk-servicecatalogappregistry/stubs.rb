@@ -52,7 +52,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class CreateApplication
       def self.default(visited=[])
         {
-          application: Stubs::Application.default(visited),
+          application: Application.default(visited),
         }
       end
 
@@ -77,7 +77,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
           description: 'description',
           creation_time: Time.now,
           last_update_time: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -119,7 +119,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class CreateAttributeGroup
       def self.default(visited=[])
         {
-          attribute_group: Stubs::AttributeGroup.default(visited),
+          attribute_group: AttributeGroup.default(visited),
         }
       end
 
@@ -144,7 +144,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
           description: 'description',
           creation_time: Time.now,
           last_update_time: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -166,7 +166,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class DeleteApplication
       def self.default(visited=[])
         {
-          application: Stubs::ApplicationSummary.default(visited),
+          application: ApplicationSummary.default(visited),
         }
       end
 
@@ -211,7 +211,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class DeleteAttributeGroup
       def self.default(visited=[])
         {
-          attribute_group: Stubs::AttributeGroupSummary.default(visited),
+          attribute_group: AttributeGroupSummary.default(visited),
         }
       end
 
@@ -301,8 +301,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
           creation_time: Time.now,
           last_update_time: Time.now,
           associated_resource_count: 1,
-          tags: Stubs::Tags.default(visited),
-          integrations: Stubs::Integrations.default(visited),
+          tags: Tags.default(visited),
+          integrations: Integrations.default(visited),
         }
       end
 
@@ -329,7 +329,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         return nil if visited.include?('Integrations')
         visited = visited + ['Integrations']
         {
-          resource_group: Stubs::ResourceGroup.default(visited),
+          resource_group: ResourceGroup.default(visited),
         }
       end
 
@@ -367,7 +367,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class GetAssociatedResource
       def self.default(visited=[])
         {
-          resource: Stubs::Resource.default(visited),
+          resource: Resource.default(visited),
         }
       end
 
@@ -389,7 +389,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
           name: 'name',
           arn: 'arn',
           association_time: Time.now,
-          integrations: Stubs::ResourceIntegrations.default(visited),
+          integrations: ResourceIntegrations.default(visited),
         }
       end
 
@@ -410,7 +410,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         return nil if visited.include?('ResourceIntegrations')
         visited = visited + ['ResourceIntegrations']
         {
-          resource_group: Stubs::ResourceGroup.default(visited),
+          resource_group: ResourceGroup.default(visited),
         }
       end
 
@@ -433,7 +433,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
           attributes: 'attributes',
           creation_time: Time.now,
           last_update_time: Time.now,
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -457,7 +457,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListApplications
       def self.default(visited=[])
         {
-          applications: Stubs::ApplicationSummaries.default(visited),
+          applications: ApplicationSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -478,7 +478,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         return nil if visited.include?('ApplicationSummaries')
         visited = visited + ['ApplicationSummaries']
         [
-          Stubs::ApplicationSummary.default(visited)
+          ApplicationSummary.default(visited)
         ]
       end
 
@@ -496,7 +496,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListAssociatedAttributeGroups
       def self.default(visited=[])
         {
-          attribute_groups: Stubs::AttributeGroupIds.default(visited),
+          attribute_groups: AttributeGroupIds.default(visited),
           next_token: 'next_token',
         }
       end
@@ -535,7 +535,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListAssociatedResources
       def self.default(visited=[])
         {
-          resources: Stubs::Resources.default(visited),
+          resources: Resources.default(visited),
           next_token: 'next_token',
         }
       end
@@ -556,7 +556,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         return nil if visited.include?('Resources')
         visited = visited + ['Resources']
         [
-          Stubs::ResourceInfo.default(visited)
+          ResourceInfo.default(visited)
         ]
       end
 
@@ -594,7 +594,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListAttributeGroups
       def self.default(visited=[])
         {
-          attribute_groups: Stubs::AttributeGroupSummaries.default(visited),
+          attribute_groups: AttributeGroupSummaries.default(visited),
           next_token: 'next_token',
         }
       end
@@ -615,7 +615,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         return nil if visited.include?('AttributeGroupSummaries')
         visited = visited + ['AttributeGroupSummaries']
         [
-          Stubs::AttributeGroupSummary.default(visited)
+          AttributeGroupSummary.default(visited)
         ]
       end
 
@@ -633,7 +633,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ListTagsForResource
       def self.default(visited=[])
         {
-          tags: Stubs::Tags.default(visited),
+          tags: Tags.default(visited),
         }
       end
 
@@ -697,7 +697,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class UpdateApplication
       def self.default(visited=[])
         {
-          application: Stubs::Application.default(visited),
+          application: Application.default(visited),
         }
       end
 
@@ -714,7 +714,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class UpdateAttributeGroup
       def self.default(visited=[])
         {
-          attribute_group: Stubs::AttributeGroup.default(visited),
+          attribute_group: AttributeGroup.default(visited),
         }
       end
 

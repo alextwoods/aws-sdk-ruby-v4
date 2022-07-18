@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 require_relative 'middleware/request_id'
 
 module AWS::SDK::ManagedBlockchain
@@ -96,7 +98,7 @@ module AWS::SDK::ManagedBlockchain
     def create_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMemberInput,
         validate_input: @config.validate_input
@@ -236,7 +238,7 @@ module AWS::SDK::ManagedBlockchain
     def create_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNetworkInput,
         validate_input: @config.validate_input
@@ -358,7 +360,7 @@ module AWS::SDK::ManagedBlockchain
     def create_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateNodeInput,
         validate_input: @config.validate_input
@@ -464,7 +466,7 @@ module AWS::SDK::ManagedBlockchain
     def create_proposal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateProposalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateProposalInput,
         validate_input: @config.validate_input
@@ -537,7 +539,7 @@ module AWS::SDK::ManagedBlockchain
     def delete_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMemberInput,
         validate_input: @config.validate_input
@@ -632,7 +634,7 @@ module AWS::SDK::ManagedBlockchain
     def delete_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteNodeInput,
         validate_input: @config.validate_input
@@ -724,7 +726,7 @@ module AWS::SDK::ManagedBlockchain
     def get_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMemberInput,
         validate_input: @config.validate_input
@@ -815,7 +817,7 @@ module AWS::SDK::ManagedBlockchain
     def get_network(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNetworkInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNetworkInput,
         validate_input: @config.validate_input
@@ -918,7 +920,7 @@ module AWS::SDK::ManagedBlockchain
     def get_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetNodeInput,
         validate_input: @config.validate_input
@@ -1012,7 +1014,7 @@ module AWS::SDK::ManagedBlockchain
     def get_proposal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProposalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProposalInput,
         validate_input: @config.validate_input
@@ -1101,7 +1103,7 @@ module AWS::SDK::ManagedBlockchain
     def list_invitations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInvitationsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInvitationsInput,
         validate_input: @config.validate_input
@@ -1201,7 +1203,7 @@ module AWS::SDK::ManagedBlockchain
     def list_members(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListMembersInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMembersInput,
         validate_input: @config.validate_input
@@ -1297,7 +1299,7 @@ module AWS::SDK::ManagedBlockchain
     def list_networks(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNetworksInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNetworksInput,
         validate_input: @config.validate_input
@@ -1391,7 +1393,7 @@ module AWS::SDK::ManagedBlockchain
     def list_nodes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListNodesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListNodesInput,
         validate_input: @config.validate_input
@@ -1485,7 +1487,7 @@ module AWS::SDK::ManagedBlockchain
     def list_proposal_votes(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProposalVotesInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProposalVotesInput,
         validate_input: @config.validate_input
@@ -1578,7 +1580,7 @@ module AWS::SDK::ManagedBlockchain
     def list_proposals(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProposalsInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProposalsInput,
         validate_input: @config.validate_input
@@ -1648,7 +1650,7 @@ module AWS::SDK::ManagedBlockchain
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: @config.validate_input
@@ -1716,7 +1718,7 @@ module AWS::SDK::ManagedBlockchain
     def reject_invitation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RejectInvitationInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RejectInvitationInput,
         validate_input: @config.validate_input
@@ -1792,7 +1794,7 @@ module AWS::SDK::ManagedBlockchain
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: @config.validate_input
@@ -1867,7 +1869,7 @@ module AWS::SDK::ManagedBlockchain
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: @config.validate_input
@@ -1951,7 +1953,7 @@ module AWS::SDK::ManagedBlockchain
     def update_member(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateMemberInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateMemberInput,
         validate_input: @config.validate_input
@@ -2041,7 +2043,7 @@ module AWS::SDK::ManagedBlockchain
     def update_node(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateNodeInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateNodeInput,
         validate_input: @config.validate_input
@@ -2129,7 +2131,7 @@ module AWS::SDK::ManagedBlockchain
     def vote_on_proposal(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::VoteOnProposalInput.build(params)
-      response_body = StringIO.new
+      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VoteOnProposalInput,
         validate_input: @config.validate_input
