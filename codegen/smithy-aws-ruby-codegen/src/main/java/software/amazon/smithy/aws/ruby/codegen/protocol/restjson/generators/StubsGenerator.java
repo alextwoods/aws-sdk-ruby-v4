@@ -130,8 +130,11 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     private void renderUnionMemberStubber(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
-        String symbolName = "'" + member.getMemberName() + "'";
-        String dataSetter = "data[" + symbolName + "] = ";
+        String symbolName = member.getMemberName();
+        if (member.hasTrait(JsonNameTrait.class)) {
+            symbolName = member.expectTrait(JsonNameTrait.class).getValue();
+        }
+        String dataSetter = "data['" + symbolName + "'] = ";
         target.accept(new MemberSerializer(member, dataSetter, "stub.__getobj__", false));
     }
 
