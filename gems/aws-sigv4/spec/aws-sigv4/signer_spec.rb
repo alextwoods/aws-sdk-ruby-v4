@@ -446,6 +446,76 @@ module AWS
 
           # Suite doesn't cover anything
           context 'gap cases' do
+            let(:subject) { Signer.new(required_options.merge(omit_session_token: true)) }
+            it 'lower-cases and sort all header keys except authorization' do
+              signature = subject.sign_request(
+                request: {
+                  http_method: 'PUT',
+                  url: 'http://domain.com',
+                  headers: {
+                    'Xyz' => '1',
+                    'Abc' => '2',
+                    'Mno' => '3',
+                    'Authorization' => '4',
+                    'authorization' => '5',
+                    'X-Amz-Date' => '20161024T184027Z',
+                  }
+                }
+              )
+              expect(signature.metadata[:canonical_request])
+                .to include(<<~HEADERS.strip)
+                  abc:2
+                  host:domain.com
+                  mno:3
+                  x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+                  x-amz-date:20161024T184027Z
+                  xyz:1
+              HEADERS
+            end
+
+            it 'leaves whitespace in quoted values in-tact' do
+              signature = subject.sign_request(
+                request: {
+                  http_method: 'PUT',
+                  url: 'http://domain.com',
+                  headers: {
+                    'Abc' => '"a  b  c"', # quoted header values preserve spaces
+                    'X-Amz-Date' => '20160101T112233Z',
+                  }
+                }
+              )
+              expect(signature.metadata[:canonical_request])
+                .to include('abc:"a  b  c"')
+            end
+
+            it 'normalizes valueless-querystring keys with a trailing =' do
+              signature = subject.sign_request(
+                request: {
+                  http_method: 'PUT',
+                  url: 'http://domain.com?other=&test&x-amz-header=foo',
+                  headers: {
+                    'X-Amz-Date' => '20160101T112233Z'
+                  }
+                }
+              )
+              expect(signature.metadata[:canonical_request])
+                .to include('other=&test=&x-amz-header=foo')
+            end
+
+            it 'sorts by name, params with same name are ordered by value' do
+              signature = subject.sign_request(
+                request: {
+                  http_method: 'PUT',
+                  url: 'http://domain.com?q.options=abc&q=xyz&q=mno',
+                  headers: {
+                    'X-Amz-Date' => '20160101T112233Z',
+                  }
+                }
+              )
+              expect(signature.metadata[:canonical_request])
+                .to include('q=mno&q=xyz&q.options=abc')
+            end
+
             # TODO - cover the case where keys and values are the same
           end
         end
@@ -459,220 +529,5 @@ module AWS
         # TODO
       end
     end
-
-
-
-#
-#       context 'canonical request' do
-#         before do
-#           if Signer.use_crt?
-#             skip("CRT Signer does not expose canonical request")
-#           end
-#         end
-#
-#         it 'lower-cases and sort all header keys except authorization' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com',
-#               headers: {
-#                 'Xyz' => '1',
-#                 'Abc' => '2',
-#                 'Mno' => '3',
-#                 'Authorization' => '4',
-#                 'authorization' => '5',
-#                 'X-Amz-Date' => '20161024T184027Z',
-#               }
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-#
-# abc:2
-# host:domain.com
-# mno:3
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20161024T184027Z
-# xyz:1
-#
-# abc;host;mno;x-amz-content-sha256;x-amz-date;xyz
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'can ignore configured headers' do
-#           # case insenstive
-#           options[:unsigned_headers] = ['cache-control', 'User-Agent']
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com',
-#               headers: {
-#                 'Abc' => '2',
-#                 'Cache-Control' => '4',
-#                 'User-Agent' => '5',
-#                 'X-Amz-Date' => '20161024T184027Z',
-#               }
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-#
-# abc:2
-# host:domain.com
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20161024T184027Z
-#
-# abc;host;x-amz-content-sha256;x-amz-date
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'lower-cases and sorts header by key except authorization' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com',
-#               headers: {
-#                 'Abc' => '1',
-#                 'Mno' => '2',
-#                 'Xyz' => '3',
-#                 'Authorization' => '4',
-#                 'authorization' => '5',
-#                 'X-Amz-Date' => '20160101T112233Z',
-#               },
-#               body: ''
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-#
-# abc:1
-# host:domain.com
-# mno:2
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20160101T112233Z
-# xyz:3
-#
-# abc;host;mno;x-amz-content-sha256;x-amz-date;xyz
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'prunes expanded whitespace in header values' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com',
-#               headers: {
-#                 'Abc' => 'a  b  c', # double spaces between letters
-#                 'X-Amz-Date' => '20160101T112233Z',
-#               },
-#               # defaults body to the empty string
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-#
-# abc:a b c
-# host:domain.com
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20160101T112233Z
-#
-# abc;host;x-amz-content-sha256;x-amz-date
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'leaves whitespace in quoted values in-tact' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com',
-#               headers: {
-#                 'Abc' => '"a  b  c"', # quoted header values preserve spaces
-#                 'X-Amz-Date' => '20160101T112233Z',
-#               }
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-#
-# abc:"a  b  c"
-# host:domain.com
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20160101T112233Z
-#
-# abc;host;x-amz-content-sha256;x-amz-date
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'normalizes valueless-querystring keys with a trailing =' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com?other=&test&x-amz-header=foo',
-#               headers: {
-#                 'X-Amz-Date' => '20160101T112233Z',
-#               }
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-# other=&test=&x-amz-header=foo
-# host:domain.com
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20160101T112233Z
-#
-# host;x-amz-content-sha256;x-amz-date
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'sorts the query parameters' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com?foo=&bar=&baz=',
-#               headers: {
-#                 'X-Amz-Date' => '20160101T112233Z',
-#               }
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request]).to eq(<<-EOF.strip)
-# PUT
-# /
-# bar=&baz=&foo=
-# host:domain.com
-# x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-# x-amz-date:20160101T112233Z
-#
-# host;x-amz-content-sha256;x-amz-date
-# e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-#           EOF
-#         end
-#
-#         it 'sorts by name, params with same name are ordered by value' do
-#           signature = Signer.new(options).sign_request(
-#             request: {
-#               http_method: 'PUT',
-#               url: 'http://domain.com?q.options=abc&q=xyz&q=mno',
-#               headers: {
-#                 'X-Amz-Date' => '20160101T112233Z',
-#               }
-#             }
-#           )
-#           expect(signature.metadata[:canonical_request])
-#             .to include('q=mno&q=xyz&q.options=abc')
-#         end
-#
-
   end
 end
