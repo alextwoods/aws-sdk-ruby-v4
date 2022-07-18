@@ -546,19 +546,19 @@ module AWS
       #   While headers need to be encoded under eventstream format,
       #   payload used is already eventstream encoded (event without signature),
       #   thus no extra encoding is needed.
-      def event_string_to_sign(datetime, headers, payload, prior_signature, encoder)
-        encoded_headers = encoder.encode_headers(
-          AWS::EventStream::Message.new(headers: headers, payload: payload)
-        )
-        [
-          "AWS4-HMAC-SHA256-PAYLOAD",
-          datetime,
-          credential_scope(datetime[0,8], region, service),
-          prior_signature,
-          sha256_hexdigest(encoded_headers),
-          sha256_hexdigest(payload)
-        ].join("\n")
-      end
+      # def event_string_to_sign(datetime, headers, payload, prior_signature, encoder)
+      #   encoded_headers = encoder.encode_headers(
+      #     AWS::EventStream::Message.new(headers: headers, payload: payload)
+      #   )
+      #   [
+      #     "AWS4-HMAC-SHA256-PAYLOAD",
+      #     datetime,
+      #     credential_scope(datetime[0,8], region, service),
+      #     prior_signature,
+      #     sha256_hexdigest(encoded_headers),
+      #     sha256_hexdigest(payload)
+      #   ].join("\n")
+      # end
 
       def credential_scope(date, region, service)
         [
@@ -590,21 +590,20 @@ module AWS
       #   converting signature from binary string to hex-encoded
       #   string is handled at #sign_event instead. (Will be used
       #   as next prior signature for event signing)
-      def event_signature(secret_access_key, date, region, service,
-                          string_to_sign)
-        k_date = hmac("AWS4" + secret_access_key, date)
-        k_region = hmac(k_date, region)
-        k_service = hmac(k_region, service)
-        k_credentials = hmac(k_service, 'aws4_request')
-        hmac(k_credentials, string_to_sign)
-      end
-
+      # def event_signature(secret_access_key, date, region, service,
+      #                     string_to_sign)
+      #   k_date = hmac("AWS4" + secret_access_key, date)
+      #   k_region = hmac(k_date, region)
+      #   k_service = hmac(k_region, service)
+      #   k_credentials = hmac(k_service, 'aws4_request')
+      #   hmac(k_credentials, string_to_sign)
+      # end
 
       def path(url, uri_escape_path)
         path = url.path
         path = '/' if path == ''
         if uri_escape_path
-          uri_escape_path(path)
+          Signer.uri_escape_path(path)
         else
           path
         end
@@ -723,7 +722,6 @@ module AWS
             :apply_checksum_header, @apply_checksum_header
           ),
           signing_algorithm: extract_signing_algorithm(kwargs),
-          # crt options
           normalize_path: kwargs.fetch(:normalize_path, @normalize_path),
           omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
@@ -760,7 +758,7 @@ module AWS
 
         if !credentials && !provider
           raise ArgumentError,
-                'Missing required option :credentials or :credentials_provider.'
+                'missing required option :credentials or :credentials_provider.'
         end
 
         credentials = provider.credentials if provider
@@ -775,6 +773,11 @@ module AWS
       def extract_signing_algorithm(kwargs)
         # defaults to sigv4 in initialize
         signing_algorithm = kwargs[:signing_algorithm] || @signing_algorithm
+
+        unless %i[sigv4 sigv4a].include?(signing_algorithm)
+          raise ArgumentError,
+                'Signing algorithm must be `:sigv4` or `:sigv4a`.'
+        end
 
         if signing_algorithm == :sigv4a && !Signer.use_crt?
           raise ArgumentError,
@@ -965,6 +968,9 @@ module AWS
         # @api private
         def normalize_path(uri)
           normalized_path = Pathname.new(uri.path).cleanpath.to_s
+          # Pathname is probably not correct to use. Empty paths will
+          # resolve to "." and should be disregarded
+          normalized_path = '' if normalized_path == '.'
           # Ensure trailing slashes are correctly preserved
           if uri.path.end_with?('/') && !normalized_path.end_with?('/')
             normalized_path << '/'
