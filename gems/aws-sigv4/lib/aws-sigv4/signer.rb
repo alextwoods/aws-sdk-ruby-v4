@@ -244,7 +244,7 @@ module AWS
         headers = downcase_headers(request[:headers])
 
         datetime = headers['x-amz-date']
-        datetime ||= (kwargs[:time] || Time.now).utc.strftime('%Y%m%dT%H%M%SZ')
+        datetime ||= options[:time].utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
 
         content_sha256 = headers['x-amz-content-sha256']
@@ -457,7 +457,7 @@ module AWS
         headers['host'] ||= host(url)
 
         datetime = headers['x-amz-date']
-        datetime ||= (kwargs[:time] || Time.now).utc.strftime('%Y%m%dT%H%M%SZ')
+        datetime ||= options[:time].utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
 
         content_sha256 = headers['x-amz-content-sha256']
@@ -470,7 +470,7 @@ module AWS
           creds, date, options[:region], options[:service]
         )
         params['X-Amz-Date'] = datetime
-        params['X-Amz-Expires'] = extract_expires_in(kwargs).to_s
+        params['X-Amz-Expires'] = options[:expires_in].to_s
         if creds.session_token && !options[:omit_session_token]
           params['X-Amz-Security-Token'] = creds.session_token
         end
@@ -722,7 +722,12 @@ module AWS
           normalize_path: kwargs.fetch(:normalize_path, @normalize_path),
           omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
-          )
+          ),
+          # Not instance options, but convenient to define here
+          # to pass through to CRT.
+          time: kwargs.fetch(:time, Time.now),
+          # presigned url
+          expires_in: extract_expires_in(kwargs)
         }
       end
 
@@ -831,7 +836,7 @@ module AWS
           if headers.include? ('x-amz-date')
             Time.parse(headers.delete('x-amz-date'))
           end
-        datetime ||= (options[:time] || Time.now)
+        datetime ||= options[:time]
 
         content_sha256 = headers.delete('x-amz-content-sha256')
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
@@ -899,8 +904,6 @@ module AWS
         content_sha256 ||= options[:body_digest]
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
-        expires_in = extract_expires_in(options)
-
         config = Aws::Crt::Auth::SigningConfig.new(
           algorithm: options[:signing_algorithm],
           signature_type: :http_request_query_params,
@@ -908,13 +911,13 @@ module AWS
           service: options[:service],
           date: datetime,
           signed_body_value: content_sha256,
-          signed_body_header_type: options[:apply_checksum_header] || @apply_checksum_header ? :sbht_content_sha256 : :sbht_none,
+          signed_body_header_type: options[:apply_checksum_header] ? :sbht_content_sha256 : :sbht_none,
           credentials: creds,
           unsigned_headers: options[:unsigned_headers],
           use_double_uri_encode: options[:uri_escape_path],
           should_normalize_uri_path: options[:normalize_path],
           omit_session_token: options[:omit_session_token],
-          expiration_in_seconds: expires_in
+          expiration_in_seconds: options[:expires_in]
         )
         http_request = Aws::Crt::Http::Message.new(
           http_method, url.to_s, headers

@@ -38,6 +38,8 @@ module AWS
       let(:signing_algorithm) { :sigv4a }
       let(:omit_session_token) { true }
       let(:normalize_path) { false }
+      let(:time) { Time.now }
+      let(:expires_in) { 10 }
 
       let(:required_options) do
         {
@@ -102,9 +104,23 @@ module AWS
         before do
           allow(AWS::SigV4::Signer)
             .to receive(:require).with('aws-crt').and_return(true)
+
+          allow(::Aws::Crt::Auth::StaticCredentialsProvider)
+            .to receive(:new).with(
+              credentials.access_key_id,
+              credentials.secret_access_key,
+              credentials.session_token
+            ).and_return(credential_provider)
+
+          allow(::Aws::Crt::Http::Message).to receive(:new)
+            .and_return(message)
+          allow(::Aws::Crt::Auth::Signable).to receive(:new)
+            .and_return(signable)
         end
 
-        let(:credential_provider) { double('StaticCredentialsProvider') }
+        let(:credential_provider) do
+          double('StaticCredentialsProvider', credentials: credentials)
+        end
         let(:signing_config) { double('SigningConfig') }
         let(:message) { double('Message') }
         let(:signable) { double('Signable') }
@@ -114,13 +130,213 @@ module AWS
           # Attempt kitchen sink - make sure objects are created and used
           # with all provided options
           it 'passes through all options' do
+            request.merge(headers: { 'x-amz-content-sha256' => 'digest' })
+            digest = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' # rubocop:disable Layout/LineLength
 
+            expect(::Aws::Crt::Auth::SigningConfig).to receive(:new)
+              .with(
+                algorithm: signing_algorithm,
+                signature_type: :http_request_headers,
+                region: region,
+                service: service,
+                date: time,
+                signed_body_value: digest,
+                signed_body_header_type: :sbht_none,
+                credentials: credential_provider,
+                unsigned_headers: unsigned_headers,
+                use_double_uri_encode: uri_escape_path,
+                should_normalize_uri_path: normalize_path,
+                omit_session_token: omit_session_token
+              ).and_return(signing_config)
+
+            signing_result = double(
+              'SigningResult',
+              :[] => { headers: {} }
+            )
+
+            expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
+              .with(signing_config, signable)
+              .and_return(signing_result)
+
+            Signer.new.sign_request(
+              request: request,
+              service: service,
+              region: region,
+              credential_provider: credential_provider,
+              unsigned_headers: unsigned_headers,
+              uri_escape_path: uri_escape_path,
+              apply_checksum_header: apply_checksum_header,
+              signing_algorithm: signing_algorithm,
+              omit_session_token: omit_session_token,
+              normalize_path: normalize_path,
+              time: time
+            )
           end
 
+          context 'request' do
+            before do
+              allow(::Aws::Crt::Auth::SigningConfig).to receive(:new)
+                .and_return(signing_config)
+            end
+
+            it 'raises with no http_method' do
+              expect { subject.sign_request(request: {}) }
+                .to raise_error(ArgumentError, /:http_method/)
+            end
+
+            it 'raises with no url' do
+              # Extraction is order dependent
+              expect { subject.sign_request(request: { http_method: 'GET' }) }
+                .to raise_error(ArgumentError, /:url/)
+            end
+
+            it 'uses a provided X-Amz-Date header' do
+              now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+
+              signing_result = double(
+                'SigningResult',
+                :[] => { 'X-Amz-Date' => now }
+              )
+
+              expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
+                .with(signing_config, signable)
+                .and_return(signing_result)
+
+              signature = subject.sign_request(
+                request: request.merge(headers: { 'X-Amz-Date' => now })
+              )
+              expect(signature.headers['x-amz-date']).to eq(now)
+            end
+
+            it 'appends to a user agent' do
+              stub_const('AWS::SigV4::VERSION', '2')
+
+              signing_result = double(
+                'SigningResult',
+                :[] => { 'User-Agent' => 'ua crt-signer/sigv4/2' }
+              )
+
+              expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
+                .with(signing_config, signable)
+                .and_return(signing_result)
+
+              signature = subject.sign_request(
+                request: request.merge(headers: { 'user-agent' => 'ua' })
+              )
+              expect(signature.headers['user-agent'])
+                .to eq('ua crt-signer/sigv4/2')
+            end
+          end
         end
 
         describe '#presign_url' do
+          it 'passes through all options' do
+            request.merge(headers: { 'x-amz-content-sha256' => 'digest' })
+            digest = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855' # rubocop:disable Layout/LineLength
 
+            expect(::Aws::Crt::Auth::SigningConfig).to receive(:new)
+              .with(
+                algorithm: signing_algorithm,
+                signature_type: :http_request_query_params,
+                region: region,
+                service: service,
+                date: time,
+                signed_body_value: digest,
+                signed_body_header_type: :sbht_none,
+                credentials: credential_provider,
+                unsigned_headers: unsigned_headers,
+                use_double_uri_encode: uri_escape_path,
+                should_normalize_uri_path: normalize_path,
+                omit_session_token: omit_session_token,
+                expiration_in_seconds: expires_in
+              ).and_return(signing_config)
+
+            signing_result = double(
+              'SigningResult',
+              :[] => 'https://domain.com' # don't care for result
+            )
+
+            expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
+              .with(
+                signing_config,
+                signable,
+                request[:http_method],
+                request[:url].to_s
+              )
+              .and_return(signing_result)
+
+            Signer.new.presign_url(
+              request: request,
+              service: service,
+              region: region,
+              credential_provider: credential_provider,
+              unsigned_headers: unsigned_headers,
+              uri_escape_path: uri_escape_path,
+              apply_checksum_header: apply_checksum_header,
+              signing_algorithm: signing_algorithm,
+              omit_session_token: omit_session_token,
+              normalize_path: normalize_path,
+              time: time,
+              expires_in: expires_in
+            )
+          end
+
+          context 'request' do
+            before do
+              allow(::Aws::Crt::Auth::SigningConfig).to receive(:new)
+                .and_return(signing_config)
+            end
+
+            it 'raises with no http_method' do
+              expect { subject.presign_url(request: {}) }
+                .to raise_error(ArgumentError, /:http_method/)
+            end
+
+            it 'raises with no url' do
+              # Extraction is order dependent
+              expect { subject.presign_url(request: { http_method: 'GET' }) }
+                .to raise_error(ArgumentError, /:url/)
+            end
+
+            # it 'uses a provided X-Amz-Date header' do
+            #   now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+            #
+            #   signing_result = double(
+            #     'SigningResult',
+            #     :[] => { 'X-Amz-Date' => now }
+            #   )
+            #
+            #   expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
+            #     .with(
+            #       signing_config,
+            #       signable,
+            #       request[:http_method],
+            #       request[:url].to_s
+            #     )
+            #     .and_return(signing_result)
+            #
+            #   signature = subject.presign_url(
+            #     request: request.merge(headers: { 'X-Amz-Date' => now })
+            #   )
+            #   expect(signature.headers['x-amz-date']).to eq(now)
+            # end
+
+            # it 'does not read the body if body digest is present' do
+            #   body = double('http-payload')
+            #   expect(body).to_not receive(:read)
+            #   expect(body).to_not receive(:rewind)
+            #   presigned_url = subject.presign_url(
+            #     request: {
+            #       http_method: 'PUT',
+            #       url: 'http://domain.com',
+            #       body: body
+            #     },
+            #     body_digest: 'hexdigest'
+            #   )
+            #   expect(presigned_url.headers['x-amz-content-sha256'])
+            #     .to eq('hexdigest')
+            # end
+          end
         end
       end
 
@@ -347,13 +563,6 @@ module AWS
                 .to raise_error(ArgumentError, /:url/)
             end
 
-            it 'uses a provided Host header' do
-              signature = subject.sign_request(
-                request: request.merge(headers: { 'host' => 'otherdomain.com' })
-              )
-              expect(signature.headers['host']).to eql('otherdomain.com')
-            end
-
             it 'uses a provided X-Amz-Date header' do
               now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
               signature = subject.sign_request(
@@ -441,12 +650,44 @@ module AWS
               signature = subject.sign_request(
                 request: {
                   http_method: 'PUT',
-                  url: 'http://domain.com',
+                  url: 'https://domain.com',
                   body: StringIO.new('abc')
                 }
               )
               expect(signature.metadata[:content_sha256])
                 .to eq(Digest::SHA256.hexdigest('abc'))
+            end
+          end
+
+          # SigV4 suite doesn't cover these
+          context 'gap cases' do
+            it 'leaves whitespace in quoted values in-tact' do
+              signature = subject.sign_request(
+                request: {
+                  http_method: 'PUT',
+                  url: 'https://domain.com',
+                  headers: {
+                    'Abc' => '"a  b  c"', # quoted header values preserve spaces
+                    'X-Amz-Date' => '20160101T112233Z',
+                  }
+                }
+              )
+              expect(signature.metadata[:canonical_request])
+                .to include('abc:"a  b  c"')
+            end
+
+            it 'sorts query params by name and value' do
+              signature = subject.sign_request(
+                request: {
+                  http_method: 'PUT',
+                  url: 'https://domain.com?q.options=abc&q=xyz&q=xyz&q=mno',
+                  headers: {
+                    'X-Amz-Date' => '20160101T112233Z'
+                  }
+                }
+              )
+              expect(signature.metadata[:canonical_request])
+                .to include('q=mno&q=xyz&q=xyz&q.options=abc')
             end
           end
         end
@@ -742,6 +983,22 @@ module AWS
                 },
                 body: body
               }
+            )
+            expect(presigned_url.headers['x-amz-content-sha256'])
+              .to eq('hexdigest')
+          end
+
+          it 'does not read the body if body digest is present' do
+            body = double('http-payload')
+            expect(body).to_not receive(:read)
+            expect(body).to_not receive(:rewind)
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'PUT',
+                url: 'http://domain.com',
+                body: body
+              },
+              body_digest: 'hexdigest'
             )
             expect(presigned_url.headers['x-amz-content-sha256'])
               .to eq('hexdigest')
