@@ -913,13 +913,12 @@ module AWS
               .to raise_error(ArgumentError, /:url/)
           end
 
-          # TODO -- presigned url shoudl return headers for request?
-
           it 'uses a provided Host header' do
             presigned_url = subject.presign_url(
               request: request.merge(headers: { 'host' => 'otherdomain.com' })
             )
-            expect(presigned_url.headers['host']).to eql('otherdomain.com')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('host:otherdomain.com')
           end
 
           it 'uses a provided X-Amz-Date header' do
@@ -927,7 +926,8 @@ module AWS
             presigned_url = subject.presign_url(
               request: request.merge(headers: { 'X-Amz-Date' => now })
             )
-            expect(presigned_url.headers['x-amz-date']).to eq(now)
+            expect(presigned_url.metadata[:canonical_request])
+              .to include("x-amz-date:#{now}")
           end
 
           it 'omits port in Host when default and uri port are the same' do
@@ -937,7 +937,8 @@ module AWS
                 url: 'https://domain.com:443'
               }
             )
-            expect(presigned_url.headers['host']).to eq('domain.com')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('host:domain.com')
           end
 
           it 'includes port in Host when default and uri port differ' do
@@ -947,7 +948,8 @@ module AWS
                 url: 'https://domain.com:123'
               }
             )
-            expect(presigned_url.headers['host']).to eq('domain.com:123')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('host:domain.com:123')
           end
 
           it 'omits port in Host when uri port not provided' do
@@ -957,7 +959,8 @@ module AWS
                 url: 'abcd://domain.com'
               }
             )
-            expect(presigned_url.headers['host']).to eq('domain.com')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('host:domain.com')
           end
 
           it 'includes port in Host when uri port provided' do
@@ -967,7 +970,8 @@ module AWS
                 url: 'abcd://domain.com:123'
               }
             )
-            expect(presigned_url.headers['host']).to eq('domain.com:123')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('host:domain.com:123')
           end
 
           it 'does not read the body if X-Amz-Content-Sha256 is present' do
@@ -984,8 +988,8 @@ module AWS
                 body: body
               }
             )
-            expect(presigned_url.headers['x-amz-content-sha256'])
-              .to eq('hexdigest')
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('x-amz-content-sha256:hexdigest')
           end
 
           it 'does not read the body if body digest is present' do
@@ -1000,8 +1004,8 @@ module AWS
               },
               body_digest: 'hexdigest'
             )
-            expect(presigned_url.headers['x-amz-content-sha256'])
-              .to eq('hexdigest')
+            expect(presigned_url.metadata[:content_sha256])
+              .to include('hexdigest')
           end
 
           it 'does not load files into memory to compute checksums' do
@@ -1017,7 +1021,7 @@ module AWS
                 body: body
               }
             )
-            expect(presigned_url.headers['x-amz-content-sha256'])
+            expect(presigned_url.metadata[:content_sha256])
               .to eq(Digest::SHA256.hexdigest('abc'))
           end
 

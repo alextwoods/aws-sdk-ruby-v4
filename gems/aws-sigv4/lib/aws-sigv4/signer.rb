@@ -505,7 +505,6 @@ module AWS
         end
         PresignedUrl.new(
           url: url,
-          headers: { },
           metadata: {
             signature: sig,
             string_to_sign: sts,
@@ -727,7 +726,8 @@ module AWS
           # to pass through to CRT.
           time: kwargs.fetch(:time, Time.now),
           # presigned url
-          expires_in: extract_expires_in(kwargs)
+          expires_in: extract_expires_in(kwargs),
+          body_digest: kwargs[:body_digest]
         }
       end
 
@@ -929,7 +929,6 @@ module AWS
 
         PresignedUrl.new(
           url: url,
-          headers: {},
           metadata: {
             signature: signing_result[:signature],
             string_to_sign: 'CRT_INTERNAL',
