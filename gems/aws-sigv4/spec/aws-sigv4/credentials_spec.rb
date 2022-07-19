@@ -60,7 +60,7 @@ module AWS::SigV4
         end
       end
 
-      context 'access_key_id and secret_access_key  are empty' do
+      context 'access_key_id and secret_access_key are empty' do
         let(:access_key_id) { '' }
         let(:secret_access_key) { '' }
 

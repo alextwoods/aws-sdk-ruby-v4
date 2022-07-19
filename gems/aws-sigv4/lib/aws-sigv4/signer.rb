@@ -9,6 +9,7 @@ require 'cgi'
 require 'pathname'
 
 module AWS
+  # Module for Signature V4 signing.
   module SigV4
     # Utility class for signing a request for AWS Signature V4. This
     # class provides three methods for generating signatures:
@@ -78,6 +79,14 @@ module AWS
     #   )
     #
     class Signer
+      @@use_crt =
+        begin
+          require 'aws-crt'
+          true
+        rescue LoadError
+          false
+        end
+
       # @option options [String] :service The service signing name, e.g. 's3'.
       #
       # @option options [String] :region The region name, e.g. 'us-east-1'.
@@ -918,12 +927,6 @@ module AWS
         content_sha256 ||= options[:body_digest]
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
-        sbht = if options[:apply_checksum_header]
-                 :sbht_content_sha256
-               else
-                 :sbht_none
-               end
-
         config = Aws::Crt::Auth::SigningConfig.new(
           algorithm: options[:signing_algorithm],
           signature_type: :http_request_query_params,
@@ -931,7 +934,7 @@ module AWS
           service: options[:service],
           date: datetime,
           signed_body_value: content_sha256,
-          signed_body_header_type: sbht,
+          signed_body_header_type: :sbht_none, # url does not use checksum
           credentials: creds,
           unsigned_headers: options[:unsigned_headers],
           use_double_uri_encode: options[:uri_escape_path],
@@ -963,10 +966,7 @@ module AWS
       class << self
         # @api private
         def use_crt?
-          require 'aws-crt'
-          true
-        rescue LoadError
-          false
+          @@use_crt
         end
 
         # @api private
