@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;
 
 public class ErrorsGenerator extends ErrorsGeneratorBase {
@@ -27,7 +28,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
     public void renderErrorCodeBody() {
         writer
                 .openBlock("if !(200..299).cover?(resp.status)")
-                .write("json = Hearth::JSON.load(resp.body)")
+                .write("json = $T.load(resp.body)", Hearth.JSON)
                 .write("resp.body.rewind")
                 .write("code = json['__type'] || json['code'] if json")
                 .closeBlock("end")

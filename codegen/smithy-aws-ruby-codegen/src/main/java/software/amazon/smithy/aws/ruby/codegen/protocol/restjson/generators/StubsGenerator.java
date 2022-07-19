@@ -19,6 +19,8 @@ import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -37,7 +39,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         writer
                 .write("http_resp.headers['Content-Type'] = 'application/json'")
                 .call(() -> renderMemberStubbers(outputShape))
-                .write("http_resp.body = StringIO.new(Hearth::JSON.dump(data))");
+                .write("http_resp.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON);
     }
 
     @Override
@@ -93,10 +95,9 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderStructureStubMethod(StructureShape shape) {
-        String typeName = symbolProvider.toSymbol(shape).getName();
         writer
                 .openBlock("def self.stub(stub)")
-                .write("stub ||= Types::$L.new", typeName)
+                .write("stub ||= $T.new", context.symbolProvider().toSymbol(shape))
                 .write("data = {}")
                 .call(() -> renderMemberStubbers(shape))
                 .write("data")
@@ -202,7 +203,8 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$LHearth::NumberHelper.serialize($L)", dataSetter, inputGetter);
+            writer.write("$L$T.serialize($L)",
+                    dataSetter, Hearth.NUMBER_HELPER, inputGetter);
         }
 
         @Override
@@ -219,7 +221,8 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$LBase64::encode64($L)$L", dataSetter, inputGetter, checkRequired());
+            writer.write("$L$T::encode64($L)$L",
+                    dataSetter, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }
 
@@ -238,22 +241,16 @@ public class StubsGenerator extends RestStubsGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1LStubs::$2L.stub($3L) unless $3L.nil?", dataSetter,
-                        symbolProvider.toSymbol(shape).getName(), inputGetter);
+                writer.write("$1L$2T.stub($3L) unless $3L.nil?", dataSetter,
+                        symbolProvider.toSymbol(shape), inputGetter);
             } else {
-                writer.write("$1L(Stubs::$2L.stub($3L) unless $3L.nil?)", dataSetter,
-                        symbolProvider.toSymbol(shape).getName(), inputGetter);
+                writer.write("$1L($2T.stub($3L) unless $3L.nil?)", dataSetter,
+                        symbolProvider.toSymbol(shape), inputGetter);
             }
         }
 
         @Override
         public Void listShape(ListShape shape) {
-            defaultComplexSerializer(shape);
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             defaultComplexSerializer(shape);
             return null;
         }
@@ -296,7 +293,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         public Void stringShape(StringShape shape) {
             writer
                     .write("http_resp.headers['Content-Type'] = 'text/plain'")
-                    .write("http_resp.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_resp.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -310,7 +307,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
             writer
                     .write("http_resp.headers['Content-Type'] = '$L'", mediaType)
-                    .write("http_resp.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_resp.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -318,7 +315,8 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         public Void documentShape(DocumentShape shape) {
             writer
                     .write("http_resp.headers['Content-Type'] = 'application/json'")
-                    .write("http_resp.body = StringIO.new(Hearth::JSON.dump($1L))", inputGetter);
+                    .write("http_resp.body = $T.new($T.dump($L))",
+                            RubyImportContainer.STRING_IO, Hearth.JSON, inputGetter);
             return null;
         }
 
@@ -349,9 +347,10 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         private void defaultComplexSerializer(Shape shape) {
             writer
                     .write("http_resp.headers['Content-Type'] = 'application/json'")
-                    .write("data = Stubs::$1L.stub($2L) unless $2L.nil?", symbolProvider.toSymbol(shape).getName(),
+                    .write("data = $1T.stub($2L) unless $2L.nil?", symbolProvider.toSymbol(shape),
                             inputGetter)
-                    .write("http_resp.body = StringIO.new(Hearth::JSON.dump(data))");
+                    .write("http_resp.body = $T.new($T.dump(data))",
+                            RubyImportContainer.STRING_IO, Hearth.JSON);
         }
 
     }
