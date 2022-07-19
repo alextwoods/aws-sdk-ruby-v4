@@ -244,7 +244,7 @@ module AWS
         headers = downcase_headers(request[:headers])
 
         datetime = headers['x-amz-date']
-        datetime ||= options[:time].utc.strftime('%Y%m%dT%H%M%SZ')
+        datetime ||= (kwargs[:time] || Time.now).utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
 
         content_sha256 = headers['x-amz-content-sha256']
@@ -457,7 +457,7 @@ module AWS
         headers['host'] ||= host(url)
 
         datetime = headers['x-amz-date']
-        datetime ||= options[:time].utc.strftime('%Y%m%dT%H%M%SZ')
+        datetime ||= (kwargs[:time] || Time.now).utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
 
         content_sha256 = headers['x-amz-content-sha256']
@@ -470,7 +470,7 @@ module AWS
           creds, date, options[:region], options[:service]
         )
         params['X-Amz-Date'] = datetime
-        params['X-Amz-Expires'] = options[:expires_in].to_s
+        params['X-Amz-Expires'] = extract_expires_in(kwargs).to_s
         if creds.session_token && !options[:omit_session_token]
           params['X-Amz-Security-Token'] = creds.session_token
         end
@@ -610,9 +610,6 @@ module AWS
       end
 
       def normalized_querystring(querystring)
-        # unescape the query string if it already is
-        # querystring = CGI.unescape(querystring)
-
         params = querystring.split('&')
         params = params.map { |p| p.match(/=/) ? p : p + '=' }
         # From: https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html
@@ -708,7 +705,7 @@ module AWS
       end
 
       # Signing methods take options as override. This returns a hash of
-      # options to use.
+      # options to use after resolving instance variables and validation.
       def extract_options(kwargs)
         {
           # request options
@@ -725,10 +722,7 @@ module AWS
           normalize_path: kwargs.fetch(:normalize_path, @normalize_path),
           omit_session_token: kwargs.fetch(
             :omit_session_token, @omit_session_token
-          ),
-          # presigner options
-          time: kwargs.fetch(:time, Time.now),
-          expires_in: extract_expires_in(kwargs)
+          )
         }
       end
 
@@ -837,7 +831,7 @@ module AWS
           if headers.include? ('x-amz-date')
             Time.parse(headers.delete('x-amz-date'))
           end
-        datetime ||= options[:time]
+        datetime ||= (options[:time] || Time.now)
 
         content_sha256 = headers.delete('x-amz-content-sha256')
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
@@ -905,6 +899,8 @@ module AWS
         content_sha256 ||= options[:body_digest]
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
+        expires_in = extract_expires_in(options)
+
         config = Aws::Crt::Auth::SigningConfig.new(
           algorithm: options[:signing_algorithm],
           signature_type: :http_request_query_params,
@@ -918,7 +914,7 @@ module AWS
           use_double_uri_encode: options[:uri_escape_path],
           should_normalize_uri_path: options[:normalize_path],
           omit_session_token: options[:omit_session_token],
-          expiration_in_seconds: options[:expires_in]
+          expiration_in_seconds: expires_in
         )
         http_request = Aws::Crt::Http::Message.new(
           http_method, url.to_s, headers

@@ -100,11 +100,22 @@ module AWS
       # CRT doesn't provide much output for us to do testing.
       context 'aws-crt' do
         before do
-          allow(AWS::SigV4::Signer).to receive(:use_crt?).and_return(true)
+          allow(AWS::SigV4::Signer)
+            .to receive(:require).with('aws-crt').and_return(true)
         end
 
-        # TODO
+        let(:credential_provider) { double('StaticCredentialsProvider') }
+        let(:signing_config) { double('SigningConfig') }
+        let(:message) { double('Message') }
+        let(:signable) { double('Signable') }
+        let(:signer) { double('Signer') }
+
         describe '#sign_request' do
+          # Attempt kitchen sink - make sure objects are created and used
+          # with all provided options
+          it 'passes through all options' do
+
+          end
 
         end
 
@@ -117,7 +128,8 @@ module AWS
       # The Ruby implementation has access to internal data.
       context 'pure ruby' do
         before do
-          allow(AWS::SigV4::Signer).to receive(:use_crt?).and_return(false)
+          allow(AWS::SigV4::Signer)
+            .to receive(:require).with('aws-crt').and_raise(LoadError)
         end
 
         describe '#sign_request' do
@@ -267,11 +279,6 @@ module AWS
             end
           end
 
-          # signature = subject.sign_request(
-          #   request: request, signing_algorithm: signing_algorithm
-          # )
-          # expect(signature.headers['authorization'])
-          #   .to include('AWS4-ECDSA-P256-SHA256')
           context 'signing algorithm' do
             it 'allows for signing algorithm override' do
               # non-default SigV4A isn't supported here
@@ -314,7 +321,7 @@ module AWS
             it 'omits the session token by default' do
               signature = subject.sign_request(request: request)
               expect(signature.metadata[:canonical_request])
-                .to include("token")
+                .to include('token')
               expect(signature.headers['x-amz-security-token']).to eq('token')
             end
 
@@ -323,7 +330,7 @@ module AWS
                 request: request, omit_session_token: omit_session_token
               )
               expect(signature.metadata[:canonical_request])
-                .to_not include("token")
+                .to_not include('token')
               expect(signature.headers['x-amz-security-token']).to eq('token')
             end
           end
@@ -395,8 +402,7 @@ module AWS
               expect(signature.headers['host']).to eq('domain.com:123')
             end
 
-            it 'does not read the body if X-Amz-Content-Sha256 if '\
-               'already present' do
+            it 'does not read the body if X-Amz-Content-Sha256 is present' do
               body = double('http-payload')
               expect(body).to_not receive(:read)
               expect(body).to_not receive(:rewind)
@@ -414,7 +420,7 @@ module AWS
                 .to eq('hexdigest')
             end
 
-            it 'computes the checksum of files without loading them into memory' do
+            it 'does not load files into memory to compute checksums' do
               body = Tempfile.new('tempfile')
               body.write('abc')
               body.flush
@@ -443,56 +449,6 @@ module AWS
                 .to eq(Digest::SHA256.hexdigest('abc'))
             end
           end
-
-          # Suite doesn't cover anything
-          context 'gap cases' do
-            let(:subject) { Signer.new(required_options.merge(omit_session_token: true)) }
-
-            it 'leaves whitespace in quoted values in-tact' do
-              signature = subject.sign_request(
-                request: {
-                  http_method: 'PUT',
-                  url: 'http://domain.com',
-                  headers: {
-                    'Abc' => '"a  b  c"', # quoted header values preserve spaces
-                    'X-Amz-Date' => '20160101T112233Z',
-                  }
-                }
-              )
-              expect(signature.metadata[:canonical_request])
-                .to include('abc:"a  b  c"')
-            end
-
-            it 'normalizes valueless-querystring keys with a trailing =' do
-              signature = subject.sign_request(
-                request: {
-                  http_method: 'PUT',
-                  url: 'http://domain.com?other=&test&x-amz-header=foo',
-                  headers: {
-                    'X-Amz-Date' => '20160101T112233Z'
-                  }
-                }
-              )
-              expect(signature.metadata[:canonical_request])
-                .to include('other=&test=&x-amz-header=foo')
-            end
-
-            it 'sorts by name, params with same name are ordered by value' do
-              signature = subject.sign_request(
-                request: {
-                  http_method: 'PUT',
-                  url: 'http://domain.com?q.options=abc&q=xyz&q=mno&q=xyz',
-                  headers: {
-                    'X-Amz-Date' => '20160101T112233Z',
-                  }
-                }
-              )
-              expect(signature.metadata[:canonical_request])
-                .to include('q=mno&q=xyz&q=xyz&q.options=abc')
-            end
-
-            # TODO - cover the case where keys and values are the same
-          end
         end
       end
 
@@ -501,7 +457,325 @@ module AWS
       end
 
       describe '#presign_url' do
-        # TODO
+        context 'service' do
+          it 'allows for service override' do
+            presigned_url = subject.presign_url(
+              request: request, service: 'new-service'
+            )
+            expect(presigned_url.metadata[:string_to_sign])
+              .to include('new-service')
+          end
+
+          it 'raises with no service' do
+            expect { Signer.new.presign_url(request: request) }
+              .to raise_error(ArgumentError, /:service/)
+          end
+        end
+
+        context 'region' do
+          it 'allows for region override' do
+            presigned_url = subject.presign_url(
+              request: request, region: 'new-region'
+            )
+            expect(presigned_url.metadata[:string_to_sign])
+              .to include('new-region')
+          end
+
+          it 'raises with no region' do
+            # Extraction is order dependent
+            options = { service: service }
+            expect { Signer.new(options).presign_url(request: request) }
+              .to raise_error(ArgumentError, /:region/)
+          end
+        end
+
+        context 'credentials' do
+          it 'allows for credential provider override' do
+            new_provider = TestCredentialProvider.new(
+              Credentials.new(
+                access_key_id: 'new-akid',
+                secret_access_key: 'new-secret',
+                session_token: 'new-token'
+              )
+            )
+            presigned_url = subject.presign_url(
+              request: request, credential_provider: new_provider
+            )
+            expect(presigned_url.url.to_s).to include('new-akid')
+          end
+
+          it 'uses credential provider with precedence' do
+            credentials = Credentials.new(
+              access_key_id: 'new-akid',
+              secret_access_key: 'new-secret',
+              session_token: 'new-token'
+            )
+            # subject uses credential provider
+            presigned_url = subject.presign_url(
+              request: request, credentials: credentials
+            )
+            # do not check new-akid
+            expect(presigned_url.url.to_s).to include('=akid')
+          end
+
+          it 'raises with no credentials object' do
+            # Extraction is order dependent
+            options = { service: service, region: region }
+            expect { Signer.new(options).presign_url(request: request) }
+              .to raise_error(ArgumentError, /:credentials/)
+          end
+
+          it 'raises when credentials are not set' do
+            options = {
+              service: service,
+              region: region,
+              credentials: Credentials.new(
+                access_key_id: nil,
+                secret_access_key: nil
+              )
+            }
+            expect { Signer.new(options).presign_url(request: request) }
+              .to raise_error(ArgumentError, /credentials set/)
+          end
+        end
+
+        context 'unsigned headers' do
+          it 'does not sign default unsigned headers' do
+            presigned_url = subject.presign_url(
+              request: request.merge(
+                headers: {
+                  'expect' => 'foo',
+                  'x-amzn-trace-id' => 'foo',
+                  'user-agent' => 'foo',
+                  'authorization' => 'foo'
+                }
+              )
+            )
+            expect(presigned_url.url.to_s)
+              .to_not include(
+                'expect', 'x-amzn-trace-id', 'user-agent', 'authorization'
+              )
+          end
+
+          it 'allows for unsigned headers override' do
+            presigned_url = subject.presign_url(
+              request: request.merge(headers: { 'x-foo-unsigned' => 'foo' }),
+              unsigned_headers: unsigned_headers
+            )
+            expect(presigned_url.url.to_s).to_not include('x-foo-unsigned')
+          end
+        end
+
+        context 'uri escape path' do
+          it 'escapes path for the canonical request by default' do
+            presigned_url = subject.presign_url(
+              request: request.merge(url: 'https://domain.com/foo%bar')
+            )
+            expect(presigned_url.metadata[:canonical_request])
+              .to include("/foo%25bar\n")
+          end
+
+          it 'allows for uri escape path override' do
+            presigned_url = subject.presign_url(
+              request: request.merge(url: 'https://domain.com/foo%bar'),
+              uri_escape_path: uri_escape_path
+            )
+            expect(presigned_url.metadata[:canonical_request])
+              .to include("/foo%bar\n")
+          end
+        end
+
+        context 'signing algorithm' do
+          it 'allows for signing algorithm override' do
+            # non-default SigV4A isn't supported here
+            expect do
+              subject.presign_url(
+                request: request, signing_algorithm: signing_algorithm
+              )
+            end.to raise_error(ArgumentError, /aws-crt/)
+          end
+
+          it 'raises when not sigv4 or sigv4a' do
+            expect do
+              subject.presign_url(
+                request: request, signing_algorithm: :not_sigv4
+              )
+            end.to raise_error(ArgumentError, /`:sigv4` or `:sigv4a`/)
+          end
+        end
+
+        context 'normalize path' do
+          it 'normalizes by default' do
+            presigned_url = subject.presign_url(
+              request: request.merge(url: "#{request[:url]}/foo/..")
+            )
+            expect(presigned_url.metadata[:canonical_request])
+              .to include("GET\n/\n")
+          end
+
+          it 'allows for normalize path override' do
+            presigned_url = subject.presign_url(
+              request: request.merge(url: "#{request[:url]}/foo/.."),
+              normalize_path: normalize_path
+            )
+            expect(presigned_url.metadata[:canonical_request])
+              .to include("/foo/..\n")
+          end
+        end
+
+        context 'omit session token' do
+          it 'omits the session token by default' do
+            presigned_url = subject.presign_url(request: request)
+            expect(presigned_url.metadata[:canonical_request])
+              .to include('token')
+            expect(presigned_url.url.to_s)
+              .to include('X-Amz-Security-Token=token')
+          end
+
+          it 'allows for omit session token override' do
+            presigned_url = subject.presign_url(
+              request: request, omit_session_token: omit_session_token
+            )
+            expect(presigned_url.metadata[:canonical_request])
+              .to_not include('token')
+            expect(presigned_url.url.to_s)
+              .to include('X-Amz-Security-Token=token')
+          end
+        end
+
+        context 'expires in' do
+          it 'defaults to 15 minutes' do
+            presigned_url = subject.presign_url(request: request)
+            expect(presigned_url.url.to_s).to include('X-Amz-Expires=900')
+          end
+
+          it 'allows for expires in override' do
+            presigned_url = subject.presign_url(request: request, expires_in: 1)
+            expect(presigned_url.url.to_s).to include('X-Amz-Expires=1')
+          end
+
+          it 'raises when expires in is not an integer' do
+            expect { subject.presign_url(request: request, expires_in: 'foo') }
+              .to raise_error(ArgumentError, /number of seconds/)
+          end
+        end
+
+        context 'request' do
+          it 'raises with no http_method' do
+            expect { subject.presign_url(request: {}) }
+              .to raise_error(ArgumentError, /:http_method/)
+          end
+
+          it 'raises with no url' do
+            # Extraction is order dependent
+            expect { subject.presign_url(request: { http_method: 'GET' }) }
+              .to raise_error(ArgumentError, /:url/)
+          end
+
+          # TODO -- presigned url shoudl return headers for request?
+
+          it 'uses a provided Host header' do
+            presigned_url = subject.presign_url(
+              request: request.merge(headers: { 'host' => 'otherdomain.com' })
+            )
+            expect(presigned_url.headers['host']).to eql('otherdomain.com')
+          end
+
+          it 'uses a provided X-Amz-Date header' do
+            now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+            presigned_url = subject.presign_url(
+              request: request.merge(headers: { 'X-Amz-Date' => now })
+            )
+            expect(presigned_url.headers['x-amz-date']).to eq(now)
+          end
+
+          it 'omits port in Host when default and uri port are the same' do
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'GET',
+                url: 'https://domain.com:443'
+              }
+            )
+            expect(presigned_url.headers['host']).to eq('domain.com')
+          end
+
+          it 'includes port in Host when default and uri port differ' do
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'GET',
+                url: 'https://domain.com:123'
+              }
+            )
+            expect(presigned_url.headers['host']).to eq('domain.com:123')
+          end
+
+          it 'omits port in Host when uri port not provided' do
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'GET',
+                url: 'abcd://domain.com'
+              }
+            )
+            expect(presigned_url.headers['host']).to eq('domain.com')
+          end
+
+          it 'includes port in Host when uri port provided' do
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'GET',
+                url: 'abcd://domain.com:123'
+              }
+            )
+            expect(presigned_url.headers['host']).to eq('domain.com:123')
+          end
+
+          it 'does not read the body if X-Amz-Content-Sha256 is present' do
+            body = double('http-payload')
+            expect(body).to_not receive(:read)
+            expect(body).to_not receive(:rewind)
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'PUT',
+                url: 'http://domain.com',
+                headers: {
+                  'X-Amz-Content-Sha256' => 'hexdigest'
+                },
+                body: body
+              }
+            )
+            expect(presigned_url.headers['x-amz-content-sha256'])
+              .to eq('hexdigest')
+          end
+
+          it 'does not load files into memory to compute checksums' do
+            body = Tempfile.new('tempfile')
+            body.write('abc')
+            body.flush
+            expect(body).not_to receive(:read)
+            expect(body).not_to receive(:rewind)
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'POST',
+                url: 'https://domain.com',
+                body: body
+              }
+            )
+            expect(presigned_url.headers['x-amz-content-sha256'])
+              .to eq(Digest::SHA256.hexdigest('abc'))
+          end
+
+          it 'reads non-file IO objects into memory to compute checksums' do
+            presigned_url = subject.presign_url(
+              request: {
+                http_method: 'PUT',
+                url: 'http://domain.com',
+                body: StringIO.new('abc')
+              }
+            )
+            expect(presigned_url.metadata[:content_sha256])
+              .to eq(Digest::SHA256.hexdigest('abc'))
+          end
+        end
       end
     end
   end

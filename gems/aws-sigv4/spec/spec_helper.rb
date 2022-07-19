@@ -96,30 +96,38 @@ module AWS::SigV4
 end
 
 # For mocking aws-crt objects, define namespace and classes.
-module Aws
-  module Crt
-    module Auth
-      class SigningConfig
-        def initialize(_options = {})
-          nil
+unless defined?(Aws::Crt)
+  module Aws
+    module Crt
+      module Auth
+        class SigningConfig
+          def initialize(_options = {})
+            nil
+          end
+        end
+
+        class Signable
+          def initialize(_request)
+            nil
+          end
+        end
+
+        class Signer
+          def sign_request(_config, _signable); end
+        end
+
+        class StaticCredentialsProvider
+          def initialize(_akid, _secret, _token)
+            nil
+          end
         end
       end
 
-      class Signable
-        def initialize(_request)
-          nil
-        end
-      end
-
-      class Signer
-        def sign_request(_config, _signable); end
-      end
-    end
-
-    module Http
-      class Message
-        def initialize(_method, _url, _headers)
-          nil
+      module Http
+        class Message
+          def initialize(_method, _url, _headers)
+            nil
+          end
         end
       end
     end
