@@ -13,12 +13,13 @@ Gem::Specification.new do |spec|
     'LICENSE.txt', 'CHANGELOG.md', 'VERSION', 'lib/**/*.rb'
   ]
 
-  # spec.add_dependency('aws-eventstream', '~> 1', '>= 1.0.2') # For signing event stream events
+  # For signing event stream events
+  # spec.add_dependency('aws-eventstream', '~> 1', '>= 1.0.2')
 
   spec.metadata = {
     'source_code_uri' => 'https://github.com/aws/aws-sdk-ruby/tree/version-4/gems/aws-sigv4',
     'changelog_uri' => 'https://github.com/aws/aws-sdk-ruby/tree/version-4/gems/aws-sigv4/CHANGELOG.md'
   }
 
-  spec.required_ruby_version = '>= 2.5'
+  spec.required_ruby_version = '>= 3.0'
 end

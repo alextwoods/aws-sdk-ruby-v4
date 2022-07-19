@@ -44,9 +44,9 @@ module AWS::SigV4
         prev_key = nil
         until lines.empty?
           line = lines.shift
-          if line.strip == ''
-            break
-          elsif line =~ /^\s+/ # multiline header value
+          break if line.strip == ''
+
+          if line =~ /^\s+/ # multiline header value
             headers[prev_key][0] = "#{headers[prev_key][0]} #{line.strip}"
           else
             key, value = line.strip.split(':')

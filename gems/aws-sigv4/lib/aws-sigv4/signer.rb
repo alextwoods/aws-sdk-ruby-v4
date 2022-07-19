@@ -304,6 +304,7 @@ module AWS
         )
       end
 
+      # rubocop:disable Layout/LineLength
       # Signs a event and returns signature headers and prior signature
       # used for next event signing.
       #
@@ -360,6 +361,7 @@ module AWS
       #   # Returning signed headers and signature value in hex-encoded string
       #   [headers, sig.unpack('H*').first]
       # end
+      # rubocop:enable Layout/LineLength
 
       # Signs a URL with query authentication. Using query parameters
       # to authenticate requests is useful when you want to express a
@@ -501,7 +503,8 @@ module AWS
         )
         url.query += "&X-Amz-Signature=#{sig}"
         if creds.session_token && options[:omit_session_token]
-          url.query += "&X-Amz-Security-Token=#{CGI.escape(creds.session_token)}"
+          escaped_token = CGI.escape(creds.session_token)
+          url.query += "&X-Amz-Security-Token=#{escaped_token}"
         end
         PresignedUrl.new(
           url: url,
@@ -516,7 +519,8 @@ module AWS
 
       private
 
-      def canonical_request(http_method, url, uri_escape_path, headers, unsigned_headers, content_sha256)
+      def canonical_request(http_method, url, uri_escape_path, headers,
+                            unsigned_headers, content_sha256)
         [
           http_method,
           path(url, uri_escape_path),
@@ -545,7 +549,8 @@ module AWS
       #   While headers need to be encoded under eventstream format,
       #   payload used is already eventstream encoded (event without signature),
       #   thus no extra encoding is needed.
-      # def event_string_to_sign(datetime, headers, payload, prior_signature, encoder)
+      # def event_string_to_sign(datetime, headers, payload, prior_signature,
+      #                          encoder)
       #   encoded_headers = encoder.encode_headers(
       #     AWS::EventStream::Message.new(headers: headers, payload: payload)
       #   )
@@ -681,7 +686,8 @@ module AWS
       # @param [File, Tempfile, IO#read, String] value
       # @return [String<SHA256 Hexdigest>]
       def sha256_hexdigest(value)
-        if (value.is_a?(File) || value.is_a?(Tempfile)) && !value.path.nil? && File.exist?(value.path)
+        if (value.is_a?(File) || value.is_a?(Tempfile)) &&
+           !value.path.nil? && File.exist?(value.path)
           OpenSSL::Digest::SHA256.file(value).hexdigest
         elsif value.respond_to?(:read)
           sha256 = OpenSSL::Digest.new('SHA256')
@@ -792,19 +798,17 @@ module AWS
       end
 
       def extract_http_method(request)
-        if request[:http_method]
-          request[:http_method].upcase
-        else
+        unless request[:http_method]
           raise ArgumentError, 'missing required option :http_method'
         end
+
+        request[:http_method].upcase
       end
 
       def extract_url(request)
-        if request[:url]
-          URI.parse(request[:url].to_s)
-        else
-          raise ArgumentError, 'missing required option :url'
-        end
+        raise ArgumentError, 'missing required option :url' unless request[:url]
+
+        URI.parse(request[:url].to_s)
       end
 
       def extract_expires_in(kwargs)
@@ -856,7 +860,14 @@ module AWS
             "#{ua} crt-signer/#{algorithm}/#{version}"
         end
 
-        headers = headers.merge(sigv4_headers) # merge so we do not modify given headers hash
+        # merge so we do not modify given headers hash
+        headers = headers.merge(sigv4_headers)
+
+        sbht = if options[:apply_checksum_header]
+                 :sbht_content_sha256
+               else
+                 :sbht_none
+               end
 
         config = Aws::Crt::Auth::SigningConfig.new(
           algorithm: options[:signing_algorithm],
@@ -865,7 +876,7 @@ module AWS
           service: options[:service],
           date: datetime,
           signed_body_value: content_sha256,
-          signed_body_header_type: options[:apply_checksum_header] ? :sbht_content_sha256 : :sbht_none,
+          signed_body_header_type: sbht,
           credentials: creds,
           unsigned_headers: options[:unsigned_headers],
           use_double_uri_encode: options[:uri_escape_path],
@@ -907,6 +918,12 @@ module AWS
         content_sha256 ||= options[:body_digest]
         content_sha256 ||= sha256_hexdigest(request[:body] || '')
 
+        sbht = if options[:apply_checksum_header]
+                 :sbht_content_sha256
+               else
+                 :sbht_none
+               end
+
         config = Aws::Crt::Auth::SigningConfig.new(
           algorithm: options[:signing_algorithm],
           signature_type: :http_request_query_params,
@@ -914,7 +931,7 @@ module AWS
           service: options[:service],
           date: datetime,
           signed_body_value: content_sha256,
-          signed_body_header_type: options[:apply_checksum_header] ? :sbht_content_sha256 : :sbht_none,
+          signed_body_header_type: sbht,
           credentials: creds,
           unsigned_headers: options[:unsigned_headers],
           use_double_uri_encode: options[:uri_escape_path],
@@ -927,8 +944,9 @@ module AWS
         )
         signable = Aws::Crt::Auth::Signable.new(http_request)
 
-        signing_result = Aws::Crt::Auth::Signer.sign_request(config, signable,
-                                                             http_method, url.to_s)
+        signing_result = Aws::Crt::Auth::Signer.sign_request(
+          config, signable, http_method, url.to_s
+        )
         url = URI.parse(signing_result[:path])
 
         PresignedUrl.new(
