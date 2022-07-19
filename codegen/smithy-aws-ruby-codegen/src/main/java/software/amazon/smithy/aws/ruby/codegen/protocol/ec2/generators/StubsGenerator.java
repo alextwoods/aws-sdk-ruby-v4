@@ -134,7 +134,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .write("nodes = []")
                 .openBlock("input.each do |key, value|")
                 .call(() -> {
-                    writer.write("xml = $T::Node.new(node_name)", Hearth.XML);
+                    writer.write("xml = $T.new(node_name)", Hearth.XML_NODE);
                     Shape keyTarget = model.expectShape(shape.getKey().getTarget());
                     String keyName = "key";
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
@@ -162,7 +162,7 @@ public class StubsGenerator extends StubsGeneratorBase {
     protected void renderStructureStubMethod(StructureShape shape) {
         writer
                 .openBlock("def self.stub(node_name, stub = {})")
-                .write("xml = $T::Node.new(node_name)", Hearth.XML)
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -175,7 +175,7 @@ public class StubsGenerator extends StubsGeneratorBase {
         writer
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
-                .write("xml = $T::Node.new('$LResponse')", Hearth.XML, nodeName)
+                .write("xml = $T.new('$LResponse')", Hearth.XML_NODE, nodeName)
                 .call(() -> {
                     if (context.service().hasTrait(XmlNamespaceTrait.class)) {
                         writeXmlNamespaceForShape(context.service(), "xml");
@@ -236,14 +236,14 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("xml << $T::Node.new($L, $L.to_s$L)$L",
-                    Hearth.XML, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $L.to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("xml << $T::Node.new($L, $T.serialize($L).to_s$L)$L",
-                    Hearth.XML, nodeName, Hearth.NUMBER_HELPER,
+            writer.write("xml << $T.new($L, $T.serialize($L).to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, Hearth.NUMBER_HELPER,
                     inputGetter, xmlnsAttribute(), checkRequired());
         }
 
@@ -261,16 +261,16 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << $T::Node.new($L, $T::encode64($L).strip$L)$L",
-                    Hearth.XML, nodeName, RubyImportContainer.BASE64,
+            writer.write("xml << $T.new($L, $T::encode64($L).strip$L)$L",
+                    Hearth.XML_NODE, nodeName, RubyImportContainer.BASE64,
                     inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            writer.write("xml << $T::Node.new($L, $L$L)$L",
-                    Hearth.XML,
+            writer.write("xml << $T.new($L, $L$L)$L",
+                    Hearth.XML_NODE,
                     nodeName,
                     TimestampFormat.serializeTimestamp(
                             shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, true),
