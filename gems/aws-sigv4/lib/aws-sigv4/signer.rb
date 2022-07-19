@@ -564,7 +564,7 @@ module AWS
           date,
           region,
           service,
-          'aws4_request',
+          'aws4_request'
         ].join('/')
       end
 
@@ -573,7 +573,7 @@ module AWS
       end
 
       def signature(secret_access_key, date, region, service, string_to_sign)
-        k_date = hmac('AWS4' + secret_access_key, date)
+        k_date = hmac("AWS4#{secret_access_key}", date)
         k_region = hmac(k_date, region)
         k_service = hmac(k_region, service)
         k_credentials = hmac(k_service, 'aws4_request')
@@ -610,7 +610,7 @@ module AWS
 
       def normalized_querystring(querystring)
         params = querystring.split('&')
-        params = params.map { |p| p.match(/=/) ? p : p + '=' }
+        params = params.map { |p| p.match(/=/) ? p : "#{p}=" }
         # From: https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html
         # Sort the parameter names by character code point in ascending order.
         # Parameters with duplicate names should be sorted by value.
@@ -652,15 +652,17 @@ module AWS
       end
 
       def canonical_headers(headers, unsigned_headers)
-        headers = headers.inject([]) do |hdrs, (k,v)|
+        headers = headers.inject([]) do |hdrs, (k, v)|
           if unsigned_headers.include?(k)
             hdrs
           else
-            hdrs << [k,v]
+            hdrs << [k, v]
           end
         end
         headers = headers.sort_by(&:first)
-        headers.map{|k,v| "#{k}:#{canonical_header_value(v.to_s)}" }.join("\n")
+        headers.map do |k, v|
+          "#{k}:#{canonical_header_value(v.to_s)}"
+        end.join("\n")
       end
 
       def canonical_header_value(value)
@@ -679,13 +681,14 @@ module AWS
       # @param [File, Tempfile, IO#read, String] value
       # @return [String<SHA256 Hexdigest>]
       def sha256_hexdigest(value)
-        if (File === value || Tempfile === value) && !value.path.nil? && File.exist?(value.path)
+        if (value.is_a?(File) || value.is_a?(Tempfile)) && !value.path.nil? && File.exist?(value.path)
           OpenSSL::Digest::SHA256.file(value).hexdigest
         elsif value.respond_to?(:read)
-          sha256 = OpenSSL::Digest::SHA256.new
+          sha256 = OpenSSL::Digest.new('SHA256')
           loop do
             chunk = value.read(1024 * 1024) # 1MB
             break unless chunk
+
             sha256.update(chunk)
           end
           value.rewind
@@ -833,7 +836,7 @@ module AWS
         headers = downcase_headers(request[:headers])
 
         datetime =
-          if headers.include? ('x-amz-date')
+          if headers.include?('x-amz-date')
             Time.parse(headers.delete('x-amz-date'))
           end
         datetime ||= options[:time]
@@ -845,7 +848,7 @@ module AWS
         sigv4_headers['host'] = headers['host'] || host(url)
 
         # Modify the user-agent to add usage of crt-signer
-        if headers.include? ('user-agent')
+        if headers.include?('user-agent')
           ua = headers['user-agent']
           algorithm = options[:signing_algorithm]
           version = AWS::SigV4::VERSION
@@ -924,7 +927,8 @@ module AWS
         )
         signable = Aws::Crt::Auth::Signable.new(http_request)
 
-        signing_result = Aws::Crt::Auth::Signer.sign_request(config, signable, http_method, url.to_s)
+        signing_result = Aws::Crt::Auth::Signer.sign_request(config, signable,
+                                                             http_method, url.to_s)
         url = URI.parse(signing_result[:path])
 
         PresignedUrl.new(
@@ -941,12 +945,10 @@ module AWS
       class << self
         # @api private
         def use_crt?
-          begin
-            require 'aws-crt'
-            return true
-          rescue LoadError
-            return false
-          end
+          require 'aws-crt'
+          true
+        rescue LoadError
+          false
         end
 
         # @api private

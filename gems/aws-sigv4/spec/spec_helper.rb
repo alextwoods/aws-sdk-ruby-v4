@@ -11,7 +11,6 @@ require 'aws-sigv4'
 module AWS::SigV4
   module SpecHelper
     class << self
-
       def debug(msg)
         $stdout.puts("\n#{msg}") if ENV['AWS_SIGV4_SPEC_SUITE_DEBUG']
       end
@@ -38,10 +37,10 @@ module AWS::SigV4
         end
 
         request_uri = AWS::SigV4::Signer.uri_escape_path(uri_path)
-        request_uri += '?' + querystring if querystring
+        request_uri += "?#{querystring}" if querystring
 
         # extract headers
-        headers = Hash.new { |h,k| h[k] = [] }
+        headers = Hash.new { |h, k| h[k] = [] }
         prev_key = nil
         until lines.empty?
           line = lines.shift
@@ -55,9 +54,8 @@ module AWS::SigV4
             prev_key = key
           end
         end
-        headers = headers.inject({}) do |h,(k,v)|
+        headers = headers.each_with_object({}) do |(k, _v), h|
           h[k] = headers[k].join(',')
-          h
         end
 
         {

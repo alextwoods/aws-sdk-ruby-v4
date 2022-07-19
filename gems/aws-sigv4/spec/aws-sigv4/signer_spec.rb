@@ -668,7 +668,7 @@ module AWS
                   url: 'https://domain.com',
                   headers: {
                     'Abc' => '"a  b  c"', # quoted header values preserve spaces
-                    'X-Amz-Date' => '20160101T112233Z',
+                    'X-Amz-Date' => '20160101T112233Z'
                   }
                 }
               )
