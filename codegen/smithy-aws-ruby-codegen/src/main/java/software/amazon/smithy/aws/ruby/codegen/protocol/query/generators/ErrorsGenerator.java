@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .openBlock("if !(200..299).cover?(resp.status)")
                 .write("body = resp.body.read")
                 .write("resp.body.rewind")
-                .write("xml = Hearth::XML.parse(body) unless body.empty?")
+                .write("xml = $T.parse(body) unless body.empty?", Hearth.XML)
                 .write("return unless xml && xml.name == 'ErrorResponse'")
                 .write("code = xml.at('Error')&.text_at('Code')")
                 .write("custom_errors[code] || code")

@@ -20,6 +20,8 @@ import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestBuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -87,7 +89,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         writer
                 .write("")
                 .write("http_req.headers['Content-Type'] = 'application/xml'")
-                .write("xml = Hearth::XML::Node.new('$L')", nodeName)
+                .write("xml = $T.new('$L')", Hearth.XML_NODE, nodeName)
                 .call(() -> {
                     XmlNamespaceTrait xmlnsTrait = context.service()
                             .getTrait(XmlNamespaceTrait.class)
@@ -98,14 +100,14 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                     }
                     renderMemberBuilders(inputShape);
                 })
-                .write("http_req.body = StringIO.new(xml.to_str)");
+                .write("http_req.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
     }
 
     @Override
     protected void renderStructureBuildMethod(StructureShape shape) {
         writer
                 .openBlock("def self.build(node_name, input)")
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -132,19 +134,19 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.build(node_name, input)")
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .write("case input");
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberBuilder(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("xml")
@@ -167,7 +169,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("nodes = []")
                 .openBlock("input.each do |key, value|")
                 .call(() -> {
-                    writer.write("xml = Hearth::XML::Node.new(node_name)");
+                    writer.write("xml = $T.new(node_name)", Hearth.XML_NODE);
                     Shape keyTarget = model.expectShape(shape.getKey().getTarget());
                     String keyName = "key";
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
@@ -239,14 +241,14 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $L.to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T.serialize($L).to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, Hearth.NUMBER_HELPER, inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override
@@ -263,14 +265,16 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T::encode64($L).strip$L)$L",
+                    Hearth.XML_NODE, nodeName, RubyImportContainer.BASE64,
+                    inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L$L)$L",
+            writer.write("xml << $T.new($L, $L$L)$L",
+                    Hearth.XML_NODE,
                     nodeName,
                     TimestampFormat.serializeTimestamp(
                             shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, true),
@@ -287,8 +291,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
                 writer
                         .openBlock("unless $L.nil?", inputGetter)
-                        .write("nodes = Builders::$1L.build($2L, $3L)",
-                                symbolProvider.toSymbol(shape).getName(),
+                        .write("nodes = $1T.build($2L, $3L)",
+                                symbolProvider.toSymbol(shape),
                                 nodeName,
                                 inputGetter)
                         .write("nodes.each { |n| n.attributes['xmlns$1L'] = '$2L' }",
@@ -297,9 +301,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                         .write("xml << nodes")
                         .closeBlock("end");
             } else {
-                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                writer.write("xml << $1T.build($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape), nodeName, inputGetter);
             }
         }
 
@@ -312,9 +315,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('$4L', $3L)$5L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, memberName, xmlnsAttribute());
+                writer.write("xml << $6T.new($2L, $1T.build('$4L', $3L)$5L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape), nodeName,
+                        inputGetter, memberName, xmlnsAttribute(), Hearth.XML_NODE);
             }
             return null;
         }
@@ -324,9 +327,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
             } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('entry', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
+                writer.write("xml << $5T.new($2L, $1T.build('entry', $3L)$4L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape), nodeName,
+                        inputGetter, xmlnsAttribute(), Hearth.XML_NODE);
             }
 
             return null;
@@ -374,8 +377,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("xml.attributes['$L'] = Hearth::NumberHelper.serialize($L).to_s$L",
-                    attributeName, inputGetter, checkRequired());
+            writer.write("xml.attributes['$L'] = $T.serialize($L).to_s$L",
+                    attributeName, Hearth.NUMBER_HELPER, inputGetter, checkRequired());
         }
 
         @Override
@@ -440,7 +443,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         public Void stringShape(StringShape shape) {
             writer
                     .write("http_req.headers['Content-Type'] = 'text/plain'")
-                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_req.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -454,7 +457,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
             writer
                     .write("http_req.headers['Content-Type'] = '$L'", mediaType)
-                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_req.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -506,7 +509,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                                     "xml");
                         }
                     })
-                    .write("http_req.body = StringIO.new(xml.to_str)");
+                    .write("http_req.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
         }
 
     }

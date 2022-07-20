@@ -33,6 +33,8 @@ import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -53,14 +55,14 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberStubber(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("data")
@@ -111,10 +113,9 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderStructureStubMethod(StructureShape shape) {
-        String typeName = symbolProvider.toSymbol(shape).getName();
         writer
                 .openBlock("def self.stub(stub)")
-                .write("stub ||= Types::$L.new", typeName)
+                .write("stub ||= $T.new", context.symbolProvider().toSymbol(shape))
                 .write("data = {}")
                 .call(() -> renderMemberStubbers(shape))
                 .write("data")
@@ -127,7 +128,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("data = {}")
                 .call(() -> renderMemberStubbers(outputShape))
-                .write("http_resp.body = StringIO.new(Hearth::JSON.dump(data))")
+                .write("http_resp.body = $T.new($T.dump(data))",
+                        RubyImportContainer.STRING_IO, Hearth.JSON)
                 .write("http_resp.status = 200")
                 .closeBlock("end");
     }
@@ -182,7 +184,8 @@ public class StubsGenerator extends StubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$LHearth::NumberHelper.serialize($L)", dataSetter, inputGetter);
+            writer.write("$L$T.serialize($L)",
+                    dataSetter, Hearth.NUMBER_HELPER, inputGetter);
         }
 
         @Override
@@ -199,7 +202,8 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$LBase64::encode64($L)$L", dataSetter, inputGetter, checkRequired());
+            writer.write("$L$T::encode64($L)$L",
+                    dataSetter, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }
 
@@ -218,11 +222,11 @@ public class StubsGenerator extends StubsGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1LStubs::$2L.stub($3L) unless $3L.nil?", dataSetter,
-                        symbolProvider.toSymbol(shape).getName(), inputGetter);
+                writer.write("$1L$2T.stub($3L) unless $3L.nil?", dataSetter,
+                        symbolProvider.toSymbol(shape), inputGetter);
             } else {
-                writer.write("$1L(Stubs::$2L.stub($3L) unless $3L.nil?)", dataSetter,
-                        symbolProvider.toSymbol(shape).getName(), inputGetter);
+                writer.write("$1L($2T.stub($3L) unless $3L.nil?)", dataSetter,
+                        symbolProvider.toSymbol(shape), inputGetter);
             }
         }
 

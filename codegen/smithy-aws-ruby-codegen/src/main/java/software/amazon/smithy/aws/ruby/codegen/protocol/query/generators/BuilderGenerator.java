@@ -22,6 +22,8 @@ import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -42,11 +44,11 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
                 .write("context = ''")
-                .write("params = Hearth::Query::ParamList.new")
+                .write("params = $T.new", Hearth.QUERY_PARAM_LIST)
                 .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
                 .write("params['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = StringIO.new(params.to_s)")
+                .write("http_req.body = $T.new(params.to_s)", RubyImportContainer.STRING_IO)
                 .closeBlock("end");
     }
 
@@ -99,14 +101,14 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberBuilder(member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .closeBlock("end");
     }
@@ -174,7 +176,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("params[context + $L] = Hearth::NumberHelper.serialize($L).to_s$L", dataName, inputGetter, checkRequired());
+            writer.write("params[context + $L] = $T.serialize($L).to_s$L",
+                    dataName, Hearth.NUMBER_HELPER, inputGetter, checkRequired());
         }
 
         @Override
@@ -191,8 +194,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("params[context + $L] = Base64::encode64($L).strip$L",
-                    dataName, inputGetter, checkRequired());
+            writer.write("params[context + $L] = $T::encode64($L).strip$L",
+                    dataName, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }
 
@@ -212,8 +215,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexSerializer(Shape shape) {
-            writer.write("Builders::$1L.build($2L, params, context: context + $3L + '.') unless $2L.nil?",
-                    symbolProvider.toSymbol(shape).getName(), inputGetter, dataName);
+            writer.write("$1T.build($2L, params, context: context + $3L + '.') unless $2L.nil?",
+                    symbolProvider.toSymbol(shape), inputGetter, dataName);
         }
 
         private void defaultCollectionSerializer(CollectionShape shape) {
@@ -229,8 +232,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 }
                 context += " + '." + member + "'";
             }
-            writer.write("Builders::$1L.build($2L, params, context: $3L) unless $2L.nil?",
-                    symbolProvider.toSymbol(shape).getName(), inputGetter, context);
+            writer.write("$1T.build($2L, params, context: $3L) unless $2L.nil?",
+                    symbolProvider.toSymbol(shape), inputGetter, context);
         }
 
         @Override
@@ -249,8 +252,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 context += " + '.entry'";
             }
-            writer.write("Builders::$1L.build($2L, params, context: $3L) unless $2L.nil?",
-                    symbolProvider.toSymbol(shape).getName(), inputGetter, context);
+            writer.write("$1T.build($2L, params, context: $3L) unless $2L.nil?",
+                    symbolProvider.toSymbol(shape), inputGetter, context);
             return null;
         }
 

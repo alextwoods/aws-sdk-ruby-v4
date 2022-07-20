@@ -19,6 +19,8 @@ import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestBuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -74,7 +76,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("http_req.headers['Content-Type'] = 'application/json'")
                 .write("data = {}")
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = StringIO.new(Hearth::JSON.dump(data))");
+                .write("http_req.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON);
     }
 
     @Override
@@ -113,14 +115,14 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         shape.members().forEach((member) -> {
             writer
-                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .write("when $T", context.symbolProvider().toSymbol(member))
                     .indent();
             renderUnionMemberBuilder(shape, member);
             writer.dedent();
         });
         writer.openBlock("else")
-                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
-                        symbol.getName())
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of $T\"",
+                        context.symbolProvider().toSymbol(shape))
                 .closeBlock("end")
                 .write("")
                 .write("data")
@@ -187,7 +189,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$1LHearth::NumberHelper.serialize($2L)$3L", dataSetter, inputGetter, checkRequired());
+            writer.write("$1L$4T.serialize($2L)$3L",
+                    dataSetter, inputGetter, checkRequired(), Hearth.NUMBER_HELPER);
         }
 
         @Override
@@ -204,7 +207,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$LBase64::encode64($L).strip$L", dataSetter, inputGetter, checkRequired());
+            writer.write("$L$T::encode64($L).strip$L",
+                    dataSetter, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }
 
@@ -223,12 +227,12 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1LBuilders::$2L.build($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                writer.write("$1L$2T.build($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape),
                         inputGetter);
             } else {
-                writer.write("$1L(Builders::$2L.build($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                writer.write("$1L($2T.build($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape),
                         inputGetter);
             }
         }
@@ -277,7 +281,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         public Void stringShape(StringShape shape) {
             writer
                     .write("http_req.headers['Content-Type'] = 'text/plain'")
-                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_req.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -291,7 +295,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
             writer
                     .write("http_req.headers['Content-Type'] = '$L'", mediaType)
-                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+                    .write("http_req.body = $T.new($L || '')", RubyImportContainer.STRING_IO, inputGetter);
             return null;
         }
 
@@ -299,7 +303,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         public Void documentShape(DocumentShape shape) {
             writer
                     .write("http_req.headers['Content-Type'] = 'application/json'")
-                    .write("http_req.body = StringIO.new(Hearth::JSON.dump($1L))", inputGetter);
+                    .write("http_req.body = $T.new($T.dump($L))",
+                            RubyImportContainer.STRING_IO, Hearth.JSON, inputGetter);
             return null;
         }
 
@@ -331,9 +336,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             writer
                     .write("http_req.headers['Content-Type'] = 'application/json'")
                     .write("data = {}")
-                    .write("data = Builders::$1L.build($2L) unless $2L.nil?", symbolProvider.toSymbol(shape).getName(),
+                    .write("data = $1T.build($2L) unless $2L.nil?", symbolProvider.toSymbol(shape),
                             inputGetter)
-                    .write("http_req.body = StringIO.new(Hearth::JSON.dump(data))");
+                    .write("http_req.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON);
         }
 
     }

@@ -18,11 +18,12 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestParserGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class ParserGenerator extends RestParserGeneratorBase {
@@ -33,7 +34,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
     @Override
     protected void renderBodyParser(Shape outputShape) {
-        writer.write("map = Hearth::JSON.load(http_resp.body)");
+        writer.write("map = $T.load(http_resp.body)", Hearth.JSON);
         renderMemberParsers(outputShape);
     }
 
@@ -78,7 +79,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
     protected void renderStructureParseMethod(StructureShape s) {
         writer
                 .openBlock("def self.parse(map)")
-                .write("data = Types::$L.new", symbolProvider.toSymbol(s).getName())
+                .write("data = $T.new", context.symbolProvider().toSymbol(s))
                 .call(() -> renderMemberParsers(s))
                 .write("return data")
                 .closeBlock("end");
@@ -98,13 +99,12 @@ public class ParserGenerator extends RestParserGeneratorBase {
                                 .call(() -> {
                                     renderUnionMemberParser(s, member);
                                 })
-                                .write("Types::$L::$L.new(value) if value", symbolProvider.toSymbol(s).getName(),
-                                        symbolProvider.toMemberName(member))
+                                .write("$T.new(value) if value", context.symbolProvider().toSymbol(member))
                                 .dedent();
                     });
                 })
                 .openBlock("else")
-                .write("Types::$L::Unknown.new({name: key, value: value})", s.getId().getName())
+                .write("$T::Unknown.new({name: key, value: value})", context.symbolProvider().toSymbol(s))
                 .closeBlock("end") // end of case
                 .closeBlock("end");
     }
@@ -194,7 +194,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$LHearth::NumberHelper.deserialize($L)$L", dataSetter, jsonGetter, checkRequired());
+            writer.write("$L$T.deserialize($L)$L",
+                    dataSetter, Hearth.NUMBER_HELPER, jsonGetter, checkRequired());
         }
 
         @Override
@@ -211,7 +212,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$1LBase64::decode64($2L) unless $2L.nil?", dataSetter, jsonGetter);
+            writer.write("$1L$3L::decode64($2L) unless $2L.nil?",
+                    dataSetter, jsonGetter, RubyImportContainer.BASE64);
             return null;
         }
 
@@ -229,12 +231,12 @@ public class ParserGenerator extends RestParserGeneratorBase {
          */
         private void defaultComplexDeserializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1LParsers::$2L.parse($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                writer.write("$1L$2T.parse($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape),
                         jsonGetter);
             } else {
-                writer.write("$1L(Parsers::$2L.parse($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                writer.write("$1L($2T.parse($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape),
                         jsonGetter);
             }
         }
@@ -298,7 +300,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
         @Override
         public Void documentShape(DocumentShape shape) {
             writer
-                    .write("payload = Hearth::JSON.load(http_resp.body.read)")
+                    .write("payload = $T.load(http_resp.body.read)", Hearth.JSON)
                     .write("$Lpayload", dataSetter);
             return null;
         }
@@ -329,8 +331,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         private void defaultComplexDeserializer(Shape shape) {
             writer
-                    .write("json = Hearth::JSON.load(http_resp.body)")
-                    .write("$LParsers::$L.parse(json)", dataSetter, symbolProvider.toSymbol(shape).getName());
+                    .write("json = $T.load(http_resp.body)", Hearth.JSON)
+                    .write("$L$T.parse(json)", dataSetter, symbolProvider.toSymbol(shape));
         }
 
     }

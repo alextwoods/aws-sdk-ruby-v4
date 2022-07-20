@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;
 
 public class ErrorsGenerator extends ErrorsGeneratorBase {
@@ -31,7 +32,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .openBlock("if !(200..299).cover?(resp.status)")
                 .write("body = resp.body.read")
                 .write("resp.body.rewind")
-                .write("xml = Hearth::XML.parse(body) unless body.empty?")
+                .write("xml = $T.parse(body) unless body.empty?", Hearth.XML)
                 .write("return unless xml")
                 .call( () -> {
                     if (context.service()
