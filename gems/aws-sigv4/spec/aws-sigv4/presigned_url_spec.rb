@@ -7,11 +7,13 @@ module AWS::SigV4
     subject do
       PresignedUrl.new(
         url: url,
+        headers: headers,
         metadata: metadata
       )
     end
 
     let(:url) { URI('https://example.com?key=value') }
+    let(:headers) { { 'Key' => 'Value' } }
     let(:metadata) do
       {
         string_to_sign: 'sts',
@@ -24,12 +26,13 @@ module AWS::SigV4
     describe '#initialize' do
       it 'sets all of the attributes' do
         expect(subject.url).to eq(url)
+        expect(subject.headers).to eq(headers)
         expect(subject.metadata).to eq(metadata)
       end
 
       context 'defaults' do
         subject do
-          PresignedUrl.new(url: url)
+          PresignedUrl.new(url: url, headers: headers)
         end
 
         it 'defaults metadata to an empty hash' do

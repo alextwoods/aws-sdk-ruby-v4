@@ -489,6 +489,9 @@ module AWS
           headers, options[:unsigned_headers]
         )
 
+        # Headers that should be used with the URL
+        sigv4_headers = (headers.to_a - params.to_a).to_h
+
         params = params.map do |key, value|
           "#{Signer.uri_escape(key)}=#{Signer.uri_escape(value)}"
         end.join('&')
@@ -515,8 +518,10 @@ module AWS
           escaped_token = CGI.escape(creds.session_token)
           url.query += "&X-Amz-Security-Token=#{escaped_token}"
         end
+
         PresignedUrl.new(
           url: url,
+          headers: sigv4_headers,
           metadata: {
             signature: sig,
             string_to_sign: sts,
@@ -920,7 +925,10 @@ module AWS
         headers = downcase_headers(request[:headers])
         headers['host'] ||= host(url)
 
-        datetime = headers.delete('x-amz-date')
+        datetime =
+          if headers.include?('x-amz-date')
+            Time.parse(headers.delete('x-amz-date'))
+          end
         datetime ||= options[:time]
 
         content_sha256 = headers.delete('x-amz-content-sha256')
@@ -952,10 +960,14 @@ module AWS
         )
         url = URI.parse(signing_result[:path])
 
+        # Headers that should be used with the URL
+        sigv4_headers = (headers.to_a - signing_result[:headers].to_a).to_h
+
         PresignedUrl.new(
           url: url,
+          headers: sigv4_headers,
           metadata: {
-            signature: signing_result[:signature],
+            signature: 'CRT_INTERNAL',
             string_to_sign: 'CRT_INTERNAL',
             canonical_request: 'CRT_INTERNAL',
             content_sha256: content_sha256

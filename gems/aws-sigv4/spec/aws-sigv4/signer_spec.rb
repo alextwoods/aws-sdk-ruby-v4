@@ -57,6 +57,28 @@ module AWS::SigV4
 
     subject { Signer.new(required_options) }
 
+    # describe '.use_crt?' do
+    #   before { Signer.remove_class_variable(:@@use_crt) }
+    #
+    #   context 'with crt' do
+    #     it 'returns true' do
+    #       expect(AWS::SigV4::Signer).to receive(:require)
+    #         .with('aws-crt').and_return(true)
+    #       load 'lib/aws-sigv4/signer.rb'
+    #       expect(Signer.use_crt?).to be true
+    #     end
+    #   end
+    #
+    #   context 'without crt' do
+    #     it 'returns false' do
+    #       expect(AWS::SigV4::Signer).to receive(:require)
+    #         .with('aws-crt').and_raise(LoadError)
+    #       load 'lib/aws-sigv4/signer.rb'
+    #       expect(Signer.use_crt?).to be false
+    #     end
+    #   end
+    # end
+
     describe '#initialize' do
       let(:default_unsigned_headers) do
         Set.new(
@@ -99,6 +121,7 @@ module AWS::SigV4
 
     # Use mock expectations to test all options are passed through.
     # CRT doesn't provide much output for us to do testing.
+    # This is done with and without crt in the environment to ensure coverage.
     context 'aws-crt' do
       before do
         allow(AWS::SigV4::Signer).to receive(:use_crt?).and_return(true)
@@ -177,17 +200,6 @@ module AWS::SigV4
               .and_return(signing_config)
           end
 
-          it 'raises with no http_method' do
-            expect { subject.sign_request(request: {}) }
-              .to raise_error(ArgumentError, /:http_method/)
-          end
-
-          it 'raises with no url' do
-            # Extraction is order dependent
-            expect { subject.sign_request(request: { http_method: 'GET' }) }
-              .to raise_error(ArgumentError, /:url/)
-          end
-
           it 'uses a provided X-Amz-Date header' do
             now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
 
@@ -249,9 +261,12 @@ module AWS::SigV4
               expiration_in_seconds: expires_in
             ).and_return(signing_config)
 
-          signing_result = double(
-            'SigningResult',
-            :[] => 'https://domain.com' # don't care for result
+          signing_result = double('SigningResult')
+          allow(signing_result).to receive(:[]).with(:headers).and_return(
+            { 'host' => 'https://domain.com' }
+          )
+          allow(signing_result).to receive(:[]).with(:path).and_return(
+            'https://domain.com'
           )
 
           expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
@@ -285,61 +300,39 @@ module AWS::SigV4
               .and_return(signing_config)
           end
 
-          it 'raises with no http_method' do
-            expect { subject.presign_url(request: {}) }
-              .to raise_error(ArgumentError, /:http_method/)
+          # Doesn't really test functionality but satisfies coverage
+          it 'uses a provided X-Amz-Date header' do
+            now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+
+            signing_result = double('SigningResult')
+            allow(signing_result).to receive(:[]).with(:headers).and_return(
+              { 'X-Amz-Date' => now }
+            )
+            allow(signing_result).to receive(:[]).with(:path).and_return(
+              "https://domain.com?X-Amz-Date=#{now}"
+            )
+
+            expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
+              .with(
+                signing_config,
+                signable,
+                request[:http_method],
+                request[:url].to_s
+              )
+              .and_return(signing_result)
+
+            signature = subject.presign_url(
+              request: request.merge(headers: { 'X-Amz-Date' => now })
+            )
+            expect(signature.url.to_s).to include("X-Amz-Date=#{now}")
           end
-
-          it 'raises with no url' do
-            # Extraction is order dependent
-            expect { subject.presign_url(request: { http_method: 'GET' }) }
-              .to raise_error(ArgumentError, /:url/)
-          end
-
-          # it 'uses a provided X-Amz-Date header' do
-          #   now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
-          #
-          #   signing_result = double(
-          #     'SigningResult',
-          #     :[] => { 'X-Amz-Date' => now }
-          #   )
-          #
-          #   expect(::Aws::Crt::Auth::Signer).to receive(:sign_request)
-          #     .with(
-          #       signing_config,
-          #       signable,
-          #       request[:http_method],
-          #       request[:url].to_s
-          #     )
-          #     .and_return(signing_result)
-          #
-          #   signature = subject.presign_url(
-          #     request: request.merge(headers: { 'X-Amz-Date' => now })
-          #   )
-          #   expect(signature.headers['x-amz-date']).to eq(now)
-          # end
-
-          # it 'does not read the body if body digest is present' do
-          #   body = double('http-payload')
-          #   expect(body).to_not receive(:read)
-          #   expect(body).to_not receive(:rewind)
-          #   presigned_url = subject.presign_url(
-          #     request: {
-          #       http_method: 'PUT',
-          #       url: 'http://domain.com',
-          #       body: body
-          #     },
-          #     body_digest: 'hexdigest'
-          #   )
-          #   expect(presigned_url.headers['x-amz-content-sha256'])
-          #     .to eq('hexdigest')
-          # end
         end
       end
     end
 
     # Behavior testing to test all options are passed through.
     # The Ruby implementation has access to internal data.
+    # This is done with and without crt in the environment to ensure coverage.
     context 'pure ruby' do
       before do
         allow(AWS::SigV4::Signer).to receive(:use_crt?).and_return(false)
@@ -548,145 +541,7 @@ module AWS::SigV4
           end
         end
 
-        context 'request' do
-          it 'raises with no http_method' do
-            expect { subject.sign_request(request: {}) }
-              .to raise_error(ArgumentError, /:http_method/)
-          end
-
-          it 'raises with no url' do
-            # Extraction is order dependent
-            expect { subject.sign_request(request: { http_method: 'GET' }) }
-              .to raise_error(ArgumentError, /:url/)
-          end
-
-          it 'uses a provided X-Amz-Date header' do
-            now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
-            signature = subject.sign_request(
-              request: request.merge(headers: { 'X-Amz-Date' => now })
-            )
-            expect(signature.headers['x-amz-date']).to eq(now)
-          end
-
-          it 'omits port in Host when default and uri port are the same' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'GET',
-                url: 'https://domain.com:443'
-              }
-            )
-            expect(signature.headers['host']).to eq('domain.com')
-          end
-
-          it 'includes port in Host when default and uri port differ' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'GET',
-                url: 'https://domain.com:123'
-              }
-            )
-            expect(signature.headers['host']).to eq('domain.com:123')
-          end
-
-          it 'omits port in Host when uri port not provided' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'GET',
-                url: 'abcd://domain.com'
-              }
-            )
-            expect(signature.headers['host']).to eq('domain.com')
-          end
-
-          it 'includes port in Host when uri port provided' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'GET',
-                url: 'abcd://domain.com:123'
-              }
-            )
-            expect(signature.headers['host']).to eq('domain.com:123')
-          end
-
-          it 'does not read the body if X-Amz-Content-Sha256 is present' do
-            body = double('http-payload')
-            expect(body).to_not receive(:read)
-            expect(body).to_not receive(:rewind)
-            signature = subject.sign_request(
-              request: {
-                http_method: 'PUT',
-                url: 'http://domain.com',
-                headers: {
-                  'X-Amz-Content-Sha256' => 'hexdigest'
-                },
-                body: body
-              }
-            )
-            expect(signature.headers['x-amz-content-sha256'])
-              .to eq('hexdigest')
-          end
-
-          it 'does not load files into memory to compute checksums' do
-            body = Tempfile.new('tempfile')
-            body.write('abc')
-            body.flush
-            expect(body).not_to receive(:read)
-            expect(body).not_to receive(:rewind)
-            signature = subject.sign_request(
-              request: {
-                http_method: 'POST',
-                url: 'https://domain.com',
-                body: body
-              }
-            )
-            expect(signature.headers['x-amz-content-sha256'])
-              .to eq(Digest::SHA256.hexdigest('abc'))
-          end
-
-          it 'reads non-file IO objects into memory to compute checksums' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'PUT',
-                url: 'https://domain.com',
-                body: StringIO.new('abc')
-              }
-            )
-            expect(signature.metadata[:content_sha256])
-              .to eq(Digest::SHA256.hexdigest('abc'))
-          end
-        end
-
-        # SigV4 suite doesn't cover these
-        context 'gap cases' do
-          it 'leaves whitespace in quoted values in-tact' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'PUT',
-                url: 'https://domain.com',
-                headers: {
-                  'Abc' => '"a  b  c"', # quoted header values preserve spaces
-                  'X-Amz-Date' => '20160101T112233Z'
-                }
-              }
-            )
-            expect(signature.metadata[:canonical_request])
-              .to include('abc:"a  b  c"')
-          end
-
-          it 'sorts query params by name and value' do
-            signature = subject.sign_request(
-              request: {
-                http_method: 'PUT',
-                url: 'https://domain.com?q.options=abc&q=xyz&q=xyz&q=mno',
-                headers: {
-                  'X-Amz-Date' => '20160101T112233Z'
-                }
-              }
-            )
-            expect(signature.metadata[:canonical_request])
-              .to include('q=mno&q=xyz&q=xyz&q.options=abc')
-          end
-        end
+        # :time is tested in the suite
       end
 
       describe '#sign_event' do
@@ -897,150 +752,295 @@ module AWS::SigV4
           end
         end
 
-        context 'request' do
-          it 'raises with no http_method' do
-            expect { subject.presign_url(request: {}) }
-              .to raise_error(ArgumentError, /:http_method/)
-          end
-
-          it 'raises with no url' do
-            # Extraction is order dependent
-            expect { subject.presign_url(request: { http_method: 'GET' }) }
-              .to raise_error(ArgumentError, /:url/)
-          end
-
-          it 'uses a provided Host header' do
-            presigned_url = subject.presign_url(
-              request: request.merge(headers: { 'host' => 'otherdomain.com' })
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include('host:otherdomain.com')
-          end
-
-          it 'uses a provided X-Amz-Date header' do
-            now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
-            presigned_url = subject.presign_url(
-              request: request.merge(headers: { 'X-Amz-Date' => now })
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include("x-amz-date:#{now}")
-          end
-
-          it 'omits port in Host when default and uri port are the same' do
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'GET',
-                url: 'https://domain.com:443'
-              }
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include('host:domain.com')
-          end
-
-          it 'includes port in Host when default and uri port differ' do
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'GET',
-                url: 'https://domain.com:123'
-              }
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include('host:domain.com:123')
-          end
-
-          it 'omits port in Host when uri port not provided' do
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'GET',
-                url: 'abcd://domain.com'
-              }
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include('host:domain.com')
-          end
-
-          it 'includes port in Host when uri port provided' do
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'GET',
-                url: 'abcd://domain.com:123'
-              }
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include('host:domain.com:123')
-          end
-
-          it 'does not read the body if X-Amz-Content-Sha256 is present' do
-            body = double('http-payload')
-            expect(body).to_not receive(:read)
-            expect(body).to_not receive(:rewind)
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'PUT',
-                url: 'http://domain.com',
-                headers: {
-                  'X-Amz-Content-Sha256' => 'hexdigest'
-                },
-                body: body
-              }
-            )
-            expect(presigned_url.metadata[:canonical_request])
-              .to include('x-amz-content-sha256:hexdigest')
-          end
-
-          it 'does not read the body if body digest is present' do
-            body = double('http-payload')
-            expect(body).to_not receive(:read)
-            expect(body).to_not receive(:rewind)
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'PUT',
-                url: 'http://domain.com',
-                body: body
-              },
-              body_digest: 'hexdigest'
-            )
-            expect(presigned_url.metadata[:content_sha256])
-              .to include('hexdigest')
-          end
-
-          it 'does not load files into memory to compute checksums' do
-            body = Tempfile.new('tempfile')
-            body.write('abc')
-            body.flush
-            expect(body).not_to receive(:read)
-            expect(body).not_to receive(:rewind)
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'POST',
-                url: 'https://domain.com',
-                body: body
-              }
-            )
-            expect(presigned_url.metadata[:content_sha256])
-              .to eq(Digest::SHA256.hexdigest('abc'))
-          end
-
-          it 'reads non-file IO objects into memory to compute checksums' do
-            presigned_url = subject.presign_url(
-              request: {
-                http_method: 'PUT',
-                url: 'http://domain.com',
-                body: StringIO.new('abc')
-              }
-            )
-            expect(presigned_url.metadata[:content_sha256])
-              .to eq(Digest::SHA256.hexdigest('abc'))
-          end
-        end
+        # :time is tested in suite spec
       end
     end
 
     # Uses crt or not depending on whats loaded when running the test.
     # Otherwise this becomes a lot of duplication.
     context 'shared' do
-      context 'request' do
-        it 'does a thing'
+      describe '#sign_request' do
+        it 'raises with no http_method' do
+          expect { subject.sign_request(request: {}) }
+            .to raise_error(ArgumentError, /:http_method/)
+        end
+
+        it 'raises with no url' do
+          # Extraction is order dependent
+          expect { subject.sign_request(request: { http_method: 'GET' }) }
+            .to raise_error(ArgumentError, /:url/)
+        end
+
+        it 'uses a provided X-Amz-Date header' do
+          now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+          signature = subject.sign_request(
+            request: request.merge(headers: { 'X-Amz-Date' => now })
+          )
+          expect(signature.headers['x-amz-date']).to eq(now)
+        end
+
+        it 'omits port in Host when default and uri port are the same' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com:443'
+            }
+          )
+          expect(signature.headers['host']).to eq('domain.com')
+        end
+
+        it 'includes port in Host when default and uri port differ' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com:123'
+            }
+          )
+          expect(signature.headers['host']).to eq('domain.com:123')
+        end
+
+        it 'omits port in Host when uri port not provided' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'GET',
+              url: 'abcd://domain.com'
+            }
+          )
+          expect(signature.headers['host']).to eq('domain.com')
+        end
+
+        it 'includes port in Host when uri port provided' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'GET',
+              url: 'abcd://domain.com:123'
+            }
+          )
+          expect(signature.headers['host']).to eq('domain.com:123')
+        end
+
+        it 'does not read the body if X-Amz-Content-Sha256 is present' do
+          body = double('http-payload')
+          expect(body).to_not receive(:read)
+          expect(body).to_not receive(:rewind)
+          signature = subject.sign_request(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com',
+              headers: {
+                'X-Amz-Content-Sha256' => 'hexdigest'
+              },
+              body: body
+            }
+          )
+          expect(signature.headers['x-amz-content-sha256'])
+            .to eq('hexdigest')
+        end
+
+        it 'does not load files into memory to compute checksums' do
+          body = Tempfile.new('tempfile')
+          body.write('abc')
+          body.flush
+          expect(body).not_to receive(:read)
+          expect(body).not_to receive(:rewind)
+          signature = subject.sign_request(
+            request: {
+              http_method: 'POST',
+              url: 'https://domain.com',
+              body: body
+            }
+          )
+          expect(signature.headers['x-amz-content-sha256'])
+            .to eq(Digest::SHA256.hexdigest('abc'))
+        end
+
+        it 'reads non-file IO objects into memory to compute checksums' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com',
+              body: StringIO.new('abc')
+            }
+          )
+          expect(signature.metadata[:content_sha256])
+            .to eq(Digest::SHA256.hexdigest('abc'))
+        end
+      end
+
+      describe '#presign_url' do
+        it 'raises with no http_method' do
+          expect { subject.presign_url(request: {}) }
+            .to raise_error(ArgumentError, /:http_method/)
+        end
+
+        it 'raises with no url' do
+          # Extraction is order dependent
+          expect { subject.presign_url(request: { http_method: 'GET' }) }
+            .to raise_error(ArgumentError, /:url/)
+        end
+
+        it 'uses a provided Host header' do
+          presigned_url = subject.presign_url(
+            request: request.merge(headers: { 'host' => 'otherdomain.com' })
+          )
+          expect(presigned_url.headers['host']).to eq('otherdomain.com')
+        end
+
+        it 'uses a provided X-Amz-Date header' do
+          now = Time.now.utc.strftime('%Y%m%dT%H%M%SZ')
+          presigned_url = subject.presign_url(
+            request: request.merge(headers: { 'X-Amz-Date' => now })
+          )
+          expect(presigned_url.url.to_s)
+            .to include("X-Amz-Date=#{now}")
+        end
+
+        it 'omits port in Host when default and uri port are the same' do
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com:443'
+            }
+          )
+          expect(presigned_url.headers['host']).to eq('domain.com')
+        end
+
+        it 'includes port in Host when default and uri port differ' do
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'GET',
+              url: 'https://domain.com:123'
+            }
+          )
+          expect(presigned_url.headers['host']).to eq('domain.com:123')
+        end
+
+        it 'omits port in Host when uri port not provided' do
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'GET',
+              url: 'abcd://domain.com'
+            }
+          )
+          expect(presigned_url.headers['host']).to eq('domain.com')
+        end
+
+        it 'includes port in Host when uri port provided' do
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'GET',
+              url: 'abcd://domain.com:123'
+            }
+          )
+          expect(presigned_url.headers['host']).to eq('domain.com:123')
+        end
+
+        it 'does not read the body if X-Amz-Content-Sha256 is present' do
+          body = double('http-payload')
+          expect(body).to_not receive(:read)
+          expect(body).to_not receive(:rewind)
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com',
+              headers: {
+                'X-Amz-Content-Sha256' => 'hexdigest'
+              },
+              body: body
+            }
+          )
+          expect(presigned_url.metadata[:content_sha256])
+            .to include('hexdigest')
+        end
+
+        it 'does not read the body if body digest is present' do
+          body = double('http-payload')
+          expect(body).to_not receive(:read)
+          expect(body).to_not receive(:rewind)
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com',
+              body: body
+            },
+            body_digest: 'hexdigest'
+          )
+          expect(presigned_url.metadata[:content_sha256])
+            .to include('hexdigest')
+        end
+
+        it 'does not load files into memory to compute checksums' do
+          body = Tempfile.new('tempfile')
+          body.write('abc')
+          body.flush
+          expect(body).not_to receive(:read)
+          expect(body).not_to receive(:rewind)
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'POST',
+              url: 'https://domain.com',
+              body: body
+            }
+          )
+          expect(presigned_url.metadata[:content_sha256])
+            .to eq(Digest::SHA256.hexdigest('abc'))
+        end
+
+        it 'reads non-file IO objects into memory to compute checksums' do
+          presigned_url = subject.presign_url(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com',
+              body: StringIO.new('abc')
+            }
+          )
+          expect(presigned_url.metadata[:content_sha256])
+            .to eq(Digest::SHA256.hexdigest('abc'))
+        end
+      end
+
+      # SigV4 suite doesn't cover these
+      context 'gap cases' do
+        it 'leaves whitespace in quoted values in-tact' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com/',
+              headers: {
+                'Abc' => '"a  b  c"', # quoted header values preserve spaces
+                'X-Amz-Date' => '20160101T112233Z'
+              }
+            }
+          )
+          # CRT doesn't populate canonical request
+          if Signer.use_crt?
+            expect(signature.metadata[:signature])
+              .to eq('9431fd28d9e22fcff8b28ab6c2f117a47382927efc063a8f5b382e9897b83bbe') # rubocop:disable Layout/LineLength
+          else
+            expect(signature.metadata[:canonical_request])
+              .to include('abc:"a  b  c"')
+          end
+        end
+
+        it 'sorts query params by name and value' do
+          signature = subject.sign_request(
+            request: {
+              http_method: 'PUT',
+              url: 'https://domain.com?q.options=abc&q=xyz&q=xyz&q=mno',
+              headers: {
+                'X-Amz-Date' => '20160101T112233Z'
+              }
+            }
+          )
+          # CRT doesn't populate canonical request
+          if Signer.use_crt?
+            expect(signature.metadata[:signature])
+              .to eq('8849cec9682a335540d3c488fdc48561fa923b5c6a5fe62eff87768a9284f775') # rubocop:disable Layout/LineLength
+          else
+            expect(signature.metadata[:canonical_request])
+              .to include('q=mno&q=xyz&q=xyz&q.options=abc')
+          end
+        end
       end
     end
   end
