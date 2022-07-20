@@ -39,6 +39,8 @@ import software.amazon.smithy.model.traits.XmlFlattenedTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -132,7 +134,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .write("nodes = []")
                 .openBlock("input.each do |key, value|")
                 .call(() -> {
-                    writer.write("xml = Hearth::XML::Node.new(node_name)");
+                    writer.write("xml = $T.new(node_name)", Hearth.XML_NODE);
                     Shape keyTarget = model.expectShape(shape.getKey().getTarget());
                     String keyName = "key";
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
@@ -160,7 +162,7 @@ public class StubsGenerator extends StubsGeneratorBase {
     protected void renderStructureStubMethod(StructureShape shape) {
         writer
                 .openBlock("def self.stub(node_name, stub = {})")
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -173,7 +175,7 @@ public class StubsGenerator extends StubsGeneratorBase {
         writer
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
-                .write("xml = Hearth::XML::Node.new('$LResponse')", nodeName)
+                .write("xml = $T.new('$LResponse')", Hearth.XML_NODE, nodeName)
                 .call(() -> {
                     if (context.service().hasTrait(XmlNamespaceTrait.class)) {
                         writeXmlNamespaceForShape(context.service(), "xml");
@@ -234,14 +236,15 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $L.to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T.serialize($L).to_s$L)$L",
+                    Hearth.XML_NODE, nodeName, Hearth.NUMBER_HELPER,
+                    inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override
@@ -258,14 +261,16 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip$L)$L",
-                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
+            writer.write("xml << $T.new($L, $T::encode64($L).strip$L)$L",
+                    Hearth.XML_NODE, nodeName, RubyImportContainer.BASE64,
+                    inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L$L)$L",
+            writer.write("xml << $T.new($L, $L$L)$L",
+                    Hearth.XML_NODE,
                     nodeName,
                     TimestampFormat.serializeTimestamp(
                             shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, true),
@@ -282,8 +287,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
                 writer
                         .openBlock("unless $L.nil?", inputGetter)
-                        .write("nodes = Stubs::$1L.stub($2L, $3L)",
-                                symbolProvider.toSymbol(shape).getName(),
+                        .write("nodes = $1T.stub($2L, $3L)",
+                                symbolProvider.toSymbol(shape),
                                 nodeName,
                                 inputGetter)
                         .write("nodes.each { |n| n.attributes['xmlns$1L'] = '$2L' }",
@@ -292,9 +297,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                         .write("xml << nodes")
                         .closeBlock("end");
             } else {
-                writer.write("xml << Stubs::$1L.stub($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                writer.write("xml << $1T.stub($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape), nodeName, inputGetter);
             }
         }
 
@@ -307,23 +311,10 @@ public class StubsGenerator extends StubsGeneratorBase {
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('$4L', $3L)$5L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, memberName, xmlnsAttribute());
+                writer.write("xml << $6T::Node.new($2L, $1T.stub('$4L', $3L)$5L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape), nodeName,
+                        inputGetter, memberName, xmlnsAttribute(), Hearth.XML);
             }
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
-            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
-            } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('member', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
-            }
-
             return null;
         }
 
@@ -332,9 +323,9 @@ public class StubsGenerator extends StubsGeneratorBase {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
             } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('entry', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
+                writer.write("xml << $5T::Node.new($2L, $1T.stub('entry', $3L)$4L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape), nodeName,
+                        inputGetter, xmlnsAttribute(), Hearth.XML);
             }
 
             return null;
@@ -382,8 +373,8 @@ public class StubsGenerator extends StubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("xml.attributes['$L'] = Hearth::NumberHelper.serialize($L).to_s$L",
-                    attributeName, inputGetter, checkRequired());
+            writer.write("xml.attributes['$L'] = $T.serialize($L).to_s$L",
+                    attributeName, Hearth.NUMBER_HELPER, inputGetter, checkRequired());
         }
 
         @Override
@@ -411,11 +402,6 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void listShape(ListShape shape) {
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             return null;
         }
 

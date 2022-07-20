@@ -19,6 +19,8 @@ import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestParserGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -81,7 +83,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
         writer
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("xml = Hearth::XML.parse(body)");
+                .write("xml = $T.parse(body)", Hearth.XML);
         if (outputShape.hasTrait(ErrorTrait.class)) {
             if (!context.service()
                     .getTrait(RestXmlTrait.class).get().isNoErrorWrapping()) {
@@ -176,7 +178,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
     protected void renderStructureParseMethod(StructureShape s) {
         writer
                 .openBlock("def self.parse(xml)")
-                .write("data = Types::$L.new", symbolProvider.toSymbol(s).getName())
+                .write("data = $T.new", context.symbolProvider().toSymbol(s))
                 .call(() -> renderMemberParsers(s))
                 .write("return data")
                 .closeBlock("end");
@@ -215,7 +217,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$LHearth::NumberHelper.deserialize($L)$L", dataSetter, valueGetter, checkRequired());
+            writer.write("$L$T.deserialize($L)$L",
+                    dataSetter, Hearth.NUMBER_HELPER, valueGetter, checkRequired());
         }
 
         @Override
@@ -292,7 +295,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$LHearth::NumberHelper.deserialize(node.text)", dataSetter);
+            writer.write("$L$T.deserialize(node.text)",
+                    dataSetter, Hearth.NUMBER_HELPER);
         }
 
         @Override
@@ -346,7 +350,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$1L((Base64::decode64(node.text) unless node.text.nil?) || '')", dataSetter);
+            writer.write("$L(($T::decode64(node.text) unless node.text.nil?) || '')",
+                    dataSetter, RubyImportContainer.BASE64);
             return null;
         }
 
@@ -363,8 +368,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexDeserializer(Shape shape) {
-            writer.write("$1LParsers::$2L.parse(node)",
-                    dataSetter, symbolProvider.toSymbol(shape).getName());
+            writer.write("$1L$2T.parse(node)",
+                    dataSetter, symbolProvider.toSymbol(shape));
         }
 
         @Override
@@ -377,23 +382,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("children = node.children('$L')", xmlName);
             }
-            writer.write("$1LParsers::$2L.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape).getName());
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
-            MemberShape targetMember = shape.getMember();
-            String xmlName = targetMember.getMemberName();
-            if (targetMember.hasTrait(XmlNameTrait.class)) {
-                xmlName = targetMember.getTrait(XmlNameTrait.class).get().getValue();
-            }
-            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("children = node.children('$L')", xmlName);
-            }
-            writer.write("$1LParsers::$2L.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape).getName());
+            writer.write("$1L$2T.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape));
             return null;
         }
 
@@ -402,8 +392,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("children = node.children('entry')");
             }
-            writer.write("$1LParsers::$2L.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape).getName());
+            writer.write("$1L$2T.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape));
             return null;
         }
 
@@ -479,8 +469,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
             writer
                     .write("body = http_resp.body.read")
                     .write("return data if body.empty?")
-                    .write("xml = Hearth::XML.parse(body)")
-                    .write("$LParsers::$L.parse(xml)", dataSetter, symbolProvider.toSymbol(shape).getName());
+                    .write("xml = $T.parse(body)", Hearth.XML)
+                    .write("$L$T.parse(xml)", dataSetter, symbolProvider.toSymbol(shape));
         }
 
     }

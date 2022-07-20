@@ -34,6 +34,8 @@ import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -72,7 +74,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("http_req.headers['X-Amz-Target'] = '$L'", target)
                 .write("data = {}")
                 .call(() -> renderMemberBuilders(inputShape))
-                .write("http_req.body = StringIO.new(Hearth::JSON.dump(data))")
+                .write("http_req.body = $T.new($T.dump(data))",
+                        RubyImportContainer.STRING_IO, Hearth.JSON)
                 .closeBlock("end");
     }
 
@@ -181,7 +184,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$1LHearth::NumberHelper.serialize($2L)$3L", dataSetter, inputGetter, checkRequired());
+            writer.write("$1L$4L.serialize($2L)$3L",
+                    dataSetter, inputGetter, checkRequired(), Hearth.NUMBER_HELPER);
         }
 
         @Override
@@ -198,7 +202,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$LBase64::encode64($L).strip$L", dataSetter, inputGetter, checkRequired());
+            writer.write("$L$T::encode64($L).strip$L",
+                    dataSetter, RubyImportContainer.BASE64, inputGetter, checkRequired());
             return null;
         }
 
@@ -217,12 +222,12 @@ public class BuilderGenerator extends BuilderGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1LBuilders::$2L.build($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                writer.write("$1L$2T.build($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape),
                         inputGetter);
             } else {
-                writer.write("$1L(Builders::$2L.build($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                writer.write("$1L($2T.build($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape),
                         inputGetter);
             }
         }
@@ -230,20 +235,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         @Override
         public Void listShape(ListShape shape) {
             defaultComplexSerializer(shape);
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
-            if (checkRequired) {
-                writer.write("$1LBuilders::$2L.build($3L).to_a unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
-                        inputGetter);
-            } else {
-                writer.write("$1L(Builders::$2L.build($3L).to_a unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape).getName(),
-                        inputGetter);
-            }
             return null;
         }
 

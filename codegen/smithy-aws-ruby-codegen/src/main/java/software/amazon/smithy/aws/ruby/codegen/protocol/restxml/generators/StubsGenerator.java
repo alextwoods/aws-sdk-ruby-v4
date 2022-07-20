@@ -20,6 +20,8 @@ import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
+import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
@@ -73,7 +75,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         writer
                 .write("")
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
-                .write("xml = Hearth::XML::Node.new('$L')", nodeName)
+                .write("xml = $T.new('$L')", Hearth.XML_NODE, nodeName)
                 .call(() -> {
                     XmlNamespaceTrait xmlnsTrait = context.service()
                             .getTrait(XmlNamespaceTrait.class)
@@ -84,7 +86,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                     }
                     renderMemberStubbers(outputShape);
                 })
-                .write("http_resp.body = StringIO.new(xml.to_str)");
+                .write("http_resp.body = $T.new(xml.to_str)", RubyImportContainer.STRING_IO);
     }
 
     @Override
@@ -124,7 +126,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                 .write("nodes = []")
                 .openBlock("stub.each do |key, value|")
                 .call(() -> {
-                    writer.write("xml = Hearth::XML::Node.new(node_name)");
+                    writer.write("xml = $T.new(node_name)", Hearth.XML_NODE);
                     Shape keyTarget = model.expectShape(shape.getKey().getTarget());
                     String keyName = "key";
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
@@ -151,11 +153,10 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderStructureStubMethod(StructureShape shape) {
-        String typeName = symbolProvider.toSymbol(shape).getName();
         writer
                 .openBlock("def self.stub(node_name, stub)")
-                .write("stub ||= Types::$L.new", typeName)
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("stub ||= $T.new", context.symbolProvider().toSymbol(shape))
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .call(() -> renderMemberStubbers(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -166,7 +167,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(node_name, stub)")
-                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
                 .write("case stub");
 
         shape.members().forEach((member) -> {
@@ -352,19 +353,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         }
 
         @Override
-        public Void setShape(SetShape shape) {
-            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
-            } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('member', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
-            }
-
-            return null;
-        }
-
-        @Override
         public Void mapShape(MapShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
@@ -419,8 +407,8 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("xml.attributes['$L'] = Hearth::NumberHelper.serialize($L).to_s$L",
-                    attributeName, inputGetter, checkRequired());
+            writer.write("xml.attributes['$L'] = $T.serialize($L).to_s$L",
+                    attributeName, Hearth.NUMBER_HELPER, inputGetter, checkRequired());
         }
 
         @Override
@@ -448,11 +436,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         @Override
         public Void listShape(ListShape shape) {
-            return null;
-        }
-
-        @Override
-        public Void setShape(SetShape shape) {
             return null;
         }
 
